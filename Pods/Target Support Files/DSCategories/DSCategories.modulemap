@@ -1,0 +1,6 @@
+framework module DSCategories {
+  umbrella header "DSCategories-umbrella.h"
+
+  export *
+  module * { export * }
+}

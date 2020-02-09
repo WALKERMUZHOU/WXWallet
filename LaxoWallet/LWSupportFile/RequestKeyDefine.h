@@ -25,6 +25,13 @@ static NSString * const kUniqueIdKey = @"uniqueId";     // UUID
 static NSString * const kRegisterMobile = @"mobile";    // 用户注册手机号
 
 
+
+
+static NSString * const Url_Login_SendCode = @"method=user.sendCode";    // 发送验证码
+
+static NSString * const Url_Login_VerifyEmail = @"method=user.verifyEmail";//验证邮箱
+
+
 //系统版本
 #define kSystemVersion [[UIDevice currentDevice]systemVersion].floatValue
 //app版本
@@ -36,5 +43,6 @@ static NSString * const kRegisterMobile = @"mobile";    // 用户注册手机号
 #define NotificationUserInfo  @"NotificationUserInfo"
 #define NotificationBecomeActive    @"NotificationBecomeActive"
 #define NotificationBadgeAdd    @"NotificationBadgeAdd"
+
 
 #endif /* RequestKeyDefine_h */

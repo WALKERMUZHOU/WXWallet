@@ -1,5 +1,6 @@
 #import "SceneDelegate.h"
-#import "LWTabBarViewController.h"
+#import "LWLoginViewController.h"
+#import "LWHomeViewController.h"
 
 @interface SceneDelegate ()
 
@@ -9,10 +10,23 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
+    
     UIWindowScene *windowScene = (UIWindowScene *)scene;
     self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
     self.window.frame = windowScene.coordinateSpace.bounds;
-    self.window.rootViewController = [LWTabBarViewController new];
+    
+    self.tabBarVC = [[LWTabBarViewController alloc]init];
+//    self.window.rootViewController = self.tabBarVC;
+//    XDYLoginVC *vc = [[XDYLoginVC alloc] initWithNibName:@"XDYLoginVC" bundle:nil];
+    
+//    LWHomeViewController *homeVC = [[LWHomeViewController alloc]init];
+//    self.window.rootViewController = homeVC;
+    
+    LWLoginViewController *loginVC = [[LWLoginViewController alloc]initWithNibName:@"LWLoginViewController" bundle:nil];
+//    LWLoginViewController *loginVC = [[LWLoginViewController alloc]init];
+
+    self.window.rootViewController = loginVC;
+
     [self.window makeKeyAndVisible];
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.

@@ -38,6 +38,7 @@ PODS:
   - DSCategories/UITextView (0.1.4)
   - DSCategories/UIView (0.1.4)
   - DSCategories/UIViewController (0.1.4)
+  - IQKeyboardManager (6.1.1)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15)
@@ -55,6 +56,7 @@ DEPENDENCIES:
   - AFNetworking
   - BFKit
   - DSCategories (= 0.1.4)
+  - IQKeyboardManager
   - Masonry
   - MBProgressHUD
   - MJRefresh (= 3.1.15)
@@ -66,6 +68,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - BFKit
+    - IQKeyboardManager
     - Masonry
     - MBProgressHUD
     - MJRefresh
@@ -79,6 +82,7 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BFKit: 9a72dcd121a768ae603084f2eb0a191e4916499a
   DSCategories: d418e9c817b6aa075cfac4aad54f3ab24bb5fb5e
+  IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
@@ -86,6 +90,6 @@ SPEC CHECKSUMS:
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 1b2bf91e49d110912ba2cb194f180a1a3941256a
+PODFILE CHECKSUM: 36b1d81d277d26857f3d93a6cc0ead5ea5405ea0
 
 COCOAPODS: 1.8.4

@@ -8,6 +8,7 @@ inhibit_all_warnings!
 target 'LaxoWallet' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
+  pod 'IQKeyboardManager'
 
   # Pods for LaxoWallet
       pod 'AFNetworking'

@@ -36,7 +36,7 @@ static NSString * const kRegisterSendsmscode = @"/api/app/next/user/register/sen
 static NSString * const kAppSource = @"6";
 
 #if 1
-static NSString * const kBaseAddress = @"https://service.chaqianma.com";
+static NSString * const kBaseAddress = @"https://api.laxo.io/api.json?";
 
 #else
 static NSString * const kBaseAddress = @"http://116.62.146.57:8080/mobile";

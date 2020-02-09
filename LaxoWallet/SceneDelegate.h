@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LWTabBarViewController.h"
 
 @interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
 
-@property (strong, nonatomic) UIWindow * window;
+@property (strong, nonatomic) UIWindow * xwindow;
+@property (strong, nonatomic) LWTabBarViewController * tabBarVC;
+
 
 @end
 

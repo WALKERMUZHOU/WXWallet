@@ -33,16 +33,16 @@
 #define kTabBarBackGroundColor [UIColor hex:@"#FFFFFF"]
 #define kTabBarShadowColor [UIColor colorWithColor:[UIColor hex:@"#0051FF"] alpha:0.06]
 
-#define kLoginBtnBgColorEnabled kCQMTintDetailColorBlue
-#define kLoginBtnBgColorDisabled [UIColor hex:@"#eeeeee"]
+#define lwColorBackground   [UIColor hex:@"#f5f5f5"]
+#define lwColorNormal       [UIColor hex:@"#2BB696"]
+#define lwColorGray         [UIColor hex:@"#F3F3F3"]
 
-#define kPickerBackgroundColor kColorRGBA(0, 0, 0, 0.4)
+#define lwColorBlack        [UIColor hex:@"#333333"]
+#define lwColorBlackLight   [UIColor hex:@"#666666"]
+#define lwColorBlackPure    [UIColor hex:@"#999999"]
+#define lwColorBlack1       [UIColor hex:@"#666C72"]
 
-#define kHomeScrollMsgBackgroundColor kColorRGBA(255, 255, 255, 0.1)
-#define kHomeCalcSliderSelectedColor kColorRGB(255, 255, 255)
-#define kHomeCalcSliderUnselectedColor kColorRGBA(255, 255, 255, 0.56)
+#define lwColorWhite [UIColor hex:@"#ffffff"]
 
-#define kLoanInfoTipsBgViewBgColor [UIColor hex:@"#FFEDD2"]
-#define kLoanInfoTipsBgViewBorderColor [UIColor hex:@"#FFC600"]
 
 #endif /* ColorDefine_h */

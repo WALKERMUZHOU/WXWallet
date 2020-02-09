@@ -16,43 +16,63 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oex-mh-qGh">
                     <rect key="frame" x="12" y="55" width="390" height="125"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOG-Lz-W3W">
-                            <rect key="frame" x="20" y="17.5" width="92" height="30"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                            <state key="normal" title="多方控制钱包">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <connections>
-                                <action selector="walletSwitchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="EpB-H7-0Cz"/>
-                            </connections>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥2246" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYo-C1-wTQ">
                             <rect key="frame" x="20" y="76" width="95.5" height="39"/>
                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ytv-8b-fQc">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ytv-8b-fQc">
                             <rect key="frame" x="340" y="75" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="782-zp-p9W"/>
                                 <constraint firstAttribute="width" constant="40" id="7go-R0-ac2"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
-                            <state key="normal" title="+"/>
+                            <state key="normal" image="home_add"/>
                             <connections>
                                 <action selector="rightClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="euZ-io-dvw"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人钱包" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmZ-Mr-RXr">
+                            <rect key="frame" x="20" y="17.5" width="65.5" height="32"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_dropdown" translatesAutoresizingMaskIntoConstraints="NO" id="9cV-U4-jaR">
+                            <rect key="frame" x="95.5" y="26" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="4fd-WC-DuO"/>
+                                <constraint firstAttribute="height" constant="15" id="F7W-YL-qSt"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOG-Lz-W3W">
+                            <rect key="frame" x="20" y="17.5" width="90.5" height="32"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                            <state key="normal">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="walletSwitchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="EpB-H7-0Cz"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.11685662719999999" green="0.71705454589999995" blue="0.58686470989999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="lmZ-Mr-RXr" firstAttribute="bottom" secondItem="NOG-Lz-W3W" secondAttribute="bottom" id="0KN-ls-gt7"/>
+                        <constraint firstItem="9cV-U4-jaR" firstAttribute="centerY" secondItem="NOG-Lz-W3W" secondAttribute="centerY" id="Bpu-GN-21d"/>
                         <constraint firstItem="NOG-Lz-W3W" firstAttribute="leading" secondItem="oex-mh-qGh" secondAttribute="leading" constant="20" id="Lwm-yE-2ui"/>
+                        <constraint firstItem="lmZ-Mr-RXr" firstAttribute="top" secondItem="NOG-Lz-W3W" secondAttribute="top" id="M0t-Tc-aSy"/>
+                        <constraint firstItem="lmZ-Mr-RXr" firstAttribute="centerY" secondItem="NOG-Lz-W3W" secondAttribute="centerY" id="MCh-bt-qr2"/>
                         <constraint firstItem="NOG-Lz-W3W" firstAttribute="top" secondItem="oex-mh-qGh" secondAttribute="top" constant="17.5" id="MxJ-aT-V9U"/>
                         <constraint firstAttribute="trailing" secondItem="Ytv-8b-fQc" secondAttribute="trailing" constant="10" id="NJF-wj-DG3"/>
                         <constraint firstAttribute="bottom" secondItem="OYo-C1-wTQ" secondAttribute="bottom" constant="10" id="UzA-xi-me4"/>
                         <constraint firstAttribute="bottom" secondItem="Ytv-8b-fQc" secondAttribute="bottom" constant="10" id="bae-R1-bym"/>
+                        <constraint firstItem="9cV-U4-jaR" firstAttribute="leading" secondItem="lmZ-Mr-RXr" secondAttribute="trailing" constant="10" id="laI-TO-OSQ"/>
+                        <constraint firstItem="lmZ-Mr-RXr" firstAttribute="leading" secondItem="NOG-Lz-W3W" secondAttribute="leading" id="mtv-j4-kj1"/>
                         <constraint firstItem="OYo-C1-wTQ" firstAttribute="leading" secondItem="oex-mh-qGh" secondAttribute="leading" constant="20" id="n9V-8F-A1x"/>
+                        <constraint firstItem="9cV-U4-jaR" firstAttribute="trailing" secondItem="NOG-Lz-W3W" secondAttribute="trailing" id="yVq-FC-GSQ"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -71,7 +91,15 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="131.8840579710145" y="-164.39732142857142"/>
+            <connections>
+                <outlet property="amountLabel" destination="OYo-C1-wTQ" id="ctW-NP-s00"/>
+                <outlet property="walletName" destination="lmZ-Mr-RXr" id="mci-eC-nLh"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="-164.73214285714286"/>
         </view>
     </objects>
+    <resources>
+        <image name="home_add" width="50" height="50"/>
+        <image name="home_dropdown" width="29" height="20"/>
+    </resources>
 </document>

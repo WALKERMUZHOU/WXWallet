@@ -12,9 +12,17 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 /*----------------------屏幕高/宽-----------------------*/
-#define kScreenHeight    [[UIScreen mainScreen]bounds].size.height
-#define kScreenWidth     [[UIScreen mainScreen]bounds].size.width
-#define iPhoneX          (kScreenWidth == 375.f && kScreenHeight == 812.f ? YES : NO)
+//#define kScreenHeight    [[UIScreen mainScreen]bounds].size.height
+//#define kScreenWidth     [[UIScreen mainScreen]bounds].size.width
+#define iPhoneX          ([UIApplication sharedApplication].statusBarFrame.size.height == 40 ? YES : NO)
+#define IS_IPHONE_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+//判断iPHoneXr
+#define IS_IPHONE_Xr ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)
+//判断iPhoneXs
+#define IS_IPHONE_Xs ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+//判断iPhoneXs Max
+#define IS_IPHONE_Xs_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
+#define isIphoneX (IS_IPHONE_X || IS_IPHONE_Xr || IS_IPHONE_Xs_Max ? YES : NO)
 #define kStatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
 #define kNavigationBarHeight (kStatusBarHeight + 44.f)
 #define KScreenHeightBar (kScreenHeight - kNavigationBarHeight)
@@ -25,23 +33,34 @@
 #define kBtnNormalHeight            35
 #define kToolBarHeight              (iPhoneX ? 83.f : 49.f)
 #define kToolBarContentHeight       49.f
-
-
+#define kSuccessCode                 200
 
 #import "ColorDefine.h"
 #import "CQMColorMacros.h"
 #import "NotifcationMacros.h"
 #import "RequestApi.h"
+
+#import "SceneDelegate.h"
+#import "AppDelegate.h"
+
+#import "LWTabBarViewController.h"
+#import "LWNavigationViewController.h"
+#import "LogicHandle.h"
+#import "RequestKeyDefine.h"
+
 #import "Masonry.h"
 #import "SVProgressHUD.h"
+#import "YYKit.h"
+
 #import "UIView+Frame.h"
 #import "NSArray+SafeAccess.h"
 #import "NSDictionary+SafeAccess.h"
 
+
 #import "WMHUDUntil.h"
-
 #import "JTNavigationController.h"
-
 #import "UIImageView+WebCache.h"
+#import "UIImage+ImageEffects.h"
+#import "WMZDialog.h"
 
 #endif /* PrefixHeader_pch */

@@ -11,9 +11,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWLoginCoordinator : LWBaseCoordinator
+//登录获取验证码
 + (void)getSMSCodeWithEmail:(NSString *)email WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
-
+//验证登录验证码
 + (void)verifyEmailCodeWithEmail:(NSString *)email andCode:(NSString *)code WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
+
+//获取恢复验证码
++ (void)getRecoverySMSCodeWithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
+//d验证恢复验证码
++ (void)verifyRecoveryEmailCodeWithEmail:(NSString *)email andCode:(NSString *)code WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
+
++ (void)getTrueteeDataWithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
 
 
 @end

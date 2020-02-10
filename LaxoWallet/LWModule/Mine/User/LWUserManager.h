@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)isLogin;
 + (LWUserManager *)shareInstance;
 - (void)setUser:(LWUserModel *)model;
+- (void)setUserDic:(NSDictionary *)userDic;
+
 - (void)clearUser;
 
 - (LWUserModel *)getUserModel;

@@ -9,7 +9,7 @@ target 'LaxoWallet' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
   pod 'IQKeyboardManager'
-
+  pod 'SocketRocket'
   # Pods for LaxoWallet
       pod 'AFNetworking'
  #   pod 'FMDB'
@@ -27,6 +27,11 @@ target 'LaxoWallet' do
     pod 'Nimbus/AttributedLabel','1.3.0'
 #    pod 'JPush'
 #    pod 'Bugly'
+pod 'LBXScan/LBXNative','~> 2.3'
+pod 'LBXScan/LBXZXing','~> 2.3'
+pod 'LBXScan/LBXZBar','~> 2.3'
+pod 'LBXScan/UI','~> 2.3'
+    
 end
     
 

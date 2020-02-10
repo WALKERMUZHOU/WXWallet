@@ -23,7 +23,7 @@
 //判断iPhoneXs Max
 #define IS_IPHONE_Xs_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
 #define isIphoneX (IS_IPHONE_X || IS_IPHONE_Xr || IS_IPHONE_Xs_Max ? YES : NO)
-#define kStatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
+#define kStatusBarHeight (isIphoneX ? 40 : 20)
 #define kNavigationBarHeight (kStatusBarHeight + 44.f)
 #define KScreenHeightBar (kScreenHeight - kNavigationBarHeight)
 
@@ -39,6 +39,8 @@
 #import "CQMColorMacros.h"
 #import "NotifcationMacros.h"
 #import "RequestApi.h"
+#import "LWTrusteeManager.h"
+#import "LWUserManager.h"
 
 #import "SceneDelegate.h"
 #import "AppDelegate.h"
@@ -62,5 +64,13 @@
 #import "UIImageView+WebCache.h"
 #import "UIImage+ImageEffects.h"
 #import "WMZDialog.h"
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#define LBXScan_Define_Native  //下载了native模块
+#define LBXScan_Define_ZXing   //下载了ZXing模块
+#define LBXScan_Define_ZBar   //下载了ZBar模块
+#define LBXScan_Define_UI     //下载了界面模块
 
 #endif /* PrefixHeader_pch */

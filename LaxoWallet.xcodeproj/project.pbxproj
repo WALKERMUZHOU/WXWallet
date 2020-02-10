@@ -130,6 +130,28 @@
 		5EA807AB23E94E2400012837 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA807AA23E94E2400012837 /* main.m */; };
 		5EA807B523E94E2400012837 /* LaxoWalletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA807B423E94E2400012837 /* LaxoWalletTests.m */; };
 		5EA807C023E94E2400012837 /* LaxoWalletUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA807BF23E94E2400012837 /* LaxoWalletUITests.m */; };
+		5EF5132623EFE41E00F5B6C1 /* FLSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5132523EFE41E00F5B6C1 /* FLSocketManager.m */; };
+		5EF5132923EFE6F500F5B6C1 /* LWTrusteeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5132823EFE6F500F5B6C1 /* LWTrusteeModel.m */; };
+		5EF5132C23EFE81100F5B6C1 /* LWTrusteeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5132B23EFE81000F5B6C1 /* LWTrusteeManager.m */; };
+		5EF5132E23F1072900F5B6C1 /* turbo.js in Resources */ = {isa = PBXBuildFile; fileRef = 5EF5132D23F1072900F5B6C1 /* turbo.js */; };
+		5EF5133023F1090000F5B6C1 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF5132F23F1090000F5B6C1 /* JavaScriptCore.framework */; };
+		5EF5133923F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5133723F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.m */; };
+		5EF5133A23F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EF5133823F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.xib */; };
+		5EF5133E23F1386C00F5B6C1 /* LWInputTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5133D23F1386C00F5B6C1 /* LWInputTextField.m */; };
+		5EF5134123F1409500F5B6C1 /* LWInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5134023F1409500F5B6C1 /* LWInputTextView.m */; };
+		5EF5134623F14DE100F5B6C1 /* LWSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5134523F14DE100F5B6C1 /* LWSelectButton.m */; };
+		5EF5134923F16C9100F5B6C1 /* LWCommonBottomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5134823F16C9100F5B6C1 /* LWCommonBottomBtn.m */; };
+		5EF5134C23F16E1200F5B6C1 /* LWEmailBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5134B23F16E1200F5B6C1 /* LWEmailBtn.m */; };
+		5EF5136223F1811B00F5B6C1 /* LBXAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5134E23F1811A00F5B6C1 /* LBXAlertAction.m */; };
+		5EF5136323F1811B00F5B6C1 /* UIWindow+LBXHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5135423F1811A00F5B6C1 /* UIWindow+LBXHierarchy.m */; };
+		5EF5136423F1811B00F5B6C1 /* UIActionSheet+LBXAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5135523F1811A00F5B6C1 /* UIActionSheet+LBXAlertAction.m */; };
+		5EF5136523F1811B00F5B6C1 /* UIAlertView+LBXAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5135623F1811A00F5B6C1 /* UIAlertView+LBXAlertAction.m */; };
+		5EF5136623F1811B00F5B6C1 /* UIAlertController+supportedInterfaceOrientations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5135723F1811A00F5B6C1 /* UIAlertController+supportedInterfaceOrientations.m */; };
+		5EF5136723F1811B00F5B6C1 /* LBXPermissionSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5135C23F1811B00F5B6C1 /* LBXPermissionSetting.m */; };
+		5EF5136823F1811B00F5B6C1 /* LBXPermissionPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5135D23F1811B00F5B6C1 /* LBXPermissionPhotos.m */; };
+		5EF5136923F1811B00F5B6C1 /* LBXPermissionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5135E23F1811B00F5B6C1 /* LBXPermissionCamera.m */; };
+		5EF5136A23F1811B00F5B6C1 /* LBXPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5135F23F1811B00F5B6C1 /* LBXPermission.m */; };
+		5EF5136E23F1815400F5B6C1 /* QQLBXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5136D23F1815400F5B6C1 /* QQLBXScanViewController.m */; };
 		8BA1F18DF19D200E156D0DBA /* Pods_LaxoWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF47138CD83B72FC74CEF49 /* Pods_LaxoWallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -396,6 +418,47 @@
 		5EA807BB23E94E2400012837 /* LaxoWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaxoWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA807BF23E94E2400012837 /* LaxoWalletUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaxoWalletUITests.m; sourceTree = "<group>"; };
 		5EA807C123E94E2400012837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EF5132423EFE41E00F5B6C1 /* FLSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSocketManager.h; sourceTree = "<group>"; };
+		5EF5132523EFE41E00F5B6C1 /* FLSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSocketManager.m; sourceTree = "<group>"; };
+		5EF5132723EFE6F500F5B6C1 /* LWTrusteeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTrusteeModel.h; sourceTree = "<group>"; };
+		5EF5132823EFE6F500F5B6C1 /* LWTrusteeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTrusteeModel.m; sourceTree = "<group>"; };
+		5EF5132A23EFE81000F5B6C1 /* LWTrusteeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTrusteeManager.h; sourceTree = "<group>"; };
+		5EF5132B23EFE81000F5B6C1 /* LWTrusteeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTrusteeManager.m; sourceTree = "<group>"; };
+		5EF5132D23F1072900F5B6C1 /* turbo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = turbo.js; sourceTree = "<group>"; };
+		5EF5132F23F1090000F5B6C1 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		5EF5133623F1369200F5B6C1 /* LWNewMultiPartyWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWNewMultiPartyWalletViewController.h; sourceTree = "<group>"; };
+		5EF5133723F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWNewMultiPartyWalletViewController.m; sourceTree = "<group>"; };
+		5EF5133823F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWNewMultiPartyWalletViewController.xib; sourceTree = "<group>"; };
+		5EF5133C23F1386C00F5B6C1 /* LWInputTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWInputTextField.h; sourceTree = "<group>"; };
+		5EF5133D23F1386C00F5B6C1 /* LWInputTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWInputTextField.m; sourceTree = "<group>"; };
+		5EF5133F23F1409500F5B6C1 /* LWInputTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWInputTextView.h; sourceTree = "<group>"; };
+		5EF5134023F1409500F5B6C1 /* LWInputTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWInputTextView.m; sourceTree = "<group>"; };
+		5EF5134423F14DE100F5B6C1 /* LWSelectButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWSelectButton.h; sourceTree = "<group>"; };
+		5EF5134523F14DE100F5B6C1 /* LWSelectButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWSelectButton.m; sourceTree = "<group>"; };
+		5EF5134723F16C9100F5B6C1 /* LWCommonBottomBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWCommonBottomBtn.h; sourceTree = "<group>"; };
+		5EF5134823F16C9100F5B6C1 /* LWCommonBottomBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCommonBottomBtn.m; sourceTree = "<group>"; };
+		5EF5134A23F16E1200F5B6C1 /* LWEmailBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWEmailBtn.h; sourceTree = "<group>"; };
+		5EF5134B23F16E1200F5B6C1 /* LWEmailBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWEmailBtn.m; sourceTree = "<group>"; };
+		5EF5134E23F1811A00F5B6C1 /* LBXAlertAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXAlertAction.m; sourceTree = "<group>"; };
+		5EF5134F23F1811A00F5B6C1 /* LBXAlertAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXAlertAction.h; sourceTree = "<group>"; };
+		5EF5135123F1811A00F5B6C1 /* UIActionSheet+LBXAlertAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+LBXAlertAction.h"; sourceTree = "<group>"; };
+		5EF5135223F1811A00F5B6C1 /* UIAlertController+supportedInterfaceOrientations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+supportedInterfaceOrientations.h"; sourceTree = "<group>"; };
+		5EF5135323F1811A00F5B6C1 /* UIAlertView+LBXAlertAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+LBXAlertAction.h"; sourceTree = "<group>"; };
+		5EF5135423F1811A00F5B6C1 /* UIWindow+LBXHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+LBXHierarchy.m"; sourceTree = "<group>"; };
+		5EF5135523F1811A00F5B6C1 /* UIActionSheet+LBXAlertAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+LBXAlertAction.m"; sourceTree = "<group>"; };
+		5EF5135623F1811A00F5B6C1 /* UIAlertView+LBXAlertAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+LBXAlertAction.m"; sourceTree = "<group>"; };
+		5EF5135723F1811A00F5B6C1 /* UIAlertController+supportedInterfaceOrientations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+supportedInterfaceOrientations.m"; sourceTree = "<group>"; };
+		5EF5135823F1811A00F5B6C1 /* UIWindow+LBXHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+LBXHierarchy.h"; sourceTree = "<group>"; };
+		5EF5135A23F1811B00F5B6C1 /* LBXPermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermission.h; sourceTree = "<group>"; };
+		5EF5135B23F1811B00F5B6C1 /* LBXPermissionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermissionCamera.h; sourceTree = "<group>"; };
+		5EF5135C23F1811B00F5B6C1 /* LBXPermissionSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionSetting.m; sourceTree = "<group>"; };
+		5EF5135D23F1811B00F5B6C1 /* LBXPermissionPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionPhotos.m; sourceTree = "<group>"; };
+		5EF5135E23F1811B00F5B6C1 /* LBXPermissionCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionCamera.m; sourceTree = "<group>"; };
+		5EF5135F23F1811B00F5B6C1 /* LBXPermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXPermission.m; sourceTree = "<group>"; };
+		5EF5136023F1811B00F5B6C1 /* LBXPermissionPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermissionPhotos.h; sourceTree = "<group>"; };
+		5EF5136123F1811B00F5B6C1 /* LBXPermissionSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermissionSetting.h; sourceTree = "<group>"; };
+		5EF5136C23F1815400F5B6C1 /* QQLBXScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQLBXScanViewController.h; sourceTree = "<group>"; };
+		5EF5136D23F1815400F5B6C1 /* QQLBXScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQLBXScanViewController.m; sourceTree = "<group>"; };
 		FEF47138CD83B72FC74CEF49 /* Pods_LaxoWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LaxoWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -404,6 +467,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EF5133023F1090000F5B6C1 /* JavaScriptCore.framework in Frameworks */,
 				8BA1F18DF19D200E156D0DBA /* Pods_LaxoWallet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +492,7 @@
 		51EFFA0A50EC1838107FEAF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5EF5132F23F1090000F5B6C1 /* JavaScriptCore.framework */,
 				FEF47138CD83B72FC74CEF49 /* Pods_LaxoWallet.framework */,
 			);
 			name = Frameworks;
@@ -695,6 +760,10 @@
 				5E5F12BD23ED5947002F0711 /* LWUserModel.m */,
 				5E5F130323EEB5FA002F0711 /* LWUserManager.h */,
 				5E5F130423EEB5FA002F0711 /* LWUserManager.m */,
+				5EF5132723EFE6F500F5B6C1 /* LWTrusteeModel.h */,
+				5EF5132823EFE6F500F5B6C1 /* LWTrusteeModel.m */,
+				5EF5132A23EFE81000F5B6C1 /* LWTrusteeManager.h */,
+				5EF5132B23EFE81000F5B6C1 /* LWTrusteeManager.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -970,6 +1039,7 @@
 		5E66A37123EAC543004097CB /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				5EF5132323EFE41E00F5B6C1 /* SocketManager */,
 				5E66A37223EAC573004097CB /* LWBaseCoordinator.h */,
 				5E66A37323EAC573004097CB /* LWBaseCoordinator.m */,
 				5E5F12B323ED5680002F0711 /* LWNetWorkSessionManager.h */,
@@ -996,8 +1066,11 @@
 		5E66A37923EAEBD8004097CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5E66A37A23EAEBD8004097CB /* LWHomeViewController.m */,
 				5E66A37B23EAEBD8004097CB /* LWHomeViewController.h */,
+				5E66A37A23EAEBD8004097CB /* LWHomeViewController.m */,
+				5EF5133623F1369200F5B6C1 /* LWNewMultiPartyWalletViewController.h */,
+				5EF5133723F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.m */,
+				5EF5133823F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1184,6 +1257,8 @@
 		5EA807CD23E94ED500012837 /* LWAdapt */ = {
 			isa = PBXGroup;
 			children = (
+				5EF5134D23F1811A00F5B6C1 /* LBXAlertAction */,
+				5EF5135923F1811B00F5B6C1 /* LBXPermissions */,
 				5E5F12D823EDD97F002F0711 /* WMZPageScroll */,
 				5E5F123723EC0E12002F0711 /* WMZDialog */,
 				5E66A3B123EBFAA2004097CB /* TYAlertController */,
@@ -1202,6 +1277,10 @@
 		5EA807CE23E94ED500012837 /* LWPublic */ = {
 			isa = PBXGroup;
 			children = (
+				5EF5136B23F1815400F5B6C1 /* Scan */,
+				5EF5134323F14B5E00F5B6C1 /* Button */,
+				5EF5134223F14B5E00F5B6C1 /* View */,
+				5EF5133B23F1384000F5B6C1 /* LWInputView */,
 				5E66A39E23EAFEDE004097CB /* Logic */,
 				5E66A34823EAB595004097CB /* Refresh */,
 			);
@@ -1265,6 +1344,7 @@
 		5EA807D523E94EFD00012837 /* LWSupportFile */ = {
 			isa = PBXGroup;
 			children = (
+				5EF5132D23F1072900F5B6C1 /* turbo.js */,
 				5E66A31823EAB3B2004097CB /* ColorDefine.h */,
 				5E66A31923EAB3B2004097CB /* CQMColorMacros.h */,
 				5E66A31B23EAB3B2004097CB /* NotifcationMacros.h */,
@@ -1274,6 +1354,95 @@
 				5E66A31C23EAB3E5004097CB /* PrefixHeader.pch */,
 			);
 			path = LWSupportFile;
+			sourceTree = "<group>";
+		};
+		5EF5132323EFE41E00F5B6C1 /* SocketManager */ = {
+			isa = PBXGroup;
+			children = (
+				5EF5132423EFE41E00F5B6C1 /* FLSocketManager.h */,
+				5EF5132523EFE41E00F5B6C1 /* FLSocketManager.m */,
+			);
+			path = SocketManager;
+			sourceTree = "<group>";
+		};
+		5EF5133B23F1384000F5B6C1 /* LWInputView */ = {
+			isa = PBXGroup;
+			children = (
+				5EF5133C23F1386C00F5B6C1 /* LWInputTextField.h */,
+				5EF5133D23F1386C00F5B6C1 /* LWInputTextField.m */,
+				5EF5133F23F1409500F5B6C1 /* LWInputTextView.h */,
+				5EF5134023F1409500F5B6C1 /* LWInputTextView.m */,
+			);
+			path = LWInputView;
+			sourceTree = "<group>";
+		};
+		5EF5134223F14B5E00F5B6C1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5EF5134323F14B5E00F5B6C1 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				5EF5134423F14DE100F5B6C1 /* LWSelectButton.h */,
+				5EF5134523F14DE100F5B6C1 /* LWSelectButton.m */,
+				5EF5134723F16C9100F5B6C1 /* LWCommonBottomBtn.h */,
+				5EF5134823F16C9100F5B6C1 /* LWCommonBottomBtn.m */,
+				5EF5134A23F16E1200F5B6C1 /* LWEmailBtn.h */,
+				5EF5134B23F16E1200F5B6C1 /* LWEmailBtn.m */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		5EF5134D23F1811A00F5B6C1 /* LBXAlertAction */ = {
+			isa = PBXGroup;
+			children = (
+				5EF5134E23F1811A00F5B6C1 /* LBXAlertAction.m */,
+				5EF5134F23F1811A00F5B6C1 /* LBXAlertAction.h */,
+				5EF5135023F1811A00F5B6C1 /* Class */,
+			);
+			path = LBXAlertAction;
+			sourceTree = "<group>";
+		};
+		5EF5135023F1811A00F5B6C1 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				5EF5135123F1811A00F5B6C1 /* UIActionSheet+LBXAlertAction.h */,
+				5EF5135223F1811A00F5B6C1 /* UIAlertController+supportedInterfaceOrientations.h */,
+				5EF5135323F1811A00F5B6C1 /* UIAlertView+LBXAlertAction.h */,
+				5EF5135423F1811A00F5B6C1 /* UIWindow+LBXHierarchy.m */,
+				5EF5135523F1811A00F5B6C1 /* UIActionSheet+LBXAlertAction.m */,
+				5EF5135623F1811A00F5B6C1 /* UIAlertView+LBXAlertAction.m */,
+				5EF5135723F1811A00F5B6C1 /* UIAlertController+supportedInterfaceOrientations.m */,
+				5EF5135823F1811A00F5B6C1 /* UIWindow+LBXHierarchy.h */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		5EF5135923F1811B00F5B6C1 /* LBXPermissions */ = {
+			isa = PBXGroup;
+			children = (
+				5EF5135A23F1811B00F5B6C1 /* LBXPermission.h */,
+				5EF5135B23F1811B00F5B6C1 /* LBXPermissionCamera.h */,
+				5EF5135C23F1811B00F5B6C1 /* LBXPermissionSetting.m */,
+				5EF5135D23F1811B00F5B6C1 /* LBXPermissionPhotos.m */,
+				5EF5135E23F1811B00F5B6C1 /* LBXPermissionCamera.m */,
+				5EF5135F23F1811B00F5B6C1 /* LBXPermission.m */,
+				5EF5136023F1811B00F5B6C1 /* LBXPermissionPhotos.h */,
+				5EF5136123F1811B00F5B6C1 /* LBXPermissionSetting.h */,
+			);
+			path = LBXPermissions;
+			sourceTree = "<group>";
+		};
+		5EF5136B23F1815400F5B6C1 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				5EF5136C23F1815400F5B6C1 /* QQLBXScanViewController.h */,
+				5EF5136D23F1815400F5B6C1 /* QQLBXScanViewController.m */,
+			);
+			path = Scan;
 			sourceTree = "<group>";
 		};
 		E20187CF0061B4C373136C97 /* Pods */ = {
@@ -1398,7 +1567,9 @@
 				5E66A34623EAB58C004097CB /* WMHUDUntil.bundle in Resources */,
 				5E5F12D723ED8BD3002F0711 /* LWRecoveryTrustholdsView.xib in Resources */,
 				5EA807A823E94E2400012837 /* LaunchScreen.storyboard in Resources */,
+				5EF5133A23F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.xib in Resources */,
 				5E5F130223EDD97F002F0711 /* PageController.bundle in Resources */,
+				5EF5132E23F1072900F5B6C1 /* turbo.js in Resources */,
 				5E5F12D523ED8BC3002F0711 /* LWRecoveryFileView.xib in Resources */,
 				5E5F129A23EC0E12002F0711 /* WMZDialog.bundle in Resources */,
 				5E66A39D23EAF103004097CB /* LWHomeListCell.xib in Resources */,
@@ -1478,6 +1649,7 @@
 				5E66A34523EAB58C004097CB /* WMHUDUntil.m in Sources */,
 				5EA807A023E94E2100012837 /* ViewController.m in Sources */,
 				5E5F12FF23EDD97F002F0711 /* WMZPageController.m in Sources */,
+				5EF5132923EFE6F500F5B6C1 /* LWTrusteeModel.m in Sources */,
 				5E5F129523EC0E12002F0711 /* WMZDialog+Calander.m in Sources */,
 				5E5F12FE23EDD97F002F0711 /* WMZPageParam.m in Sources */,
 				5E66A30923EAADA1004097CB /* MGSwipeTableCell.m in Sources */,
@@ -1492,12 +1664,15 @@
 				5E66A39823EAF032004097CB /* LWHomeListCoordinator.m in Sources */,
 				5E66A3D123EBFAA2004097CB /* UIView+TYAutoLayout.m in Sources */,
 				5E66A33E23EAB58C004097CB /* SVRadialGradientLayer.m in Sources */,
+				5EF5136823F1811B00F5B6C1 /* LBXPermissionPhotos.m in Sources */,
 				5E66A37423EAC573004097CB /* LWBaseCoordinator.m in Sources */,
 				5E66A33D23EAB58C004097CB /* TYLScrollView.m in Sources */,
 				5E5F129323EC0E12002F0711 /* WMZDialog+PopView.m in Sources */,
 				5E5F12B823ED5758002F0711 /* LWDevice.m in Sources */,
+				5EF5133E23F1386C00F5B6C1 /* LWInputTextField.m in Sources */,
 				5E66A36C23EAC43A004097CB /* LWTabBarViewController.m in Sources */,
 				5E66A37723EAE8B4004097CB /* LWBaseTableView.m in Sources */,
+				5EF5136323F1811B00F5B6C1 /* UIWindow+LBXHierarchy.m in Sources */,
 				5E5F12F723EDD97F002F0711 /* WMZBannerFlowLayout.m in Sources */,
 				5E5F12CD23ED8987002F0711 /* LWRecoveryView.m in Sources */,
 				5E66A34023EAB58C004097CB /* SVProgressHUD.m in Sources */,
@@ -1514,18 +1689,24 @@
 				5E66A34723EAB58C004097CB /* CZCategoryScrollView.m in Sources */,
 				5E66A38C23EAED2B004097CB /* LWHomeListView.m in Sources */,
 				5E5F12FB23EDD97F002F0711 /* WMZPageLoopView.m in Sources */,
+				5EF5136223F1811B00F5B6C1 /* LBXAlertAction.m in Sources */,
 				5E5F12BE23ED5947002F0711 /* LWUserModel.m in Sources */,
 				5E66A38323EAEBE1004097CB /* LWMessageViewController.m in Sources */,
 				5E66A30A23EAADA1004097CB /* MGSwipeButton.m in Sources */,
 				5E66A3D023EBFAA2004097CB /* TYAlertController+TransitionAnimate.m in Sources */,
 				5E66A33F23EAB58C004097CB /* SVProgressAnimatedView.m in Sources */,
 				5E66A30623EAADA1004097CB /* AxcAE_TabBarBadge.m in Sources */,
+				5EF5134123F1409500F5B6C1 /* LWInputTextView.m in Sources */,
+				5EF5134C23F16E1200F5B6C1 /* LWEmailBtn.m in Sources */,
+				5EF5132623EFE41E00F5B6C1 /* FLSocketManager.m in Sources */,
 				5E5F129B23EC0E12002F0711 /* WMZDialog+PickView.m in Sources */,
 				5E5F12A523EC0E12002F0711 /* WMZDialog+Sheet.m in Sources */,
 				5E5F12A423EC0E12002F0711 /* WMZDialog+Select.m in Sources */,
 				5E66A3D323EBFAA2004097CB /* TYShowAlertView.m in Sources */,
+				5EF5136623F1811B00F5B6C1 /* UIAlertController+supportedInterfaceOrientations.m in Sources */,
 				5E5F129123EC0E12002F0711 /* WMZDialog+Location.m in Sources */,
 				5E5F12A223EC0E12002F0711 /* WMZDialog+Normal.m in Sources */,
+				5EF5136923F1811B00F5B6C1 /* LBXPermissionCamera.m in Sources */,
 				5E5F128E23EC0E12002F0711 /* WMZDialog+TabbarMenu.m in Sources */,
 				5E66A39C23EAF103004097CB /* LWHomeListCell.m in Sources */,
 				5E66A37023EAC48B004097CB /* LWBaseView.m in Sources */,
@@ -1533,6 +1714,7 @@
 				5E5F123623EC06F1002F0711 /* LogicHandle.m in Sources */,
 				5E5F129823EC0E12002F0711 /* WMZDialog+MenusSelect.m in Sources */,
 				5E66A3D423EBFAA2004097CB /* TYBaseAnimation.m in Sources */,
+				5EF5134623F14DE100F5B6C1 /* LWSelectButton.m in Sources */,
 				5E5F12A723EC0E12002F0711 /* WMZDiaLogBase.m in Sources */,
 				5E5F12F823EDD97F002F0711 /* WMZBannerParam.m in Sources */,
 				5E66A30723EAADA1004097CB /* AxcAE_TabBar.m in Sources */,
@@ -1542,13 +1724,16 @@
 				5E66A3CD23EBFAA2004097CB /* TYAlertController+BlurEffects.m in Sources */,
 				5EA8079A23E94E2100012837 /* AppDelegate.m in Sources */,
 				5E5F129623EC0E12002F0711 /* CalanderModel.m in Sources */,
+				5EF5136E23F1815400F5B6C1 /* QQLBXScanViewController.m in Sources */,
 				5E66A3B023EB1184004097CB /* PopoverViewCell.m in Sources */,
 				5E66A36D23EAC43A004097CB /* LWNavigationViewController.m in Sources */,
 				5E5F12FA23EDD97F002F0711 /* WMZBannerControl.m in Sources */,
 				5E66A38923EAEBE9004097CB /* LWMineViewController.m in Sources */,
 				5E66A3CA23EBFAA2004097CB /* TYAlertView.m in Sources */,
+				5EF5136723F1811B00F5B6C1 /* LBXPermissionSetting.m in Sources */,
 				5E5F129C23EC0E12002F0711 /* WMZDialogShareView.m in Sources */,
 				5E66A33B23EAB58C004097CB /* HWWeakTimer.m in Sources */,
+				5EF5132C23EFE81100F5B6C1 /* LWTrusteeManager.m in Sources */,
 				5EA807AB23E94E2400012837 /* main.m in Sources */,
 				5E5F12B523ED5680002F0711 /* LWNetWorkSessionManager.m in Sources */,
 				5E5F130123EDD97F002F0711 /* UIView+PageRect.m in Sources */,
@@ -1559,22 +1744,27 @@
 				5E5F12B223ED562B002F0711 /* LWLoginCoordinator.m in Sources */,
 				5E5F12A123EC0E12002F0711 /* WMZDialog+BuyCar.m in Sources */,
 				5E5F12C823ED85BE002F0711 /* LWLoginSecondStepView.m in Sources */,
+				5EF5136A23F1811B00F5B6C1 /* LBXPermission.m in Sources */,
 				5E66A3A423EAFF14004097CB /* LWHomeListHeaderView.m in Sources */,
 				5E66A36123EAC379004097CB /* JTNavigationController.m in Sources */,
 				5E5F12A623EC0E12002F0711 /* WMZDialog.m in Sources */,
 				5E5F12F923EDD97F002F0711 /* WMZBannerView.m in Sources */,
+				5EF5136523F1811B00F5B6C1 /* UIAlertView+LBXAlertAction.m in Sources */,
 				5E5F12A823EC0E12002F0711 /* WMZDialog+Share.m in Sources */,
 				5E5F129223EC0E12002F0711 /* WMZDialog+DatePicker.m in Sources */,
 				5E66A37D23EAEBD9004097CB /* LWHomeViewController.m in Sources */,
+				5EF5134923F16C9100F5B6C1 /* LWCommonBottomBtn.m in Sources */,
 				5E66A34D23EAB595004097CB /* CZRefreshHeader.m in Sources */,
 				5E5F129423EC0E12002F0711 /* WMZDialog+Pay.m in Sources */,
 				5E5F129923EC0E12002F0711 /* WMZDialog+CardPresent.m in Sources */,
 				5E66A3CE23EBFAA2004097CB /* UIImage+ImageEffects.m in Sources */,
+				5EF5133923F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.m in Sources */,
 				5E66A39523EAF01A004097CB /* LWHomeListModel.m in Sources */,
 				5EA8079D23E94E2100012837 /* SceneDelegate.m in Sources */,
 				5E5F128B23EC0E12002F0711 /* WMZDialog+Write.m in Sources */,
 				5E5F12C523ED85A1002F0711 /* LWLoginViewController.m in Sources */,
 				5E66A33C23EAB58C004097CB /* StyledPageControl.m in Sources */,
+				5EF5136423F1811B00F5B6C1 /* UIActionSheet+LBXAlertAction.m in Sources */,
 				5E5F12A023EC0E12002F0711 /* WMZDialogAnimation.m in Sources */,
 				5E5F130523EEB5FA002F0711 /* LWUserManager.m in Sources */,
 			);

@@ -38,10 +38,11 @@ static LWUserManager *instance = nil;
     self.model = model;
     NSMutableData *deviceData = [[NSMutableData alloc] init];
 //    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:deviceData];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initRequiringSecureCoding:YES];
-    [archiver encodeObject:self.model forKey:kUserInfo_key];
-    [archiver finishEncoding];
-    [deviceData writeToFile:[[self class] obtainDeviceDataPath] atomically:YES];
+//    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initRequiringSecureCoding:YES];
+//    [archiver encodeObject:self.model forKey:kUserInfo_key];
+//    [archiver finishEncoding];
+    NSData *daaarc = [NSKeyedArchiver archivedDataWithRootObject:model requiringSecureCoding:NO error:nil];
+    [daaarc writeToFile:[[self class] obtainDeviceDataPath] atomically:YES];
 }
 
 /**
@@ -51,11 +52,11 @@ static LWUserManager *instance = nil;
  */
 - (LWUserModel *)userInfoUnArchieve{
     NSData *data = [[NSMutableData alloc] initWithContentsOfFile:[[self class] obtainDeviceDataPath]];
-    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:nil];
+//    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:nil];
     
 //   NSKeyedUnarchiver *archiver = [[NSKeyedUnarchiver alloc] initRequiringSecureCoding:YES];
-    LWUserModel *model = [unarchiver decodeObjectForKey:kUserInfo_key];
-    [unarchiver finishDecoding];
+    LWUserModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:data exception:nil];
+//    [unarchiver finishDecoding];
     return model;
 }
 
@@ -81,6 +82,12 @@ static LWUserManager *instance = nil;
 - (void)setUser:(LWUserModel *)model{
     [self userInfoArchieve:model];
 }
+
+- (void)setUserDic:(NSDictionary *)userDic{
+    LWUserModel *model = [LWUserModel modelWithDictionary:userDic];
+    [self userInfoArchieve:model];
+}
+
 
 - (void)clearUser{
     NSFileManager *defaultManager = [NSFileManager defaultManager];

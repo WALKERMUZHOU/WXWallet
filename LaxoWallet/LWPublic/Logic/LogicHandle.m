@@ -13,10 +13,12 @@
 
 
 + (void)pushViewController:(UIViewController *)viewController{
-    UIViewController *selectVC = [UIApplication sharedApplication].windows.lastObject.rootViewController;
+    AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    UIViewController *selectVC = appdelete.window.rootViewController;
     if ([selectVC isKindOfClass:[LWNavigationViewController class]]) {
         [(LWNavigationViewController *)selectVC pushViewController:viewController animated:YES];
-    }else if ([selectVC isKindOfClass:[UITabBarController class]]){
+    }else if ([selectVC isKindOfClass:[LWTabBarViewController class]]){
         AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
         LWNavigationViewController *naviVC = (LWNavigationViewController *)appdelete.tabBarVC.selectedViewController;
         viewController.hidesBottomBarWhenPushed = YES;

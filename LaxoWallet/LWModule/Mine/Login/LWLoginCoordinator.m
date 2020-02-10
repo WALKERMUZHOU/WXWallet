@@ -55,4 +55,43 @@
     }];
 }
 
++ (void)getRecoverySMSCodeWithSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    
+    LWTrusteeModel *trusteeModel = [[LWTrusteeManager shareInstance] getFirstModel];
+    
+    NSDictionary *paramers = @{@"token":[[LWUserManager shareInstance]getUserModel].token,@"pubkey":trusteeModel.publicKey,@"trustee":trusteeModel.name};
+    NSString *jsonStr = [paramers jsonStringEncoded];
+    
+    [[LWNetWorkSessionManager shareInstance] getPath:Url_Login_VerifyEmail parameters:@{@"params":jsonStr} withBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        if ([[result objectForKey:@"success"] integerValue] == 1) {//success
+            successBlock(result);
+        }else{
+            if (error) {
+                FailBlock(error);
+            }else{
+                FailBlock(result);
+            }
+        }
+    }];
+    
+}
+
++ (void)getTrueteeDataWithSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    
+    [[LWNetWorkSessionManager shareInstance] getPath:Url_Login_trustee parameters:@{} withBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        if ([[result objectForKey:@"success"] integerValue] == 1) {//success
+            NSArray *dataArray = [result objectForKey:@"data"];
+            [[LWTrusteeManager shareInstance] setTrustee:dataArray];
+            successBlock(result);
+        }else{
+            if (error) {
+                FailBlock(error);
+            }else{
+                FailBlock(result);
+            }
+        }
+    }];
+}
+
+
 @end

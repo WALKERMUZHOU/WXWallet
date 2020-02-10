@@ -10,6 +10,9 @@
 #import "PopoverView.h"
 #import "TYAlertController.h"
 #import "LogicHandle.h"
+#import "LWNewMultiPartyWalletViewController.h"
+#import "QQLBXScanViewController.h"
+#import "LBXPermission.h"
 
 @interface LWHomeListHeaderView ()
 
@@ -61,8 +64,10 @@
 
 - (IBAction)rightClick:(UIButton *)sender {
     PopoverAction *action1 = [PopoverAction actionWithImage:[UIImage imageNamed:@"home_newWallet"] title:@"新钱包" handler:^(PopoverAction *action) {
+        [self jumoToNewWallet];
        }];
     PopoverAction *action2 = [PopoverAction actionWithImage:[UIImage imageNamed:@"home_scan"] title:@"扫码" handler:^(PopoverAction *action) {
+        [self jumpToScanPermission];
        }];
        
    PopoverView *popoverView = [PopoverView popoverView];
@@ -71,4 +76,34 @@
    [popoverView showToView:sender withActions:@[action1, action2]];
 }
 
+- (void)jumoToNewWallet{
+    LWNewMultiPartyWalletViewController *newWalletVC = [[LWNewMultiPartyWalletViewController alloc]init];
+    [LogicHandle pushViewController:newWalletVC];
+}
+
+- (void)jumpToScanPermission {
+    __weak __typeof(self) weakSelf = self;
+    [LBXPermission authorizeWithType:LBXPermissionType_Camera completion:^(BOOL granted, BOOL firstTime) {
+        if (granted) {
+            [weakSelf jumpToScan];
+        }
+        else if(!firstTime)
+        {
+            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"没有相机权限，是否前往设置" cancel:@"取消" setting:@"设置" ];
+        }
+    }];
+    
+
+}
+- (void)jumpToScan{
+        QQLBXScanViewController *vc = [QQLBXScanViewController new];
+           vc.libraryType = SLT_ZXing;
+    //       vc.scanCodeType = [Global sharedManager].scanCodeType;
+
+           vc.style = [QQLBXScanViewController qqStyle];
+           
+           //镜头拉远拉近功能
+           vc.isVideoZoom = YES;
+        [LogicHandle pushViewController:vc];
+}
 @end

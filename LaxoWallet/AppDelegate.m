@@ -23,16 +23,15 @@
     [self.window setBackgroundColor:[UIColor whiteColor]];
     
         self.tabBarVC = [[LWTabBarViewController alloc]init];
-    //    self.window.rootViewController = self.tabBarVC;
+        self.window.rootViewController = self.tabBarVC;
     //    XDYLoginVC *vc = [[XDYLoginVC alloc] initWithNibName:@"XDYLoginVC" bundle:nil];
         
     //    LWHomeViewController *homeVC = [[LWHomeViewController alloc]init];
     //    self.window.rootViewController = homeVC;
         
-        LWLoginViewController *loginVC = [[LWLoginViewController alloc]initWithNibName:@"LWLoginViewController" bundle:nil];
-    //    LWLoginViewController *loginVC = [[LWLoginViewController alloc]init];
-    
-    [self.window setRootViewController:loginVC];
+//        LWLoginViewController *loginVC = [[LWLoginViewController alloc]initWithNibName:@"LWLoginViewController" bundle:nil];
+//    
+//    [self.window setRootViewController:loginVC];
     [self.window makeKeyAndVisible];
 
     

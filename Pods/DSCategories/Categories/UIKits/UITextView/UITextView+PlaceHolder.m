@@ -57,16 +57,16 @@
 #pragma mark - Class Methods
 #pragma mark `defaultPlaceholderColor`
 
-+ (UIColor *)defaultPlaceholderColor {
-    static UIColor *color = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        UITextField *textField = [[UITextField alloc] init];
-        textField.placeholder = @" ";
-        color = [textField valueForKeyPath:@"_placeholderLabel.textColor"];
-    });
-    return color;
-}
+//+ (UIColor *)defaultPlaceholderColor {
+//    static UIColor *color = nil;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        UITextField *textField = [[UITextField alloc] init];
+//        textField.placeholder = @" ";
+////        color = [textField valueForKeyPath:@"_placeholderLabel.textColor"];
+//    });
+//    return color;
+//}
 
 
 #pragma mark - `observingKeys`
@@ -93,7 +93,7 @@
         self.attributedText = originalText;
 
         label = [[UILabel alloc] init];
-        label.textColor = [self.class defaultPlaceholderColor];
+//        label.textColor = [self.class defaultPlaceholderColor];
         label.numberOfLines = 0;
         label.userInteractionEnabled = NO;
         objc_setAssociatedObject(self, @selector(placeholderLabel), label, OBJC_ASSOCIATION_RETAIN_NONATOMIC);

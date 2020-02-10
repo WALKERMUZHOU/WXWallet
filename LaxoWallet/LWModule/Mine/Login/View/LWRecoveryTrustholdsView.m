@@ -7,6 +7,13 @@
 //
 
 #import "LWRecoveryTrustholdsView.h"
+#import "LogicHandle.h"
+#import "LWLoginCoordinator.h"
+
+@interface LWRecoveryTrustholdsView ()
+@property (weak, nonatomic) IBOutlet UITextField *codeTF;
+
+@end
 
 @implementation LWRecoveryTrustholdsView
 
@@ -20,5 +27,18 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.autoresizingMask = UIViewAutoresizingNone;
+}
+- (IBAction)getCodeClick:(UIButton *)sender {
+//    [LWLoginCoordinator getRecoverySMSCodeWithEmail:<#(nonnull NSString *)#> WithSuccessBlock:<#^(id  _Nonnull data)successBlock#> WithFailBlock:<#^(id  _Nonnull data)FailBlock#>]
+    
+    
+}
+
+- (IBAction)recoveryClick:(UIButton *)sender {
+    
+    
+    
+    [LogicHandle showTabbarVC];
+    
 }
 @end

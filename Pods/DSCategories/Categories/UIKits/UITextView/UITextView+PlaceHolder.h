@@ -32,6 +32,6 @@
 @property (nonatomic, strong) NSAttributedString *attributedPlaceholder;
 @property (nonatomic, strong) UIColor *placeholderColor;
 
-+ (UIColor *)defaultPlaceholderColor;
+//+ (UIColor *)defaultPlaceholderColor;
 
 @end

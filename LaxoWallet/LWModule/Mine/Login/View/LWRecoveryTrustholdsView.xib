@@ -39,6 +39,9 @@
                     <state key="normal" title="获取验证码">
                         <color key="titleColor" red="0.11685662719999999" green="0.71705454589999995" blue="0.58686470989999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="getCodeClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="i0k-ue-VFs"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NW1-ZR-S4v">
                     <rect key="frame" x="25" y="292.5" width="364" height="47"/>
@@ -50,6 +53,9 @@
                     <state key="normal" title="恢复">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="recoveryClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="C8c-2l-vxk"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BER-Pu-Cr0">
                     <rect key="frame" x="25" y="64" width="364" height="61"/>
@@ -80,6 +86,9 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="codeTF" destination="6JA-0Y-xZu" id="9kH-Hm-Hc1"/>
+            </connections>
             <point key="canvasLocation" x="131.8840579710145" y="45.535714285714285"/>
         </view>
     </objects>

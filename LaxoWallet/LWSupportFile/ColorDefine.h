@@ -33,16 +33,24 @@
 #define kTabBarBackGroundColor [UIColor hex:@"#FFFFFF"]
 #define kTabBarShadowColor [UIColor colorWithColor:[UIColor hex:@"#0051FF"] alpha:0.06]
 
-#define lwColorBackground   [UIColor hex:@"#f5f5f5"]
+#define lwColorBackground   [UIColor hex:@"#ffffff"]
 #define lwColorNormal       [UIColor hex:@"#2BB696"]
+#define lwColorNormalLight  [UIColor hex:@"#AEEDDF"]
+
 #define lwColorGray         [UIColor hex:@"#F3F3F3"]
+#define lwColorGray1        [UIColor hex:@"#F1F1F1"]
+#define lwColorGray9        [UIColor hex:@"#F9F9F9"]
+#define lwColorGrayC1       [UIColor hex:@"#C1C1C1"]
 
 #define lwColorBlack        [UIColor hex:@"#333333"]
 #define lwColorBlackLight   [UIColor hex:@"#666666"]
 #define lwColorBlackPure    [UIColor hex:@"#999999"]
 #define lwColorBlack1       [UIColor hex:@"#666C72"]
 
-#define lwColorWhite [UIColor hex:@"#ffffff"]
+#define lwColorWhite        [UIColor hex:@"#ffffff"]
 
+#define lwColorLabel1       [UIColor hex:@"#666C72"]
+
+#define lwColorPlacerHolder [UIColor hex:@"#8D8F90"]
 
 #endif /* ColorDefine_h */

@@ -10,6 +10,7 @@
 #import "LWHomeListView.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 
+#import "PublicKeyView.h"
 
 @interface LWHomeViewController ()
 
@@ -20,29 +21,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createUI];
-    
+
+    [[PublicKeyView shareInstance] getInitDataBlock:^(NSDictionary * _Nonnull dicData) {
+        NSLog(@"%@",dicData);
+    }];
+//    [[PublicKeyView shareInstance] getInitDataBlock:^(NSDictionary * _Nonnull dicData) {
+//        NSLog(@"%@",dicData);
+//    }];
     // Do any additional setup after loading the view.
-    [self returnDesValueWithStr];
+
+//    [self.navigationController pushViewController:webVC animated:YES];
 }
 
 - (void)createUI{
     LWHomeListView *listView = [[LWHomeListView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     [self.view addSubview:listView];
-}
 
--(NSString*)returnDesValueWithStr
-{
-    NSString *calcPath = [[NSBundle mainBundle] pathForResource:@"turbo" ofType:@"js"];
-
-    NSString *calcJS= [NSString stringWithContentsOfFile:calcPath encoding:NSUTF8StringEncoding error:nil];
-
-    JSContext *context = [JSContext new];
-
-    [context evaluateScript:calcJS];
-
-    JSValue *value = [context evaluateScript:@"getPublicKey()"];//js的调用方法
-    NSLog(@"jsreturn:%@",value.toString);
-        return value.toString;
 }
 
 /*

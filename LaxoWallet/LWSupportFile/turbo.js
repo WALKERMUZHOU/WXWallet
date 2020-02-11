@@ -202,10 +202,7 @@
 
 }));
 
-function helloWorld() {
-                              const a = 1; return a;
-                              
-                              };
+function helloWorld() {  const a = 1; return a;};
                               
 function getPublicKey() {
                               const privkey = new PrivateKey();

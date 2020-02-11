@@ -71,6 +71,7 @@
     [self.scrollView addSubview:surelabel];
     
     self.selectBtn = [[LWSelectButton alloc] init];
+    self.selectBtn.selected = NO;
     [self.scrollView addSubview:self.selectBtn];
     
     self.walletNameTF = [[LWInputTextField alloc] initWithFrame:CGRectMake(preLeft, 0, kScreenWidth- preLeft*2, 42.5) andType:LWInputTextFieldTypeleftSelect];
@@ -83,6 +84,7 @@
     LWCommonBottomBtn *bottomBtn = [[LWCommonBottomBtn alloc]init];
     [bottomBtn addTarget:self action:@selector(bottomClick:) forControlEvents:UIControlEventTouchUpInside];
     [bottomBtn setTitle:@"Invite" forState:UIControlStateNormal];
+    bottomBtn.selected = YES;
     [self.scrollView addSubview:bottomBtn];
     
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -109,7 +111,6 @@
     
     [surelabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.scrollView.mas_left).offset(12);
-        make.right.equalTo(self.scrollView.mas_right).offset(-12);
         make.top.equalTo(self.KeyNumTF.mas_bottom).offset(7);
     }];
     

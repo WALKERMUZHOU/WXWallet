@@ -12,6 +12,7 @@
 #import "LWHomeListCell.h"
 #import "LWHomeListModel.h"
 #import "LWHomeListHeaderView.h"
+
 @interface LWHomeListView()<LWCoordinatorDelegate,MGSwipeTableCellDelegate>{
     NSIndexPath *_deleteIndexPath;
     NSInteger   _listType;
@@ -124,7 +125,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+
 }
 
 #pragma mark - celldelegate

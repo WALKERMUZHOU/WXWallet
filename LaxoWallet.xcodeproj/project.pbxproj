@@ -152,6 +152,12 @@
 		5EF5136923F1811B00F5B6C1 /* LBXPermissionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5135E23F1811B00F5B6C1 /* LBXPermissionCamera.m */; };
 		5EF5136A23F1811B00F5B6C1 /* LBXPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5135F23F1811B00F5B6C1 /* LBXPermission.m */; };
 		5EF5136E23F1815400F5B6C1 /* QQLBXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5136D23F1815400F5B6C1 /* QQLBXScanViewController.m */; };
+		5EF5137023F26A8800F5B6C1 /* nativekey.js in Resources */ = {isa = PBXBuildFile; fileRef = 5EF5136F23F26A8700F5B6C1 /* nativekey.js */; };
+		5EF5137223F26FC600F5B6C1 /* entry2.d72973364bde270c18a7.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 5EF5137123F26FC600F5B6C1 /* entry2.d72973364bde270c18a7.bundle.js */; };
+		5EF5137523F273DB00F5B6C1 /* LWTestWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5137423F273DB00F5B6C1 /* LWTestWebView.m */; };
+		5EF5138B23F2CAD000F5B6C1 /* PublicKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5138A23F2CAD000F5B6C1 /* PublicKeyView.m */; };
+		5EF5138F23F2CD0700F5B6C1 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5EF5138D23F2CD0700F5B6C1 /* index.html */; };
+		5EF5139023F2CD0700F5B6C1 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 5EF5138E23F2CD0700F5B6C1 /* index.js */; };
 		8BA1F18DF19D200E156D0DBA /* Pods_LaxoWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF47138CD83B72FC74CEF49 /* Pods_LaxoWallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -459,6 +465,14 @@
 		5EF5136123F1811B00F5B6C1 /* LBXPermissionSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermissionSetting.h; sourceTree = "<group>"; };
 		5EF5136C23F1815400F5B6C1 /* QQLBXScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQLBXScanViewController.h; sourceTree = "<group>"; };
 		5EF5136D23F1815400F5B6C1 /* QQLBXScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQLBXScanViewController.m; sourceTree = "<group>"; };
+		5EF5136F23F26A8700F5B6C1 /* nativekey.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nativekey.js; sourceTree = "<group>"; };
+		5EF5137123F26FC600F5B6C1 /* entry2.d72973364bde270c18a7.bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = entry2.d72973364bde270c18a7.bundle.js; sourceTree = "<group>"; };
+		5EF5137323F273DB00F5B6C1 /* LWTestWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTestWebView.h; sourceTree = "<group>"; };
+		5EF5137423F273DB00F5B6C1 /* LWTestWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTestWebView.m; sourceTree = "<group>"; };
+		5EF5138923F2CAD000F5B6C1 /* PublicKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicKeyView.h; sourceTree = "<group>"; };
+		5EF5138A23F2CAD000F5B6C1 /* PublicKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicKeyView.m; sourceTree = "<group>"; };
+		5EF5138D23F2CD0700F5B6C1 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		5EF5138E23F2CD0700F5B6C1 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		FEF47138CD83B72FC74CEF49 /* Pods_LaxoWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LaxoWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1071,6 +1085,8 @@
 				5EF5133623F1369200F5B6C1 /* LWNewMultiPartyWalletViewController.h */,
 				5EF5133723F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.m */,
 				5EF5133823F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.xib */,
+				5EF5137323F273DB00F5B6C1 /* LWTestWebView.h */,
+				5EF5137423F273DB00F5B6C1 /* LWTestWebView.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1277,6 +1293,7 @@
 		5EA807CE23E94ED500012837 /* LWPublic */ = {
 			isa = PBXGroup;
 			children = (
+				5EF5138823F2CAD000F5B6C1 /* PublicKey */,
 				5EF5136B23F1815400F5B6C1 /* Scan */,
 				5EF5134323F14B5E00F5B6C1 /* Button */,
 				5EF5134223F14B5E00F5B6C1 /* View */,
@@ -1344,6 +1361,9 @@
 		5EA807D523E94EFD00012837 /* LWSupportFile */ = {
 			isa = PBXGroup;
 			children = (
+				5EF5138C23F2CD0700F5B6C1 /* mobile */,
+				5EF5137123F26FC600F5B6C1 /* entry2.d72973364bde270c18a7.bundle.js */,
+				5EF5136F23F26A8700F5B6C1 /* nativekey.js */,
 				5EF5132D23F1072900F5B6C1 /* turbo.js */,
 				5E66A31823EAB3B2004097CB /* ColorDefine.h */,
 				5E66A31923EAB3B2004097CB /* CQMColorMacros.h */,
@@ -1443,6 +1463,24 @@
 				5EF5136D23F1815400F5B6C1 /* QQLBXScanViewController.m */,
 			);
 			path = Scan;
+			sourceTree = "<group>";
+		};
+		5EF5138823F2CAD000F5B6C1 /* PublicKey */ = {
+			isa = PBXGroup;
+			children = (
+				5EF5138923F2CAD000F5B6C1 /* PublicKeyView.h */,
+				5EF5138A23F2CAD000F5B6C1 /* PublicKeyView.m */,
+			);
+			path = PublicKey;
+			sourceTree = "<group>";
+		};
+		5EF5138C23F2CD0700F5B6C1 /* mobile */ = {
+			isa = PBXGroup;
+			children = (
+				5EF5138D23F2CD0700F5B6C1 /* index.html */,
+				5EF5138E23F2CD0700F5B6C1 /* index.js */,
+			);
+			path = mobile;
 			sourceTree = "<group>";
 		};
 		E20187CF0061B4C373136C97 /* Pods */ = {
@@ -1560,20 +1598,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E66A34323EAB58C004097CB /* README.md in Resources */,
+				5EF5138F23F2CD0700F5B6C1 /* index.html in Resources */,
 				5E66A35F23EAC378004097CB /* backImage@2x.png in Resources */,
 				5E66A34223EAB58C004097CB /* SVProgressHUD.bundle in Resources */,
 				5E66A3A623EAFF1F004097CB /* LWHomeListHeaderView.xib in Resources */,
 				5E5F12C423ED85A1002F0711 /* LWLoginViewController.xib in Resources */,
 				5E66A34623EAB58C004097CB /* WMHUDUntil.bundle in Resources */,
 				5E5F12D723ED8BD3002F0711 /* LWRecoveryTrustholdsView.xib in Resources */,
+				5EF5139023F2CD0700F5B6C1 /* index.js in Resources */,
 				5EA807A823E94E2400012837 /* LaunchScreen.storyboard in Resources */,
 				5EF5133A23F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.xib in Resources */,
 				5E5F130223EDD97F002F0711 /* PageController.bundle in Resources */,
 				5EF5132E23F1072900F5B6C1 /* turbo.js in Resources */,
 				5E5F12D523ED8BC3002F0711 /* LWRecoveryFileView.xib in Resources */,
+				5EF5137223F26FC600F5B6C1 /* entry2.d72973364bde270c18a7.bundle.js in Resources */,
 				5E5F129A23EC0E12002F0711 /* WMZDialog.bundle in Resources */,
 				5E66A39D23EAF103004097CB /* LWHomeListCell.xib in Resources */,
 				5E66A36023EAC379004097CB /* backImage@3x.png in Resources */,
+				5EF5137023F26A8800F5B6C1 /* nativekey.js in Resources */,
 				5EA807A523E94E2400012837 /* Assets.xcassets in Resources */,
 				5E5F12CA23ED874B002F0711 /* LWLoginSecondStepView.xib in Resources */,
 				5EA807A323E94E2100012837 /* Main.storyboard in Resources */,
@@ -1710,6 +1752,7 @@
 				5E5F128E23EC0E12002F0711 /* WMZDialog+TabbarMenu.m in Sources */,
 				5E66A39C23EAF103004097CB /* LWHomeListCell.m in Sources */,
 				5E66A37023EAC48B004097CB /* LWBaseView.m in Sources */,
+				5EF5137523F273DB00F5B6C1 /* LWTestWebView.m in Sources */,
 				5E5F129723EC0E12002F0711 /* WMZDialog+time.m in Sources */,
 				5E5F123623EC06F1002F0711 /* LogicHandle.m in Sources */,
 				5E5F129823EC0E12002F0711 /* WMZDialog+MenusSelect.m in Sources */,
@@ -1744,6 +1787,7 @@
 				5E5F12B223ED562B002F0711 /* LWLoginCoordinator.m in Sources */,
 				5E5F12A123EC0E12002F0711 /* WMZDialog+BuyCar.m in Sources */,
 				5E5F12C823ED85BE002F0711 /* LWLoginSecondStepView.m in Sources */,
+				5EF5138B23F2CAD000F5B6C1 /* PublicKeyView.m in Sources */,
 				5EF5136A23F1811B00F5B6C1 /* LBXPermission.m in Sources */,
 				5E66A3A423EAFF14004097CB /* LWHomeListHeaderView.m in Sources */,
 				5E66A36123EAC379004097CB /* JTNavigationController.m in Sources */,

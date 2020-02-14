@@ -73,7 +73,7 @@ static LWTrusteeManager *instance = nil;
 }
 
 - (LWTrusteeModel *)getFirstModel{
-    NSArray *trusteeArr = [self trusteeInfoUnArchieve];
+    NSArray *trusteeArr = [self getTrusteeArray];
     if (trusteeArr.count>0) {
         return trusteeArr.firstObject;
     }

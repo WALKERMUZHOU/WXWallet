@@ -68,6 +68,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 #define kFont(fontValue) [UIFont systemFontOfSize:fontValue]
-#define kBoldFont(fontValue) [UIFont boldSystemFontOfSize:fontValue]
+#define kBoldFont(fontValue) [UIFont fontWithName:@"HelveticaNeue-Semibold" size:fontValue]
 
 #endif /* CQMColorMacros_h */

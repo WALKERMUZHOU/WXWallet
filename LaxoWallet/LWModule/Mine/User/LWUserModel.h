@@ -14,12 +14,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString      *username;
 @property (nonatomic, strong) NSString      *uid;
+@property (nonatomic, strong) NSString      *email;
 
 
 @property (nonatomic, strong) NSString      *login_token;
 @property (nonatomic, strong) NSString      *secret;
 @property (nonatomic, strong) NSString      *token;
 
+@property (nonatomic, strong) NSString      *loginSuccess;
 
 @end
 

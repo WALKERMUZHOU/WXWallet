@@ -17,12 +17,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)verifyEmailCodeWithEmail:(NSString *)email andCode:(NSString *)code WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
 
 //获取恢复验证码
-+ (void)getRecoverySMSCodeWithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
-//d验证恢复验证码
-+ (void)verifyRecoveryEmailCodeWithEmail:(NSString *)email andCode:(NSString *)code WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
++ (void)getRecoverySMSCodeWithModel:(LWTrusteeModel *)model SuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
+//验证恢复验证码
++ (void)verifyRecoveryEmailCodeWithCode:(NSString *)code andModel:(LWTrusteeModel *)model WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
 
+//获取TrueteeData
 + (void)getTrueteeDataWithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
 
+//注册用户
++ (void)registerUserWithEmail:(NSString *)email WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
 
 @end
 

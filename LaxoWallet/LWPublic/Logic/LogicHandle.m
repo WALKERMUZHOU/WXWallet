@@ -8,7 +8,7 @@
 
 #import "LogicHandle.h"
 #import "LWLoginViewController.h"
-
+#import "LWLaunchViewController.h"
 @implementation LogicHandle
 
 
@@ -84,9 +84,9 @@
 }
 
 + (void)showLoginVC{
-    LWLoginViewController *loginVC = [[LWLoginViewController alloc]initWithNibName:@"LWLoginViewController" bundle:nil];
+    LWLoginViewController *loginVC = [[LWLoginViewController alloc]init];
     AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    appdelete.window.rootViewController = loginVC;
+    appdelete.window.rootViewController = [[LWNavigationViewController alloc] initWithRootViewController:loginVC];
 }
 
 + (void)showTabbarVC{
@@ -95,4 +95,18 @@
     appdelete.window.rootViewController = tabBarVC;
 }
 
++ (void)showLaunchVC{
+    LWLaunchViewController *launchVC = [[LWLaunchViewController alloc] init];
+    AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appdelete.window.rootViewController = launchVC;
+}
+
++ (void)chooseStartVC{
+    
+    if([LWUserManager isLogin]){
+        [LogicHandle showLaunchVC];
+    }else{
+        [LogicHandle showLoginVC];
+    }
+}
 @end

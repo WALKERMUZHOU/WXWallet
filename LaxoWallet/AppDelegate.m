@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 #import "LWLoginViewController.h"
+#import "LWLoginCoordinator.h"
+#import "PublicKeyView.h"
+#import "LWRocoveryViewController.h"
+#import "LWFaceBindViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,18 +26,19 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setBackgroundColor:[UIColor whiteColor]];
     
-        self.tabBarVC = [[LWTabBarViewController alloc]init];
-        self.window.rootViewController = self.tabBarVC;
+//        self.tabBarVC = [[LWTabBarViewController alloc]init];
+//        self.window.rootViewController = self.tabBarVC;
     //    XDYLoginVC *vc = [[XDYLoginVC alloc] initWithNibName:@"XDYLoginVC" bundle:nil];
         
     //    LWHomeViewController *homeVC = [[LWHomeViewController alloc]init];
     //    self.window.rootViewController = homeVC;
-        
-//        LWLoginViewController *loginVC = [[LWLoginViewController alloc]initWithNibName:@"LWLoginViewController" bundle:nil];
-//    
-//    [self.window setRootViewController:loginVC];
+    [self getTrueteeData];
+//    [LogicHandle showLoginVC];
+    
+//    LWFaceBindViewController *vc = [[LWFaceBindViewController alloc]init];
+//    self.window.rootViewController = [[LWNavigationViewController alloc] initWithRootViewController:vc];
+    [LogicHandle chooseStartVC];
     [self.window makeKeyAndVisible];
-
     
     // Override point for customization after application launch.
     return YES;
@@ -56,5 +61,16 @@
 //    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 //}
 
+- (void)getInitData{
+    [self getTrueteeData];
+}
+
+- (void)getTrueteeData{
+    [LWLoginCoordinator getTrueteeDataWithSuccessBlock:^(id  _Nonnull data) {
+        
+    } WithFailBlock:^(id  _Nonnull data) {
+        [self getTrueteeData];
+    }];
+}
 
 @end

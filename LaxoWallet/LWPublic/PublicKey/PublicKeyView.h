@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shareInstance;
 - (void)getInitDataBlock:(void(^)(NSDictionary *dicData))successBlock;
-- (void)getOtherData:(NSString *)methodSte andBlock:(void(^)(NSDictionary *dicData))successBlock;
+- (void)getOtherData:(NSString *)methodSte andBlock:(void(^)(id dicData))successBlock;
 
 @end
 

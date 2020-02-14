@@ -23,12 +23,12 @@
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    NSLog(@"tableView willShow viewcontrollers %lu", [self viewControllers].count);
+//    NSLog(@"tableView willShow viewcontrollers %lu", [self viewControllers].count);
     
     
     BOOL hiddenAnimate = NO;
     NSInteger count = ((LWTabBarViewController *)viewController.tabBarController).delayIndex;
-    NSLog(@"tableView willShow delayIndex %ld",(long)count);
+//    NSLog(@"tableView willShow delayIndex %ld",(long)count);
     if (count == 0) {
         hiddenAnimate = YES;
     }

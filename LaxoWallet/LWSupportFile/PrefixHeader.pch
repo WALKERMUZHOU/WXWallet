@@ -23,7 +23,7 @@
 //判断iPhoneXs Max
 #define IS_IPHONE_Xs_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
 #define isIphoneX (IS_IPHONE_X || IS_IPHONE_Xr || IS_IPHONE_Xs_Max ? YES : NO)
-#define kStatusBarHeight (isIphoneX ? 40 : 20)
+#define kStatusBarHeight (isIphoneX ? 44 : 20)
 #define kNavigationBarHeight (kStatusBarHeight + 44.f)
 #define KScreenHeightBar (kScreenHeight - kNavigationBarHeight)
 

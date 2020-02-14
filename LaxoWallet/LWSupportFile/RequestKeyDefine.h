@@ -29,9 +29,10 @@ static NSString * const Url_Login_trustee = @"method=wallet.trustee";    // 发�
 
 static NSString * const Url_Login_SendCode = @"method=user.sendCode";    // 发送验证码
 static NSString * const Url_Login_VerifyEmail = @"method=user.verifyEmail";//验证邮箱
-static NSString * const Url_Login_requestRecoverCode = @"method=user.requestRecover";    // 恢复验证码
-static NSString * const Url_Login_requestRecover = @"method=user.recover";    // 恢复请求
+static NSString * const Url_Login_requestRecoverCode = @"method=user.requestRecover";// 请求恢复验证码
+static NSString * const Url_Login_requestRecover = @"method=user.recover";    // 恢复
 
+static NSString * const Url_Login_register = @"method=user.register";    //注册
 
 //系统版本
 #define kSystemVersion [[UIDevice currentDevice]systemVersion].floatValue

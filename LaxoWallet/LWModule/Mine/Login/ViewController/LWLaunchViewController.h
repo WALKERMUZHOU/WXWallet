@@ -1,8 +1,8 @@
 //
-//  LWLoginViewController.h
+//  LWLaunchViewController.h
 //  LaxoWallet
 //
-//  Created by walkermuzhou on 2020/2/7.
+//  Created by walkermuzhou on 2020/2/14.
 //  Copyright © 2020 LaxoWallet. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LWLoginViewController : LWBaseViewController
+@interface LWLaunchViewController : LWBaseViewController
 
 @end
 

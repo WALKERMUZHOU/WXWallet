@@ -73,7 +73,7 @@ static LWUserManager *instance = nil;
 
 + (BOOL)isLogin{
     LWUserModel *model = [[LWUserManager shareInstance] userInfoUnArchieve];
-    if (model && model.uid && ![model.uid isEqualToString:@""]) {
+    if (model && model.uid && ![model.uid isEqualToString:@""] && model.loginSuccess.length >0) {
         return YES;
     }
     return NO;
@@ -88,16 +88,31 @@ static LWUserManager *instance = nil;
     [self userInfoArchieve:model];
 }
 
+- (void)setEmail:(NSString *)email{
+    LWUserModel *userModel = [self getUserModel];
+    userModel.email = email;
+    [self userInfoArchieve:userModel];
+}
+
 
 - (void)clearUser{
     NSFileManager *defaultManager = [NSFileManager defaultManager];
     if ([defaultManager isDeletableFileAtPath:[[self class] obtainDeviceDataPath]]) {
         [defaultManager removeItemAtPath:[[self class] obtainDeviceDataPath] error:nil];
     }
+    NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
+    [userdefault removeObjectForKey:kRevocerSuccessKey_userdefault];
+    [userdefault synchronize];
 }
 
 - (LWUserModel *)getUserModel{
     return [self userInfoUnArchieve];
+}
+
+- (void)setLoginSuccess{
+    LWUserModel *userModel = [self getUserModel];
+    userModel.loginSuccess = @"success";
+    [self userInfoArchieve:userModel];
 }
 
 @end

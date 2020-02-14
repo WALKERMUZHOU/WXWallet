@@ -52,7 +52,9 @@ static PublicKeyView *instance = nil;
 + (instancetype)shareInstance{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[PublicKeyView alloc]init];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            instance = [[PublicKeyView alloc]init];
+        });
     });
     return instance;
 }
@@ -90,14 +92,18 @@ static PublicKeyView *instance = nil;
     });
 }
 
-- (void)getOtherData:(NSString *)methodSte andBlock:(void (^)(NSDictionary * _Nonnull))successBlock{
+- (void)getOtherData:(NSString *)methodSte andBlock:(void (^)(id _Nonnull))successBlock{
     NSString *JSstring = methodSte;
-    [_webView evaluateJavaScript:JSstring completionHandler:^(id _Nullable data, NSError * _Nullable error) {
-        if (successBlock) {
-            successBlock(data);
-        }
-    }];
+    __weak typeof(self) weakself = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakself.webView evaluateJavaScript:JSstring completionHandler:^(id _Nullable data, NSError * _Nullable error) {
+            if (successBlock) {
+                successBlock(data);
+            }
+        }];
+    });
 }
+
 
 - (WKWebView *)webView{
     if(_webView == nil){

@@ -25,9 +25,6 @@
     [[PublicKeyView shareInstance] getInitDataBlock:^(NSDictionary * _Nonnull dicData) {
         NSLog(@"%@",dicData);
     }];
-//    [[PublicKeyView shareInstance] getInitDataBlock:^(NSDictionary * _Nonnull dicData) {
-//        NSLog(@"%@",dicData);
-//    }];
     // Do any additional setup after loading the view.
 
 //    [self.navigationController pushViewController:webVC animated:YES];

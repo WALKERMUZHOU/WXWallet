@@ -100,6 +100,7 @@ static NSTimeInterval const kTimeoutIntervalDefault = 30.0;
     NSString *urlStr = [NSString stringWithFormat:@"%@%@", kBaseAddress, path];
     
     return [self GET:urlStr parameters:processDictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"requestUrl:%@",task.currentRequest.URL.absoluteURL);
         NSDictionary *result = nil;
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             result = (NSDictionary *)responseObject;

@@ -27,4 +27,8 @@
 #define kAppContactMobile           @"kAppcustomerContactMobile"
 #define kAppUnReadMessage           @"kAppUnReadMessage"
 
+#define kRevocerSuccessKey_userdefault   @"kAppRevocerSuccessKey_userdefault"
+#define kAppPubkeyManager_userdefault   @"NSUserDefaultPubkeyManagerssss"
+#define kAppTouchIdStart_userdefault   @"kAppTouchIdStart_userdefault"
+
 #endif /* NotifcationMacros_h */

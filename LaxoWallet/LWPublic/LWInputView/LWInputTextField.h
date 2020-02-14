@@ -12,13 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_OPTIONS(NSInteger, LWInputTextFieldType){
     LWInputTextFieldTypeNormal = 1,
     LWInputTextFieldTypeleftSelect = 2,
+    LWInputTextFieldTypeRightBtn = 3,
 };
 
+typedef void(^ButtonClickBlock)(void);
 @interface LWInputTextField : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame andType:(LWInputTextFieldType)textFieldType;
 @property (nonatomic, strong) UITextField *lwTextField;
-
+@property (nonatomic, strong) UIButton *button;
+@property (nonatomic, copy) ButtonClickBlock buttonBlock;
 
 @end
 

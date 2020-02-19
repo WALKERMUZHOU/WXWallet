@@ -53,6 +53,7 @@
 #import "Masonry.h"
 #import "SVProgressHUD.h"
 #import "YYKit.h"
+#import "MPMessagePack.h"
 
 #import "UIView+Frame.h"
 #import "NSArray+SafeAccess.h"

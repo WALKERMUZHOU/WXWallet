@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E23584823FBE09D00A7D774 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584423FBE09C00A7D774 /* index.html */; };
+		5E23584923FBE09D00A7D774 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584523FBE09C00A7D774 /* index.js */; };
+		5E23584A23FBE09D00A7D774 /* index2.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584623FBE09C00A7D774 /* index2.js */; };
+		5E23584B23FBE09D00A7D774 /* index1.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584723FBE09C00A7D774 /* index1.js */; };
+		5E23584E23FD0D0600A7D774 /* LWutxoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E23584D23FD0D0600A7D774 /* LWutxoModel.m */; };
 		5E5F123623EC06F1002F0711 /* LogicHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F123523EC06F1002F0711 /* LogicHandle.m */; };
 		5E5F128B23EC0E12002F0711 /* WMZDialog+Write.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F123A23EC0E12002F0711 /* WMZDialog+Write.m */; };
 		5E5F128C23EC0E12002F0711 /* WMZDialog+NaviMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F123D23EC0E12002F0711 /* WMZDialog+NaviMenu.m */; };
@@ -98,7 +103,7 @@
 		5E66A38923EAEBE9004097CB /* LWMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66A38723EAEBE9004097CB /* LWMineViewController.m */; };
 		5E66A38C23EAED2B004097CB /* LWHomeListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66A38B23EAED2B004097CB /* LWHomeListView.m */; };
 		5E66A39223EAEE6D004097CB /* LWBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66A39123EAEE6D004097CB /* LWBaseModel.m */; };
-		5E66A39523EAF01A004097CB /* LWHomeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66A39423EAF01A004097CB /* LWHomeListModel.m */; };
+		5E66A39523EAF01A004097CB /* LWHomeWalletModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66A39423EAF01A004097CB /* LWHomeWalletModel.m */; };
 		5E66A39823EAF032004097CB /* LWHomeListCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66A39723EAF032004097CB /* LWHomeListCoordinator.m */; };
 		5E66A39C23EAF103004097CB /* LWHomeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66A39A23EAF103004097CB /* LWHomeListCell.m */; };
 		5E66A39D23EAF103004097CB /* LWHomeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E66A39B23EAF103004097CB /* LWHomeListCell.xib */; };
@@ -120,6 +125,7 @@
 		5E66A3D423EBFAA2004097CB /* TYBaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66A3C623EBFAA2004097CB /* TYBaseAnimation.m */; };
 		5E66A3D523EBFAA2004097CB /* TYAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66A3C823EBFAA2004097CB /* TYAlertController.m */; };
 		5E722B7223F694CF000991DE /* LWLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E722B7123F694CF000991DE /* LWLaunchViewController.m */; };
+		5EA1D49223FA527E00A0A747 /* SocketRocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */; };
 		5EA8079A23E94E2100012837 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079923E94E2100012837 /* AppDelegate.m */; };
 		5EA8079D23E94E2100012837 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079C23E94E2100012837 /* SceneDelegate.m */; };
 		5EA807A023E94E2100012837 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079F23E94E2100012837 /* ViewController.m */; };
@@ -153,8 +159,6 @@
 		5EF5136E23F1815400F5B6C1 /* QQLBXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5136D23F1815400F5B6C1 /* QQLBXScanViewController.m */; };
 		5EF5137523F273DB00F5B6C1 /* LWTestWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5137423F273DB00F5B6C1 /* LWTestWebView.m */; };
 		5EF5138B23F2CAD000F5B6C1 /* PublicKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5138A23F2CAD000F5B6C1 /* PublicKeyView.m */; };
-		5EF5138F23F2CD0700F5B6C1 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5EF5138D23F2CD0700F5B6C1 /* index.html */; };
-		5EF5139023F2CD0700F5B6C1 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 5EF5138E23F2CD0700F5B6C1 /* index.js */; };
 		5EF5139323F3AB4100F5B6C1 /* PubkeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5139223F3AB4100F5B6C1 /* PubkeyManager.m */; };
 		5EF5139723F3C06F00F5B6C1 /* LWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5139623F3C06F00F5B6C1 /* LWLoginViewController.m */; };
 		5EF5139B23F3D14E00F5B6C1 /* LWRocoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5139923F3D14E00F5B6C1 /* LWRocoveryViewController.m */; };
@@ -196,6 +200,12 @@
 /* Begin PBXFileReference section */
 		188A899FDE346915C2A47241 /* Pods-LaxoWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaxoWallet.debug.xcconfig"; path = "Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		25333CCFD54DFB01F4502BBC /* Pods-LaxoWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaxoWallet.release.xcconfig"; path = "Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet.release.xcconfig"; sourceTree = "<group>"; };
+		5E23584423FBE09C00A7D774 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		5E23584523FBE09C00A7D774 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		5E23584623FBE09C00A7D774 /* index2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index2.js; sourceTree = "<group>"; };
+		5E23584723FBE09C00A7D774 /* index1.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index1.js; sourceTree = "<group>"; };
+		5E23584C23FD0D0600A7D774 /* LWutxoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWutxoModel.h; sourceTree = "<group>"; };
+		5E23584D23FD0D0600A7D774 /* LWutxoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWutxoModel.m; sourceTree = "<group>"; };
 		5E5F123423EC06F1002F0711 /* LogicHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogicHandle.h; sourceTree = "<group>"; };
 		5E5F123523EC06F1002F0711 /* LogicHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogicHandle.m; sourceTree = "<group>"; };
 		5E5F123923EC0E12002F0711 /* WMZDialog+Write.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WMZDialog+Write.h"; sourceTree = "<group>"; };
@@ -379,8 +389,8 @@
 		5E66A38B23EAED2B004097CB /* LWHomeListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWHomeListView.m; sourceTree = "<group>"; };
 		5E66A39023EAEE6D004097CB /* LWBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWBaseModel.h; sourceTree = "<group>"; };
 		5E66A39123EAEE6D004097CB /* LWBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWBaseModel.m; sourceTree = "<group>"; };
-		5E66A39323EAF01A004097CB /* LWHomeListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWHomeListModel.h; sourceTree = "<group>"; };
-		5E66A39423EAF01A004097CB /* LWHomeListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWHomeListModel.m; sourceTree = "<group>"; };
+		5E66A39323EAF01A004097CB /* LWHomeWalletModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWHomeWalletModel.h; sourceTree = "<group>"; };
+		5E66A39423EAF01A004097CB /* LWHomeWalletModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWHomeWalletModel.m; sourceTree = "<group>"; };
 		5E66A39623EAF032004097CB /* LWHomeListCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWHomeListCoordinator.h; sourceTree = "<group>"; };
 		5E66A39723EAF032004097CB /* LWHomeListCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWHomeListCoordinator.m; sourceTree = "<group>"; };
 		5E66A39923EAF103004097CB /* LWHomeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWHomeListCell.h; sourceTree = "<group>"; };
@@ -420,6 +430,8 @@
 		5E66A3C923EBFAA2004097CB /* TYAlertFadeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAlertFadeAnimation.h; sourceTree = "<group>"; };
 		5E722B7023F694CF000991DE /* LWLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLaunchViewController.h; sourceTree = "<group>"; };
 		5E722B7123F694CF000991DE /* LWLaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLaunchViewController.m; sourceTree = "<group>"; };
+		5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketUtility.m; sourceTree = "<group>"; };
+		5EA1D49023FA527E00A0A747 /* SocketRocketUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketUtility.h; sourceTree = "<group>"; };
 		5EA8079523E94E2100012837 /* LaxoWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaxoWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA8079823E94E2100012837 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5EA8079923E94E2100012837 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -483,8 +495,6 @@
 		5EF5137423F273DB00F5B6C1 /* LWTestWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTestWebView.m; sourceTree = "<group>"; };
 		5EF5138923F2CAD000F5B6C1 /* PublicKeyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicKeyView.h; sourceTree = "<group>"; };
 		5EF5138A23F2CAD000F5B6C1 /* PublicKeyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicKeyView.m; sourceTree = "<group>"; };
-		5EF5138D23F2CD0700F5B6C1 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		5EF5138E23F2CD0700F5B6C1 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		5EF5139123F3AB4100F5B6C1 /* PubkeyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PubkeyManager.h; sourceTree = "<group>"; };
 		5EF5139223F3AB4100F5B6C1 /* PubkeyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PubkeyManager.m; sourceTree = "<group>"; };
 		5EF5139523F3C06F00F5B6C1 /* LWLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginViewController.h; sourceTree = "<group>"; };
@@ -557,6 +567,17 @@
 				FEF47138CD83B72FC74CEF49 /* Pods_LaxoWallet.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E23584323FBE09C00A7D774 /* mobile */ = {
+			isa = PBXGroup;
+			children = (
+				5E23584423FBE09C00A7D774 /* index.html */,
+				5E23584523FBE09C00A7D774 /* index.js */,
+				5E23584623FBE09C00A7D774 /* index2.js */,
+				5E23584723FBE09C00A7D774 /* index1.js */,
+			);
+			path = mobile;
 			sourceTree = "<group>";
 		};
 		5E5F123723EC0E12002F0711 /* WMZDialog */ = {
@@ -1139,8 +1160,10 @@
 		5E66A37C23EAEBD8004097CB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5E66A39323EAF01A004097CB /* LWHomeListModel.h */,
-				5E66A39423EAF01A004097CB /* LWHomeListModel.m */,
+				5E66A39323EAF01A004097CB /* LWHomeWalletModel.h */,
+				5E66A39423EAF01A004097CB /* LWHomeWalletModel.m */,
+				5E23584C23FD0D0600A7D774 /* LWutxoModel.h */,
+				5E23584D23FD0D0600A7D774 /* LWutxoModel.m */,
 				5E66A39623EAF032004097CB /* LWHomeListCoordinator.h */,
 				5E66A39723EAF032004097CB /* LWHomeListCoordinator.m */,
 			);
@@ -1253,6 +1276,15 @@
 			path = "Blur Effects";
 			sourceTree = "<group>";
 		};
+		5EA1D48E23FA527E00A0A747 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */,
+				5EA1D49023FA527E00A0A747 /* SocketRocketUtility.h */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
 		5EA8078C23E94E2100012837 = {
 			isa = PBXGroup;
 			children = (
@@ -1318,6 +1350,7 @@
 		5EA807CD23E94ED500012837 /* LWAdapt */ = {
 			isa = PBXGroup;
 			children = (
+				5EA1D48E23FA527E00A0A747 /* WebSocket */,
 				5EF513B723F5298000F5B6C1 /* TDTouchID */,
 				5EF5134D23F1811A00F5B6C1 /* LBXAlertAction */,
 				5EF5135923F1811B00F5B6C1 /* LBXPermissions */,
@@ -1408,7 +1441,7 @@
 		5EA807D523E94EFD00012837 /* LWSupportFile */ = {
 			isa = PBXGroup;
 			children = (
-				5EF5138C23F2CD0700F5B6C1 /* mobile */,
+				5E23584323FBE09C00A7D774 /* mobile */,
 				5EF5132D23F1072900F5B6C1 /* turbo.js */,
 				5E66A31823EAB3B2004097CB /* ColorDefine.h */,
 				5E66A31923EAB3B2004097CB /* CQMColorMacros.h */,
@@ -1519,15 +1552,6 @@
 				5EF5139223F3AB4100F5B6C1 /* PubkeyManager.m */,
 			);
 			path = PublicKey;
-			sourceTree = "<group>";
-		};
-		5EF5138C23F2CD0700F5B6C1 /* mobile */ = {
-			isa = PBXGroup;
-			children = (
-				5EF5138D23F2CD0700F5B6C1 /* index.html */,
-				5EF5138E23F2CD0700F5B6C1 /* index.js */,
-			);
-			path = mobile;
 			sourceTree = "<group>";
 		};
 		5EF5139423F3C05800F5B6C1 /* ViewController */ = {
@@ -1765,15 +1789,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E66A34323EAB58C004097CB /* README.md in Resources */,
-				5EF5138F23F2CD0700F5B6C1 /* index.html in Resources */,
 				5E66A35F23EAC378004097CB /* backImage@2x.png in Resources */,
 				5EF5139C23F3D14E00F5B6C1 /* LWRocoveryViewController.xib in Resources */,
 				5E66A34223EAB58C004097CB /* SVProgressHUD.bundle in Resources */,
 				5E66A3A623EAFF1F004097CB /* LWHomeListHeaderView.xib in Resources */,
+				5E23584823FBE09D00A7D774 /* index.html in Resources */,
+				5E23584A23FBE09D00A7D774 /* index2.js in Resources */,
 				5E66A34623EAB58C004097CB /* WMHUDUntil.bundle in Resources */,
 				5E5F12D723ED8BD3002F0711 /* LWRecoveryTrustholdsView.xib in Resources */,
-				5EF5139023F2CD0700F5B6C1 /* index.js in Resources */,
 				5EA807A823E94E2400012837 /* LaunchScreen.storyboard in Resources */,
+				5E23584B23FBE09D00A7D774 /* index1.js in Resources */,
 				5EF5133A23F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.xib in Resources */,
 				5E5F130223EDD97F002F0711 /* PageController.bundle in Resources */,
 				5EF5132E23F1072900F5B6C1 /* turbo.js in Resources */,
@@ -1783,6 +1808,7 @@
 				5E66A36023EAC379004097CB /* backImage@3x.png in Resources */,
 				5EA807A523E94E2400012837 /* Assets.xcassets in Resources */,
 				5E5F12CA23ED874B002F0711 /* LWLoginSecondStepView.xib in Resources */,
+				5E23584923FBE09D00A7D774 /* index.js in Resources */,
 				5EA807A323E94E2100012837 /* Main.storyboard in Resources */,
 				5E66A34423EAB58C004097CB /* LICENSE.txt in Resources */,
 			);
@@ -1888,12 +1914,14 @@
 				5EF513E223F550F200F5B6C1 /* LWSelectButton.m in Sources */,
 				5E5F12CD23ED8987002F0711 /* LWRecoveryView.m in Sources */,
 				5E722B7223F694CF000991DE /* LWLaunchViewController.m in Sources */,
+				5EA1D49223FA527E00A0A747 /* SocketRocketUtility.m in Sources */,
 				5E66A34023EAB58C004097CB /* SVProgressHUD.m in Sources */,
 				5EF513DF23F550F200F5B6C1 /* QQLBXScanViewController.m in Sources */,
 				5E66A3CF23EBFAA2004097CB /* TYAlertFadeAnimation.m in Sources */,
 				5E5F12FC23EDD97F002F0711 /* WMZPageNaviBtn.m in Sources */,
 				5E66A34E23EAB595004097CB /* CZRefreshFooter.m in Sources */,
 				5E66A39223EAEE6D004097CB /* LWBaseModel.m in Sources */,
+				5E23584E23FD0D0600A7D774 /* LWutxoModel.m in Sources */,
 				5E66A36223EAC379004097CB /* UIViewController+JTNavigationExtension.m in Sources */,
 				5E5F12A323EC0E12002F0711 /* WMZDialog+Advertisement.m in Sources */,
 				5EF513DC23F550F200F5B6C1 /* CZRefreshHeader.m in Sources */,
@@ -1984,7 +2012,7 @@
 				5E5F129923EC0E12002F0711 /* WMZDialog+CardPresent.m in Sources */,
 				5E66A3CE23EBFAA2004097CB /* UIImage+ImageEffects.m in Sources */,
 				5EF5133923F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.m in Sources */,
-				5E66A39523EAF01A004097CB /* LWHomeListModel.m in Sources */,
+				5E66A39523EAF01A004097CB /* LWHomeWalletModel.m in Sources */,
 				5EF5139F23F3D93800F5B6C1 /* LWRecoveryTrustholdViewController.m in Sources */,
 				5EA8079D23E94E2100012837 /* SceneDelegate.m in Sources */,
 				5EF5139323F3AB4100F5B6C1 /* PubkeyManager.m in Sources */,
@@ -2170,7 +2198,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LaxoWallet.LaxoWallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LaxoWallet.LaxoWallet1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2189,7 +2217,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LaxoWallet.LaxoWallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LaxoWallet.LaxoWallet1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

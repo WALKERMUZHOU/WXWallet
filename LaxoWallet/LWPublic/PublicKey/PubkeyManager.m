@@ -158,12 +158,39 @@ NSLog(@"message:%@",message);
     
     [[PublicKeyView shareInstance] getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
         if (dicData) {
-            [[NSUserDefaults standardUserDefaults] setObject:dicData forKey:kRevocerSuccessKey_userdefault];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-
+            [[LWUserManager shareInstance] setJiZhuCi:dicData];
             successBlock(dicData);
          }else{
          }
     }];
+}
+
++ (void)getSigWithPK:(NSString *)pk message:(nonnull NSString *)message SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    
+    NSString *jsStr = [NSString stringWithFormat:@"getWsSig({'message':'%@','pk':'%@'})",message,pk];
+    
+    PublicKeyView *pbView = [PublicKeyView shareInstance];
+    [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
+        if (dicData) {
+            successBlock(dicData);
+         }else{
+         }
+    }];
+    
+
+}
+
++ (void)getPrikeyByZhujiciSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    NSString *seed = [[LWUserManager shareInstance] getUserModel].jiZhuCi;
+    NSString *jsStr = [NSString stringWithFormat:@"deriveKey('%@',0)",seed];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        PublicKeyView *pbView = [[PublicKeyView alloc] init];
+        [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
+            if (dicData) {
+                successBlock(dicData);
+             }else{
+             }
+        }];
+    });
 }
 @end

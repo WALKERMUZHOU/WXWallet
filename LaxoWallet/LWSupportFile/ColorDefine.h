@@ -37,6 +37,8 @@
 #define lwColorNormal       [UIColor hex:@"#2BB696"]
 #define lwColorNormalLight  [UIColor hex:@"#AEEDDF"]
 
+#define lwColorNormalDeep   [UIColor hex:@"#01424A"]
+
 #define lwColorGray         [UIColor hex:@"#F3F3F3"]
 #define lwColorGray1        [UIColor hex:@"#F1F1F1"]
 #define lwColorGray9        [UIColor hex:@"#F9F9F9"]

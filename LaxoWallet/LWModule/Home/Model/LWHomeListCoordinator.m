@@ -10,4 +10,23 @@
 
 @implementation LWHomeListCoordinator
 
++ (void)getTokenPriceWithSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    [[LWNetWorkSessionManager shareInstance] getPath:Url_Home_tokenPrice parameters:@{} withBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        [SVProgressHUD dismiss];
+        if ([[result objectForKey:@"success"] integerValue] == 1) {//success
+            NSArray *dataArray = [result objectForKey:@"data"];
+            [[NSUserDefaults standardUserDefaults] setObject:dataArray forKey:kAppTokenPrice_userdefault];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            NSLog(@"kAppTokenPrice_userdefault");
+            successBlock(result);
+        }else{
+            if (error) {
+                FailBlock(error);
+            }else{
+                FailBlock(result);
+            }
+        }
+    }];
+}
+
 @end

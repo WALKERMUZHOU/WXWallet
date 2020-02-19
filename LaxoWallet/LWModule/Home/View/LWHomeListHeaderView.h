@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LWHomeWalletModel.h"
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^HeaderViewBlock)(NSInteger selectIndex);
 @interface LWHomeListHeaderView : UIView
 
+@property (nonatomic, copy) HeaderViewBlock headerBlock;
+
+@property (nonatomic, assign) NSInteger currentType;
+@property (nonatomic, strong) NSArray *currentArray;
 @end
 
 NS_ASSUME_NONNULL_END

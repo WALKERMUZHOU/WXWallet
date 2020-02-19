@@ -21,6 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 + (void)getRecoverData:(NSArray *)shares WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
+
++ (void)getSigWithPK:(NSString *)pk message:(NSString *)message SuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
+
++ (void)getPrikeyByZhujiciSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

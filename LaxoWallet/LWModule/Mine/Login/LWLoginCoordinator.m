@@ -118,7 +118,6 @@
 }
 
 + (void)registerUserWithEmail:(NSString *)email WithSuccessBlock:(nonnull void (^)(id _Nonnull))successBlock WithFailBlock:(nonnull void (^)(id _Nonnull))FailBlock{
-    LWTrusteeModel *model = [[LWTrusteeManager shareInstance] getFirstModel];
     
     NSDictionary *paramers = @{@"token":[[LWUserManager shareInstance]getUserModel].token,@"email":email,@"shares":@""};
     NSString *jsonStr = [paramers jsonStringEncoded];

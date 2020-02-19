@@ -24,13 +24,34 @@
 
 @implementation LWHomeListHeaderView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)setCurrentType:(NSInteger)currentType{
+    _currentType = currentType;
 }
-*/
+
+- (void)setCurrentArray:(NSArray *)currentArray{
+    if (self.currentType == 1) {
+        CGFloat bitCount = 0;
+        for (NSInteger i = 0; i<currentArray.count; i++) {
+            LWHomeWalletModel *dataModel = [currentArray objectAtIndex:i];
+            
+            for (NSInteger j = 0; j<dataModel.utxo.count; j++) {
+                LWutxoModel *umodel = [dataModel.utxo objectAtIndex:j];
+                bitCount += umodel.value;
+            }
+        }
+        
+        NSArray *tokenArray = [[NSUserDefaults standardUserDefaults] objectForKey:kAppTokenPrice_userdefault];
+        if (tokenArray.count>0) {
+            NSDictionary *tokenDic = [tokenArray objectAtIndex:0];
+            NSString *tokenPrice = [tokenDic objectForKey:@"cny"];
+            CGFloat personalBitCount = [NSDecimalNumber decimalNumberWithString:tokenPrice].floatValue * bitCount/1e8;
+            self.amountLabel.text = [NSString stringWithFormat:@"%.2f",personalBitCount];
+        }
+
+
+    }
+}
+
 - (IBAction)walletSwitchClick:(UIButton *)sender {
     
     TYAlertView *alertView = [TYAlertView alertViewWithTitle:nil message:nil];
@@ -40,8 +61,12 @@
         if (sender.selected == NO) {
             return ;
         }
+        self.currentType = 1;
         sender.selected = NO;
         self.walletName.text = @"个人钱包";
+        if (self.headerBlock) {
+            self.headerBlock(1);
+        }
         NSLog(@"%@",action.title);
     }]];
     [alertView addAction:[TYAlertAction actionWithTitle:@"多人控制钱包" style:TYAlertActionStyleDefault handler:^(TYAlertAction *action) {
@@ -50,8 +75,11 @@
             return ;
         }
         sender.selected = YES;
+        self.currentType = 2;
         self.walletName.text = @"多人控制钱包";
-
+        if (self.headerBlock) {
+            self.headerBlock(2);
+        }
     }]];
 
     

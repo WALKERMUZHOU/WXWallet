@@ -52,9 +52,9 @@ static PublicKeyView *instance = nil;
 + (instancetype)shareInstance{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
+//        dispatch_async(dispatch_get_main_queue(), ^{
             instance = [[PublicKeyView alloc]init];
-        });
+//        });
     });
     return instance;
 }
@@ -65,7 +65,9 @@ static PublicKeyView *instance = nil;
         UIWindow *window = [UIApplication sharedApplication].windows.firstObject;
         [window addSubview:self];
         self.hidden = NO;
-        [self addSubview:self.webView];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self addSubview:self.webView];
+        });
     }
     return self;
 }

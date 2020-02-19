@@ -28,6 +28,15 @@ typedef NS_OPTIONS(NSInteger,ShareType){
     ShareTypeQQ             = 3,//分享到QQ
 };
 
+typedef NS_OPTIONS(NSInteger, WSRequestId) {
+    WSRequestIdWalletQueryPersonalWallet = 10000,
+    WSRequestIdWalletQueryMulpityWallet = 10001,
+    WSRequestIdWalletQueryTokenPrice = 10002,
+
+
+};
+
+
 // 设备注册
 static NSString * const kDeviceRegister = @"/api/app/next/user/device/register";
 // 用户注册

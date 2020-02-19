@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString      *token;
 
 @property (nonatomic, strong) NSString      *loginSuccess;
+@property (nonatomic, strong) NSString      *jiZhuCi;
 
 @end
 

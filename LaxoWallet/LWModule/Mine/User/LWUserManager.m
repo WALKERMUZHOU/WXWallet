@@ -109,6 +109,12 @@ static LWUserManager *instance = nil;
     return [self userInfoUnArchieve];
 }
 
+- (void)setJiZhuCi:(NSString *)string{
+    LWUserModel *userModel = [self getUserModel];
+    userModel.jiZhuCi = string;
+    [self userInfoArchieve:userModel];
+}
+
 - (void)setLoginSuccess{
     LWUserModel *userModel = [self getUserModel];
     userModel.loginSuccess = @"success";

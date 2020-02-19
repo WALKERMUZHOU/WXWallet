@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (LWUserModel *)getUserModel;
 
 - (void)setEmail:(NSString *)email;
+- (void)setJiZhuCi:(NSString *)string;
 - (void)setLoginSuccess;
 @end
 

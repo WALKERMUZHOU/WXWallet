@@ -7,10 +7,12 @@
 //
 
 #import "MGSwipeTableCell.h"
-
+#import "LWHomeWalletModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWHomeListCell : MGSwipeTableCell
+
+@property (nonatomic, strong) LWHomeWalletModel *model;
 
 @end
 

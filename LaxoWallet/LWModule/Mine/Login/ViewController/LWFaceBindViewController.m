@@ -30,7 +30,7 @@
     self.titleLabel.textColor = lwColorBlack1;
     [self.view addSubview:self.titleLabel];
     self.titleLabel.numberOfLines = 0;
-    self.titleLabel.font = kBoldFont(16);
+    self.titleLabel.font = kSemBoldFont(16);
     self.titleLabel.text = @"开启人脸识别可以确保只有你才可以开启钱包";
     NSLog(@"navi:%ld",(long)kNavigationBarHeight);
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -82,7 +82,12 @@
         case TDTouchIDSupperTypeTouchID:
             NSLog(@"😄支持TouchID");
             break;
-        case TDTouchIDSupperTypeNone:
+        case TDTouchIDSupperTypeNone:{
+            [[NSUserDefaults standardUserDefaults] setObject:@"None" forKey:kAppTouchIdStart_userdefault];
+             [[LWUserManager shareInstance] setLoginSuccess];
+             [[NSUserDefaults standardUserDefaults] synchronize];
+             [LogicHandle showTabbarVC];
+        }
             NSLog(@"😭不支持生物验证");
             break;
         default:

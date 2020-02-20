@@ -9,11 +9,11 @@
 #import "LBXAlertAction.h"
 #import <LBXScanViewController.h>
 
+typedef void(^ScanResultBlock)(LBXScanResult *result);
+
 #pragma mark -模仿qq界面
 //继承LBXScanViewController,在界面上绘制想要的按钮，提示语等
 @interface QQLBXScanViewController : LBXScanViewController
-
-
 
 /**
  @brief  扫码区域上方提示文字
@@ -35,5 +35,6 @@
 
 + (LBXScanViewStyle*)qqStyle;
 
+@property (nonatomic, copy) ScanResultBlock scanresult;
 
 @end

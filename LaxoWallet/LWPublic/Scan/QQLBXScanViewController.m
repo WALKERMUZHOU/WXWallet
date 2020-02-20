@@ -41,8 +41,6 @@
 {
     [super viewDidAppear:animated];
     
-    
-    
     [self drawBottomItems];
     [self drawTitle];
     [self.view bringSubviewToFront:_topTitle];
@@ -234,6 +232,9 @@
 
 - (void)showNextVCWithScanResult:(LBXScanResult*)strResult
 {
+    if (self.scanresult) {
+        self.scanresult(strResult);
+    }
 //    ScanResultViewController *vc = [ScanResultViewController new];
 //    vc.imgScan = strResult.imgScanned;
 //

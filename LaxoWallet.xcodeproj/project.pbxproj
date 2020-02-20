@@ -178,6 +178,9 @@
 		5EF513E423F550F200F5B6C1 /* LWInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF513D823F550F100F5B6C1 /* LWInputTextView.m */; };
 		5EF513E723F5510E00F5B6C1 /* LWFaceBindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF513E623F5510E00F5B6C1 /* LWFaceBindViewController.m */; };
 		8BA1F18DF19D200E156D0DBA /* Pods_LaxoWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF47138CD83B72FC74CEF49 /* Pods_LaxoWallet.framework */; };
+		EFEBEEA423FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEBEEA223FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m */; };
+		EFEBEEA523FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEBEEA323FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib */; };
+		EFEBEEA823FE57C0006D4B5F /* LWBottomLineInputTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEBEEA723FE57C0006D4B5F /* LWBottomLineInputTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -530,6 +533,11 @@
 		5EF513D923F550F200F5B6C1 /* LWInputTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWInputTextField.h; sourceTree = "<group>"; };
 		5EF513E523F5510D00F5B6C1 /* LWFaceBindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWFaceBindViewController.h; sourceTree = "<group>"; };
 		5EF513E623F5510E00F5B6C1 /* LWFaceBindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWFaceBindViewController.m; sourceTree = "<group>"; };
+		EFEBEEA123FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPersonalTransferAccountViewController.h; sourceTree = "<group>"; };
+		EFEBEEA223FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPersonalTransferAccountViewController.m; sourceTree = "<group>"; };
+		EFEBEEA323FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWPersonalTransferAccountViewController.xib; sourceTree = "<group>"; };
+		EFEBEEA623FE57C0006D4B5F /* LWBottomLineInputTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWBottomLineInputTextField.h; sourceTree = "<group>"; };
+		EFEBEEA723FE57C0006D4B5F /* LWBottomLineInputTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWBottomLineInputTextField.m; sourceTree = "<group>"; };
 		FEF47138CD83B72FC74CEF49 /* Pods_LaxoWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LaxoWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1153,6 +1161,9 @@
 				5EF5133823F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.xib */,
 				5EF5137323F273DB00F5B6C1 /* LWTestWebView.h */,
 				5EF5137423F273DB00F5B6C1 /* LWTestWebView.m */,
+				EFEBEEA123FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.h */,
+				EFEBEEA223FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m */,
+				EFEBEEA323FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1667,9 +1678,11 @@
 			isa = PBXGroup;
 			children = (
 				5EF513D623F550F100F5B6C1 /* LWInputTextView.h */,
-				5EF513D723F550F100F5B6C1 /* LWInputTextField.m */,
 				5EF513D823F550F100F5B6C1 /* LWInputTextView.m */,
 				5EF513D923F550F200F5B6C1 /* LWInputTextField.h */,
+				5EF513D723F550F100F5B6C1 /* LWInputTextField.m */,
+				EFEBEEA623FE57C0006D4B5F /* LWBottomLineInputTextField.h */,
+				EFEBEEA723FE57C0006D4B5F /* LWBottomLineInputTextField.m */,
 			);
 			path = LWInputView;
 			sourceTree = "<group>";
@@ -1800,6 +1813,7 @@
 				5EA807A823E94E2400012837 /* LaunchScreen.storyboard in Resources */,
 				5E23584B23FBE09D00A7D774 /* index1.js in Resources */,
 				5EF5133A23F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.xib in Resources */,
+				EFEBEEA523FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib in Resources */,
 				5E5F130223EDD97F002F0711 /* PageController.bundle in Resources */,
 				5EF5132E23F1072900F5B6C1 /* turbo.js in Resources */,
 				5E5F12D523ED8BC3002F0711 /* LWRecoveryFileView.xib in Resources */,
@@ -1926,6 +1940,7 @@
 				5E5F12A323EC0E12002F0711 /* WMZDialog+Advertisement.m in Sources */,
 				5EF513DC23F550F200F5B6C1 /* CZRefreshHeader.m in Sources */,
 				5E5F128C23EC0E12002F0711 /* WMZDialog+NaviMenu.m in Sources */,
+				EFEBEEA423FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m in Sources */,
 				5E5F129F23EC0E12002F0711 /* NSDate+WMZCalendarDate.m in Sources */,
 				5EF513E323F550F200F5B6C1 /* LWInputTextField.m in Sources */,
 				5E5F129023EC0E12002F0711 /* WMZDialog+Down.m in Sources */,
@@ -2010,6 +2025,7 @@
 				5E66A34D23EAB595004097CB /* CZRefreshHeader.m in Sources */,
 				5E5F129423EC0E12002F0711 /* WMZDialog+Pay.m in Sources */,
 				5E5F129923EC0E12002F0711 /* WMZDialog+CardPresent.m in Sources */,
+				EFEBEEA823FE57C0006D4B5F /* LWBottomLineInputTextField.m in Sources */,
 				5E66A3CE23EBFAA2004097CB /* UIImage+ImageEffects.m in Sources */,
 				5EF5133923F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.m in Sources */,
 				5E66A39523EAF01A004097CB /* LWHomeWalletModel.m in Sources */,
@@ -2192,13 +2208,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y448MX3988;
-				GCC_PREFIX_HEADER = /Users/zhuchenglong/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/bitmesh/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
 				INFOPLIST_FILE = LaxoWallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LaxoWallet.LaxoWallet1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.laxo.wallet11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2211,13 +2227,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y448MX3988;
-				GCC_PREFIX_HEADER = /Users/zhuchenglong/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/bitmesh/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
 				INFOPLIST_FILE = LaxoWallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LaxoWallet.LaxoWallet1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.laxo.wallet11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

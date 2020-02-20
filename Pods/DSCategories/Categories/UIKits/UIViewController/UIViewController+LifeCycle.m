@@ -20,7 +20,7 @@
 
 - (void)deallocSwizzle
 {
-    NSLog(@"%@被销毁了", self);
+//    NSLog(@"%@被销毁了", self);
     [self deallocSwizzle];
 }
 

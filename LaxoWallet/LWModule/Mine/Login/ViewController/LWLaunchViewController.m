@@ -61,30 +61,36 @@
 }
 
 - (void)faceIDCheck{
-        [[TDTouchID sharedInstance] td_showTouchIDWithDescribe:@"通过Home键验证已有指纹" FaceIDDescribe:@"通过已有面容ID验证" BlockState:^(TDTouchIDState state, NSError *error) {
-            if (state == TDTouchIDStateNotSupport) {    //不支持TouchID/FaceID
-                UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"当前设备不支持生物验证,请打开生物识别" message:nil preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *alertAc = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
-                    #define iOS10 ([[UIDevice currentDevice].systemVersion doubleValue] >= 10.0)
-                    if (iOS10) {
-                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
-                    } else {
-                        [[UIApplication sharedApplication] openURL: [NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-                    }
-                }];
-                [alertVC addAction:alertAc];
-                [self presentViewController:alertVC animated:YES completion:nil];
+    TDTouchIDSupperType type = [[TDTouchID sharedInstance] td_canSupperBiometrics];
+    if (type == TDTouchIDSupperTypeNone) {
+        [LogicHandle showTabbarVC];
+        return;
+    }
+    
+    [[TDTouchID sharedInstance] td_showTouchIDWithDescribe:@"通过Home键验证已有指纹" FaceIDDescribe:@"通过已有面容ID验证" BlockState:^(TDTouchIDState state, NSError *error) {
+        if (state == TDTouchIDStateNotSupport) {    //不支持TouchID/FaceID
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"当前设备不支持生物验证,请打开生物识别" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *alertAc = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
-                
-            } else if (state == TDTouchIDStateSuccess) {    //TouchID/FaceID验证成功
-                [LogicHandle showTabbarVC];
-            } else if (state == TDTouchIDStateInputPassword) { //用户选择手动输入密码
-    //            UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"当前设备不支持生物验证" message:@"请输入密码来验证" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-    //            alertview.alertViewStyle = UIAlertViewStyleSecureTextInput;
-    //            [alertview show];
-            }
-        }];
+                if (@available(iOS 10.0, *)){
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+                }else{
+                    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                }
+
+            }];
+            [alertVC addAction:alertAc];
+            [self presentViewController:alertVC animated:YES completion:nil];
+            
+            
+        } else if (state == TDTouchIDStateSuccess) {    //TouchID/FaceID验证成功
+            [LogicHandle showTabbarVC];
+        } else if (state == TDTouchIDStateInputPassword) { //用户选择手动输入密码
+//            UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"当前设备不支持生物验证" message:@"请输入密码来验证" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//            alertview.alertViewStyle = UIAlertViewStyleSecureTextInput;
+//            [alertview show];
+        }
+    }];
 }
 
 /*

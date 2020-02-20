@@ -41,6 +41,9 @@
 
 #define lwColorGray         [UIColor hex:@"#F3F3F3"]
 #define lwColorGray1        [UIColor hex:@"#F1F1F1"]
+#define lwColorGray2        [UIColor hex:@"#909499"]
+#define lwColorGray3        [UIColor hex:@"#E1E1E1"]
+
 #define lwColorGray9        [UIColor hex:@"#F9F9F9"]
 #define lwColorGrayC1       [UIColor hex:@"#C1C1C1"]
 

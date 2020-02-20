@@ -47,8 +47,6 @@
             CGFloat personalBitCount = [NSDecimalNumber decimalNumberWithString:tokenPrice].floatValue * bitCount/1e8;
             self.amountLabel.text = [NSString stringWithFormat:@"%.2f",personalBitCount];
         }
-
-
     }
 }
 
@@ -82,10 +80,8 @@
         }
     }]];
 
-    
     TYAlertController *alertController = [TYAlertController alertControllerWithAlertView:alertView preferredStyle:TYAlertControllerStyleActionSheet];
     [LogicHandle presentViewController:alertController animate:YES];
-    
 }
 
 

@@ -49,7 +49,7 @@
     
     UILabel *titleLabel = [[UILabel alloc]init];
     titleLabel.textColor = lwColorLabel1;
-    titleLabel.font = kBoldFont(16);
+    titleLabel.font = kSemBoldFont(16);
     titleLabel.numberOfLines = 0;
     titleLabel.text = @"you are creating a multiparty wallet that requires n out of m(m>n) members to successfully sign a transaction";
     [self.scrollView addSubview:titleLabel];

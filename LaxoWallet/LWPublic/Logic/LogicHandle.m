@@ -28,7 +28,8 @@
 }
 
 + (void)pushViewController:(UIViewController *)viewController animate:(BOOL)animated{
-    UIViewController *selectVC = [UIApplication sharedApplication].windows.lastObject.rootViewController;
+    AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    UIViewController *selectVC = appdelete.window.rootViewController;
     if ([selectVC isKindOfClass:[LWNavigationViewController class]]) {
         viewController.hidesBottomBarWhenPushed = YES;
         [(LWNavigationViewController *)selectVC pushViewController:viewController animated:animated];
@@ -41,14 +42,15 @@
 }
 
 + (void)presentViewController:(UIViewController *)viewController animate:(BOOL)animated{
-    
+
+    viewController.modalPresentationStyle = 0;
     [[LogicHandle topViewController] presentViewController:viewController animated:YES completion:nil];
     
 }
 
 + (UIViewController *)topViewController {
     UIViewController *resultVC;
-    resultVC = [[self class] _topViewController:[[UIApplication sharedApplication].windows.lastObject rootViewController]];
+    resultVC = [[self class] _topViewController:[[UIApplication sharedApplication].delegate.window rootViewController]];
     while (resultVC.presentedViewController) {
         resultVC = [[self class] _topViewController:resultVC.presentedViewController];
     }
@@ -73,7 +75,7 @@
 }
 
 + (void)popToCurrentRootViewController{
-    UIViewController *selectVC = [UIApplication sharedApplication].windows.lastObject.rootViewController;
+    UIViewController *selectVC = [UIApplication sharedApplication].delegate.window.rootViewController;
     if ([selectVC isKindOfClass:[LWNavigationViewController class]]) {
         [(LWNavigationViewController *)selectVC popToRootViewControllerAnimated:YES];
     }else if ([selectVC isKindOfClass:[UITabBarController class]]){
@@ -82,7 +84,7 @@
         [naviVC popToRootViewControllerAnimated:YES];
     }
 }
-
+          
 + (void)showLoginVC{
     LWLoginViewController *loginVC = [[LWLoginViewController alloc]init];
     AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -92,6 +94,7 @@
 + (void)showTabbarVC{
     LWTabBarViewController *tabBarVC = [[LWTabBarViewController alloc]init];
     AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appdelete.tabBarVC = tabBarVC;
     appdelete.window.rootViewController = tabBarVC;
 }
 

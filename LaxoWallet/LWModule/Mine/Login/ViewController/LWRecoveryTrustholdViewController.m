@@ -34,7 +34,7 @@
     self.titleLabel.textColor = lwColorBlack1;
     [self.view addSubview:self.titleLabel];
     self.titleLabel.numberOfLines = 0;
-    self.titleLabel.font = kBoldFont(16);
+    self.titleLabel.font = kSemBoldFont(16);
     self.titleLabel.text = @"请输入来自trusthold的验证码恢复钱包";
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

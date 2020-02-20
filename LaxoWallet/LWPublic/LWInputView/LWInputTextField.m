@@ -39,7 +39,7 @@
     if(self.textFieldType &&( self.textFieldType == 2 || self.textFieldType == 3)){
         self.button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 70, self.frame.size.height)];
         [self.button setTitle:@"BSV ▼" forState:UIControlStateNormal];
-        [self.button.titleLabel setFont:kBoldFont(16)];
+        [self.button.titleLabel setFont:kSemBoldFont(16)];
         [self.button setTitleColor:lwColorBlack forState:UIControlStateNormal];
         [self.button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.button];

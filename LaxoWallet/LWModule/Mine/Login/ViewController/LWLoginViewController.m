@@ -73,7 +73,7 @@
     self.titleLabel.textColor = lwColorBlack1;
     [self.view addSubview:self.titleLabel];
     self.titleLabel.numberOfLines = 0;
-    self.titleLabel.font = kBoldFont(16);
+    self.titleLabel.font = kSemBoldFont(16);
     self.titleLabel.text = @"你需要绑定邮箱并且备份钱包之后才可以进行";
     NSLog(@"navi:%ld",(long)kNavigationBarHeight);
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

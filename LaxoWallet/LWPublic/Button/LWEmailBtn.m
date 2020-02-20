@@ -17,14 +17,14 @@
         self.layer.cornerRadius = 5;
         self.layer.masksToBounds = YES;
         [self setTitleColor:lwColorBlack forState:UIControlStateNormal];
-        [self.titleLabel setFont:kBoldFont(15)];
+        [self.titleLabel setFont:kSemBoldFont(15)];
     }
     return self;
 }
 
 - (CGFloat)getCurrentWidth{
     if (self.titleLabel.text.length>0) {
-        CGSize titleSize = [self.titleLabel.text boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:kBoldFont(15)} context:nil].size;
+        CGSize titleSize = [self.titleLabel.text boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:kSemBoldFont(15)} context:nil].size;
         return titleSize.width + 7;
     }
     return 0.f;

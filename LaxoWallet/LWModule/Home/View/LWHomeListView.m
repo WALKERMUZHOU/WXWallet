@@ -7,11 +7,13 @@
 //
 
 #import "LWHomeListView.h"
+#import "LWHomeListCell.h"
+#import "LWHomeListHeaderView.h"
 
 #import "LWHomeListCoordinator.h"
-#import "LWHomeListCell.h"
 #import "LWHomeWalletModel.h"
-#import "LWHomeListHeaderView.h"
+
+#import "LWPersonalTransferAccountViewController.h"
 
 @interface LWHomeListView()<LWCoordinatorDelegate,MGSwipeTableCellDelegate>{
     NSIndexPath *_deleteIndexPath;
@@ -101,12 +103,14 @@
     MGSwipeButton *leftBtn = [MGSwipeButton buttonWithTitle:@"转账" backgroundColor:lwColorNormal];
     leftBtn.buttonWidth = 90;
     leftBtn.callback = ^BOOL(MGSwipeTableCell * _Nonnull cell) {
+        [self transferAccount:indexPath.row];
         return YES;
     };
     cell.leftButtons = @[leftBtn];
     MGSwipeButton *rightBtn = [MGSwipeButton buttonWithTitle:@"收款" backgroundColor:lwColorNormalDeep];
     rightBtn.buttonWidth = 90;
     rightBtn.callback = ^BOOL(MGSwipeTableCell * _Nonnull cell) {
+        [self collection:indexPath.row];
         return YES;
     };
     cell.rightButtons = @[rightBtn];
@@ -165,7 +169,7 @@
 //        [leftButton setTitle:@"转账" forState:UIControlStateNormal];
 //        [leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 //        [leftButton setBackgroundColor:lwColorNormal];
-//        [leftButton.titleLabel setFont:kBoldFont(40)];
+//        [leftButton.titleLabel setFont:kSemBoldFont(40)];
 //        [leftButton addTarget:self action:@selector(transferAccount:) forControlEvents:UIControlEventTouchUpInside];
 //        return @[leftButton];
 //    }
@@ -179,7 +183,7 @@
 //        [rightButton setTitle:@"收款" forState:UIControlStateNormal];
 //        [rightButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 //        [rightButton setBackgroundColor:lwColorNormalDeep];
-//        [rightButton.titleLabel setFont:kBoldFont(40)];
+//        [rightButton.titleLabel setFont:kSemBoldFont(40)];
 //        [rightButton addTarget:self action:@selector(collection:) forControlEvents:UIControlEventTouchUpInside];
 //
 //        return @[rightButton];
@@ -242,11 +246,12 @@
     [self.tableView reloadData];
 }
 
-- (void)collection:(UIButton *)sender{
+- (void)collection:(NSInteger)index{
     
 }
 
-- (void)transferAccount:(UIButton *)sender{
-    
+- (void)transferAccount:(NSInteger)index{
+    LWPersonalTransferAccountViewController *personalTA = [[LWPersonalTransferAccountViewController alloc]init];
+    [LogicHandle presentViewController:personalTA animate:YES];
 }
 @end

@@ -9,9 +9,13 @@
 #ifndef NotifcationMacros_h
 #define NotifcationMacros_h
 
+#pragma mark - notification
 #define kUserAccountLogOut          @"userAccountLogOut"
 #define KUserAccountLogIn           @"userAccountLogIn"
 #define kUserAccountChangeMobile    @"userAccountChangeMobile"
+
+#define kWebScoket_createSingleAddress  @"kWebScoket_createSingleAddress"
+
 
 #pragma mark - Userdefault
 #define kAppConstantFirstInstall    @"kAppConstantFirstInstall"
@@ -31,5 +35,8 @@
 #define kAppPubkeyManager_userdefault   @"NSUserDefaultPubkeyManagerssss"
 #define kAppTouchIdStart_userdefault   @"kAppTouchIdStart_userdefault"
 #define kAppTokenPrice_userdefault   @"kAppTokenPrice_userdefault"
+
+#define kAppCurrentLanguage_userdefault   @"kAppCurrentLanguage_userdefault"
+#define kAppCurrentCurrency_userdefault   @"kAppCurrentCurrency_userdefault"
 
 #endif /* NotifcationMacros_h */

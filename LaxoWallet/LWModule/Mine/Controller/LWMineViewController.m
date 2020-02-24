@@ -7,7 +7,7 @@
 //
 
 #import "LWMineViewController.h"
-
+#import "LWMineView.h"
 @interface LWMineViewController ()
 
 @end
@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self createUI];
+}
+
+- (void)createUI{
+    LWMineView *mineView = [[LWMineView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    [self.view addSubview:mineView];
 }
 
 /*

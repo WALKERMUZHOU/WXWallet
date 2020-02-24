@@ -159,6 +159,7 @@
         NSDictionary *dataDic = [data objectForKey:@"data"];
         if(dataDic && dataDic.allKeys.count>0){
             [[LWUserManager shareInstance] setUserDic:dataDic];
+            [[LWUserManager shareInstance] setEmail:self.emailStr];
             if([[LWUserManager shareInstance] getUserModel].uid.length>0){//老用户
                 [self jumpToRecoveryVC];
             }else{

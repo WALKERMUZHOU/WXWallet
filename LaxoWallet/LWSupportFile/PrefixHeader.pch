@@ -43,6 +43,7 @@
 #import "LWTrusteeManager.h"
 #import "LWUserManager.h"
 #import "LWTokenManager.h"
+#import "LWPublicManager.h"
 
 #import "SceneDelegate.h"
 #import "AppDelegate.h"
@@ -56,6 +57,7 @@
 #import "SVProgressHUD.h"
 #import "YYKit.h"
 #import "MPMessagePack.h"
+#import "SocketRocketUtility.h"
 
 #import "UIView+Frame.h"
 #import "NSArray+SafeAccess.h"

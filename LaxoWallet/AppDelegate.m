@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "LWLoginViewController.h"
 #import "LWLoginCoordinator.h"
+#import "LWHomeListCoordinator.h"
+
 #import "PublicKeyView.h"
 #import "LWRocoveryViewController.h"
 #import "LWFaceBindViewController.h"
@@ -33,11 +35,12 @@
     //    LWHomeViewController *homeVC = [[LWHomeViewController alloc]init];
     //    self.window.rootViewController = homeVC;
     [self getTrueteeData];
-//    [LogicHandle showLoginVC];
+    [self getCurrentTokenPrice];
+    [LogicHandle showTabbarVC];
     
 //    LWFaceBindViewController *vc = [[LWFaceBindViewController alloc]init];
 //    self.window.rootViewController = [[LWNavigationViewController alloc] initWithRootViewController:vc];
-    [LogicHandle chooseStartVC];
+//    [LogicHandle chooseStartVC];
     [self.window makeKeyAndVisible];
     
     // Override point for customization after application launch.
@@ -73,4 +76,11 @@
     }];
 }
 
+- (void)getCurrentTokenPrice{
+    [LWHomeListCoordinator getTokenPriceWithSuccessBlock:^(id  _Nonnull data) {
+        
+    } WithFailBlock:^(id  _Nonnull data) {
+        [self getCurrentTokenPrice];
+    }];
+}
 @end

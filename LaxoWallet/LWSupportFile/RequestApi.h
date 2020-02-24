@@ -32,7 +32,7 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestIdWalletQueryPersonalWallet = 10000,
     WSRequestIdWalletQueryMulpityWallet = 10001,
     WSRequestIdWalletQueryTokenPrice = 10002,
-
+    WSRequestIdWalletQuerySingleAddress = 10003,
 
 };
 

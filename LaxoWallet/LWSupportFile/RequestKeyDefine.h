@@ -32,6 +32,7 @@ static NSString * const Url_Login_requestRecover = @"method=user.recover";// 恢
 static NSString * const Url_Login_register = @"method=user.register";//注册
 
 static NSString * const Url_Home_tokenPrice = @"method=wallet.tokenPrice";//获取实时价格
+static NSString * const Url_Home_SingleAddress = @"method=wallet.createSingleAddress";//获取个人收款地址
 
 
 

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)getTokenPriceWithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
 
++ (void)getCollectionCodeWithWalletId:(NSInteger)walletID withSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
 @end
 
 NS_ASSUME_NONNULL_END

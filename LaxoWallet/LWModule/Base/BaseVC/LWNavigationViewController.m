@@ -9,7 +9,7 @@
 #import "LWNavigationViewController.h"
 #import "LWTabBarViewController.h"
 #import "LWHomeViewController.h"
-
+#import "LWMineViewController.h"
 @interface LWNavigationViewController ()<UINavigationControllerDelegate>
 
 @end
@@ -27,15 +27,20 @@
     
     
     BOOL hiddenAnimate = NO;
-    NSInteger count = ((LWTabBarViewController *)viewController.tabBarController).delayIndex;
+    NSInteger count = ((LWTabBarViewController *)viewController.tabBarController).axcTabBar.selectIndex;
 //    NSLog(@"tableView willShow delayIndex %ld",(long)count);
     if (count == 0) {
         hiddenAnimate = YES;
+        BOOL isShowHomePage = [viewController isKindOfClass:[LWHomeViewController class]];
+        [self setNavigationBarHidden:isShowHomePage animated:hiddenAnimate];
     }
-    BOOL isShowHomePage = [viewController isKindOfClass:[LWHomeViewController class]];
     
-    [self setNavigationBarHidden:isShowHomePage animated:hiddenAnimate];
-    
+    if (count == 2) {
+        hiddenAnimate = YES;
+        BOOL isShowHomePage = [viewController isKindOfClass:[LWMineViewController class]];
+        [self setNavigationBarHidden:isShowHomePage animated:hiddenAnimate];
+    }
+
 }
 
 

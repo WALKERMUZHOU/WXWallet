@@ -29,24 +29,26 @@
 }
 
 - (void)setCurrentArray:(NSArray *)currentArray{
-    if (self.currentType == 1) {
-        CGFloat bitCount = 0;
-        for (NSInteger i = 0; i<currentArray.count; i++) {
-            LWHomeWalletModel *dataModel = [currentArray objectAtIndex:i];
-            
-            for (NSInteger j = 0; j<dataModel.utxo.count; j++) {
-                LWutxoModel *umodel = [dataModel.utxo objectAtIndex:j];
-                bitCount += umodel.value;
-            }
+    if (currentArray.count == 0) {
+        self.amountLabel.text = @"0";
+        return;
+    }
+    
+    CGFloat bitCount = 0;
+    for (NSInteger i = 0; i<currentArray.count; i++) {
+        LWHomeWalletModel *dataModel = [currentArray objectAtIndex:i];
+        for (NSInteger j = 0; j<dataModel.utxo.count; j++) {
+            LWutxoModel *umodel = [dataModel.utxo objectAtIndex:j];
+            bitCount += umodel.value;
         }
-        
-        NSArray *tokenArray = [[NSUserDefaults standardUserDefaults] objectForKey:kAppTokenPrice_userdefault];
-        if (tokenArray.count>0) {
-            NSDictionary *tokenDic = [tokenArray objectAtIndex:0];
-            NSString *tokenPrice = [tokenDic objectForKey:@"cny"];
-            CGFloat personalBitCount = [NSDecimalNumber decimalNumberWithString:tokenPrice].floatValue * bitCount/1e8;
-            self.amountLabel.text = [NSString stringWithFormat:@"%.2f",personalBitCount];
-        }
+    }
+    
+    NSArray *tokenArray = [[NSUserDefaults standardUserDefaults] objectForKey:kAppTokenPrice_userdefault];
+    if (tokenArray.count>0) {
+        NSDictionary *tokenDic = [tokenArray objectAtIndex:0];
+        NSString *tokenPrice = [tokenDic objectForKey:@"cny"];
+        CGFloat personalBitCount = [NSDecimalNumber decimalNumberWithString:tokenPrice].floatValue * bitCount/1e8;
+        self.amountLabel.text = [NSString stringWithFormat:@"%.2f",personalBitCount];
     }
 }
 

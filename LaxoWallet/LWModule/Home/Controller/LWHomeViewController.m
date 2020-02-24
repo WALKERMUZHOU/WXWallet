@@ -12,7 +12,6 @@
 
 #import "PublicKeyView.h"
 #import "PubkeyManager.h"
-#import "SocketRocketUtility.h"
 
 @interface LWHomeViewController ()
 
@@ -70,18 +69,18 @@
 
 - (void)SRWebSocketDidOpen {
     NSLog(@"开启成功");
-    NSArray *requetCurrentPriceArray = @[@"req",@(WSRequestIdWalletQueryTokenPrice),@"wallet.tokenPrice",@[]];
+    NSArray *requetCurrentPriceArray = @[@"req",@(WSRequestIdWalletQueryTokenPrice),@"wallet.tokenPrice",@""];
     [[SocketRocketUtility instance] sendData:[requetCurrentPriceArray mp_messagePack]];
 
     NSDictionary *params = @{@"type":@1};
     NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQueryPersonalWallet),@"wallet.query",[params jsonStringEncoded]];
     NSData *data = [requestPersonalWalletArray mp_messagePack];
     [[SocketRocketUtility instance] sendData:data];
-    
+
     NSDictionary *multipyparams = @{@"type":@2};
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMulpityWallet),@"wallet.query",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
-    
+
 }
 
 - (void)SRWebSocketDidReceiveMsg:(NSNotification *)note {
@@ -102,6 +101,9 @@
                 case WSRequestIdWalletQueryTokenPrice:
                     [self manageTokenPrice:responseArray[2]];
                     break;
+                case WSRequestIdWalletQuerySingleAddress:
+                    [self manageCollectionAddress:responseArray[2]];
+                    break;
                 default:
                     break;
             }
@@ -118,6 +120,7 @@
 }
 
 - (void)manageMultipyWalletData:(NSDictionary *)personalData{
+    [SVProgressHUD dismiss];
     [self.listView setMultipyWalletdata:personalData];
 }
 
@@ -127,6 +130,10 @@
     NSArray *dataArray = [tokenPrice objectForKey:@"data"];
     [[NSUserDefaults standardUserDefaults] setObject:dataArray forKey:kAppTokenPrice_userdefault];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)manageCollectionAddress:(id)addressDic{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_createSingleAddress object:addressDic];
 }
 /*
 #pragma mark - Navigation

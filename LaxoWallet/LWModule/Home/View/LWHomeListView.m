@@ -14,6 +14,7 @@
 #import "LWHomeWalletModel.h"
 
 #import "LWPersonalTransferAccountViewController.h"
+#import "LWPersonalCollectionViewController.h"
 
 @interface LWHomeListView()<LWCoordinatorDelegate,MGSwipeTableCellDelegate>{
     NSIndexPath *_deleteIndexPath;
@@ -34,7 +35,7 @@
     self = [super initWithFrame:frame style:UITableViewStyleGrouped];
     _listType = 1;
     if (self) {
-        self.currentViewType = WSRequestIdWalletQueryPersonalWallet;
+        self.currentViewType = LWHomeListViewTypePersonalWallet;
         
         [self setRefreshHeaderAndFooterNeeded:NO];
         if (@available(iOS 11.0, *)){
@@ -57,18 +58,19 @@
             [weakSelf changeCurrentSelectData:selectIndex];
         };
         self.tableView.tableHeaderView = self.headerView;
-        
+        [self initWsInfo];
     }
     return self;
 }
 
-- (void)loadDataWithPage:(NSUInteger)currentPage{
+- (void)initWsInfo{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress object:nil];
+}
 
-    
+- (void)loadDataWithPage:(NSUInteger)currentPage{
     if (currentPage) {
         self.currentPage = currentPage;
     }
-
     NSDictionary *paramers = @{@"pageNum":@(self.currentPage),@"pageSize":@(20)};
  //   [self.tableView reloadData];
 }
@@ -152,48 +154,6 @@
     return YES;
 }
 
-//-(NSArray*) swipeTableCell:(MGSwipeTableCell*) cell swipeButtonsForDirection:(MGSwipeDirection)direction
-//             swipeSettings:(MGSwipeSettings*) swipeSettings expansionSettings:(MGSwipeExpansionSettings*) expansionSettings
-//{
-//
-//    swipeSettings.transition = MGSwipeTransitionBorder;
-//    expansionSettings.buttonIndex = 0;
-//
-//    if (direction == MGSwipeDirectionLeftToRight) {
-//
-//        expansionSettings.fillOnTrigger = NO;
-//        expansionSettings.threshold = 2;
-//
-//        UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeSystem];
-//        leftButton.frame = CGRectMake(0, 0, 100, 90);
-//        [leftButton setTitle:@"转账" forState:UIControlStateNormal];
-//        [leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//        [leftButton setBackgroundColor:lwColorNormal];
-//        [leftButton.titleLabel setFont:kSemBoldFont(40)];
-//        [leftButton addTarget:self action:@selector(transferAccount:) forControlEvents:UIControlEventTouchUpInside];
-//        return @[leftButton];
-//    }
-//    else {
-//
-//        expansionSettings.fillOnTrigger = YES;
-//        expansionSettings.threshold = 2;
-//
-//        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeSystem];
-//        rightButton.frame = CGRectMake(0, 0, 100, 90);
-//        [rightButton setTitle:@"收款" forState:UIControlStateNormal];
-//        [rightButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//        [rightButton setBackgroundColor:lwColorNormalDeep];
-//        [rightButton.titleLabel setFont:kSemBoldFont(40)];
-//        [rightButton addTarget:self action:@selector(collection:) forControlEvents:UIControlEventTouchUpInside];
-//
-//        return @[rightButton];
-//
-//    }
-//
-//    return nil;
-//
-//}
-
 -(void) swipeTableCell:(MGSwipeTableCell*) cell didChangeSwipeState:(MGSwipeState)state gestureIsActive:(BOOL)gestureIsActive
 {
     NSString * str;
@@ -213,7 +173,7 @@
     if (dataArray.count>0) {
         self.personalDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:dataArray];
         [self.headerView setCurrentArray:self.personalDataArray];
-        if (self.currentViewType == WSRequestIdWalletQueryPersonalWallet) {
+        if (self.currentViewType == LWHomeListViewTypePersonalWallet) {
             [self.dataSource removeAllObjects];
             [self.dataSource addObjectsFromArray:self.personalDataArray];
             [self.tableView reloadData];
@@ -225,7 +185,8 @@
     NSArray *dataArray = [multipyDic objectForKey:@"data"];
     if (dataArray.count>0) {
         self.multipyDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:dataArray];
-        if (self.currentViewType == WSRequestIdWalletQueryMulpityWallet) {
+        [self.headerView setCurrentArray:self.multipyDataArray];
+        if (self.currentViewType == LWHomeListViewTypeMultipyWallet) {
             [self.dataSource removeAllObjects];
             [self.dataSource addObjectsFromArray:self.multipyDataArray];
             [self.tableView reloadData];
@@ -247,6 +208,29 @@
 }
 
 - (void)collection:(NSInteger)index{
+    if(self.currentViewType == LWHomeListViewTypePersonalWallet){
+        [self getQrCodeWithIndex:index];
+    }
+}
+
+- (void)getQrCodeWithIndex:(NSInteger)index{
+    LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
+    NSDictionary *params = @{@"wid":@(model.walletId)};
+    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQuerySingleAddress),@"wallet.createSingleAddress",[params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    [[SocketRocketUtility instance] sendData:data];
+    
+//    [LWHomeListCoordinator getCollectionCodeWithWalletId:model.walletId withSuccessBlock:^(id  _Nonnull data) {
+//
+//    } WithFailBlock:^(id  _Nonnull data) {
+//
+//    }];
+}
+
+- (void)createSingleAddress:(NSNotification *)notification{
+#warning 对返回的rid 需要调用rust库 进行数据处理
+    LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:@"asdakslhdaks"];
+    [LogicHandle presentViewController:personVC animate:YES];
     
 }
 

@@ -22,7 +22,7 @@
 - (void)createUI{
     [self setBackgroundColor:lwColorNormal forState:UIControlStateSelected];
     [self setBackgroundColor:lwColorGrayC1 forState:UIControlStateNormal];
-    [self.titleLabel setFont:kSemBoldFont(20)];
+    [self.titleLabel setFont:kMediumFont(20)];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -10,10 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface LWHomeListCoordinator : LWBaseCoordinator
 
 + (void)getTokenPriceWithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
-
 
 @end
 

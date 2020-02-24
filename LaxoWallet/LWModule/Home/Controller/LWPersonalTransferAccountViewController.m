@@ -9,6 +9,7 @@
 #import "LWPersonalTransferAccountViewController.h"
 #import "LWBottomLineInputTextField.h"
 #import "LWCommonBottomBtn.h"
+#import "UIView+LWPayView.h"
 
 @interface LWPersonalTransferAccountViewController ()
 
@@ -105,12 +106,30 @@
 //    [naviView addSubview:scanBtn];
 }
 
+- (void)setModel:(LWHomeWalletModel *)model{
+    _model = model;
+    NSString *describeStr = [NSString stringWithFormat:@"剩余%@BSV",@(_model.personalBitCount)];
+    self.amountTF.descripStr = describeStr;
+}
+
 - (void)backClick:(UIButton *)sender{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)bottomClick:(UIButton *)sender{
-
+    if (self.amountTF.textField.text.length == 0) {
+        [WMHUDUntil showMessageToWindow:@"请输入金额"];
+        return;
+    }
+    if (self.payAddressTF.textField.text.length == 0) {
+        [WMHUDUntil showMessageToWindow:@"请输入地址"];
+        return;
+    }
+    
+    [self.view createAlertViewWithTitle:@"Send" amount:self.amountTF.textField.text payMail:self.amountTF.textField.text address:self.payAddressTF.textField.text actionBlock:^(BOOL isSend) {
+        
+    }];
+     
 }
 /*
 #pragma mark - Navigation

@@ -27,11 +27,12 @@ target 'LaxoWallet' do
     pod 'Nimbus/AttributedLabel','1.3.0'
 #    pod 'JPush'
 #    pod 'Bugly'
-pod 'LBXScan/LBXNative','~> 2.3'
-pod 'LBXScan/LBXZXing','~> 2.3'
-pod 'LBXScan/LBXZBar','~> 2.3'
-pod 'LBXScan/UI','~> 2.3'
-pod "MPMessagePack"
+    pod 'LBXScan/LBXNative','~> 2.3'
+    pod 'LBXScan/LBXZXing','~> 2.3'
+    pod 'LBXScan/LBXZBar','~> 2.3'
+    pod 'LBXScan/UI','~> 2.3'
+    pod "MPMessagePack"
+    pod 'pop'
 
 end
     

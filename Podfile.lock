@@ -58,6 +58,7 @@ PODS:
   - Nimbus/AttributedLabel (1.3.0):
     - Nimbus/Core
   - Nimbus/Core (1.3.0)
+  - pop (1.0.10)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
@@ -81,6 +82,7 @@ DEPENDENCIES:
   - MJRefresh (= 3.1.15)
   - MPMessagePack
   - Nimbus/AttributedLabel (= 1.3.0)
+  - pop
   - SDWebImage (= 4.4.2)
   - SocketRocket
   - YYKit
@@ -97,6 +99,7 @@ SPEC REPOS:
     - MJRefresh
     - MPMessagePack
     - Nimbus
+    - pop
     - SDWebImage
     - SocketRocket
     - YYKit
@@ -116,11 +119,12 @@ SPEC CHECKSUMS:
   MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
   MPMessagePack: 5251dcd15e0c626cc50c192bdfcb5af6004cedb4
   Nimbus: e7f33bc6d6cb4fe5ea0aee0c7e0883696123422c
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
 
-PODFILE CHECKSUM: 4a0d62d445ce6cadf50f10b5266ef7c2ff8fb3ca
+PODFILE CHECKSUM: a51c517869447165e4a36596794959ec20d75d3c
 
 COCOAPODS: 1.8.4

@@ -99,7 +99,7 @@
         </view>
     </objects>
     <resources>
-        <image name="home_add" width="50" height="50"/>
+        <image name="home_add" width="24" height="24"/>
         <image name="home_dropdown" width="29" height="20"/>
     </resources>
 </document>

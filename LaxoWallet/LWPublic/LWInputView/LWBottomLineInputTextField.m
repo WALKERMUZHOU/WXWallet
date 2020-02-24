@@ -130,6 +130,7 @@
         vc.isVideoZoom = YES;
         vc.modalPresentationStyle = 0;
         vc.scanresult = ^(LBXScanResult *result) {
+            self.textField.text = result.strScanned;
             [vc dismissViewControllerAnimated:YES completion:nil];
         };
         [LogicHandle presentViewController:vc animate:YES];

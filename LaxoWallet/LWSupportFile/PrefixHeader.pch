@@ -27,6 +27,9 @@
 #define kNavigationBarHeight (kStatusBarHeight + 44.f)
 #define KScreenHeightBar (kScreenHeight - kNavigationBarHeight)
 
+#define kIphone6Width 375.0
+#define kFit(x) (kScreenWidth*((x)/kIphone6Width))
+
 /*----------------------控件高-----------------------*/
 #define kTabBarHeight (iPhoneX ? 83.f : 49.f)
 

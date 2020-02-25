@@ -123,6 +123,7 @@
         }else{
             [LWPublicManager setCurrentCurrency:indexPath.row+1];
             [self.tableView reloadData];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kCurrencyChange_nsnotification object:nil];
         }
     }else{
         LWCurrentLanguage language = [LWPublicManager getCurrentLanguage];
@@ -131,6 +132,7 @@
         }else{
             [LWPublicManager setCurrentLanguage:indexPath.row + 1];
             [self.tableView reloadData];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLanguageChange_nsnotification object:nil];
         }
     }
 }

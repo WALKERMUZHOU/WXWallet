@@ -81,14 +81,17 @@
 // 9.实现代理，如下：
 - (void)axcAE_TabBar:(AxcAE_TabBar *)tabbar selectIndex:(NSInteger)index{
     // 通知 切换视图控制器
+    if(self.axcTabBar){
+        self.axcTabBar.selectIndex = index;
+    }
     [self setSelectedIndex:index];
     // 自定义的AE_TabBar回调点击事件给TabBarVC，TabBarVC用父类的TabBarController函数完成切换
 }
 - (void)setSelectedIndex:(NSUInteger)selectedIndex{
     [super setSelectedIndex:selectedIndex];
-    if(self.axcTabBar){
-        self.axcTabBar.selectIndex = selectedIndex;
-    }
+//    if(self.axcTabBar){
+//        self.axcTabBar.selectIndex = selectedIndex;
+//    }
 }
 
 // 10.添加适配

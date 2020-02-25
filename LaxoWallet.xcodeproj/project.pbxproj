@@ -152,6 +152,8 @@
 		5EB31E91240428CD00974FD4 /* LWMineSettingLanguageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB31E8F240428CD00974FD4 /* LWMineSettingLanguageCell.m */; };
 		5EB31E92240428CD00974FD4 /* LWMineSettingLanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB31E90240428CD00974FD4 /* LWMineSettingLanguageCell.xib */; };
 		5EB31E9524042A3200974FD4 /* LWMineSettingLanguageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB31E9424042A3200974FD4 /* LWMineSettingLanguageView.m */; };
+		5EB31E992404BC9800974FD4 /* LWTextViewAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB31E972404BC9700974FD4 /* LWTextViewAlertView.m */; };
+		5EB31E9C2404BD1900974FD4 /* LWTextFieldAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB31E9B2404BD1900974FD4 /* LWTextFieldAlertView.m */; };
 		5EF5132623EFE41E00F5B6C1 /* FLSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5132523EFE41E00F5B6C1 /* FLSocketManager.m */; };
 		5EF5132923EFE6F500F5B6C1 /* LWTrusteeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5132823EFE6F500F5B6C1 /* LWTrusteeModel.m */; };
 		5EF5132C23EFE81100F5B6C1 /* LWTrusteeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5132B23EFE81000F5B6C1 /* LWTrusteeManager.m */; };
@@ -500,6 +502,10 @@
 		5EB31E90240428CD00974FD4 /* LWMineSettingLanguageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWMineSettingLanguageCell.xib; sourceTree = "<group>"; };
 		5EB31E9324042A3200974FD4 /* LWMineSettingLanguageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMineSettingLanguageView.h; sourceTree = "<group>"; };
 		5EB31E9424042A3200974FD4 /* LWMineSettingLanguageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMineSettingLanguageView.m; sourceTree = "<group>"; };
+		5EB31E972404BC9700974FD4 /* LWTextViewAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTextViewAlertView.m; sourceTree = "<group>"; };
+		5EB31E982404BC9700974FD4 /* LWTextViewAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTextViewAlertView.h; sourceTree = "<group>"; };
+		5EB31E9A2404BD1900974FD4 /* LWTextFieldAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTextFieldAlertView.h; sourceTree = "<group>"; };
+		5EB31E9B2404BD1900974FD4 /* LWTextFieldAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTextFieldAlertView.m; sourceTree = "<group>"; };
 		5EF5132423EFE41E00F5B6C1 /* FLSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSocketManager.h; sourceTree = "<group>"; };
 		5EF5132523EFE41E00F5B6C1 /* FLSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSocketManager.m; sourceTree = "<group>"; };
 		5EF5132723EFE6F500F5B6C1 /* LWTrusteeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTrusteeModel.h; sourceTree = "<group>"; };
@@ -1540,6 +1546,17 @@
 			path = LWSupportFile;
 			sourceTree = "<group>";
 		};
+		5EB31E962404BC9700974FD4 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				5EB31E982404BC9700974FD4 /* LWTextViewAlertView.h */,
+				5EB31E972404BC9700974FD4 /* LWTextViewAlertView.m */,
+				5EB31E9A2404BD1900974FD4 /* LWTextFieldAlertView.h */,
+				5EB31E9B2404BD1900974FD4 /* LWTextFieldAlertView.m */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
 		5EF5132323EFE41E00F5B6C1 /* SocketManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1670,6 +1687,7 @@
 		5EF513BB23F550F100F5B6C1 /* LWPublic */ = {
 			isa = PBXGroup;
 			children = (
+				5EB31E962404BC9700974FD4 /* AlertView */,
 				5EF513BC23F550F100F5B6C1 /* PublicKey */,
 				5EF513C123F550F100F5B6C1 /* FaceIDObject */,
 				5EF513C223F550F100F5B6C1 /* Refresh */,
@@ -1988,6 +2006,7 @@
 				5E5F128D23EC0E12002F0711 /* WMZDialog+Loading.m in Sources */,
 				5EF513E023F550F200F5B6C1 /* LWEmailBtn.m in Sources */,
 				5E66A30823EAADA1004097CB /* AxcAE_TabBarItem.m in Sources */,
+				5EB31E9C2404BD1900974FD4 /* LWTextFieldAlertView.m in Sources */,
 				5E5F12BB23ED58B9002F0711 /* LWUser.m in Sources */,
 				5E66A3CC23EBFAA2004097CB /* TYAlertScaleFadeAnimation.m in Sources */,
 				5E66A3D523EBFAA2004097CB /* TYAlertController.m in Sources */,
@@ -2106,6 +2125,7 @@
 				5EF5138B23F2CAD000F5B6C1 /* PublicKeyView.m in Sources */,
 				5EF5136A23F1811B00F5B6C1 /* LBXPermission.m in Sources */,
 				5E66A3A423EAFF14004097CB /* LWHomeListHeaderView.m in Sources */,
+				5EB31E992404BC9800974FD4 /* LWTextViewAlertView.m in Sources */,
 				5E66A36123EAC379004097CB /* JTNavigationController.m in Sources */,
 				5E5F12A623EC0E12002F0711 /* WMZDialog.m in Sources */,
 				5E5F12F923EDD97F002F0711 /* WMZBannerView.m in Sources */,

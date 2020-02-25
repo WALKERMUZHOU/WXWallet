@@ -13,6 +13,8 @@
 #define kUserAccountLogOut          @"userAccountLogOut"
 #define KUserAccountLogIn           @"userAccountLogIn"
 #define kUserAccountChangeMobile    @"userAccountChangeMobile"
+#define kLanguageChange_nsnotification  @"kLanguageChange_nsnotification"
+#define kCurrencyChange_nsnotification  @"kCurrencyChange_nsnotification"
 
 #define kWebScoket_createSingleAddress  @"kWebScoket_createSingleAddress"
 

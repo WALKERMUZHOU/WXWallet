@@ -20,6 +20,10 @@
 }
 
 - (void)createUI{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataSourceChage) name:kCurrencyChange_nsnotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataSourceChage) name:kLanguageChange_nsnotification object:nil];
+
+    
     [self setRefreshHeaderAndFooterNeeded:NO];
     
     UINib *nib1 = [UINib nibWithNibName:@"LWMineTableViewCell" bundle: nil];
@@ -30,25 +34,9 @@
 //    self.coordinator = [[LWHomeListCoordinator alloc]init];
 //    self.coordinator.delegate = self;
 //    _isCanApplyBorrow = YES;
+    [self dataSourceChage];
+
     
-    NSString *currency ;
-    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
-        currency = @"CNY";
-    }else{
-        currency = @"USD";
-    }
-    NSString *language ;
-    if ([LWPublicManager getCurrentLanguage] == LWCurrentLanguageChinese) {
-        language = @"中文";
-    }else{
-        language = @"English";
-    }
-    
-    NSArray *array = @[@{@"title":@"货币单位",@"type":@"3",@"content":currency},
-                       @{@"title":@"语言",@"type":@"3",@"content":language}
-                       ];
-    [self.dataSource addObjectsFromArray:array];
-    [self.tableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -101,6 +89,31 @@
     }
     [LogicHandle pushViewController:securityVC];
 
+}
+
+#pragma mark - method
+- (void)dataSourceChage{
+    if (self.dataSource) {
+        [self.dataSource removeAllObjects];
+    }
+    NSString *currency ;
+    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
+        currency = @"CNY";
+    }else{
+        currency = @"USD";
+    }
+    NSString *language ;
+    if ([LWPublicManager getCurrentLanguage] == LWCurrentLanguageChinese) {
+        language = @"中文";
+    }else{
+        language = @"English";
+    }
+    
+    NSArray *array = @[@{@"title":@"货币单位",@"type":@"3",@"content":currency},
+                       @{@"title":@"语言",@"type":@"3",@"content":language}
+                       ];
+    [self.dataSource addObjectsFromArray:array];
+    [self.tableView reloadData];
 }
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "LWMineHeaderView.h"
+#import "TYAlertController.h"
+#import "LWTextFieldAlertView.h"
 
 @interface LWMineHeaderView ()
 
@@ -93,8 +95,13 @@
 
 
 - (void)buttonClick:(UIButton *)sender{
-
+    LWTextFieldAlertView *alertTView = [[LWTextFieldAlertView alloc] initWithTitle:@"昵称以₿开头，可以作为收款地址的替代，或者其他人通过Laxo应用查找你的识别符号" andPlaceHolder:@"请输入昵称"];
+    alertTView.lwAlertViewMakeSureBlock = ^(NSString * _Nonnull repulse_evaluate_str) {
+        self.nicNameLabel.text = repulse_evaluate_str;
+    };
+    [alertTView show];
 }
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

@@ -77,10 +77,13 @@
     NSData *data = [requestPersonalWalletArray mp_messagePack];
     [[SocketRocketUtility instance] sendData:data];
 
+    [self requestMulipyWalletInfo];
+}
+
+- (void)requestMulipyWalletInfo{
     NSDictionary *multipyparams = @{@"type":@2};
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMulpityWallet),@"wallet.query",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
-
 }
 
 - (void)SRWebSocketDidReceiveMsg:(NSNotification *)note {
@@ -109,6 +112,9 @@
                     break;
                 case WSRequestIdWalletQueryGetWalletMessageList:
                     [self manageWalletMessageList:responseArray[2]];
+                    break;
+                case WSRequestIdWalletQueryJoingNewWallet:
+                    [self manageJoinWalletInfo:responseArray[2]];
                     break;
                 default:
                     break;
@@ -153,6 +159,11 @@
 
 - (void)manageWalletMessageList:(id)requestInfo{
     [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_getMessageListInfo object:requestInfo];
+}
+
+- (void)manageJoinWalletInfo:(id)requestInfo{
+    [SVProgressHUD dismiss];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_joinWallet object:requestInfo];
 }
 /*
 #pragma mark - Navigation

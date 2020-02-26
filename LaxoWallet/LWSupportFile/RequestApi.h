@@ -29,12 +29,14 @@ typedef NS_OPTIONS(NSInteger,ShareType){
 };
 
 typedef NS_OPTIONS(NSInteger, WSRequestId) {
-    WSRequestIdWalletQueryPersonalWallet = 10000,
-    WSRequestIdWalletQueryMulpityWallet = 10001,
-    WSRequestIdWalletQueryTokenPrice = 10002,
-    WSRequestIdWalletQuerySingleAddress = 10003,
-    WSRequestIdWalletQueryCreatMultipyWallet = 10004,
-    WSRequestIdWalletQueryGetWalletMessageList = 10005,
+    WSRequestIdWalletQueryPersonalWallet        = 10000,
+    WSRequestIdWalletQueryMulpityWallet         = 10001,
+    WSRequestIdWalletQueryTokenPrice            = 10002,
+    WSRequestIdWalletQuerySingleAddress          = 10003,
+    WSRequestIdWalletQueryCreatMultipyWallet     = 10004,
+    WSRequestIdWalletQueryGetWalletMessageList   = 10005,
+    WSRequestIdWalletQueryJoingNewWallet         = 10006,
+
 
 };
 

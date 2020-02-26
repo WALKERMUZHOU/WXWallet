@@ -19,7 +19,8 @@
 #define kWebScoket_createSingleAddress      @"kWebScoket_createSingleAddress"
 #define kWebScoket_createMultiPartyWallet   @"kWebScoket_createMultiParty"
 #define kWebScoket_queryTransaction         @"kWebScoket_queryTransaction"
-#define kWebScoket_getMessageListInfo           @"kWebScoket_getMessageInfo"
+#define kWebScoket_getMessageListInfo       @"kWebScoket_getMessageInfo"
+#define kWebScoket_joinWallet               @"kWebScoket_joinWallet"
 
 #pragma mark - Userdefault
 #define kAppConstantFirstInstall    @"kAppConstantFirstInstall"

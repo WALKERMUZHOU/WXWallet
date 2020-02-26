@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor       *iconColor;
 @property (nonatomic, strong) NSArray        *parties;//
 
+@property (nonatomic, assign) NSInteger     needToJoinCount;
 
 @end
 

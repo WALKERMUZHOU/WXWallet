@@ -27,23 +27,12 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setBackgroundColor:[UIColor whiteColor]];
-    
-//        self.tabBarVC = [[LWTabBarViewController alloc]init];
-//        self.window.rootViewController = self.tabBarVC;
-    //    XDYLoginVC *vc = [[XDYLoginVC alloc] initWithNibName:@"XDYLoginVC" bundle:nil];
-        
-    //    LWHomeViewController *homeVC = [[LWHomeViewController alloc]init];
-    //    self.window.rootViewController = homeVC;
     [self getTrueteeData];
     [self getCurrentTokenPrice];
-//    [LogicHandle showTabbarVC];
-    
-//    LWFaceBindViewController *vc = [[LWFaceBindViewController alloc]init];
-//    self.window.rootViewController = [[LWNavigationViewController alloc] initWithRootViewController:vc];
-    [LogicHandle chooseStartVC];
+    [LogicHandle showTabbarVC];
+//    [LogicHandle chooseStartVC];
     [self.window makeKeyAndVisible];
     
-    // Override point for customization after application launch.
     return YES;
 }
 

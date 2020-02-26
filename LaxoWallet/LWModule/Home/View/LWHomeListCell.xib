@@ -65,6 +65,27 @@
                         <color key="textColor" red="0.3992223144" green="0.4231963158" blue="0.4481879473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWQ-Fc-M5A">
+                        <rect key="frame" x="240" y="31" width="60" height="28"/>
+                        <color key="backgroundColor" red="0.11685662719999999" green="0.71705454589999995" blue="0.58686470989999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="Qtt-sP-c8n"/>
+                            <constraint firstAttribute="width" constant="60" id="jqZ-w0-URG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17.5"/>
+                        <state key="normal" title="加入">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="13"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="joinClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Nty-UE-t0T"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Xk2-ZI-mlS" secondAttribute="trailing" constant="24" id="23n-1c-yhq"/>
@@ -72,6 +93,7 @@
                     <constraint firstAttribute="bottom" secondItem="nq5-9x-kEf" secondAttribute="bottom" constant="20" id="42h-C0-bME"/>
                     <constraint firstAttribute="trailing" secondItem="2UX-dB-OmQ" secondAttribute="trailing" constant="21.5" id="5Zg-if-JZz"/>
                     <constraint firstItem="zab-cr-2p0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5cz-CC-epd"/>
+                    <constraint firstItem="fWQ-Fc-M5A" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="718-hC-6fE"/>
                     <constraint firstAttribute="bottom" secondItem="Xk2-ZI-mlS" secondAttribute="bottom" constant="22.5" id="8nr-0f-WhJ"/>
                     <constraint firstItem="2UX-dB-OmQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="E5l-zm-JLS"/>
                     <constraint firstAttribute="bottom" secondItem="awD-Um-aCa" secondAttribute="bottom" constant="21.5" id="Nxo-QP-UGi"/>
@@ -81,6 +103,7 @@
                     <constraint firstAttribute="trailing" secondItem="hqu-kl-FkB" secondAttribute="trailing" id="ZTs-DY-Mlh"/>
                     <constraint firstItem="zab-cr-2p0" firstAttribute="leading" secondItem="Kdb-re-d9a" secondAttribute="leading" id="Zd8-F6-SvX"/>
                     <constraint firstItem="Kdb-re-d9a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="bBt-Fk-ofX"/>
+                    <constraint firstAttribute="trailing" secondItem="fWQ-Fc-M5A" secondAttribute="trailing" constant="20" id="f7K-9x-k6K"/>
                     <constraint firstItem="Kdb-re-d9a" firstAttribute="leading" secondItem="nq5-9x-kEf" secondAttribute="trailing" constant="13" id="h45-vP-J5H"/>
                     <constraint firstItem="nq5-9x-kEf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18.5" id="mm4-5d-Cbl"/>
                     <constraint firstItem="hqu-kl-FkB" firstAttribute="leading" secondItem="nq5-9x-kEf" secondAttribute="leading" id="oKu-i6-4BS"/>
@@ -91,6 +114,7 @@
             <connections>
                 <outlet property="bitCountLabel" destination="2UX-dB-OmQ" id="gBM-8X-6NO"/>
                 <outlet property="currentPriceLabel" destination="Xk2-ZI-mlS" id="wsw-ea-fpx"/>
+                <outlet property="joinButton" destination="fWQ-Fc-M5A" id="aix-Wx-qWr"/>
                 <outlet property="nameLabel" destination="awD-Um-aCa" id="I1M-oh-MxT"/>
                 <outlet property="personalBitCountLabel" destination="BdT-ag-kdh" id="RHd-qA-cRy"/>
                 <outlet property="personalNameLabel" destination="zab-cr-2p0" id="bVd-Ut-0Ej"/>

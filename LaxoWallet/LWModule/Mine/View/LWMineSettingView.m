@@ -9,6 +9,7 @@
 #import "LWMineSettingView.h"
 #import "LWMineTableViewCell.h"
 #import "LWMineSecurityViewController.h"
+#import "LWCommonBottomBtn.h"
 @implementation LWMineSettingView
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
@@ -31,6 +32,16 @@
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+    
+    LWCommonBottomBtn *bottomBtn = [[LWCommonBottomBtn alloc]initWithFrame:CGRectMake(20, 50, kScreenWidth - 40, 50)];
+    [bottomBtn addTarget:self action:@selector(bottomClick:) forControlEvents:UIControlEventTouchUpInside];
+    [bottomBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+    bottomBtn.selected = YES;
+    [bottomView addSubview:bottomBtn];
+    self.tableView.tableFooterView = bottomBtn;
+    
 //    self.coordinator = [[LWHomeListCoordinator alloc]init];
 //    self.coordinator.delegate = self;
 //    _isCanApplyBorrow = YES;
@@ -114,6 +125,21 @@
                        ];
     [self.dataSource addObjectsFromArray:array];
     [self.tableView reloadData];
+}
+
+- (void)bottomClick:(UIButton *)sender{
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"注意" message:@"您确定要退出吗？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *actionSure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [[LWUserManager shareInstance] clearUser];
+        [LogicHandle showLoginVC];
+    }];
+    [alertCon addAction:action];
+    [alertCon addAction:actionSure];
+    [LogicHandle presentViewController:alertCon animate:YES];
+    
 }
 
 @end

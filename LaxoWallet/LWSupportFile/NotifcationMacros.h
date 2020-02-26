@@ -16,8 +16,10 @@
 #define kLanguageChange_nsnotification  @"kLanguageChange_nsnotification"
 #define kCurrencyChange_nsnotification  @"kCurrencyChange_nsnotification"
 
-#define kWebScoket_createSingleAddress  @"kWebScoket_createSingleAddress"
-
+#define kWebScoket_createSingleAddress      @"kWebScoket_createSingleAddress"
+#define kWebScoket_createMultiPartyWallet   @"kWebScoket_createMultiParty"
+#define kWebScoket_queryTransaction         @"kWebScoket_queryTransaction"
+#define kWebScoket_getMessageListInfo           @"kWebScoket_getMessageInfo"
 
 #pragma mark - Userdefault
 #define kAppConstantFirstInstall    @"kAppConstantFirstInstall"

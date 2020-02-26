@@ -31,7 +31,7 @@
 #define kFit(x) (kScreenWidth*((x)/kIphone6Width))
 
 /*----------------------控件高-----------------------*/
-#define kTabBarHeight (iPhoneX ? 83.f : 49.f)
+#define kTabBarHeight (isIphoneX ? 83.f : 49.f)
 
 #define kBtnNormalHeight            35
 #define kToolBarHeight              (iPhoneX ? 83.f : 49.f)
@@ -45,7 +45,6 @@
 
 #import "LWTrusteeManager.h"
 #import "LWUserManager.h"
-#import "LWTokenManager.h"
 #import "LWPublicManager.h"
 
 #import "SceneDelegate.h"

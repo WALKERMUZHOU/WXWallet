@@ -19,12 +19,20 @@ typedef NS_OPTIONS(NSInteger, LWCurrentCurrency){
     LWCurrentCurrencyUSD = 2,
 };
 
+typedef NS_OPTIONS(NSInteger, TokenType){
+    TokenTypeBSV = 1,
+    TokenTypeBitCoin = 2,
+};
+
 @interface LWPublicManager : NSObject
 + (LWCurrentLanguage)getCurrentLanguage;
 + (LWCurrentCurrency)getCurrentCurrency;
 
 + (void)setCurrentLanguage:(LWCurrentLanguage)languageType;
 + (void)setCurrentCurrency:(LWCurrentCurrency)currencyType;
+
++ (NSString *)getCurrentPriceWithTokenType:(TokenType)tokenType;
+
 @end
 
 NS_ASSUME_NONNULL_END

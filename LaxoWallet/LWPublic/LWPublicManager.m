@@ -48,4 +48,30 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
++ (NSString *)getCurrentPriceWithTokenType:(TokenType)tokenType{
+    NSString *tokenName;
+    switch (tokenType) {
+         case TokenTypeBSV:
+            tokenName = @"bsv";
+             break;
+        case TokenTypeBitCoin:
+            tokenName = @"bitCoin";
+                break;
+             
+         default:
+             break;
+     }
+    NSArray *dataArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"kAppTokenPrice_userdefault"];
+    for (NSInteger i = 0; i<dataArray.count; i++) {
+        NSDictionary *tokenDic = [dataArray objectAtIndex:i];
+        if ([[tokenDic objectForKey:@"token"] isEqualToString:tokenName]) {
+            if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
+                return [tokenDic objectForKey:@"cny"];
+            }else{
+                return [tokenDic objectForKey:@"usd"];
+            };
+        }
+    }
+    return @"";
+}
 @end

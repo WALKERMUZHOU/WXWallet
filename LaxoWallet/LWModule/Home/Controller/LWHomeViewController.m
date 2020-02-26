@@ -104,6 +104,12 @@
                 case WSRequestIdWalletQuerySingleAddress:
                     [self manageCollectionAddress:responseArray[2]];
                     break;
+                case WSRequestIdWalletQueryCreatMultipyWallet:
+                    [self manageCreateMultiyWallet:responseArray[2]];
+                    break;
+                case WSRequestIdWalletQueryGetWalletMessageList:
+                    [self manageWalletMessageList:responseArray[2]];
+                    break;
                 default:
                     break;
             }
@@ -113,6 +119,7 @@
 
 - (void)SRWebSocketDidColose:(NSNotification *)note{
     NSLog(@"wscolose");
+    
 }
 
 - (void)managePersonalWalletData:(NSDictionary *)personalData{
@@ -134,6 +141,18 @@
 
 - (void)manageCollectionAddress:(id)addressDic{
     [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_createSingleAddress object:addressDic];
+}
+
+- (void)manageCreateMultiyWallet:(id)requestInfo{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_createMultiPartyWallet object:requestInfo];
+    
+    NSDictionary *multipyparams = @{@"type":@2};
+    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMulpityWallet),@"wallet.query",[multipyparams jsonStringEncoded]];
+    [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+}
+
+- (void)manageWalletMessageList:(id)requestInfo{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_getMessageListInfo object:requestInfo];
 }
 /*
 #pragma mark - Navigation

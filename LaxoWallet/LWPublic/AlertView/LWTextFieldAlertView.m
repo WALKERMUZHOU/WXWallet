@@ -66,9 +66,17 @@
     self.textField.delegate = self;
     self.textField.font = kFont(20);
     self.textField.placeholder = self.placeHolderString;
-    UIView *leftV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 42)];
-    self.textField.leftView = leftV;   // 设置 TF 的 leftView 为 leftV
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 42)];
+    UILabel *leftV = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 42)];
+    leftV.text = @"₿";
+    leftV.font = kFont(15);
+    leftV.textColor = lwColorBlack;
+    leftV.textAlignment = NSTextAlignmentRight;
+    [leftView addSubview:leftV];
+    self.textField.leftView = leftView;   // 设置 TF 的 leftView 为 leftV
     self.textField.leftViewMode = UITextFieldViewModeAlways;
+    self.textField.textColor = lwColorBlack;
+    self.textField.font = kFont(15);
     self.textField.layer.cornerRadius = 2;
     self.textField.layer.borderColor = lwColorNormal.CGColor;
     self.textField.layer.borderWidth = 0.5f;
@@ -144,7 +152,8 @@
 -(void)evaluate_makeSure_buttonAction{
     [self endEditing:YES];
     if (self.lwAlertViewMakeSureBlock && self.textField.text >0) {
-        self.lwAlertViewMakeSureBlock(self.textField.text);
+        NSString *nameStr = [NSString stringWithFormat:@"₿%@",self.textField.text];
+        self.lwAlertViewMakeSureBlock(nameStr);
     }
     [self dismissAlertView];
 }

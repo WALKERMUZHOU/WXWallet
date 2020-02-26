@@ -23,6 +23,8 @@
 
 @property (nonatomic, strong) LWInputTextView   *emailTV;
 
+@property (nonatomic, strong) NSArray   *emailArr;
+
 
 @end
 
@@ -33,7 +35,7 @@
     
     [self createUI];
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(multipyWalletCreate:) name:kWebScoket_createMultiPartyWallet object:nil];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -79,6 +81,10 @@
     [self.scrollView addSubview:self.walletNameTF];
     
     self.emailTV = [[LWInputTextView alloc] initWithFrame:CGRectMake(preLeft, 0, kScreenWidth - preLeft*2, 165)];
+    __weak typeof(self) weakself = self;
+    self.emailTV.emailBlock = ^(NSArray * _Nonnull emailArray) {
+        weakself.emailArr = emailArray;
+    };
     [self.scrollView addSubview:self.emailTV];
     
     LWCommonBottomBtn *bottomBtn = [[LWCommonBottomBtn alloc]init];
@@ -151,9 +157,71 @@
     }
 }
 
+#pragma mark - method
 - (void)bottomClick:(UIButton *)sender{
-
+    if(self.partyNumTF.lwTextField.text.length == 0){
+        [WMHUDUntil showMessageToWindow:@"请输入成功签名需要人数"];
+        return;
+    }
+    if (self.KeyNumTF.lwTextField.text.length == 0) {
+        [WMHUDUntil showMessageToWindow:@"请输入私钥片段份数"];
+        return;
+    }
+    if (self.walletNameTF.lwTextField.text.length == 0) {
+        [WMHUDUntil showMessageToWindow:@"请输入钱包名称"];
+        return;
+    }
+    if (self.emailArr.count == 0) {
+        [WMHUDUntil showMessageToWindow:@"请输入邀请邮箱"];
+        return;
+    }
+    
+    if (self.partyNumTF.lwTextField.text.integerValue > self.KeyNumTF.lwTextField.text.integerValue) {
+        [WMHUDUntil showMessageToWindow:@"需要签名人数需小于等于当前私钥片段数"];
+        return;
+    }
+    
+    if (self.emailArr.count != self.KeyNumTF.lwTextField.text.integerValue-1) {
+        [WMHUDUntil showMessageToWindow:@"填写的邮箱数量需要等于于您填写的私钥片段分数-1（当前账号也参与）"];
+        return;
+    }
+    
+//    name    是    string    钱包名称
+//    token    是    string    币种
+//    share    是    integer    多方个数，大于等于2
+//    threshold    是    integer    至少签名的多方个数，大于等于2
+//    parties    是    array    参与的多方的账号数组
+    NSDictionary *params = @{@"name":self.walletNameTF.lwTextField.text,
+                             @"token":@"bsv",
+                             @"share":@(self.KeyNumTF.lwTextField.text.integerValue),
+                             @"threshold":@(self.partyNumTF.lwTextField.text.integerValue),
+                             @"parties":self.emailArr};
+    
+    NSArray *requetCurrentPriceArray = @[@"req",
+                                         @(WSRequestIdWalletQueryCreatMultipyWallet),
+                                         @"wallet.createMultiParty",
+                                         [params jsonStringEncoded]];
+    
+    [[SocketRocketUtility instance] sendData:[requetCurrentPriceArray mp_messagePack]];
 }
+
+- (void)multipyWalletCreate:(NSNotification *)notification{
+    NSDictionary *resInfo = notification.object;
+    if ([[resInfo objectForKey:@"success"] integerValue] == 1) {
+        [WMHUDUntil showMessageToWindow:@"多人钱包创建成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        NSString *message = [resInfo objectForKey:@"message"];
+        if (message && message.length>0) {
+            [WMHUDUntil showMessageToWindow:message];
+        }
+    }
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]  removeObserver:self];
+}
+
 /*
 #pragma mark - Navigation
 

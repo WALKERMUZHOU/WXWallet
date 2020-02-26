@@ -36,11 +36,11 @@
     //    self.window.rootViewController = homeVC;
     [self getTrueteeData];
     [self getCurrentTokenPrice];
-    [LogicHandle showTabbarVC];
+//    [LogicHandle showTabbarVC];
     
 //    LWFaceBindViewController *vc = [[LWFaceBindViewController alloc]init];
 //    self.window.rootViewController = [[LWNavigationViewController alloc] initWithRootViewController:vc];
-//    [LogicHandle chooseStartVC];
+    [LogicHandle chooseStartVC];
     [self.window makeKeyAndVisible];
     
     // Override point for customization after application launch.

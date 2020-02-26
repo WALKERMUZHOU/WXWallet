@@ -7,8 +7,13 @@
 //
 
 #import "LWMessageViewController.h"
+#import "LWMessageTableView.h"
+#import "LWMessageMulpityHeadView.h"
 
 @interface LWMessageViewController ()
+
+@property (nonatomic, strong) LWMessageTableView *messageView;
+@property (nonatomic, strong) LWMessageMulpityHeadView *headView;
 
 @end
 
@@ -16,8 +21,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.messageView = [[LWMessageTableView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth, KScreenHeightBar - kTabBarHeight) style:UITableViewStyleGrouped];
+    self.messageView.backgroundColor = lwColorBackground;
+    [self.view addSubview:self.messageView];
+    
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.messageView getCurrentData];
+}
+
+
 
 /*
 #pragma mark - Navigation

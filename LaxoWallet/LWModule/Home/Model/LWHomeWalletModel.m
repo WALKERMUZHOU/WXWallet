@@ -24,7 +24,7 @@
         bitCount += model.value;
     }
     self.personalBitCount = bitCount/1e8;
-    
+    self.personalBitCurrency = [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV].floatValue * bitCount/1e8;
     return YES;
 }
 

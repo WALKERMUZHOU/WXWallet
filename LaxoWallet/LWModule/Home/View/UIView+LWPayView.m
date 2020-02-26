@@ -65,7 +65,7 @@ static NSString *keyOfMethod; //关联者的索引key-用于获取block
     UILabel *amountLabel = [[UILabel alloc] init];
     [amountLabel setFont:kMediumFont(16)];
     [amountLabel setTextColor:lwColorBlack];
-    NSString *turePrice = [NSString stringWithFormat:@"%@",@(amount.floatValue * [LWTokenManager getCurrentPriceWithTokenType:TokenTypeBSV].floatValue)];
+    NSString *turePrice = [NSString stringWithFormat:@"%@",@(amount.floatValue * [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV].floatValue)];
     amountLabel.text = [NSString stringWithFormat:@"%@BSV≈¥%@",amount,turePrice];
     [bottomView addSubview:amountLabel];
     [amountLabel mas_makeConstraints:^(MASConstraintMaker *make) {

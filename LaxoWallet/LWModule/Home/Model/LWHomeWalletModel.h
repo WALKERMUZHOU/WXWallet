@@ -8,13 +8,15 @@
 
 #import "LWBaseModel.h"
 #import "LWutxoModel.h"
+#import "LWPartiesModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWHomeWalletModel : LWBaseModel
 
 @property (nonatomic, assign) NSInteger     walletId;//钱包ID
 @property (nonatomic, strong) NSString      *uid;//钱包创建用户ID
-@property (nonatomic, strong) NSString      *name;//币种
+@property (nonatomic, strong) NSString      *name;//
 @property (nonatomic, assign) NSInteger     type;//1-个人钱包类型，2-多方钱包类型
 @property (nonatomic, strong) NSString      *token;
 @property (nonatomic, assign) NSInteger     share;//多方个数

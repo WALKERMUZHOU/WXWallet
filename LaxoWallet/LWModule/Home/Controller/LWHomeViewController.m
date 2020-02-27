@@ -116,6 +116,9 @@
                 case WSRequestIdWalletQueryJoingNewWallet:
                     [self manageJoinWalletInfo:responseArray[2]];
                     break;
+                case WSRequestIdWalletQueryMessageDetail:
+                      [self manageMessageDetailInfo:responseArray[2]];
+                      break;
                 default:
                     break;
             }
@@ -165,6 +168,13 @@
     [SVProgressHUD dismiss];
     [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_joinWallet object:requestInfo];
 }
+
+
+- (void)manageMessageDetailInfo:(id)requestInfo{
+    [SVProgressHUD dismiss];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_messageDetail object:requestInfo];
+}
+
 /*
 #pragma mark - Navigation
 

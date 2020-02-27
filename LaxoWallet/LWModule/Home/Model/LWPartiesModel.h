@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger     role;//
 @property (nonatomic, strong) NSString      *updatetime;//钱包更新时间
 @property (nonatomic, strong) NSString      *createtime;//钱包创建时间
+@property (nonatomic, strong) NSString      *user;
 @end
 
 NS_ASSUME_NONNULL_END

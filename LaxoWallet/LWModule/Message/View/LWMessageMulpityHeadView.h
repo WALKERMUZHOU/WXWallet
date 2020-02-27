@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LWHomeWalletModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWMessageMulpityHeadView : UIView
 
-- (instancetype)initWithFrame:(CGRect)frame andParties:(NSArray *)parties;
+- (instancetype)initWithFrame:(CGRect)frame andModel:(LWHomeWalletModel *)partiesModel;
 
 - (void)showWithViewController:(UIViewController *)viewController;
 - (void)dismiss;

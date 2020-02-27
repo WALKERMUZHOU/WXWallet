@@ -15,10 +15,10 @@
 
 #import "LWPersonalTransferAccountViewController.h"
 #import "LWPersonalCollectionViewController.h"
+#import "LWMessageDetailViewController.h"
 
 @interface LWHomeListView()<LWCoordinatorDelegate,MGSwipeTableCellDelegate>{
     NSIndexPath *_deleteIndexPath;
-    NSInteger   _listType;
     BOOL _isCanApplyBorrow;
 
 }
@@ -33,7 +33,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     self = [super initWithFrame:frame style:UITableViewStyleGrouped];
-    _listType = 1;
+    self.currentViewType = 1;
     if (self) {
         self.currentViewType = LWHomeListViewTypePersonalWallet;
         
@@ -146,6 +146,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    LWHomeWalletModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    LWMessageDetailViewController *detailVC = [[LWMessageDetailViewController alloc] init];
+    detailVC.contentModel = model;
+    if (self.currentViewType == LWHomeListViewTypePersonalWallet) {
+        detailVC.detailViewType = 1;
+        [LogicHandle pushViewController:detailVC];
+    }else{
+        detailVC.detailViewType = 2;
+//        if (model.needToJoinCount == 0) {
+//            [LogicHandle pushViewController:detailVC];
+//        }
+        [LogicHandle pushViewController:detailVC];
+    }
 }
 
 #pragma mark - celldelegate

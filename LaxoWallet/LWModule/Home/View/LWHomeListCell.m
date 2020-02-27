@@ -60,6 +60,7 @@
                 self.personalBitCountLabel.hidden = YES;
                 self.bitCountLabel.text = [NSString stringWithFormat:@"%@",@(_model.personalBitCount)];
                 self.joinButton.hidden = YES;
+                self.currentPriceLabel.text = [NSString stringWithFormat:@"¥%@",@(_model.personalBitCurrency)];
             }
         }
             

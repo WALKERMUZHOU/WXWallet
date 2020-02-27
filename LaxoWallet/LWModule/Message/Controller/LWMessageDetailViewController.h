@@ -7,10 +7,15 @@
 //
 
 #import "LWBaseViewController.h"
+#import "LWHomeWalletModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWMessageDetailViewController : LWBaseViewController
+
+/// 1个人钱包 2多人钱包
+@property (nonatomic, assign) NSInteger detailViewType;
+@property (nonatomic, strong) LWHomeWalletModel *contentModel;
 
 @end
 

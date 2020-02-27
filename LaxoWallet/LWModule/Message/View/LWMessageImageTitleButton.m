@@ -48,7 +48,9 @@
 }
 
 - (void)setImage:(UIImage *)image andTitle:(NSString *)title{
-    [self.imageButton setBackgroundImage:image forState:UIControlStateNormal];
+    if (image) {
+        [self.imageButton setBackgroundImage:image forState:UIControlStateNormal];
+    }
     [self.titleLabel setText:title];
 }
 

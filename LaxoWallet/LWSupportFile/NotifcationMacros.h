@@ -21,6 +21,7 @@
 #define kWebScoket_queryTransaction         @"kWebScoket_queryTransaction"
 #define kWebScoket_getMessageListInfo       @"kWebScoket_getMessageInfo"
 #define kWebScoket_joinWallet               @"kWebScoket_joinWallet"
+#define kWebScoket_messageDetail            @"kWebScoket_messageDetail"
 
 #pragma mark - Userdefault
 #define kAppConstantFirstInstall    @"kAppConstantFirstInstall"

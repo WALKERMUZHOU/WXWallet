@@ -11,16 +11,17 @@
 #import "LWMessageDeleteUserViewController.h"
 
 @interface LWMessageMulpityHeadView ()
-
+@property (nonatomic, strong) LWHomeWalletModel *model;
 @property (nonatomic, strong) NSArray *partyArray;
 @end
 
 @implementation LWMessageMulpityHeadView
 
-- (instancetype)initWithFrame:(CGRect)frame andParties:(nonnull NSArray *)parties{
+- (instancetype)initWithFrame:(CGRect)frame andModel:(nonnull LWHomeWalletModel *)partiesModel{
     self = [super initWithFrame:frame];
     if (self) {
-        self.partyArray = parties;
+        self.model = partiesModel;
+        self.partyArray = partiesModel.parties;
         [self createUI];
     }
     return self;
@@ -34,41 +35,46 @@
     CGFloat buttonWidth = (kScreenWidth - gapWidth*2)/5;
     CGFloat buttonHeight = (100+73-20)/2;
     CGFloat topHeight = 0;
-    for (NSInteger i = 0; i<self.partyArray.count + 2; i++) {
+    for (NSInteger i = 0; i<self.partyArray.count; i++) {
         LWMessageImageTitleButton *button = [[LWMessageImageTitleButton alloc] initWithFrame:CGRectMake(gapWidth + buttonWidth * (i%5), 10 + (buttonHeight + 10) *(i/5), buttonWidth, buttonHeight)];
         button.tag = 11000+i;
         [self addSubview:button];
-        if (i == self.partyArray.count) {
-            button.isDeleteBtn = YES;
-            button.clickBlock = ^{
-                [self buttonClick:i];
-            };
-        }else if (i == self.partyArray.count + 1){
-            button.isAddBtn = YES;
-            button.clickBlock = ^{
-                [self buttonClick:i];
-            };
-        }
+        LWPartiesModel *model = [self.partyArray objectAtIndex:i];
+        [button setImage:nil andTitle:model.user];
+//        if (i == self.partyArray.count) {
+//            button.isDeleteBtn = YES;
+//            button.clickBlock = ^{
+//                [self buttonClick:i];
+//            };
+//        }else if (i == self.partyArray.count + 1){
+//            button.isAddBtn = YES;
+//            button.clickBlock = ^{
+//                [self buttonClick:i];
+//            };
+//        }else{
+//            LWPartiesModel *model = [self.partyArray objectAtIndex:i];
+//            [button setImage:@"" andTitle:model.user];
+//        }
     }
     topHeight = (10 + buttonHeight) * ((self.partyArray.count+2)/5 + 1) + 5;
     
     UILabel *balanceLabel = [[UILabel alloc] initWithFrame:CGRectMake(preleftWidth, topHeight, 200, 25)];
     [balanceLabel setFont:kFont(17.5)];
     [balanceLabel setTextColor:lwColorBlack];
-    balanceLabel.text = @"余额：";
+    balanceLabel.text = [NSString stringWithFormat:@"余额：%@",@(_model.personalBitCurrency).description];
     [self addSubview:balanceLabel];
     topHeight += (25 + 30);
     
     UILabel *walletNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(preleftWidth, topHeight, 200, 17)];
     [walletNameLabel setFont:kFont(12.5)];
     [walletNameLabel setTextColor:lwColorBlack2];
-    walletNameLabel.text = @"钱包名称：";
+    walletNameLabel.text = [NSString stringWithFormat:@"钱包名称：%@",_model.name];
     [self addSubview:walletNameLabel];
     
     UILabel *createNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(preleftWidth + kScreenWidth/2, topHeight, 200, 17)];
     [createNameLabel setFont:kFont(12.5)];
     [createNameLabel setTextColor:lwColorBlack2];
-    createNameLabel.text = @"钱包名称：";
+    createNameLabel.text = @"创建人：";
     [self addSubview:createNameLabel];
     
     topHeight += (17+15);

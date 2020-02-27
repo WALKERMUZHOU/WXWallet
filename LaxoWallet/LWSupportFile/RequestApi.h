@@ -36,6 +36,7 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestIdWalletQueryCreatMultipyWallet     = 10004,
     WSRequestIdWalletQueryGetWalletMessageList   = 10005,
     WSRequestIdWalletQueryJoingNewWallet         = 10006,
+    WSRequestIdWalletQueryMessageDetail         = 10007,
 
 
 };

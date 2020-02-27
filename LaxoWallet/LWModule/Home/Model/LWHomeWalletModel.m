@@ -7,7 +7,6 @@
 //
 
 #import "LWHomeWalletModel.h"
-#import "LWPartiesModel.h"
 
 @implementation LWHomeWalletModel
 

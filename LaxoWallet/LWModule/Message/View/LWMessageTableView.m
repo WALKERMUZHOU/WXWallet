@@ -118,7 +118,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    LWHomeWalletModel *messageModel = [self.dataSource objectAtIndex:indexPath.row];
     LWMessageDetailViewController *messagedetailVC = [[LWMessageDetailViewController alloc] init];
+    messagedetailVC.contentModel = messageModel;
     [LogicHandle pushViewController:messagedetailVC];
 }
 

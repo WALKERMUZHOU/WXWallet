@@ -34,13 +34,13 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
-    
-    LWCommonBottomBtn *bottomBtn = [[LWCommonBottomBtn alloc]initWithFrame:CGRectMake(20, 50, kScreenWidth - 40, 50)];
+    LWCommonBottomBtn *bottomBtn = [[LWCommonBottomBtn alloc]init];
+    bottomBtn.frame = CGRectMake(20, 50, kScreenWidth - 40, 50);
     [bottomBtn addTarget:self action:@selector(bottomClick:) forControlEvents:UIControlEventTouchUpInside];
     [bottomBtn setTitle:@"退出登录" forState:UIControlStateNormal];
     bottomBtn.selected = YES;
     [bottomView addSubview:bottomBtn];
-    self.tableView.tableFooterView = bottomBtn;
+    self.tableView.tableFooterView = bottomView;
     
 //    self.coordinator = [[LWHomeListCoordinator alloc]init];
 //    self.coordinator.delegate = self;
@@ -132,7 +132,7 @@
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }];
-    UIAlertAction *actionSure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *actionSure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[LWUserManager shareInstance] clearUser];
         [LogicHandle showLoginVC];
     }];

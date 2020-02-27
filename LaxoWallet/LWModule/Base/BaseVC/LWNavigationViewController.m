@@ -34,7 +34,7 @@
         [self setNavigationBarHidden:isShowHomePage animated:hiddenAnimate];
     }
     
-    if (count == 2) {
+    if (count == 1) {
         hiddenAnimate = YES;
         BOOL isShowHomePage = [viewController isKindOfClass:[LWMineViewController class]];
         [self setNavigationBarHidden:isShowHomePage animated:hiddenAnimate];

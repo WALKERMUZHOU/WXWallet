@@ -7,10 +7,13 @@
 //
 
 #import "LWMessageDetailViewController.h"
+#import "LWMessageDetailListView.h"
 #import "LWMessageMulpityHeadView.h"
+#import "LWMessageModel.h"
 
 @interface LWMessageDetailViewController ()
 @property (nonatomic, strong) LWMessageMulpityHeadView *headView;
+@property (nonatomic, strong) LWMessageDetailListView *tableView;
 
 @end
 
@@ -20,14 +23,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self createUI];
-    [self getCurrentData];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(manageNotiData:) name:kWebScoket_messageDetail object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(manageMessagePartiesData:) name:kWebScoket_messageParties object:nil];
+    
 }
 
-- (void)getCurrentData{
+- (void)getCurrentParties{
     [SVProgressHUD show];
     NSDictionary *multipyparams = @{@"wid":@(self.contentModel.walletId)};
-    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMessageDetail),@"wallet.queryById",[multipyparams jsonStringEncoded]];
+    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMessageParties),WS_Home_MessageParties,[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
 }
 
@@ -39,33 +42,56 @@
     [backButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *items=[[UIBarButtonItem alloc]initWithCustomView:backButton];
     self.navigationItem.rightBarButtonItem = items;
+    
+    self.tableView = [[LWMessageDetailListView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth, kScreenHeight - kNavigationBarHeight) style:UITableViewStyleGrouped];
+    self.tableView.walletId = self.contentModel.walletId;
+    [self.view addSubview:self.tableView];
+    [self.tableView getCurrentData];
+    
 }
 
 - (void)setContentModel:(LWHomeWalletModel *)contentModel{
     _contentModel = contentModel;
-    self.headView = [[LWMessageMulpityHeadView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200) andModel:contentModel];
+//    self.headView = [[LWMessageMulpityHeadView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200) andModel:contentModel];
 }
 
 #pragma mark - method
 - (void)rightButtonClick:(UIButton *)sender{
-    sender.selected = !sender.isSelected;
-    if (sender.isSelected) {
-        self.headView.frame = CGRectMake(0, -self.headView.viewHeight, kScreenWidth, self.headView.viewHeight);
-        [self.headView showWithViewController:self];
-    }else{
-        [self.headView dismiss];
+    if (!self.headView) {
+        [self getCurrentParties];
     }
+    if (self.headView.isShow) {
+        self.headView.isShow = NO;
+        [self.headView dismiss];
+    }else{
+        self.headView.isShow = YES;
+        [self.headView showWithViewController:self];
+    }
+//    sender.selected = !sender.isSelected;
+//    if (sender.isSelected) {
+//        self.headView.frame = CGRectMake(0, -self.headView.viewHeight, kScreenWidth, self.headView.viewHeight);
+//        [self.headView showWithViewController:self];
+//    }else{
+//        [self.headView dismiss];
+//    }
 }
 
-- (void)manageNotiData:(NSNotification *)notification{
+- (void)manageMessagePartiesData:(NSNotification *)notification{
     [SVProgressHUD dismiss];
     NSDictionary *requestInfo = notification.object;
     if ([[requestInfo objectForKey:@"success"]integerValue] == 1) {
         NSArray *dataArray = [requestInfo objectForKey:@"data"];
-        
-        
-        
+        if (!self.headView) {
+            self.headView = [[LWMessageMulpityHeadView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200) andModel:_contentModel andParties:dataArray];
+            self.headView.frame = CGRectMake(0, -self.headView.viewHeight, kScreenWidth, self.headView.viewHeight);
+            self.headView.isShow = YES;
+            [self.headView showWithViewController:self];
+        }
     }
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*

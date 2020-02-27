@@ -28,7 +28,7 @@
 }
 
 - (void)createUI{
-    self.listView = [[LWHomeListView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    self.listView = [[LWHomeListView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kTabBarHeight) style:UITableViewStyleGrouped];
     [self.view addSubview:self.listView];
 }
 
@@ -116,8 +116,15 @@
                 case WSRequestIdWalletQueryJoingNewWallet:
                     [self manageJoinWalletInfo:responseArray[2]];
                     break;
-                case WSRequestIdWalletQueryMessageDetail:
-                      [self manageMessageDetailInfo:responseArray[2]];
+                case WSRequestIdWalletQueryMessageListInfo:{
+                    [SVProgressHUD dismiss];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_messageListInfo object:responseArray[2]];
+                }
+                      break;
+                case WSRequestIdWalletQueryMessageParties:{
+                    [SVProgressHUD dismiss];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_messageParties object:responseArray[2]];
+                }
                       break;
                 default:
                     break;
@@ -168,7 +175,6 @@
     [SVProgressHUD dismiss];
     [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_joinWallet object:requestInfo];
 }
-
 
 - (void)manageMessageDetailInfo:(id)requestInfo{
     [SVProgressHUD dismiss];

@@ -165,6 +165,9 @@
 		5EB31EC0240648AD00974FD4 /* LWMessageDeleteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB31EBE240648AD00974FD4 /* LWMessageDeleteTableViewCell.m */; };
 		5EB31EC1240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB31EBF240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib */; };
 		5EE8FB7124066B7C00AEE861 /* LWPartiesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7024066B7C00AEE861 /* LWPartiesModel.m */; };
+		5EE8FB7424076B9300AEE861 /* LWMessageDetailListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7324076B9300AEE861 /* LWMessageDetailListView.m */; };
+		5EE8FB7824076C0800AEE861 /* LWMessageDetailListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7624076C0800AEE861 /* LWMessageDetailListCell.m */; };
+		5EE8FB7C2407911700AEE861 /* LWMessageDetailTitleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7B2407911700AEE861 /* LWMessageDetailTitleContentView.m */; };
 		5EF5132623EFE41E00F5B6C1 /* FLSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5132523EFE41E00F5B6C1 /* FLSocketManager.m */; };
 		5EF5132923EFE6F500F5B6C1 /* LWTrusteeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5132823EFE6F500F5B6C1 /* LWTrusteeModel.m */; };
 		5EF5132C23EFE81100F5B6C1 /* LWTrusteeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF5132B23EFE81000F5B6C1 /* LWTrusteeManager.m */; };
@@ -536,6 +539,12 @@
 		5EB31EBF240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWMessageDeleteTableViewCell.xib; sourceTree = "<group>"; };
 		5EE8FB6F24066B7C00AEE861 /* LWPartiesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPartiesModel.h; sourceTree = "<group>"; };
 		5EE8FB7024066B7C00AEE861 /* LWPartiesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPartiesModel.m; sourceTree = "<group>"; };
+		5EE8FB7224076B9300AEE861 /* LWMessageDetailListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMessageDetailListView.h; sourceTree = "<group>"; };
+		5EE8FB7324076B9300AEE861 /* LWMessageDetailListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMessageDetailListView.m; sourceTree = "<group>"; };
+		5EE8FB7524076C0800AEE861 /* LWMessageDetailListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMessageDetailListCell.h; sourceTree = "<group>"; };
+		5EE8FB7624076C0800AEE861 /* LWMessageDetailListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMessageDetailListCell.m; sourceTree = "<group>"; };
+		5EE8FB7A2407911700AEE861 /* LWMessageDetailTitleContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMessageDetailTitleContentView.h; sourceTree = "<group>"; };
+		5EE8FB7B2407911700AEE861 /* LWMessageDetailTitleContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMessageDetailTitleContentView.m; sourceTree = "<group>"; };
 		5EF5132423EFE41E00F5B6C1 /* FLSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSocketManager.h; sourceTree = "<group>"; };
 		5EF5132523EFE41E00F5B6C1 /* FLSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSocketManager.m; sourceTree = "<group>"; };
 		5EF5132723EFE6F500F5B6C1 /* LWTrusteeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTrusteeModel.h; sourceTree = "<group>"; };
@@ -1286,6 +1295,12 @@
 				5EB31EBD240648AD00974FD4 /* LWMessageDeleteTableViewCell.h */,
 				5EB31EBE240648AD00974FD4 /* LWMessageDeleteTableViewCell.m */,
 				5EB31EBF240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib */,
+				5EE8FB7224076B9300AEE861 /* LWMessageDetailListView.h */,
+				5EE8FB7324076B9300AEE861 /* LWMessageDetailListView.m */,
+				5EE8FB7524076C0800AEE861 /* LWMessageDetailListCell.h */,
+				5EE8FB7624076C0800AEE861 /* LWMessageDetailListCell.m */,
+				5EE8FB7A2407911700AEE861 /* LWMessageDetailTitleContentView.h */,
+				5EE8FB7B2407911700AEE861 /* LWMessageDetailTitleContentView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2085,8 +2100,10 @@
 				5E23585E2403F3C700A7D774 /* LWMineView.m in Sources */,
 				5E722B7223F694CF000991DE /* LWLaunchViewController.m in Sources */,
 				5EA1D49223FA527E00A0A747 /* SocketRocketUtility.m in Sources */,
+				5EE8FB7C2407911700AEE861 /* LWMessageDetailTitleContentView.m in Sources */,
 				5E66A34023EAB58C004097CB /* SVProgressHUD.m in Sources */,
 				5EF513DF23F550F200F5B6C1 /* QQLBXScanViewController.m in Sources */,
+				5EE8FB7424076B9300AEE861 /* LWMessageDetailListView.m in Sources */,
 				5E66A3CF23EBFAA2004097CB /* TYAlertFadeAnimation.m in Sources */,
 				5E5F12FC23EDD97F002F0711 /* WMZPageNaviBtn.m in Sources */,
 				5E66A34E23EAB595004097CB /* CZRefreshFooter.m in Sources */,
@@ -2197,6 +2214,7 @@
 				5E66A3CE23EBFAA2004097CB /* UIImage+ImageEffects.m in Sources */,
 				5EF5133923F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.m in Sources */,
 				5E66A39523EAF01A004097CB /* LWHomeWalletModel.m in Sources */,
+				5EE8FB7824076C0800AEE861 /* LWMessageDetailListCell.m in Sources */,
 				5EB31E8D240424E500974FD4 /* LWPublicManager.m in Sources */,
 				5EF5139F23F3D93800F5B6C1 /* LWRecoveryTrustholdViewController.m in Sources */,
 				5EA8079D23E94E2100012837 /* SceneDelegate.m in Sources */,

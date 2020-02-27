@@ -13,11 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LWMessageMulpityHeadView : UIView
 
-- (instancetype)initWithFrame:(CGRect)frame andModel:(LWHomeWalletModel *)partiesModel;
+- (instancetype)initWithFrame:(CGRect)frame andModel:(LWHomeWalletModel *)partiesModel andParties:(NSArray *)parties;
 
 - (void)showWithViewController:(UIViewController *)viewController;
 - (void)dismiss;
 @property (nonatomic, assign) CGFloat viewHeight;
+@property (nonatomic, assign) BOOL isShow;
 
 @end
 

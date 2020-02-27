@@ -13,15 +13,16 @@
 @interface LWMessageMulpityHeadView ()
 @property (nonatomic, strong) LWHomeWalletModel *model;
 @property (nonatomic, strong) NSArray *partyArray;
+
 @end
 
 @implementation LWMessageMulpityHeadView
 
-- (instancetype)initWithFrame:(CGRect)frame andModel:(nonnull LWHomeWalletModel *)partiesModel{
+- (instancetype)initWithFrame:(CGRect)frame andModel:(nonnull LWHomeWalletModel *)partiesModel andParties:(nonnull NSArray *)parties{
     self = [super initWithFrame:frame];
     if (self) {
         self.model = partiesModel;
-        self.partyArray = partiesModel.parties;
+        self.partyArray = [NSArray modelArrayWithClass:[LWPartiesModel class] json:parties];
         [self createUI];
     }
     return self;

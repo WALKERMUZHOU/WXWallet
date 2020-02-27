@@ -152,12 +152,14 @@
     detailVC.contentModel = model;
     if (self.currentViewType == LWHomeListViewTypePersonalWallet) {
         detailVC.detailViewType = 1;
+        detailVC.title = @"个人钱包";
         [LogicHandle pushViewController:detailVC];
     }else{
         detailVC.detailViewType = 2;
-//        if (model.needToJoinCount == 0) {
-//            [LogicHandle pushViewController:detailVC];
-//        }
+        detailVC.title = model.name;
+        if (model.needToJoinCount == 0) {
+            [LogicHandle pushViewController:detailVC];
+        }
         [LogicHandle pushViewController:detailVC];
     }
 }
@@ -199,8 +201,8 @@
     NSArray *dataArray = [multipyDic objectForKey:@"data"];
     if (dataArray.count>0) {
         self.multipyDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:dataArray];
-        [self.headerView setCurrentArray:self.multipyDataArray];
         if (self.currentViewType == LWHomeListViewTypeMultipyWallet) {
+            [self.headerView setCurrentArray:self.multipyDataArray];
             [self.dataSource removeAllObjects];
             [self.dataSource addObjectsFromArray:self.multipyDataArray];
             [self.tableView reloadData];

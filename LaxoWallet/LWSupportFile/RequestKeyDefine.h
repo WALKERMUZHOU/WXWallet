@@ -34,6 +34,9 @@ static NSString * const Url_Login_register = @"method=user.register";//注册
 static NSString * const Url_Home_tokenPrice = @"method=wallet.tokenPrice";//获取实时价格
 static NSString * const Url_Home_SingleAddress = @"method=wallet.createSingleAddress";//获取个人收款地址
 
+static NSString * const WS_Home_MessageList = @"wallet.queryTransaction";//获取消息列表
+static NSString * const WS_Home_MessageParties = @"wallet.queryParties";//获取多方信息
+
 
 
 //系统版本

@@ -39,6 +39,8 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestIdWalletQueryMessageDetail         = 10007,
     WSRequestIdWalletQueryMessageListInfo         = 10008,
     WSRequestIdWalletQueryMessageParties         = 10009,
+    WSRequestIdWalletQueryUserIsOnLine         = 10010,
+
 
 };
 

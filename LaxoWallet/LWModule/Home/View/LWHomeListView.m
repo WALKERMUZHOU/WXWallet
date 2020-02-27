@@ -159,6 +159,7 @@
         detailVC.title = model.name;
         if (model.needToJoinCount == 0) {
             [LogicHandle pushViewController:detailVC];
+            return;
         }
         [LogicHandle pushViewController:detailVC];
     }

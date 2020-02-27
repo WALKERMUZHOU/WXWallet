@@ -37,6 +37,7 @@ static NSString * const Url_Home_SingleAddress = @"method=wallet.createSingleAdd
 static NSString * const WS_Home_MessageList = @"wallet.queryTransaction";//获取消息列表
 static NSString * const WS_Home_MessageParties = @"wallet.queryParties";//获取多方信息
 
+static NSString * const WS_Home_UserIsOnLine = @"user.isOnline";//查询用户在线
 
 
 //系统版本

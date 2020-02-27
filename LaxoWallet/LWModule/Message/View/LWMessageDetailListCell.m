@@ -42,14 +42,13 @@
     
     CGFloat preleft = 32.5;
     
-    self.backView = [[UIView alloc] initWithFrame:CGRectMake(18, 0, kScreenWidth - 36, 300)];
+    self.backView = [[UIView alloc] initWithFrame:CGRectMake(18, 0, kScreenWidth - 36, self.frame.size.height)];
     self.backView.backgroundColor = lwColorWhite;
     self.backView.layer.cornerRadius = 5;
     self.backView.layer.masksToBounds = YES;
     [self.contentView addSubview:self.backView];
     
     self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(preleft, 8.5, 30, 30)];
-    [self.iconImageView setImage:[UIImage imageNamed:@""]];
     [self.backView addSubview:self.iconImageView];
     
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.iconImageView.kright + 20, 0, 200, 30)];
@@ -60,7 +59,6 @@
     [self.backView addSubview:self.titleLabel];
 
     self.tipImageView = [[UIImageView alloc] initWithFrame:CGRectMake(33, 8.5, 30, 30)];
-    [self.tipImageView setImage:[UIImage imageNamed:@""]];
     self.tipImageView.kright = self.backView.kwidth - 30;
     [self.backView addSubview:self.tipImageView];
     
@@ -86,31 +84,52 @@
     }
     
     self.bottomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.bottomBtn.frame = CGRectMake(0, self.backView.kheight - 48, self.backView.kwidth, 48);
     [self.bottomBtn setTitle:@"签名" forState:UIControlStateNormal];
     [self.bottomBtn setTitleColor:lwColorNormal forState:UIControlStateNormal];
     [self.bottomBtn.self.titleLabel setFont:kMediumFont(20)];
     [self.bottomBtn addTarget:self action:@selector(backClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:self.bottomBtn ];
+    [self.backView addSubview:self.bottomBtn ];
 }
 
 - (void)setModel:(LWMessageModel *)model{
     _model = model;
+    self.backView.kheight = _model.viewHeight;
+    
     NSDateFormatter *dateStringFormatter = [[NSDateFormatter alloc] init];
     [dateStringFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    self.timeLabel.text = [dateStringFormatter stringFromDate:_model.createtime];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:_model.createtime.integerValue/1000];
+    self.timeLabel.text = [dateStringFormatter stringFromDate:date];
     
     CGFloat currentCurrency = [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV].floatValue;
-    
-    
     self.priceLabel.text = [NSString stringWithFormat:@"¥%.2f(%@BSV)",currentCurrency * _model.value/1e8,@(_model.value/1e8)];
     NSString *txidStr = [_model.txid stringByReplacingCharactersInRange:NSMakeRange(2, _model.txid.length - 6) withString:@"***"];
     NSArray *infoArray;
-    if (_model.status == 1) {//待签名
-        self.titleLabel.text = @"待签名转账";
-        self.iconImageView.image = [UIImage imageNamed:@"message_statue_waiting"];
+    if (_model.status == 1) {//待签名/待转账
+        if([_model.uid isEqualToString:[[LWUserManager shareInstance] getUserModel].uid]){//发起转账id为自己
+            self.titleLabel.text = @"我发起的转账";
+            self.iconImageView.image = [UIImage imageNamed:@"message_statue_waiting"];
+            self.titleLabel.textColor = lwColorBlack;
+            [self.bottomBtn setTitle:@"取消交易" forState:UIControlStateNormal];
+            infoArray = @[@{@"title":@"收款方",@"content":@""},@{@"title":@"备注",@"content":_model.note},@{@"title":@"签名状态",@"content":@[_model.parties,_model.user_status]},];
+        }else{
+            self.titleLabel.text = @"待签名转账";
+            self.titleLabel.textColor = [UIColor hex:@"#D0021B"];
+            self.iconImageView.image = [UIImage imageNamed:@"message_statue_sign"];
+            [self.bottomBtn setTitle:@"签名" forState:UIControlStateNormal];
+            
+            NSString *faqiren = @"";
+            for (LWPartiesModel *partiesModel in _model.parties) {
+                if([partiesModel.uid isEqualToString:_model.uid]){
+                    faqiren = partiesModel.user;
+                }
+            }
+            
+            infoArray = @[@{@"title":@"收款方",@"content":@""},@{@"title":@"备注",@"content":_model.note},@{@"title":@"交易发起人",@"content":faqiren},];
+        }
         self.bottomBtn.hidden = NO;
+        self.bottomBtn.frame = CGRectMake(0, self.backView.kheight - 48, self.backView.kwidth, 48);
     }else if (_model.status == 2){
+        self.titleLabel.textColor = lwColorBlack;
         self.bottomBtn.hidden = YES;
         if (_model.type == 1) {//转出
             self.titleLabel.text = @"转账";
@@ -121,20 +140,17 @@
             self.iconImageView.image = [UIImage imageNamed:@"message_statue_gathering"];
             infoArray = @[@{@"title":@"发送方",@"content":@""},@{@"title":@"备注",@"content":_model.note},@{@"title":@"TxID",@"content":txidStr},];
         }
-        for (NSInteger i = 0; i<4; i++) {
-            LWMessageDetailTitleContentView *tcView = [self.backView viewWithTag:10100+i];
-            if (i<infoArray.count) {
-                tcView.hidden = NO;
-                NSDictionary *infoDic = [infoArray objectAtIndex:i];
+    }
+    for (NSInteger i = 0; i<4; i++) {
+        LWMessageDetailTitleContentView *tcView = [self.backView viewWithTag:10100+i];
+        if (i<infoArray.count) {
+            tcView.hidden = NO;
+            NSDictionary *infoDic = [infoArray objectAtIndex:i];
 
-                [tcView setTitle:[infoDic objectForKey:@"title"] andContent:[infoDic objectForKey:@"content"] andIsShowTip:NO];
-            }else{
-                tcView.hidden = YES;
-            }
+            [tcView setTitle:[infoDic objectForKey:@"title"] andContent:[infoDic objectForKey:@"content"] andIsShowTip:NO];
+        }else{
+            tcView.hidden = YES;
         }
-        
-
-        
     }
     
 }

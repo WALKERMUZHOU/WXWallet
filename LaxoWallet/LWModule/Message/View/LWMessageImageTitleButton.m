@@ -69,6 +69,25 @@
         [self.titleLabel setText:@"添加成员"];
     }
 }
+
+- (void)setCurrentStatue:(NSInteger)statue{
+    if (statue) {
+        for (UIView *view in self.imageButton.subviews) {
+             if (view.tag == 10000) {
+                 [view removeFromSuperview];
+             }
+         }
+    }else{
+        UIView *coverView = [[UIView alloc] initWithFrame:self.imageButton.bounds];
+        coverView.backgroundColor = lwColorBlack;
+        coverView.tag = 10000;
+        coverView.alpha = 0.5;
+        coverView.layer.cornerRadius = 2;
+        coverView.layer.masksToBounds = YES;
+        [self.imageButton addSubview:coverView];
+ 
+    }
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

@@ -51,15 +51,18 @@
     return self;
 }
 
-- (void)setTitle:(NSString *)title andContent:(NSString *)content andIsShowTip:(BOOL)isShow{
+- (void)setTitle:(NSString *)title andContent:(id)content andIsShowTip:(BOOL)isShow{
     self.titleLabel.text = title;
-    self.contentLabel.text = content;
     self.tipButton.hidden = !isShow;
-    if ([content containsString:@"***"]) {
-        self.tipButton.hidden = NO;
+    if ([content isKindOfClass:[NSString class]]) {
+        self.contentLabel.text = content;
+        if ([content containsString:@"***"]) {
+            self.tipButton.hidden = NO;
+        }
     }else{
         self.tipButton.hidden = YES;
     }
+
 }
 
 - (void)tipClick:(UIButton *)sender{

@@ -47,7 +47,37 @@
     self.tableView.walletId = self.contentModel.walletId;
     [self.view addSubview:self.tableView];
     [self.tableView getCurrentData];
+    __weak typeof(self) weakself = self;
+    self.tableView.scrollBlock = ^{
+        if (weakself.headView.isShow) {
+            weakself.headView.isShow = NO;
+            [weakself.headView dismiss];
+        }
+    };
+    UIButton *transferButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    transferButton.frame = CGRectMake(0, kScreenHeight - 64, 140, 44);
+    [transferButton setBackgroundColor:lwColorNormal];
+    transferButton.kright = kScreenWidth/2 - 20;
+    [transferButton setBackgroundColor:lwColorNormal];
+    [transferButton setTitleColor:lwColorWhite forState:UIControlStateNormal];
+    [transferButton.titleLabel setFont:kMediumFont(16)];
+    transferButton.layer.cornerRadius = 3;
+    transferButton.layer.masksToBounds = YES;
+    [transferButton setTitle:@"转账" forState:UIControlStateNormal];
+    [transferButton addTarget:self action:@selector(transferClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:transferButton];
     
+    UIButton *gatheringButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    gatheringButton.frame = CGRectMake(0, kScreenHeight - 64, 140, 44);
+    gatheringButton.kleft = kScreenWidth/2 + 20;
+    gatheringButton.layer.cornerRadius = 3;
+    gatheringButton.layer.masksToBounds = YES;
+    [gatheringButton setBackgroundColor:[UIColor hex:@"#11B1C4"]];
+    [gatheringButton setTitleColor:lwColorWhite forState:UIControlStateNormal];
+    [gatheringButton.titleLabel setFont:kMediumFont(16)];
+    [gatheringButton setTitle:@"收款" forState:UIControlStateNormal];
+    [gatheringButton addTarget:self action:@selector(gatheringClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:gatheringButton];
 }
 
 - (void)setContentModel:(LWHomeWalletModel *)contentModel{
@@ -67,13 +97,6 @@
         self.headView.isShow = YES;
         [self.headView showWithViewController:self];
     }
-//    sender.selected = !sender.isSelected;
-//    if (sender.isSelected) {
-//        self.headView.frame = CGRectMake(0, -self.headView.viewHeight, kScreenWidth, self.headView.viewHeight);
-//        [self.headView showWithViewController:self];
-//    }else{
-//        [self.headView dismiss];
-//    }
 }
 
 - (void)manageMessagePartiesData:(NSNotification *)notification{
@@ -82,12 +105,24 @@
     if ([[requestInfo objectForKey:@"success"]integerValue] == 1) {
         NSArray *dataArray = [requestInfo objectForKey:@"data"];
         if (!self.headView) {
-            self.headView = [[LWMessageMulpityHeadView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200) andModel:_contentModel andParties:dataArray];
+            if (self.detailViewType == 1) {
+                self.headView = [[LWMessageMulpityHeadView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200) andModel:_contentModel andParties:@[]];
+            }else{
+                self.headView = [[LWMessageMulpityHeadView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200) andModel:_contentModel andParties:dataArray];
+            }
             self.headView.frame = CGRectMake(0, -self.headView.viewHeight, kScreenWidth, self.headView.viewHeight);
             self.headView.isShow = YES;
             [self.headView showWithViewController:self];
         }
     }
+}
+
+- (void)transferClick:(UIButton *)sender{
+    
+}
+
+- (void)gatheringClick:(UIButton *)sender{
+
 }
 
 - (void)dealloc{

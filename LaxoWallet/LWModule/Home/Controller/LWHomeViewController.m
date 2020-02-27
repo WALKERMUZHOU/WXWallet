@@ -93,7 +93,7 @@
         NSArray *responseArray = (NSArray *)responseData;
         NSString *firstObj = [responseData objectAtIndex:0];
         if ([firstObj isEqualToString:@"res"]) {
-            WSRequestId requestId = [[responseArray objectAtIndex:1] integerValue];
+            NSInteger requestId = [[responseArray objectAtIndex:1] integerValue];
             switch (requestId) {
                 case WSRequestIdWalletQueryPersonalWallet:
                     [self managePersonalWalletData:responseArray[2]];
@@ -126,7 +126,24 @@
                     [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_messageParties object:responseArray[2]];
                 }
                       break;
-                default:
+                case WSRequestIdWalletQueryUserIsOnLine:{
+                    [SVProgressHUD dismiss];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_userIsOnLine object:responseArray[2]];
+                }
+                      break;
+                default:{
+                    NSString *idString = [NSString stringWithFormat:@"%ld",(long)requestId];
+                    if (idString.length>5) {
+                        NSString *firstPart = [idString substringToIndex:5];
+                        if ([firstPart isEqualToString:@"20000"]) {
+                            NSMutableDictionary *mutableDic = [NSMutableDictionary dictionaryWithDictionary:responseArray[2]];
+                            [mutableDic setObj:@(requestId) forKey:@"uid"];
+                            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_userIsOnLine object:mutableDic];
+                        }
+                    }
+                    
+                }
+                    
                     break;
             }
         }

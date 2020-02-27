@@ -25,6 +25,7 @@
 
 #define kWebScoket_messageListInfo            @"kWebScoket_messageListInfo"
 #define kWebScoket_messageParties            @"kWebScoket_messageParties"
+#define kWebScoket_userIsOnLine            @"kWebScoket_userIsOnLine"
 
 
 #pragma mark - Userdefault

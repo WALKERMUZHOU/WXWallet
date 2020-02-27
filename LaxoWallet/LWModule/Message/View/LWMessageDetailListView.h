@@ -9,10 +9,12 @@
 #import "LWBaseTableView.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^TableViewScrollingBlock)(void);
 @interface LWMessageDetailListView : LWBaseTableView
 
 @property (nonatomic, assign) NSInteger walletId;
+@property (nonatomic, copy) TableViewScrollingBlock scrollBlock;
+
 - (void)getCurrentData;
 @end
 

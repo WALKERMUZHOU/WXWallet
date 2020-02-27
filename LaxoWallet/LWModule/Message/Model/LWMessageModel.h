@@ -7,6 +7,7 @@
 //
 
 #import "LWBaseModel.h"
+#import "LWPartiesModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray     *approve;//包含已签名用户uid的数组
 @property (nonatomic, strong) NSArray     *reject;//包含已拒绝签名用户uid的数组
 @property (nonatomic, strong) NSArray     *parties;//钱包成员数组，包含uid,user,approve,reject
-@property (nonatomic, strong) NSDate      *createtime;//创建时间
+@property (nonatomic, strong) NSString      *createtime;//创建时间
 
 @property (nonatomic, assign) CGFloat     viewHeight;//高度
 

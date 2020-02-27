@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LWMessageDetailTitleContentView : UIView
 
-- (void)setTitle:(NSString *)title andContent:(NSString *)content andIsShowTip:(BOOL)isShow;
+- (void)setTitle:(NSString *)title andContent:(id)content andIsShowTip:(BOOL)isShow;
 
 @end
 

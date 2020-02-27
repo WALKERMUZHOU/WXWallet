@@ -15,14 +15,19 @@
 
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic{
     if ([[dic objectForKey:@"status"] integerValue] == 1) {
-        self.viewHeight= 280;
+        self.viewHeight= 290;
     }else if ([[dic objectForKey:@"status"] integerValue] == 2){
         if ([[dic objectForKey:@"type"] integerValue] == 1) {
-            self.viewHeight = 220;
+            self.viewHeight = 270;
         }else{
-            self.viewHeight = 195;
+            self.viewHeight = 245;
         }
     }
+    NSArray *partiesArray = [dic objectForKey:@"parties"];
+    if (partiesArray.count>0) {
+        self.parties = [NSArray modelArrayWithClass:[LWPartiesModel class] json:partiesArray];
+    }
+    
     return YES;
 }
 

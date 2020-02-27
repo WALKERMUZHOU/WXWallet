@@ -35,34 +35,22 @@
     CGFloat gapWidth = (kScreenWidth - 50)/6/2;
     CGFloat buttonWidth = (kScreenWidth - gapWidth*2)/5;
     CGFloat buttonHeight = (100+73-20)/2;
-    CGFloat topHeight = 0;
+    CGFloat topHeight = 20;
     for (NSInteger i = 0; i<self.partyArray.count; i++) {
         LWMessageImageTitleButton *button = [[LWMessageImageTitleButton alloc] initWithFrame:CGRectMake(gapWidth + buttonWidth * (i%5), 10 + (buttonHeight + 10) *(i/5), buttonWidth, buttonHeight)];
         button.tag = 11000+i;
         [self addSubview:button];
         LWPartiesModel *model = [self.partyArray objectAtIndex:i];
         [button setImage:nil andTitle:model.user];
-//        if (i == self.partyArray.count) {
-//            button.isDeleteBtn = YES;
-//            button.clickBlock = ^{
-//                [self buttonClick:i];
-//            };
-//        }else if (i == self.partyArray.count + 1){
-//            button.isAddBtn = YES;
-//            button.clickBlock = ^{
-//                [self buttonClick:i];
-//            };
-//        }else{
-//            LWPartiesModel *model = [self.partyArray objectAtIndex:i];
-//            [button setImage:@"" andTitle:model.user];
-//        }
+        if (i == self.partyArray.count - 1) {
+            topHeight = (10 + buttonHeight) * ((self.partyArray.count+2)/5 + 1) + 5;
+        }
     }
-    topHeight = (10 + buttonHeight) * ((self.partyArray.count+2)/5 + 1) + 5;
     
     UILabel *balanceLabel = [[UILabel alloc] initWithFrame:CGRectMake(preleftWidth, topHeight, 200, 25)];
     [balanceLabel setFont:kFont(17.5)];
     [balanceLabel setTextColor:lwColorBlack];
-    balanceLabel.text = [NSString stringWithFormat:@"余额：%@",@(_model.personalBitCurrency).description];
+    balanceLabel.text = [NSString stringWithFormat:@"余额：%.2f",_model.personalBitCurrency];
     [self addSubview:balanceLabel];
     topHeight += (25 + 30);
     
@@ -79,13 +67,24 @@
     [self addSubview:createNameLabel];
     
     topHeight += (17+15);
+    NSDateFormatter *dateStringFormatter = [[NSDateFormatter alloc] init];
+    [dateStringFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:_model.createtime.integerValue/1000];
     
     UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(preleftWidth, topHeight, 200, 17)];
     [timeLabel setFont:kFont(12.5)];
     [timeLabel setTextColor:lwColorBlack2];
-    timeLabel.text = @"创建时间：";
+    timeLabel.text =[NSString stringWithFormat:@"创建时间：%@",[dateStringFormatter stringFromDate:date]];
     [self addSubview:timeLabel];
     self.viewHeight = topHeight + 17 + 10;
+    
+    if (self.partyArray.count == 0) {
+        walletNameLabel.text = @"钱包名称：BSV";
+        createNameLabel.text = [NSString stringWithFormat:@"创建人：%@",[[LWUserManager shareInstance]getUserModel].email];
+    }else{
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUserSatue:) name:kWebScoket_userIsOnLine object:nil];
+    }
+    
 }
 
 - (void)buttonClick:(NSInteger)index{
@@ -95,6 +94,45 @@
         
     }else if (index == self.partyArray.count + 1){
 
+    }
+}
+
+- (void)getCurrentUserSatue{
+    for (NSInteger i = 0; i<self.partyArray.count; i++) {
+        LWPartiesModel *model = [self.partyArray objectAtIndex:i];
+        if ([model.uid isEqualToString:[[LWUserManager shareInstance]getUserModel].uid]) {
+            continue;
+        }
+        NSDictionary *multipyparams = @{@"uid":model.uid};
+        NSString *idstring = [NSString stringWithFormat:@"20000%@",model.uid];
+          NSArray *requestmultipyWalletArray = @[@"req",idstring,WS_Home_UserIsOnLine,[multipyparams jsonStringEncoded]];
+          [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+    }
+}
+
+- (void)getUserSatue:(NSNotification *)notification{
+    NSDictionary *resInfo = notification.object;
+     if ([[resInfo objectForKey:@"success"] integerValue] == 1) {
+         NSArray *statueArray = [resInfo objectForKey:@"data"];
+         NSInteger statue = [[statueArray objectAtIndex:0] integerValue];
+         NSString *uid =[NSString stringWithFormat:@"%@",[resInfo objectForKey:@"uid"]];
+         [self refreshPartiesStatue:statue andUid:uid];
+     }else{
+         NSString *message = [resInfo objectForKey:@"message"];
+         if (message && message.length>0) {
+             [WMHUDUntil showMessageToWindow:message];
+         }
+     }
+}
+
+- (void)refreshPartiesStatue:(NSInteger)statue andUid:(NSString *)uid{
+    NSString *userID = [uid substringWithRange:NSMakeRange(5, uid.length - 5)];
+    for (NSInteger i = 0; i<self.partyArray.count; i++) {
+        LWPartiesModel *model = [self.partyArray objectAtIndex:i];
+        if ([model.uid isEqualToString:userID]) {
+            LWMessageImageTitleButton *button = [self viewWithTag:11000+i];
+            [button setCurrentStatue:statue];
+        }
     }
 }
 
@@ -117,6 +155,7 @@
         self.hidden = NO;
         self.alpha = 1;
     }];
+    [self getCurrentUserSatue];
 }
 
 - (void)dismiss{

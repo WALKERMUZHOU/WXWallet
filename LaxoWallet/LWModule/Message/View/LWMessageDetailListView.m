@@ -58,22 +58,23 @@
 #pragma mark - uitableviewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //    return self.dataSource.count;
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataSource.count;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LWMessageModel *messageModel = [self.dataSource objectAtIndex:indexPath.row];
+    LWMessageModel *messageModel = [self.dataSource objectAtIndex:indexPath.section];
     LWMessageDetailListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWMessageDetailListCell"];
     [cell setModel:messageModel];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 270.f;
+    LWMessageModel *messageModel = [self.dataSource objectAtIndex:indexPath.section];
+    return messageModel.viewHeight;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -85,11 +86,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return 10.f;
-    }else{
-        return 0.0001f;
-    }
+    return 10.f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -104,7 +101,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (self.scrollBlock) {
+        self.scrollBlock();
+    }
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

@@ -12,6 +12,7 @@
 
 #import "PublicKeyView.h"
 #import "PubkeyManager.h"
+#include "rust.h"
 
 @interface LWHomeViewController ()
 

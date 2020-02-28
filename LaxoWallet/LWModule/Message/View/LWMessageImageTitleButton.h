@@ -16,7 +16,6 @@ typedef void(^ClickBlock)(void);
 
 - (void)setImage:(UIImage *)image andTitle:(NSString *)title;
 - (void)setCurrentStatue:(NSInteger)statue;
-
 @property (nonatomic, assign) BOOL isDeleteBtn;
 @property (nonatomic, assign) BOOL isAddBtn;
 @end

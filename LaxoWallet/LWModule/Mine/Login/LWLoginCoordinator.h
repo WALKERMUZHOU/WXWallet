@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //注册用户
 + (void)registerUserWithEmail:(NSString *)email WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
++ (void)registerUserWithParams:(NSDictionary *)params WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
 
 @end
 

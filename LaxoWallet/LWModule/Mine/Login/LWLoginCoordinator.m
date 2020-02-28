@@ -135,4 +135,21 @@
         }
     }];
 }
+
++ (void)registerUserWithParams:(NSDictionary *)params WithSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    NSString *jsonStr = [params jsonStringEncoded];
+
+    [[LWNetWorkSessionManager shareInstance] getPath:Url_Login_register parameters:@{@"params":jsonStr} withBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        [SVProgressHUD dismiss];
+        if ([[result objectForKey:@"success"] integerValue] == 1) {//success
+            successBlock([result objectForKey:@"data"]);
+        }else{
+            if (error) {
+                FailBlock(error);
+            }else{
+                FailBlock(result);
+            }
+        }
+    }];
+}
 @end

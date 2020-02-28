@@ -29,8 +29,9 @@
     [self.window setBackgroundColor:[UIColor whiteColor]];
     [self getTrueteeData];
     [self getCurrentTokenPrice];
-    [LogicHandle showTabbarVC];
+//    [LogicHandle showTabbarVC];
 //    [LogicHandle chooseStartVC];
+    [LogicHandle showLoginVC];
     [self.window makeKeyAndVisible];
     
     return YES;

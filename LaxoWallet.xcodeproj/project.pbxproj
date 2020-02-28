@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E0FE6942408AB9D00733B05 /* libthreshold.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0FE6932408AB9D00733B05 /* libthreshold.a */; };
+		5E0FE6962408E72D00733B05 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE6952408E72D00733B05 /* index.js */; };
 		5E23584823FBE09D00A7D774 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584423FBE09C00A7D774 /* index.html */; };
-		5E23584923FBE09D00A7D774 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584523FBE09C00A7D774 /* index.js */; };
+		5E23584923FBE09D00A7D774 /* index3.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584523FBE09C00A7D774 /* index3.js */; };
 		5E23584A23FBE09D00A7D774 /* index2.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584623FBE09C00A7D774 /* index2.js */; };
 		5E23584B23FBE09D00A7D774 /* index1.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584723FBE09C00A7D774 /* index1.js */; };
 		5E23584E23FD0D0600A7D774 /* LWutxoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E23584D23FD0D0600A7D774 /* LWutxoModel.m */; };
@@ -235,8 +237,11 @@
 /* Begin PBXFileReference section */
 		188A899FDE346915C2A47241 /* Pods-LaxoWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaxoWallet.debug.xcconfig"; path = "Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		25333CCFD54DFB01F4502BBC /* Pods-LaxoWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaxoWallet.release.xcconfig"; path = "Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet.release.xcconfig"; sourceTree = "<group>"; };
+		5E0FE6922408AB9D00733B05 /* rust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rust.h; sourceTree = "<group>"; };
+		5E0FE6932408AB9D00733B05 /* libthreshold.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libthreshold.a; sourceTree = "<group>"; };
+		5E0FE6952408E72D00733B05 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		5E23584423FBE09C00A7D774 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		5E23584523FBE09C00A7D774 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		5E23584523FBE09C00A7D774 /* index3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index3.js; sourceTree = "<group>"; };
 		5E23584623FBE09C00A7D774 /* index2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index2.js; sourceTree = "<group>"; };
 		5E23584723FBE09C00A7D774 /* index1.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index1.js; sourceTree = "<group>"; };
 		5E23584C23FD0D0600A7D774 /* LWutxoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWutxoModel.h; sourceTree = "<group>"; };
@@ -639,6 +644,7 @@
 			files = (
 				5EF5133023F1090000F5B6C1 /* JavaScriptCore.framework in Frameworks */,
 				8BA1F18DF19D200E156D0DBA /* Pods_LaxoWallet.framework in Frameworks */,
+				5E0FE6942408AB9D00733B05 /* libthreshold.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,11 +674,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5E0FE6912408AB9D00733B05 /* rust */ = {
+			isa = PBXGroup;
+			children = (
+				5E0FE6922408AB9D00733B05 /* rust.h */,
+				5E0FE6932408AB9D00733B05 /* libthreshold.a */,
+			);
+			path = rust;
+			sourceTree = "<group>";
+		};
 		5E23584323FBE09C00A7D774 /* mobile */ = {
 			isa = PBXGroup;
 			children = (
+				5E0FE6952408E72D00733B05 /* index.js */,
 				5E23584423FBE09C00A7D774 /* index.html */,
-				5E23584523FBE09C00A7D774 /* index.js */,
+				5E23584523FBE09C00A7D774 /* index3.js */,
 				5E23584623FBE09C00A7D774 /* index2.js */,
 				5E23584723FBE09C00A7D774 /* index1.js */,
 			);
@@ -1505,6 +1521,7 @@
 		5EA807CD23E94ED500012837 /* LWAdapt */ = {
 			isa = PBXGroup;
 			children = (
+				5E0FE6912408AB9D00733B05 /* rust */,
 				5EA1D48E23FA527E00A0A747 /* WebSocket */,
 				5EF513B723F5298000F5B6C1 /* TDTouchID */,
 				5EF5134D23F1811A00F5B6C1 /* LBXAlertAction */,
@@ -1974,6 +1991,7 @@
 				5EA807A823E94E2400012837 /* LaunchScreen.storyboard in Resources */,
 				5E23584B23FBE09D00A7D774 /* index1.js in Resources */,
 				5EB31E8724041CAF00974FD4 /* LWMineSecurityTableViewCell.xib in Resources */,
+				5E0FE6962408E72D00733B05 /* index.js in Resources */,
 				EFEBEEA523FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib in Resources */,
 				5E2358632403F3E400A7D774 /* LWMineTableViewCell.xib in Resources */,
 				5E5F130223EDD97F002F0711 /* PageController.bundle in Resources */,
@@ -1985,7 +2003,7 @@
 				5E66A36023EAC379004097CB /* backImage@3x.png in Resources */,
 				5EA807A523E94E2400012837 /* Assets.xcassets in Resources */,
 				5E5F12CA23ED874B002F0711 /* LWLoginSecondStepView.xib in Resources */,
-				5E23584923FBE09D00A7D774 /* index.js in Resources */,
+				5E23584923FBE09D00A7D774 /* index3.js in Resources */,
 				5EA807A323E94E2100012837 /* Main.storyboard in Resources */,
 				5E66A34423EAB58C004097CB /* LICENSE.txt in Resources */,
 			);
@@ -2398,11 +2416,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = /Users/zhuchenglong/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
 				INFOPLIST_FILE = LaxoWallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.laxo.wallewallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2417,11 +2440,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = /Users/zhuchenglong/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
 				INFOPLIST_FILE = LaxoWallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.laxo.wallewallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -52,10 +52,23 @@
         dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
     });
     return [self getPubkey];
+}
 
++ (void)getPubKeyWithEmail:(NSString *)email SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    
+    NSString *jsStr = [NSString stringWithFormat:@"getInitData('%@')",email];
 
-
-
+    [[PublicKeyView shareInstance] getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
+        if (dicData) {
+            //返回来的shares需要使用js里的encrypt进行加密
+            
+             [[NSUserDefaults standardUserDefaults] setObject:dicData forKey:kAppPubkeyManager_userdefault];
+             [[NSUserDefaults standardUserDefaults] synchronize];
+             successBlock(dicData);
+         }else{
+             [self getPubKeyWithEmail:email SuccessBlock:successBlock WithFailBlock:FailBlock];
+         }
+    }];
 }
 
 + (NSString *)getPrikey{
@@ -113,6 +126,17 @@
     });
 
     return returnStr;
+}
+
++ (void)encriptwithPrikey:(NSString *)prikey andPubkey:(NSString *)Pubkey adnMessage:(NSString *)message WithSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    NSString *jsStr = [NSString stringWithFormat:@"encrypt('%@','%@','%@')",prikey,Pubkey,message];
+    [[PublicKeyView shareInstance] getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
+        if (dicData) {
+            successBlock(dicData);
+         }else{
+             
+         }
+    }];
 }
 
 + (id)getRecoverData:(NSArray *)shares{
@@ -192,5 +216,17 @@ NSLog(@"message:%@",message);
              }
         }];
     });
+}
+
++ (void)getDkWithSecret:(NSString *)secret andpJoin:(NSArray *)dq SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    NSString *jsStr = [NSString stringWithFormat:@"encryptWithKey('%@','%@')",secret,[dq componentsJoinedByString:@","]];
+    PublicKeyView *pbView = [PublicKeyView shareInstance];
+    [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
+        if (dicData) {
+            successBlock(dicData);
+         }else{
+             FailBlock(dicData);
+         }
+    }];
 }
 @end

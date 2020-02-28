@@ -13,6 +13,8 @@
 #import "LWRocoveryViewController.h"
 #import "PublicKeyView.h"
 #import "PubkeyManager.h"
+#import "rust.h"
+#import "LWFaceBindViewController.h"
 
 @interface LWLoginViewController ()
 
@@ -36,34 +38,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self createUI];
-    return;
-    [self initPubKey];
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-         NSArray *array = [[LWTrusteeManager shareInstance] getTrusteeArray];
-
-         LWTrusteeModel *model = [array objectAtIndex:0];
-         NSString *prikey = [PubkeyManager getPrikey];
-           
-        NSString *pubkey = model.publicKey;
-        NSString *data = @"7a46de356a1c77557474f57a3917ef0ecc2065068fa639fc2fea59020e66a904a7ffe6cfcbad89b105478699dd5fc25757f0d9fe3bab0b43c1b5878348ea290216e479edee7b81684e0ed5d350f5f2ac3175e9328ca90571dadf10115853e99513cf060196588313fc878c9bb78e7a830e1d85314270a9e57669facd7bbbbde1b7531c60f1c9ec85dc0465897def401a6c4bd9ff2e02df82ff372429aa805898b77ea7204df3c2ea02d7d5276a2c67bb608da7d39b08067aa1f7c472bf309c440d25a75fefab1037015f0220fac727b581c8b73568cc141df6319ee866d7b03a6622947c5ae599a8675f6236ce8b0f51dbec6fb7a98a5b634abb9a23e675def1aea31fe28af07f879ec7ea59970bf5d50c394392564d99f7a5f1572f8977049bed6c1356fc79db6fd2fc89bdeacffe89";
-            NSString *encirptStr = [PubkeyManager getencriptwithPrikey:prikey andPubkey:pubkey adnMessage:data];
-
-//        [LWLoginCoordinator verifyRecoveryEmailCodeWithCode:@"66666666" andModel:model WithSuccessBlock:^(id  _Nonnull data) {
-//            NSLog(@"data%@",[data objectForKey:@"data"]);
-//            NSString *encirptStr = [PubkeyManager getencriptwithPrikey:prikey andPubkey:pubkey adnMessage:data[data]];
-//
-//
-//        } WithFailBlock:^(id  _Nonnull data) {
-//
-//        }];
-    });
-
-    
-//    [PubkeyManager getencriptwithPrikey:nil andPubkey:nil adnMessage:nil];
-//    [[PublicKeyView shareInstance] getInitDataBlock:^(NSDictionary * _Nonnull dicData) {
-//        NSLog(@"%@",dicData);
-//    }];
 }
 
 - (void)createUI{
@@ -106,15 +80,12 @@
         [self.textField.button setTitle:@"Verify" forState:UIControlStateNormal];
         self.textField.lwTextField.keyboardType = UIKeyboardTypeNumberPad;
     }
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppPubkeyManager_userdefault];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self initPubKey];
 }
 
 - (void)initPubKey{
-    NSDictionary *pubDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
-    if (pubDic && pubDic.allKeys.count>0) {
-        return;
-    }
-    
     [[PublicKeyView shareInstance] getInitDataBlock:^(NSDictionary * _Nonnull dicData) {
         if (dicData) {
             [[NSUserDefaults standardUserDefaults] setObject:dicData forKey:kAppPubkeyManager_userdefault];
@@ -127,7 +98,7 @@
 
 #pragma mark - method
 - (void)buttonClick{
-
+    
     if (self.loginVCType == LWLoginVCTypeCheckCode) {
         [self verifyEmailClick];
     }else{
@@ -151,25 +122,25 @@
 - (void)verifyEmailClick{
     [SVProgressHUD show];
     [LWLoginCoordinator verifyEmailCodeWithEmail:self.emailStr andCode:self.textField.lwTextField.text WithSuccessBlock:^(id  _Nonnull data) {
-        [SVProgressHUD dismiss];
-        if (data == NO) {
+        id dataID = [data objectForKey:@"data"];
+        if (dataID == NO || dataID == 0) {
+            [SVProgressHUD dismiss];
             [WMHUDUntil showMessageToWindow:@"验证失败"];
             return ;
         }
-        NSDictionary *dataDic = [data objectForKey:@"data"];
+        NSDictionary *dataDic = (NSDictionary *)dataID;
         if(dataDic && dataDic.allKeys.count>0){
             [[LWUserManager shareInstance] setUserDic:dataDic];
             [[LWUserManager shareInstance] setEmail:self.emailStr];
             if([[LWUserManager shareInstance] getUserModel].uid.length>0){//老用户
+                [SVProgressHUD dismiss];
                 [self jumpToRecoveryVC];
             }else{
-    //            [self registerMethod];
+                [self registerMethod];
             }
         }else{
             [WMHUDUntil showMessageToWindow:@"验证失败"];
         }
-
-        
     } WithFailBlock:^(id  _Nonnull data) {
         [SVProgressHUD dismiss];
     }];
@@ -179,7 +150,6 @@
     LWLoginViewController *loginVC = [[LWLoginViewController alloc]initWithEmailStr:self.textField.lwTextField.text];
     loginVC.loginVCType = LWLoginVCTypeCheckCode;
     [self.navigationController pushViewController:loginVC animated:YES];
-
 }
 
 - (void)jumpToRecoveryVC{
@@ -187,9 +157,89 @@
     [self.navigationController pushViewController:recovery animated:YES];
 }
 
-- (void)jumpToRegisterVC{
-    
+- (void)registerMethod{
+    [SVProgressHUD show];
+    [PubkeyManager getPubKeyWithEmail:self.emailStr SuccessBlock:^(id  _Nonnull data) {
+        
+        NSString *pk = [data objectForKey:@"pk"];
+        
+        NSString *dpStr = [NSString stringWithFormat:@"%s",get_random_key_pair()];
+        NSData * jsonData = [dpStr dataUsingEncoding:NSUTF8StringEncoding];
+        NSArray *dpArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+
+        NSString *secret = [data objectForKey:@"secret"];
+        
+        NSArray *trusteeArrar = [[LWTrusteeManager shareInstance] getTrusteeArray];
+        NSArray *shares = [data objectForKey:@"shares"];
+        
+        NSMutableDictionary *sharesDic = [NSMutableDictionary dictionary];
+        for (NSInteger i = 0; i < trusteeArrar.count; i++) {
+            LWTrusteeModel *model = trusteeArrar[i];
+            [PubkeyManager encriptwithPrikey:pk andPubkey:model.publicKey adnMessage:shares[i] WithSuccessBlock:^(id  _Nonnull encriData) {
+                [sharesDic setObj:encriData forKey:model.name];
+                if (i == trusteeArrar.count - 1){
+                    [self manageDkWithSecret:secret andpJoin:dpArray andShares:sharesDic andinfoDic:data];
+                }
+            } WithFailBlock:^(id  _Nonnull data) {
+                
+            }];
+        }
+        
+    } WithFailBlock:^(id  _Nonnull data) {
+        
+    }];
+
 }
+
+- (void)manageDkWithSecret:(NSString *)secret andpJoin:(NSArray *)dpArray andShares:(NSDictionary *)encryptShares andinfoDic:(NSDictionary *)data{
+    
+    NSString *d = dpArray.firstObject;
+    NSString *p = dpArray.lastObject;
+    
+    NSString *ek = [NSString stringWithFormat:@"%s",get_encryption_key([d cStringUsingEncoding:NSASCIIStringEncoding], [p cStringUsingEncoding:NSASCIIStringEncoding])];
+    NSString *sig = [data objectForKey:@"sig"];
+    NSString *xpub = [data objectForKey:@"xpub"];
+    
+    [PubkeyManager getDkWithSecret:secret andpJoin:dpArray SuccessBlock:^(id  _Nonnull data) {
+        NSDictionary *params = @{@"email":self.emailStr,
+                                 @"xpub":xpub,
+                                 @"sig":sig,
+                                 @"ek":ek,
+                                 @"dk":data,
+                                 @"shares":encryptShares,
+                                 @"token":[[LWUserManager shareInstance] getUserModel].token
+        };
+        [self loginRequestWithParams:params];
+    } WithFailBlock:^(id  _Nonnull data) {
+        
+    }];
+}
+
+- (void)loginRequestWithParams:(NSDictionary *)loginParams{
+    [LWLoginCoordinator registerUserWithParams:loginParams WithSuccessBlock:^(id  _Nonnull data) {
+        [SVProgressHUD dismiss];
+        LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
+        model.uid = [data objectForKey:@"uid"];
+        model.secret = [data objectForKey:@"secret"];
+        model.login_token = [data objectForKey:@"login_token"];
+        [[LWUserManager shareInstance] setUser:model];
+        
+        LWFaceBindViewController *lwfaceVC = [[LWFaceBindViewController alloc]init];
+        [self.navigationController pushViewController:lwfaceVC animated:YES];
+        
+    } WithFailBlock:^(id  _Nonnull data) {
+        [SVProgressHUD dismiss];
+        [WMHUDUntil showMessageToWindow:@"fail"];
+    }];
+}
+
+- (void)jumpToRegisterVC{
+    [self registerMethod];
+}
+
+
+
+
 /*
 #pragma mark - Navigation
 

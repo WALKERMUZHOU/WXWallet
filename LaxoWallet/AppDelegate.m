@@ -30,8 +30,8 @@
     [self getTrueteeData];
     [self getCurrentTokenPrice];
 //    [LogicHandle showTabbarVC];
-//    [LogicHandle chooseStartVC];
-    [LogicHandle showLoginVC];
+    [LogicHandle chooseStartVC];
+//    [LogicHandle showLoginVC];
     [self.window makeKeyAndVisible];
     
     return YES;

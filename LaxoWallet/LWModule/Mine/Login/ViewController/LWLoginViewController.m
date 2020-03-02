@@ -40,6 +40,11 @@
     [self createUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self initPubKey];
+}
+
 - (void)createUI{
     self.title = @"验证邮箱";
     
@@ -82,7 +87,6 @@
     }
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppPubkeyManager_userdefault];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [self initPubKey];
 }
 
 - (void)initPubKey{

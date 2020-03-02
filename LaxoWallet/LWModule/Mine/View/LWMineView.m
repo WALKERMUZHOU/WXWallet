@@ -45,7 +45,6 @@
 //    self.coordinator.delegate = self;
 //    _isCanApplyBorrow = YES;
     self.headerView = [[LWMineHeaderView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kStatusBarHeight + 100)];
-    __weak typeof(self) weakSelf = self;
     self.tableView.tableHeaderView = self.headerView;
     
     NSArray *array = @[@{@"title":@"安全中心",@"type":@"1"},
@@ -67,7 +66,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *infoDic = [self.dataSource objectAtIndex:indexPath.row];
-    NSInteger type = [[infoDic objectForKey:@"type"] integerValue];
     LWMineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWMineTableViewCell"];
     [cell setInfoDic:infoDic];
     return cell;

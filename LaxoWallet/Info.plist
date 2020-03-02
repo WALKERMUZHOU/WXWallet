@@ -24,6 +24,8 @@
 	<string>是否允许使用相机</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>是否允许使用faceID</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>是否允许保存图片至你的相册</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>是否允许打开相册</string>
 	<key>UILaunchStoryboardName</key>

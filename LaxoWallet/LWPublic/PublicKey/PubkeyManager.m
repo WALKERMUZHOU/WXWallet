@@ -229,4 +229,16 @@ NSLog(@"message:%@",message);
          }
     }];
 }
+
++ (void)decrptWithSecret:(NSString *)secret ansMessage:(NSString *)eqrCodeStr SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    NSString *jsStr = [NSString stringWithFormat:@"decryptWithKey('%@','%@',0)",secret,eqrCodeStr];
+    PublicKeyView *pbView = [PublicKeyView shareInstance];
+    [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
+        if (dicData) {
+            successBlock(dicData);
+         }else{
+             FailBlock(dicData);
+         }
+    }];
+}
 @end

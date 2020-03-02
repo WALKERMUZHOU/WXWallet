@@ -10,9 +10,6 @@
 		5E0FE6942408AB9D00733B05 /* libthreshold.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0FE6932408AB9D00733B05 /* libthreshold.a */; };
 		5E0FE6962408E72D00733B05 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE6952408E72D00733B05 /* index.js */; };
 		5E23584823FBE09D00A7D774 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584423FBE09C00A7D774 /* index.html */; };
-		5E23584923FBE09D00A7D774 /* index3.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584523FBE09C00A7D774 /* index3.js */; };
-		5E23584A23FBE09D00A7D774 /* index2.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584623FBE09C00A7D774 /* index2.js */; };
-		5E23584B23FBE09D00A7D774 /* index1.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584723FBE09C00A7D774 /* index1.js */; };
 		5E23584E23FD0D0600A7D774 /* LWutxoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E23584D23FD0D0600A7D774 /* LWutxoModel.m */; };
 		5E235853240394EC00A7D774 /* UIView+LWPayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E235852240394EC00A7D774 /* UIView+LWPayView.m */; };
 		5E23585A2403CBAE00A7D774 /* LWPersonalCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2358582403CBAE00A7D774 /* LWPersonalCollectionViewController.m */; };
@@ -241,9 +238,6 @@
 		5E0FE6932408AB9D00733B05 /* libthreshold.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libthreshold.a; sourceTree = "<group>"; };
 		5E0FE6952408E72D00733B05 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		5E23584423FBE09C00A7D774 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		5E23584523FBE09C00A7D774 /* index3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index3.js; sourceTree = "<group>"; };
-		5E23584623FBE09C00A7D774 /* index2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index2.js; sourceTree = "<group>"; };
-		5E23584723FBE09C00A7D774 /* index1.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index1.js; sourceTree = "<group>"; };
 		5E23584C23FD0D0600A7D774 /* LWutxoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWutxoModel.h; sourceTree = "<group>"; };
 		5E23584D23FD0D0600A7D774 /* LWutxoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWutxoModel.m; sourceTree = "<group>"; };
 		5E235851240394EC00A7D774 /* UIView+LWPayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+LWPayView.h"; sourceTree = "<group>"; };
@@ -688,9 +682,6 @@
 			children = (
 				5E0FE6952408E72D00733B05 /* index.js */,
 				5E23584423FBE09C00A7D774 /* index.html */,
-				5E23584523FBE09C00A7D774 /* index3.js */,
-				5E23584623FBE09C00A7D774 /* index2.js */,
-				5E23584723FBE09C00A7D774 /* index1.js */,
 			);
 			path = mobile;
 			sourceTree = "<group>";
@@ -1983,13 +1974,11 @@
 				5E66A3A623EAFF1F004097CB /* LWHomeListHeaderView.xib in Resources */,
 				5E23584823FBE09D00A7D774 /* index.html in Resources */,
 				5EB31EA72405182800974FD4 /* LWMessageTableViewCell.xib in Resources */,
-				5E23584A23FBE09D00A7D774 /* index2.js in Resources */,
 				5E66A34623EAB58C004097CB /* WMHUDUntil.bundle in Resources */,
 				5EB31EC1240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib in Resources */,
 				5EB31E92240428CD00974FD4 /* LWMineSettingLanguageCell.xib in Resources */,
 				5E5F12D723ED8BD3002F0711 /* LWRecoveryTrustholdsView.xib in Resources */,
 				5EA807A823E94E2400012837 /* LaunchScreen.storyboard in Resources */,
-				5E23584B23FBE09D00A7D774 /* index1.js in Resources */,
 				5EB31E8724041CAF00974FD4 /* LWMineSecurityTableViewCell.xib in Resources */,
 				5E0FE6962408E72D00733B05 /* index.js in Resources */,
 				EFEBEEA523FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib in Resources */,
@@ -2003,7 +1992,6 @@
 				5E66A36023EAC379004097CB /* backImage@3x.png in Resources */,
 				5EA807A523E94E2400012837 /* Assets.xcassets in Resources */,
 				5E5F12CA23ED874B002F0711 /* LWLoginSecondStepView.xib in Resources */,
-				5E23584923FBE09D00A7D774 /* index3.js in Resources */,
 				5EA807A323E94E2100012837 /* Main.storyboard in Resources */,
 				5E66A34423EAB58C004097CB /* LICENSE.txt in Resources */,
 			);

@@ -74,8 +74,12 @@
     [[SocketRocketUtility instance] sendData:[requetCurrentPriceArray mp_messagePack]];
 
     NSDictionary *params = @{@"type":@1};
-    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQueryPersonalWallet),@"wallet.query",[params jsonStringEncoded]];
+    NSArray *requestPersonalWalletArray = @[@"req",
+                                            @(WSRequestIdWalletQueryPersonalWallet),
+                                            @"wallet.query",
+                                            [params jsonStringEncoded]];
     NSData *data = [requestPersonalWalletArray mp_messagePack];
+    
     [[SocketRocketUtility instance] sendData:data];
 
     [self requestMulipyWalletInfo];

@@ -7,6 +7,8 @@
 //
 
 #import "LWMineTableViewCell.h"
+#import "PublicKeyView.h"
+#import "LBXScanNative.h"
 
 @interface LWMineTableViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleDesLabel;
@@ -37,7 +39,46 @@
     }
 }
 - (IBAction)downLoadClick:(UIButton *)sender {
+    [SVProgressHUD show];
+    NSDictionary *initData = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
+    NSString *secret = [[LWUserManager shareInstance] getUserModel].secret;
+    NSString *seed = [initData objectForKey:@"seed"];
+    
+    NSString *jsStr = [NSString stringWithFormat:@"encryptWithKey('%@','%@',0)",[secret md5String],seed];
+    PublicKeyView *pbView = [PublicKeyView shareInstance];
+    [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
+        if (dicData) {
+            UIImage *qrImage = [LBXScanNative createQRWithString:dicData QRSize:CGSizeMake(400, 400)];
+            UIImageWriteToSavedPhotosAlbum(qrImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+        }else{
+
+        }
+    }];
 }
+
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    [SVProgressHUD dismiss];
+        NSString *msg = nil ;
+        if(error){
+            msg = @"保存图片失败" ;
+        }else{
+            msg = @"保存图片成功" ;
+        }
+    [WMHUDUntil showMessageToWindow:msg];
+    
+}
+
+//UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+//#pragma mark -- <保存到相册>
+//-(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+//    NSString *msg = nil ;
+//    if(error){
+//        msg = @"保存图片失败" ;
+//    }else{
+//        msg = @"保存图片成功" ;
+//    }
+//}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

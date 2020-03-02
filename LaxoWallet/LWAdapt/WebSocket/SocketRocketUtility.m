@@ -222,6 +222,10 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
     if (webSocket == self.socket) {
         NSLog(@"************************** socket收到数据了************************** ");
         NSLog(@"我这后台约定的 message 是 json 格式数据收到数据，就按格式解析吧，然后把数据发给调用层");
+        if ([message isKindOfClass:[NSString class]]) {
+            NSLog(@"websocketl返回数据有问题");
+            return;
+        }
         NSError *error = nil;
         id obj = [MPMessagePackReader readData:message error:&error];
         NSLog(@"message:%@",obj);

@@ -36,12 +36,12 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestIdWalletQueryCreatMultipyWallet     = 10004,
     WSRequestIdWalletQueryGetWalletMessageList   = 10005,
     WSRequestIdWalletQueryJoingNewWallet         = 10006,
-    WSRequestIdWalletQueryMessageDetail         = 10007,
-    WSRequestIdWalletQueryMessageListInfo         = 10008,
+    WSRequestIdWalletQueryMessageDetail          = 10007,
+    WSRequestIdWalletQueryMessageListInfo        = 10008,
     WSRequestIdWalletQueryMessageParties         = 10009,
-    WSRequestIdWalletQueryUserIsOnLine         = 10010,
-
-
+    WSRequestIdWalletQueryUserIsOnLine           = 10010,
+    WSRequestIdWalletQueryBoardCast              = 10011,
+    WSRequestIdWalletQueryGetTheKey              = 10012,
 };
 
 

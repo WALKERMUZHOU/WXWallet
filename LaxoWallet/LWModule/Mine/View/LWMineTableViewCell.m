@@ -40,9 +40,8 @@
 }
 - (IBAction)downLoadClick:(UIButton *)sender {
     [SVProgressHUD show];
-    NSDictionary *initData = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
+    NSString *seed = [[LWUserManager shareInstance] getUserModel].jiZhuCi;
     NSString *secret = [[LWUserManager shareInstance] getUserModel].secret;
-    NSString *seed = [initData objectForKey:@"seed"];
     
     NSString *jsStr = [NSString stringWithFormat:@"encryptWithKey('%@','%@',0)",[secret md5String],seed];
     PublicKeyView *pbView = [PublicKeyView shareInstance];
@@ -55,7 +54,6 @@
         }
     }];
 }
-
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
     [SVProgressHUD dismiss];

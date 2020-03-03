@@ -17,6 +17,8 @@
 #import "LWPersonalCollectionViewController.h"
 #import "LWMessageDetailViewController.h"
 
+#import "LWAddressTool.h"
+
 @interface LWHomeListView()<LWCoordinatorDelegate,MGSwipeTableCellDelegate>{
     NSIndexPath *_deleteIndexPath;
     BOOL _isCanApplyBorrow;
@@ -245,6 +247,15 @@
 }
 
 - (void)createSingleAddress:(NSNotification *)notification{
+    NSDictionary *notiDic = notification.object;
+    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+        NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
+        LWAddressTool *addressTool = [LWAddressTool shareInstance];
+        [addressTool setWithrid:rid];
+        return;
+    }
+    
+    
 #warning 对返回的rid 需要调用rust库 进行数据处理
     LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:@"asdakslhdaks"];
     [LogicHandle presentViewController:personVC animate:YES];

@@ -2,7 +2,7 @@
 # platform :ios, '9.0'
 source 'https://github.com/walkdianzi/DSSpecs.git'
 source 'https://github.com/CocoaPods/Specs.git'
-use_frameworks!
+#use_frameworks!
 inhibit_all_warnings!
 
 target 'LaxoWallet' do
@@ -33,6 +33,10 @@ target 'LaxoWallet' do
     pod 'LBXScan/UI','~> 2.3'
     pod "MPMessagePack"
     pod 'pop'
+#    pod 'CoreBitcoin'
+    pod 'BCGenerator'
+    pod 'CBSecp256k1'
+    pod 'CBBase58'
 
 end
     

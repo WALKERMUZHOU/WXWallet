@@ -93,64 +93,14 @@
 
 - (void)SRWebSocketDidReceiveMsg:(NSNotification *)note {
     //收到服务端发送过来的消息
-     id responseData = note.object;
+    id responseData = note.object;
     if ([responseData isKindOfClass:[NSArray class]]) {
         NSArray *responseArray = (NSArray *)responseData;
         NSString *firstObj = [responseData objectAtIndex:0];
         if ([firstObj isEqualToString:@"res"]) {
-            NSInteger requestId = [[responseArray objectAtIndex:1] integerValue];
-            switch (requestId) {
-                case WSRequestIdWalletQueryPersonalWallet:
-                    [self managePersonalWalletData:responseArray[2]];
-                    break;
-                case WSRequestIdWalletQueryMulpityWallet:
-                    [self manageMultipyWalletData:responseArray[2]];
-                    break;
-                case WSRequestIdWalletQueryTokenPrice:
-                    [self manageTokenPrice:responseArray[2]];
-                    break;
-                case WSRequestIdWalletQuerySingleAddress:
-                    [self manageCollectionAddress:responseArray[2]];
-                    break;
-                case WSRequestIdWalletQueryCreatMultipyWallet:
-                    [self manageCreateMultiyWallet:responseArray[2]];
-                    break;
-                case WSRequestIdWalletQueryGetWalletMessageList:
-                    [self manageWalletMessageList:responseArray[2]];
-                    break;
-                case WSRequestIdWalletQueryJoingNewWallet:
-                    [self manageJoinWalletInfo:responseArray[2]];
-                    break;
-                case WSRequestIdWalletQueryMessageListInfo:{
-                    [SVProgressHUD dismiss];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_messageListInfo object:responseArray[2]];
-                }
-                      break;
-                case WSRequestIdWalletQueryMessageParties:{
-                    [SVProgressHUD dismiss];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_messageParties object:responseArray[2]];
-                }
-                      break;
-                case WSRequestIdWalletQueryUserIsOnLine:{
-                    [SVProgressHUD dismiss];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_userIsOnLine object:responseArray[2]];
-                }
-                      break;
-                default:{
-                    NSString *idString = [NSString stringWithFormat:@"%ld",(long)requestId];
-                    if (idString.length>5) {
-                        NSString *firstPart = [idString substringToIndex:5];
-                        if ([firstPart isEqualToString:@"20000"]) {
-                            NSMutableDictionary *mutableDic = [NSMutableDictionary dictionaryWithDictionary:responseArray[2]];
-                            [mutableDic setObj:@(requestId) forKey:@"uid"];
-                            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_userIsOnLine object:mutableDic];
-                        }
-                    }
-                    
-                }
-                    
-                    break;
-            }
+            [self manageData:responseArray];
+        }else if ([firstObj isEqualToString:@"update"]){
+            [self manageData:responseArray];
         }
     }
 }
@@ -160,6 +110,73 @@
     
 }
 
+- (void)manageData:(NSArray *)responseArray{
+    NSInteger requestId = [[responseArray objectAtIndex:1] integerValue];
+    switch (requestId) {
+         case WSRequestIdWalletQueryPersonalWallet:
+             [self managePersonalWalletData:responseArray[2]];
+             break;
+         case WSRequestIdWalletQueryMulpityWallet:
+             [self manageMultipyWalletData:responseArray[2]];
+             break;
+         case WSRequestIdWalletQueryTokenPrice:
+             [self manageTokenPrice:responseArray[2]];
+             break;
+         case WSRequestIdWalletQuerySingleAddress:
+             [self manageCollectionAddress:responseArray[2]];
+             break;
+         case WSRequestIdWalletQueryCreatMultipyWallet:
+             [self manageCreateMultiyWallet:responseArray[2]];
+             break;
+         case WSRequestIdWalletQueryGetWalletMessageList:
+             [self manageWalletMessageList:responseArray[2]];
+             break;
+         case WSRequestIdWalletQueryJoingNewWallet:
+             [self manageJoinWalletInfo:responseArray[2]];
+             break;
+         case WSRequestIdWalletQueryMessageListInfo:{
+             [SVProgressHUD dismiss];
+             [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_messageListInfo object:responseArray[2]];
+         }
+               break;
+         case WSRequestIdWalletQueryMessageParties:{
+             [SVProgressHUD dismiss];
+             [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_messageParties object:responseArray[2]];
+         }
+               break;
+         case WSRequestIdWalletQueryUserIsOnLine:{
+             [SVProgressHUD dismiss];
+             [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_userIsOnLine object:responseArray[2]];
+         }
+               break;
+         case WSRequestIdWalletQueryBoardCast:{
+               [SVProgressHUD dismiss];
+               [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_boardcast object:responseArray[2]];
+           }
+                 break;
+         case WSRequestIdWalletQueryGetTheKey:{
+                 [SVProgressHUD dismiss];
+                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_getTheKey object:responseArray[2]];
+             }
+                   break;
+         default:{
+             NSString *idString = [NSString stringWithFormat:@"%ld",(long)requestId];
+             if (idString.length>5) {
+                 NSString *firstPart = [idString substringToIndex:5];
+                 if ([firstPart isEqualToString:@"20000"]) {
+                     NSMutableDictionary *mutableDic = [NSMutableDictionary dictionaryWithDictionary:responseArray[2]];
+                     [mutableDic setObj:@(requestId) forKey:@"uid"];
+                     [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_userIsOnLine object:mutableDic];
+                 }
+             }
+             
+         }
+             
+             break;
+     }
+}
+
+#pragma mark - websocket Manage Method
 - (void)managePersonalWalletData:(NSDictionary *)personalData{
     [self.listView setPersonalWalletdData:personalData];
 }

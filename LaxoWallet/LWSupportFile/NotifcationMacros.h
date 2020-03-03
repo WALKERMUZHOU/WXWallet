@@ -23,9 +23,11 @@
 #define kWebScoket_joinWallet               @"kWebScoket_joinWallet"
 #define kWebScoket_messageDetail            @"kWebScoket_messageDetail"
 
-#define kWebScoket_messageListInfo            @"kWebScoket_messageListInfo"
-#define kWebScoket_messageParties            @"kWebScoket_messageParties"
-#define kWebScoket_userIsOnLine            @"kWebScoket_userIsOnLine"
+#define kWebScoket_messageListInfo          @"kWebScoket_messageListInfo"
+#define kWebScoket_messageParties           @"kWebScoket_messageParties"
+#define kWebScoket_userIsOnLine             @"kWebScoket_userIsOnLine"
+#define kWebScoket_getTheKey                @"kWebScoket_getTheKey"
+#define kWebScoket_boardcast                @"kWebScoket_boardcast"
 
 
 #pragma mark - Userdefault

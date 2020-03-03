@@ -163,6 +163,7 @@
 		5EB31EBC2406489400974FD4 /* LWMessageDeleteUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB31EBB2406489400974FD4 /* LWMessageDeleteUserView.m */; };
 		5EB31EC0240648AD00974FD4 /* LWMessageDeleteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB31EBE240648AD00974FD4 /* LWMessageDeleteTableViewCell.m */; };
 		5EB31EC1240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB31EBF240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib */; };
+		5EC1A933240CECF00086ED19 /* LWAddressTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A932240CECF00086ED19 /* LWAddressTool.m */; };
 		5EE8FB7124066B7C00AEE861 /* LWPartiesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7024066B7C00AEE861 /* LWPartiesModel.m */; };
 		5EE8FB7424076B9300AEE861 /* LWMessageDetailListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7324076B9300AEE861 /* LWMessageDetailListView.m */; };
 		5EE8FB7824076C0800AEE861 /* LWMessageDetailListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7624076C0800AEE861 /* LWMessageDetailListCell.m */; };
@@ -208,7 +209,7 @@
 		5EF513E323F550F200F5B6C1 /* LWInputTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF513D723F550F100F5B6C1 /* LWInputTextField.m */; };
 		5EF513E423F550F200F5B6C1 /* LWInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF513D823F550F100F5B6C1 /* LWInputTextView.m */; };
 		5EF513E723F5510E00F5B6C1 /* LWFaceBindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF513E623F5510E00F5B6C1 /* LWFaceBindViewController.m */; };
-		8BA1F18DF19D200E156D0DBA /* Pods_LaxoWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF47138CD83B72FC74CEF49 /* Pods_LaxoWallet.framework */; };
+		86D3522E3C18254EEA6E7ACA /* libPods-LaxoWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 978A27D43A937A7EDE48D448 /* libPods-LaxoWallet.a */; };
 		EFEBEEA423FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEBEEA223FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m */; };
 		EFEBEEA523FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEBEEA323FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib */; };
 		EFEBEEA823FE57C0006D4B5F /* LWBottomLineInputTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEBEEA723FE57C0006D4B5F /* LWBottomLineInputTextField.m */; };
@@ -536,6 +537,8 @@
 		5EB31EBD240648AD00974FD4 /* LWMessageDeleteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMessageDeleteTableViewCell.h; sourceTree = "<group>"; };
 		5EB31EBE240648AD00974FD4 /* LWMessageDeleteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMessageDeleteTableViewCell.m; sourceTree = "<group>"; };
 		5EB31EBF240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWMessageDeleteTableViewCell.xib; sourceTree = "<group>"; };
+		5EC1A931240CECF00086ED19 /* LWAddressTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWAddressTool.h; sourceTree = "<group>"; };
+		5EC1A932240CECF00086ED19 /* LWAddressTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWAddressTool.m; sourceTree = "<group>"; };
 		5EE8FB6F24066B7C00AEE861 /* LWPartiesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPartiesModel.h; sourceTree = "<group>"; };
 		5EE8FB7024066B7C00AEE861 /* LWPartiesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPartiesModel.m; sourceTree = "<group>"; };
 		5EE8FB7224076B9300AEE861 /* LWMessageDetailListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMessageDetailListView.h; sourceTree = "<group>"; };
@@ -623,12 +626,12 @@
 		5EF513D923F550F200F5B6C1 /* LWInputTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWInputTextField.h; sourceTree = "<group>"; };
 		5EF513E523F5510D00F5B6C1 /* LWFaceBindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWFaceBindViewController.h; sourceTree = "<group>"; };
 		5EF513E623F5510E00F5B6C1 /* LWFaceBindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWFaceBindViewController.m; sourceTree = "<group>"; };
+		978A27D43A937A7EDE48D448 /* libPods-LaxoWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LaxoWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFEBEEA123FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPersonalTransferAccountViewController.h; sourceTree = "<group>"; };
 		EFEBEEA223FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPersonalTransferAccountViewController.m; sourceTree = "<group>"; };
 		EFEBEEA323FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWPersonalTransferAccountViewController.xib; sourceTree = "<group>"; };
 		EFEBEEA623FE57C0006D4B5F /* LWBottomLineInputTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWBottomLineInputTextField.h; sourceTree = "<group>"; };
 		EFEBEEA723FE57C0006D4B5F /* LWBottomLineInputTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWBottomLineInputTextField.m; sourceTree = "<group>"; };
-		FEF47138CD83B72FC74CEF49 /* Pods_LaxoWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LaxoWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -637,8 +640,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF5133023F1090000F5B6C1 /* JavaScriptCore.framework in Frameworks */,
-				8BA1F18DF19D200E156D0DBA /* Pods_LaxoWallet.framework in Frameworks */,
 				5E0FE6942408AB9D00733B05 /* libthreshold.a in Frameworks */,
+				86D3522E3C18254EEA6E7ACA /* libPods-LaxoWallet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,7 +666,7 @@
 			isa = PBXGroup;
 			children = (
 				5EF5132F23F1090000F5B6C1 /* JavaScriptCore.framework */,
-				FEF47138CD83B72FC74CEF49 /* Pods_LaxoWallet.framework */,
+				978A27D43A937A7EDE48D448 /* libPods-LaxoWallet.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1281,6 +1284,8 @@
 				5E66A39723EAF032004097CB /* LWHomeListCoordinator.m */,
 				5EE8FB6F24066B7C00AEE861 /* LWPartiesModel.h */,
 				5EE8FB7024066B7C00AEE861 /* LWPartiesModel.m */,
+				5EC1A931240CECF00086ED19 /* LWAddressTool.h */,
+				5EC1A932240CECF00086ED19 /* LWAddressTool.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1873,7 +1878,7 @@
 				5EA8079123E94E2100012837 /* Sources */,
 				5EA8079223E94E2100012837 /* Frameworks */,
 				5EA8079323E94E2100012837 /* Resources */,
-				7B7E6F8FE0222E49498EB0A1 /* [CP] Embed Pods Frameworks */,
+				9B4A92B31B518F818F71E6A6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2036,21 +2041,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7B7E6F8FE0222E49498EB0A1 /* [CP] Embed Pods Frameworks */ = {
+		9B4A92B31B518F818F71E6A6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2221,6 +2226,7 @@
 				5EF5133923F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.m in Sources */,
 				5E66A39523EAF01A004097CB /* LWHomeWalletModel.m in Sources */,
 				5EE8FB7824076C0800AEE861 /* LWMessageDetailListCell.m in Sources */,
+				5EC1A933240CECF00086ED19 /* LWAddressTool.m in Sources */,
 				5EB31E8D240424E500974FD4 /* LWPublicManager.m in Sources */,
 				5EF5139F23F3D93800F5B6C1 /* LWRecoveryTrustholdViewController.m in Sources */,
 				5EA8079D23E94E2100012837 /* SceneDelegate.m in Sources */,
@@ -2405,6 +2411,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/BTCGenerator/CBSecp256k1/CBSecp256k1/secp256k1",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/BTCGenerator",
+				);
 				GCC_PREFIX_HEADER = /Users/zhuchenglong/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
 				INFOPLIST_FILE = LaxoWallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2429,6 +2440,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/BTCGenerator/CBSecp256k1/CBSecp256k1/secp256k1",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/BTCGenerator",
+				);
 				GCC_PREFIX_HEADER = /Users/zhuchenglong/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
 				INFOPLIST_FILE = LaxoWallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

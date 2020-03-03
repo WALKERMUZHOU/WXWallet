@@ -9,7 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BCGenerator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>BFKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>CBBase58.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>CBSecp256k1.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -55,6 +70,11 @@
 			<false/>
 		</dict>
 		<key>Nimbus.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>OpenSSL-Universal.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

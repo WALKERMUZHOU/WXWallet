@@ -96,11 +96,6 @@
              
             LWTrusteeModel *model = [array objectAtIndex:i];
             [LWLoginCoordinator getRecoverySMSCodeWithModel:model SuccessBlock:^(id  _Nonnull data) {
-//                if (i == 0) {
-//                    [self jumpToTrustholdVC];
-//                     [WMHUDUntil showMessageToWindow:@"验证码发送成功"];
-//                    return ;
-//                }
                 if (i == array.count - 1) {
                        [self jumpToTrustholdVC];
                        [WMHUDUntil showMessageToWindow:@"验证码发送成功"];

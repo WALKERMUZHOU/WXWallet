@@ -1,1 +1,0 @@
-../../../BCGenerator/BCFunctionTest/BCGenerator/BTCOpcode.h

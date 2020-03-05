@@ -12,7 +12,7 @@
 
 #import "PublicKeyView.h"
 #import "PubkeyManager.h"
-#include "rust.h"
+#import "libthresholdsig.h"
 
 @interface LWHomeViewController ()
 
@@ -59,8 +59,9 @@
 
 - (void)startWebScoket:(NSString *)sig andmessage:(NSString *)message{
     NSString *uid = [[LWUserManager shareInstance] getUserModel].login_token;
-    NSString *requestStr = [NSString stringWithFormat:@"wss://api.laxo.io/?t=%@&sig=%@&uid=%@",message,sig,uid];
-    
+//    NSString *requestStr = [NSString stringWithFormat:@"wss://api.laxo.io/?t=%@&sig=%@&uid=%@",message,sig,uid];
+    NSString *requestStr = [NSString stringWithFormat:@"ws://192.168.0.106:7001/?t=%@&sig=%@&uid=%@",message,sig,uid];
+
     [[SocketRocketUtility instance] SRWebSocketOpenWithURLString:requestStr];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidOpen) name:kWebSocketDidOpenNote object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidReceiveMsg:) name:kWebSocketdidReceiveMessageNote object:nil];
@@ -70,8 +71,8 @@
 
 - (void)SRWebSocketDidOpen {
     NSLog(@"开启成功");
-    NSArray *requetCurrentPriceArray = @[@"req",@(WSRequestIdWalletQueryTokenPrice),@"wallet.tokenPrice",@""];
-    [[SocketRocketUtility instance] sendData:[requetCurrentPriceArray mp_messagePack]];
+//    NSArray *requetCurrentPriceArray = @[@"req",@(WSRequestIdWalletQueryTokenPrice),@"wallet.tokenPrice",@""];
+//    [[SocketRocketUtility instance] sendData:[requetCurrentPriceArray mp_messagePack]];
 
     NSDictionary *params = @{@"type":@1};
     NSArray *requestPersonalWalletArray = @[@"req",
@@ -80,7 +81,9 @@
                                             [params jsonStringEncoded]];
     NSData *data = [requestPersonalWalletArray mp_messagePack];
     
-    [[SocketRocketUtility instance] sendData:data];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[SocketRocketUtility instance] sendData:data];
+    });
 
     [self requestMulipyWalletInfo];
 }
@@ -100,7 +103,7 @@
         if ([firstObj isEqualToString:@"res"]) {
             [self manageData:responseArray];
         }else if ([firstObj isEqualToString:@"update"]){
-            [self manageData:responseArray];
+//            [self manageData:responseArray];
         }
     }
 }
@@ -159,6 +162,11 @@
                  [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_getTheKey object:responseArray[2]];
              }
                    break;
+        case WSRequestIdWalletQueryComfirmAddress:{
+                [SVProgressHUD dismiss];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_confirmAddress object:responseArray[2]];
+            }
+                  break;
          default:{
              NSString *idString = [NSString stringWithFormat:@"%ld",(long)requestId];
              if (idString.length>5) {

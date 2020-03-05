@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E0FE6942408AB9D00733B05 /* libthreshold.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0FE6932408AB9D00733B05 /* libthreshold.a */; };
 		5E0FE6962408E72D00733B05 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE6952408E72D00733B05 /* index.js */; };
 		5E23584823FBE09D00A7D774 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584423FBE09C00A7D774 /* index.html */; };
 		5E23584E23FD0D0600A7D774 /* LWutxoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E23584D23FD0D0600A7D774 /* LWutxoModel.m */; };
@@ -164,6 +163,7 @@
 		5EB31EC0240648AD00974FD4 /* LWMessageDeleteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB31EBE240648AD00974FD4 /* LWMessageDeleteTableViewCell.m */; };
 		5EB31EC1240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB31EBF240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib */; };
 		5EC1A933240CECF00086ED19 /* LWAddressTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A932240CECF00086ED19 /* LWAddressTool.m */; };
+		5EC1A991240F52F70086ED19 /* libthresholdsig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC1A98F240F52F60086ED19 /* libthresholdsig.a */; };
 		5EE8FB7124066B7C00AEE861 /* LWPartiesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7024066B7C00AEE861 /* LWPartiesModel.m */; };
 		5EE8FB7424076B9300AEE861 /* LWMessageDetailListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7324076B9300AEE861 /* LWMessageDetailListView.m */; };
 		5EE8FB7824076C0800AEE861 /* LWMessageDetailListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7624076C0800AEE861 /* LWMessageDetailListCell.m */; };
@@ -235,8 +235,6 @@
 /* Begin PBXFileReference section */
 		188A899FDE346915C2A47241 /* Pods-LaxoWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaxoWallet.debug.xcconfig"; path = "Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		25333CCFD54DFB01F4502BBC /* Pods-LaxoWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaxoWallet.release.xcconfig"; path = "Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet.release.xcconfig"; sourceTree = "<group>"; };
-		5E0FE6922408AB9D00733B05 /* rust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rust.h; sourceTree = "<group>"; };
-		5E0FE6932408AB9D00733B05 /* libthreshold.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libthreshold.a; sourceTree = "<group>"; };
 		5E0FE6952408E72D00733B05 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		5E23584423FBE09C00A7D774 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		5E23584C23FD0D0600A7D774 /* LWutxoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWutxoModel.h; sourceTree = "<group>"; };
@@ -539,6 +537,8 @@
 		5EB31EBF240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWMessageDeleteTableViewCell.xib; sourceTree = "<group>"; };
 		5EC1A931240CECF00086ED19 /* LWAddressTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWAddressTool.h; sourceTree = "<group>"; };
 		5EC1A932240CECF00086ED19 /* LWAddressTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWAddressTool.m; sourceTree = "<group>"; };
+		5EC1A98F240F52F60086ED19 /* libthresholdsig.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libthresholdsig.a; sourceTree = "<group>"; };
+		5EC1A990240F52F60086ED19 /* libthresholdsig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libthresholdsig.h; sourceTree = "<group>"; };
 		5EE8FB6F24066B7C00AEE861 /* LWPartiesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPartiesModel.h; sourceTree = "<group>"; };
 		5EE8FB7024066B7C00AEE861 /* LWPartiesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPartiesModel.m; sourceTree = "<group>"; };
 		5EE8FB7224076B9300AEE861 /* LWMessageDetailListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMessageDetailListView.h; sourceTree = "<group>"; };
@@ -640,8 +640,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF5133023F1090000F5B6C1 /* JavaScriptCore.framework in Frameworks */,
-				5E0FE6942408AB9D00733B05 /* libthreshold.a in Frameworks */,
 				86D3522E3C18254EEA6E7ACA /* libPods-LaxoWallet.a in Frameworks */,
+				5EC1A991240F52F70086ED19 /* libthresholdsig.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,8 +674,8 @@
 		5E0FE6912408AB9D00733B05 /* rust */ = {
 			isa = PBXGroup;
 			children = (
-				5E0FE6922408AB9D00733B05 /* rust.h */,
-				5E0FE6932408AB9D00733B05 /* libthreshold.a */,
+				5EC1A98F240F52F60086ED19 /* libthresholdsig.a */,
+				5EC1A990240F52F60086ED19 /* libthresholdsig.h */,
 			);
 			path = rust;
 			sourceTree = "<group>";

@@ -33,10 +33,10 @@ target 'LaxoWallet' do
     pod 'LBXScan/UI','~> 2.3'
     pod "MPMessagePack"
     pod 'pop'
-#    pod 'CoreBitcoin'
-    pod 'BCGenerator'
-    pod 'CBSecp256k1'
-    pod 'CBBase58'
+    pod 'CoreBitcoin'
+#    pod 'BCGenerator'
+#    pod 'CBSecp256k1'
+#    pod 'CBBase58'
 
 end
     

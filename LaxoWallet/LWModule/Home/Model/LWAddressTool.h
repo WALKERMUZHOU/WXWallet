@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^AddressBlock)(NSString *address);
 @interface LWAddressTool : NSObject
 + (LWAddressTool *)shareInstance;
 - (void)setWithrid:(NSString *)rid;
 - (instancetype)initWithRid:(NSString *)rid;
+@property (nonatomic, copy) AddressBlock addressBlock;
+
 
 @end
 

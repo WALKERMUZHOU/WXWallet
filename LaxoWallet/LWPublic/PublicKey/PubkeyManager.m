@@ -218,8 +218,13 @@ NSLog(@"message:%@",message);
     });
 }
 
-+ (void)getDkWithSecret:(NSString *)secret andpJoin:(NSArray *)dq SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
-    NSString *jsStr = [NSString stringWithFormat:@"encryptWithKey('%@','%@')",secret,[dq componentsJoinedByString:@","]];
++ (void)getDkWithSecret:(NSString *)secret andpJoin:(id)dq SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    NSString *jsStr;
+    if ([dq isKindOfClass:[NSArray class]]) {
+        jsStr = [NSString stringWithFormat:@"encryptWithKey('%@','%@')",secret,[dq componentsJoinedByString:@","]];
+    }else{
+        jsStr = [NSString stringWithFormat:@"encryptWithKey('%@','%@')",secret,dq];
+    }
     PublicKeyView *pbView = [PublicKeyView shareInstance];
     [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
         if (dicData) {
@@ -228,6 +233,19 @@ NSLog(@"message:%@",message);
              FailBlock(dicData);
          }
     }];
+}
+
++ (void)encrptWithTheKey:(NSString *)secret andSecret_share:(NSString *)secret_share SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    NSString *jsStr = [NSString stringWithFormat:@"encrypt_tss('%@','%@')",secret,secret_share];
+    NSLog(@"%@",jsStr);
+     PublicKeyView *pbView = [PublicKeyView shareInstance];
+     [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
+         if (dicData) {
+             successBlock(dicData);
+          }else{
+              FailBlock(dicData);
+          }
+     }];
 }
 
 + (void)decrptWithSecret:(NSString *)secret ansMessage:(NSString *)eqrCodeStr SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
@@ -241,4 +259,19 @@ NSLog(@"message:%@",message);
          }
     }];
 }
+
++ (void)decrptWithSecret:(NSString *)secret andSecret_share:(NSString *)codeStr SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    NSString *jsStr = [NSString stringWithFormat:@"decrypt_tss('%@','%@')",secret,codeStr];
+    PublicKeyView *pbView = [PublicKeyView shareInstance];
+    [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
+        if (dicData) {
+            NSLog(@"decrypt_tss_sucess:%@",jsStr);
+            successBlock(dicData);
+         }else{
+             NSLog(@"decrypt_tss_fail:%@",jsStr);
+             FailBlock(dicData);
+         }
+    }];
+}
+
 @end

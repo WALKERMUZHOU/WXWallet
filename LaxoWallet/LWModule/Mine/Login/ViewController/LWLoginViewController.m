@@ -13,7 +13,7 @@
 #import "LWRocoveryViewController.h"
 #import "PublicKeyView.h"
 #import "PubkeyManager.h"
-#import "rust.h"
+#import "libthresholdsig.h"
 #import "LWFaceBindViewController.h"
 
 @interface LWLoginViewController ()

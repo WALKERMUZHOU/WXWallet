@@ -14,13 +14,10 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - BCGenerator (0.9.3):
-    - CBBase58
-    - CBSecp256k1
   - BFKit (1.11.0)
-  - CBBase58 (0.9.1):
-    - OpenSSL-Universal
-  - CBSecp256k1 (0.9.0)
+  - CoreBitcoin (0.6.8.1):
+    - ISO8601DateFormatter
+    - OpenSSL-Universal (= 1.0.1.16)
   - DSCategories (0.1.4):
     - DSCategories/NSArray (= 0.1.4)
     - DSCategories/NSData (= 0.1.4)
@@ -46,6 +43,7 @@ PODS:
   - DSCategories/UIViewController (0.1.4)
   - GHODictionary (1.1.0)
   - IQKeyboardManager (6.1.1)
+  - ISO8601DateFormatter (0.8)
   - LBXScan/LBXNative (2.3):
     - LBXScan/Types (~> 2.2)
   - LBXScan/LBXZBar (2.3):
@@ -64,7 +62,7 @@ PODS:
   - Nimbus/AttributedLabel (1.3.0):
     - Nimbus/Core
   - Nimbus/Core (1.3.0)
-  - OpenSSL-Universal (1.0.2.13)
+  - OpenSSL-Universal (1.0.1.16)
   - pop (1.0.10)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
@@ -77,10 +75,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - BCGenerator
   - BFKit
-  - CBBase58
-  - CBSecp256k1
+  - CoreBitcoin
   - DSCategories (= 0.1.4)
   - IQKeyboardManager
   - LBXScan/LBXNative (~> 2.3)
@@ -100,12 +96,11 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
-    - BCGenerator
     - BFKit
-    - CBBase58
-    - CBSecp256k1
+    - CoreBitcoin
     - GHODictionary
     - IQKeyboardManager
+    - ISO8601DateFormatter
     - LBXScan
     - Masonry
     - MBProgressHUD
@@ -123,26 +118,25 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  BCGenerator: 635ee1636b8241606d2c9bf00da23c3cd1664695
   BFKit: 9a72dcd121a768ae603084f2eb0a191e4916499a
-  CBBase58: a86f26f59eaf3fbba2d9b81e3ef5b02563cdab3d
-  CBSecp256k1: d8a1c651b1e5dd1c35867e968ab4e7fd2430e4de
+  CoreBitcoin: 4ac6f6a61e543f08399c2fe57496d4fdcbaf74f9
   DSCategories: d418e9c817b6aa075cfac4aad54f3ab24bb5fb5e
   GHODictionary: 225e042596a4b3d5b66b2b24250086b2f95514af
   IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
+  ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
   LBXScan: e51449f0832d1fe17da632af0d22adeb3cfa3543
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
   MPMessagePack: 5251dcd15e0c626cc50c192bdfcb5af6004cedb4
   Nimbus: e7f33bc6d6cb4fe5ea0aee0c7e0883696123422c
-  OpenSSL-Universal: 401888162f11c33ebbd46f782d9229da35c61327
+  OpenSSL-Universal: 85ef63bf81d0741b03c8719cd29685c37c59518d
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
 
-PODFILE CHECKSUM: 40b014b90cb2b6f3978862af77c58a149c7119f4
+PODFILE CHECKSUM: 6307b1ca86a270e6e0afd8d61eba89afbdc1a6af
 
 COCOAPODS: 1.8.4

@@ -250,15 +250,19 @@
     NSDictionary *notiDic = notification.object;
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
         NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
+        [SVProgressHUD show];
         LWAddressTool *addressTool = [LWAddressTool shareInstance];
         [addressTool setWithrid:rid];
-        return;
+        addressTool.addressBlock = ^(NSString * _Nonnull address) {
+            [SVProgressHUD dismiss];
+            LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
+            [LogicHandle presentViewController:personVC animate:YES];
+        };
     }
     
     
 #warning 对返回的rid 需要调用rust库 进行数据处理
-    LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:@"asdakslhdaks"];
-    [LogicHandle presentViewController:personVC animate:YES];
+
     
 }
 

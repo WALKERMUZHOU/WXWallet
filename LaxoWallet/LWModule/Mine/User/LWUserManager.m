@@ -73,7 +73,7 @@ static LWUserManager *instance = nil;
 
 + (BOOL)isLogin{
     LWUserModel *model = [[LWUserManager shareInstance] userInfoUnArchieve];
-    if (model && model.uid && ![model.uid isEqualToString:@""] && model.loginSuccess.length >0) {
+    if (model && model.uid && model.loginSuccess.length >0) {
         return YES;
     }
     return NO;

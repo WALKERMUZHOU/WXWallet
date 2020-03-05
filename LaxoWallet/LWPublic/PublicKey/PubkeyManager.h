@@ -29,9 +29,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)getPubKeyWithEmail:(NSString *)email SuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
 
-+ (void)getDkWithSecret:(NSString *)secret andpJoin:(NSArray *)dq SuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
++ (void)getDkWithSecret:(NSString *)secret andpJoin:(id)dq SuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
+
++ (void)encrptWithTheKey:(NSString *)secret andSecret_share:(NSString *)secret_share SuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
 
 + (void)decrptWithSecret:(NSString *)secret ansMessage:(NSString *)eqrCodeStr SuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
+
+//用于h得到个人收款二维码
++ (void)decrptWithSecret:(NSString *)secret andSecret_share:(NSString *)codeStr SuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
 
 @end
 

@@ -1,1 +1,0 @@
-../../../BCGenerator/BCFunctionTest/BCGenerator/BTCProtocolSerialization.h

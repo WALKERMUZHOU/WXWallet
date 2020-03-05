@@ -28,6 +28,7 @@
 #define kWebScoket_userIsOnLine             @"kWebScoket_userIsOnLine"
 #define kWebScoket_getTheKey                @"kWebScoket_getTheKey"
 #define kWebScoket_boardcast                @"kWebScoket_boardcast"
+#define kWebScoket_confirmAddress                @"kWebScoket_confirmAddress"
 
 
 #pragma mark - Userdefault

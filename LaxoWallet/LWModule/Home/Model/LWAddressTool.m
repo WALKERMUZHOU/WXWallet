@@ -7,14 +7,17 @@
 //
 
 #import "LWAddressTool.h"
-#import "rust.h"
-#import "EncryptUtil.h"
-#import "BTCData.h"
-#import "CBSecp256k1.h"
-#import "NSData+Hashing.h"
-#import "NSData+HexString.h"
+//#import "rust.h"
+//#import "EncryptUtil.h"
+//#import "BTCData.h"
+//#import "CBSecp256k1.h"
+//#import "NSData+Hashing.h"
+//#import "NSData+HexString.h"
 
-#import "NS+BTCBase58.h"
+//#import "NS+BTCBase58.h"
+
+#import "libthresholdsig.h"
+
 
 @interface LWAddressTool (){
     dispatch_semaphore_t _semaphoreSignal;
@@ -47,10 +50,10 @@
 @property (nonatomic, strong) NSString *encryptionKey;
 @property (nonatomic, strong) NSDictionary *bc;
 @property (nonatomic, strong) NSDictionary *decom;
-@property (nonatomic, strong) NSString *y;
+@property (nonatomic, strong) NSDictionary *y;
 
 @end
-NSInteger PARTIES = 2;
+NSInteger PARTIES = 3;
 
 @implementation LWAddressTool
 
@@ -88,6 +91,7 @@ static LWAddressTool *instance = nil;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boardCast:) name:kWebScoket_boardcast object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getTheKey:) name:kWebScoket_getTheKey object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(confirmAddress:) name:kWebScoket_confirmAddress object:nil];
 
     
     NSDictionary *infoDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
@@ -112,111 +116,200 @@ static LWAddressTool *instance = nil;
     self.decom = encryptionKeyArray.lastObject;
    
     //self.y 私钥推公钥
-    NSData *pubkeyData = [[CBSecp256k1 generatePublicKeyWithPrivateKey:[self.pk dataUsingEncoding:NSUTF8StringEncoding] compression:YES] copy];
-    self.y = [pubkeyData dataToHexString];
+//    NSData *pubkeyData = [[CBSecp256k1 generatePublicKeyWithPrivateKey:[self.pk dataUsingEncoding:NSUTF8StringEncoding] compression:YES] copy];
+//    self.pubkey = [pubkeyData dataToHexString];
+    
+    char *publicKey = get_public_key([self.pk cStringUsingEncoding:NSUTF8StringEncoding]);
+    self.pubkey = [NSString stringWithFormat:@"%s",publicKey];
 
+    char *public_point = get_public_point([self.pubkey cStringUsingEncoding:NSUTF8StringEncoding]);
+
+    NSString *yString = [NSString stringWithFormat:@"%s",public_point];
+    self.y = [NSJSONSerialization JSONObjectWithData:[yString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+    
 }
 
-- (void)setWithrid:(NSString *)rid{
+- (void)testNewMethod:(NSString *)rid{
     self.rid = rid;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        self->_semaphoreSignal = dispatch_semaphore_create(0);
-        [self broadCast:1 data:@[self.y,self.bc,self.decom]];
-        NSLog(@"begin");
-        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
         
-        NSLog(@"listStart");
-        self->_getKeySignal = dispatch_semaphore_create(0);
-        NSArray *list = [self poll_for_broadCast:1];
-        dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-        NSLog(@"listEnd");
+        NSMutableArray *keyArray = [NSMutableArray array];
+        for (NSInteger i =1 ; i<=1; i++) {
+            char *key_generate = create_key([self.pk cStringUsingEncoding:NSASCIIStringEncoding], self.party_num_int, self.party_count, 1, [self.p cStringUsingEncoding:NSASCIIStringEncoding], [self.q cStringUsingEncoding:NSASCIIStringEncoding]);
+            NSArray *key_generate_array = [LWAddressTool charToObject:key_generate];
+            [keyArray addObj:key_generate_array];
+        }
         
-        NSMutableArray *bc1_vec = [NSMutableArray array];
-        NSMutableArray *y_vec = [NSMutableArray array];
-        NSMutableArray *decom_vec = [NSMutableArray array];
-        NSInteger j = 0;
-        for (NSInteger i = 1; i<PARTIES+1; i++) {
-            if (i == self.party_num_int) {
-                [bc1_vec addObj:self.bc];
-                [y_vec addObj:self.y];
-                [decom_vec addObj:self.decom];
-            }else{
-                NSArray *listArray = list[j];
-                [y_vec addObj:listArray.firstObject];
-                [bc1_vec addObj:listArray[1]];
-                [decom_vec addObj:listArray.lastObject];
+        for (NSInteger i = 0; i<keyArray.count; i++) {
+            NSArray *key_generate = keyArray[i];
+            NSLog(@"broadCast1:begin");
+             self->_semaphoreSignal = dispatch_semaphore_create(0);
+             [self broadCast:1 data:key_generate[1]];
+             dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+             NSLog(@"broadCast1:end");
+        }
+        
+        NSMutableArray *secretsArray = [NSMutableArray array];
+        for (NSInteger i = 0; i<keyArray.count; i++) {
+            NSArray *key_generate = keyArray[i];
+            self->_getKeySignal = dispatch_semaphore_create(0);
+            NSArray *poll_for_broadCast_list_1 = [self poll_for_broadCast:1];;
+            dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+              
+              char *key_handle_round1_char = key_handle_round1([LWAddressTool stringToChar:key_generate[0]], [LWAddressTool objectToChar:poll_for_broadCast_list_1]);
+              NSArray *key_handle_round1_array = [LWAddressTool charToObject:key_handle_round1_char];
+              NSArray *share_list = key_handle_round1_array.firstObject;
+              NSArray *vss = key_handle_round1_array.lastObject;
+              
+              //获取secret
+              NSInteger j = 0;
+              NSMutableArray *secrets = [NSMutableArray array];
+              for (NSInteger i = 1; i<PARTIES+1; i++) {
+                  if (i == self.party_num_int) {
+
+                  }else{
+                      NSArray *list = poll_for_broadCast_list_1[j];
+                      NSString *firstObject_Str = list.firstObject;
+                      const char *firstObject_char = [firstObject_Str cStringUsingEncoding:NSUTF8StringEncoding];
+                      char *get_shared_secret_char = get_shared_secret([self.pk cStringUsingEncoding:NSUTF8StringEncoding], firstObject_char);
+                      [secrets addObj:[NSString stringWithFormat:@"%s",get_shared_secret_char]];
+                      NSLog(@"self.pk:%@ \n y_i:%@ \n result:%@",self.pk,firstObject_Str,[NSString stringWithFormat:@"%s",get_shared_secret_char]);
+                      
+                      j++;
+                  }
+              }
+              [secretsArray addObj:secrets];
+              
+              //对let item of share_list
+              for (NSInteger k = 0; k<share_list.count; k++) {
+                  NSArray *item = share_list[k];
+                  __block NSString *key;
+                  
+                  self->_sendp2pSignal = dispatch_semaphore_create(0);
+                  [PubkeyManager encrptWithTheKey:secrets[k] andSecret_share:item[1] SuccessBlock:^(id  _Nonnull data) {
+                      key = data;
+                      dispatch_semaphore_signal(self->_sendp2pSignal);
+                  } WithFailBlock:^(id  _Nonnull data) {
+                      dispatch_semaphore_signal(self->_sendp2pSignal);
+                      return ;
+                        
+                  }];
+                  dispatch_semaphore_wait(self->_sendp2pSignal, DISPATCH_TIME_FOREVER);
+                  
+                  self->_semaphoreSignal = dispatch_semaphore_create(0);
+                  [self sendp2p:[item[0] integerValue] round:2 data:key];
+                  NSLog(@"sendp2p:item0:%@ \n key:%@",item[0],key);
+                  dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+              }
+              
+              self->_semaphoreSignal = dispatch_semaphore_create(0);
+              [self broadCast:3 data:vss];
+              dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+        }
+        
+        NSString *shareRequest;
+        NSArray *vssRequest;
+        for (NSInteger i = 0; i<keyArray.count; i++) {
+            
+            self->_getKeySignal = dispatch_semaphore_create(0);
+            NSArray *poll_for_p2p_Array = [self poll_for_p2p:2];
+            dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+            
+            NSArray *key = keyArray[i];
+            
+            NSMutableArray *poll_for_p2p_Array_decrypt = [NSMutableArray array];
+            NSArray *secrets = [secretsArray objectAtIndex:i];
+            
+            //decrypt poll_for_p2p 返回的值
+            for (NSInteger j = 0; j<poll_for_p2p_Array.count; j++) {
+                self->_broadcastWithValSignal = dispatch_semaphore_create(0);
+                [PubkeyManager decrptWithSecret:secrets[j] andSecret_share:poll_for_p2p_Array[j] SuccessBlock:^(id  _Nonnull data) {
+                    NSString *decryptStr = (NSString *)data;
+                    [poll_for_p2p_Array_decrypt addObj:decryptStr];
+                    dispatch_semaphore_signal(self->_broadcastWithValSignal);
+                 } WithFailBlock:^(id  _Nonnull data) {
+                    dispatch_semaphore_signal(self->_broadcastWithValSignal);
+                    return ;
+                }];
+              dispatch_semaphore_wait(self->_broadcastWithValSignal, DISPATCH_TIME_FOREVER);
+            }
+  
+            self->_getKeySignal = dispatch_semaphore_create(0);
+            NSArray *poll_for_broadCast3_array = [self poll_for_broadCast:3];
+            dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+            
+            NSString *key0 = key[0];
+            NSString *poll_for_p2p_Array_decrypt_Json = [poll_for_p2p_Array_decrypt jsonStringEncoded];
+            NSString *poll_for_broadCast_array_json = [poll_for_broadCast3_array jsonStringEncoded];
+
+            NSLog(@"poll_for_p2p_Array_Count:%ld \n key:%@ \n poll_for_p2p_Array_decrypt:%@ \n poll_for_broadCast_array:%@",(long)poll_for_p2p_Array.count,key0,poll_for_p2p_Array_decrypt_Json,poll_for_broadCast_array_json);
+            
+            char *key_handle_round2_char = key_handle_round2([LWAddressTool stringToChar:key[0]],[LWAddressTool objectToChar:poll_for_p2p_Array_decrypt] ,[LWAddressTool objectToChar:poll_for_broadCast3_array]);
+            NSLog(@"key_handle_round2_char_success");
+
+            NSArray *key_handle_round2_array = [LWAddressTool charToObject:key_handle_round2_char];
+            NSString *shared_keys = key_handle_round2_array.firstObject;
+            NSDictionary *dlog_proof = key_handle_round2_array[1];
+            NSArray *vss = key_handle_round2_array.lastObject;
+            
+            self->_semaphoreSignal = dispatch_semaphore_create(0);
+            [self broadCast:4 data:dlog_proof];
+            dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+            
+            NSLog(@"shared_keys:%@",shared_keys);
+            NSLog(@"vss:%@",vss);
+            shareRequest = shared_keys;
+            vssRequest = vss;
+        }
+        
+        
+        for (NSArray *key in keyArray) {
+          
+            self->_getKeySignal = dispatch_semaphore_create(0);
+            NSArray *poll_for_broadCast_array = [self poll_for_broadCast:4];
+            dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+            
+            char *ret = key_handle_round3([LWAddressTool stringToChar:key[0]], [LWAddressTool objectToChar:poll_for_broadCast_array]);
+            NSLog(@"ret:%s",ret);//返回ture成功 其他fail
+            if ([[LWAddressTool charToString:ret] isEqualToString:@"true"]) {
+                [self requestAddress:shareRequest andvss:vssRequest];
             }
         }
         
-        NSMutableArray *paillier_key_vec = [NSMutableArray array];
-        for (NSInteger i = 0; i<bc1_vec.count; i++) {
-            NSDictionary *bc1Dic = bc1_vec[i];
-            [paillier_key_vec addObj:[bc1Dic objectForKey:@"e"]];
+        for (NSArray *key in keyArray) {
+            char *destroy_key_char =  destroy_key([LWAddressTool stringToChar:key[0]]);
+            NSLog(@"destroy_key_char:%s",destroy_key_char);
         }
-            
-        NSString *str = [NSString stringWithFormat:@"%ld",self.party_num_int];
-//            uint8_t buff_str[1024];
-//            memcpy(buff_str,[str UTF8String], [str length]+1);
-//            NSLog(@"char = %s",buff_str);
-        uint8_t buff_str = self.party_num_int;
-
-        NSData * someData = [str dataUsingEncoding:NSUTF8StringEncoding];
-        const void * bytes = [someData bytes];
-        int length = [someData length];
-        
-        //简单方法
-        uint8_t *crypto_data = (uint8_t *)bytes;
-        const char *pkchar = [self.pk cStringUsingEncoding:NSASCIIStringEncoding];
-        const char *paramsChar = [[self->params jsonStringEncoded] cStringUsingEncoding:NSASCIIStringEncoding];
-        const char *decom_vecChar =  [[decom_vec jsonStringEncoded] cStringUsingEncoding:NSASCIIStringEncoding];
-        const char *bc1_vecChar =  [[bc1_vec jsonStringEncoded] cStringUsingEncoding:NSASCIIStringEncoding];
-        
-        char *ret = get_party_shares( pkchar, self.party_num_int ,paramsChar,decom_vecChar,bc1_vecChar);
-        NSString *retString = [NSString stringWithFormat:@"%s",ret];
-        NSData *retData = [retString dataUsingEncoding:NSUTF8StringEncoding];
-        NSArray *retArray = [NSJSONSerialization JSONObjectWithData:retData options:NSJSONReadingMutableContainers error:nil];
-        
-        NSArray *vss_scheme = retArray.firstObject;
-        NSArray *secret_shares = retArray.lastObject;
-        
-        //message.sendp2p(i, '2', key.toString('hex'));
-        //message.sendp2p(i,'r3', secret_shares[k]);
-
-        NSLog(@"sendp2pStart");
-        NSInteger k = 0;
-        self->_semaphoreSignal = dispatch_semaphore_create(0);
-        for (NSInteger i = 1; i < PARTIES + 1; i++) {
-            if (i != self.party_num_int) {
-                [self sendp2p:i round:2 data:secret_shares[k]];
-                dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
-                NSLog(@"sendp2pEnd:%ld",(long)i);
-             }
-             k = k + 1;
-        }
-
-        NSLog(@"broadCast3Start");
-        self->_semaphoreSignal = dispatch_semaphore_create(0);
-        [self broadCast:3 data:vss_scheme];
-        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
-        
-        
-        NSLog(@"broadCast3End");
-        
-        //message.broadcast('3', vss_scheme);
-        //message.broadcast('r4', vss_scheme);
     });
+}
+
+- (void)requestAddress:(NSString *)shares andvss:(NSArray *)vss{
+    NSDictionary *initdataDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
+    __block NSString *shares_encrypt;
+    self->_semaphoreSignal = dispatch_semaphore_create(0);
+    [PubkeyManager getDkWithSecret:[initdataDic objectForKey:@"secret"] andpJoin:shares SuccessBlock:^(id  _Nonnull data) {
+        shares_encrypt = data;
+        dispatch_semaphore_signal(self->_semaphoreSignal);
+    } WithFailBlock:^(id  _Nonnull data) {
+        
+    }];
+    dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+     
+    NSDictionary *multipyparams = @{@"share":shares_encrypt,@"vss":[vss jsonStringEncoded],@"rid":self.rid};
+    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryComfirmAddress),WS_Home_confirmAdress,[multipyparams jsonStringEncoded]];
+    [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
     
-    
-
-
-
-
 }
 
 
-- (void)broadCast:(NSInteger)round data:(NSArray *)valArray{
+- (void)setWithrid:(NSString *)rid{
+    [self testNewMethod:rid];
+    return;
+}
+
+
+- (void)broadCast:(NSInteger)round data:(id)valArray{
     NSString *key = [NSString stringWithFormat:@"%ld_%ld",(long)self.party_index,(long)round];
-    
     NSDictionary *multipyparams = @{@"id":self.rid,@"key":key,@"val":valArray};
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBoardCast),@"message.set",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
@@ -226,10 +319,10 @@ static LWAddressTool *instance = nil;
     
 }
 
-- (void)sendp2p:(NSInteger)to round:(NSInteger)round data:(NSDictionary *)data{
+- (void)sendp2p:(NSInteger)to round:(NSInteger)round data:(id)data{
     NSArray *array = @[@(self.party_index),@(round),@(to)];
     NSString *key = [array componentsJoinedByString:@"_"];
-    NSDictionary *multipyparams = @{@"key":key,@"val":data};
+    NSDictionary *multipyparams = @{@"id":self.rid,@"key":key,@"val":data};
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBoardCast),@"message.set",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
 
@@ -248,7 +341,7 @@ static LWAddressTool *instance = nil;
                 NSString *key = [@[@(i),@(round)] componentsJoinedByString:@"_"];
                 NSLog(@"getkeystart");
                 dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
                 dispatch_source_set_event_handler(timer, ^{
                     [self getKey:key];
                 });
@@ -278,18 +371,19 @@ static LWAddressTool *instance = nil;
                 NSString *key = [@[@(i),@(round),@(party_index)] componentsJoinedByString:@"_"];
                 
                 dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
                 dispatch_source_set_event_handler(timer, ^{
+                    NSLog(@"poll_for_p2p");
                     [self getKey:key];
                 });
                 dispatch_resume(timer);
                 
                 dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
-                //dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
                 [list addObj:self->getTheKeyData];
-                dispatch_suspend(timer);
+                dispatch_cancel(timer);
             }
         }
+        dispatch_semaphore_signal(self->_getKeySignal);
     });
 
     return list;
@@ -319,433 +413,36 @@ static LWAddressTool *instance = nil;
     }
 }
 
+- (void)confirmAddress:(NSNotification *)notification{
+    NSDictionary *notiDic = notification.object;
+    NSLog(@"confirmAddress");
+    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+        if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+            NSString *address = [notiDic objectForKey:@"data"];
+            if (self.addressBlock) {
+                self.addressBlock(address);
+            }
+        }
+        
+    }
+}
 
-/*
- {
-     com =     (
-         3528824510,
-         603956902,
-         589075108,
-         2963738765,
-         525367573,
-         1853214318,
-         1707963038,
-         366464193
-     );
-     "correct_key_proof" =     {
-         "sigma_vec" =         (
-                         (
-                 3460130240,
-                 2501600720,
-                 1773825436,
-                 2036903931,
-                 3325584890,
-                 116882507,
-                 1909248554,
-                 734086345,
-                 1130339631,
-                 29268299,
-                 3991108946,
-                 1730238608,
-                 3542302784,
-                 1375838038,
-                 1415018159,
-                 2177305789,
-                 473359189,
-                 2863209714,
-                 1857841349,
-                 1323191412,
-                 308221423,
-                 2939320644,
-                 4007811868,
-                 3840199578,
-                 3935122729,
-                 440014592,
-                 699908277,
-                 2591579004,
-                 1100775159,
-                 2853450734,
-                 3233025981,
-                 14462619
-             ),
-                         (
-                 711443236,
-                 2084560396,
-                 1365777211,
-                 803549540,
-                 972399636,
-                 3493482462,
-                 4152251021,
-                 2616631288,
-                 1651056664,
-                 3750055416,
-                 235827582,
-                 3549613942,
-                 2929334627,
-                 4143334423,
-                 2471064660,
-                 1677724683,
-                 3396409739,
-                 2342088286,
-                 522207940,
-                 1565301232,
-                 3571142758,
-                 3688988980,
-                 3483386097,
-                 3842076240,
-                 2261121928,
-                 1312503411,
-                 1190215456,
-                 997092430,
-                 1902328763,
-                 3129611729,
-                 3516593205,
-                 379447674
-             ),
-                         (
-                 3034597454,
-                 156277143,
-                 3112219118,
-                 302540509,
-                 137437728,
-                 3215252278,
-                 3609202779,
-                 370972781,
-                 2757107613,
-                 2327597797,
-                 1647491635,
-                 1870390545,
-                 649367287,
-                 3785667978,
-                 987733660,
-                 1899116988,
-                 2043750608,
-                 131915708,
-                 2876831461,
-                 3876824280,
-                 2678814768,
-                 1268590266,
-                 345758434,
-                 1393337293,
-                 1105071037,
-                 118572011,
-                 1250299059,
-                 3520772822,
-                 587039855,
-                 577824573,
-                 4041002293,
-                 314413365
-             ),
-                         (
-                 3747807024,
-                 3802202765,
-                 3286457140,
-                 2074558281,
-                 2596660703,
-                 375723139,
-                 1563266007,
-                 3983905616,
-                 3493279431,
-                 4224980548,
-                 841051359,
-                 954390254,
-                 1641507595,
-                 3324552682,
-                 3153819955,
-                 2083851888,
-                 1267283818,
-                 3782065766,
-                 3670004455,
-                 3248341003,
-                 3159059129,
-                 3021927332,
-                 2869404712,
-                 1816615936,
-                 2499101081,
-                 2246909958,
-                 155320142,
-                 1841914417,
-                 1068177893,
-                 1901895004,
-                 2837383696,
-                 18487225
-             ),
-                         (
-                 4076897399,
-                 2130292077,
-                 2295705912,
-                 3719408018,
-                 1660803939,
-                 3076715465,
-                 1663060578,
-                 3197866296,
-                 1084874051,
-                 173733046,
-                 2268657868,
-                 1117165817,
-                 1958392676,
-                 3849409202,
-                 1733596735,
-                 1778018541,
-                 2102234465,
-                 3618303516,
-                 2569356024,
-                 4204241438,
-                 3184139255,
-                 660898013,
-                 595149260,
-                 4030553327,
-                 1485573928,
-                 3462511486,
-                 3043580505,
-                 1623898882,
-                 625888450,
-                 875536391,
-                 4100859764,
-                 281071757
-             ),
-                         (
-                 3780769580,
-                 364354105,
-                 1323138155,
-                 1925037239,
-                 1749554564,
-                 393310134,
-                 1819339041,
-                 141661124,
-                 245279858,
-                 2673302186,
-                 353803607,
-                 1787412069,
-                 62870951,
-                 1948454323,
-                 3230230245,
-                 1532302986,
-                 629311875,
-                 3523688135,
-                 186382619,
-                 4092630822,
-                 3741496191,
-                 2937647228,
-                 1956834554,
-                 3487585086,
-                 3186935104,
-                 2922800771,
-                 1057499706,
-                 3937410020,
-                 3504273690,
-                 1378579334,
-                 620344203,
-                 334313445
-             ),
-                         (
-                 3443253863,
-                 2066883022,
-                 1038004666,
-                 3450358261,
-                 1568080931,
-                 3717399551,
-                 1516207424,
-                 1878717878,
-                 3448307795,
-                 509439449,
-                 1504756014,
-                 3709990030,
-                 3785124402,
-                 3530861957,
-                 3485080255,
-                 3436538441,
-                 501988291,
-                 443500116,
-                 2202255532,
-                 1813871392,
-                 2448588997,
-                 2374611560,
-                 3969302807,
-                 1101042620,
-                 2538939916,
-                 2887633560,
-                 3599145732,
-                 942342729,
-                 463504574,
-                 3736446579,
-                 2297726773,
-                 424453510
-             ),
-                         (
-                 1281330841,
-                 822817952,
-                 2825240578,
-                 1170646558,
-                 395846175,
-                 47714021,
-                 2229172244,
-                 35833107,
-                 3478885852,
-                 1768746205,
-                 1022936454,
-                 524132681,
-                 543683753,
-                 1368813995,
-                 2582456153,
-                 3749676709,
-                 443426090,
-                 1963692255,
-                 2435754306,
-                 1339223438,
-                 595180701,
-                 709909771,
-                 2871732361,
-                 566751094,
-                 886442094,
-                 1413433254,
-                 1084781122,
-                 1541397652,
-                 70660115,
-                 3252395750,
-                 440355185,
-                 256616502
-             ),
-                         (
-                 1045233996,
-                 1170161971,
-                 2998702561,
-                 356579199,
-                 1096153741,
-                 796563645,
-                 614162629,
-                 4049904917,
-                 1710125622,
-                 2580710375,
-                 2960733570,
-                 1225216528,
-                 361086245,
-                 2983628647,
-                 1345814296,
-                 989049532,
-                 598080954,
-                 1060251066,
-                 1833749460,
-                 777617077,
-                 3487887224,
-                 3689433883,
-                 1662974627,
-                 2182332185,
-                 3272468557,
-                 3279874655,
-                 2699413314,
-                 1012741323,
-                 2850592095,
-                 3238381075,
-                 1959125157,
-                 138192273
-             ),
-                         (
-                 3733432332,
-                 1733961261,
-                 3530083918,
-                 4135884348,
-                 1043891290,
-                 3578100628,
-                 2863162315,
-                 2876911216,
-                 4153562010,
-                 1368107448,
-                 58298907,
-                 940976449,
-                 3989951768,
-                 2671768414,
-                 554584058,
-                 3442304150,
-                 2170954432,
-                 1586969887,
-                 523990714,
-                 2834752598,
-                 1999971301,
-                 1837168398,
-                 966374229,
-                 4082283724,
-                 3655004266,
-                 3252852141,
-                 1678702769,
-                 947315908,
-                 1733379111,
-                 873315452,
-                 3193803437,
-                 227326729
-             ),
-                         (
-                 766856919,
-                 3585525729,
-                 1707432246,
-                 546215170,
-                 647239217,
-                 430071092,
-                 2093945475,
-                 3589997267,
-                 2843616994,
-                 1759084722,
-                 1794778518,
-                 2107126535,
-                 2621330388,
-                 4006305921,
-                 2326842677,
-                 2723791117,
-                 877768789,
-                 3541136482,
-                 1242509863,
-                 1150974959,
-                 1505197897,
-                 238058252,
-                 3135102315,
-                 4272980538,
-                 694651005,
-                 2697889951,
-                 1559960937,
-                 4259018617,
-                 4128290072,
-                 1574888734,
-                 1234433283,
-                 52666680
-             )
-         );
-     };
-     e =     {
-         n =         (
-             3637509649,
-             735604617,
-             2453951612,
-             3472163843,
-             4089943438,
-             1930498867,
-             303538895,
-             2659459263,
-             4258557140,
-             418703775,
-             2586711429,
-             2308275528,
-             2157234023,
-             2209625816,
-             1101582487,
-             3898837704,
-             724508721,
-             3922746148,
-             4057231830,
-             4011743069,
-             1369221502,
-             3807532040,
-             2298521324,
-             3299567649,
-             1680908608,
-             3987818036,
-             749777026,
-             2660459761,
-             1265779762,
-             1545122153,
-             1656910181,
-             435564723
-         );
-     };
- },
- */
+
++ (NSString *)charToString:(char *)sChar{
+    NSString *string = [NSString stringWithFormat:@"%s",sChar];
+    return string;
+}
+
++ (char *)stringToChar:(NSString *)cString{
+    return [cString cStringUsingEncoding:NSASCIIStringEncoding];
+}
+
++ (char *)objectToChar:(id)sObject{
+    return [[sObject jsonStringEncoded] cStringUsingEncoding:NSASCIIStringEncoding];
+}
+
++ (id)charToObject:(char *)sChar{
+
+    return [NSJSONSerialization JSONObjectWithData:[[NSString stringWithFormat:@"%s",sChar] dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+}
 @end

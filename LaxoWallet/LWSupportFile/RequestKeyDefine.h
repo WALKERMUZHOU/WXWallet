@@ -41,6 +41,7 @@ static NSString * const WS_Home_UserIsOnLine = @"user.isOnline";//查询用户�
 
 static NSString * const WS_Home_boardcast = @"message.set";//个人收款二维码,广播
 static NSString * const WS_Home_getTheKey = @"message.get";//个人收款二维码，getTheKey
+static NSString * const WS_Home_confirmAdress = @"wallet.confirmAddress";
 
 
 

@@ -42,6 +42,8 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestIdWalletQueryUserIsOnLine           = 10010,
     WSRequestIdWalletQueryBoardCast              = 10011,
     WSRequestIdWalletQueryGetTheKey              = 10012,
+    WSRequestIdWalletQueryComfirmAddress         = 10013,
+
 };
 
 
@@ -52,11 +54,11 @@ static NSString * const kRegisterSendsmscode = @"/api/app/next/user/register/sen
 
 static NSString * const kAppSource = @"6";
 
-#if 1
+#if 0
 static NSString * const kBaseAddress = @"https://api.laxo.io/api.json?";
 
 #else
-static NSString * const kBaseAddress = @"http://116.62.146.57:8080/mobile";
+static NSString * const kBaseAddress = @"http://192.168.0.106:7001/api.json?";
 //static NSString * const kBaseAddress = @"http://192.168.199.152:8099";
 //static NSString * const kBaseAddress = @"http://192.168.199.171:8080";
 

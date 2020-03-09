@@ -43,6 +43,8 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestIdWalletQueryBoardCast              = 10011,
     WSRequestIdWalletQueryGetTheKey              = 10012,
     WSRequestIdWalletQueryComfirmAddress         = 10013,
+    WSRequestIdWalletQueryrequestPartySign       = 10014,//获取签名
+    WSRequestIdWalletQueryGetKeyShare            = 10015,//获取签名前自己的share
 
 };
 
@@ -56,9 +58,11 @@ static NSString * const kAppSource = @"6";
 
 #if 0
 static NSString * const kBaseAddress = @"https://api.laxo.io/api.json?";
+static NSString * const kWSAddress = @"wss://api.laxo.io/?";
 
 #else
 static NSString * const kBaseAddress = @"http://192.168.0.106:7001/api.json?";
+static NSString * const kWSAddress = @"ws://192.168.0.106:7001/?";
 //static NSString * const kBaseAddress = @"http://192.168.199.152:8099";
 //static NSString * const kBaseAddress = @"http://192.168.199.171:8080";
 

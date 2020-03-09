@@ -99,6 +99,8 @@ char *reconstruct_delta(const char *delta);
 
 char *rust_hello(const char *to);
 
+char *sha256(const char *message_hash);
+
 char *sign_handle_round(const char *key, uint8_t round, const char *data);
 
 char *sum_point(const char *y);

@@ -37,6 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) NSInteger     needToJoinCount;
 
+@property (nonatomic, strong) NSString      *address;
+
 @end
 
 NS_ASSUME_NONNULL_END

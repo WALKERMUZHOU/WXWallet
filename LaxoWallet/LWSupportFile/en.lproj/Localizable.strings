@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  LaxoWallet
+
+  Created by walkermuzhou on 2020/3/9.
+  Copyright © 2020 LaxoWallet. All rights reserved.
+*/
+
+
+"login_login" = "login";
+
+"home_email_verify" = "VerifyEmail";

@@ -81,7 +81,7 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
 
 #define WeakSelf(ws) __weak __typeof(&*self)weakSelf = self
 - (void)sendData:(id)data {
-    NSLog(@"socketSendData --------------- %@",data);
+    //NSLog(@"socketSendData --------------- %@",data);
     
     WeakSelf(ws);
     dispatch_queue_t queue =  dispatch_queue_create("zy", NULL);
@@ -220,14 +220,14 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message  {
     
     if (webSocket == self.socket) {
-        NSLog(@"************************** socket收到数据了************************** ");
+        //NSLog(@"************************** socket收到数据了************************** ");
         if ([message isKindOfClass:[NSString class]]) {
             NSLog(@"websocketl返回数据有问题");
             return;
         }
         NSError *error = nil;
         id obj = [MPMessagePackReader readData:message error:&error];
-        NSLog(@"message:%@",obj);
+//        NSLog(@"message:%@",obj);
 
         [[NSNotificationCenter defaultCenter] postNotificationName:kWebSocketdidReceiveMessageNote object:obj];
     }

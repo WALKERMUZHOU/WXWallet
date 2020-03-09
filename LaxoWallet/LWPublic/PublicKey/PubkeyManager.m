@@ -207,6 +207,32 @@ NSLog(@"message:%@",message);
 + (void)getPrikeyByZhujiciSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
     NSString *seed = [[LWUserManager shareInstance] getUserModel].jiZhuCi;
     NSString *jsStr = [NSString stringWithFormat:@"deriveKey('%@',0)",seed];
+    
+    LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
+    if (model.pk && model.pk.length>0) {
+        successBlock(@{@"prikey":model.pk});
+        return;
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        PublicKeyView *pbView = [[PublicKeyView alloc] init];
+        [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
+            if (dicData) {
+                LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
+                userModel.pk = [dicData objectForKey:@"prikey"];
+                [[LWUserManager shareInstance] setUser:userModel];
+                successBlock(dicData);
+                
+             }else{
+             }
+            
+        }];
+    });
+}
+
++ (void)getPrikeyByZhujiciandIndex:(NSInteger)index SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    NSString *seed = [[LWUserManager shareInstance] getUserModel].jiZhuCi;
+    NSString *jsStr = [NSString stringWithFormat:@"deriveKey('%@',%ld)",seed,(long)index];
     dispatch_async(dispatch_get_main_queue(), ^{
         PublicKeyView *pbView = [[PublicKeyView alloc] init];
         [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
@@ -214,6 +240,7 @@ NSLog(@"message:%@",message);
                 successBlock(dicData);
              }else{
              }
+            
         }];
     });
 }
@@ -225,6 +252,18 @@ NSLog(@"message:%@",message);
     }else{
         jsStr = [NSString stringWithFormat:@"encryptWithKey('%@','%@')",secret,dq];
     }
+    PublicKeyView *pbView = [PublicKeyView shareInstance];
+    [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
+        if (dicData) {
+            successBlock(dicData);
+         }else{
+             FailBlock(dicData);
+         }
+    }];
+}
+
++ (void)decrptWithNoAppendNumberSecret:(NSString *)secret ansMessage:(NSString *)eqrCodeStr SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    NSString *jsStr = [NSString stringWithFormat:@"decryptWithKey('%@','%@')",secret,eqrCodeStr];
     PublicKeyView *pbView = [PublicKeyView shareInstance];
     [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
         if (dicData) {

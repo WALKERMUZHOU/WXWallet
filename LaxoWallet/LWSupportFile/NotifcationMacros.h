@@ -28,7 +28,9 @@
 #define kWebScoket_userIsOnLine             @"kWebScoket_userIsOnLine"
 #define kWebScoket_getTheKey                @"kWebScoket_getTheKey"
 #define kWebScoket_boardcast                @"kWebScoket_boardcast"
-#define kWebScoket_confirmAddress                @"kWebScoket_confirmAddress"
+#define kWebScoket_confirmAddress           @"kWebScoket_confirmAddress"
+#define kWebScoket_requestPartySign         @"kWebScoket_requestPartySign"
+#define kWebScoket_getkeyshare             @"kWebScoket_getsharedkey"
 
 
 #pragma mark - Userdefault

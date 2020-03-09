@@ -32,7 +32,10 @@
 }
 
 @property (nonatomic, strong) NSString *rid;
-@property (nonatomic, strong) NSString *pk;
+@property (nonatomic, assign) NSInteger index;
+
+@property (nonatomic, strong) NSString *pk;//计算地址时使用
+@property (nonatomic, strong) NSString *prikey;//用户自己pk
 @property (nonatomic, strong) NSString *pubkey;
 @property (nonatomic, strong) NSString *p;
 @property (nonatomic, strong) NSString *q;
@@ -69,7 +72,7 @@ static LWAddressTool *instance = nil;
 - (instancetype)init{
     self = [super init];
     if (self) {
-        [self initData];
+//        [self initData];
     }
     return self;
 }
@@ -98,15 +101,52 @@ static LWAddressTool *instance = nil;
     
     NSString *secret = [infoDic objectForKey:@"secret"];
 
-    NSString *dpStr = [NSString stringWithFormat:@"%s",get_random_key_pair()];
-    NSData * jsonData = [dpStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSArray *pqArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+//    NSString *dpStr = [NSString stringWithFormat:@"%s",get_random_key_pair()];
+//    NSData * jsonData = [dpStr dataUsingEncoding:NSUTF8StringEncoding];
+//    NSArray *pqArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
     
-    self.pk = [infoDic objectForKey:@"pk"];
+    
+    self->_mainThreadSignal = dispatch_semaphore_create(0);
+    [PubkeyManager getPrikeyByZhujiciandIndex:self.index SuccessBlock:^(id  _Nonnull data) {
+        self.pk = [data objectForKey:@"prikey"];
+        dispatch_semaphore_signal(self->_mainThreadSignal);
+    } WithFailBlock:^(id  _Nonnull data) {
+        
+    }];
+    dispatch_semaphore_wait(self->_mainThreadSignal, DISPATCH_TIME_FOREVER);
+    
+    self->_mainThreadSignal = dispatch_semaphore_create(0);
+    [PubkeyManager getPrikeyByZhujiciSuccessBlock:^(id  _Nonnull data) {
+        self.prikey = [data objectForKey:@"prikey"];
+        dispatch_semaphore_signal(self->_mainThreadSignal);
+    } WithFailBlock:^(id  _Nonnull data) {
+        
+    }];
+    dispatch_semaphore_wait(self->_mainThreadSignal, DISPATCH_TIME_FOREVER);
+    
+    
+    
+    self->_mainThreadSignal = dispatch_semaphore_create(0);
+    char *secret_char = sha256([LWAddressTool stringToChar:self.prikey]);
+    __block NSArray *pqArray;
+    [PubkeyManager decrptWithNoAppendNumberSecret:[LWAddressTool charToString:secret_char] ansMessage:[[LWUserManager shareInstance] getUserModel].dk SuccessBlock:^(id  _Nonnull data) {
+        NSString *pqStr = (NSString *)data;
+        pqArray = [pqStr componentsSeparatedByString:@","];
+        dispatch_semaphore_signal(self->_mainThreadSignal);
+
+    } WithFailBlock:^(id  _Nonnull data) {
+        
+    }];
+    dispatch_semaphore_wait(self->_mainThreadSignal, DISPATCH_TIME_FOREVER);
+
+    
+    
     self.p = [pqArray firstObject];
     self.q = [pqArray lastObject];
     self.share_count = PARTIES;
    
+    
+    
     char *chartest =create_party_key([self.pk cStringUsingEncoding:NSASCIIStringEncoding], [self.p cStringUsingEncoding:NSASCIIStringEncoding], [self.q cStringUsingEncoding:NSASCIIStringEncoding], self.party_count);
     NSString *chartestString = [NSString stringWithFormat:@"%s",chartest];
     NSArray *encryptionKeyArray = [NSJSONSerialization JSONObjectWithData:[chartestString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
@@ -119,19 +159,26 @@ static LWAddressTool *instance = nil;
 //    NSData *pubkeyData = [[CBSecp256k1 generatePublicKeyWithPrivateKey:[self.pk dataUsingEncoding:NSUTF8StringEncoding] compression:YES] copy];
 //    self.pubkey = [pubkeyData dataToHexString];
     
-    char *publicKey = get_public_key([self.pk cStringUsingEncoding:NSUTF8StringEncoding]);
-    self.pubkey = [NSString stringWithFormat:@"%s",publicKey];
-
-    char *public_point = get_public_point([self.pubkey cStringUsingEncoding:NSUTF8StringEncoding]);
-
-    NSString *yString = [NSString stringWithFormat:@"%s",public_point];
-    self.y = [NSJSONSerialization JSONObjectWithData:[yString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+//    char *publicKey = get_public_key([self.pk cStringUsingEncoding:NSUTF8StringEncoding]);
+//    self.pubkey = [NSString stringWithFormat:@"%s",publicKey];
+//
+//    char *public_point = get_public_point([self.pubkey cStringUsingEncoding:NSUTF8StringEncoding]);
+//
+//    NSString *yString = [NSString stringWithFormat:@"%s",public_point];
+//    self.y = [NSJSONSerialization JSONObjectWithData:[yString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+    dispatch_semaphore_signal(self->_semaphoreSignal);
     
 }
 
-- (void)testNewMethod:(NSString *)rid{
+- (void)setWithrid:(NSString *)rid andIndex:(NSInteger)index{
     self.rid = rid;
+    self.index = index;
+
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        self->_semaphoreSignal = dispatch_semaphore_create(0);
+        [self initData];
+        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
         
         NSMutableArray *keyArray = [NSMutableArray array];
         for (NSInteger i =1 ; i<=1; i++) {
@@ -284,10 +331,21 @@ static LWAddressTool *instance = nil;
 }
 
 - (void)requestAddress:(NSString *)shares andvss:(NSArray *)vss{
-    NSDictionary *initdataDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
+    
+    __block NSString *pk;
+    self->_mainThreadSignal = dispatch_semaphore_create(0);
+    [PubkeyManager getPrikeyByZhujiciSuccessBlock:^(id  _Nonnull data) {
+        pk = [data objectForKey:@"prikey"];
+        dispatch_semaphore_signal(self->_mainThreadSignal);
+    } WithFailBlock:^(id  _Nonnull data) {
+        
+    }];
+    dispatch_semaphore_wait(self->_mainThreadSignal, DISPATCH_TIME_FOREVER);
+    
+    char *secret_char = sha256([LWAddressTool stringToChar:pk]);
     __block NSString *shares_encrypt;
     self->_semaphoreSignal = dispatch_semaphore_create(0);
-    [PubkeyManager getDkWithSecret:[initdataDic objectForKey:@"secret"] andpJoin:shares SuccessBlock:^(id  _Nonnull data) {
+    [PubkeyManager getDkWithSecret:[LWAddressTool charToString:secret_char] andpJoin:shares SuccessBlock:^(id  _Nonnull data) {
         shares_encrypt = data;
         dispatch_semaphore_signal(self->_semaphoreSignal);
     } WithFailBlock:^(id  _Nonnull data) {
@@ -299,12 +357,6 @@ static LWAddressTool *instance = nil;
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryComfirmAddress),WS_Home_confirmAdress,[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
     
-}
-
-
-- (void)setWithrid:(NSString *)rid{
-    [self testNewMethod:rid];
-    return;
 }
 
 

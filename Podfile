@@ -34,6 +34,8 @@ target 'LaxoWallet' do
     pod "MPMessagePack"
     pod 'pop'
     pod 'CoreBitcoin'
+    pod 'secp256k1'
+    
 #    pod 'BCGenerator'
 #    pod 'CBSecp256k1'
 #    pod 'CBBase58'

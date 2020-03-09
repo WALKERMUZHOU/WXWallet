@@ -7,6 +7,8 @@
 //
 
 #import "LWPublicManager.h"
+#import "CBSecp256k1.h"
+#import "NSData+HexString.h"
 
 @implementation LWPublicManager
 
@@ -73,5 +75,11 @@
         }
     }
     return @"";
+}
+
++ (NSString *)getPubkeyWithPriKey:(NSString *)prikey{
+    NSData *prvData = [NSData hexStringToData:prikey];
+    NSData *pubkey = [CBSecp256k1 generatePublicKeyWithPrivateKey:prvData compression:YES];
+    return pubkey;
 }
 @end

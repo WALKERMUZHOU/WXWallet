@@ -18,6 +18,7 @@
 #import "LWMessageDetailViewController.h"
 
 #import "LWAddressTool.h"
+#import "LWSignTool.h"
 
 @interface LWHomeListView()<LWCoordinatorDelegate,MGSwipeTableCellDelegate>{
     NSIndexPath *_deleteIndexPath;
@@ -67,14 +68,7 @@
 
 - (void)initWsInfo{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress object:nil];
-}
 
-- (void)loadDataWithPage:(NSUInteger)currentPage{
-    if (currentPage) {
-        self.currentPage = currentPage;
-    }
-    NSDictionary *paramers = @{@"pageNum":@(self.currentPage),@"pageSize":@(20)};
- //   [self.tableView reloadData];
 }
 
 #pragma mark - coordinator
@@ -227,8 +221,21 @@
 }
 
 - (void)collection:(NSInteger)index{
+    
     if(self.currentViewType == LWHomeListViewTypePersonalWallet){
-        [self getQrCodeWithIndex:index];
+        
+        LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
+        NSString *address = [model.deposit objectForKey:@"address"];
+#warning sign-code
+//        LWSignTool *signtool = [LWSignTool shareInstance];
+//        [signtool setWithAddress:address];
+//        return;
+        if (address && address.length >0) {
+            LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
+            [LogicHandle presentViewController:personVC animate:YES];
+        }else{
+            [self getQrCodeWithIndex:index];
+        }
     }
 }
 
@@ -238,36 +245,38 @@
     NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQuerySingleAddress),@"wallet.createSingleAddress",[params jsonStringEncoded]];
     NSData *data = [requestPersonalWalletArray mp_messagePack];
     [[SocketRocketUtility instance] sendData:data];
-    
-//    [LWHomeListCoordinator getCollectionCodeWithWalletId:model.walletId withSuccessBlock:^(id  _Nonnull data) {
-//
-//    } WithFailBlock:^(id  _Nonnull data) {
-//
-//    }];
 }
 
 - (void)createSingleAddress:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
         NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
+        NSInteger index = [[[notiDic objectForKey:@"data"] objectForKey:@"index"] integerValue];
+
         [SVProgressHUD show];
         LWAddressTool *addressTool = [LWAddressTool shareInstance];
-        [addressTool setWithrid:rid];
+        [addressTool setWithrid:rid andIndex:index];
         addressTool.addressBlock = ^(NSString * _Nonnull address) {
             [SVProgressHUD dismiss];
+            
+            //刷新下首页个人钱包数据
+            NSDictionary *params = @{@"type":@1};
+            NSArray *requestPersonalWalletArray = @[@"req",
+                                                    @(WSRequestIdWalletQueryPersonalWallet),
+                                                    @"wallet.query",
+                                                    [params jsonStringEncoded]];
+            NSData *data = [requestPersonalWalletArray mp_messagePack];
+            [[SocketRocketUtility instance] sendData:data];
+
             LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
             [LogicHandle presentViewController:personVC animate:YES];
         };
     }
-    
-    
-#warning 对返回的rid 需要调用rust库 进行数据处理
-
-    
 }
 
 - (void)transferAccount:(NSInteger)index{
     LWPersonalTransferAccountViewController *personalTA = [[LWPersonalTransferAccountViewController alloc]init];
     [LogicHandle presentViewController:personalTA animate:YES];
 }
+
 @end

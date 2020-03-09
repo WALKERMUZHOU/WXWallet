@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LWUserModel : LWBaseModel
 
 @property (nonatomic, strong) NSString      *username;
-@property (nonatomic, strong) NSString     *uid;
+@property (nonatomic, strong) NSString      *uid;
 @property (nonatomic, strong) NSString      *email;
 
 
@@ -23,6 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString      *loginSuccess;
 @property (nonatomic, strong) NSString      *jiZhuCi;
+@property (nonatomic, strong) NSString      *pk;
+
+@property (nonatomic, strong) NSString      *dk;
+@property (nonatomic, strong) NSString      *ek;
+
 
 @end
 

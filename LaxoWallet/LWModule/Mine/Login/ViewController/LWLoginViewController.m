@@ -46,8 +46,8 @@
 }
 
 - (void)createUI{
-    self.title = @"验证邮箱";
-    
+//    self.title = @"验证邮箱";
+    self.title = NSLocalizedString(@"home_email_verify", nil);
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.textColor = lwColorBlack1;
     [self.view addSubview:self.titleLabel];
@@ -127,11 +127,14 @@
     [SVProgressHUD show];
     [LWLoginCoordinator verifyEmailCodeWithEmail:self.emailStr andCode:self.textField.lwTextField.text WithSuccessBlock:^(id  _Nonnull data) {
         id dataID = [data objectForKey:@"data"];
-        if (dataID == NO || dataID == 0) {
-            [SVProgressHUD dismiss];
-            [WMHUDUntil showMessageToWindow:@"验证失败"];
-            return ;
+        if (![dataID isKindOfClass:[NSDictionary class]]) {
+            if (dataID == NO || [dataID integerValue] == 0) {
+                 [SVProgressHUD dismiss];
+                 [WMHUDUntil showMessageToWindow:@"验证失败"];
+                 return ;
+             }
         }
+ 
         NSDictionary *dataDic = (NSDictionary *)dataID;
         if(dataDic && dataDic.allKeys.count>0){
             [[LWUserManager shareInstance] setUserDic:dataDic];

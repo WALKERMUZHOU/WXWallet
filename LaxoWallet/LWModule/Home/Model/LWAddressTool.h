@@ -12,11 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^AddressBlock)(NSString *address);
 @interface LWAddressTool : NSObject
 + (LWAddressTool *)shareInstance;
-- (void)setWithrid:(NSString *)rid;
+- (void)setWithrid:(NSString *)rid andIndex:(NSInteger)index;
 - (instancetype)initWithRid:(NSString *)rid;
 @property (nonatomic, copy) AddressBlock addressBlock;
 
 
++ (id)charToObject:(char *)sChar;
++ (char *)objectToChar:(id)sObject;
++ (NSString *)charToString:(char *)sChar;
++ (char *)stringToChar:(NSString *)cString;
 @end
 
 NS_ASSUME_NONNULL_END

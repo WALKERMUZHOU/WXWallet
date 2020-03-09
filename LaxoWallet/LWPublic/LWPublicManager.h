@@ -33,6 +33,8 @@ typedef NS_OPTIONS(NSInteger, TokenType){
 
 + (NSString *)getCurrentPriceWithTokenType:(TokenType)tokenType;
 
++ (NSString *)getPubkeyWithPriKey:(NSString *)prikey;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -15,6 +15,9 @@
 #import "LWRocoveryViewController.h"
 #import "LWFaceBindViewController.h"
 
+#import "LWUserVefifyViewController.h"
+#import "IDLFaceSDK/IDLFaceSDK.h"
+
 @interface AppDelegate ()
 
 @end
@@ -29,14 +32,25 @@
     [self.window setBackgroundColor:[UIColor whiteColor]];
     [self getTrueteeData];
     [self getCurrentTokenPrice];
-//    [LogicHandle showTabbarVC];
-    [LogicHandle chooseStartVC];
+    [self registerBDFace];
+    
+    [LogicHandle showTabbarVC];
+//    [LogicHandle chooseStartVC];
 //    [LogicHandle showLoginVC];
+    
+//    LWUserVefifyViewController *launchVC = [[LWUserVefifyViewController alloc] init];
+//    self.window.rootViewController = launchVC;
+    
     [self.window makeKeyAndVisible];
     
     return YES;
 }
 
+- (void)registerBDFace{
+    NSString* licensePath = [[NSBundle mainBundle] pathForResource:FACE_LICENSE_NAME ofType:FACE_LICENSE_SUFFIX];
+     NSAssert([[NSFileManager defaultManager] fileExistsAtPath:licensePath], @"license文件路径不对，请仔细查看文档");
+     [[FaceSDKManager sharedInstance] setLicenseID:FACE_LICENSE_ID andLocalLicenceFile:licensePath];
+}
 
 #pragma mark - UISceneSession lifecycle
 

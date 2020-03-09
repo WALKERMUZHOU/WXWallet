@@ -134,6 +134,21 @@
 		5E9172C62416227D00D47A9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E9172C82416227D00D47A9F /* Localizable.strings */; };
 		5E9172CA2416284B00D47A9F /* LWHomeListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9172CC2416284B00D47A9F /* LWHomeListHeaderView.xib */; };
 		5E9172D324162A7300D47A9F /* LWHomeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9172D524162A7300D47A9F /* LWHomeListCell.xib */; };
+		5E9172DD2416376100D47A9F /* IDLFaceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9172D92416376100D47A9F /* IDLFaceSDK.framework */; };
+		5E9172DE2416376200D47A9F /* idl-license.face-ios in Resources */ = {isa = PBXBuildFile; fileRef = 5E9172DA2416376100D47A9F /* idl-license.face-ios */; };
+		5E9172DF2416376200D47A9F /* com.baidu.idl.face.model.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E9172DB2416376100D47A9F /* com.baidu.idl.face.model.bundle */; };
+		5E9172E02416376200D47A9F /* com.baidu.idl.face.faceSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E9172DC2416376100D47A9F /* com.baidu.idl.face.faceSDK.bundle */; };
+		5E9172E4241637D500D47A9F /* LWUserVefifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9172E3241637D500D47A9F /* LWUserVefifyViewController.m */; };
+		5E9172E624163CB300D47A9F /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9172E524163CA100D47A9F /* libc++.tbd */; };
+		5E91735C24163DEB00D47A9F /* DetectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91734624163DEA00D47A9F /* DetectionViewController.m */; };
+		5E91735D24163DEB00D47A9F /* LivenessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91734724163DEA00D47A9F /* LivenessViewController.m */; };
+		5E91735E24163DEB00D47A9F /* FaceBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91734924163DEA00D47A9F /* FaceBaseViewController.m */; };
+		5E91735F24163DEB00D47A9F /* RemindView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91734A24163DEA00D47A9F /* RemindView.m */; };
+		5E91736024163DEB00D47A9F /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91734B24163DEA00D47A9F /* CircleView.m */; };
+		5E91736124163DEB00D47A9F /* LivingConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91734E24163DEA00D47A9F /* LivingConfigViewController.m */; };
+		5E91736224163DEB00D47A9F /* VideoCaptureDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91735424163DEA00D47A9F /* VideoCaptureDevice.m */; };
+		5E91736324163DEB00D47A9F /* ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91735624163DEB00D47A9F /* ImageUtils.m */; };
+		5E91736424163DEB00D47A9F /* LivingConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91735A24163DEB00D47A9F /* LivingConfigModel.m */; };
 		5EA1D49223FA527E00A0A747 /* SocketRocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */; };
 		5EA8079A23E94E2100012837 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079923E94E2100012837 /* AppDelegate.m */; };
 		5EA8079D23E94E2100012837 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079C23E94E2100012837 /* SceneDelegate.m */; };
@@ -492,6 +507,32 @@
 		5E9172D224162A0500D47A9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWHomeListHeaderView.xib; sourceTree = "<group>"; };
 		5E9172D424162A7300D47A9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWHomeListCell.xib; sourceTree = "<group>"; };
 		5E9172D724162A7B00D47A9F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWHomeListCell.strings"; sourceTree = "<group>"; };
+		5E9172D92416376100D47A9F /* IDLFaceSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IDLFaceSDK.framework; sourceTree = "<group>"; };
+		5E9172DA2416376100D47A9F /* idl-license.face-ios */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "idl-license.face-ios"; sourceTree = "<group>"; };
+		5E9172DB2416376100D47A9F /* com.baidu.idl.face.model.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = com.baidu.idl.face.model.bundle; sourceTree = "<group>"; };
+		5E9172DC2416376100D47A9F /* com.baidu.idl.face.faceSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = com.baidu.idl.face.faceSDK.bundle; sourceTree = "<group>"; };
+		5E9172E2241637D500D47A9F /* LWUserVefifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWUserVefifyViewController.h; sourceTree = "<group>"; };
+		5E9172E3241637D500D47A9F /* LWUserVefifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWUserVefifyViewController.m; sourceTree = "<group>"; };
+		5E9172E524163CA100D47A9F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		5E91734624163DEA00D47A9F /* DetectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectionViewController.m; sourceTree = "<group>"; };
+		5E91734724163DEA00D47A9F /* LivenessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivenessViewController.m; sourceTree = "<group>"; };
+		5E91734824163DEA00D47A9F /* LivingConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivingConfigViewController.h; sourceTree = "<group>"; };
+		5E91734924163DEA00D47A9F /* FaceBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceBaseViewController.m; sourceTree = "<group>"; };
+		5E91734A24163DEA00D47A9F /* RemindView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemindView.m; sourceTree = "<group>"; };
+		5E91734B24163DEA00D47A9F /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
+		5E91734C24163DEA00D47A9F /* DetectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectionViewController.h; sourceTree = "<group>"; };
+		5E91734D24163DEA00D47A9F /* FaceBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceBaseViewController.h; sourceTree = "<group>"; };
+		5E91734E24163DEA00D47A9F /* LivingConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivingConfigViewController.m; sourceTree = "<group>"; };
+		5E91734F24163DEA00D47A9F /* LivenessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivenessViewController.h; sourceTree = "<group>"; };
+		5E91735024163DEA00D47A9F /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
+		5E91735124163DEA00D47A9F /* RemindView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemindView.h; sourceTree = "<group>"; };
+		5E91735324163DEA00D47A9F /* VideoCaptureDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCaptureDevice.h; sourceTree = "<group>"; };
+		5E91735424163DEA00D47A9F /* VideoCaptureDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCaptureDevice.m; sourceTree = "<group>"; };
+		5E91735624163DEB00D47A9F /* ImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtils.m; sourceTree = "<group>"; };
+		5E91735724163DEB00D47A9F /* ImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtils.h; sourceTree = "<group>"; };
+		5E91735824163DEB00D47A9F /* FaceParameterConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceParameterConfig.h; sourceTree = "<group>"; };
+		5E91735A24163DEB00D47A9F /* LivingConfigModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivingConfigModel.m; sourceTree = "<group>"; };
+		5E91735B24163DEB00D47A9F /* LivingConfigModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivingConfigModel.h; sourceTree = "<group>"; };
 		5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketUtility.m; sourceTree = "<group>"; };
 		5EA1D49023FA527E00A0A747 /* SocketRocketUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketUtility.h; sourceTree = "<group>"; };
 		5EA8079523E94E2100012837 /* LaxoWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaxoWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -658,7 +699,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E9172E624163CB300D47A9F /* libc++.tbd in Frameworks */,
 				5EF5133023F1090000F5B6C1 /* JavaScriptCore.framework in Frameworks */,
+				5E9172DD2416376100D47A9F /* IDLFaceSDK.framework in Frameworks */,
 				86D3522E3C18254EEA6E7ACA /* libPods-LaxoWallet.a in Frameworks */,
 				5EC1A991240F52F70086ED19 /* libthresholdsig.a in Frameworks */,
 				5E9172BF241528B700D47A9F /* secp256k1.framework in Frameworks */,
@@ -685,6 +728,7 @@
 		51EFFA0A50EC1838107FEAF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E9172E524163CA100D47A9F /* libc++.tbd */,
 				5EF5132F23F1090000F5B6C1 /* JavaScriptCore.framework */,
 				978A27D43A937A7EDE48D448 /* libPods-LaxoWallet.a */,
 			);
@@ -1477,6 +1521,77 @@
 			path = secp256k1;
 			sourceTree = "<group>";
 		};
+		5E9172D82416376100D47A9F /* FaceSDK */ = {
+			isa = PBXGroup;
+			children = (
+				5E9172D92416376100D47A9F /* IDLFaceSDK.framework */,
+				5E9172DA2416376100D47A9F /* idl-license.face-ios */,
+				5E9172DB2416376100D47A9F /* com.baidu.idl.face.model.bundle */,
+				5E9172DC2416376100D47A9F /* com.baidu.idl.face.faceSDK.bundle */,
+			);
+			path = FaceSDK;
+			sourceTree = "<group>";
+		};
+		5E9172E1241637B300D47A9F /* UserVerify */ = {
+			isa = PBXGroup;
+			children = (
+				5E91735224163DEA00D47A9F /* Core */,
+				5E91735824163DEB00D47A9F /* FaceParameterConfig.h */,
+				5E91735924163DEB00D47A9F /* Model */,
+				5E91735524163DEB00D47A9F /* Utils */,
+				5E91734524163DEA00D47A9F /* ViewController */,
+				5E9172E2241637D500D47A9F /* LWUserVefifyViewController.h */,
+				5E9172E3241637D500D47A9F /* LWUserVefifyViewController.m */,
+			);
+			path = UserVerify;
+			sourceTree = "<group>";
+		};
+		5E91734524163DEA00D47A9F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5E91734624163DEA00D47A9F /* DetectionViewController.m */,
+				5E91734724163DEA00D47A9F /* LivenessViewController.m */,
+				5E91734824163DEA00D47A9F /* LivingConfigViewController.h */,
+				5E91734924163DEA00D47A9F /* FaceBaseViewController.m */,
+				5E91734A24163DEA00D47A9F /* RemindView.m */,
+				5E91734B24163DEA00D47A9F /* CircleView.m */,
+				5E91734C24163DEA00D47A9F /* DetectionViewController.h */,
+				5E91734D24163DEA00D47A9F /* FaceBaseViewController.h */,
+				5E91734E24163DEA00D47A9F /* LivingConfigViewController.m */,
+				5E91734F24163DEA00D47A9F /* LivenessViewController.h */,
+				5E91735024163DEA00D47A9F /* CircleView.h */,
+				5E91735124163DEA00D47A9F /* RemindView.h */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5E91735224163DEA00D47A9F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				5E91735324163DEA00D47A9F /* VideoCaptureDevice.h */,
+				5E91735424163DEA00D47A9F /* VideoCaptureDevice.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		5E91735524163DEB00D47A9F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5E91735624163DEB00D47A9F /* ImageUtils.m */,
+				5E91735724163DEB00D47A9F /* ImageUtils.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5E91735924163DEB00D47A9F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5E91735A24163DEB00D47A9F /* LivingConfigModel.m */,
+				5E91735B24163DEB00D47A9F /* LivingConfigModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5EA1D48E23FA527E00A0A747 /* WebSocket */ = {
 			isa = PBXGroup;
 			children = (
@@ -1551,6 +1666,7 @@
 		5EA807CD23E94ED500012837 /* LWAdapt */ = {
 			isa = PBXGroup;
 			children = (
+				5E9172D82416376100D47A9F /* FaceSDK */,
 				5E9172B7241528B700D47A9F /* secp256k1 */,
 				5E0FE6912408AB9D00733B05 /* rust */,
 				5EA1D48E23FA527E00A0A747 /* WebSocket */,
@@ -1621,6 +1737,7 @@
 		5EA807D223E94ED500012837 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				5E9172E1241637B300D47A9F /* UserVerify */,
 				5E5F12AA23ED4E92002F0711 /* Login */,
 				5E5F12A923ED4E92002F0711 /* User */,
 				5E66A38523EAEBE9004097CB /* Controller */,
@@ -2012,6 +2129,7 @@
 				5E66A34323EAB58C004097CB /* README.md in Resources */,
 				5E9172C62416227D00D47A9F /* Localizable.strings in Resources */,
 				5E66A35F23EAC378004097CB /* backImage@2x.png in Resources */,
+				5E9172E02416376200D47A9F /* com.baidu.idl.face.faceSDK.bundle in Resources */,
 				5EF5139C23F3D14E00F5B6C1 /* LWRocoveryViewController.xib in Resources */,
 				5E66A34223EAB58C004097CB /* SVProgressHUD.bundle in Resources */,
 				5E9172CA2416284B00D47A9F /* LWHomeListHeaderView.xib in Resources */,
@@ -2020,8 +2138,10 @@
 				5E66A34623EAB58C004097CB /* WMHUDUntil.bundle in Resources */,
 				5EB31EC1240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib in Resources */,
 				5EB31E92240428CD00974FD4 /* LWMineSettingLanguageCell.xib in Resources */,
+				5E9172DE2416376200D47A9F /* idl-license.face-ios in Resources */,
 				5E5F12D723ED8BD3002F0711 /* LWRecoveryTrustholdsView.xib in Resources */,
 				5EA807A823E94E2400012837 /* LaunchScreen.storyboard in Resources */,
+				5E9172DF2416376200D47A9F /* com.baidu.idl.face.model.bundle in Resources */,
 				5EB31E8724041CAF00974FD4 /* LWMineSecurityTableViewCell.xib in Resources */,
 				5E0FE6962408E72D00733B05 /* index.js in Resources */,
 				EFEBEEA523FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib in Resources */,
@@ -2118,6 +2238,7 @@
 				5E66A3AE23EB1184004097CB /* PopoverAction.m in Sources */,
 				5E66A34123EAB58C004097CB /* SVIndefiniteAnimatedView.m in Sources */,
 				5E5F128D23EC0E12002F0711 /* WMZDialog+Loading.m in Sources */,
+				5E91736324163DEB00D47A9F /* ImageUtils.m in Sources */,
 				5EF513E023F550F200F5B6C1 /* LWEmailBtn.m in Sources */,
 				5E66A30823EAADA1004097CB /* AxcAE_TabBarItem.m in Sources */,
 				5EB31E9C2404BD1900974FD4 /* LWTextFieldAlertView.m in Sources */,
@@ -2148,9 +2269,12 @@
 				5E5F12CD23ED8987002F0711 /* LWRecoveryView.m in Sources */,
 				5E23585E2403F3C700A7D774 /* LWMineView.m in Sources */,
 				5E722B7223F694CF000991DE /* LWLaunchViewController.m in Sources */,
+				5E91736224163DEB00D47A9F /* VideoCaptureDevice.m in Sources */,
+				5E91735E24163DEB00D47A9F /* FaceBaseViewController.m in Sources */,
 				5EA1D49223FA527E00A0A747 /* SocketRocketUtility.m in Sources */,
 				5EE8FB7C2407911700AEE861 /* LWMessageDetailTitleContentView.m in Sources */,
 				5E66A34023EAB58C004097CB /* SVProgressHUD.m in Sources */,
+				5E91735F24163DEB00D47A9F /* RemindView.m in Sources */,
 				5EF513DF23F550F200F5B6C1 /* QQLBXScanViewController.m in Sources */,
 				5EE8FB7424076B9300AEE861 /* LWMessageDetailListView.m in Sources */,
 				5E66A3CF23EBFAA2004097CB /* TYAlertFadeAnimation.m in Sources */,
@@ -2181,6 +2305,7 @@
 				5E66A30A23EAADA1004097CB /* MGSwipeButton.m in Sources */,
 				5E66A3D023EBFAA2004097CB /* TYAlertController+TransitionAnimate.m in Sources */,
 				5E66A33F23EAB58C004097CB /* SVProgressAnimatedView.m in Sources */,
+				5E91735C24163DEB00D47A9F /* DetectionViewController.m in Sources */,
 				5E66A30623EAADA1004097CB /* AxcAE_TabBarBadge.m in Sources */,
 				5EF5134123F1409500F5B6C1 /* LWInputTextView.m in Sources */,
 				5EF5134C23F16E1200F5B6C1 /* LWEmailBtn.m in Sources */,
@@ -2201,6 +2326,8 @@
 				5EF5137523F273DB00F5B6C1 /* LWTestWebView.m in Sources */,
 				5E5F129723EC0E12002F0711 /* WMZDialog+time.m in Sources */,
 				5E5F123623EC06F1002F0711 /* LogicHandle.m in Sources */,
+				5E91736124163DEB00D47A9F /* LivingConfigViewController.m in Sources */,
+				5E91735D24163DEB00D47A9F /* LivenessViewController.m in Sources */,
 				5EF513DA23F550F200F5B6C1 /* PublicKeyView.m in Sources */,
 				5EF513E423F550F200F5B6C1 /* LWInputTextView.m in Sources */,
 				5E5F129823EC0E12002F0711 /* WMZDialog+MenusSelect.m in Sources */,
@@ -2224,6 +2351,7 @@
 				5EB31EC0240648AD00974FD4 /* LWMessageDeleteTableViewCell.m in Sources */,
 				5E5F129623EC0E12002F0711 /* CalanderModel.m in Sources */,
 				5EF5136E23F1815400F5B6C1 /* QQLBXScanViewController.m in Sources */,
+				5E91736024163DEB00D47A9F /* CircleView.m in Sources */,
 				5E66A3B023EB1184004097CB /* PopoverViewCell.m in Sources */,
 				5E66A36D23EAC43A004097CB /* LWNavigationViewController.m in Sources */,
 				5E5F12FA23EDD97F002F0711 /* WMZBannerControl.m in Sources */,
@@ -2243,6 +2371,7 @@
 				5E5F130023EDD97F002F0711 /* WMZPageScroller.m in Sources */,
 				5EB31EB92406484000974FD4 /* LWMessageDeleteUserViewController.m in Sources */,
 				5E9172BE241528B700D47A9F /* NSData+HexString.m in Sources */,
+				5E91736424163DEB00D47A9F /* LivingConfigModel.m in Sources */,
 				5E5F12B223ED562B002F0711 /* LWLoginCoordinator.m in Sources */,
 				5E5F12A123EC0E12002F0711 /* WMZDialog+BuyCar.m in Sources */,
 				5E5F12C823ED85BE002F0711 /* LWLoginSecondStepView.m in Sources */,
@@ -2280,6 +2409,7 @@
 				5EB31EAA24051C9300974FD4 /* LWMessageModel.m in Sources */,
 				5E5F12A023EC0E12002F0711 /* WMZDialogAnimation.m in Sources */,
 				5E5F130523EEB5FA002F0711 /* LWUserManager.m in Sources */,
+				5E9172E4241637D500D47A9F /* LWUserVefifyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2489,6 +2619,8 @@
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/BTCGenerator/CBSecp256k1/CBSecp256k1/secp256k1",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/BTCGenerator",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/secp256k1",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/FaceSDK",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/FaceSDK/FaceSDK-Collect-WithLiveness-iOS/Frameworks/FaceSDK",
 				);
 				GCC_PREFIX_HEADER = /Users/zhuchenglong/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
 				INFOPLIST_FILE = LaxoWallet/Info.plist;
@@ -2500,7 +2632,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.laxo.wallewallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.laxoWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2519,6 +2651,8 @@
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/BTCGenerator/CBSecp256k1/CBSecp256k1/secp256k1",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/BTCGenerator",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/secp256k1",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/FaceSDK",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/FaceSDK/FaceSDK-Collect-WithLiveness-iOS/Frameworks/FaceSDK",
 				);
 				GCC_PREFIX_HEADER = /Users/zhuchenglong/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
 				INFOPLIST_FILE = LaxoWallet/Info.plist;
@@ -2530,7 +2664,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.laxo.wallewallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.laxoWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

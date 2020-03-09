@@ -35,6 +35,8 @@ typedef NS_OPTIONS(NSInteger, TokenType){
 
 + (NSString *)getPubkeyWithPriKey:(NSString *)prikey;
 
+
+
 @end
 
 NS_ASSUME_NONNULL_END

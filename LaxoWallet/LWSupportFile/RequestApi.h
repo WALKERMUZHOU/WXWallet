@@ -53,7 +53,6 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
 static NSString * const kDeviceRegister = @"/api/app/next/user/device/register";
 // 用户注册
 static NSString * const kRegisterSendsmscode = @"/api/app/next/user/register/sendsmscode";
-
 static NSString * const kAppSource = @"6";
 
 #if 0
@@ -67,6 +66,14 @@ static NSString * const kWSAddress = @"ws://192.168.0.106:7001/?";
 //static NSString * const kBaseAddress = @"http://192.168.199.171:8080";
 
 #endif
+
+// 人脸license文件名
+#define FACE_LICENSE_NAME    @"idl-license"
+// 人脸license后缀
+#define FACE_LICENSE_SUFFIX  @"face-ios"
+// （您申请的应用名称(appname)+「-face-ios」后缀，如申请的应用名称(appname)为test123，则此处填写test123-face-ios）
+// 在后台 -> 产品服务 -> 人脸识别 -> 客户端SDK管理查看，如果没有的话就新建一个
+#define FACE_LICENSE_ID        @"laxowallet-face-ios"
 
 
 #endif /* RequestApi_h */

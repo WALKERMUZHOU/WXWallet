@@ -80,6 +80,6 @@
 + (NSString *)getPubkeyWithPriKey:(NSString *)prikey{
     NSData *prvData = [NSData hexStringToData:prikey];
     NSData *pubkey = [CBSecp256k1 generatePublicKeyWithPrivateKey:prvData compression:YES];
-    return pubkey;
+    return [pubkey hexString];
 }
 @end

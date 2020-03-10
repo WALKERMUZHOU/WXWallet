@@ -10,6 +10,7 @@
 #import "LWBottomLineInputTextField.h"
 #import "LWCommonBottomBtn.h"
 #import "UIView+LWPayView.h"
+#import "LWTansactionTool.h"
 
 @interface LWPersonalTransferAccountViewController ()
 
@@ -48,8 +49,13 @@
 
     self.amountTF = [[LWBottomLineInputTextField alloc] initWithFrame:CGRectMake(0, 142+kNavigationBarHeight, kScreenWidth, 40) andType:LWBottomLineInputTextFieldTypeDescribe];
     self.amountTF.textField.placeholder = @"金额";
-    self.amountTF.descripStr = @"剩余120BSV";
+//    self.amountTF.descripStr = @"剩余120BSV";
     [self.view addSubview:self.amountTF];
+    
+    if (self.model) {
+        NSString *describeStr = [NSString stringWithFormat:@"剩余%@BSV",@(_model.personalBitCount)];
+        self.amountTF.descripStr = describeStr;
+    }
     
     self.payAddressTF = [[LWBottomLineInputTextField alloc] initWithFrame:CGRectMake(0, self.amountTF.kbottom + 55, kScreenWidth, 40) andType:LWBottomLineInputTextFieldTypeButtons];
     self.payAddressTF.textField.placeholder = @"地址或PayMail ID";
@@ -109,7 +115,7 @@
 - (void)setModel:(LWHomeWalletModel *)model{
     _model = model;
     NSString *describeStr = [NSString stringWithFormat:@"剩余%@BSV",@(_model.personalBitCount)];
-    self.amountTF.descripStr = describeStr;
+    [self.amountTF setDescripStr:describeStr];
 }
 
 - (void)backClick:(UIButton *)sender{
@@ -117,6 +123,7 @@
 }
 
 - (void)bottomClick:(UIButton *)sender{
+        
     if (self.amountTF.textField.text.length == 0) {
         [WMHUDUntil showMessageToWindow:@"请输入金额"];
         return;
@@ -126,10 +133,34 @@
         return;
     }
     
-    [self.view createAlertViewWithTitle:@"Send" amount:self.amountTF.textField.text payMail:self.amountTF.textField.text address:self.payAddressTF.textField.text actionBlock:^(BOOL isSend) {
-        
-    }];
+    LWTansactionTool *trans = [[LWTansactionTool alloc] init];
+    [trans startTransactionWithAmount:0.01 address:self.payAddressTF.textField.text note:self.remarkTF.textField.text andTotalModel:self.model];
+    trans.transactionBlock = ^(BOOL success) {
+        if (success) {
+            [self requestPersonalWalletInfo];
+            [self requestMulipyWalletInfo];
+        }
+    };
      
+}
+
+
+- (void)requestPersonalWalletInfo{
+    NSDictionary *params = @{@"type":@1};
+    NSArray *requestPersonalWalletArray = @[@"req",
+                                            @(WSRequestIdWalletQueryPersonalWallet),
+                                            @"wallet.query",
+                                            [params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    [[SocketRocketUtility instance] sendData:data];
+}
+
+- (void)requestMulipyWalletInfo{
+    NSDictionary *multipyparams = @{@"type":@2};
+    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMulpityWallet),@"wallet.query",[multipyparams jsonStringEncoded]];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+    });
 }
 /*
 #pragma mark - Navigation

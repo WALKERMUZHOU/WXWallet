@@ -275,7 +275,11 @@
 }
 
 - (void)transferAccount:(NSInteger)index{
+    LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
+
     LWPersonalTransferAccountViewController *personalTA = [[LWPersonalTransferAccountViewController alloc]init];
+    [personalTA setModel:model];
+    
     [LogicHandle presentViewController:personalTA animate:YES];
 }
 

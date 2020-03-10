@@ -19,7 +19,7 @@ typedef void(^ButtonClickBlock)(NSInteger index);
 @interface LWBottomLineInputTextField : UIView
 
 @property (nonatomic, strong) UITextField   *textField;
-@property (nonatomic, strong) NSString     *descripStr;
+@property (nonatomic, strong) NSString       *descripStr;
 @property (nonatomic, copy) ButtonClickBlock buttonBlock;
 
 - (instancetype)initWithFrame:(CGRect)frame andType:(LWBottomLineInputTextFieldType)textFieldType;

@@ -48,22 +48,13 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
 
 };
 
-
-// 设备注册
-static NSString * const kDeviceRegister = @"/api/app/next/user/device/register";
-// 用户注册
-static NSString * const kRegisterSendsmscode = @"/api/app/next/user/register/sendsmscode";
-static NSString * const kAppSource = @"6";
-
-#if 0
+#if 1
 static NSString * const kBaseAddress = @"https://api.laxo.io/api.json?";
 static NSString * const kWSAddress = @"wss://api.laxo.io/?";
 
 #else
 static NSString * const kBaseAddress = @"http://192.168.0.106:7001/api.json?";
 static NSString * const kWSAddress = @"ws://192.168.0.106:7001/?";
-//static NSString * const kBaseAddress = @"http://192.168.199.152:8099";
-//static NSString * const kBaseAddress = @"http://192.168.199.171:8080";
 
 #endif
 

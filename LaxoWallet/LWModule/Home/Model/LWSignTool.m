@@ -64,7 +64,15 @@ static LWSignTool *instance = nil;
     return self;
 }
 
+- (void)setWithAddress:(NSString *)address andHash:(NSString *)hash{
+    self.address = address;
+    self.hashStr = hash;
+    [self requestSignInfo];
+}
+
 - (void)setWithAddress:(NSString *)address{
+    NSString *hashIntegert = [@"askasmdnandmndabsmbamndal" sha256String];
+    self.hashStr = hashIntegert;
     self.address = address;
     [self requestSignInfo];
 }
@@ -116,7 +124,7 @@ static LWSignTool *instance = nil;
         NSString *logString = [NSString stringWithFormat:@"share_key:%@ \n party_num:%@ \n vss:%@ \n signer:%@ \n count:%@ \n threshold:%@ \n eks:%@ \n p:%@ \n q:%@ \n message_hash:%@ \n",self.share_key,@(self.party_num_int),self.vss,signers_vec,@(self.share_count),@(self.threshold),@[ek,ek2],p,q,self.hashStr];
         NSLog(@"%@",logString);
         
-        char *ret_char = create_sign([LWAddressTool stringToChar:self.share_key], self.party_num_int, [LWAddressTool stringToChar:self.vss], [LWAddressTool objectToChar:signers_vec], self.share_count, self.threshold, [LWAddressTool objectToChar:@[ek,ek2]], [LWAddressTool stringToChar:p], [LWAddressTool stringToChar:q], [LWAddressTool stringToChar:self.hashStr]);
+        char *ret_char = create_sign([LWAddressTool stringToChar:self.share_key], self.party_num_int, [LWAddressTool objectToChar:self.vss], [LWAddressTool objectToChar:signers_vec], self.share_count, self.threshold, [LWAddressTool objectToChar:@[ek,ek2]], [LWAddressTool stringToChar:p], [LWAddressTool stringToChar:q], [LWAddressTool stringToChar:self.hashStr]);
         
         NSArray *ret_array = [LWAddressTool charToObject:ret_char];
         NSString *signer_id = ret_array.firstObject;
@@ -158,22 +166,37 @@ static LWSignTool *instance = nil;
         NSArray *poll_for_broadCast_list_3 = [self poll_for_broadCast:4];;
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
         
+        //返回值顺序修改@{s,r}
         char *sign_handle_round_3 = sign_handle_round([LWAddressTool stringToChar:signer_id], 3, [LWAddressTool objectToChar:poll_for_broadCast_list_3]);
-        
+        NSArray *sign_handle_round_3_array = [LWAddressTool charToObject:sign_handle_round_3];
+
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast_list_5 = [self poll_for_broadCast:5];;
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
         
-        NSArray *sign_handle_round_3_array = [LWAddressTool charToObject:sign_handle_round_3];
-        
-        NSArray *sign_array = @[sign_handle_round_3_array[1],poll_for_broadCast_list_5[0][1]];
-        
-        char *sign = sum_scalar([LWAddressTool objectToChar:sign_array]);
+        NSMutableArray *signArray = [NSMutableArray array];
+        [signArray addObj:sign_handle_round_3_array[0]];
+        for (NSInteger i = 0; i<poll_for_broadCast_list_5.count; i++) {
+            NSArray *array = [poll_for_broadCast_list_5 objectAtIndex:i];
+            [signArray addObj:array[0]];
+        }
+                
+        char *sign = sum_scalar([LWAddressTool objectToChar:signArray]);
         
         NSLog(@"sign:%@",[LWAddressTool charToString:sign]);
         
+        NSMutableArray *sum_point_array = [NSMutableArray array];
+        for (NSInteger i = 0; i<self.vss.count; i++) {
+            NSArray *vssArray = [self.vss objectAtIndex:i];
+            NSString *vssFirstStr = vssArray.firstObject;
+            [sum_point_array addObj:vssFirstStr];
+        }
+        char *sum_point_char = get_group_pubkey([LWAddressTool objectToChar:sum_point_array]);
+
+        
+        
         if (self.signBlock) {
-            self.signBlock([LWAddressTool charToString:sign]);
+            self.signBlock(@{@"r":sign_handle_round_3_array[1],@"sign":[LWAddressTool charToString:sign],@"pubkey":[LWAddressTool charToString:sum_point_char]});
         }
         destroy_sign([LWAddressTool stringToChar:signer_id]);
         
@@ -199,8 +222,7 @@ static LWSignTool *instance = nil;
 }
 
 - (void)requestSignInfo{//wallet.requestPartySign
-    NSString *hashIntegert = [@"askasmdnandmndabsmbamndal" sha256String];
-    self.hashStr = hashIntegert;
+
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         __block NSString *prikey;
@@ -216,7 +238,7 @@ static LWSignTool *instance = nil;
 
         __block NSString *sig;
         self->_getKeySignal = dispatch_semaphore_create(0);
-        [PubkeyManager getSigWithPK:prikey message:hashIntegert SuccessBlock:^(id  _Nonnull data) {
+        [PubkeyManager getSigWithPK:prikey message:self.hashStr SuccessBlock:^(id  _Nonnull data) {
             sig = (NSString *)data;
             dispatch_semaphore_signal(self->_getKeySignal);
 
@@ -225,7 +247,7 @@ static LWSignTool *instance = nil;
         }];
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
 
-        NSDictionary *multipyparams = @{@"hash":hashIntegert,@"address":self.address,@"sig":sig};
+        NSDictionary *multipyparams = @{@"hash":self.hashStr,@"address":self.address,@"sig":sig};
          NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryrequestPartySign),@"wallet.requestPartySign",[multipyparams jsonStringEncoded]];
          [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
     });
@@ -336,7 +358,8 @@ static LWSignTool *instance = nil;
         NSDictionary *dataDic = [notiDic objectForKey:@"data"];
 
         self.rid = [dataDic objectForKey:@"rid"];
-        self.vss = [dataDic objectForKey:@"vss"];
+        NSString *vssStr = [dataDic objectForKey:@"vss"];
+        self.vss = [NSJSONSerialization JSONObjectWithData:[vssStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
         //[self setWithResponseInfo: [notiDic objectForKey:@"data"]];
         [self requestShare];
     }

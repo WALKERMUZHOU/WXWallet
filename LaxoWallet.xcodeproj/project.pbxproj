@@ -149,6 +149,7 @@
 		5E91736224163DEB00D47A9F /* VideoCaptureDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91735424163DEA00D47A9F /* VideoCaptureDevice.m */; };
 		5E91736324163DEB00D47A9F /* ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91735624163DEB00D47A9F /* ImageUtils.m */; };
 		5E91736424163DEB00D47A9F /* LivingConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91735A24163DEB00D47A9F /* LivingConfigModel.m */; };
+		5E91736924172B5300D47A9F /* LWTansactionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91736824172B5300D47A9F /* LWTansactionTool.m */; };
 		5EA1D49223FA527E00A0A747 /* SocketRocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */; };
 		5EA8079A23E94E2100012837 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079923E94E2100012837 /* AppDelegate.m */; };
 		5EA8079D23E94E2100012837 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079C23E94E2100012837 /* SceneDelegate.m */; };
@@ -533,6 +534,9 @@
 		5E91735824163DEB00D47A9F /* FaceParameterConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceParameterConfig.h; sourceTree = "<group>"; };
 		5E91735A24163DEB00D47A9F /* LivingConfigModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivingConfigModel.m; sourceTree = "<group>"; };
 		5E91735B24163DEB00D47A9F /* LivingConfigModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivingConfigModel.h; sourceTree = "<group>"; };
+		5E9173652416538600D47A9F /* LaxoWallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LaxoWallet.entitlements; sourceTree = "<group>"; };
+		5E91736724172B5300D47A9F /* LWTansactionTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTansactionTool.h; sourceTree = "<group>"; };
+		5E91736824172B5300D47A9F /* LWTansactionTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTansactionTool.m; sourceTree = "<group>"; };
 		5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketUtility.m; sourceTree = "<group>"; };
 		5EA1D49023FA527E00A0A747 /* SocketRocketUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketUtility.h; sourceTree = "<group>"; };
 		5EA8079523E94E2100012837 /* LaxoWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaxoWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1592,6 +1596,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5E91736624172B1100D47A9F /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				5E91736724172B5300D47A9F /* LWTansactionTool.h */,
+				5E91736824172B5300D47A9F /* LWTansactionTool.m */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
 		5EA1D48E23FA527E00A0A747 /* WebSocket */ = {
 			isa = PBXGroup;
 			children = (
@@ -1626,6 +1639,7 @@
 		5EA8079723E94E2100012837 /* LaxoWallet */ = {
 			isa = PBXGroup;
 			children = (
+				5E9173652416538600D47A9F /* LaxoWallet.entitlements */,
 				5EA807CF23E94ED500012837 /* LWModule */,
 				5EA807CD23E94ED500012837 /* LWAdapt */,
 				5EA807CE23E94ED500012837 /* LWPublic */,
@@ -1717,6 +1731,7 @@
 		5EA807D023E94ED500012837 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				5E91736624172B1100D47A9F /* Transaction */,
 				5E66A37923EAEBD8004097CB /* Controller */,
 				5E66A37C23EAEBD8004097CB /* Model */,
 				5E66A37823EAEBD8004097CB /* View */,
@@ -2277,6 +2292,7 @@
 				5E91735F24163DEB00D47A9F /* RemindView.m in Sources */,
 				5EF513DF23F550F200F5B6C1 /* QQLBXScanViewController.m in Sources */,
 				5EE8FB7424076B9300AEE861 /* LWMessageDetailListView.m in Sources */,
+				5E91736924172B5300D47A9F /* LWTansactionTool.m in Sources */,
 				5E66A3CF23EBFAA2004097CB /* TYAlertFadeAnimation.m in Sources */,
 				5E5F12FC23EDD97F002F0711 /* WMZPageNaviBtn.m in Sources */,
 				5E66A34E23EAB595004097CB /* CZRefreshFooter.m in Sources */,
@@ -2611,6 +2627,7 @@
 			baseConfigurationReference = 188A899FDE346915C2A47241 /* Pods-LaxoWallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LaxoWallet/LaxoWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;
@@ -2643,6 +2660,7 @@
 			baseConfigurationReference = 25333CCFD54DFB01F4502BBC /* Pods-LaxoWallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LaxoWallet/LaxoWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;

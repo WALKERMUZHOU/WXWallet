@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-typedef void(^SignBlock)(NSString *sign);
+typedef void(^SignBlock)(NSDictionary *sign);
 @interface LWSignTool : NSObject
 
 + (LWSignTool *)shareInstance;
@@ -17,8 +17,8 @@ typedef void(^SignBlock)(NSString *sign);
 - (void)setWithResponseInfo:(NSDictionary *)respone;
 
 
+- (void)setWithAddress:(NSString *)address andHash:(NSString *)hash;
 - (void)setWithAddress:(NSString *)address;
-
 - (instancetype)initWithAddress:(NSString *)address;
 
 @property (nonatomic, copy) SignBlock signBlock;

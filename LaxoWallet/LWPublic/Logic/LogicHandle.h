@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)pushViewController:(UIViewController *)viewController animate:(BOOL)animated;
 
 + (void)presentViewController:(UIViewController *)viewController animate:(BOOL)animated;
-
++ (void)naviPresentViewcontroller:(UIViewController *)viewController;
 + (void)popToRootViewController;
 
 + (void)popToCurrentRootViewController;

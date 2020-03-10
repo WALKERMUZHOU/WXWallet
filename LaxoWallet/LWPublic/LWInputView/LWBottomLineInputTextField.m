@@ -49,7 +49,7 @@
     self.describeLabel.textColor = lwColorGray2;
     [self addSubview:self.describeLabel];
     [self.describeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.mas_right).offset(-18);
+        make.right.equalTo(self.mas_right).offset(-100);
         make.centerY.equalTo(self.mas_centerY);
     }];
  
@@ -123,8 +123,6 @@
     }else if (sender.tag == 10010){
         QQLBXScanViewController *vc = [QQLBXScanViewController new];
         vc.libraryType = SLT_ZXing;
-    //       vc.scanCodeType = [Global sharedManager].scanCodeType;
-
         vc.style = [QQLBXScanViewController qqStyle];
         //镜头拉远拉近功能
         vc.isVideoZoom = YES;
@@ -133,7 +131,7 @@
             self.textField.text = result.strScanned;
             [vc dismissViewControllerAnimated:YES completion:nil];
         };
-        [LogicHandle presentViewController:vc animate:YES];
+        [LogicHandle presentViewController:[[LWNavigationViewController alloc] initWithRootViewController:vc]animate:YES];
     }
     
     if (self.buttonBlock) {
@@ -144,6 +142,7 @@
 - (void)setDescripStr:(NSString *)descripStr{
     self.describeLabel.text = descripStr;
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

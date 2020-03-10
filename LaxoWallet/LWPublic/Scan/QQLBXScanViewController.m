@@ -26,7 +26,6 @@
     // Do any additional setup after loading the view.
     
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
-        
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     self.view.backgroundColor = [UIColor blackColor];
@@ -34,8 +33,16 @@
     //设置扫码后需要扫码图像
     self.isNeedScanImage = YES;
     self.title = @"扫一扫";
+    
+    if (self.navigationController.presentingViewController) {
+        UIBarButtonItem *leftBar = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"common_close"] style:UIBarButtonItemStyleDone target:self action:@selector(backClick:)];
+        self.navigationItem.leftBarButtonItem = leftBar;
+    }
 }
 
+- (void)backClick:(UIButton *)sender{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -234,6 +241,11 @@
 {
     if (self.scanresult) {
         self.scanresult(strResult);
+    }
+    if (self.navigationController.presentingViewController) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
     }
 //    ScanResultViewController *vc = [ScanResultViewController new];
 //    vc.imgScan = strResult.imgScanned;

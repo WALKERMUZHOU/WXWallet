@@ -11,6 +11,21 @@
 #import "LWLaunchViewController.h"
 @implementation LogicHandle
 
++ (void)naviPresentViewcontroller:(UIViewController *)viewController{
+    AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    UIViewController *selectVC = appdelete.window.rootViewController;
+    if ([selectVC isKindOfClass:[LWNavigationViewController class]]) {
+        [(LWNavigationViewController *)selectVC pushViewController:viewController animated:YES];
+    }else if ([selectVC isKindOfClass:[LWTabBarViewController class]]){
+        AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        LWNavigationViewController *naviVC = (LWNavigationViewController *)appdelete.tabBarVC.selectedViewController;
+
+        [naviVC presentViewController:viewController animated:YES completion:nil];
+    }
+    
+    
+}
 
 + (void)pushViewController:(UIViewController *)viewController{
     AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -42,10 +57,8 @@
 }
 
 + (void)presentViewController:(UIViewController *)viewController animate:(BOOL)animated{
-
     viewController.modalPresentationStyle = 0;
     [[LogicHandle topViewController] presentViewController:viewController animated:YES completion:nil];
-    
 }
 
 + (UIViewController *)topViewController {

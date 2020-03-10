@@ -133,12 +133,14 @@
         return;
     }
     
-    LWTansactionTool *trans = [[LWTansactionTool alloc] init];
-    [trans startTransactionWithAmount:0.01 address:self.payAddressTF.textField.text note:self.remarkTF.textField.text andTotalModel:self.model];
+    LWTansactionTool *trans = [LWTansactionTool shareInstance];
+    [trans startTransactionWithAmount:self.amountTF.textField.text.floatValue address:self.payAddressTF.textField.text note:self.remarkTF.textField.text andTotalModel:self.model];
     trans.transactionBlock = ^(BOOL success) {
         if (success) {
             [self requestPersonalWalletInfo];
             [self requestMulipyWalletInfo];
+            [WMHUDUntil showMessageToWindow:@"transfer success"];
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     };
      

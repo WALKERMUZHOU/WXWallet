@@ -23,10 +23,19 @@
 
 @implementation LWTansactionTool
 
+static LWTansactionTool *instance = nil;
++ (LWTansactionTool *)shareInstance{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[LWTansactionTool alloc]init];
+    });
+    return instance;
+}
+
 - (instancetype)init{
     self = [super init];
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boardCast:) name:kWebScoket_boardcast object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boardCast:) name:kWebScoket_boardcast_trans object:nil];
     }
     return self;
 }
@@ -51,14 +60,15 @@
 
 
 - (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model{
+    
 //    self.transAmount = amount;
 //    self.transAddress = address;
     [SVProgressHUD show];
     
     self.model = model;
-    self.transAmount = 0.01 * 1e8;
+    self.transAmount = amount * 1e8;
     self.note = note;
-    self.transAddress = @"1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy";
+    self.transAddress = address;
     
 //    [self requestTransactionToServer:nil];
 //    return;
@@ -137,7 +147,7 @@
     NSString *trans_str = [trans_data dataToHexString];
     
     NSDictionary *multipyparams = @{@"rawtx":trans_str,@"wid":@(self.model.walletId),@"value":@(self.transAmount),@"note":self.note};
-    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBoardCast),@"message.set",[multipyparams jsonStringEncoded]];
+    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBroadcastTrans),@"wallet.broadcast",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
     [SVProgressHUD dismiss];
     /*

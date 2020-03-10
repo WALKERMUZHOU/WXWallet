@@ -41,7 +41,7 @@
 }
 
 - (void)createUI{
-    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, self.frame.size.width-40, self.frame.size.height)];
+    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, self.frame.size.width-100, self.frame.size.height)];
     [self addSubview:self.textField];
     
     self.describeLabel = [[UILabel alloc]init];
@@ -49,7 +49,7 @@
     self.describeLabel.textColor = lwColorGray2;
     [self addSubview:self.describeLabel];
     [self.describeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.mas_right).offset(-100);
+        make.right.equalTo(self.mas_right).offset(-12);
         make.centerY.equalTo(self.mas_centerY);
     }];
  
@@ -129,7 +129,6 @@
         vc.modalPresentationStyle = 0;
         vc.scanresult = ^(LBXScanResult *result) {
             self.textField.text = result.strScanned;
-            [vc dismissViewControllerAnimated:YES completion:nil];
         };
         [LogicHandle presentViewController:[[LWNavigationViewController alloc] initWithRootViewController:vc]animate:YES];
     }

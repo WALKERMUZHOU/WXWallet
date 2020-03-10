@@ -140,6 +140,9 @@
 
 - (void)getRecoverData:(NSArray *)array{
     [PubkeyManager getRecoverData:array WithSuccessBlock:^(id  _Nonnull data) {
+        LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
+        model.jiZhuCi = data;
+        [[LWUserManager shareInstance] setUser:model];
         LWFaceBindViewController *lwfaceVC = [[LWFaceBindViewController alloc]init];
         [self.navigationController pushViewController:lwfaceVC animated:YES];
         return ;

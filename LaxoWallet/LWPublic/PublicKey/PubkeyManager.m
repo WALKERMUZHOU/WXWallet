@@ -215,18 +215,21 @@ NSLog(@"message:%@",message);
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        PublicKeyView *pbView = [[PublicKeyView alloc] init];
-        [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
-            if (dicData) {
-                LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
-                userModel.pk = [dicData objectForKey:@"prikey"];
-                [[LWUserManager shareInstance] setUser:userModel];
-                successBlock(dicData);
+        PublicKeyView *pbView = [PublicKeyView shareInstance];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
+                if (dicData) {
+                    LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
+                    userModel.pk = [dicData objectForKey:@"prikey"];
+                    [[LWUserManager shareInstance] setUser:userModel];
+                    successBlock(dicData);
+                    
+                 }else{
                 
-             }else{
-             }
-            
-        }];
+                 }
+            }];
+        });
+
     });
 }
 

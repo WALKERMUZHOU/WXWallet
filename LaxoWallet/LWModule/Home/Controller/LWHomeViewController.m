@@ -38,12 +38,13 @@
 - (void)getprikey{
     [SVProgressHUD show];
     
-    [PubkeyManager getPrikeyByZhujiciSuccessBlock:^(id  _Nonnull data) {
-        NSString *prikey = [data objectForKey:@"prikey"];
-        [self getSignWithPriKey:prikey];
-    } WithFailBlock:^(id  _Nonnull data) {
-        
-    }];
+        [PubkeyManager getPrikeyByZhujiciSuccessBlock:^(id  _Nonnull data) {
+            NSString *prikey = [data objectForKey:@"prikey"];
+            [self getSignWithPriKey:prikey];
+        } WithFailBlock:^(id  _Nonnull data) {
+            
+        }];
+
 }
 
 - (void)getSignWithPriKey:(NSString *)prikey{
@@ -214,6 +215,11 @@
         case WSRequestIdWalletQueryGetKeyShare:{
                 [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_getkeyshare object:responseArray[2]];
+            }
+                  break;
+        case WSRequestIdWalletQueryBroadcastTrans:{
+                [SVProgressHUD dismiss];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_boardcast_trans object:responseArray[2]];
             }
                   break;
          default:{

@@ -18,7 +18,7 @@ typedef void(^SignBlock)(NSDictionary *sign);
 
 
 - (void)setWithAddress:(NSString *)address andHash:(NSString *)hash;
-- (void)setWithAddress:(NSString *)address;
+
 - (instancetype)initWithAddress:(NSString *)address;
 
 @property (nonatomic, copy) SignBlock signBlock;

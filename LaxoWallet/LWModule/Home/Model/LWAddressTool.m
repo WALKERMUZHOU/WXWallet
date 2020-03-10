@@ -96,16 +96,6 @@ static LWAddressTool *instance = nil;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getTheKey:) name:kWebScoket_getTheKey object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(confirmAddress:) name:kWebScoket_confirmAddress object:nil];
 
-    
-    NSDictionary *infoDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
-    
-    NSString *secret = [infoDic objectForKey:@"secret"];
-
-//    NSString *dpStr = [NSString stringWithFormat:@"%s",get_random_key_pair()];
-//    NSData * jsonData = [dpStr dataUsingEncoding:NSUTF8StringEncoding];
-//    NSArray *pqArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-    
-    
     self->_mainThreadSignal = dispatch_semaphore_create(0);
     [PubkeyManager getPrikeyByZhujiciandIndex:self.index SuccessBlock:^(id  _Nonnull data) {
         self.pk = [data objectForKey:@"prikey"];
@@ -124,8 +114,6 @@ static LWAddressTool *instance = nil;
     }];
     dispatch_semaphore_wait(self->_mainThreadSignal, DISPATCH_TIME_FOREVER);
     
-    
-    
     self->_mainThreadSignal = dispatch_semaphore_create(0);
     char *secret_char = sha256([LWAddressTool stringToChar:self.prikey]);
     __block NSArray *pqArray;
@@ -133,27 +121,21 @@ static LWAddressTool *instance = nil;
         NSString *pqStr = (NSString *)data;
         pqArray = [pqStr componentsSeparatedByString:@","];
         dispatch_semaphore_signal(self->_mainThreadSignal);
-
     } WithFailBlock:^(id  _Nonnull data) {
         
     }];
     dispatch_semaphore_wait(self->_mainThreadSignal, DISPATCH_TIME_FOREVER);
 
-    
-    
     self.p = [pqArray firstObject];
     self.q = [pqArray lastObject];
     self.share_count = PARTIES;
-   
     
-    
-    char *chartest =create_party_key([self.pk cStringUsingEncoding:NSASCIIStringEncoding], [self.p cStringUsingEncoding:NSASCIIStringEncoding], [self.q cStringUsingEncoding:NSASCIIStringEncoding], self.party_count);
-    NSString *chartestString = [NSString stringWithFormat:@"%s",chartest];
-    NSArray *encryptionKeyArray = [NSJSONSerialization JSONObjectWithData:[chartestString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
-    
-    self.encryptionKey = encryptionKeyArray.firstObject;
-    self.bc = encryptionKeyArray[1];
-    self.decom = encryptionKeyArray.lastObject;
+//    char *encryptionKey_char =create_party_key([self.pk cStringUsingEncoding:NSASCIIStringEncoding], [self.p cStringUsingEncoding:NSASCIIStringEncoding], [self.q cStringUsingEncoding:NSASCIIStringEncoding], self.party_count);
+//    NSArray *encryptionKeyArray = [LWAddressTool charToObject:encryptionKey_char];
+//
+//    self.encryptionKey = encryptionKeyArray.firstObject;
+//    self.bc = encryptionKeyArray[1];
+//    self.decom = encryptionKeyArray.lastObject;
    
     //self.y 私钥推公钥
 //    NSData *pubkeyData = [[CBSecp256k1 generatePublicKeyWithPrivateKey:[self.pk dataUsingEncoding:NSUTF8StringEncoding] compression:YES] copy];
@@ -221,7 +203,6 @@ static LWAddressTool *instance = nil;
                       char *get_shared_secret_char = get_shared_secret([self.pk cStringUsingEncoding:NSUTF8StringEncoding], firstObject_char);
                       [secrets addObj:[NSString stringWithFormat:@"%s",get_shared_secret_char]];
                       NSLog(@"self.pk:%@ \n y_i:%@ \n result:%@",self.pk,firstObject_Str,[NSString stringWithFormat:@"%s",get_shared_secret_char]);
-                      
                       j++;
                   }
               }

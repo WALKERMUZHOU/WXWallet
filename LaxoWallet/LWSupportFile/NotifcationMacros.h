@@ -30,7 +30,8 @@
 #define kWebScoket_boardcast                @"kWebScoket_boardcast"
 #define kWebScoket_confirmAddress           @"kWebScoket_confirmAddress"
 #define kWebScoket_requestPartySign         @"kWebScoket_requestPartySign"
-#define kWebScoket_getkeyshare             @"kWebScoket_getsharedkey"
+#define kWebScoket_getkeyshare              @"kWebScoket_getsharedkey"
+#define kWebScoket_boardcast_trans          @"kWebScoket_boardcast_trans"
 
 
 #pragma mark - Userdefault

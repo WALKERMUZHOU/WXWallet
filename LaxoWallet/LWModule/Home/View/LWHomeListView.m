@@ -276,11 +276,14 @@
 
 - (void)transferAccount:(NSInteger)index{
     LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
-
-    LWPersonalTransferAccountViewController *personalTA = [[LWPersonalTransferAccountViewController alloc]init];
-    [personalTA setModel:model];
-    
-    [LogicHandle presentViewController:personalTA animate:YES];
+    NSString *address = [model.deposit objectForKey:@"address"];
+    if (address && address.length >0) {
+        LWPersonalTransferAccountViewController *personalTA = [[LWPersonalTransferAccountViewController alloc]init];
+        [personalTA setModel:model];
+        [LogicHandle presentViewController:personalTA animate:YES];
+    }else{
+        [self getQrCodeWithIndex:index];
+    }
 }
 
 @end

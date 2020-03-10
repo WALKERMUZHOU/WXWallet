@@ -70,13 +70,6 @@ static LWSignTool *instance = nil;
     [self requestSignInfo];
 }
 
-- (void)setWithAddress:(NSString *)address{
-    NSString *hashIntegert = [@"askasmdnandmndabsmbamndal" sha256String];
-    self.hashStr = hashIntegert;
-    self.address = address;
-    [self requestSignInfo];
-}
-
 - (void)startGetSign{
     
     
@@ -96,6 +89,10 @@ static LWSignTool *instance = nil;
         
         NSString *p = pqArray.firstObject;
         NSString *q = pqArray.lastObject;
+        
+//        p = @"63cb350e5d28e4a399bc68e61d5b5ca3ac97c60f7ce8cc4bbb08b34459074c8b827129c3313ede198fdb976fe723b852efa779b9ab3746b972fdcc3ea63efdc3";
+//        q = @"a19159debe2598325c5830654cb68d4c50915d4c44ed123d2cc502ac81f67b02f282d218982e122fa0caa52ae02f1a0f9049c72eff372d79230b70dba38c5be3";
+        
         NSString *ek = [[LWUserManager shareInstance] getUserModel].ek;
         
         LWTrusteeModel *model = [[LWTrusteeManager shareInstance] getFirstModel];
@@ -361,6 +358,7 @@ static LWSignTool *instance = nil;
         NSString *vssStr = [dataDic objectForKey:@"vss"];
         self.vss = [NSJSONSerialization JSONObjectWithData:[vssStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
         //[self setWithResponseInfo: [notiDic objectForKey:@"data"]];
+//                self.vss = @[@[@"0319f56db7acb8898b5f125ff9eb2e2f639fb0e316d46c3e43f3d66919d3d3c873",@"020eaf5bd50cdccf3a3d0fab1eb94ed55ad96fa5362a59301c7f0080e5b664a9c1"],@[@"034bacb401506db04aad970511ce18ec4d19d607c93d2f215c3a425e8be35043f5",@"02a0ae4d3164baa209f6af3a86ae02fb168e44cf0829ff50f9fd27fea1666d26c7"],@[@"02b923ecd94b858b6fb3ad9304c151b63ad2208f3c5e4bf7fd31b2a112aa246d8b",@"03b49cedd3cc49380cd3e0dc6d461f6065b89fd260cd931476e9e196fd0c8bfb68"]];
         [self requestShare];
     }
 }
@@ -373,24 +371,13 @@ static LWSignTool *instance = nil;
         NSString *shareKey = [keyDic objectForKey:@"share"];
         
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            /*
-             char *secret_char = sha256([LWAddressTool stringToChar:self.pk]);
-             
-             __block NSString *shares_encrypt;
-             self->_semaphoreSignal = dispatch_semaphore_create(0);
-             [PubkeyManager getDkWithSecret:[LWAddressTool charToString:secret_char] andpJoin:shares SuccessBlock:^(id  _Nonnull data) {
-                 shares_encrypt = data;
-                 dispatch_semaphore_signal(self->_semaphoreSignal);
-             } WithFailBlock:^(id  _Nonnull data) {
-                 
-             }];
-             */
-            
             char *secret_char = sha256([LWAddressTool stringToChar:self.pk]);
 
             self->_semaphoreSignal = dispatch_semaphore_create(0);
             [PubkeyManager decrptWithNoAppendNumberSecret:[LWAddressTool charToString:secret_char] ansMessage:shareKey SuccessBlock:^(id  _Nonnull data) {
                 self.share_key = (NSString *)data;
+//                self.share_key = @"90a793e7acc1582f2e69d2bd62abb0de9664fe26ec8428ec5638f74421c66637";
+
                 dispatch_semaphore_signal(self->_semaphoreSignal);
             } WithFailBlock:^(id  _Nonnull data) {
                 dispatch_semaphore_signal(self->_broadcastWithValSignal);

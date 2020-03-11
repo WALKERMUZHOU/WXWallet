@@ -75,17 +75,21 @@ static LWSignTool *instance = nil;
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        self->_mainThreadSignal = dispatch_semaphore_create(0);
         char *secret_char = sha256([LWAddressTool stringToChar:self.pk]);
-        __block NSArray *pqArray;
-        [PubkeyManager decrptWithNoAppendNumberSecret:[LWAddressTool charToString:secret_char] ansMessage:[[LWUserManager shareInstance] getUserModel].dk SuccessBlock:^(id  _Nonnull data) {
-            NSString *pqStr = (NSString *)data;
-            pqArray = [pqStr componentsSeparatedByString:@","];
-            dispatch_semaphore_signal(self->_mainThreadSignal);
-        } WithFailBlock:^(id  _Nonnull data) {
-               
-        }];
-        dispatch_semaphore_wait(self->_mainThreadSignal, DISPATCH_TIME_FOREVER);
+
+//        self->_mainThreadSignal = dispatch_semaphore_create(0);
+//        __block NSArray *pqArray;
+//        [PubkeyManager decrptWithNoAppendNumberSecret:[LWAddressTool charToString:secret_char] ansMessage:[[LWUserManager shareInstance] getUserModel].dk SuccessBlock:^(id  _Nonnull data) {
+//            NSString *pqStr = (NSString *)data;
+//            pqArray = [pqStr componentsSeparatedByString:@","];
+//            dispatch_semaphore_signal(self->_mainThreadSignal);
+//        } WithFailBlock:^(id  _Nonnull data) {
+//               
+//        }];
+//        dispatch_semaphore_wait(self->_mainThreadSignal, DISPATCH_TIME_FOREVER);
+        
+        NSString *pqStr = [LWEncryptTool decryptwithTheKey:[LWAddressTool charToString:secret_char] message:[[LWUserManager shareInstance] getUserModel].dk andHex:1];
+        NSArray *pqArray = [pqStr componentsSeparatedByString:@","];
         
         NSString *p = pqArray.firstObject;
         NSString *q = pqArray.lastObject;
@@ -221,21 +225,21 @@ static LWSignTool *instance = nil;
 - (void)requestSignInfo{//wallet.requestPartySign
 
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
-        __block NSString *prikey;
-        self->_semaphoreSignal = dispatch_semaphore_create(0);
-        [PubkeyManager getPrikeyByZhujiciSuccessBlock:^(id  _Nonnull data) {
-            prikey = [data objectForKey:@"prikey"];
-            self.pk = prikey;
-            dispatch_semaphore_signal(self->_semaphoreSignal);
-        } WithFailBlock:^(id  _Nonnull data) {
-            
-        }];
-        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+        self.pk = [LWPublicManager getPKWithZhuJiCi];
+//        __block NSString *prikey;
+//        self->_semaphoreSignal = dispatch_semaphore_create(0);
+//        [PubkeyManager getPrikeyByZhujiciSuccessBlock:^(id  _Nonnull data) {
+//            prikey = [data objectForKey:@"prikey"];
+//            self.pk = prikey;
+//            dispatch_semaphore_signal(self->_semaphoreSignal);
+//        } WithFailBlock:^(id  _Nonnull data) {
+//
+//        }];
+//        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
 
         __block NSString *sig;
         self->_getKeySignal = dispatch_semaphore_create(0);
-        [PubkeyManager getSigWithPK:prikey message:self.hashStr SuccessBlock:^(id  _Nonnull data) {
+        [PubkeyManager getSigWithPK:self.pk message:self.hashStr SuccessBlock:^(id  _Nonnull data) {
             sig = (NSString *)data;
             dispatch_semaphore_signal(self->_getKeySignal);
 
@@ -373,17 +377,16 @@ static LWSignTool *instance = nil;
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             char *secret_char = sha256([LWAddressTool stringToChar:self.pk]);
 
-            self->_semaphoreSignal = dispatch_semaphore_create(0);
-            [PubkeyManager decrptWithNoAppendNumberSecret:[LWAddressTool charToString:secret_char] ansMessage:shareKey SuccessBlock:^(id  _Nonnull data) {
-                self.share_key = (NSString *)data;
-//                self.share_key = @"90a793e7acc1582f2e69d2bd62abb0de9664fe26ec8428ec5638f74421c66637";
-
-                dispatch_semaphore_signal(self->_semaphoreSignal);
-            } WithFailBlock:^(id  _Nonnull data) {
-                dispatch_semaphore_signal(self->_broadcastWithValSignal);
-                return ;
-            }];
-            dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+//            self->_semaphoreSignal = dispatch_semaphore_create(0);
+//            [PubkeyManager decrptWithNoAppendNumberSecret:[LWAddressTool charToString:secret_char] ansMessage:shareKey SuccessBlock:^(id  _Nonnull data) {
+//                self.share_key = (NSString *)data;
+//                dispatch_semaphore_signal(self->_semaphoreSignal);
+//            } WithFailBlock:^(id  _Nonnull data) {
+//                dispatch_semaphore_signal(self->_broadcastWithValSignal);
+//                return ;
+//            }];
+//            dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+            self.share_key = [LWEncryptTool decryptwithTheKey:[LWAddressTool charToString:secret_char] message:shareKey andHex:1];
             
             [self startGetSign];
         });

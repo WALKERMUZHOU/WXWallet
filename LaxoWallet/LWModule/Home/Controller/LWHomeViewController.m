@@ -15,6 +15,11 @@
 #import "libthresholdsig.h"
 #import "LWAddressTool.h"
 
+#import "BFCryptor.h"
+#import "NSData+HexString.h"
+
+#import <CommonCrypto/CommonCrypto.h>
+
 @interface LWHomeViewController ()
 
 @property (nonatomic, strong) LWHomeListView *listView;
@@ -37,13 +42,15 @@
 
 - (void)getprikey{
     [SVProgressHUD show];
-    
-        [PubkeyManager getPrikeyByZhujiciSuccessBlock:^(id  _Nonnull data) {
-            NSString *prikey = [data objectForKey:@"prikey"];
-            [self getSignWithPriKey:prikey];
-        } WithFailBlock:^(id  _Nonnull data) {
-            
-        }];
+    NSString *prikey = [LWPublicManager getPKWithZhuJiCi];
+    [self getSignWithPriKey:prikey];
+
+//        [PubkeyManager getPrikeyByZhujiciSuccessBlock:^(id  _Nonnull data) {
+//            NSString *prikey = [data objectForKey:@"prikey"];
+//            [self getSignWithPriKey:prikey];
+//        } WithFailBlock:^(id  _Nonnull data) {
+//
+//        }];
 
 }
 
@@ -51,6 +58,10 @@
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
     NSTimeInterval a=[dat timeIntervalSince1970]*1000;  //  *1000 是精确到毫秒，不乘就是精确到秒
     NSString *timeString = [NSString stringWithFormat:@"%ld", (long)a]; //转为字符型
+   
+#warning test
+    NSString *sigTemp = [LWPublicManager getSigWithMessage:timeString];
+    
     
     [PubkeyManager getSigWithPK:prikey message:timeString SuccessBlock:^(id  _Nonnull data) {
         NSString *sig = (NSString *)data;

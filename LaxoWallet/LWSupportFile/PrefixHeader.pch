@@ -47,6 +47,7 @@
 #import "LWUserManager.h"
 #import "LWPublicManager.h"
 #import "PubkeyManager.h"
+#import "LWEncryptTool.h"
 
 #import "SceneDelegate.h"
 #import "AppDelegate.h"

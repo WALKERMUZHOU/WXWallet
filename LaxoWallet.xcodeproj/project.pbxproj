@@ -150,6 +150,7 @@
 		5E91736324163DEB00D47A9F /* ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91735624163DEB00D47A9F /* ImageUtils.m */; };
 		5E91736424163DEB00D47A9F /* LivingConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91735A24163DEB00D47A9F /* LivingConfigModel.m */; };
 		5E91736924172B5300D47A9F /* LWTansactionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91736824172B5300D47A9F /* LWTansactionTool.m */; };
+		5E91736C241878D800D47A9F /* LWEncryptTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91736B241878D800D47A9F /* LWEncryptTool.m */; };
 		5EA1D49223FA527E00A0A747 /* SocketRocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */; };
 		5EA8079A23E94E2100012837 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079923E94E2100012837 /* AppDelegate.m */; };
 		5EA8079D23E94E2100012837 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079C23E94E2100012837 /* SceneDelegate.m */; };
@@ -537,6 +538,8 @@
 		5E9173652416538600D47A9F /* LaxoWallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LaxoWallet.entitlements; sourceTree = "<group>"; };
 		5E91736724172B5300D47A9F /* LWTansactionTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTansactionTool.h; sourceTree = "<group>"; };
 		5E91736824172B5300D47A9F /* LWTansactionTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTansactionTool.m; sourceTree = "<group>"; };
+		5E91736A241878D800D47A9F /* LWEncryptTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWEncryptTool.h; sourceTree = "<group>"; };
+		5E91736B241878D800D47A9F /* LWEncryptTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWEncryptTool.m; sourceTree = "<group>"; };
 		5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketUtility.m; sourceTree = "<group>"; };
 		5EA1D49023FA527E00A0A747 /* SocketRocketUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketUtility.h; sourceTree = "<group>"; };
 		5EA8079523E94E2100012837 /* LaxoWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaxoWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1897,6 +1900,8 @@
 				5EF5138A23F2CAD000F5B6C1 /* PublicKeyView.m */,
 				5EF5139123F3AB4100F5B6C1 /* PubkeyManager.h */,
 				5EF5139223F3AB4100F5B6C1 /* PubkeyManager.m */,
+				5E91736A241878D800D47A9F /* LWEncryptTool.h */,
+				5E91736B241878D800D47A9F /* LWEncryptTool.m */,
 			);
 			path = PublicKey;
 			sourceTree = "<group>";
@@ -2425,6 +2430,7 @@
 				5EB31EAA24051C9300974FD4 /* LWMessageModel.m in Sources */,
 				5E5F12A023EC0E12002F0711 /* WMZDialogAnimation.m in Sources */,
 				5E5F130523EEB5FA002F0711 /* LWUserManager.m in Sources */,
+				5E91736C241878D800D47A9F /* LWEncryptTool.m in Sources */,
 				5E9172E4241637D500D47A9F /* LWUserVefifyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

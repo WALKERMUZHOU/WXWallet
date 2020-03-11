@@ -9,6 +9,8 @@
 #import "LWPublicManager.h"
 #import "CBSecp256k1.h"
 #import "NSData+HexString.h"
+#import "libthresholdsig.h"
+#import "LWAddressTool.h"
 
 @implementation LWPublicManager
 
@@ -82,4 +84,49 @@
     NSData *pubkey = [CBSecp256k1 generatePublicKeyWithPrivateKey:prvData compression:YES];
     return [pubkey hexString];
 }
+
++ (NSString *)getPKWithZhuJiCi{
+    NSString *seed = [[LWUserManager shareInstance] getUserModel].jiZhuCi;
+    char *pk = derive_key([LWAddressTool stringToChar:seed], [LWAddressTool stringToChar:@"m/0"]);
+    return [LWAddressTool charToString:pk];
+}
+
++ (NSString *)getRecoverJizhuciWithShares:(NSArray *)shares{
+    char *combine_shares_char = combine_shares([LWAddressTool objectToChar:shares]);
+    return [LWAddressTool charToString:combine_shares_char];
+}
+
++ (NSString *)getSigWithMessage:(NSString *)timeStr{
+    NSString *prikey = [LWPublicManager getPKWithZhuJiCi];
+    char *get_message_sig_char = get_message_sig([LWAddressTool stringToChar:timeStr], [LWAddressTool stringToChar:prikey]);
+    return [LWAddressTool charToString:get_message_sig_char];
+}
+
++ (NSDictionary *)getInitData{
+    char *seed = get_seed();
+    char *pk = derive_key(seed, [LWAddressTool stringToChar:@"m/0"]);
+    char *secret = sha256(pk);
+    char *shares = get_shares(seed, 2, 2);
+    char *recover_seed = combine_shares(shares);
+    char *publickey = get_public_key(pk);
+    char *xpub = get_xpub(seed);
+    NSString *shares_str = [LWAddressTool charToString:shares];
+    NSArray *sharesArray = [NSJSONSerialization JSONObjectWithData:[shares_str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+    
+    
+    NSDictionary *initDic = @{@"pk":[LWAddressTool charToString:pk],
+    @"publicKey":[LWAddressTool charToString:publickey],
+    @"secret":[LWAddressTool charToString:secret],
+    @"seed":[LWAddressTool charToString:seed],
+                              @"xpub":[LWAddressTool charToString:xpub],
+    @"shares":sharesArray
+    };
+    [[NSUserDefaults standardUserDefaults] setObject:initDic forKey:kAppPubkeyManager_userdefault];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    return initDic;
+    
+
+}
+
 @end

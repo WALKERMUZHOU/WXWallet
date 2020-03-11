@@ -34,8 +34,11 @@ typedef NS_OPTIONS(NSInteger, TokenType){
 + (NSString *)getCurrentPriceWithTokenType:(TokenType)tokenType;
 
 + (NSString *)getPubkeyWithPriKey:(NSString *)prikey;
++ (NSString *)getPKWithZhuJiCi;
++ (NSString *)getRecoverJizhuciWithShares:(NSArray *)shares;
++ (NSString *)getSigWithMessage:(NSString *)timeStr;
 
-
++ (NSDictionary *)getInitData;
 
 @end
 

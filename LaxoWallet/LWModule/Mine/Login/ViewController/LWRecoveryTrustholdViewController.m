@@ -111,44 +111,65 @@
     NSArray *array = [[LWTrusteeManager shareInstance] getTrusteeArray];
 
     NSMutableArray *mutableDecripArr = [NSMutableArray array];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        dispatch_semaphore_t signal = dispatch_semaphore_create(0);
-        for (NSInteger i = 0; i<dataArray.count; i++) {
-
-            LWTrusteeModel *model = [array objectAtIndex:i];
-            NSString *pubkey = model.publicKey;
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [PubkeyManager getdecriptwithPrikey:prikey andPubkey:pubkey adnMessage:dataArray[i] WithSuccessBlock:^(id  _Nonnull data) {
-                                [mutableDecripArr addObject:(NSString *)data];
-                                if(i == dataArray.count-1){
-                                    [SVProgressHUD dismiss];
-                                    [self getRecoverData:mutableDecripArr];
-                                    NSLog(@"success:\n%@",mutableDecripArr);
-                                }
-                    dispatch_semaphore_signal(signal);// 发送信号下面的代码一定要写在赋值完成的下面
-                } WithFailBlock:^(id  _Nonnull data) {
-                    [SVProgressHUD dismiss];
-                    dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
-                    return ;
-                }];
-            });
+    for (NSInteger i = 0; i<dataArray.count; i++) {
+        LWTrusteeModel *model = [array objectAtIndex:i];
+        NSString *pubkey = model.publicKey;
+        NSString *decryptData = [LWEncryptTool decryptWithPk:prikey pubkey:pubkey andMessage:dataArray[i]];
+        [mutableDecripArr addObject:decryptData];
+        if(i == dataArray.count-1){
+            [SVProgressHUD dismiss];
+            [self getRecoverData:mutableDecripArr];
+            NSLog(@"success:\n%@",mutableDecripArr);
         }
-        dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
-    });
+
+    }
+    
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        dispatch_semaphore_t signal = dispatch_semaphore_create(0);
+//        for (NSInteger i = 0; i<dataArray.count; i++) {
+//
+//            LWTrusteeModel *model = [array objectAtIndex:i];
+//            NSString *pubkey = model.publicKey;
+//
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                NSString *decryptData = [LWEncryptTool decryptWithPk:prikey pubkey:pubkey andMessage:dataArray[i]];
+//                [PubkeyManager getdecriptwithPrikey:prikey andPubkey:pubkey adnMessage:dataArray[i] WithSuccessBlock:^(id  _Nonnull data) {
+//                                [mutableDecripArr addObject:(NSString *)data];
+//                                if(i == dataArray.count-1){
+//                                    [SVProgressHUD dismiss];
+//                                    [self getRecoverData:mutableDecripArr];
+//                                    NSLog(@"success:\n%@",mutableDecripArr);
+//                                }
+//                    dispatch_semaphore_signal(signal);// 发送信号下面的代码一定要写在赋值完成的下面
+//                } WithFailBlock:^(id  _Nonnull data) {
+//                    [SVProgressHUD dismiss];
+//                    dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
+//                    return ;
+//                }];
+//            });
+//        }
+//        dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+//    });
 }
 
 - (void)getRecoverData:(NSArray *)array{
-    [PubkeyManager getRecoverData:array WithSuccessBlock:^(id  _Nonnull data) {
-        LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
-        model.jiZhuCi = data;
-        [[LWUserManager shareInstance] setUser:model];
-        LWFaceBindViewController *lwfaceVC = [[LWFaceBindViewController alloc]init];
-        [self.navigationController pushViewController:lwfaceVC animated:YES];
-        return ;
-    } WithFailBlock:^(id  _Nonnull data) {
-        
-    }];
+    
+    LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
+    model.jiZhuCi = [LWPublicManager getRecoverJizhuciWithShares:array];
+    [[LWUserManager shareInstance] setUser:model];
+    LWFaceBindViewController *lwfaceVC = [[LWFaceBindViewController alloc]init];
+    [self.navigationController pushViewController:lwfaceVC animated:YES];
+
+//    [PubkeyManager getRecoverData:array WithSuccessBlock:^(id  _Nonnull data) {
+//        LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
+//        model.jiZhuCi = data;
+//        [[LWUserManager shareInstance] setUser:model];
+//        LWFaceBindViewController *lwfaceVC = [[LWFaceBindViewController alloc]init];
+//        [self.navigationController pushViewController:lwfaceVC animated:YES];
+//        return ;
+//    } WithFailBlock:^(id  _Nonnull data) {
+//
+//    }];
 }
 /*
 #pragma mark - Navigation

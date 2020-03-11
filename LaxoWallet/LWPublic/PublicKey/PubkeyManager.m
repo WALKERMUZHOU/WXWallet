@@ -101,33 +101,6 @@
     return [self getPrikey];
 }
 
-+ (NSString *)getencriptwithPrikey:(NSString *)prikey andPubkey:(NSString *)Pubkey adnMessage:(NSString *)message{
-    
-    NSString *jsStr = [NSString stringWithFormat:@"decrypt('%@','%@','%@')",prikey,Pubkey,message];
-    NSLog(@"prikey:%@",prikey);
-    NSLog(@"Pubkey:%@",Pubkey);
-    NSLog(@"message:%@",message);
-
-//    NSString *jsStr = @"encrypt('41c94deddfaea83f90c059cead1dca04151023b63fc827818f686b9e83bc69b9','03093b9db836a833554bacdf9f6aadb5dd2048d202caefc4a5e8cb6a63a89ef8d5','c2cc5d7b991cbaf2ef5b9221312c1326d855acd7e16a04207ee01420b0e80e3c641dd1a69de55153e645e69003209069a6a895f4d9d40b5e3f5ac3c2df54702f')";
-
-    __block NSString *returnStr;
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        dispatch_semaphore_t signal = dispatch_semaphore_create(0);
-        [[PublicKeyView shareInstance] getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
-            if (dicData) {
-                returnStr = (NSString *)dicData;
-                NSLog(@"jsReturnStr:%@",returnStr);
-                 dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
-             }else{
-                 dispatch_semaphore_signal(signal);
-             }
-        }];
-        dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
-    });
-
-    return returnStr;
-}
-
 + (void)encriptwithPrikey:(NSString *)prikey andPubkey:(NSString *)Pubkey adnMessage:(NSString *)message WithSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
     NSString *jsStr = [NSString stringWithFormat:@"encrypt('%@','%@','%@')",prikey,Pubkey,message];
     [[PublicKeyView shareInstance] getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
@@ -277,6 +250,7 @@ NSLog(@"message:%@",message);
     }];
 }
 
+//pass
 + (void)encrptWithTheKey:(NSString *)secret andSecret_share:(NSString *)secret_share SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
     NSString *jsStr = [NSString stringWithFormat:@"encrypt_tss('%@','%@')",secret,secret_share];
     NSLog(@"%@",jsStr);
@@ -290,6 +264,8 @@ NSLog(@"message:%@",message);
      }];
 }
 
+
+//index为0时存在问题
 + (void)decrptWithSecret:(NSString *)secret ansMessage:(NSString *)eqrCodeStr SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
     NSString *jsStr = [NSString stringWithFormat:@"decryptWithKey('%@','%@',0)",secret,eqrCodeStr];
     PublicKeyView *pbView = [PublicKeyView shareInstance];
@@ -302,6 +278,7 @@ NSLog(@"message:%@",message);
     }];
 }
 
+//pass
 + (void)decrptWithSecret:(NSString *)secret andSecret_share:(NSString *)codeStr SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
     NSString *jsStr = [NSString stringWithFormat:@"decrypt_tss('%@','%@')",secret,codeStr];
     PublicKeyView *pbView = [PublicKeyView shareInstance];

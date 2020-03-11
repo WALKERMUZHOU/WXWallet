@@ -221,7 +221,8 @@
 }
 
 - (void)collection:(NSInteger)index{
-    
+    [self getQrCodeWithIndex:index];
+    return;
     if(self.currentViewType == LWHomeListViewTypePersonalWallet){
         
         LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
@@ -251,11 +252,11 @@
     NSDictionary *notiDic = notification.object;
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
         NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
-        NSInteger index = [[[notiDic objectForKey:@"data"] objectForKey:@"index"] integerValue];
+        NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;
 
         [SVProgressHUD show];
         LWAddressTool *addressTool = [LWAddressTool shareInstance];
-        [addressTool setWithrid:rid andIndex:index];
+        [addressTool setWithrid:rid andPath:path];
         addressTool.addressBlock = ^(NSString * _Nonnull address) {
             [SVProgressHUD dismiss];
             

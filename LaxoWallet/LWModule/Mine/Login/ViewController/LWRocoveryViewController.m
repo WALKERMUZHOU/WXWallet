@@ -16,6 +16,8 @@
 #import "LBXPermission.h"
 #import "LWFaceBindViewController.h"
 
+#import "BFCryptor.h"
+
 @interface LWRocoveryViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @end
@@ -63,6 +65,7 @@
     if (pubDic && pubDic.allKeys.count>0) {
         return;
     }
+    [LWPublicManager getInitData];
     
     [[PublicKeyView shareInstance] getInitDataBlock:^(NSDictionary * _Nonnull dicData) {
         if (dicData) {
@@ -166,15 +169,20 @@
 
 - (void)recoverWithScanedStr:(NSString *)scanStr{
     [SVProgressHUD show];
-    [PubkeyManager decrptWithSecret:[[[LWUserManager shareInstance] getUserModel].secret md5String] ansMessage:scanStr SuccessBlock:^(id  _Nonnull data) {
-        [SVProgressHUD dismiss];
-        if(data && [data isKindOfClass:[NSString class]]){
-            [[LWUserManager shareInstance] setJiZhuCi:data];
-            [self jumpToFaceBindVC];
-        }
-    } WithFailBlock:^(id  _Nonnull data) {
-        
-    }];
+
+    NSString *jizhuci = [LWEncryptTool decryptwithTheKey:[[[LWUserManager shareInstance] getUserModel].secret md5String]  message:scanStr andHex:0];
+    [[LWUserManager shareInstance] setJiZhuCi:jizhuci];
+    [self jumpToFaceBindVC];
+    
+//    [PubkeyManager decrptWithSecret:[[[LWUserManager shareInstance] getUserModel].secret md5String] ansMessage:scanStr SuccessBlock:^(id  _Nonnull data) {
+//        [SVProgressHUD dismiss];
+//        if(data && [data isKindOfClass:[NSString class]]){
+//            [[LWUserManager shareInstance] setJiZhuCi:data];
+//            [self jumpToFaceBindVC];
+//        }
+//    } WithFailBlock:^(id  _Nonnull data) {
+//
+//    }];
 }
 
 - (void)jumpToFaceBindVC{

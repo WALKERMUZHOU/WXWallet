@@ -40,8 +40,6 @@ char *create_multi_sign(const char *share_key,
 
 char *create_party_key(const char *secret, const char *p, const char *q, uint8_t index);
 
-char *create_random_poly(uint8_t degree);
-
 char *create_sign(const char *share_key,
                   uint8_t party_num,
                   const char *vss,
@@ -58,6 +56,10 @@ char *create_transaction(void);
 char *derive_key(const char *phrase, const char *path);
 
 char *destroy_key(const char *key);
+
+char *destroy_multi_key(const char *key);
+
+char *destroy_multi_sign(const char *key);
 
 char *destroy_sign(const char *key);
 
@@ -109,6 +111,8 @@ char *get_transaction_fee(const char *id);
 
 char *get_transaction_sighash(const char *id);
 
+char *get_xpub(const char *phrase);
+
 char *hex2str(const char *hex_str);
 
 char *key_handle_round1(const char *key, const char *data);
@@ -118,6 +122,8 @@ char *key_handle_round2(const char *key, const char *data1, const char *data2);
 char *key_handle_round3(const char *key, const char *data);
 
 char *multi_key_handle_round(const char *key, uint8_t round, const char *data);
+
+char *multi_sign_handle_round(const char *key, uint8_t round, const char *data);
 
 char *party_verify_vss(uint8_t index,
                        const char *params,

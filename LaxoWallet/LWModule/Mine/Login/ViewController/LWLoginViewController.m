@@ -15,6 +15,7 @@
 #import "PubkeyManager.h"
 #import "libthresholdsig.h"
 #import "LWFaceBindViewController.h"
+#import "LWAddressTool.h"
 
 @interface LWLoginViewController ()
 
@@ -90,14 +91,29 @@
 }
 
 - (void)initPubKey{
-    [[PublicKeyView shareInstance] getInitDataBlock:^(NSDictionary * _Nonnull dicData) {
-        if (dicData) {
-            [[NSUserDefaults standardUserDefaults] setObject:dicData forKey:kAppPubkeyManager_userdefault];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }else{
-            [self initPubKey];
-        }
-    }];
+    /**
+     pk = 03c3e9f91e5197497a14f95f35771c2037964901fba1a3e2737210ce3b66123e;
+     publicKey = 028f9070f066e9e1982519edb23fd4fa5d0cd7d467f51dff8b4f67c3c9f8daeb8d;
+     secret = 1e755f5b4540a5308b8ed6cd8349265a39e611e56393736162844dfbf1f8e2bf;
+     seed = "rookie hold potato sense fish receive atom neglect win express credit task";
+     shares =     (
+         8013da6163c723ae734e7bcb529e5e5462b337c2330f1e4913a4b09b62259624cadd73cf362f31e068ac7a0b49699dad24dd2784128f1032c90b4c1fc5798e312d5d146975bd4b3f04739e21a210c20b3f376411fccdc046cdbe3406e488310752bd36a322dbc7049d0a1f4bc5b7e8e47d0fb446816e6908b3a6fb00b483c7c55d2fc44c62d6ad3ff87ff886778d75398d029236d7063,
+         80279519178717470684f6517524bd73756caf8e96069d59a74f612e44427c4374725786bc4733ca309f35dc73194a9209ad9f01e505a06f73dc19f4cae82db96b7df8c84b6047b618ed1d95442b740e1fb57829185000877ab4d80bc90a3207f5600d4ce5a05e03dbdcaf5d7b653011bbd8b88612c4d3da874427da790e8f8cab94988255a65bb5b13830d61f008a690bde3466be050
+     );
+     sig = "";
+     xpub = xpub661MyMwAqRbcFVC3723tb7Xxpm9grwU8wAmsXwYfSBUKaqysePoYm238BRQHaRg8tQt49Xm4VUmgn1cyC4KVy1yK28LzySCUeXtgGf4ZedA;
+     */
+    
+    [LWPublicManager getInitData];
+    
+//    [[PublicKeyView shareInstance] getInitDataBlock:^(NSDictionary * _Nonnull dicData) {
+//        if (dicData) {
+//            [[NSUserDefaults standardUserDefaults] setObject:dicData forKey:kAppPubkeyManager_userdefault];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
+//        }else{
+//            [self initPubKey];
+//        }
+//    }];
 }
 
 #pragma mark - method
@@ -182,14 +198,21 @@
         NSMutableDictionary *sharesDic = [NSMutableDictionary dictionary];
         for (NSInteger i = 0; i < trusteeArrar.count; i++) {
             LWTrusteeModel *model = trusteeArrar[i];
-            [PubkeyManager encriptwithPrikey:pk andPubkey:model.publicKey adnMessage:shares[i] WithSuccessBlock:^(id  _Nonnull encriData) {
-                [sharesDic setObj:encriData forKey:model.name];
-                if (i == trusteeArrar.count - 1){
-                    [self manageDkWithSecret:secret andpJoin:dpArray andShares:sharesDic andinfoDic:data];
-                }
-            } WithFailBlock:^(id  _Nonnull data) {
-                
-            }];
+            NSString *encriData = [LWEncryptTool encryptWithPk:pk pubkey:model.publicKey andMessage:shares[i]];
+            [sharesDic setObj:encriData forKey:model.name];
+             if (i == trusteeArrar.count - 1){
+                 [self manageDkWithSecret:secret andpJoin:dpArray andShares:sharesDic andinfoDic:data];
+             }
+            
+            
+//            [PubkeyManager encriptwithPrikey:pk andPubkey:model.publicKey adnMessage:shares[i] WithSuccessBlock:^(id  _Nonnull encriData) {
+//                [sharesDic setObj:encriData forKey:model.name];
+//                if (i == trusteeArrar.count - 1){
+//                    [self manageDkWithSecret:secret andpJoin:dpArray andShares:sharesDic andinfoDic:data];
+//                }
+//            } WithFailBlock:^(id  _Nonnull data) {
+//
+//            }];
         }
         
     } WithFailBlock:^(id  _Nonnull data) {
@@ -206,20 +229,30 @@
     NSString *ek = [NSString stringWithFormat:@"%s",get_encryption_key([d cStringUsingEncoding:NSASCIIStringEncoding], [p cStringUsingEncoding:NSASCIIStringEncoding])];
     NSString *sig = [data objectForKey:@"sig"];
     NSString *xpub = [data objectForKey:@"xpub"];
+    NSString *encryptStr = [LWEncryptTool encrywithTheKey:secret message:dpArray andHex:1];
+    NSDictionary *params = @{@"email":self.emailStr,
+                             @"xpub":xpub,
+                             @"sig":sig,
+                             @"ek":ek,
+                             @"dk":encryptStr,
+                             @"shares":encryptShares,
+                             @"token":[[LWUserManager shareInstance] getUserModel].token
+    };
+    [self loginRequestWithParams:params];
     
-    [PubkeyManager getDkWithSecret:secret andpJoin:dpArray SuccessBlock:^(id  _Nonnull data) {
-        NSDictionary *params = @{@"email":self.emailStr,
-                                 @"xpub":xpub,
-                                 @"sig":sig,
-                                 @"ek":ek,
-                                 @"dk":data,
-                                 @"shares":encryptShares,
-                                 @"token":[[LWUserManager shareInstance] getUserModel].token
-        };
-        [self loginRequestWithParams:params];
-    } WithFailBlock:^(id  _Nonnull data) {
-        
-    }];
+//    [PubkeyManager getDkWithSecret:secret andpJoin:dpArray SuccessBlock:^(id  _Nonnull data) {
+//        NSDictionary *params = @{@"email":self.emailStr,
+//                                 @"xpub":xpub,
+//                                 @"sig":sig,
+//                                 @"ek":ek,
+//                                 @"dk":data,
+//                                 @"shares":encryptShares,
+//                                 @"token":[[LWUserManager shareInstance] getUserModel].token
+//        };
+//        [self loginRequestWithParams:params];
+//    } WithFailBlock:^(id  _Nonnull data) {
+//
+//    }];
 }
 
 - (void)loginRequestWithParams:(NSDictionary *)loginParams{
@@ -240,8 +273,5 @@
     }];
 }
 
-- (void)jumpToRegisterVC{
-    [self registerMethod];
-}
 
 @end

@@ -60,16 +60,15 @@
     NSString *timeString = [NSString stringWithFormat:@"%ld", (long)a]; //转为字符型
    
 #warning test
-    NSString *sigTemp = [LWPublicManager getSigWithMessage:timeString];
-    
-    
-    [PubkeyManager getSigWithPK:prikey message:timeString SuccessBlock:^(id  _Nonnull data) {
-        NSString *sig = (NSString *)data;
-        [self startWebScoket:sig andmessage:timeString];
-    } WithFailBlock:^(id  _Nonnull data) {
-        
-    }];
-    
+    NSString *sig = [LWPublicManager getSigWithMessage:timeString];
+    [self startWebScoket:sig andmessage:timeString];
+
+//    [PubkeyManager getSigWithPK:prikey message:timeString SuccessBlock:^(id  _Nonnull data) {
+//        NSString *sig = (NSString *)data;
+//        [self startWebScoket:sig andmessage:timeString];
+//    } WithFailBlock:^(id  _Nonnull data) {
+//
+//    }];
 }
 
 - (void)startWebScoket:(NSString *)sig andmessage:(NSString *)message{

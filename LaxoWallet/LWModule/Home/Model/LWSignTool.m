@@ -223,9 +223,14 @@ static LWSignTool *instance = nil;
 }
 
 - (void)requestSignInfo{//wallet.requestPartySign
-
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        self.pk = [LWPublicManager getPKWithZhuJiCi];
+    self.pk = [LWPublicManager getPKWithZhuJiCi];
+    char *sig_char = get_message_sig([LWAddressTool stringToChar:self.hashStr], [LWAddressTool stringToChar:self.pk]);
+    NSString *sig = [LWAddressTool charToString:sig_char];
+    NSDictionary *multipyparams = @{@"hash":self.hashStr,@"address":self.address,@"sig":sig};
+    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryrequestPartySign),@"wallet.requestPartySign",[multipyparams jsonStringEncoded]];
+    [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        self.pk = [LWPublicManager getPKWithZhuJiCi];
 //        __block NSString *prikey;
 //        self->_semaphoreSignal = dispatch_semaphore_create(0);
 //        [PubkeyManager getPrikeyByZhujiciSuccessBlock:^(id  _Nonnull data) {
@@ -237,21 +242,22 @@ static LWSignTool *instance = nil;
 //        }];
 //        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
 
-        __block NSString *sig;
-        self->_getKeySignal = dispatch_semaphore_create(0);
-        [PubkeyManager getSigWithPK:self.pk message:self.hashStr SuccessBlock:^(id  _Nonnull data) {
-            sig = (NSString *)data;
-            dispatch_semaphore_signal(self->_getKeySignal);
-
-        } WithFailBlock:^(id  _Nonnull data) {
-            
-        }];
-        dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-
-        NSDictionary *multipyparams = @{@"hash":self.hashStr,@"address":self.address,@"sig":sig};
-         NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryrequestPartySign),@"wallet.requestPartySign",[multipyparams jsonStringEncoded]];
-         [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
-    });
+//        __block NSString *sig;
+//        self->_getKeySignal = dispatch_semaphore_create(0);
+//        [PubkeyManager getSigWithPK:self.pk message:self.hashStr SuccessBlock:^(id  _Nonnull data) {
+//            sig = (NSString *)data;
+//            dispatch_semaphore_signal(self->_getKeySignal);
+//
+//        } WithFailBlock:^(id  _Nonnull data) {
+//
+//        }];
+//        dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+//        char *sig_char = get_message_sig([LWAddressTool stringToChar:self.hashStr], [LWAddressTool stringToChar:self.pk]);
+//        NSString *sig = [LWAddressTool charToString:sig_char];
+//        NSDictionary *multipyparams = @{@"hash":self.hashStr,@"address":self.address,@"sig":sig};
+//         NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryrequestPartySign),@"wallet.requestPartySign",[multipyparams jsonStringEncoded]];
+//         [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+//    });
 }
 
 - (void)requestShare{

@@ -182,42 +182,81 @@
 
 - (void)registerMethod{
     [SVProgressHUD show];
-    [PubkeyManager getPubKeyWithEmail:self.emailStr SuccessBlock:^(id  _Nonnull data) {
-        
-        NSString *pk = [data objectForKey:@"pk"];
-        
-        NSString *dpStr = [NSString stringWithFormat:@"%s",get_random_key_pair()];
-        NSData * jsonData = [dpStr dataUsingEncoding:NSUTF8StringEncoding];
-        NSArray *dpArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    
+    char *seed = get_seed();
+    char *pk = derive_key(seed, [LWAddressTool stringToChar:@"m/0"]);
+    char *secret = sha256(pk);
+    char *shares = get_shares(seed, 2, 2);
+    char *recover_seed = combine_shares(shares);
+    char *publickey = get_public_key(pk);
+    char *xpub = get_xpub(seed);
+    NSString *shares_str = [LWAddressTool charToString:shares];
+    NSArray *sharesArray = [NSJSONSerialization JSONObjectWithData:[shares_str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+    char *sig = get_message_sig([LWAddressTool stringToChar:self.emailStr], pk);
+    
+    
+    NSDictionary *initDic = @{@"pk":[LWAddressTool charToString:pk],
+                              @"publicKey":[LWAddressTool charToString:publickey],
+                              @"secret":[LWAddressTool charToString:secret],
+                              @"seed":[LWAddressTool charToString:seed],
+                              @"xpub":[LWAddressTool charToString:xpub],
+                              @"sig":[LWAddressTool charToString:sig],
+                              @"shares":sharesArray
+                            };
+    
+    NSArray *trusteeArrar = [[LWTrusteeManager shareInstance] getTrusteeArray];
 
-        NSString *secret = [data objectForKey:@"secret"];
+    NSString *dpStr = [NSString stringWithFormat:@"%s",get_random_key_pair()];
+    NSData * jsonData = [dpStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *dpArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    
+    NSMutableDictionary *sharesDic = [NSMutableDictionary dictionary];
+    for (NSInteger i = 0; i < trusteeArrar.count; i++) {
+        LWTrusteeModel *model = trusteeArrar[i];
+        NSString *encriData = [LWEncryptTool encryptWithPk:[LWAddressTool charToString:pk] pubkey:model.publicKey andMessage:sharesArray[i]];
+        [sharesDic setObj:encriData forKey:model.name];
+         if (i == trusteeArrar.count - 1){
+             [self manageDkWithSecret:[LWAddressTool charToString:secret] andpJoin:dpArray andShares:sharesDic andinfoDic:initDic];
+         }
+    }
         
-        NSArray *trusteeArrar = [[LWTrusteeManager shareInstance] getTrusteeArray];
-        NSArray *shares = [data objectForKey:@"shares"];
-        
-        NSMutableDictionary *sharesDic = [NSMutableDictionary dictionary];
-        for (NSInteger i = 0; i < trusteeArrar.count; i++) {
-            LWTrusteeModel *model = trusteeArrar[i];
-            NSString *encriData = [LWEncryptTool encryptWithPk:pk pubkey:model.publicKey andMessage:shares[i]];
-            [sharesDic setObj:encriData forKey:model.name];
-             if (i == trusteeArrar.count - 1){
-                 [self manageDkWithSecret:secret andpJoin:dpArray andShares:sharesDic andinfoDic:data];
-             }
-            
-            
-//            [PubkeyManager encriptwithPrikey:pk andPubkey:model.publicKey adnMessage:shares[i] WithSuccessBlock:^(id  _Nonnull encriData) {
-//                [sharesDic setObj:encriData forKey:model.name];
-//                if (i == trusteeArrar.count - 1){
-//                    [self manageDkWithSecret:secret andpJoin:dpArray andShares:sharesDic andinfoDic:data];
-//                }
-//            } WithFailBlock:^(id  _Nonnull data) {
+    
+//    [PubkeyManager getPubKeyWithEmail:self.emailStr SuccessBlock:^(id  _Nonnull data) {
 //
-//            }];
-        }
-        
-    } WithFailBlock:^(id  _Nonnull data) {
-        
-    }];
+//        NSString *pk = [data objectForKey:@"pk"];
+//
+//        NSString *dpStr = [NSString stringWithFormat:@"%s",get_random_key_pair()];
+//        NSData * jsonData = [dpStr dataUsingEncoding:NSUTF8StringEncoding];
+//        NSArray *dpArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+//
+//        NSString *secret = [data objectForKey:@"secret"];
+//
+//        NSArray *trusteeArrar = [[LWTrusteeManager shareInstance] getTrusteeArray];
+//        NSArray *shares = [data objectForKey:@"shares"];
+//
+//        NSMutableDictionary *sharesDic = [NSMutableDictionary dictionary];
+//        for (NSInteger i = 0; i < trusteeArrar.count; i++) {
+//            LWTrusteeModel *model = trusteeArrar[i];
+//            NSString *encriData = [LWEncryptTool encryptWithPk:pk pubkey:model.publicKey andMessage:shares[i]];
+//            [sharesDic setObj:encriData forKey:model.name];
+//             if (i == trusteeArrar.count - 1){
+//                 [self manageDkWithSecret:secret andpJoin:dpArray andShares:sharesDic andinfoDic:data];
+//             }
+//
+//
+////            [PubkeyManager encriptwithPrikey:pk andPubkey:model.publicKey adnMessage:shares[i] WithSuccessBlock:^(id  _Nonnull encriData) {
+////                [sharesDic setObj:encriData forKey:model.name];
+////                if (i == trusteeArrar.count - 1){
+////                    [self manageDkWithSecret:secret andpJoin:dpArray andShares:sharesDic andinfoDic:data];
+////                }
+////            } WithFailBlock:^(id  _Nonnull data) {
+////
+////            }];
+//        }
+//
+//    } WithFailBlock:^(id  _Nonnull data) {
+//
+//    }];
 
 }
 

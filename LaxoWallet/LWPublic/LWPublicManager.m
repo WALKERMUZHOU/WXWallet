@@ -87,6 +87,12 @@
 
 + (NSString *)getPKWithZhuJiCi{
     NSString *seed = [[LWUserManager shareInstance] getUserModel].jiZhuCi;
+    
+    if (!seed || seed.length == 0) {//注册时未保存seed
+       NSDictionary *infoDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
+        seed = [infoDic objectForKey:@"seed"];
+    }
+    
     char *pk = derive_key([LWAddressTool stringToChar:seed], [LWAddressTool stringToChar:@"m/0"]);
     return [LWAddressTool charToString:pk];
 }

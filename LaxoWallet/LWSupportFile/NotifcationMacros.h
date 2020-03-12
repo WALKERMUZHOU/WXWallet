@@ -32,6 +32,7 @@
 #define kWebScoket_requestPartySign         @"kWebScoket_requestPartySign"
 #define kWebScoket_getkeyshare              @"kWebScoket_getsharedkey"
 #define kWebScoket_boardcast_trans          @"kWebScoket_boardcast_trans"
+#define kWebScoket_multipyAddress          @"kWebScoket_multipyAddress"
 
 
 #pragma mark - Userdefault

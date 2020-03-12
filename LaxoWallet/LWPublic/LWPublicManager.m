@@ -97,6 +97,18 @@
     return [LWAddressTool charToString:pk];
 }
 
++ (NSString *)getPKWithZhuJiCiAndPath:(NSString *)path{
+    NSString *seed = [[LWUserManager shareInstance] getUserModel].jiZhuCi;
+    
+    if (!seed || seed.length == 0) {//注册时未保存seed
+       NSDictionary *infoDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
+        seed = [infoDic objectForKey:@"seed"];
+    }
+    
+    char *pk = derive_key([LWAddressTool stringToChar:seed], [LWAddressTool stringToChar:path]);
+    return [LWAddressTool charToString:pk];
+}
+
 + (NSString *)getRecoverJizhuciWithShares:(NSArray *)shares{
     char *combine_shares_char = combine_shares([LWAddressTool objectToChar:shares]);
     return [LWAddressTool charToString:combine_shares_char];

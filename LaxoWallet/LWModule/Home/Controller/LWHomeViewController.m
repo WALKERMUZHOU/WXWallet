@@ -15,10 +15,9 @@
 #import "libthresholdsig.h"
 #import "LWAddressTool.h"
 
-#import "BFCryptor.h"
 #import "NSData+HexString.h"
 
-#import <CommonCrypto/CommonCrypto.h>
+#import "LWMultipySignTool.h"
 
 @interface LWHomeViewController ()
 
@@ -32,7 +31,7 @@
     [super viewDidLoad];
     [self createUI];
     [self getprikey];
-    
+//    [[LWMultipySignTool alloc] init];
 }
 
 - (void)createUI{
@@ -59,7 +58,6 @@
     NSTimeInterval a=[dat timeIntervalSince1970]*1000;  //  *1000 是精确到毫秒，不乘就是精确到秒
     NSString *timeString = [NSString stringWithFormat:@"%ld", (long)a]; //转为字符型
    
-#warning test
     NSString *sig = [LWPublicManager getSigWithMessage:timeString];
     [self startWebScoket:sig andmessage:timeString];
 
@@ -119,6 +117,7 @@
     if ([responseData isKindOfClass:[NSArray class]]) {
         NSArray *responseArray = (NSArray *)responseData;
         NSString *firstObj = [responseData objectAtIndex:0];
+        NSLog(@"ws_recieve_data:%@",note.object);
         if ([firstObj isEqualToString:@"res"]) {
             [self manageData:responseArray];
         }else if ([firstObj isEqualToString:@"update"]){
@@ -131,6 +130,11 @@
 //            )
             [self requestPersonalWalletInfo];
             [self requestMulipyWalletInfo];
+            
+        }else if ([firstObj isEqualToString:@"key"]){//多方签名
+            NSArray *dataArray = [responseArray objectAtIndex:1];
+            [[LWMultipySignTool alloc] initWithInitInfo:dataArray];
+            
             
         }else if ([firstObj isEqualToString:@"OK"]){
             NSDictionary *responseDic = [responseArray objectAtIndex:1];
@@ -230,6 +234,11 @@
         case WSRequestIdWalletQueryBroadcastTrans:{
                 [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_boardcast_trans object:responseArray[2]];
+            }
+                  break;
+        case WSRequestIdWalletQueryMultipyAddress:{
+                [SVProgressHUD dismiss];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipyAddress object:responseArray[2]];
             }
                   break;
          default:{

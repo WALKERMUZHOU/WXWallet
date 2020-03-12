@@ -72,6 +72,7 @@ NSString *iv = @"30303030303030303030303030303030";
     NSData *ivData = [NSData hexStringToData:iv];
     
     NSData *encryptdata = [encrypt_tss_message_data aes256EncryptWithKey:encrypt_tss_key_data iv:ivData];
+    
     if (isHex == 0) {
         NSString *testencrypt_str = [[NSString alloc] initWithData:encryptdata encoding:NSUTF8StringEncoding];
         return testencrypt_str;

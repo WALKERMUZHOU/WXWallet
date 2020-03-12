@@ -19,6 +19,7 @@
 
 #import "LWAddressTool.h"
 #import "LWSignTool.h"
+#import "LWMultipySignTool.h"
 
 @interface LWHomeListView()<LWCoordinatorDelegate,MGSwipeTableCellDelegate>{
     NSIndexPath *_deleteIndexPath;
@@ -68,6 +69,7 @@
 
 - (void)initWsInfo{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMultipyAddress:) name:kWebScoket_createSingleAddress object:nil];
 
 }
 
@@ -221,8 +223,7 @@
 }
 
 - (void)collection:(NSInteger)index{
-    [self getQrCodeWithIndex:index];
-    return;
+
     if(self.currentViewType == LWHomeListViewTypePersonalWallet){
         
         LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
@@ -237,9 +238,15 @@
         }else{
             [self getQrCodeWithIndex:index];
         }
+    }else{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self getMulityQrCodeWithIndex:index];
+        });
+
     }
 }
 
+#pragma mark - 个人钱包
 - (void)getQrCodeWithIndex:(NSInteger)index{
     LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
     NSDictionary *params = @{@"wid":@(model.walletId)};
@@ -287,4 +294,32 @@
     }
 }
 
+#pragma mark - 多人钱包
+
+- (void)getMulityQrCodeWithIndex:(NSInteger)index{
+    LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
+    NSDictionary *params = @{@"wid":@(model.walletId)};
+    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQueryMultipyAddress),WS_Home_getMutipyAddress,[params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    [[SocketRocketUtility instance] sendData:data];
+
+}
+
+- (void)createMultipyAddress:(NSNotification *)notification{
+    NSDictionary *notiDic = notification.object;
+    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+        NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
+        NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;
+
+        [SVProgressHUD show];
+    //    LWMultipySignTool *addressTool = [[LWMultipySignTool alloc] initWithInitInfo:[notiDic objectForKey:@"data"]];
+//        [addressTool setWithrid:rid andPath:path];
+//        addressTool.addressBlock = ^(NSString * _Nonnull address) {
+//            [SVProgressHUD dismiss];
+//
+//
+//        };
+    }
+    
+}
 @end

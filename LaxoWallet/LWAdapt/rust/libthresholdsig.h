@@ -29,7 +29,7 @@ char *create_key(const char *pk,
                  uint8_t threshold,
                  const char *p,
                  const char *q);
-
+//secret//通过path生成 count 所有参与者个数 threshold 偶数+1
 char *create_multi_key(uint8_t ordinal, const char *secret, uint8_t count, uint8_t threshold);
 
 char *create_multi_sign(const char *share_key,

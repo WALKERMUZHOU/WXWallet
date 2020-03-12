@@ -46,6 +46,9 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestIdWalletQueryrequestPartySign       = 10014,//获取签名
     WSRequestIdWalletQueryGetKeyShare            = 10015,//获取签名前自己的share
     WSRequestIdWalletQueryBroadcastTrans         = 10016,//转账transfer
+    
+    WSRequestIdWalletQueryMultipyAddress          = 10017,//多人钱包收款地址
+
 
 };
 

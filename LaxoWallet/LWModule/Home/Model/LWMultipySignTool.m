@@ -173,6 +173,7 @@
         NSDictionary *singer = [self KeyGenWithIndex:key_index count:signers_list.count data:[LWAddressTool charToObject:create_multi_sign_char]];
         NSString *singerStr = [key objectForKey:@"id"];
 
+#warning tips
         self->_broadcastSignal = dispatch_semaphore_create(0);
         [self broadCast:1 data:[singer objectForKey:@"data"]];
         dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
@@ -180,9 +181,61 @@
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *sig_poll_for_broadcasts_1 = [self poll_for_broadCast:1];
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+        
         char *ret = multi_key_handle_round([LWAddressTool stringToChar:singerStr], 1, [LWAddressTool objectToChar:sig_poll_for_broadcasts_1]);
+        NSDictionary *retDic = [LWAddressTool charToObject:ret];
+        NSMutableDictionary *k_evals = [NSMutableDictionary dictionary];
+        NSMutableDictionary *alpha_evals = [NSMutableDictionary dictionary];
+        for (NSString *retKey in retDic.allKeys) {
+            NSArray *retArray = [retDic objectForKey:retKey];
+            NSString *secret = retArray.firstObject;
+            id k = retArray[1];
+            id alpha = retArray.lastObject;
             
+            NSString *kencrypt = [LWEncryptTool encrywithTheKey:secret message:k andHex:1];
+            [k_evals setObj:kencrypt forKey:retKey];
+            [alpha_evals setObj:alpha forKey:retKey];
+        }
+        
+        self->_broadcastSignal = dispatch_semaphore_create(0);
+        [self broadCast:2 data:@[k_evals,alpha_evals]];
+        dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
+
+        self->_getKeySignal = dispatch_semaphore_create(0);
+        NSArray *sig_poll_for_broadcasts_2 = [self poll_for_broadCast:2];
+        dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
             
+#warning sig_poll_for_broadcasts_2 decrypt
+        char *multi_sign_handle_round_2 = multi_sign_handle_round([LWAddressTool stringToChar:keyStr], 2, [LWAddressTool objectToChar:sig_poll_for_broadcasts_2]);
+        NSArray *multi_sign_handle_round_2_array = [LWAddressTool charToObject:multi_sign_handle_round_2];
+        
+        self->_broadcastSignal = dispatch_semaphore_create(0);
+        [self broadCast:3 data:multi_sign_handle_round_2_array];
+        dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
+        
+        self->_getKeySignal = dispatch_semaphore_create(0);
+        NSArray *sig_poll_for_broadcasts_3 = [self poll_for_broadCast:3];
+        dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+    
+        id sig_r;
+        id sig_s;
+        char *multi_sign_handle_round_3 = multi_sign_handle_round([LWAddressTool stringToChar:keyStr], 3, [LWAddressTool objectToChar:sig_poll_for_broadcasts_3]);
+        NSArray *multi_sign_handle_round_3_array = [LWAddressTool charToObject:multi_sign_handle_round_3];
+        
+        sig_r = multi_sign_handle_round_3_array.firstObject;
+        
+        self->_broadcastSignal = dispatch_semaphore_create(0);
+        [self broadCast:4 data:multi_sign_handle_round_3_array.lastObject];
+        dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
+
+        self->_getKeySignal = dispatch_semaphore_create(0);
+        NSArray *sig_poll_for_broadcasts_4 = [self poll_for_broadCast:4];
+        dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+        
+        char *multi_sign_handle_round_4 = multi_sign_handle_round([LWAddressTool stringToChar:keyStr], 4, [LWAddressTool objectToChar:sig_poll_for_broadcasts_4]);
+
+        sig_s = [LWAddressTool charToObject:multi_sign_handle_round_4];
+        destroy_multi_sign([LWAddressTool stringToChar:keyStr]);
     });
     
 

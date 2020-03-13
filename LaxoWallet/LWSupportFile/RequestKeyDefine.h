@@ -48,6 +48,7 @@ static NSString * const WS_Home_getKeyShare = @"wallet.getKeyShare";
 static NSString * const WS_Home_getMutipyAddress = @"wallet.createMultiPartyAddress";
 ///多人收款地址
 static NSString * const WS_Home_multipyConfirmAdress = @"wallet.addShare";
+static NSString * const WS_Home_multipyUnSignTrans = @"wallet.createTransaction";
 
 //系统版本
 #define kSystemVersion [[UIDevice currentDevice]systemVersion].floatValue

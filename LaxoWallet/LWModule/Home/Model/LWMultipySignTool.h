@@ -2,16 +2,24 @@
 //  LWMultipySignTool.h
 //  LaxoWallet
 //
-//  Created by walkermuzhou on 2020/3/12.
+//  Created by walkermuzhou on 2020/3/13.
 //  Copyright © 2020 LaxoWallet. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "LWSignTool.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWMultipySignTool : NSObject
-- (instancetype)initWithInitInfo:(NSDictionary *)info;
+
++ (LWMultipySignTool *)shareInstance;
+- (void)setWithAddress:(NSString *)address andHash:(NSString *)hash;
+
+- (instancetype)initWithInitInfo:(NSArray *)info;
+
+
+@property (nonatomic, copy) SignBlock signBlock;
 
 @end
 

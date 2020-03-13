@@ -9,6 +9,7 @@
 #import "LWHomeViewController.h"
 #import "LWHomeListView.h"
 #import <JavaScriptCore/JavaScriptCore.h>
+#import "LWPersonalCollectionViewController.h"
 
 #import "PublicKeyView.h"
 #import "PubkeyManager.h"
@@ -17,6 +18,7 @@
 
 #import "NSData+HexString.h"
 
+#import "LWMultipyAdressTool.h"
 #import "LWMultipySignTool.h"
 
 @interface LWHomeViewController ()
@@ -32,6 +34,12 @@
     [self createUI];
     [self getprikey];
 //    [[LWMultipySignTool alloc] init];
+//    [[LWMultipySignTool alloc]initWithInitInfo:nil];
+    NSString *secret_char = @"93d81d5c11f3d4f7bd592ad87aa0e7735f6bce69a9c13d4bde652e7b0d6cb822";
+    NSString *key_share = @"065CD0AB6B8BB5D3AB30E854BF132A6A874446546EE3B89D7BF41350DE8678FE3D1FA9017F411F16B2D346F863E4390C492FC84469A3D39642E48D0BEB9F376004755C35D8B046D696359CA944995F4E";
+
+   NSString *share = [LWEncryptTool decryptwithTheKey:secret_char message:key_share andHex:1];
+
 }
 
 - (void)createUI{
@@ -131,7 +139,19 @@
             [self requestPersonalWalletInfo];
             [self requestMulipyWalletInfo];
             
-        }else if ([firstObj isEqualToString:@"key"]){//多方签名
+        }else if ([firstObj isEqualToString:@"key"]){//多方签名address
+            NSArray *dataArray = [responseArray objectAtIndex:1];
+            LWMultipyAdressTool *addressTool = [[LWMultipyAdressTool alloc] initWithInitInfo:dataArray];
+            addressTool.addressBlock = ^(NSString * _Nonnull address) {
+                NSString *key_adress = [[NSUserDefaults standardUserDefaults] objectForKey:kAppCreateMulitpyAddress_userdefault];
+                if (key_adress && key_adress.length>0) {
+                    LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
+                             [LogicHandle presentViewController:personVC animate:YES];
+                }
+            } ;
+
+            
+        }else if ([firstObj isEqualToString:@"sign"]){//多方签名
             NSArray *dataArray = [responseArray objectAtIndex:1];
             [[LWMultipySignTool alloc] initWithInitInfo:dataArray];
             
@@ -163,7 +183,6 @@
 
 - (void)SRWebSocketDidColose:(NSNotification *)note{
     NSLog(@"wscolose");
-    
 }
 
 - (void)manageData:(NSArray *)responseArray{
@@ -239,6 +258,11 @@
         case WSRequestIdWalletQueryMultipyAddress:{
                 [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipyAddress object:responseArray[2]];
+            }
+                  break;
+        case WSRequestIdWalletQueryBroadcastUnSignTrans:{
+                [SVProgressHUD dismiss];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipyUnSignTrans object:responseArray[2]];
             }
                   break;
          default:{

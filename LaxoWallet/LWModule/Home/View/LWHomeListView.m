@@ -19,7 +19,7 @@
 
 #import "LWAddressTool.h"
 #import "LWSignTool.h"
-#import "LWMultipySignTool.h"
+#import "LWMultipyAdressTool.h"
 
 @interface LWHomeListView()<LWCoordinatorDelegate,MGSwipeTableCellDelegate>{
     NSIndexPath *_deleteIndexPath;
@@ -69,7 +69,7 @@
 
 - (void)initWsInfo{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMultipyAddress:) name:kWebScoket_createSingleAddress object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMultipyAddress:) name:kWebScoket_multipyAddress object:nil];
 
 }
 
@@ -303,22 +303,25 @@
     NSData *data = [requestPersonalWalletArray mp_messagePack];
     [[SocketRocketUtility instance] sendData:data];
 
+    [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:kAppCreateMulitpyAddress_userdefault];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)createMultipyAddress:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
-        NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
-        NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;
+        NSDictionary *dataDic = [notiDic objectForKey:@"data"];
+        NSString *address = [dataDic objectForKey:@"address"];
+        if (!address || address.length == 0) {
 
-        [SVProgressHUD show];
-    //    LWMultipySignTool *addressTool = [[LWMultipySignTool alloc] initWithInitInfo:[notiDic objectForKey:@"data"]];
-//        [addressTool setWithrid:rid andPath:path];
-//        addressTool.addressBlock = ^(NSString * _Nonnull address) {
-//            [SVProgressHUD dismiss];
-//
-//
-//        };
+
+        }else{
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppCreateMulitpyAddress_userdefault];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
+              [LogicHandle presentViewController:personVC animate:YES];
+        }
+  
     }
     
 }

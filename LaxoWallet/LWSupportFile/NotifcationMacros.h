@@ -32,7 +32,8 @@
 #define kWebScoket_requestPartySign         @"kWebScoket_requestPartySign"
 #define kWebScoket_getkeyshare              @"kWebScoket_getsharedkey"
 #define kWebScoket_boardcast_trans          @"kWebScoket_boardcast_trans"
-#define kWebScoket_multipyAddress          @"kWebScoket_multipyAddress"
+#define kWebScoket_multipyAddress           @"kWebScoket_multipyAddress"
+#define kWebScoket_multipyUnSignTrans       @"kWebScoket_multipyUnSignTrans"
 
 
 #pragma mark - Userdefault
@@ -56,5 +57,6 @@
 
 #define kAppCurrentLanguage_userdefault   @"kAppCurrentLanguage_userdefault"
 #define kAppCurrentCurrency_userdefault   @"kAppCurrentCurrency_userdefault"
+#define kAppCreateMulitpyAddress_userdefault   @"kAppCreateMulitpyAddress_userdefault"
 
 #endif /* NotifcationMacros_h */

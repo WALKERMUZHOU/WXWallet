@@ -151,7 +151,9 @@
 		5E91736424163DEB00D47A9F /* LivingConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91735A24163DEB00D47A9F /* LivingConfigModel.m */; };
 		5E91736924172B5300D47A9F /* LWTansactionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91736824172B5300D47A9F /* LWTansactionTool.m */; };
 		5E91736C241878D800D47A9F /* LWEncryptTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91736B241878D800D47A9F /* LWEncryptTool.m */; };
-		5E9173762419D83500D47A9F /* LWMultipySignTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9173752419D83500D47A9F /* LWMultipySignTool.m */; };
+		5E9173762419D83500D47A9F /* LWMultipyAdressTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9173752419D83500D47A9F /* LWMultipyAdressTool.m */; };
+		5E917379241B1F1300D47A9F /* LWMultipyTransactionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E917378241B1F1200D47A9F /* LWMultipyTransactionTool.m */; };
+		5E91737C241B208800D47A9F /* LWMultipySignTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91737B241B208800D47A9F /* LWMultipySignTool.m */; };
 		5EA1D49223FA527E00A0A747 /* SocketRocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */; };
 		5EA8079A23E94E2100012837 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079923E94E2100012837 /* AppDelegate.m */; };
 		5EA8079D23E94E2100012837 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079C23E94E2100012837 /* SceneDelegate.m */; };
@@ -541,8 +543,12 @@
 		5E91736824172B5300D47A9F /* LWTansactionTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTansactionTool.m; sourceTree = "<group>"; };
 		5E91736A241878D800D47A9F /* LWEncryptTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWEncryptTool.h; sourceTree = "<group>"; };
 		5E91736B241878D800D47A9F /* LWEncryptTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWEncryptTool.m; sourceTree = "<group>"; };
-		5E9173742419D83500D47A9F /* LWMultipySignTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMultipySignTool.h; sourceTree = "<group>"; };
-		5E9173752419D83500D47A9F /* LWMultipySignTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipySignTool.m; sourceTree = "<group>"; };
+		5E9173742419D83500D47A9F /* LWMultipyAdressTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMultipyAdressTool.h; sourceTree = "<group>"; };
+		5E9173752419D83500D47A9F /* LWMultipyAdressTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipyAdressTool.m; sourceTree = "<group>"; };
+		5E917377241B1F1200D47A9F /* LWMultipyTransactionTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMultipyTransactionTool.h; sourceTree = "<group>"; };
+		5E917378241B1F1200D47A9F /* LWMultipyTransactionTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipyTransactionTool.m; sourceTree = "<group>"; };
+		5E91737A241B208800D47A9F /* LWMultipySignTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMultipySignTool.h; sourceTree = "<group>"; };
+		5E91737B241B208800D47A9F /* LWMultipySignTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipySignTool.m; sourceTree = "<group>"; };
 		5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketUtility.m; sourceTree = "<group>"; };
 		5EA1D49023FA527E00A0A747 /* SocketRocketUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketUtility.h; sourceTree = "<group>"; };
 		5EA8079523E94E2100012837 /* LaxoWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaxoWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1362,8 +1368,10 @@
 				5EC1A932240CECF00086ED19 /* LWAddressTool.m */,
 				5EFC51C62411E19200BE9DDB /* LWSignTool.h */,
 				5EFC51C72411E19200BE9DDB /* LWSignTool.m */,
-				5E9173742419D83500D47A9F /* LWMultipySignTool.h */,
-				5E9173752419D83500D47A9F /* LWMultipySignTool.m */,
+				5E9173742419D83500D47A9F /* LWMultipyAdressTool.h */,
+				5E9173752419D83500D47A9F /* LWMultipyAdressTool.m */,
+				5E91737A241B208800D47A9F /* LWMultipySignTool.h */,
+				5E91737B241B208800D47A9F /* LWMultipySignTool.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1609,6 +1617,8 @@
 			children = (
 				5E91736724172B5300D47A9F /* LWTansactionTool.h */,
 				5E91736824172B5300D47A9F /* LWTansactionTool.m */,
+				5E917377241B1F1200D47A9F /* LWMultipyTransactionTool.h */,
+				5E917378241B1F1200D47A9F /* LWMultipyTransactionTool.m */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -2300,6 +2310,7 @@
 				5EE8FB7C2407911700AEE861 /* LWMessageDetailTitleContentView.m in Sources */,
 				5E66A34023EAB58C004097CB /* SVProgressHUD.m in Sources */,
 				5E91735F24163DEB00D47A9F /* RemindView.m in Sources */,
+				5E91737C241B208800D47A9F /* LWMultipySignTool.m in Sources */,
 				5EF513DF23F550F200F5B6C1 /* QQLBXScanViewController.m in Sources */,
 				5EE8FB7424076B9300AEE861 /* LWMessageDetailListView.m in Sources */,
 				5E91736924172B5300D47A9F /* LWTansactionTool.m in Sources */,
@@ -2358,7 +2369,7 @@
 				5EF513E423F550F200F5B6C1 /* LWInputTextView.m in Sources */,
 				5E5F129823EC0E12002F0711 /* WMZDialog+MenusSelect.m in Sources */,
 				5E66A3D423EBFAA2004097CB /* TYBaseAnimation.m in Sources */,
-				5E9173762419D83500D47A9F /* LWMultipySignTool.m in Sources */,
+				5E9173762419D83500D47A9F /* LWMultipyAdressTool.m in Sources */,
 				5EF5134623F14DE100F5B6C1 /* LWSelectButton.m in Sources */,
 				5E5F12A723EC0E12002F0711 /* WMZDiaLogBase.m in Sources */,
 				5E235853240394EC00A7D774 /* UIView+LWPayView.m in Sources */,
@@ -2368,6 +2379,7 @@
 				5E66A30723EAADA1004097CB /* AxcAE_TabBar.m in Sources */,
 				5EF5139B23F3D14E00F5B6C1 /* LWRocoveryViewController.m in Sources */,
 				5EB31E9F240515A600974FD4 /* LWMessageTableView.m in Sources */,
+				5E917379241B1F1300D47A9F /* LWMultipyTransactionTool.m in Sources */,
 				5E5F12D023ED8B3F002F0711 /* LWRecoveryFileView.m in Sources */,
 				5E66A3CB23EBFAA2004097CB /* UIView+TYAlertView.m in Sources */,
 				5E9172BD241528B700D47A9F /* CBSecp256k1.m in Sources */,

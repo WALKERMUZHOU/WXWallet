@@ -30,6 +30,10 @@
     // Do any additional setup after loading the view from its nib.
     [self createNaviBar];
     [self creatuUI];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppCreateMulitpyAddress_userdefault];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
 }
 
 - (void)createNaviBar{

@@ -201,8 +201,9 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
     if (webSocket == self.socket) {
         NSLog(@"************************** socket连接断开************************** ");
         NSLog(@"被关闭连接，code:%ld,reason:%@,wasClean:%d",(long)code,reason,wasClean);
-        [self SRWebSocketClose];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kWebSocketDidCloseNote object:nil];
+//        [self SRWebSocketClose];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kWebSocketDidCloseNote object:nil];
+        [self reConnect];
     }
 }
 

@@ -11,7 +11,7 @@
 #import "LWCommonBottomBtn.h"
 #import "UIView+LWPayView.h"
 #import "LWTansactionTool.h"
-
+#import "LWMultipyTransactionTool.h"
 @interface LWPersonalTransferAccountViewController ()
 
 @property (nonatomic, strong) UILabel   *describLabel;
@@ -130,6 +130,12 @@
     }
     if (self.payAddressTF.textField.text.length == 0) {
         [WMHUDUntil showMessageToWindow:@"请输入地址"];
+        return;
+    }
+    
+    if (self.model.type == 2) {
+        LWMultipyTransactionTool *trans = [LWMultipyTransactionTool  shareInstance];
+        [trans startTransactionWithAmount:self.amountTF.textField.text.floatValue address:self.payAddressTF.textField.text note:self.remarkTF.textField.text andTotalModel:self.model];
         return;
     }
     

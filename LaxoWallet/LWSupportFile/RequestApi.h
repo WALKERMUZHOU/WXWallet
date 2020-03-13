@@ -48,6 +48,7 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestIdWalletQueryBroadcastTrans         = 10016,//转账transfer
     
     WSRequestIdWalletQueryMultipyAddress          = 10017,//多人钱包收款地址
+    WSRequestIdWalletQueryBroadcastUnSignTrans         = 10018,//多人转账未签名
 
 
 };

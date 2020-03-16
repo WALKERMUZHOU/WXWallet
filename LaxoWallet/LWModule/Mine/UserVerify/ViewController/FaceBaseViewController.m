@@ -11,8 +11,8 @@
 #import "VideoCaptureDevice.h"
 #import "ImageUtils.h"
 #import "RemindView.h"
-
-#define scaleValue 0.7
+#import "LWCommonBottomBtn.h"
+#define scaleValue 0.8
 
 #define ScreenRect [UIScreen mainScreen].bounds
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -24,6 +24,12 @@
 @property (nonatomic, readwrite, retain) RemindView * remindView;
 @property (nonatomic, readwrite, retain) UILabel * remindDetailLabel;
 @property (nonatomic, readwrite, retain) UIImageView * successImage;
+
+@property (nonatomic, readwrite, retain) UILabel * processingStatueLabel;
+@property (nonatomic, readwrite, retain) UILabel * processingContentLabel;
+@property (nonatomic, readwrite, retain) UILabel * completeContentLabel;
+@property (nonatomic, readwrite, retain) UILabel * completeContentLabel1;
+@property (nonatomic, readwrite, retain) LWCommonBottomBtn * bottomBtn;
 
 @end
 
@@ -48,7 +54,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         if (status == PoseStatus) {
             [weakSelf.remindLabel setHidden:true];
-            [weakSelf.remindView setHidden:false];
+       //     [weakSelf.remindView setHidden:false];
             [weakSelf.remindDetailLabel setHidden:false];
             weakSelf.remindDetailLabel.text = warning;
         }else if (status == occlusionStatus) {
@@ -66,16 +72,74 @@
     });
 }
 
+- (void)processingStatue{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.remindLabel setHidden:true];
+        self.processingStatueLabel.hidden = NO;
+        self.processingContentLabel.hidden = NO;
+        self.circleView.detectCompelet = YES;
+        self.completeContentLabel.hidden = YES;
+         self.completeContentLabel1.hidden = YES;
+        self.bottomBtn.hidden = YES;
+    });
+}
+
+- (void)completeSuccessStatue{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.remindLabel setHidden:true];
+        self.processingStatueLabel.hidden = NO;
+        self.processingContentLabel.hidden = YES;
+        self.completeContentLabel.hidden = NO;
+        self.completeContentLabel1.hidden = NO;
+        self.bottomBtn.hidden = NO;
+        self.processingStatueLabel.text = @"Great, facial scan complete!";
+        self.completeContentLabel.text = @"Your 3D facial map data has been securely stored and encrypted and is now linked to your Volt account. ";
+        self.completeContentLabel1.text = @"It will not be shared with anyone and you are the owner of this 3D facial map data.";
+        
+        [self.bottomBtn setTitle:@"Create my Volt ID, Wallet and Account" forState:UIControlStateNormal];
+
+    });
+}
+
+- (void)failStatue{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.remindLabel setHidden:true];
+        self.processingStatueLabel.hidden = NO;
+        self.processingContentLabel.hidden = YES;
+        self.completeContentLabel.hidden = NO;
+          self.completeContentLabel1.hidden = NO;
+        self.bottomBtn.hidden = NO;
+
+          self.processingStatueLabel.text = @"Sorry, your facial scan failed";
+          self.completeContentLabel.text = @"";
+          self.completeContentLabel1.text = @"Ensure you’re in a well lit room, are standing in front of a solid color background and try again";
+        [self.bottomBtn setTitle:@"Restart facial recognition scan" forState:UIControlStateNormal];
+
+    });
+}
+
+- (void)reFace{
+    dispatch_async(dispatch_get_main_queue(), ^{
+           [self.remindLabel setHidden:true];
+           self.processingStatueLabel.hidden = YES;
+           self.processingContentLabel.hidden = YES;
+           self.completeContentLabel.hidden = YES;
+             self.completeContentLabel1.hidden = YES;
+        self.bottomBtn.hidden = YES;
+        self->_hasFinished = NO;
+       });
+}
+
 - (void)singleActionSuccess:(BOOL)success
 {
-    __weak typeof(self) weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (success) {
-            [weakSelf.successImage setHidden:false];
-        }else {
-            [weakSelf.successImage setHidden:true];
-        }
-    });
+//    __weak typeof(self) weakSelf = self;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        if (success) {
+//            [weakSelf.successImage setHidden:false];
+//        }else {
+//            [weakSelf.successImage setHidden:true];
+//        }
+//    });
 }
 
 - (void)viewDidLoad {
@@ -86,30 +150,30 @@
     self.videoCapture.delegate = self;
     
     // 用于播放视频流
-    self.detectRect = CGRectMake(ScreenWidth*(1-scaleValue)/2.0, ScreenHeight*(1-scaleValue)/2.0, ScreenWidth*scaleValue, ScreenHeight*scaleValue);
+    self.detectRect = CGRectMake(ScreenWidth*(1-scaleValue)/2.0, ScreenHeight*(1-scaleValue)/2.0 - 20, ScreenWidth*scaleValue, ScreenHeight*scaleValue);
     self.displayImageView = [[UIImageView alloc] initWithFrame:self.detectRect];
     self.displayImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:self.displayImageView];
     
     self.coverImage = [ImageUtils getImageResourceForName:@"facecover"];
-    CGRect circleRect = [ImageUtils convertRectFrom:CGRectMake(125, 334, 500, 500) imageSize:self.coverImage.size detectRect:ScreenRect];
+    CGRect circleRect = [ImageUtils convertRectFrom:CGRectMake(125, 304, 500, 500) imageSize:self.coverImage.size detectRect:ScreenRect];
     self.previewRect = CGRectMake(circleRect.origin.x - circleRect.size.width*(1/scaleValue-1)/2.0, circleRect.origin.y - circleRect.size.height*(1/scaleValue-1)/2.0 - 60, circleRect.size.width/scaleValue, circleRect.size.height/scaleValue);
+  
+    // 遮罩
+    UIImageView* coverImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, kScreenWidth, kScreenHeight)];
+    coverImageView.image = [ImageUtils getImageResourceForName:@"facecover"];
+    coverImageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.view addSubview:coverImageView];
     
     //画圈
     self.circleView = [[CircleView alloc] initWithFrame:ScreenRect];
     self.circleView.circleRect = circleRect;
     [self.view addSubview:self.circleView];
-    
-    // 遮罩
-    UIImageView* coverImageView = [[UIImageView alloc] initWithFrame:ScreenRect];
-    coverImageView.image = [ImageUtils getImageResourceForName:@"facecover"];
-    coverImageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.view addSubview:coverImageView];
-    
+
     //successImage
     self.successImage = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(circleRect)+CGRectGetWidth(circleRect)/2.0-57/2.0, CGRectGetMinY(circleRect)-57/2.0, 57, 57)];
     self.successImage.image = [ImageUtils getImageResourceForName:@"success"];
-    [self.view addSubview:self.successImage];
+//    [self.view addSubview:self.successImage];
     [self.successImage setHidden:true];
     
     // 关闭
@@ -119,20 +183,87 @@
     closeButton.frame = CGRectMake(20, 30, 30, 30);
     [self.view addSubview:closeButton];
     
+    self.processingStatueLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, ScreenHeight*(1-scaleValue)/2.0 + 20, kScreenWidth, 30)];
+    self.processingStatueLabel.textColor = lwColorBlack;
+    self.processingStatueLabel.font = kBoldFont(22);
+    self.processingStatueLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:self.processingStatueLabel];
+    self.processingStatueLabel.text = @"We’re processing your data";
+    self.processingStatueLabel.hidden = YES;
+    
+    self.processingContentLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, ScreenHeight/2+105, ScreenWidth - 40, 30)];
+     self.processingContentLabel.textColor = lwColorBlack;
+    self.processingContentLabel.numberOfLines = 0;
+     self.processingContentLabel.font = kFont(16);
+     self.processingContentLabel.textAlignment = NSTextAlignmentCenter;
+     [self.view addSubview:self.processingContentLabel];
+     self.processingContentLabel.text = @"Please wait while we confirm your 3D facial map data meets the requirements and is stored securely.";
+    [self.processingContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(20);
+        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.top.equalTo(self.view.mas_top).offset(ScreenHeight/2+105);
+    }];
+    self.processingContentLabel.hidden = YES;
+
+    
+    self.completeContentLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, ScreenHeight/2+105, ScreenWidth - 40, 30)];
+     self.completeContentLabel.textColor = lwColorBlack;
+    self.completeContentLabel.numberOfLines = 0;
+     self.completeContentLabel.font = kMediumFont(16);
+     self.completeContentLabel.textAlignment = NSTextAlignmentCenter;
+     [self.view addSubview:self.completeContentLabel];
+     self.completeContentLabel.text = @"Your 3D facial map data has been securely stored and encrypted and is now linked to your Volt account.";
+    [self.completeContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(20);
+        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.top.equalTo(self.view.mas_top).offset(ScreenHeight/2+105);
+    }];
+    self.completeContentLabel.hidden = YES;
+
+    
+    self.completeContentLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(20, ScreenHeight/2+105, ScreenWidth - 40, 30)];
+     self.completeContentLabel1.textColor = lwColorBlack;
+    self.completeContentLabel1.numberOfLines = 0;
+     self.completeContentLabel1.font = kFont(16);
+     self.completeContentLabel1.textAlignment = NSTextAlignmentCenter;
+     [self.view addSubview:self.completeContentLabel1];
+     self.completeContentLabel1.text = @"It will not be shared with anyone and you are the owner of this 3D facial map data.";
+    [self.completeContentLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(20);
+        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.top.equalTo(self.completeContentLabel.mas_bottom).offset(10);
+    }];
+    self.completeContentLabel1.hidden = YES;
+
+    self.bottomBtn = [[LWCommonBottomBtn alloc] init];
+    self.bottomBtn.selected = YES;
+    [self.bottomBtn setTitle:@"Create my Volt ID, Wallet and Account" forState:UIControlStateNormal];
+    self.bottomBtn.layer.cornerRadius = 25;
+    [self.bottomBtn.titleLabel setFont:kFont(14)];
+    self.bottomBtn.layer.masksToBounds = YES;
+    [self.view addSubview:self.bottomBtn];
+    [self.bottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(20);
+        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.top.equalTo(self.completeContentLabel1.mas_bottom).offset(20);
+        make.height.equalTo(@50);
+    }];
+    self.bottomBtn.hidden = YES;
+
     // 提示框
-    self.remindLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, circleRect.origin.y-70, ScreenWidth, 30)];
+    self.remindLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, ScreenHeight/2+105, ScreenWidth, 30)];
     self.remindLabel.textAlignment = NSTextAlignmentCenter;
-    self.remindLabel.textColor = OutSideColor;
-    self.remindLabel.font = [UIFont boldSystemFontOfSize:22.0];
+    self.remindLabel.textColor = lwColorBlack;
+    self.remindLabel.font = kMediumFont(18);
     [self.view addSubview:self.remindLabel];
     
     self.remindView = [[RemindView alloc]initWithFrame:CGRectMake((ScreenWidth-200)/2.0, CGRectGetMinY(self.remindLabel.frame), 200, 45)];
     [self.view addSubview:self.remindView];
     [self.remindView setHidden:YES];
     
-    self.remindDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(circleRect)+20, ScreenWidth, 30)];
-    self.remindDetailLabel.font = [UIFont systemFontOfSize:20];
-    self.remindDetailLabel.textColor = [UIColor whiteColor];
+    self.remindDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, ScreenHeight/2+135, ScreenWidth, 30)];
+    self.remindDetailLabel.font = [UIFont systemFontOfSize:18.0];
+    self.remindDetailLabel.textColor = lwColorBlack;
     self.remindDetailLabel.textAlignment = NSTextAlignmentCenter;
     self.remindDetailLabel.text = @"建议略微抬头";
     [self.view addSubview:self.remindDetailLabel];
@@ -198,7 +329,11 @@
 - (void)closeAction {
     _hasFinished = YES;
     self.videoCapture.runningStatus = NO;
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)restartAction{
+    [self.videoCapture resetSession];
 }
 
 #pragma mark - Notification

@@ -38,8 +38,37 @@
     NSString *secret_char = @"93d81d5c11f3d4f7bd592ad87aa0e7735f6bce69a9c13d4bde652e7b0d6cb822";
     NSString *key_share = @"065CD0AB6B8BB5D3AB30E854BF132A6A874446546EE3B89D7BF41350DE8678FE3D1FA9017F411F16B2D346F863E4390C492FC84469A3D39642E48D0BEB9F376004755C35D8B046D696359CA944995F4E";
 
-   NSString *share = [LWEncryptTool decryptwithTheKey:secret_char message:key_share andHex:1];
-
+//   NSString *share = [LWEncryptTool decryptwithTheKey:secret_char message:key_share andHex:1];
+//
+//      CALayer *layeraaa = [CALayer layer];
+//        layeraaa.frame = self.view.bounds;
+//        layeraaa.backgroundColor = [UIColor blueColor].CGColor;
+//        [self.view.layer addSublayer:layeraaa];
+//
+//    //创建圆环
+//        UIBezierPath *bezierPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(200, 200) radius:150 startAngle:0 endAngle:M_PI clockwise:YES];
+//    //圆环遮罩
+//        CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+//        shapeLayer.fillColor = [UIColor clearColor].CGColor;
+//        shapeLayer.strokeColor = [UIColor whiteColor].CGColor;
+//        shapeLayer.lineWidth = 10;
+//        shapeLayer.strokeStart = 0;
+//        shapeLayer.strokeEnd = 1;
+//        shapeLayer.lineCap = kCALineCapRound;
+//        shapeLayer.lineDashPhase = 0.8;
+//        shapeLayer.path = bezierPath.CGPath;
+//        [layeraaa setMask:shapeLayer];
+//
+//        CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+//        rotationAnimation.fromValue = [NSNumber numberWithFloat:0];
+//        rotationAnimation.toValue = [NSNumber numberWithFloat:2.0*M_PI];
+//        rotationAnimation.repeatCount = MAXFLOAT;
+//        rotationAnimation.duration = 1;
+//        rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//        rotationAnimation.fillMode = kCAFillModeForwards;
+//        [layeraaa addAnimation:rotationAnimation forKey:@"rotation"];
+    
+    
 }
 
 - (void)createUI{

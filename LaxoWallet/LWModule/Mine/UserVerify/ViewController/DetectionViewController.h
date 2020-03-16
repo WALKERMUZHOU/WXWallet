@@ -8,6 +8,10 @@
 
 #import "FaceBaseViewController.h"
 
+typedef void(^DetectionBlock)(void);
+
 @interface DetectionViewController : FaceBaseViewController
+
+@property (nonatomic, copy)DetectionBlock successBlock;
 
 @end

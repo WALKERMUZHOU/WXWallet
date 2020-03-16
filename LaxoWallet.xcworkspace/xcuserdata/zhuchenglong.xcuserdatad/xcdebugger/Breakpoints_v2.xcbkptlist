@@ -121,8 +121,8 @@
             filePath = "LaxoWallet/LWModule/Home/Model/LWMultipySignTool.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
             landmarkName = "-getkeyshare:"
             landmarkType = "7">
          </BreakpointContent>
@@ -130,16 +130,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "82ABAE1D-8128-430D-A23A-57133CEC2FFC"
+            uuid = "1C5BF472-251F-4BC6-885A-FCB7A0008477"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LaxoWallet/LWPublic/LWPublicManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "+getInitData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F0312D2-65D3-4B16-923F-6CB7FE1DF8E2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LaxoWallet/LWModule/Home/Model/LWMultipySignTool.m"
+            filePath = "LaxoWallet/LWModule/Home/Controller/LWHomeViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
-            landmarkName = "-managedata:"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "-SRWebSocketDidReceiveMsg:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -92,8 +92,8 @@ static LWMultipySignTool *instance = nil;
     self.share_count = [[info objectAtIndex:3] integerValue];
     self.party_orginal = [[info objectAtIndex:6] integerValue];
     if (self.threshold %2 == 0) {
-        self.threshold ++;
-        self.share_count ++;
+        self.threshold = self.threshold + 1;
+        self.share_count = self.share_count + 1;
     }
     self.party_count = self.share_count;
     
@@ -107,7 +107,7 @@ static LWMultipySignTool *instance = nil;
         }
     }
     
-    self.hash_str =  [[info objectAtIndex:1] sha256String];
+    self.hash_str =  [info objectAtIndex:1];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getSig:) name:kWebScoket_requestPartySign object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boardCast:) name:kWebScoket_boardcast object:nil];
@@ -136,7 +136,9 @@ static LWMultipySignTool *instance = nil;
         self.share_key = [LWEncryptTool decryptwithTheKey:[LWAddressTool charToString:secret_char] message:key_share andHex:1];
         
         char *create_multi_sign_char = create_multi_sign([LWAddressTool stringToChar:self.share_key], self.party_orginal, [LWAddressTool objectToChar:signers_list], self.threshold, [LWAddressTool stringToChar:self.hash_str]);
+        
         NSDictionary *singer = [self KeyGenWithIndex:self.party_orginal count:signers_list.count data:[LWAddressTool charToObject:create_multi_sign_char]];
+        
         NSString *singerStr = [singer objectForKey:@"id"];
 
         self->_broadcastSignal = dispatch_semaphore_create(0);
@@ -164,8 +166,10 @@ static LWMultipySignTool *instance = nil;
             
             NSString *kencrypt = [LWEncryptTool encrywithTheKey:secret message:k andHex:1];
             [k_evals setObj:kencrypt forKey:retKey];
+            
             NSString *alphaEncrypt = [LWEncryptTool encrywithTheKey:secret message:alpha andHex:1];
             [alpha_evals setObj:alphaEncrypt forKey:retKey];
+            
             [secretMap setObject:secret forKey:retKey];
         }
 
@@ -179,23 +183,25 @@ static LWMultipySignTool *instance = nil;
         
         NSMutableArray *broadcasts_2_array = [NSMutableArray array];
         for (NSInteger i = 0; i<sig_poll_for_broadcasts_2.count; i++) {
+            
+            NSMutableArray *kAArray = [NSMutableArray array];
             NSArray *sig_poll_for_broadcasts_2_i = sig_poll_for_broadcasts_2[i];
             
-            NSMutableDictionary *pollMutalDic = [NSMutableDictionary dictionary];
-            NSDictionary *poll_for_broadcasts_2_dic = sig_poll_for_broadcasts_2_i[i];
-            for (NSInteger j = 0; j<poll_for_broadcasts_2_dic.allKeys.count; j++) {
-                  NSString *key_t =[poll_for_broadcasts_2_dic.allKeys objectAtIndex:j];
-                  if (key_t.integerValue == self.party_orginal) {
-                      
-                      NSString *secretSSS = [secretMap objectForKey:[NSString stringWithFormat:@"%@",[list objectAtIndex:i]]];
-              
-                      NSString *needDecrtptStr = [poll_for_broadcasts_2_dic objectForKey:poll_for_broadcasts_2_dic.allKeys[j]];
-                      NSString *decrtptStr = [LWEncryptTool decryptwithTheKey:secretSSS message:needDecrtptStr andHex:1];
-                      [pollMutalDic setObj:decrtptStr forKey:poll_for_broadcasts_2_dic.allKeys[j]];
-                  }
-              }
-              [broadcasts_2_array addObj:pollMutalDic];
+            NSDictionary *kDic = sig_poll_for_broadcasts_2_i[0];
+            NSString *needDecrtptStr = [kDic objectForKey:[NSString stringWithFormat:@"%ld",(long)self.party_orginal]];
+            NSString *secretSSS = [secretMap objectForKey:[NSString stringWithFormat:@"%@",[list objectAtIndex:i]]];
+            NSString *decrtptStr = [LWEncryptTool decryptwithTheKey:secretSSS message:needDecrtptStr andHex:1];
+            [kAArray addObj:@{[NSString stringWithFormat:@"%ld",(long)self.party_orginal]:decrtptStr}];
+            
+            NSDictionary *alphaDic = sig_poll_for_broadcasts_2_i[1];
+            NSString *needDecrtptStr_A = [alphaDic objectForKey:[NSString stringWithFormat:@"%ld",(long)self.party_orginal]];
+            NSString *secretSSS_A = [secretMap objectForKey:[NSString stringWithFormat:@"%@",[list objectAtIndex:i]]];
+            NSString *decrtptStr_A = [LWEncryptTool decryptwithTheKey:secretSSS_A message:needDecrtptStr_A andHex:1];
+            [kAArray addObj:@{[NSString stringWithFormat:@"%ld",(long)self.party_orginal]:decrtptStr_A}];
+             
+            [broadcasts_2_array addObj:kAArray];
         }
+        NSLog(@"%@",broadcasts_2_array);
         
         char *multi_sign_handle_round_2 = multi_sign_handle_round([LWAddressTool stringToChar:singerStr], 2, [LWAddressTool objectToChar:broadcasts_2_array]);
         NSArray *multi_sign_handle_round_2_array = [LWAddressTool charToObject:multi_sign_handle_round_2];
@@ -295,7 +301,7 @@ static LWMultipySignTool *instance = nil;
                 NSString *key = [@[@(i),@(round)] componentsJoinedByString:@"_"];
 
                 dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
                 dispatch_source_set_event_handler(timer, ^{
                     [self getKey:key];
                 });

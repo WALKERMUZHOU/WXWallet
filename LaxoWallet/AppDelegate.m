@@ -38,8 +38,8 @@
 //    [LogicHandle chooseStartVC];
 //    [LogicHandle showLoginVC];
     
-//    LWUserVefifyViewController *launchVC = [[LWUserVefifyViewController alloc] init];
-//    self.window.rootViewController = launchVC;
+    LWUserVefifyViewController *launchVC = [[LWUserVefifyViewController alloc] init];
+ //   self.window.rootViewController = launchVC;
     
     [self.window makeKeyAndVisible];
     

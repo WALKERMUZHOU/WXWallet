@@ -17,4 +17,9 @@
 
 @property (nonatomic, assign) BOOL conditionStatusFit;
 
+@property (nonatomic, assign) BOOL detectCompelet;
+
+@property (nonatomic, assign) BOOL livenessCompelet;
+@property (nonatomic, assign) BOOL livenessFail;
+
 @end

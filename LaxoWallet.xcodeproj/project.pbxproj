@@ -17,6 +17,10 @@
 		5E2358622403F3E400A7D774 /* LWMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2358602403F3E400A7D774 /* LWMineTableViewCell.m */; };
 		5E2358632403F3E400A7D774 /* LWMineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E2358612403F3E400A7D774 /* LWMineTableViewCell.xib */; };
 		5E2358662403F3FE00A7D774 /* LWMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2358652403F3FE00A7D774 /* LWMineHeaderView.m */; };
+		5E317A7D241E55F700C951B2 /* LWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E317A7B241E55F700C951B2 /* LWLoginController.m */; };
+		5E317A7E241E55F700C951B2 /* LWLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E317A7C241E55F700C951B2 /* LWLoginController.xib */; };
+		5E317A81241E5B5E00C951B2 /* LWLoginStepOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E317A80241E5B5E00C951B2 /* LWLoginStepOneView.m */; };
+		5E317A84241E5B8100C951B2 /* LWLoginStepOneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E317A83241E5B8100C951B2 /* LWLoginStepOneView.xib */; };
 		5E5F123623EC06F1002F0711 /* LogicHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F123523EC06F1002F0711 /* LogicHandle.m */; };
 		5E5F128B23EC0E12002F0711 /* WMZDialog+Write.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F123A23EC0E12002F0711 /* WMZDialog+Write.m */; };
 		5E5F128C23EC0E12002F0711 /* WMZDialog+NaviMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F123D23EC0E12002F0711 /* WMZDialog+NaviMenu.m */; };
@@ -154,6 +158,15 @@
 		5E9173762419D83500D47A9F /* LWMultipyAdressTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9173752419D83500D47A9F /* LWMultipyAdressTool.m */; };
 		5E917379241B1F1300D47A9F /* LWMultipyTransactionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E917378241B1F1200D47A9F /* LWMultipyTransactionTool.m */; };
 		5E91737C241B208800D47A9F /* LWMultipySignTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91737B241B208800D47A9F /* LWMultipySignTool.m */; };
+		5E9918A5241E6065005D6A38 /* LWLoginStepTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9918A4241E6065005D6A38 /* LWLoginStepTwoView.m */; };
+		5E9918A7241E6074005D6A38 /* LWLoginStepTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9918A6241E6074005D6A38 /* LWLoginStepTwoView.xib */; };
+		5E9918AA241E63F3005D6A38 /* LWLoginStepThreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9918A9241E63F3005D6A38 /* LWLoginStepThreeView.m */; };
+		5E9918AC241E6402005D6A38 /* LWLoginStepThreeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9918AB241E6402005D6A38 /* LWLoginStepThreeView.xib */; };
+		5E9918AF241E6899005D6A38 /* LWLoginStepFourView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9918AE241E6899005D6A38 /* LWLoginStepFourView.m */; };
+		5E9918B1241E68A9005D6A38 /* LWLoginStepFourView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9918B0241E68A9005D6A38 /* LWLoginStepFourView.xib */; };
+		5E9918B4241E70C6005D6A38 /* LWLoginStepFiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9918B3241E70C6005D6A38 /* LWLoginStepFiveView.m */; };
+		5E9918B6241E70D3005D6A38 /* LWLoginStepFiveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9918B5241E70D3005D6A38 /* LWLoginStepFiveView.xib */; };
+		5E9918B9241E9E61005D6A38 /* FCAnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9918B8241E9E61005D6A38 /* FCAnimateView.m */; };
 		5EA1D49223FA527E00A0A747 /* SocketRocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */; };
 		5EA8079A23E94E2100012837 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079923E94E2100012837 /* AppDelegate.m */; };
 		5EA8079D23E94E2100012837 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079C23E94E2100012837 /* SceneDelegate.m */; };
@@ -276,6 +289,12 @@
 		5E2358612403F3E400A7D774 /* LWMineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWMineTableViewCell.xib; sourceTree = "<group>"; };
 		5E2358642403F3FE00A7D774 /* LWMineHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMineHeaderView.h; sourceTree = "<group>"; };
 		5E2358652403F3FE00A7D774 /* LWMineHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMineHeaderView.m; sourceTree = "<group>"; };
+		5E317A7A241E55F700C951B2 /* LWLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginController.h; sourceTree = "<group>"; };
+		5E317A7B241E55F700C951B2 /* LWLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginController.m; sourceTree = "<group>"; };
+		5E317A7C241E55F700C951B2 /* LWLoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginController.xib; sourceTree = "<group>"; };
+		5E317A7F241E5B5E00C951B2 /* LWLoginStepOneView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepOneView.h; sourceTree = "<group>"; };
+		5E317A80241E5B5E00C951B2 /* LWLoginStepOneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepOneView.m; sourceTree = "<group>"; };
+		5E317A83241E5B8100C951B2 /* LWLoginStepOneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepOneView.xib; sourceTree = "<group>"; };
 		5E5F123423EC06F1002F0711 /* LogicHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogicHandle.h; sourceTree = "<group>"; };
 		5E5F123523EC06F1002F0711 /* LogicHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogicHandle.m; sourceTree = "<group>"; };
 		5E5F123923EC0E12002F0711 /* WMZDialog+Write.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WMZDialog+Write.h"; sourceTree = "<group>"; };
@@ -549,6 +568,20 @@
 		5E917378241B1F1200D47A9F /* LWMultipyTransactionTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipyTransactionTool.m; sourceTree = "<group>"; };
 		5E91737A241B208800D47A9F /* LWMultipySignTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMultipySignTool.h; sourceTree = "<group>"; };
 		5E91737B241B208800D47A9F /* LWMultipySignTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipySignTool.m; sourceTree = "<group>"; };
+		5E9918A3241E6065005D6A38 /* LWLoginStepTwoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepTwoView.h; sourceTree = "<group>"; };
+		5E9918A4241E6065005D6A38 /* LWLoginStepTwoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepTwoView.m; sourceTree = "<group>"; };
+		5E9918A6241E6074005D6A38 /* LWLoginStepTwoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepTwoView.xib; sourceTree = "<group>"; };
+		5E9918A8241E63F3005D6A38 /* LWLoginStepThreeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepThreeView.h; sourceTree = "<group>"; };
+		5E9918A9241E63F3005D6A38 /* LWLoginStepThreeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepThreeView.m; sourceTree = "<group>"; };
+		5E9918AB241E6402005D6A38 /* LWLoginStepThreeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepThreeView.xib; sourceTree = "<group>"; };
+		5E9918AD241E6899005D6A38 /* LWLoginStepFourView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepFourView.h; sourceTree = "<group>"; };
+		5E9918AE241E6899005D6A38 /* LWLoginStepFourView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepFourView.m; sourceTree = "<group>"; };
+		5E9918B0241E68A9005D6A38 /* LWLoginStepFourView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepFourView.xib; sourceTree = "<group>"; };
+		5E9918B2241E70C6005D6A38 /* LWLoginStepFiveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepFiveView.h; sourceTree = "<group>"; };
+		5E9918B3241E70C6005D6A38 /* LWLoginStepFiveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepFiveView.m; sourceTree = "<group>"; };
+		5E9918B5241E70D3005D6A38 /* LWLoginStepFiveView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepFiveView.xib; sourceTree = "<group>"; };
+		5E9918B7241E9E61005D6A38 /* FCAnimateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCAnimateView.h; sourceTree = "<group>"; };
+		5E9918B8241E9E61005D6A38 /* FCAnimateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCAnimateView.m; sourceTree = "<group>"; };
 		5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketUtility.m; sourceTree = "<group>"; };
 		5EA1D49023FA527E00A0A747 /* SocketRocketUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketUtility.h; sourceTree = "<group>"; };
 		5EA8079523E94E2100012837 /* LaxoWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaxoWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -767,6 +800,28 @@
 				5E23584423FBE09C00A7D774 /* index.html */,
 			);
 			path = mobile;
+			sourceTree = "<group>";
+		};
+		5E317A82241E5B6500C951B2 /* new */ = {
+			isa = PBXGroup;
+			children = (
+				5E317A7F241E5B5E00C951B2 /* LWLoginStepOneView.h */,
+				5E317A80241E5B5E00C951B2 /* LWLoginStepOneView.m */,
+				5E317A83241E5B8100C951B2 /* LWLoginStepOneView.xib */,
+				5E9918A3241E6065005D6A38 /* LWLoginStepTwoView.h */,
+				5E9918A4241E6065005D6A38 /* LWLoginStepTwoView.m */,
+				5E9918A6241E6074005D6A38 /* LWLoginStepTwoView.xib */,
+				5E9918A8241E63F3005D6A38 /* LWLoginStepThreeView.h */,
+				5E9918A9241E63F3005D6A38 /* LWLoginStepThreeView.m */,
+				5E9918AB241E6402005D6A38 /* LWLoginStepThreeView.xib */,
+				5E9918AD241E6899005D6A38 /* LWLoginStepFourView.h */,
+				5E9918AE241E6899005D6A38 /* LWLoginStepFourView.m */,
+				5E9918B0241E68A9005D6A38 /* LWLoginStepFourView.xib */,
+				5E9918B2241E70C6005D6A38 /* LWLoginStepFiveView.h */,
+				5E9918B3241E70C6005D6A38 /* LWLoginStepFiveView.m */,
+				5E9918B5241E70D3005D6A38 /* LWLoginStepFiveView.xib */,
+			);
+			path = new;
 			sourceTree = "<group>";
 		};
 		5E5F123723EC0E12002F0711 /* WMZDialog */ = {
@@ -1054,6 +1109,7 @@
 		5E5F12BF23ED85A0002F0711 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5E317A82241E5B6500C951B2 /* new */,
 				5E5F12C623ED85BE002F0711 /* LWLoginSecondStepView.h */,
 				5E5F12C723ED85BE002F0711 /* LWLoginSecondStepView.m */,
 				5E5F12C923ED874B002F0711 /* LWLoginSecondStepView.xib */,
@@ -1570,17 +1626,19 @@
 			isa = PBXGroup;
 			children = (
 				5E91734624163DEA00D47A9F /* DetectionViewController.m */,
+				5E91734F24163DEA00D47A9F /* LivenessViewController.h */,
 				5E91734724163DEA00D47A9F /* LivenessViewController.m */,
 				5E91734824163DEA00D47A9F /* LivingConfigViewController.h */,
 				5E91734924163DEA00D47A9F /* FaceBaseViewController.m */,
 				5E91734A24163DEA00D47A9F /* RemindView.m */,
-				5E91734B24163DEA00D47A9F /* CircleView.m */,
 				5E91734C24163DEA00D47A9F /* DetectionViewController.h */,
 				5E91734D24163DEA00D47A9F /* FaceBaseViewController.h */,
 				5E91734E24163DEA00D47A9F /* LivingConfigViewController.m */,
-				5E91734F24163DEA00D47A9F /* LivenessViewController.h */,
 				5E91735024163DEA00D47A9F /* CircleView.h */,
+				5E91734B24163DEA00D47A9F /* CircleView.m */,
 				5E91735124163DEA00D47A9F /* RemindView.h */,
+				5E9918B7241E9E61005D6A38 /* FCAnimateView.h */,
+				5E9918B8241E9E61005D6A38 /* FCAnimateView.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1935,6 +1993,9 @@
 				5EF513E623F5510E00F5B6C1 /* LWFaceBindViewController.m */,
 				5E722B7023F694CF000991DE /* LWLaunchViewController.h */,
 				5E722B7123F694CF000991DE /* LWLaunchViewController.m */,
+				5E317A7A241E55F700C951B2 /* LWLoginController.h */,
+				5E317A7B241E55F700C951B2 /* LWLoginController.m */,
+				5E317A7C241E55F700C951B2 /* LWLoginController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2164,19 +2225,24 @@
 				5E66A34323EAB58C004097CB /* README.md in Resources */,
 				5E9172C62416227D00D47A9F /* Localizable.strings in Resources */,
 				5E66A35F23EAC378004097CB /* backImage@2x.png in Resources */,
+				5E317A84241E5B8100C951B2 /* LWLoginStepOneView.xib in Resources */,
 				5E9172E02416376200D47A9F /* com.baidu.idl.face.faceSDK.bundle in Resources */,
 				5EF5139C23F3D14E00F5B6C1 /* LWRocoveryViewController.xib in Resources */,
 				5E66A34223EAB58C004097CB /* SVProgressHUD.bundle in Resources */,
+				5E317A7E241E55F700C951B2 /* LWLoginController.xib in Resources */,
 				5E9172CA2416284B00D47A9F /* LWHomeListHeaderView.xib in Resources */,
 				5E23584823FBE09D00A7D774 /* index.html in Resources */,
 				5EB31EA72405182800974FD4 /* LWMessageTableViewCell.xib in Resources */,
 				5E66A34623EAB58C004097CB /* WMHUDUntil.bundle in Resources */,
+				5E9918A7241E6074005D6A38 /* LWLoginStepTwoView.xib in Resources */,
 				5EB31EC1240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib in Resources */,
 				5EB31E92240428CD00974FD4 /* LWMineSettingLanguageCell.xib in Resources */,
 				5E9172DE2416376200D47A9F /* idl-license.face-ios in Resources */,
 				5E5F12D723ED8BD3002F0711 /* LWRecoveryTrustholdsView.xib in Resources */,
 				5EA807A823E94E2400012837 /* LaunchScreen.storyboard in Resources */,
 				5E9172DF2416376200D47A9F /* com.baidu.idl.face.model.bundle in Resources */,
+				5E9918B6241E70D3005D6A38 /* LWLoginStepFiveView.xib in Resources */,
+				5E9918B1241E68A9005D6A38 /* LWLoginStepFourView.xib in Resources */,
 				5EB31E8724041CAF00974FD4 /* LWMineSecurityTableViewCell.xib in Resources */,
 				5E0FE6962408E72D00733B05 /* index.js in Resources */,
 				EFEBEEA523FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib in Resources */,
@@ -2185,6 +2251,7 @@
 				5EF5132E23F1072900F5B6C1 /* turbo.js in Resources */,
 				5E5F12D523ED8BC3002F0711 /* LWRecoveryFileView.xib in Resources */,
 				5E5F129A23EC0E12002F0711 /* WMZDialog.bundle in Resources */,
+				5E9918AC241E6402005D6A38 /* LWLoginStepThreeView.xib in Resources */,
 				5E23585B2403CBAF00A7D774 /* LWPersonalCollectionViewController.xib in Resources */,
 				5E9172D324162A7300D47A9F /* LWHomeListCell.xib in Resources */,
 				5E66A36023EAC379004097CB /* backImage@3x.png in Resources */,
@@ -2282,6 +2349,7 @@
 				5E66A3D523EBFAA2004097CB /* TYAlertController.m in Sources */,
 				5E66A39823EAF032004097CB /* LWHomeListCoordinator.m in Sources */,
 				5EF513DB23F550F200F5B6C1 /* PubkeyManager.m in Sources */,
+				5E9918AA241E63F3005D6A38 /* LWLoginStepThreeView.m in Sources */,
 				5E2358662403F3FE00A7D774 /* LWMineHeaderView.m in Sources */,
 				5EB31E8224041C2600974FD4 /* LWMineSecurityView.m in Sources */,
 				5EF513BA23F5298000F5B6C1 /* TDTouchID.m in Sources */,
@@ -2305,6 +2373,7 @@
 				5E23585E2403F3C700A7D774 /* LWMineView.m in Sources */,
 				5E722B7223F694CF000991DE /* LWLaunchViewController.m in Sources */,
 				5E91736224163DEB00D47A9F /* VideoCaptureDevice.m in Sources */,
+				5E9918B9241E9E61005D6A38 /* FCAnimateView.m in Sources */,
 				5E91735E24163DEB00D47A9F /* FaceBaseViewController.m in Sources */,
 				5EA1D49223FA527E00A0A747 /* SocketRocketUtility.m in Sources */,
 				5EE8FB7C2407911700AEE861 /* LWMessageDetailTitleContentView.m in Sources */,
@@ -2342,6 +2411,7 @@
 				5E66A30A23EAADA1004097CB /* MGSwipeButton.m in Sources */,
 				5E66A3D023EBFAA2004097CB /* TYAlertController+TransitionAnimate.m in Sources */,
 				5E66A33F23EAB58C004097CB /* SVProgressAnimatedView.m in Sources */,
+				5E9918AF241E6899005D6A38 /* LWLoginStepFourView.m in Sources */,
 				5E91735C24163DEB00D47A9F /* DetectionViewController.m in Sources */,
 				5E66A30623EAADA1004097CB /* AxcAE_TabBarBadge.m in Sources */,
 				5EF5134123F1409500F5B6C1 /* LWInputTextView.m in Sources */,
@@ -2350,6 +2420,7 @@
 				5E23585A2403CBAE00A7D774 /* LWPersonalCollectionViewController.m in Sources */,
 				5EF5132623EFE41E00F5B6C1 /* FLSocketManager.m in Sources */,
 				5E5F129B23EC0E12002F0711 /* WMZDialog+PickView.m in Sources */,
+				5E317A81241E5B5E00C951B2 /* LWLoginStepOneView.m in Sources */,
 				5E5F12A523EC0E12002F0711 /* WMZDialog+Sheet.m in Sources */,
 				5E5F12A423EC0E12002F0711 /* WMZDialog+Select.m in Sources */,
 				5E66A3D323EBFAA2004097CB /* TYShowAlertView.m in Sources */,
@@ -2388,6 +2459,7 @@
 				5E66A3CD23EBFAA2004097CB /* TYAlertController+BlurEffects.m in Sources */,
 				5EA8079A23E94E2100012837 /* AppDelegate.m in Sources */,
 				5EB31EC0240648AD00974FD4 /* LWMessageDeleteTableViewCell.m in Sources */,
+				5E317A7D241E55F700C951B2 /* LWLoginController.m in Sources */,
 				5E5F129623EC0E12002F0711 /* CalanderModel.m in Sources */,
 				5EF5136E23F1815400F5B6C1 /* QQLBXScanViewController.m in Sources */,
 				5E91736024163DEB00D47A9F /* CircleView.m in Sources */,
@@ -2409,6 +2481,7 @@
 				5E66A3AF23EB1184004097CB /* PopoverView.m in Sources */,
 				5E5F130023EDD97F002F0711 /* WMZPageScroller.m in Sources */,
 				5EB31EB92406484000974FD4 /* LWMessageDeleteUserViewController.m in Sources */,
+				5E9918A5241E6065005D6A38 /* LWLoginStepTwoView.m in Sources */,
 				5E9172BE241528B700D47A9F /* NSData+HexString.m in Sources */,
 				5E91736424163DEB00D47A9F /* LivingConfigModel.m in Sources */,
 				5E5F12B223ED562B002F0711 /* LWLoginCoordinator.m in Sources */,
@@ -2428,6 +2501,7 @@
 				5E66A37D23EAEBD9004097CB /* LWHomeViewController.m in Sources */,
 				5EF5134923F16C9100F5B6C1 /* LWCommonBottomBtn.m in Sources */,
 				5E66A34D23EAB595004097CB /* CZRefreshHeader.m in Sources */,
+				5E9918B4241E70C6005D6A38 /* LWLoginStepFiveView.m in Sources */,
 				5E5F129423EC0E12002F0711 /* WMZDialog+Pay.m in Sources */,
 				5E5F129923EC0E12002F0711 /* WMZDialog+CardPresent.m in Sources */,
 				EFEBEEA823FE57C0006D4B5F /* LWBottomLineInputTextField.m in Sources */,

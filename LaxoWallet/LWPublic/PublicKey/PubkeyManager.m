@@ -79,26 +79,27 @@
             return prikey;
         }
     }
+    return nil;
     
-    dispatch_semaphore_t signal = dispatch_semaphore_create(0);
-    __block int speakSessionIdBlock =0;
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [[PublicKeyView shareInstance] getInitDataBlock:^(NSDictionary * _Nonnull dicData) {
-            if (dicData) {
-                [[NSUserDefaults standardUserDefaults] setObject:dicData forKey:kAppPubkeyManager_userdefault];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                speakSessionIdBlock = 100;// block代码中给变量赋值
-                dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
-            }else{
-                dispatch_semaphore_signal(signal);
-            }
-        }];
-    });
-
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
-    });
-    return [self getPrikey];
+//    dispatch_semaphore_t signal = dispatch_semaphore_create(0);
+//    __block int speakSessionIdBlock =0;
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        [[PublicKeyView shareInstance] getInitDataBlock:^(NSDictionary * _Nonnull dicData) {
+//            if (dicData) {
+//                [[NSUserDefaults standardUserDefaults] setObject:dicData forKey:kAppPubkeyManager_userdefault];
+//                [[NSUserDefaults standardUserDefaults] synchronize];
+//                speakSessionIdBlock = 100;// block代码中给变量赋值
+//                dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
+//            }else{
+//                dispatch_semaphore_signal(signal);
+//            }
+//        }];
+//    });
+//
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+//    });
+//    return [self getPrikey];
 }
 
 + (void)encriptwithPrikey:(NSString *)prikey andPubkey:(NSString *)Pubkey adnMessage:(NSString *)message WithSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{

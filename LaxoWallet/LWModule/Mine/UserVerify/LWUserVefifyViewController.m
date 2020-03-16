@@ -52,9 +52,15 @@
      }
      
      DetectionViewController* dvc = [[DetectionViewController alloc] init];
-     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:dvc];
-     navi.navigationBarHidden = true;
-     [self presentViewController:navi animated:YES completion:nil];
+     dvc.modalPresentationStyle = UIModalPresentationFullScreen;
+     [self presentViewController:dvc animated:YES completion:nil];
+    
+    dvc.successBlock = ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [dvc dismissViewControllerAnimated:YES completion:nil];
+            [self bottom2Click];
+        });
+    };
 }
 
 - (void)bottom2Click{
@@ -65,9 +71,11 @@
      LivenessViewController* lvc = [[LivenessViewController alloc] init];
      LivingConfigModel* model = [LivingConfigModel sharedInstance];
      [lvc livenesswithList:model.liveActionArray order:model.isByOrder numberOfLiveness:model.numOfLiveness];
-     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:lvc];
-     navi.navigationBarHidden = true;
-     [self presentViewController:navi animated:YES completion:nil];
+//     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:lvc];
+//     navi.navigationBarHidden = true;
+    lvc.modalPresentationStyle = UIModalPresentationFullScreen;
+
+     [self presentViewController:lvc animated:YES completion:nil];
     lvc.imageBlock = ^(NSArray *imageArray) {
       
         CGFloat imageWidth =( kScreenWidth - 40)/3;

@@ -9,6 +9,8 @@
 #import "LogicHandle.h"
 #import "LWLoginViewController.h"
 #import "LWLaunchViewController.h"
+#import "LWLoginController.h"
+
 @implementation LogicHandle
 
 + (void)naviPresentViewcontroller:(UIViewController *)viewController{
@@ -102,6 +104,11 @@
     LWLoginViewController *loginVC = [[LWLoginViewController alloc]init];
     AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
     appdelete.window.rootViewController = [[LWNavigationViewController alloc] initWithRootViewController:loginVC];
+    
+//    
+//    LWLoginController *loginVC = [[LWLoginController alloc]init];
+//    AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//    appdelete.window.rootViewController =loginVC;
 }
 
 + (void)showTabbarVC{

@@ -24,9 +24,17 @@ typedef enum : NSUInteger {
 @property (nonatomic, readwrite, assign) CGRect detectRect;
 @property (nonatomic, readwrite, retain) CircleView * circleView;
 
+- (void)processingStatue;
+- (void)completeSuccessStatue;
+- (void)failStatue;
+- (void)reFace;
+
+
 - (void)faceProcesss:(UIImage *)image;
 
 - (void)closeAction;
+- (void)restartAction;
+
 
 - (void)onAppWillResignAction;
 - (void)onAppBecomeActive;

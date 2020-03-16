@@ -9,6 +9,9 @@
 #import "DetectionViewController.h"
 #import <IDLFaceSDK/IDLFaceSDK.h>
 #import <AVFoundation/AVFoundation.h>
+#import "LivenessViewController.h"
+
+#import "LivingConfigModel.h"
 
 @interface DetectionViewController ()
 {
@@ -21,12 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // 纯粹为了在照片成功之后，做闪屏幕动画之用
-    self.animaView = [[UIView alloc] initWithFrame:self.view.bounds];
-    self.animaView.backgroundColor = [UIColor whiteColor];
-    self.animaView.alpha = 0;
-    [self.view addSubview:self.animaView];
     
 }
 
@@ -68,19 +65,20 @@
                 if (images[@"bestImage"] != nil && [images[@"bestImage"] count] != 0) {
                     NSData* data = [[NSData alloc] initWithBase64EncodedString:[images[@"bestImage"] lastObject] options:NSDataBase64DecodingIgnoreUnknownCharacters];
                     UIImage* bestImage = [UIImage imageWithData:data];
+                    [self uploadDetectBestImage:bestImage];
                     NSLog(@"bestImage = %@",bestImage);
                 }
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [UIView animateWithDuration:0.5 animations:^{
-                        weakSelf.animaView.alpha = 1;
-                    } completion:^(BOOL finished) {
-                        [UIView animateWithDuration:0.5 animations:^{
-                            weakSelf.animaView.alpha = 0;
-                        } completion:^(BOOL finished) {
-                            [weakSelf closeAction];
-                        }];
-                    }];
-                });
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [UIView animateWithDuration:0.5 animations:^{
+//                        weakSelf.animaView.alpha = 1;
+//                    } completion:^(BOOL finished) {
+//                        [UIView animateWithDuration:0.5 animations:^{
+//                            weakSelf.animaView.alpha = 0;
+//                        } completion:^(BOOL finished) {
+//                            [weakSelf closeAction];
+//                        }];
+//                    }];
+//                });
                 [self singleActionSuccess:true];
                 break;
             }
@@ -178,8 +176,8 @@
                 break;
             case DetectRemindCodeTimeout: {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"remind" message:@"超时" preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction* action = [UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"remind" message:@"over time" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* action = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                         NSLog(@"知道啦");
                     }];
                     [alert addAction:action];
@@ -191,19 +189,33 @@
                 break;
             }
             case DetectRemindCodeConditionMeet: {
-                self.circleView.conditionStatusFit = true;
+                self.circleView.conditionStatusFit = false;
             }
                 break;
             default:
                 break;
         }
-        if (remindCode == DetectRemindCodeConditionMeet || remindCode == DetectRemindCodeOK) {
-            self.circleView.conditionStatusFit = true;
+        if (remindCode == DetectRemindCodeOK) {
+//            self.circleView.detectCompelet = true;
         }else {
             self.circleView.conditionStatusFit = false;
         }
     }];
 }
+
+- (void)uploadDetectBestImage:(UIImage *)image{
+    
+    [self processingStatue];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (self.successBlock) {
+              self.successBlock();
+        }
+    });
+    
+
+}
+
 
 - (void)dealloc
 {

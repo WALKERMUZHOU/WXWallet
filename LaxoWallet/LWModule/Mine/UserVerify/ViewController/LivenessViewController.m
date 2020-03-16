@@ -75,6 +75,7 @@
                     UIImage* bestImage = [UIImage imageWithData:data];
                     NSLog(@"bestImage = %@",bestImage);
                     [imageArray addObj:bestImage];
+                    [self verfiyImage:bestImage];
                 }
                 if (images[@"liveEye"] != nil) {
                     NSData* data = [[NSData alloc] initWithBase64EncodedString:images[@"liveEye"] options:NSDataBase64DecodingIgnoreUnknownCharacters];
@@ -278,11 +279,48 @@
     }];
 }
 
+- (void)verfiyImage:(UIImage *)image{
+    [self.circleView setDetectCompelet:YES];
+    [self processingStatue];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self verifySuccss];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self verifyFail];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                [self reFace];
+//                [[IDLFaceLivenessManager sharedInstance] livenesswithList:_livenessArray order:_order numberOfLiveness:_numberOfLiveness];
+                
+            });
+        });
+    });
+    
+}
+
+- (void)verifyFail{
+    self.circleView.livenessFail = YES;
+    self.circleView.livenessCompelet = NO;
+    [self.circleView setNeedsDisplay];
+    [self failStatue];
+}
+
+- (void)verifySuccss{
+    self.circleView.livenessFail = NO;
+    self.circleView.livenessCompelet = YES;
+    [self.circleView setNeedsDisplay];
+    [self completeSuccessStatue];
+
+}
+
 - (void)warningStatus:(WarningStatus)status warning:(NSString *)warning conditionMeet:(BOOL)meet
 {
     [self warningStatus:status warning:warning];
     self.circleView.conditionStatusFit = meet;
 }
+
+
+
 
 - (void)dealloc
 {

@@ -67,14 +67,14 @@
     }
     [LWPublicManager getInitData];
     
-    [[PublicKeyView shareInstance] getInitDataBlock:^(NSDictionary * _Nonnull dicData) {
-        if (dicData) {
-            [[NSUserDefaults standardUserDefaults] setObject:dicData forKey:kAppPubkeyManager_userdefault];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }else{
-            [self initPubKey];
-        }
-    }];
+//    [[PublicKeyView shareInstance] getInitDataBlock:^(NSDictionary * _Nonnull dicData) {
+//        if (dicData) {
+//            [[NSUserDefaults standardUserDefaults] setObject:dicData forKey:kAppPubkeyManager_userdefault];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
+//        }else{
+//            [self initPubKey];
+//        }
+//    }];
 }
 
 - (void)bottomClick:(UIButton *)sender{

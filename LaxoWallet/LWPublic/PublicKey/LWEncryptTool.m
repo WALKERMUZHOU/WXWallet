@@ -105,6 +105,7 @@ NSString *iv = @"30303030303030303030303030303030";
     NSData *ivData = [NSData hexStringToData:iv];
     
     NSData *decryptData = [message_data aes256DecryptWithkey:key_data iv:ivData];
+    NSString *data_hex = [decryptData hexString];
     NSString *data_str = [[NSString alloc] initWithData:decryptData encoding:NSUTF8StringEncoding];
     return data_str;
 }

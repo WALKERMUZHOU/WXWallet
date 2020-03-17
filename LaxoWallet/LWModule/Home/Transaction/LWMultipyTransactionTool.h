@@ -10,12 +10,15 @@
 #import "LWTansactionTool.h"
 
 NS_ASSUME_NONNULL_BEGIN
+typedef void(^MultipyTransactionBlock)(NSDictionary *transInfo);
 
 @interface LWMultipyTransactionTool : NSObject
 
 + (LWMultipyTransactionTool *)shareInstance;
 
 - (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model;
+
+@property (nonatomic, copy) MultipyTransactionBlock block;
 
 @end
 

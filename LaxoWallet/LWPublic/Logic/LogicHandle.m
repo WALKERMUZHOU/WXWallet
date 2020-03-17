@@ -101,14 +101,14 @@
 }
           
 + (void)showLoginVC{
-    LWLoginViewController *loginVC = [[LWLoginViewController alloc]init];
-    AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    appdelete.window.rootViewController = [[LWNavigationViewController alloc] initWithRootViewController:loginVC];
-    
-//    
-//    LWLoginController *loginVC = [[LWLoginController alloc]init];
+//    LWLoginViewController *loginVC = [[LWLoginViewController alloc]init];
 //    AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//    appdelete.window.rootViewController =loginVC;
+//    appdelete.window.rootViewController = [[LWNavigationViewController alloc] initWithRootViewController:loginVC];
+    
+    
+    LWLoginController *loginVC = [[LWLoginController alloc]init];
+    AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appdelete.window.rootViewController =loginVC;
 }
 
 + (void)showTabbarVC{

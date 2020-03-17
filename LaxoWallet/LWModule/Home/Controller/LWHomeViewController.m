@@ -21,7 +21,9 @@
 #import "LWMultipyAdressTool.h"
 #import "LWMultipySignTool.h"
 
-@interface LWHomeViewController ()
+@interface LWHomeViewController (){
+    NSOperationQueue * queue;
+}
 
 @property (nonatomic, strong) LWHomeListView *listView;
 
@@ -33,42 +35,6 @@
     [super viewDidLoad];
     [self createUI];
     [self getprikey];
-//    [[LWMultipySignTool alloc] init];
-//    [[LWMultipySignTool alloc]initWithInitInfo:nil];
-    NSString *secret_char = @"93d81d5c11f3d4f7bd592ad87aa0e7735f6bce69a9c13d4bde652e7b0d6cb822";
-    NSString *key_share = @"065CD0AB6B8BB5D3AB30E854BF132A6A874446546EE3B89D7BF41350DE8678FE3D1FA9017F411F16B2D346F863E4390C492FC84469A3D39642E48D0BEB9F376004755C35D8B046D696359CA944995F4E";
-
-//   NSString *share = [LWEncryptTool decryptwithTheKey:secret_char message:key_share andHex:1];
-//
-//      CALayer *layeraaa = [CALayer layer];
-//        layeraaa.frame = self.view.bounds;
-//        layeraaa.backgroundColor = [UIColor blueColor].CGColor;
-//        [self.view.layer addSublayer:layeraaa];
-//
-//    //创建圆环
-//        UIBezierPath *bezierPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(200, 200) radius:150 startAngle:0 endAngle:M_PI clockwise:YES];
-//    //圆环遮罩
-//        CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-//        shapeLayer.fillColor = [UIColor clearColor].CGColor;
-//        shapeLayer.strokeColor = [UIColor whiteColor].CGColor;
-//        shapeLayer.lineWidth = 10;
-//        shapeLayer.strokeStart = 0;
-//        shapeLayer.strokeEnd = 1;
-//        shapeLayer.lineCap = kCALineCapRound;
-//        shapeLayer.lineDashPhase = 0.8;
-//        shapeLayer.path = bezierPath.CGPath;
-//        [layeraaa setMask:shapeLayer];
-//
-//        CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-//        rotationAnimation.fromValue = [NSNumber numberWithFloat:0];
-//        rotationAnimation.toValue = [NSNumber numberWithFloat:2.0*M_PI];
-//        rotationAnimation.repeatCount = MAXFLOAT;
-//        rotationAnimation.duration = 1;
-//        rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//        rotationAnimation.fillMode = kCAFillModeForwards;
-//        [layeraaa addAnimation:rotationAnimation forKey:@"rotation"];
-    
-    
 }
 
 - (void)createUI{
@@ -182,7 +148,19 @@
             
         }else if ([firstObj isEqualToString:@"sign"]){//多方签名
             NSArray *dataArray = [responseArray objectAtIndex:1];
-            [[LWMultipySignTool alloc] initWithInitInfo:dataArray];
+
+            [self manageSignInfo:dataArray];
+            
+//            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//                NSArray *dataArray = [responseArray objectAtIndex:1];
+//                self->signSemphore = dispatch_semaphore_create(0);
+//                LWMultipySignTool *signTool = [[LWMultipySignTool alloc] initWithInitInfo:dataArray];
+//                signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
+//                      dispatch_semaphore_signal(self->signSemphore);
+//                };
+//                dispatch_semaphore_wait(self->signSemphore, DISPATCH_TIME_FOREVER);
+//            });
+  
             
             
         }else if ([firstObj isEqualToString:@"OK"]){
@@ -213,6 +191,18 @@
 - (void)SRWebSocketDidColose:(NSNotification *)note{
     NSLog(@"wscolose");
 }
+
+- (void)manageSignInfo:(NSArray *)signArray{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        dispatch_semaphore_t signSemphore = dispatch_semaphore_create(0);
+        LWMultipySignTool *signTool = [[LWMultipySignTool alloc] initWithInitInfo:signArray];
+        signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
+              dispatch_semaphore_signal(signSemphore);
+        };
+        dispatch_semaphore_wait(signSemphore, DISPATCH_TIME_FOREVER);
+    });
+}
+
 
 - (void)manageData:(NSArray *)responseArray{
     NSInteger requestId = [[responseArray objectAtIndex:1] integerValue];
@@ -293,6 +283,30 @@
                 [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipyUnSignTrans object:responseArray[2]];
             }
+            break;
+            /*#define kWebScoket_MultipySignBroadcast     @"kWebScoket_MultipySignBoardcast"
+            #define kWebScoket_MultipyAddressBroadcast  @"kWebScoket_MultipyAddressBroadcast"
+            #define kWebScoket_MultipySignPollBroadcast @"kWebScoket_MultipySignPollBroadcast"
+            #define kWebScoket_MultipyAddressPollBroadcast       @"kWebScoket_MultipyAddressPollBroadcast"*/
+        case WSRequestId_multipy_broadcast_sig:{
+                [SVProgressHUD dismiss];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyBroadcast_sig object:responseArray[2]];
+            }
+                  break;
+        case WSRequestId_multipy_pollBroadcast_sig:{
+                [SVProgressHUD dismiss];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyPollBroadcast_sig object:responseArray[2]];
+            }
+                  break;
+        case WSRequestId_multipy_broadcast_address:{
+                [SVProgressHUD dismiss];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyBroadcast_address object:responseArray[2]];
+            }
+                  break;
+        case WSRequestId_multipy_pollBroadcast_address:{
+                [SVProgressHUD dismiss];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyPollBroadcast_address object:responseArray[2]];
+            }
                   break;
          default:{
              NSString *idString = [NSString stringWithFormat:@"%ld",(long)requestId];
@@ -302,6 +316,15 @@
                      NSMutableDictionary *mutableDic = [NSMutableDictionary dictionaryWithDictionary:responseArray[2]];
                      [mutableDic setObj:@(requestId) forKey:@"uid"];
                      [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_userIsOnLine object:mutableDic];
+                 }else if ([firstPart isEqualToString:@"30000"]){
+                     [SVProgressHUD dismiss];
+                       [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyBroadcast_sig object:responseArray];
+                 }else if ([firstPart isEqualToString:@"31000"]){
+                     [SVProgressHUD dismiss];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyPollBroadcast_sig object:responseArray];
+                 }else if ([firstPart isEqualToString:@"32000"]){
+                     [SVProgressHUD dismiss];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipySubmitSig object:responseArray];
                  }
              }
              

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E07FD112420B60600FA3E1F /* LWLoginStepSixView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD102420B60600FA3E1F /* LWLoginStepSixView.m */; };
+		5E07FD132420B61300FA3E1F /* LWLoginStepSixView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD122420B61300FA3E1F /* LWLoginStepSixView.xib */; };
+		5E07FD162420B87300FA3E1F /* LWLoginStepSevenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD152420B87300FA3E1F /* LWLoginStepSevenView.m */; };
+		5E07FD182420B88A00FA3E1F /* LWLoginStepSevenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD172420B88A00FA3E1F /* LWLoginStepSevenView.xib */; };
+		5E07FD1B2420BA4000FA3E1F /* LWLoginStepEightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD1A2420BA4000FA3E1F /* LWLoginStepEightView.m */; };
+		5E07FD1D2420BA4800FA3E1F /* LWLoginStepEightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD1C2420BA4800FA3E1F /* LWLoginStepEightView.xib */; };
+		5E07FD202420BBD100FA3E1F /* LWLoginStepSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD1F2420BBD100FA3E1F /* LWLoginStepSuccessView.m */; };
+		5E07FD222420BC0D00FA3E1F /* LWLoginStepSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD212420BC0D00FA3E1F /* LWLoginStepSuccessView.xib */; };
 		5E0FE6962408E72D00733B05 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE6952408E72D00733B05 /* index.js */; };
 		5E23584823FBE09D00A7D774 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584423FBE09C00A7D774 /* index.html */; };
 		5E23584E23FD0D0600A7D774 /* LWutxoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E23584D23FD0D0600A7D774 /* LWutxoModel.m */; };
@@ -273,6 +281,18 @@
 /* Begin PBXFileReference section */
 		188A899FDE346915C2A47241 /* Pods-LaxoWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaxoWallet.debug.xcconfig"; path = "Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		25333CCFD54DFB01F4502BBC /* Pods-LaxoWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaxoWallet.release.xcconfig"; path = "Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet.release.xcconfig"; sourceTree = "<group>"; };
+		5E07FD0F2420B60600FA3E1F /* LWLoginStepSixView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepSixView.h; sourceTree = "<group>"; };
+		5E07FD102420B60600FA3E1F /* LWLoginStepSixView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepSixView.m; sourceTree = "<group>"; };
+		5E07FD122420B61300FA3E1F /* LWLoginStepSixView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepSixView.xib; sourceTree = "<group>"; };
+		5E07FD142420B87300FA3E1F /* LWLoginStepSevenView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepSevenView.h; sourceTree = "<group>"; };
+		5E07FD152420B87300FA3E1F /* LWLoginStepSevenView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepSevenView.m; sourceTree = "<group>"; };
+		5E07FD172420B88A00FA3E1F /* LWLoginStepSevenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepSevenView.xib; sourceTree = "<group>"; };
+		5E07FD192420BA4000FA3E1F /* LWLoginStepEightView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepEightView.h; sourceTree = "<group>"; };
+		5E07FD1A2420BA4000FA3E1F /* LWLoginStepEightView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepEightView.m; sourceTree = "<group>"; };
+		5E07FD1C2420BA4800FA3E1F /* LWLoginStepEightView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepEightView.xib; sourceTree = "<group>"; };
+		5E07FD1E2420BBD100FA3E1F /* LWLoginStepSuccessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepSuccessView.h; sourceTree = "<group>"; };
+		5E07FD1F2420BBD100FA3E1F /* LWLoginStepSuccessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepSuccessView.m; sourceTree = "<group>"; };
+		5E07FD212420BC0D00FA3E1F /* LWLoginStepSuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepSuccessView.xib; sourceTree = "<group>"; };
 		5E0FE6952408E72D00733B05 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		5E23584423FBE09C00A7D774 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		5E23584C23FD0D0600A7D774 /* LWutxoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWutxoModel.h; sourceTree = "<group>"; };
@@ -820,6 +840,18 @@
 				5E9918B2241E70C6005D6A38 /* LWLoginStepFiveView.h */,
 				5E9918B3241E70C6005D6A38 /* LWLoginStepFiveView.m */,
 				5E9918B5241E70D3005D6A38 /* LWLoginStepFiveView.xib */,
+				5E07FD0F2420B60600FA3E1F /* LWLoginStepSixView.h */,
+				5E07FD102420B60600FA3E1F /* LWLoginStepSixView.m */,
+				5E07FD122420B61300FA3E1F /* LWLoginStepSixView.xib */,
+				5E07FD142420B87300FA3E1F /* LWLoginStepSevenView.h */,
+				5E07FD152420B87300FA3E1F /* LWLoginStepSevenView.m */,
+				5E07FD172420B88A00FA3E1F /* LWLoginStepSevenView.xib */,
+				5E07FD192420BA4000FA3E1F /* LWLoginStepEightView.h */,
+				5E07FD1A2420BA4000FA3E1F /* LWLoginStepEightView.m */,
+				5E07FD1C2420BA4800FA3E1F /* LWLoginStepEightView.xib */,
+				5E07FD1E2420BBD100FA3E1F /* LWLoginStepSuccessView.h */,
+				5E07FD1F2420BBD100FA3E1F /* LWLoginStepSuccessView.m */,
+				5E07FD212420BC0D00FA3E1F /* LWLoginStepSuccessView.xib */,
 			);
 			path = new;
 			sourceTree = "<group>";
@@ -2232,6 +2264,8 @@
 				5E317A7E241E55F700C951B2 /* LWLoginController.xib in Resources */,
 				5E9172CA2416284B00D47A9F /* LWHomeListHeaderView.xib in Resources */,
 				5E23584823FBE09D00A7D774 /* index.html in Resources */,
+				5E07FD132420B61300FA3E1F /* LWLoginStepSixView.xib in Resources */,
+				5E07FD182420B88A00FA3E1F /* LWLoginStepSevenView.xib in Resources */,
 				5EB31EA72405182800974FD4 /* LWMessageTableViewCell.xib in Resources */,
 				5E66A34623EAB58C004097CB /* WMHUDUntil.bundle in Resources */,
 				5E9918A7241E6074005D6A38 /* LWLoginStepTwoView.xib in Resources */,
@@ -2245,10 +2279,12 @@
 				5E9918B1241E68A9005D6A38 /* LWLoginStepFourView.xib in Resources */,
 				5EB31E8724041CAF00974FD4 /* LWMineSecurityTableViewCell.xib in Resources */,
 				5E0FE6962408E72D00733B05 /* index.js in Resources */,
+				5E07FD222420BC0D00FA3E1F /* LWLoginStepSuccessView.xib in Resources */,
 				EFEBEEA523FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib in Resources */,
 				5E2358632403F3E400A7D774 /* LWMineTableViewCell.xib in Resources */,
 				5E5F130223EDD97F002F0711 /* PageController.bundle in Resources */,
 				5EF5132E23F1072900F5B6C1 /* turbo.js in Resources */,
+				5E07FD1D2420BA4800FA3E1F /* LWLoginStepEightView.xib in Resources */,
 				5E5F12D523ED8BC3002F0711 /* LWRecoveryFileView.xib in Resources */,
 				5E5F129A23EC0E12002F0711 /* WMZDialog.bundle in Resources */,
 				5E9918AC241E6402005D6A38 /* LWLoginStepThreeView.xib in Resources */,
@@ -2394,6 +2430,7 @@
 				5EB31E7F24041C0400974FD4 /* LWMineSecurityViewController.m in Sources */,
 				5E5F12A323EC0E12002F0711 /* WMZDialog+Advertisement.m in Sources */,
 				5EF513DC23F550F200F5B6C1 /* CZRefreshHeader.m in Sources */,
+				5E07FD1B2420BA4000FA3E1F /* LWLoginStepEightView.m in Sources */,
 				5E5F128C23EC0E12002F0711 /* WMZDialog+NaviMenu.m in Sources */,
 				EFEBEEA423FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m in Sources */,
 				5E5F129F23EC0E12002F0711 /* NSDate+WMZCalendarDate.m in Sources */,
@@ -2491,6 +2528,7 @@
 				5EF5138B23F2CAD000F5B6C1 /* PublicKeyView.m in Sources */,
 				5EF5136A23F1811B00F5B6C1 /* LBXPermission.m in Sources */,
 				5E66A3A423EAFF14004097CB /* LWHomeListHeaderView.m in Sources */,
+				5E07FD112420B60600FA3E1F /* LWLoginStepSixView.m in Sources */,
 				5EB31E992404BC9800974FD4 /* LWTextViewAlertView.m in Sources */,
 				5E66A36123EAC379004097CB /* JTNavigationController.m in Sources */,
 				5E5F12A623EC0E12002F0711 /* WMZDialog.m in Sources */,
@@ -2504,6 +2542,7 @@
 				5E9918B4241E70C6005D6A38 /* LWLoginStepFiveView.m in Sources */,
 				5E5F129423EC0E12002F0711 /* WMZDialog+Pay.m in Sources */,
 				5E5F129923EC0E12002F0711 /* WMZDialog+CardPresent.m in Sources */,
+				5E07FD162420B87300FA3E1F /* LWLoginStepSevenView.m in Sources */,
 				EFEBEEA823FE57C0006D4B5F /* LWBottomLineInputTextField.m in Sources */,
 				5E66A3CE23EBFAA2004097CB /* UIImage+ImageEffects.m in Sources */,
 				5EF5133923F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.m in Sources */,
@@ -2512,6 +2551,7 @@
 				5EC1A933240CECF00086ED19 /* LWAddressTool.m in Sources */,
 				5EB31E8D240424E500974FD4 /* LWPublicManager.m in Sources */,
 				5EF5139F23F3D93800F5B6C1 /* LWRecoveryTrustholdViewController.m in Sources */,
+				5E07FD202420BBD100FA3E1F /* LWLoginStepSuccessView.m in Sources */,
 				5EA8079D23E94E2100012837 /* SceneDelegate.m in Sources */,
 				5EB31EB624060D5500974FD4 /* LWMessageImageTitleButton.m in Sources */,
 				5EF5139323F3AB4100F5B6C1 /* PubkeyManager.m in Sources */,

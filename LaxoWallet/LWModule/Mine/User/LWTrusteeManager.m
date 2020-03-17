@@ -82,7 +82,6 @@ static LWTrusteeManager *instance = nil;
 
 - (NSArray<LWTrusteeModel *> *)getTrusteeArray{
     NSArray *trusteeArr = [self trusteeInfoUnArchieve];
-    
     return [NSArray modelArrayWithClass:[LWTrusteeModel class] json:trusteeArr];
 }
 

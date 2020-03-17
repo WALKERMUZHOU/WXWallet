@@ -47,9 +47,14 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestIdWalletQueryGetKeyShare            = 10015,//获取签名前自己的share
     WSRequestIdWalletQueryBroadcastTrans         = 10016,//转账transfer
     
-    WSRequestIdWalletQueryMultipyAddress          = 10017,//多人钱包收款地址
-    WSRequestIdWalletQueryBroadcastUnSignTrans         = 10018,//多人转账未签名
+    WSRequestIdWalletQueryMultipyAddress         = 10017,//多人钱包收款地址
+    WSRequestIdWalletQueryBroadcastUnSignTrans   = 10018,//多人转账未签名
+    WSRequestIdWalletQuerySubmitSig              = 10019,//多人转账submit sig
 
+    WSRequestId_multipy_broadcast_sig            = 10020,//多人钱包broadcast
+    WSRequestId_multipy_pollBroadcast_sig        = 10021,//多人钱包pollbroadcast
+    WSRequestId_multipy_broadcast_address        = 10022,//多人钱包broadcast
+    WSRequestId_multipy_pollBroadcast_address    = 10023,//多人钱包pollbroadcast
 
 };
 

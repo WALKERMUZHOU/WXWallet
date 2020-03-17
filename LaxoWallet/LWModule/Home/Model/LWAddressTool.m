@@ -267,7 +267,6 @@ static LWAddressTool *instance = nil;
             for (NSInteger j = 0; j<poll_for_p2p_Array.count; j++) {
                 NSString *decryptStr_temp = [LWEncryptTool decryptwithKey_tss:secrets[j] message:poll_for_p2p_Array[j] andHex:1];
                 [poll_for_p2p_Array_decrypt addObj:decryptStr_temp];
-
             }
             
             

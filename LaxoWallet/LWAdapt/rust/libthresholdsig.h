@@ -29,7 +29,7 @@ char *create_key(const char *pk,
                  uint8_t threshold,
                  const char *p,
                  const char *q);
-//secret//通过path生成 count 所有参与者个数 threshold 偶数+1
+
 char *create_multi_key(uint8_t ordinal, const char *secret, uint8_t count, uint8_t threshold);
 
 char *create_multi_sign(const char *share_key,
@@ -139,6 +139,8 @@ char *set_transaction_feerate(const char *id, uint16_t fee);
 
 char *sha256(const char *message_hex);
 
+char *sign_data(const char *data);
+
 char *sign_handle_round(const char *key, uint8_t round, const char *data);
 
 char *str2hex(const char *str);
@@ -157,3 +159,5 @@ char *update_commitments_to_xi(const char *com,
 char *verify_dlog_proofs(const char *params, const char *dlog_proof, const char *y_vec);
 
 char *verify_proofs_get_alpha(const char *p, const char *q, const char *k_i, const char *m_b);
+
+char *verify_sig(const char *message_hash, const char *pubkey, const char *r, const char *s);

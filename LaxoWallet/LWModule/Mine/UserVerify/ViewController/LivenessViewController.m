@@ -8,6 +8,9 @@
 
 #import "LivenessViewController.h"
 #import <IDLFaceSDK/IDLFaceSDK.h>
+#import "libthresholdsig.h"
+#import "LWAddressTool.h"
+#import "LWLoginCoordinator.h"
 
 @interface LivenessViewController ()
 {
@@ -22,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [IDLFaceLivenessManager sharedInstance].enableSound = NO;
 
 
 }
@@ -29,6 +33,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[IDLFaceLivenessManager sharedInstance] startInitial];
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -75,7 +80,7 @@
                     UIImage* bestImage = [UIImage imageWithData:data];
                     NSLog(@"bestImage = %@",bestImage);
                     [imageArray addObj:bestImage];
-                    [self verfiyImage:bestImage];
+                    [self verfiyImage:[images[@"bestImage"] lastObject] ];
                 }
                 if (images[@"liveEye"] != nil) {
                     NSData* data = [[NSData alloc] initWithBase64EncodedString:images[@"liveEye"] options:NSDataBase64DecodingIgnoreUnknownCharacters];
@@ -119,12 +124,10 @@
                     [imageArray addObj:pitchDown];
 
                 }
-                if (self.imageBlock) {
-                    self.imageBlock(imageArray);
-                }
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [weakSelf closeAction];
-                });
+
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [weakSelf closeAction];
+//                });
                 self.circleView.conditionStatusFit = true;
                 [self singleActionSuccess:true];
                 break;
@@ -279,22 +282,27 @@
     }];
 }
 
-- (void)verfiyImage:(UIImage *)image{
+- (void)verfiyImage:(NSString *)image{
     [self.circleView setDetectCompelet:YES];
     [self processingStatue];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [self verifySuccss];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self verifyFail];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                [self reFace];
-//                [[IDLFaceLivenessManager sharedInstance] livenesswithList:_livenessArray order:_order numberOfLiveness:_numberOfLiveness];
-                
-            });
-        });
-    });
+
+    NSString *token = [[LWUserManager shareInstance] getUserModel].login_token;
+    NSString *imagedata = image;
+    NSString *imagename = @"imageName.png";
+    char *sig_data =  sign_data([LWAddressTool stringToChar:image]);
+    NSString *imagesig = [LWAddressTool charToString:sig_data];
+
+    [LWLoginCoordinator checkUserFaceWithParams:@{@"token":token,@"imgdata":imagedata,@"imgname":imagename,@"sig":imagesig} WithSuccessBlock:^(id  _Nonnull data) {
+
+        if (self.livenessBlock) {
+            self.livenessBlock([data objectForKey:@"face_token"]);
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
+
+    } WithFailBlock:^(id  _Nonnull data) {
+        [WMHUDUntil showMessageToWindow:@"error"];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
     
 }
 
@@ -318,9 +326,6 @@
     [self warningStatus:status warning:warning];
     self.circleView.conditionStatusFit = meet;
 }
-
-
-
 
 - (void)dealloc
 {

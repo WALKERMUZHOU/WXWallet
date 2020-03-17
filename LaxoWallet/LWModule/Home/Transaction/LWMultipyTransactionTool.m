@@ -173,6 +173,9 @@ static LWMultipyTransactionTool *instance = nil;
         NSDictionary *notiDic = notification.object;
         NSLog(@"broadcastNotificationSuccess");
         if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+            if (self.block) {
+                self.block([notiDic objectForKey:@"data"]);
+            }
     //        if (self.transactionBlock) {
     //            self.transactionBlock(YES);
     //        }

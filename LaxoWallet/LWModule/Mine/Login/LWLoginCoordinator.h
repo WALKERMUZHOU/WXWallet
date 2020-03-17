@@ -28,6 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)registerUserWithEmail:(NSString *)email WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
 + (void)registerUserWithParams:(NSDictionary *)params WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
 
++ (void)registerUserFaceWithParams:(NSDictionary *)params WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
+
++ (void)checkUserFaceWithParams:(NSDictionary *)params WithSuccessBlock:(void(^)(id data))successBlock WithFailBlock:(void(^)(id data))FailBlock;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

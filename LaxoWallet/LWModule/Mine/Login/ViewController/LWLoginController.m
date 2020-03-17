@@ -12,17 +12,31 @@
 #import "LWLoginStepThreeView.h"
 #import "LWLoginStepFourView.h"
 #import "LWLoginStepFiveView.h"
-#import "LWLoginCoordinator.h"
+#import "LWLoginStepSixView.h"
+#import "LWLoginStepSevenView.h"
+#import "LWLoginStepEightView.h"
+#import "LWLoginStepSuccessView.h"
 
+#import "LWLoginCoordinator.h"
 
 #import "libthresholdsig.h"
 #import "LWAddressTool.h"
 
-@interface LWLoginController ()
+#import "LivenessViewController.h"
+#import "DetectionViewController.h"
+#import "LivingConfigModel.h"
+#import "IDLFaceSDK/IDLFaceSDK.h"
+#import "FaceParameterConfig.h"
+#import "LWCommonBottomBtn.h"
+
+#import "QQLBXScanViewController.h"
+#import "LBXPermission.h"
+
+@interface LWLoginController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *scrollBackView;
 @property (strong, nonatomic) UIScrollView *scrollView;
-
 @property (nonatomic, strong) NSString *emailStr;
+@property (nonatomic, strong) NSString *recoverProcess;
 
 @end
 
@@ -31,14 +45,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
     [self createUI];
+    [[LWUserManager shareInstance] clearUser];
 }
-
 
 - (void)createUI{
     self.view.backgroundColor = [UIColor whiteColor];
-    
     
     _scrollView = [[UIScrollView alloc]initWithFrame:self.scrollBackView.bounds];
     _scrollView.showsVerticalScrollIndicator = NO;
@@ -46,7 +58,7 @@
     _scrollView.scrollsToTop = NO;
     _scrollView.backgroundColor = [UIColor whiteColor];
     _scrollView.scrollEnabled = NO;
-    _scrollView.contentSize= CGSizeMake(kScreenWidth * 5, self.scrollBackView.kheight);
+    _scrollView.contentSize= CGSizeMake(kScreenWidth * 8, self.scrollBackView.kheight);
     [self.scrollBackView addSubview:_scrollView];
     
     LWLoginStepOneView *viewOne = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepOneView class]) owner:nil options:nil].lastObject;
@@ -72,36 +84,81 @@
 //
     LWLoginStepFourView *view4 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepFourView class]) owner:nil options:nil].lastObject;
     view4.frame = CGRectMake(kScreenWidth * 3, 0, kScreenWidth,self.scrollBackView.kheight);
+    view4.block = ^(NSString * _Nonnull type) {
+        self.recoverProcess = type;
+        [self registerMethod];
+    };
+    
     [self.scrollView addSubview:view4];
 
     LWLoginStepFiveView *view5 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepFiveView class]) owner:nil options:nil].lastObject;
     view5.frame = CGRectMake(kScreenWidth * 4, 0, kScreenWidth,self.scrollBackView.kheight);
+    view5.block = ^{
+        LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
+        if (!userModel.face_enable || userModel.face_enable == 0) {
+             //跳转至人脸识别,绑定人脸
+            [self bottom1Click];
+         }else{
+             [self bottom2Click];
+             //恢复页面
+         }
+    };
     [self.scrollView addSubview:view5];
     
+    LWLoginStepSixView *view6 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepSixView class]) owner:nil options:nil].lastObject;
+    view6.frame = CGRectMake(kScreenWidth * 5, 0, kScreenWidth,self.scrollBackView.kheight);
+    view6.sixBlock = ^(NSInteger index) {
+        if (index == 1) {//二维码恢复
+            [self.scrollView setContentOffset:CGPointMake(kScreenWidth *7, 0) animated:YES];
+        }else if(index == 2){//短信验证码恢复
+            [self getRecoverEmailCodeClick:[[LWUserManager shareInstance]getUserModel].email ];
+        }
+    };
+    [self.scrollView addSubview:view6];
+    
+    LWLoginStepSevenView *view7 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepSevenView class]) owner:nil options:nil].lastObject;
+    view7.frame = CGRectMake(kScreenWidth * 6, 0, kScreenWidth,self.scrollBackView.kheight);
+    view7.sevenBlock = ^(NSString * _Nonnull msgCode) {
+        [self thrustholdsrecover:msgCode];
+    };
+    [self.scrollView addSubview:view7];
+    
+    LWLoginStepEightView *view8 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepEightView class]) owner:nil options:nil].lastObject;
+     view8.frame = CGRectMake(kScreenWidth * 7, 0, kScreenWidth,self.scrollBackView.kheight);
+    view8.block = ^(NSInteger index) {
+        if (index == 1) {
+            [self jumpToScanPermission];
+        }else if (index == 2){
+            [self qrcodeRecover];
+        }else if (index == 3){
+            [self getRecoverEmailCodeClick:[[LWUserManager shareInstance] getUserModel].email];
+        }
+    };
+     [self.scrollView addSubview:view8];
+    
+    LWLoginStepSuccessView *view9 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepSuccessView class]) owner:nil options:nil].lastObject;
+     view9.frame = CGRectMake(kScreenWidth * 8, 0, kScreenWidth,self.scrollBackView.kheight);
+     [self.scrollView addSubview:view9];
+    
+//    [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 7, 0)];
 }
 
-#pragma mark - method
+#pragma mark - requetmethod
 - (void)verifyEmail:(NSString *)email{
-    [self.scrollView setContentOffset:CGPointMake(kScreenWidth *2, 0) animated:YES];
-    return;
+
     [SVProgressHUD show];
      NSString *emailStr = email;
      [LWLoginCoordinator getSMSCodeWithEmail:emailStr WithSuccessBlock:^(id  _Nonnull data) {
          [SVProgressHUD dismiss];
-         [WMHUDUntil showMessageToWindow:@"验证码发送成功"];
          [self.scrollView setContentOffset:CGPointMake(kScreenWidth *2, 0) animated:YES];
          self.emailStr = email;
      } WithFailBlock:^(id  _Nonnull data) {
          [SVProgressHUD dismiss];
          [WMHUDUntil showMessageToWindow:@"获取验证码失败"];
      }];
-    
-    
 }
 
 - (void)verifyCode:(NSString *)code{
-    [self.scrollView setContentOffset:CGPointMake(kScreenWidth *3, 0) animated:YES];
-    return;
        [SVProgressHUD show];
        [LWLoginCoordinator verifyEmailCodeWithEmail:self.emailStr andCode:code WithSuccessBlock:^(id  _Nonnull data) {
            id dataID = [data objectForKey:@"data"];
@@ -115,13 +172,13 @@
     
            NSDictionary *dataDic = (NSDictionary *)dataID;
            if(dataDic && dataDic.allKeys.count>0){
+               [SVProgressHUD dismiss];
                [[LWUserManager shareInstance] setUserDic:dataDic];
                [[LWUserManager shareInstance] setEmail:self.emailStr];
                if([[LWUserManager shareInstance] getUserModel].uid.length>0){//老用户
-                   [SVProgressHUD dismiss];
-                   
-
-               }else{
+                   [self.scrollView setContentOffset:CGPointMake(kScreenWidth *4, 0) animated:NO];
+               }else{//新用户
+                   //选择thrustholds
                    [self.scrollView setContentOffset:CGPointMake(kScreenWidth *3, 0) animated:YES];
                }
            }else{
@@ -137,12 +194,11 @@
     [SVProgressHUD show];
     [LWLoginCoordinator getSMSCodeWithEmail:email WithSuccessBlock:^(id  _Nonnull data) {
         [SVProgressHUD dismiss];
-        [WMHUDUntil showMessageToWindow:@"验证码发送成功"];
-//跳转至恢复二级页面
-
+//        [WMHUDUntil showMessageToWindow:@"验证码发送成功"];
+        [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 6, 0)];
     } WithFailBlock:^(id  _Nonnull data) {
         [SVProgressHUD dismiss];
-        [WMHUDUntil showMessageToWindow:@"获取验证码失败"];
+        [WMHUDUntil showMessageToWindow:@"get code fail"];
     }];
 }
 
@@ -256,6 +312,190 @@
     }];
 }
 
+#pragma mark - face
+- (void)bottom1Click{
+    if ([[FaceSDKManager sharedInstance] canWork]) {
+         NSString* licensePath = [[NSBundle mainBundle] pathForResource:FACE_LICENSE_NAME ofType:FACE_LICENSE_SUFFIX];
+         [[FaceSDKManager sharedInstance] setLicenseID:FACE_LICENSE_ID andLocalLicenceFile:licensePath];
+     }
+    
+     DetectionViewController* dvc = [[DetectionViewController alloc] init];
+     dvc.modalPresentationStyle = UIModalPresentationFullScreen;
+     [self presentViewController:dvc animated:YES completion:nil];
+    
+    dvc.successBlock = ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [dvc dismissViewControllerAnimated:YES completion:nil];
+            [self bottom2Click];
+        });
+    };
+}
+
+- (void)bottom2Click{
+     if ([[FaceSDKManager sharedInstance] canWork]) {
+         NSString* licensePath = [[NSBundle mainBundle] pathForResource:FACE_LICENSE_NAME ofType:FACE_LICENSE_SUFFIX];
+         [[FaceSDKManager sharedInstance] setLicenseID:FACE_LICENSE_ID andLocalLicenceFile:licensePath];
+     }
+     LivenessViewController* lvc = [[LivenessViewController alloc] init];
+     LivingConfigModel* model = [LivingConfigModel sharedInstance];
+     [lvc livenesswithList:model.liveActionArray order:model.isByOrder numberOfLiveness:model.numOfLiveness];
+    lvc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:lvc animated:YES completion:nil];
+    lvc.livenessBlock = ^(NSString *face_token) {
+        LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
+        userModel.face_token = face_token;
+        [[LWUserManager shareInstance] setUser:userModel];
+        [self.scrollView setContentOffset:CGPointMake(kScreenWidth *5, 0) animated:NO];
+    };
+}
+
+#pragma mark - thrustholds recover
+- (void)thrustholdsrecover:(NSString *)msgCode{
+    
+    NSArray *array = [[LWTrusteeManager shareInstance] getTrusteeArray];
+    NSMutableArray *seedDataArray = [NSMutableArray array];
+    [SVProgressHUD show];
+
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+
+        dispatch_semaphore_t signal = dispatch_semaphore_create(0);
+        for (NSInteger i = 0; i<array.count; i++) {
+            LWTrusteeModel *model = [array objectAtIndex:i];
+
+            [LWLoginCoordinator verifyRecoveryEmailCodeWithCode:msgCode andModel:model WithSuccessBlock:^(id  _Nonnull data) {
+                NSLog(@"data%@",[data objectForKey:@"data"]);
+                [seedDataArray addObject:[data objectForKey:@"data"]];
+                if (i == array.count - 1) {//最后一次 根据data 计算seed
+                    [self calculateSeed:seedDataArray];
+                }
+                dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
+
+            } WithFailBlock:^(id  _Nonnull data) {
+                dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
+            }];
+            dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+        }
+    });
+}
+
+- (void)calculateSeed:(NSArray *)dataArray{
+    NSString *prikey = [PubkeyManager getPrikey];
+    NSArray *array = [[LWTrusteeManager shareInstance] getTrusteeArray];
+
+    NSMutableArray *mutableDecripArr = [NSMutableArray array];
+    for (NSInteger i = 0; i<dataArray.count; i++) {
+        LWTrusteeModel *model = [array objectAtIndex:i];
+        NSString *pubkey = model.publicKey;
+        NSString *decryptData = [LWEncryptTool decryptWithPk:prikey pubkey:pubkey andMessage:dataArray[i]];
+        [mutableDecripArr addObject:decryptData];
+        if(i == dataArray.count-1){
+            [SVProgressHUD dismiss];
+            [self getRecoverData:mutableDecripArr];
+            NSLog(@"success:\n%@",mutableDecripArr);
+        }
+
+    }
+}
+
+- (void)getRecoverData:(NSArray *)array{
+    
+    LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
+    model.jiZhuCi = [LWPublicManager getRecoverJizhuciWithShares:array];
+    [[LWUserManager shareInstance] setUser:model];
+    [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 8, 0) animated:YES];
+
+}
+
+#pragma mark - qrcodeRecover
+- (void)qrcodeRecover{
+    __weak __typeof(self) weakSelf = self;
+    [LBXPermission authorizeWithType:LBXPermissionType_Photos completion:^(BOOL granted, BOOL firstTime) {
+        if (granted) {
+            [weakSelf openLocalPhoto:NO];
+        }
+        else if (!firstTime )
+        {
+            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"没有相册权限，是否前往设置" cancel:@"取消" setting:@"设置"];
+        }
+    }];
+}
+
+/*!
+ *  打开本地照片，选择图片识别
+ */
+- (void)openLocalPhoto:(BOOL)allowsEditing{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+    //部分机型有问题
+    picker.allowsEditing = allowsEditing;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+//当选择一张图片后进入这里
+-(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    __block UIImage* image = [info objectForKey:UIImagePickerControllerEditedImage];
+    if (!image){
+        image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    }
+    
+    [LBXZBarWrapper recognizeImage:image block:^(NSArray<LBXZbarResult *> *result) {
+        LBXZbarResult *firstObj = result[0];
+        NSString *scanedStr = firstObj.strScanned;
+        [self recoverWithScanedStr:scanedStr];
+    }];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    NSLog(@"cancel");
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)recoverWithScanedStr:(NSString *)scanStr{
+    [SVProgressHUD dismiss];
+
+    NSString *jizhuci = [LWEncryptTool decryptwithTheKey:[[[LWUserManager shareInstance] getUserModel].secret md5String]  message:scanStr andHex:0];
+    if (!jizhuci || jizhuci == nil || jizhuci.length == 0) {
+        [WMHUDUntil showMessageToWindow:@"QRCode Error"];
+    }else{
+        [[LWUserManager shareInstance] setJiZhuCi:jizhuci];
+        [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 8, 0) animated:NO];
+    }
+}
+
+#pragma mark qrscan
+- (void)jumpToScanPermission {
+    __weak __typeof(self) weakSelf = self;
+    [LBXPermission authorizeWithType:LBXPermissionType_Camera completion:^(BOOL granted, BOOL firstTime) {
+        if (granted) {
+            [weakSelf jumpToScan];
+        }
+        else if(!firstTime)
+        {
+            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"没有相机权限，是否前往设置" cancel:@"取消" setting:@"设置" ];
+        }
+    }];
+    
+
+}
+- (void)jumpToScan{
+    QQLBXScanViewController *vc = [QQLBXScanViewController new];
+    vc.libraryType = SLT_ZXing;
+    //       vc.scanCodeType = [Global sharedManager].scanCodeType;
+
+    vc.style = [QQLBXScanViewController qqStyle];
+    vc.scanresult = ^(LBXScanResult *result) {
+        NSString *qrcodel = result.strScanned;
+        [self recoverWithScanedStr:qrcodel];
+    };
+    //镜头拉远拉近功能
+    vc.isVideoZoom = YES;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:[[LWNavigationViewController alloc] initWithRootViewController:vc] animated:YES completion:nil];
+//    [LogicHandle pushViewController:vc];
+}
 
 /*
 #pragma mark - Navigation

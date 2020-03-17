@@ -31,6 +31,11 @@ static NSString * const Url_Login_requestRecoverCode = @"method=user.requestReco
 static NSString * const Url_Login_requestRecover = @"method=user.recover";// 恢复
 static NSString * const Url_Login_register = @"method=user.register";//注册
 
+static NSString * const Url_Login_registerFace = @"method=user.addFace";//
+static NSString * const Url_Login_checkFace = @"method=user.queryFace";//
+
+
+
 static NSString * const Url_Home_tokenPrice = @"method=wallet.tokenPrice";//获取实时价格
 static NSString * const Url_Home_SingleAddress = @"method=wallet.createSingleAddress";//获取个人收款地址
 
@@ -49,6 +54,7 @@ static NSString * const WS_Home_getMutipyAddress = @"wallet.createMultiPartyAddr
 ///多人收款地址
 static NSString * const WS_Home_multipyConfirmAdress = @"wallet.addShare";
 static NSString * const WS_Home_multipyUnSignTrans = @"wallet.createTransaction";
+static NSString * const WS_Home_multipySubmitSig = @"wallet.submitSig";
 
 //系统版本
 #define kSystemVersion [[UIDevice currentDevice]systemVersion].floatValue

@@ -13,8 +13,6 @@
 #import "LivingConfigModel.h"
 #import "IDLFaceSDK/IDLFaceSDK.h"
 #import "FaceParameterConfig.h"
-
-
 #import "LWCommonBottomBtn.h"
 
 @interface LWUserVefifyViewController ()
@@ -76,25 +74,6 @@
     lvc.modalPresentationStyle = UIModalPresentationFullScreen;
 
      [self presentViewController:lvc animated:YES completion:nil];
-    lvc.imageBlock = ^(NSArray *imageArray) {
-      
-        CGFloat imageWidth =( kScreenWidth - 40)/3;
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            for (NSInteger i = 0; i<imageArray.count; i++) {
-                UIImageView *imageView = [[UIImageView alloc] init];
-                imageView.image = imageArray[i];
-                imageView.contentMode = UIViewContentModeScaleAspectFit;
-                [self.view addSubview:imageView];
-                imageView.frame = CGRectMake(10 + (imageWidth + 10)*(i%3), 100 + (imageWidth + 10) * (i/3), imageWidth, imageWidth);
-            }
-        });
-
-        
-        
-    };
-
-        
 }
 
 /*

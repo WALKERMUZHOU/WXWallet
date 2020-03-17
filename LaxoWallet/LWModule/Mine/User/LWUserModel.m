@@ -16,7 +16,7 @@
 }
 
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic{
-    NSDictionary *tokenDic = [dic ds_dictionaryForKey:@"token"];
+//    NSDictionary *tokenDic = [dic ds_dictionaryForKey:@"token"];
 //    self.accessToken = [tokenDic ds_stringForKey:@"accessToken"];
 //    self.authType = [tokenDic ds_integerForKey:@"authType"];
 //    self.expires = [tokenDic ds_stringForKey:@"expires"];

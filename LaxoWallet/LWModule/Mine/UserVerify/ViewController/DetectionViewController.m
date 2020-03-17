@@ -12,6 +12,9 @@
 #import "LivenessViewController.h"
 
 #import "LivingConfigModel.h"
+#import "LWLoginCoordinator.h"
+#import "libthresholdsig.h"
+#import "LWAddressTool.h"
 
 @interface DetectionViewController ()
 {
@@ -24,7 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [IDLFaceDetectionManager sharedInstance].enableSound = NO;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -65,7 +69,8 @@
                 if (images[@"bestImage"] != nil && [images[@"bestImage"] count] != 0) {
                     NSData* data = [[NSData alloc] initWithBase64EncodedString:[images[@"bestImage"] lastObject] options:NSDataBase64DecodingIgnoreUnknownCharacters];
                     UIImage* bestImage = [UIImage imageWithData:data];
-                    [self uploadDetectBestImage:bestImage];
+                    
+                    [self uploadDetectBestImage:[images[@"bestImage"] lastObject]];
                     NSLog(@"bestImage = %@",bestImage);
                 }
 //                dispatch_async(dispatch_get_main_queue(), ^{
@@ -203,17 +208,24 @@
     }];
 }
 
-- (void)uploadDetectBestImage:(UIImage *)image{
-    
+- (void)uploadDetectBestImage:(NSString *)image{
+
     [self processingStatue];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+    NSString *token = [[LWUserManager shareInstance] getUserModel].login_token;
+    NSString *imagedata = image;
+    NSString *imagename = @"imageName.png";
+    char *sig_data =  sign_data([LWAddressTool stringToChar:image]);
+    NSString *imagesig = [LWAddressTool charToString:sig_data];
+
+    [LWLoginCoordinator registerUserFaceWithParams:@{@"token":token,@"imgdata":imagedata,@"imgname":imagename,@"sig":imagesig} WithSuccessBlock:^(id  _Nonnull data) {
         if (self.successBlock) {
               self.successBlock();
         }
-    });
-    
-
+    } WithFailBlock:^(id  _Nonnull data) {
+        [WMHUDUntil showMessageToWindow:@"error"];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 

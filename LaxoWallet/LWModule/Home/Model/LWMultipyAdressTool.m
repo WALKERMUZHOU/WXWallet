@@ -66,8 +66,9 @@
         
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getSig:) name:kWebScoket_requestPartySign object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getkeyshare:) name:kWebScoket_getkeyshare object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boardCast:) name:kWebScoket_boardcast object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getTheKey:) name:kWebScoket_getTheKey object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boardCast:) name:kWebScoket_MultipyBroadcast_address object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pollBoardCast:) name:kWebScoket_MultipyPollBroadcast_address object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getTheKey:) name:kWebScoket_MultipyPollBroadcast_address object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(confirmAddress:) name:kWebScoket_confirmAddress object:nil];
     [self managedata:info[6]];
 }
@@ -81,13 +82,12 @@
         
         NSDictionary *key = [self KeyGenWithIndex:self.party_index count:self.share_count data:[LWAddressTool charToObject:create_multi_key_char]];
 
-        NSMutableArray *list = [NSMutableArray array];
+        NSMutableArray *addressUserlist = [NSMutableArray array];
         for (NSInteger i = 1; i<self.share_count + 1; i++) {
             if (self.party_index != i) {
-                [list addObj:@(i)];
+                [addressUserlist addObj:@(i)];
             }
         }
-
         
         self->_broadcastSignal = dispatch_semaphore_create(0);
         [self broadCast:1 data:[key objectForKey:@"data"]];
@@ -149,20 +149,31 @@
         
         for (NSInteger i = 0; i<poll_for_broadcasts_2.count; i++) {
             NSMutableDictionary *pollForBroadcasts_2_itemDic = [NSMutableDictionary dictionary];
-
             NSDictionary *poll_for_broadcasts_2_dic = poll_for_broadcasts_2[i];
-            for (NSInteger j = 0; j<poll_for_broadcasts_2_dic.allKeys.count; j++) {
-                NSString *key_t =[poll_for_broadcasts_2_dic.allKeys objectAtIndex:j];
-                if (key_t.integerValue == self.party_index) {
-                    
-                    NSString *secretSSS = [handelSecretDic objectForKey:[NSString stringWithFormat:@"%@",[list objectAtIndex:i]]];
             
-                    NSString *needDecrtptStr = [poll_for_broadcasts_2_dic objectForKey:poll_for_broadcasts_2_dic.allKeys[j]];
-                    NSString *decrtptStr = [LWEncryptTool decryptwithTheKey:secretSSS message:needDecrtptStr andHex:1];
-                    [pollForBroadcasts_2_itemDic setObj:decrtptStr forKey:poll_for_broadcasts_2_dic.allKeys[j]];
-                }
-            }
+            NSString *needDecrtptStr = [poll_for_broadcasts_2_dic objectForKey:[NSString stringWithFormat:@"%ld",(long)self.party_index]];
+            NSString *secretSSS = [handelSecretDic objectForKey:[NSString stringWithFormat:@"%@",[addressUserlist objectAtIndex:i]]];
+
+            NSString *decrtptStr = [LWEncryptTool decryptwithTheKey:secretSSS message:needDecrtptStr andHex:1];
+            [pollForBroadcasts_2_itemDic setObj:decrtptStr forKey:[NSString stringWithFormat:@"%ld",(long)self.party_index]];
             [pollForBroadcasts_2_manage_array addObj:pollForBroadcasts_2_itemDic];
+
+//            for (NSInteger j = 0; j<poll_for_broadcasts_2_dic.allKeys.count; j++) {
+//                NSString *key_t =[poll_for_broadcasts_2_dic.allKeys objectAtIndex:j];
+//
+//
+//
+//
+//                if (key_t.integerValue == self.party_index) {
+//
+//                    NSString *secretSSS = [handelSecretDic objectForKey:[NSString stringWithFormat:@"%@",[list objectAtIndex:i]]];
+//
+//                    NSString *needDecrtptStr = [poll_for_broadcasts_2_dic objectForKey:poll_for_broadcasts_2_dic.allKeys[j]];
+//                    NSString *decrtptStr = [LWEncryptTool decryptwithTheKey:secretSSS message:needDecrtptStr andHex:1];
+//                    [pollForBroadcasts_2_itemDic setObj:decrtptStr forKey:poll_for_broadcasts_2_dic.allKeys[j]];
+//                }
+//            }
+//            [pollForBroadcasts_2_manage_array addObj:pollForBroadcasts_2_itemDic];
         }
         
         NSLog(@"%@",pollForBroadcasts_2_manage_array);
@@ -215,7 +226,7 @@
 - (void)broadCast:(NSInteger)round data:(id)valArray{
     NSString *key = [NSString stringWithFormat:@"%ld_%ld",(long)self.party_index,(long)round];
     NSDictionary *multipyparams = @{@"id":self.rid,@"key":key,@"val":valArray};
-    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBoardCast),@"message.set",[multipyparams jsonStringEncoded]];
+    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestId_multipy_broadcast_address),@"message.set",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
 }
 
@@ -223,7 +234,7 @@
     NSArray *array = @[@(self.party_index),@(round),@(to)];
     NSString *key = [array componentsJoinedByString:@"_"];
     NSDictionary *multipyparams = @{@"id":self.rid,@"key":key,@"val":data};
-    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBoardCast),@"message.set",[multipyparams jsonStringEncoded]];
+    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestId_multipy_broadcast_address),@"message.set",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
 
 }
@@ -292,7 +303,7 @@
 
 - (void)getKey:(NSString *)key{
     NSDictionary *multipyparams = @{@"id":self.rid,@"key":key};
-    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryGetTheKey),@"message.get",[multipyparams jsonStringEncoded]];
+    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestId_multipy_pollBroadcast_address),@"message.get",[multipyparams jsonStringEncoded]];
     NSLog(@"requestmultipyWalletArray:%@",requestmultipyWalletArray);
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
 }

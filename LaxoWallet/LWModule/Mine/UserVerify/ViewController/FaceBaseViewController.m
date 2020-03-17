@@ -205,7 +205,6 @@
     }];
     self.processingContentLabel.hidden = YES;
 
-    
     self.completeContentLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, ScreenHeight/2+105, ScreenWidth - 40, 30)];
      self.completeContentLabel.textColor = lwColorBlack;
     self.completeContentLabel.numberOfLines = 0;
@@ -329,7 +328,7 @@
 - (void)closeAction {
     _hasFinished = YES;
     self.videoCapture.runningStatus = NO;
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)restartAction{

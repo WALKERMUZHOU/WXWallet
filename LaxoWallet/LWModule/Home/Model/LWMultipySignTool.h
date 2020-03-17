@@ -13,9 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LWMultipySignTool : NSObject
 
-+ (LWMultipySignTool *)shareInstance;
-- (void)setWithAddress:(NSString *)address andHash:(NSString *)hash;
-
 - (instancetype)initWithInitInfo:(NSArray *)info;
 
 

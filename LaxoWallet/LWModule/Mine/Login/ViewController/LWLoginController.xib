@@ -21,7 +21,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyA-QQ-Urw">
                     <rect key="frame" x="0.0" y="44" width="414" height="140"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_logo" translatesAutoresizingMaskIntoConstraints="NO" id="wN7-PI-BmG">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_laxo_white" translatesAutoresizingMaskIntoConstraints="NO" id="wN7-PI-BmG">
                             <rect key="frame" x="149" y="36" width="116" height="68"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="68" id="Jg5-gM-uf6"/>
@@ -64,6 +64,6 @@
         </view>
     </objects>
     <resources>
-        <image name="common_logo" width="60" height="60"/>
+        <image name="logo_laxo_white" width="117" height="69"/>
     </resources>
 </document>

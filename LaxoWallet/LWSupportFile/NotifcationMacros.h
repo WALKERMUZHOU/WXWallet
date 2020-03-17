@@ -28,12 +28,20 @@
 #define kWebScoket_userIsOnLine             @"kWebScoket_userIsOnLine"
 #define kWebScoket_getTheKey                @"kWebScoket_getTheKey"
 #define kWebScoket_boardcast                @"kWebScoket_boardcast"
+#define kWebScoket_pollBroadcast            @"kWebScoket_pollBroadcast"
+
+#define kWebScoket_MultipyBroadcast_sig     @"kWebScoket_MultipySignBoardcast"
+#define kWebScoket_MultipyBroadcast_address @"kWebScoket_MultipyAddressBroadcast"
+#define kWebScoket_MultipyPollBroadcast_sig @"kWebScoket_MultipySignPollBroadcast"
+#define kWebScoket_MultipyPollBroadcast_address       @"kWebScoket_MultipyAddressPollBroadcast"
+
 #define kWebScoket_confirmAddress           @"kWebScoket_confirmAddress"
 #define kWebScoket_requestPartySign         @"kWebScoket_requestPartySign"
 #define kWebScoket_getkeyshare              @"kWebScoket_getsharedkey"
 #define kWebScoket_boardcast_trans          @"kWebScoket_boardcast_trans"
 #define kWebScoket_multipyAddress           @"kWebScoket_multipyAddress"
 #define kWebScoket_multipyUnSignTrans       @"kWebScoket_multipyUnSignTrans"
+#define kWebScoket_multipySubmitSig         @"kWebScoket_multipySubmitSig"
 
 
 #pragma mark - Userdefault

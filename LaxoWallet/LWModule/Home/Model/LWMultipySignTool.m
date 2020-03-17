@@ -47,18 +47,26 @@
 
 @property (nonatomic, strong) NSString  *hash_str;
 
+@property (nonatomic, strong) NSArray  *info;
+
+@property (nonatomic, assign) NSInteger  broadcastId;
+@property (nonatomic, assign) NSInteger  pollbroadcatsId;
+@property (nonatomic, assign) NSInteger  submitSigId;
+
+
+
 @end
 
 @implementation LWMultipySignTool
 
-static LWMultipySignTool *instance = nil;
-+ (LWMultipySignTool *)shareInstance{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[LWMultipySignTool alloc]init];
-    });
-    return instance;
-}
+//static LWMultipySignTool *instance = nil;
+//+ (LWMultipySignTool *)shareInstance{
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        instance = [[LWMultipySignTool alloc]init];
+//    });
+//    return instance;
+//}
 
 - (instancetype)init{
     self = [super init];
@@ -76,7 +84,7 @@ static LWMultipySignTool *instance = nil;
     return self;
 }
 
-- (void)initDataWithInfo:(NSArray *)info{//[id,hash,threshold,share,singers,key,part_ordinal）]
+- (void)initDataWithInfo:(NSArray *)info{//[id,hash,threshold,share,singers,key,part_ordinal,pubkey）]
 //    info = @[
 //        @"854b8b3da05bf7f1",
 //        @"df6b164911b2ff127512136ba28652d5148887dd6e8b5219c497646a4cd64457",
@@ -86,7 +94,16 @@ static LWMultipySignTool *instance = nil;
 //        @"065CD0AB6B8BB5D3AB30E854BF132A6A874446546EE3B89D7BF41350DE8678FE3D1FA9017F411F16B2D346F863E4390C492FC84469A3D39642E48D0BEB9F376004755C35D8B046D696359CA944995F4E",
 //       @(2)
 //    ];
-
+    
+    NSInteger broadcastAppend = arc4random();
+    NSInteger pollBroadcastAppend = arc4random();
+    NSInteger submitSigAppend = arc4random();
+    
+    self.broadcastId = [NSString stringWithFormat:@"30000%ld",broadcastAppend].integerValue;
+    self.pollbroadcatsId = [NSString stringWithFormat:@"31000%ld",pollBroadcastAppend].integerValue;
+    self.submitSigId = [NSString stringWithFormat:@"32000%ld",submitSigAppend].integerValue;
+    
+    self.info = info;
     self.rid = [info firstObject];
     self.threshold = [[info objectAtIndex:2] integerValue];
     self.share_count = [[info objectAtIndex:3] integerValue];
@@ -109,21 +126,23 @@ static LWMultipySignTool *instance = nil;
     
     self.hash_str =  [info objectAtIndex:1];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getSig:) name:kWebScoket_requestPartySign object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boardCast:) name:kWebScoket_boardcast object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getTheKey:) name:kWebScoket_getTheKey object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getSig:) name:kWebScoket_requestPartySign object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boardCast:) name:kWebScoket_MultipyBroadcast_sig object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getTheKey:) name:kWebScoket_MultipyPollBroadcast_sig object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(submitSigNoti:) name:kWebScoket_multipySubmitSig object:nil];
+
     [self managedata:info];
 }
 
-- (void)managedata:(NSArray *)info{////[id,hash,threshold,share,singers,key,part_ordinal）]
+- (void)managedata:(NSArray *)info{////[id,hash,threshold,share,singers,key,part_ordinal,publicKey ）]
 
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        NSMutableArray *list = [NSMutableArray arrayWithArray:[info objectAtIndex:4]];
-        for (NSInteger i = 0; i< list.count; i++) {
-            NSInteger abc = [[list objectAtIndex:i] integerValue];
+        NSMutableArray *sigUserlist = [NSMutableArray arrayWithArray:[info objectAtIndex:4]];
+        for (NSInteger i = 0; i< sigUserlist.count; i++) {
+            NSInteger abc = [[sigUserlist objectAtIndex:i] integerValue];
             if (abc == self.party_orginal) {
-                [list removeObjectAtIndex:i];
+                [sigUserlist removeObjectAtIndex:i];
                 break;
             }
         }
@@ -189,13 +208,13 @@ static LWMultipySignTool *instance = nil;
             
             NSDictionary *kDic = sig_poll_for_broadcasts_2_i[0];
             NSString *needDecrtptStr = [kDic objectForKey:[NSString stringWithFormat:@"%ld",(long)self.party_orginal]];
-            NSString *secretSSS = [secretMap objectForKey:[NSString stringWithFormat:@"%@",[list objectAtIndex:i]]];
+            NSString *secretSSS = [secretMap objectForKey:[NSString stringWithFormat:@"%@",[sigUserlist objectAtIndex:i]]];
             NSString *decrtptStr = [LWEncryptTool decryptwithTheKey:secretSSS message:needDecrtptStr andHex:1];
             [kAArray addObj:@{[NSString stringWithFormat:@"%ld",(long)self.party_orginal]:decrtptStr}];
             
             NSDictionary *alphaDic = sig_poll_for_broadcasts_2_i[1];
             NSString *needDecrtptStr_A = [alphaDic objectForKey:[NSString stringWithFormat:@"%ld",(long)self.party_orginal]];
-            NSString *secretSSS_A = [secretMap objectForKey:[NSString stringWithFormat:@"%@",[list objectAtIndex:i]]];
+            NSString *secretSSS_A = [secretMap objectForKey:[NSString stringWithFormat:@"%@",[sigUserlist objectAtIndex:i]]];
             NSString *decrtptStr_A = [LWEncryptTool decryptwithTheKey:secretSSS_A message:needDecrtptStr_A andHex:1];
             [kAArray addObj:@{[NSString stringWithFormat:@"%ld",(long)self.party_orginal]:decrtptStr_A}];
              
@@ -233,6 +252,11 @@ static LWMultipySignTool *instance = nil;
 
         sig_s = [LWAddressTool charToString:multi_sign_handle_round_4];
         
+        char *verifySig = verify_sig([LWAddressTool stringToChar:self.hash_str], [LWAddressTool stringToChar:self.info[7]], [LWAddressTool stringToChar:sig_r], multi_sign_handle_round_4);
+        if ([[LWAddressTool charToString:verifySig] isEqualToString:@"true"]) {
+            [self submitSig:@{@"r":sig_r,@"s":sig_s}];
+        }
+        
         destroy_multi_sign([LWAddressTool stringToChar:singerStr]);
     });
     
@@ -245,37 +269,23 @@ static LWMultipySignTool *instance = nil;
     return @{@"index":@(index),@"party_count":@(count),@"data":data_data,@"id":data_id};
 }
 
-- (void)setWithAddress:(NSString *)address andHash:(NSString *)hash{
-    return;
-    self.address = address;
-    self.hashStr = hash;
-    [self requestSignInfo];
-}
+#pragma mark - netrequest
 
-- (void)requestSignInfo{//wallet.requestPartySign
-    self.pk = [LWPublicManager getPKWithZhuJiCi];
-    char *sig_char = get_message_sig([LWAddressTool stringToChar:self.hashStr], [LWAddressTool stringToChar:self.pk]);
-    NSString *sig = [LWAddressTool charToString:sig_char];
-    NSDictionary *multipyparams = @{@"hash":self.hashStr,@"address":self.address,@"sig":sig};
-    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryrequestPartySign),@"wallet.requestPartySign",[multipyparams jsonStringEncoded]];
-    [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
-}
-
-- (void)requestShare{
-    NSDictionary *params = @{@"address":self.address};
+- (void)submitSig:(NSDictionary *)sigDic{
+    NSDictionary *params = @{@"rid":self.rid,@"sig":sigDic};
     NSArray *requestPersonalWalletArray = @[@"req",
-                                             @(WSRequestIdWalletQueryGetKeyShare),
-                                             WS_Home_getKeyShare,
+                                             @(self.submitSigId),
+                                             WS_Home_multipySubmitSig,
                                              [params jsonStringEncoded]];
     NSData *data = [requestPersonalWalletArray mp_messagePack];
     [[SocketRocketUtility instance] sendData:data];
 }
 
-
+#pragma mark - net_response
 - (void)broadCast:(NSInteger)round data:(id)valArray{
     NSString *key = [NSString stringWithFormat:@"%ld_%ld",(long)self.party_index,(long)round];
     NSDictionary *multipyparams = @{@"id":self.rid,@"key":key,@"val":valArray};
-    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBoardCast),@"message.set",[multipyparams jsonStringEncoded]];
+    NSArray *requestmultipyWalletArray = @[@"req",@(self.broadcastId),@"message.set",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
 }
 
@@ -283,9 +293,8 @@ static LWMultipySignTool *instance = nil;
     NSArray *array = @[@(self.party_index),@(round),@(to)];
     NSString *key = [array componentsJoinedByString:@"_"];
     NSDictionary *multipyparams = @{@"id":self.rid,@"key":key,@"val":data};
-    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBoardCast),@"message.set",[multipyparams jsonStringEncoded]];
+    NSArray *requestmultipyWalletArray = @[@"req",@(self.broadcastId),@"message.set",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
-
 }
 
 - (NSArray *)poll_for_broadCast:(NSInteger)round{
@@ -295,13 +304,13 @@ static LWMultipySignTool *instance = nil;
     NSMutableArray *list = [NSMutableArray array];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        self->_semaphoreSignal = dispatch_semaphore_create(0);
         for (NSInteger i = 1; i< n+1; i++) {
             if (i != party_index) {
-                self->_semaphoreSignal = dispatch_semaphore_create(0);
                 NSString *key = [@[@(i),@(round)] componentsJoinedByString:@"_"];
 
                 dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
                 dispatch_source_set_event_handler(timer, ^{
                     [self getKey:key];
                 });
@@ -353,62 +362,51 @@ static LWMultipySignTool *instance = nil;
 
 - (void)getKey:(NSString *)key{
     NSDictionary *multipyparams = @{@"id":self.rid,@"key":key};
-    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryGetTheKey),@"message.get",[multipyparams jsonStringEncoded]];
-    NSLog(@"requestmultipyWalletArray:%@",requestmultipyWalletArray);
+    NSArray *requestmultipyWalletArray = @[@"req",@(self.pollbroadcatsId),@"message.get",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+    NSLog(@"pollBroadcast：%@",multipyparams);
 }
 
 
 #pragma mark - method
-- (void)getSig:(NSNotification *)notification{
-    NSDictionary *notiDic = notification.object;
-    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
-        NSDictionary *dataDic = [notiDic objectForKey:@"data"];
-
-        self.rid = [dataDic objectForKey:@"rid"];
-        NSString *vssStr = [dataDic objectForKey:@"vss"];
-        self.vss = [NSJSONSerialization JSONObjectWithData:[vssStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
-
-        [self requestShare];
-    }
-}
-
-- (void)getkeyshare:(NSNotification *)notification{
-    NSDictionary *notiDic = notification.object;
-    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
-        NSArray *keysArray = [notiDic objectForKey:@"data"];
-        NSDictionary *keyDic = keysArray.firstObject;
-        NSString *shareKey = [keyDic objectForKey:@"share"];
-        
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//            char *secret_char = sha256([LWAddressTool stringToChar:self.pk]);
-//            self.share_key = [LWEncryptTool decryptwithTheKey:[LWAddressTool charToString:secret_char] message:shareKey andHex:1];
-            
-//            [self startGetSign];
-        });
-    }
-}
-
-
 - (void)boardCast:(NSNotification *)notification{
-    NSDictionary *notiDic = notification.object;
-    NSLog(@"broadcastNotificationSuccess");
-    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            dispatch_semaphore_signal(self->_broadcastSignal);
-        });
-        NSLog(@"signal");
+    NSArray *notiArray = notification.object;
+    if ([notiArray[1] integerValue] == self.broadcastId) {
+        NSDictionary *notiDic = notiArray[2];
+        NSLog(@"broadcastNotificationSuccess");
+        if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                dispatch_semaphore_signal(self->_broadcastSignal);
+            });
+            NSLog(@"signal");
+        }
     }
 }
 
 - (void)getTheKey:(NSNotification *)notification{
-    NSDictionary *notiDic = notification.object;
-    NSLog(@"getTheKeySuccess");
-    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
-        getTheKeyData = [notiDic objectForKey:@"data"];
-        dispatch_semaphore_signal(self->_semaphoreSignal);
-        NSLog(@"signal");
+    NSArray *notiArray = notification.object;
+    if ([notiArray[1] integerValue] == self.pollbroadcatsId) {
+        NSDictionary *notiDic = notiArray[2];
+        NSLog(@"getTheKeySuccess");
+        if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+            getTheKeyData = [notiDic objectForKey:@"data"];
+            dispatch_semaphore_signal(self->_semaphoreSignal);
+            NSLog(@"signal");
+        }
     }
 }
 
+- (void)submitSigNoti:(NSNotification *)notification{
+    NSArray *notiArray = notification.object;
+    if ([notiArray[1] integerValue] == self.pollbroadcatsId) {
+        NSDictionary *notiDic = notiArray[2];
+        NSLog(@"submitSigSuccess");
+        if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+            if (self.signBlock) {
+                self.signBlock([notiDic objectForKey:@"data"]);
+            }
+        }
+
+    }
+}
 @end

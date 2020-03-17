@@ -10,6 +10,9 @@
 
 @implementation LWLoginStepFiveView
 - (IBAction)nextClick:(UIButton *)sender {
+    if (self.block) {
+        self.block();
+    }
 }
 
 /*

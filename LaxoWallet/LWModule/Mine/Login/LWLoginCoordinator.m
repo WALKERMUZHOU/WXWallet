@@ -152,4 +152,52 @@
         }
     }];
 }
+
++ (void)registerUserFaceWithParams:(NSDictionary *)params WithSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    NSString *jsonStr = [params jsonStringEncoded];
+
+    [[LWNetWorkSessionManager shareInstance] postPath:Url_Login_registerFace parameters:@{@"params":jsonStr,@"method":@"user.addFace"} withBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        if ([[result objectForKey:@"success"] integerValue] == 1) {
+            id data = [result objectForKey:@"data"];
+            if ([data isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *dataDic = (NSDictionary *)data;
+                if (dataDic.allKeys.count > 0) {
+                    successBlock(dataDic);
+                }else{
+                    successBlock(data);
+                }
+            }
+        }else{
+            FailBlock(error);
+        }
+        
+        
+    }];
+}
+
++ (void)checkUserFaceWithParams:(NSDictionary *)params WithSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    NSString *jsonStr = [params jsonStringEncoded];
+    
+    [[LWNetWorkSessionManager shareInstance] postPath:Url_Login_checkFace parameters:@{@"params":jsonStr,@"method":@"user.queryFace"} withBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        if ([[result objectForKey:@"success"] integerValue] == 1) {
+            id data = [result objectForKey:@"data"];
+            if ([data isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *dataDic = (NSDictionary *)data;
+                if (dataDic.allKeys.count > 0) {
+                    successBlock(dataDic);
+                }else{
+                    successBlock(data);
+                }
+            }
+        }else{
+            FailBlock(error);
+        }
+        
+        
+    }];
+    
+    
+}
+
+
 @end

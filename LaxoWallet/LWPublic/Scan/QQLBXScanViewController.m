@@ -32,7 +32,7 @@
     
     //设置扫码后需要扫码图像
     self.isNeedScanImage = YES;
-    self.title = @"扫一扫";
+    self.title = @"Scan";
     
     if (self.navigationController.presentingViewController) {
         UIBarButtonItem *leftBar = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"common_close"] style:UIBarButtonItemStyleDone target:self action:@selector(backClick:)];
@@ -74,7 +74,7 @@
         
         _topTitle.textAlignment = NSTextAlignmentCenter;
         _topTitle.numberOfLines = 0;
-        _topTitle.text = @"将取景框对准二维码即可自动扫描";
+//        _topTitle.text = @"将取景框对准二维码即可自动扫描";
         _topTitle.textColor = [UIColor whiteColor];
         [self.view addSubview:_topTitle];
     }    
@@ -178,7 +178,7 @@
     [_bottomItemsView addSubview:_btnFlash];
     [_bottomItemsView addSubview:_btnPhoto];
     [_bottomItemsView addSubview:_btnMyQR];   
-    
+    _bottomItemsView.hidden = YES;
 }
 
 - (void)showError:(NSString*)str

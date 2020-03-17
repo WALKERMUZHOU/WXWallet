@@ -8,11 +8,11 @@
 
 #import "FaceBaseViewController.h"
 
-typedef void(^ImageBlock)(NSArray *imageArray);
+typedef void(^LivenessBlock)(NSString *face_token);
 
 @interface LivenessViewController : FaceBaseViewController
 
 - (void)livenesswithList:(NSArray *)livenessArray order:(BOOL)order numberOfLiveness:(NSInteger)numberOfLiveness;
 
-@property (nonatomic, copy) ImageBlock imageBlock;
+@property (nonatomic, copy) LivenessBlock livenessBlock;
 @end

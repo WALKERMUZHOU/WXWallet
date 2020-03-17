@@ -33,6 +33,24 @@
 }
 
 - (IBAction)nextClick:(UIButton *)sender {
+    if (self.maxthonBtn.isSelected == NO && self.csgBtn.isSelected == NO) {
+        
+        [WMHUDUntil showMessageToWindow:@"selcet recover process"];
+        return;
+    }
+    
+    if (self.block) {
+        
+        if (self.maxthonBtn.isSelected) {
+            self.block(@"Maxthon");
+        }else{
+            self.block(@"CoinStorageGuru");
+        }
+        
+        
+    }
+    
+    
 }
 
 /*

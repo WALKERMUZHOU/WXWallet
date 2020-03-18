@@ -41,6 +41,8 @@ typedef NS_OPTIONS(NSInteger, TokenType){
 + (NSString *)getSigWithMessage:(NSString *)timeStr;
 
 + (NSDictionary *)getInitData;
++ (NSString *)getInitDataPK;
++ (NSString *)getInitDataPubKey;
 
 @end
 

@@ -82,7 +82,26 @@ static LWTrusteeManager *instance = nil;
 
 - (NSArray<LWTrusteeModel *> *)getTrusteeArray{
     NSArray *trusteeArr = [self trusteeInfoUnArchieve];
-    return [NSArray modelArrayWithClass:[LWTrusteeModel class] json:trusteeArr];
+    
+    NSMutableArray *trusteeArrMut = [NSMutableArray array];
+    NSArray *trusthold = [[LWUserManager shareInstance] getUserModel].trusthold;
+    if (trusthold && trusthold.count > 0) {
+        for (NSInteger i = 0; i<trusteeArr.count; i++) {
+            NSDictionary *trustholdItem = trusteeArr[i];
+            
+            for (NSInteger j = 0; j<trusthold.count; j++) {
+                NSString *trustholdItemId = [trustholdItem objectForKey:@"id"];
+                if (trustholdItemId.integerValue == [trusthold[j] integerValue]){
+                    [trusteeArrMut addObj:trustholdItem];
+                    break;
+                }
+            }
+        }
+        return [NSArray modelArrayWithClass:[LWTrusteeModel class] json:trusteeArrMut];
+    }else{
+        return [NSArray modelArrayWithClass:[LWTrusteeModel class] json:trusteeArr];
+    }
+
 }
 
 @end

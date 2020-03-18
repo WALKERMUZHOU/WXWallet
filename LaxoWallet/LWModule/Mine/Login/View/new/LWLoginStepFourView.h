@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-typedef void(^StepFourBlock)(NSString *type);
+typedef void(^StepFourBlock)(NSInteger type);
 @interface LWLoginStepFourView : UIView
 
 @property (nonatomic, copy) StepFourBlock block;

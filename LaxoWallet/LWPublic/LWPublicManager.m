@@ -86,11 +86,14 @@
 }
 
 + (NSString *)getPKWithZhuJiCi{
-    NSString *seed = [[LWUserManager shareInstance] getUserModel].jiZhuCi;
-    
+    LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
+    NSString *seed = userModel.jiZhuCi;
+
     if (!seed || seed.length == 0) {//注册时未保存seed
        NSDictionary *infoDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
         seed = [infoDic objectForKey:@"seed"];
+        userModel.jiZhuCi = seed;
+        [[LWUserManager shareInstance] setUser:userModel];
     }
     
     char *pk = derive_key([LWAddressTool stringToChar:seed], [LWAddressTool stringToChar:@"m/0"]);
@@ -143,8 +146,15 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     return initDic;
-    
-
 }
 
++ (NSString *)getInitDataPK{
+    NSDictionary *infoDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
+    return [infoDic objectForKey:@"pk"];
+}
+
++ (NSString *)getInitDataPubKey{
+    NSDictionary *infoDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
+    return [infoDic objectForKey:@"publicKey"];
+}
 @end

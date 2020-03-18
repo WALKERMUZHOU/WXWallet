@@ -1,5 +1,5 @@
 //
-//  LWLoginStepSuccessView.h
+//  LWHomeListHeadView.h
 //  LaxoWallet
 //
 //  Created by walkermuzhou on 2020/3/17.
@@ -9,10 +9,8 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-typedef void(^StepSuccessBlock)(void);
-@interface LWLoginStepSuccessView : UIView
 
-@property (nonatomic, copy) StepSuccessBlock successBlock;
+@interface LWHomeListHeadView : UIView
 
 @end
 

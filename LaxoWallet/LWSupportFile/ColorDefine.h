@@ -33,7 +33,7 @@
 #define kTabBarBackGroundColor [UIColor hex:@"#FFFFFF"]
 #define kTabBarShadowColor [UIColor colorWithColor:[UIColor hex:@"#0051FF"] alpha:0.06]
 
-#define lwColorBackground   [UIColor hex:@"#F7F8FB"]
+#define lwColorBackground   [UIColor hex:@"#f6f6f6"]
 
 #define lwColorNormal       [UIColor hex:@"#2BB696"]
 #define lwColorNormalLight  [UIColor hex:@"#AEEDDF"]

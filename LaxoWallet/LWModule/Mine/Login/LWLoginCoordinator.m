@@ -59,8 +59,9 @@
 + (void)getRecoverySMSCodeWithModel:(LWTrusteeModel *)model SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
     
     
-    NSString *pubKey = [PubkeyManager getPubkey];
-    
+//    NSString *pubKey = [PubkeyManager getPubkey];
+    NSString *pubKey = [LWPublicManager getInitDataPubKey];
+
     NSDictionary *paramers = @{@"token":[[LWUserManager shareInstance]getUserModel].token,@"pubkey":pubKey,@"trustee":model.name};
     NSString *jsonStr = [paramers jsonStringEncoded];
     NSLog(@"RecoverCode:%@",jsonStr);

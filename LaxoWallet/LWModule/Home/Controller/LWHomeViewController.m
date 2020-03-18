@@ -8,7 +8,8 @@
 
 #import "LWHomeViewController.h"
 #import "LWHomeListView.h"
-#import <JavaScriptCore/JavaScriptCore.h>
+#import "LWHomeListHeadView.h"
+
 #import "LWPersonalCollectionViewController.h"
 
 #import "PublicKeyView.h"
@@ -26,6 +27,7 @@
 }
 
 @property (nonatomic, strong) LWHomeListView *listView;
+@property (nonatomic, strong) LWHomeListHeadView *listHeadView;
 
 @end
 
@@ -33,12 +35,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self createUI];
     [self getprikey];
 }
 
 - (void)createUI{
-    self.listView = [[LWHomeListView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kTabBarHeight) style:UITableViewStyleGrouped];
+    self.view.backgroundColor = lwColorBackground;
+    
+    self.listHeadView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWHomeListHeadView class]) owner:nil options:nil].lastObject;
+    self.listHeadView.frame = CGRectMake(0, kNavigationBarHeight, kScreenWidth, 196);
+    [self.view addSubview:self.listHeadView];
+    
+    self.listView = [[LWHomeListView alloc] initWithFrame:CGRectMake(0, self.listHeadView.kbottom, kScreenWidth, kScreenHeight - kTabBarHeight - self.listHeadView.kbottom) style:UITableViewStyleGrouped];
     [self.view addSubview:self.listView];
 }
 
@@ -53,7 +62,6 @@
 //        } WithFailBlock:^(id  _Nonnull data) {
 //
 //        }];
-
 }
 
 - (void)getSignWithPriKey:(NSString *)prikey{

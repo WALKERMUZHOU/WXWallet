@@ -35,8 +35,8 @@
     [self registerBDFace];
     
 //    [LogicHandle showTabbarVC];
-//    [LogicHandle chooseStartVC];
-    [LogicHandle showLoginVC];
+    [LogicHandle chooseStartVC];
+//    [LogicHandle showLoginVC];
     
     LWUserVefifyViewController *launchVC = [[LWUserVefifyViewController alloc] init];
  //   self.window.rootViewController = launchVC;

@@ -15,6 +15,9 @@
 		5E07FD1D2420BA4800FA3E1F /* LWLoginStepEightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD1C2420BA4800FA3E1F /* LWLoginStepEightView.xib */; };
 		5E07FD202420BBD100FA3E1F /* LWLoginStepSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD1F2420BBD100FA3E1F /* LWLoginStepSuccessView.m */; };
 		5E07FD222420BC0D00FA3E1F /* LWLoginStepSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD212420BC0D00FA3E1F /* LWLoginStepSuccessView.xib */; };
+		5E07FD262420E48B00FA3E1F /* LWHomeListViewNew.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD252420E48B00FA3E1F /* LWHomeListViewNew.m */; };
+		5E07FD292420E55E00FA3E1F /* LWHomeListHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD282420E55E00FA3E1F /* LWHomeListHeadView.m */; };
+		5E07FD2B2420E56A00FA3E1F /* LWHomeListHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD2A2420E56A00FA3E1F /* LWHomeListHeadView.xib */; };
 		5E0FE6962408E72D00733B05 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE6952408E72D00733B05 /* index.js */; };
 		5E23584823FBE09D00A7D774 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584423FBE09C00A7D774 /* index.html */; };
 		5E23584E23FD0D0600A7D774 /* LWutxoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E23584D23FD0D0600A7D774 /* LWutxoModel.m */; };
@@ -293,6 +296,11 @@
 		5E07FD1E2420BBD100FA3E1F /* LWLoginStepSuccessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepSuccessView.h; sourceTree = "<group>"; };
 		5E07FD1F2420BBD100FA3E1F /* LWLoginStepSuccessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepSuccessView.m; sourceTree = "<group>"; };
 		5E07FD212420BC0D00FA3E1F /* LWLoginStepSuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepSuccessView.xib; sourceTree = "<group>"; };
+		5E07FD242420E48B00FA3E1F /* LWHomeListViewNew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWHomeListViewNew.h; sourceTree = "<group>"; };
+		5E07FD252420E48B00FA3E1F /* LWHomeListViewNew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWHomeListViewNew.m; sourceTree = "<group>"; };
+		5E07FD272420E55E00FA3E1F /* LWHomeListHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWHomeListHeadView.h; sourceTree = "<group>"; };
+		5E07FD282420E55E00FA3E1F /* LWHomeListHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWHomeListHeadView.m; sourceTree = "<group>"; };
+		5E07FD2A2420E56A00FA3E1F /* LWHomeListHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWHomeListHeadView.xib; sourceTree = "<group>"; };
 		5E0FE6952408E72D00733B05 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		5E23584423FBE09C00A7D774 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		5E23584C23FD0D0600A7D774 /* LWutxoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWutxoModel.h; sourceTree = "<group>"; };
@@ -802,6 +810,18 @@
 				978A27D43A937A7EDE48D448 /* libPods-LaxoWallet.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E07FD232420E47600FA3E1F /* new */ = {
+			isa = PBXGroup;
+			children = (
+				5E07FD242420E48B00FA3E1F /* LWHomeListViewNew.h */,
+				5E07FD252420E48B00FA3E1F /* LWHomeListViewNew.m */,
+				5E07FD272420E55E00FA3E1F /* LWHomeListHeadView.h */,
+				5E07FD282420E55E00FA3E1F /* LWHomeListHeadView.m */,
+				5E07FD2A2420E56A00FA3E1F /* LWHomeListHeadView.xib */,
+			);
+			path = new;
 			sourceTree = "<group>";
 		};
 		5E0FE6912408AB9D00733B05 /* rust */ = {
@@ -1408,6 +1428,7 @@
 		5E66A37823EAEBD8004097CB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5E07FD232420E47600FA3E1F /* new */,
 				5E66A38A23EAED2B004097CB /* LWHomeListView.h */,
 				5E66A38B23EAED2B004097CB /* LWHomeListView.m */,
 				5E66A39923EAF103004097CB /* LWHomeListCell.h */,
@@ -2276,6 +2297,7 @@
 				5EA807A823E94E2400012837 /* LaunchScreen.storyboard in Resources */,
 				5E9172DF2416376200D47A9F /* com.baidu.idl.face.model.bundle in Resources */,
 				5E9918B6241E70D3005D6A38 /* LWLoginStepFiveView.xib in Resources */,
+				5E07FD2B2420E56A00FA3E1F /* LWHomeListHeadView.xib in Resources */,
 				5E9918B1241E68A9005D6A38 /* LWLoginStepFourView.xib in Resources */,
 				5EB31E8724041CAF00974FD4 /* LWMineSecurityTableViewCell.xib in Resources */,
 				5E0FE6962408E72D00733B05 /* index.js in Resources */,
@@ -2416,6 +2438,7 @@
 				5E66A34023EAB58C004097CB /* SVProgressHUD.m in Sources */,
 				5E91735F24163DEB00D47A9F /* RemindView.m in Sources */,
 				5E91737C241B208800D47A9F /* LWMultipySignTool.m in Sources */,
+				5E07FD292420E55E00FA3E1F /* LWHomeListHeadView.m in Sources */,
 				5EF513DF23F550F200F5B6C1 /* QQLBXScanViewController.m in Sources */,
 				5EE8FB7424076B9300AEE861 /* LWMessageDetailListView.m in Sources */,
 				5E91736924172B5300D47A9F /* LWTansactionTool.m in Sources */,
@@ -2532,6 +2555,7 @@
 				5EB31E992404BC9800974FD4 /* LWTextViewAlertView.m in Sources */,
 				5E66A36123EAC379004097CB /* JTNavigationController.m in Sources */,
 				5E5F12A623EC0E12002F0711 /* WMZDialog.m in Sources */,
+				5E07FD262420E48B00FA3E1F /* LWHomeListViewNew.m in Sources */,
 				5E5F12F923EDD97F002F0711 /* WMZBannerView.m in Sources */,
 				5EF5136523F1811B00F5B6C1 /* UIAlertView+LBXAlertAction.m in Sources */,
 				5E5F12A823EC0E12002F0711 /* WMZDialog+Share.m in Sources */,

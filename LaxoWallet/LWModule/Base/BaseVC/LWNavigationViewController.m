@@ -25,20 +25,20 @@
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
 //    NSLog(@"tableView willShow viewcontrollers %lu", [self viewControllers].count);
     
-    BOOL hiddenAnimate = NO;
-    NSInteger count = ((LWTabBarViewController *)viewController.tabBarController).axcTabBar.selectIndex;
-//    NSLog(@"tableView willShow delayIndex %ld",(long)count);
-    if (count == 0) {
-        hiddenAnimate = YES;
-        BOOL isShowHomePage = [viewController isKindOfClass:[LWHomeViewController class]];
-        [self setNavigationBarHidden:isShowHomePage animated:hiddenAnimate];
-    }
-    
-    if (count == 1) {
-        hiddenAnimate = YES;
-        BOOL isShowHomePage = [viewController isKindOfClass:[LWMineViewController class]];
-        [self setNavigationBarHidden:isShowHomePage animated:hiddenAnimate];
-    }
+//    BOOL hiddenAnimate = NO;
+//    NSInteger count = ((LWTabBarViewController *)viewController.tabBarController).axcTabBar.selectIndex;
+////    NSLog(@"tableView willShow delayIndex %ld",(long)count);
+//    if (count == 0) {
+//        hiddenAnimate = YES;
+//        BOOL isShowHomePage = [viewController isKindOfClass:[LWHomeViewController class]];
+//        [self setNavigationBarHidden:isShowHomePage animated:hiddenAnimate];
+//    }
+//
+//    if (count == 1) {
+//        hiddenAnimate = YES;
+//        BOOL isShowHomePage = [viewController isKindOfClass:[LWMineViewController class]];
+//        [self setNavigationBarHidden:isShowHomePage animated:hiddenAnimate];
+//    }
 
 }
 

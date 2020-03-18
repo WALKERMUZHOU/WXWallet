@@ -72,6 +72,7 @@
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.contentView.backgroundColor = lwColorBackground;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(manageNotiData:) name:kWebScoket_joinWallet object:nil];
     // Initialization code
 }

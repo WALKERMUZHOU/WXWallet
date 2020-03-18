@@ -24,7 +24,7 @@ static NSString * const kUniqueIdKey = @"uniqueId";     // UUID
 static NSString * const kRegisterMobile = @"mobile";    // 用户注册手机号
 
 
-static NSString * const Url_Login_trustee = @"method=wallet.trustee";    // 发送trustee码
+static NSString * const Url_Login_trustee = @"method=wallet.trustholds";    // 发送trustee码
 static NSString * const Url_Login_SendCode = @"method=user.sendCode";    // 发送验证码
 static NSString * const Url_Login_VerifyEmail = @"method=user.verifyEmail";//验证邮箱
 static NSString * const Url_Login_requestRecoverCode = @"method=user.requestRecover";// 请求恢复验证码

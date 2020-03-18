@@ -107,7 +107,7 @@
 }
 
 - (void)calculateSeed:(NSArray *)dataArray{
-    NSString *prikey = [PubkeyManager getPrikey];
+    NSString *prikey = [LWPublicManager getInitDataPK];
     NSArray *array = [[LWTrusteeManager shareInstance] getTrusteeArray];
 
     NSMutableArray *mutableDecripArr = [NSMutableArray array];

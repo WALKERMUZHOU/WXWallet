@@ -38,6 +38,8 @@
 @property (nonatomic, strong) NSString *emailStr;
 @property (nonatomic, strong) NSString *recoverProcess;
 
+@property (nonatomic, assign) BOOL isRegister;
+
 @end
 
 @implementation LWLoginController
@@ -45,8 +47,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+   [[LWUserManager shareInstance] clearUser];
     [self createUI];
-    [[LWUserManager shareInstance] clearUser];
 }
 
 - (void)createUI{
@@ -84,8 +86,11 @@
 //
     LWLoginStepFourView *view4 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepFourView class]) owner:nil options:nil].lastObject;
     view4.frame = CGRectMake(kScreenWidth * 3, 0, kScreenWidth,self.scrollBackView.kheight);
-    view4.block = ^(NSString * _Nonnull type) {
-        self.recoverProcess = type;
+    view4.block = ^(NSInteger type) {
+        NSArray *array = @[@(1),@(type)];
+        LWUserModel *user = [[LWUserManager shareInstance] getUserModel];
+        user.trusthold = array;
+        [[LWUserManager shareInstance] setUser:user];
         [self registerMethod];
     };
     
@@ -179,6 +184,7 @@
                    [self.scrollView setContentOffset:CGPointMake(kScreenWidth *4, 0) animated:NO];
                }else{//新用户
                    //选择thrustholds
+                   self.isRegister = YES;
                    [self.scrollView setContentOffset:CGPointMake(kScreenWidth *3, 0) animated:YES];
                }
            }else{
@@ -192,14 +198,41 @@
 #pragma mark - recover
 - (void)getRecoverEmailCodeClick:(NSString *)email{
     [SVProgressHUD show];
-    [LWLoginCoordinator getSMSCodeWithEmail:email WithSuccessBlock:^(id  _Nonnull data) {
-        [SVProgressHUD dismiss];
-//        [WMHUDUntil showMessageToWindow:@"验证码发送成功"];
-        [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 6, 0)];
-    } WithFailBlock:^(id  _Nonnull data) {
-        [SVProgressHUD dismiss];
-        [WMHUDUntil showMessageToWindow:@"get code fail"];
-    }];
+    
+    NSArray *array = [[LWTrusteeManager shareInstance] getTrusteeArray];
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        dispatch_semaphore_t signal = dispatch_semaphore_create(0);
+        for (NSInteger i = 0; i<array.count; i++) {
+             
+            LWTrusteeModel *model = [array objectAtIndex:i];
+            [LWLoginCoordinator getRecoverySMSCodeWithModel:model SuccessBlock:^(id  _Nonnull data) {
+                if (i == array.count - 1) {
+                       [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 6, 0)];
+//                       [WMHUDUntil showMessageToWindow:@"验证码发送成功"];
+                   }
+                  dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
+              } WithFailBlock:^(id  _Nonnull data) {
+                  [WMHUDUntil showMessageToWindow:@"请求失败"];
+                  dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
+                  return ;
+              }];
+             dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+         }
+    });
+    
+    
+    
+//    [LWLoginCoordinator getRecoverySMSCodeWithModel:<#(nonnull LWTrusteeModel *)#> SuccessBlock:<#^(id  _Nonnull data)successBlock#> WithFailBlock:<#^(id  _Nonnull data)FailBlock#>]
+//
+//    [LWLoginCoordinator getSMSCodeWithEmail:email WithSuccessBlock:^(id  _Nonnull data) {
+//        [SVProgressHUD dismiss];
+////        [WMHUDUntil showMessageToWindow:@"验证码发送成功"];
+//        [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 6, 0)];
+//    } WithFailBlock:^(id  _Nonnull data) {
+//        [SVProgressHUD dismiss];
+//        [WMHUDUntil showMessageToWindow:@"get code fail"];
+//    }];
 }
 
 - (void)verifyRecoverEmailClick:(NSString *)code{
@@ -297,12 +330,17 @@
 - (void)loginRequestWithParams:(NSDictionary *)loginParams{
     [LWLoginCoordinator registerUserWithParams:loginParams WithSuccessBlock:^(id  _Nonnull data) {
         [SVProgressHUD dismiss];
+        
+//        NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppVersionKey];
+//        NSString *zhujici = [userDic objectForKey:@""];
+        
         LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
         model.uid = [data objectForKey:@"uid"];
         model.secret = [data objectForKey:@"secret"];
         model.login_token = [data objectForKey:@"login_token"];
+//        model.jiZhuCi = [loginParams objectForKey:@"seed"];
         [[LWUserManager shareInstance] setUser:model];
-        
+        [self.scrollView setContentOffset:CGPointMake(kScreenWidth *4, 0) animated:NO];
 //        LWFaceBindViewController *lwfaceVC = [[LWFaceBindViewController alloc]init];
 //        [self.navigationController pushViewController:lwfaceVC animated:YES];
         
@@ -345,7 +383,13 @@
         LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
         userModel.face_token = face_token;
         [[LWUserManager shareInstance] setUser:userModel];
-        [self.scrollView setContentOffset:CGPointMake(kScreenWidth *5, 0) animated:NO];
+        
+        if (self.isRegister) {
+            [self.scrollView setContentOffset:CGPointMake(kScreenWidth *8, 0) animated:NO];
+        }else{
+            [self.scrollView setContentOffset:CGPointMake(kScreenWidth *5, 0) animated:NO];
+        }
+        
     };
 }
 
@@ -359,13 +403,13 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
 
         dispatch_semaphore_t signal = dispatch_semaphore_create(0);
-        for (NSInteger i = 0; i<array.count; i++) {
+        for (NSInteger i = 0; i<2; i++) {
             LWTrusteeModel *model = [array objectAtIndex:i];
 
             [LWLoginCoordinator verifyRecoveryEmailCodeWithCode:msgCode andModel:model WithSuccessBlock:^(id  _Nonnull data) {
                 NSLog(@"data%@",[data objectForKey:@"data"]);
                 [seedDataArray addObject:[data objectForKey:@"data"]];
-                if (i == array.count - 1) {//最后一次 根据data 计算seed
+                if (i == 1) {//最后一次 根据data 计算seed
                     [self calculateSeed:seedDataArray];
                 }
                 dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
@@ -379,16 +423,18 @@
 }
 
 - (void)calculateSeed:(NSArray *)dataArray{
-    NSString *prikey = [PubkeyManager getPrikey];
+//    NSString *prikey = [PubkeyManager getPrikey];
+    NSString *prikey = [LWPublicManager getInitDataPK];
+
     NSArray *array = [[LWTrusteeManager shareInstance] getTrusteeArray];
 
     NSMutableArray *mutableDecripArr = [NSMutableArray array];
-    for (NSInteger i = 0; i<dataArray.count; i++) {
+    for (NSInteger i = 0; i<2; i++) {
         LWTrusteeModel *model = [array objectAtIndex:i];
         NSString *pubkey = model.publicKey;
         NSString *decryptData = [LWEncryptTool decryptWithPk:prikey pubkey:pubkey andMessage:dataArray[i]];
         [mutableDecripArr addObject:decryptData];
-        if(i == dataArray.count-1){
+        if(i == 1){
             [SVProgressHUD dismiss];
             [self getRecoverData:mutableDecripArr];
             NSLog(@"success:\n%@",mutableDecripArr);

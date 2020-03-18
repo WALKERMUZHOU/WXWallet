@@ -51,7 +51,6 @@
         UINib *nib1 = [UINib nibWithNibName:@"LWHomeListCell" bundle: nil];
         [self.tableView registerNib:nib1 forCellReuseIdentifier:@"LWHomeListCell"];
         self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-        self.tableView.backgroundColor = [UIColor whiteColor];
         self.coordinator = [[LWHomeListCoordinator alloc]init];
         self.coordinator.delegate = self;
         _isCanApplyBorrow = YES;
@@ -61,7 +60,7 @@
         self.headerView.headerBlock = ^(NSInteger selectIndex) {
             [weakSelf changeCurrentSelectData:selectIndex];
         };
-        self.tableView.tableHeaderView = self.headerView;
+//        self.tableView.tableHeaderView = self.headerView;
         [self initWsInfo];
     }
     return self;
@@ -119,7 +118,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 90.f;
+    return 60.f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

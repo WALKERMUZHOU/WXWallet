@@ -39,7 +39,7 @@
 
 - (void)initTableViewWithStyle:(UITableViewStyle)style {
     _tableView = [[UITableView alloc] initWithFrame:self.bounds style:style];
-    [_tableView setBackgroundColor:UIColorFromRGB(kColorBackground)];
+    [_tableView setBackgroundColor:lwColorBackground];
     _tableView.showsVerticalScrollIndicator = NO;
     _tableView.showsVerticalScrollIndicator = NO;
     _tableView.delegate = self;

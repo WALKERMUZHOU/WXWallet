@@ -42,9 +42,9 @@
     if (self.block) {
         
         if (self.maxthonBtn.isSelected) {
-            self.block(@"Maxthon");
+            self.block(2);
         }else{
-            self.block(@"CoinStorageGuru");
+            self.block(3);
         }
         
         

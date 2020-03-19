@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *txid;
 @property (nonatomic, assign) CGFloat vout;
 @property (nonatomic, assign) NSInteger value;
-@property (nonatomic, strong) NSString *status;
+@property (nonatomic, assign) NSInteger status;
 @property (nonatomic, strong) NSString *createtime;
 @property (nonatomic, strong) NSString *updatetime;
 

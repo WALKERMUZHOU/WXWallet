@@ -8,6 +8,7 @@
 
 #import "LWHomeListHeadView.h"
 #import "LWHomeWalletModel.h"
+#import "LWNumberTool.h"
 
 @interface LWHomeListHeadView ()
 
@@ -122,7 +123,7 @@
             bitCount += umodel.value;
         }
     }
-    self.bitCountLabel.text = [NSString stringWithFormat:@"%@",@(bitCount/1e8)];
+    self.bitCountLabel.text = [LWNumberTool formatSSSFloat:bitCount/1e8];
     
     NSArray *tokenArray = [[NSUserDefaults standardUserDefaults] objectForKey:kAppTokenPrice_userdefault];
     if (tokenArray.count>0) {

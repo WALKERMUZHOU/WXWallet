@@ -7,8 +7,11 @@
 //
 
 #import "LWPersonalSendViewController.h"
+#import "LWPersonalSendViewController.h"
+#import "LWPersonalpaySuccessViewController.h"
 
-@interface LWPersonalSendViewController ()
+#import "LWAlertTool.h"
+@interface LWPersonalSendViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *addressTF;
 @property (weak, nonatomic) IBOutlet UILabel *amountDescribeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *amountTF;
@@ -21,9 +24,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    
+    self.amountDescribeLabel.text = [NSString stringWithFormat:@"Available %@ / Locked in Pending TX %@",@(self.model.canuseBitCount),@(self.model.loackBitCount)];
+    self.amountTF.delegate = self;
+    
+    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
+         self.amountLabel.text = [NSString stringWithFormat:@"¥ 0"];
+     }else{
+         self.amountLabel.text = [NSString stringWithFormat:@"$ 0"];
+     }
+
 }
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    self.amountLabel.text = [LWPublicManager getCurrentCurrencyPriceWithAmount:textField.text.floatValue];
+}
+
 - (IBAction)completeClick:(UIButton *)sender {
+    if (!self.addressTF.text || self.addressTF.text.length == 0) {
+        [WMHUDUntil showMessageToWindow:@"please input adress"];
+        return;
+    }
+    
+    if (!self.amountTF.text || self.amountTF.text.length == 0 || self.amountTF.text.floatValue == 0) {
+        [WMHUDUntil showMessageToWindow:@"please input amount"];
+        return;
+    }
+    
+    if (self.amountTF.text.floatValue > self.model.canuseBitCount) {
+        [WMHUDUntil showMessageToWindow:@"amount need less than available"];
+        return;
+    }
+    [LWAlertTool alertPersonalWalletViewSend:self.model andAdress:self.addressTF.text andAmount:self.amountTF.text andNote:self.noteTF.text andComplete:^(void) {
+
+    }];
 }
 
 /*

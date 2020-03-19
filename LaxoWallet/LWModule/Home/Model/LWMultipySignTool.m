@@ -375,6 +375,8 @@
         NSDictionary *notiDic = notiArray[2];
         NSLog(@"broadcastNotificationSuccess");
         if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+            NSLog(@"pollbroadcatsId:%@,%@",notiArray[1],@(self.broadcastId));
+
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 dispatch_semaphore_signal(self->_broadcastSignal);
             });
@@ -387,6 +389,8 @@
     NSArray *notiArray = notification.object;
     if ([notiArray[1] integerValue] == self.pollbroadcatsId) {
         NSDictionary *notiDic = notiArray[2];
+        NSLog(@"pollbroadcatsId:%@,%@",notiArray[1],@(self.pollbroadcatsId));
+
         NSLog(@"getTheKeySuccess");
         if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
             getTheKeyData = [notiDic objectForKey:@"data"];
@@ -398,8 +402,10 @@
 
 - (void)submitSigNoti:(NSNotification *)notification{
     NSArray *notiArray = notification.object;
-    if ([notiArray[1] integerValue] == self.pollbroadcatsId) {
+    if ([notiArray[1] integerValue] == self.submitSigId) {
         NSDictionary *notiDic = notiArray[2];
+        NSLog(@"submitSigId:%@,%@",notiArray[1],@(self.submitSigId));
+        
         NSLog(@"submitSigSuccess");
         if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
             if (self.signBlock) {

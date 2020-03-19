@@ -32,6 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat       personalBitCount;
 @property (nonatomic, assign) CGFloat       personalBitCurrency;
 
+@property (nonatomic, assign) CGFloat       canuseBitCount;
+@property (nonatomic, assign) CGFloat       loackBitCount;
+
+
 @property (nonatomic, strong) UIColor       *iconColor;
 @property (nonatomic, strong) NSArray        *parties;//
 

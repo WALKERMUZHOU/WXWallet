@@ -317,37 +317,31 @@
            }
                  break;
          case WSRequestIdWalletQueryGetTheKey:{
-                 [SVProgressHUD dismiss];
                  [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_getTheKey object:responseArray[2]];
              }
                    break;
         case WSRequestIdWalletQueryComfirmAddress:{
-                [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_confirmAddress object:responseArray[2]];
             }
                   break;
         case WSRequestIdWalletQueryrequestPartySign:{
-                [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_requestPartySign object:responseArray[2]];
             }
                   break;
         case WSRequestIdWalletQueryGetKeyShare:{
-                [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_getkeyshare object:responseArray[2]];
             }
                   break;
         case WSRequestIdWalletQueryBroadcastTrans:{
-                [SVProgressHUD dismiss];
+//                [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_boardcast_trans object:responseArray[2]];
             }
                   break;
         case WSRequestIdWalletQueryMultipyAddress:{
-                [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipyAddress object:responseArray[2]];
             }
                   break;
         case WSRequestIdWalletQueryBroadcastUnSignTrans:{
-                [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipyUnSignTrans object:responseArray[2]];
             }
             break;
@@ -356,22 +350,22 @@
             #define kWebScoket_MultipySignPollBroadcast @"kWebScoket_MultipySignPollBroadcast"
             #define kWebScoket_MultipyAddressPollBroadcast       @"kWebScoket_MultipyAddressPollBroadcast"*/
         case WSRequestId_multipy_broadcast_sig:{
-                [SVProgressHUD dismiss];
+//                [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyBroadcast_sig object:responseArray[2]];
             }
                   break;
         case WSRequestId_multipy_pollBroadcast_sig:{
-                [SVProgressHUD dismiss];
+//                [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyPollBroadcast_sig object:responseArray[2]];
             }
                   break;
         case WSRequestId_multipy_broadcast_address:{
-                [SVProgressHUD dismiss];
+//                [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyBroadcast_address object:responseArray[2]];
             }
                   break;
         case WSRequestId_multipy_pollBroadcast_address:{
-                [SVProgressHUD dismiss];
+//                [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyPollBroadcast_address object:responseArray[2]];
             }
                   break;

@@ -19,6 +19,9 @@
 @property (nonatomic, strong) NSString  *note;
 @property (nonatomic, strong) LWHomeWalletModel  *model;
 
+@property (nonatomic, assign) char  *transId;
+@property (nonatomic, strong) NSArray *changeArray;
+
 @end
 
 @implementation LWTansactionTool
@@ -63,7 +66,6 @@ static LWTansactionTool *instance = nil;
     
 //    self.transAmount = amount;
 //    self.transAddress = address;
-    [SVProgressHUD show];
     
     self.model = model;
     self.transAmount = amount * 1e8;
@@ -88,53 +90,63 @@ static LWTansactionTool *instance = nil;
         [WMHUDUntil showMessageToWindow:@"transaction fail"];
         return;
     }
+    self.transId = transId;
+    self.changeArray = changeArray;
     
-    char *add_change = add_transaction_change(transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
-    NSLog(@"add_transaction_change(%s , %s)",transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
+    char *fee = get_transaction_fee(transId);
+    self.fee = [LWAddressTool charToString:fee];
+}
 
-    if (![[LWAddressTool charToString:add_change] isEqualToString:@"true"]) {
-        [WMHUDUntil showMessageToWindow:@"transaction fail"];
-        return;
-    }
-    
-    char *get_sighash = get_transaction_sighash(transId);
-    NSLog(@"get_transaction_sighash(%s)",transId);
+- (void)transStart{
+    [SVProgressHUD show];
 
-    NSArray *sighHashArray = [LWAddressTool charToObject:get_sighash];
-    
-//    LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
-//    char *pubkey = get_public_key([LWAddressTool stringToChar:userModel.pk]);
-//
-    NSMutableArray *transaction_sig_array = [NSMutableArray array];
-    __block dispatch_semaphore_t semaphore;
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
-        for (NSInteger i = 0; i<sighHashArray.count; i++) {
-            semaphore = dispatch_semaphore_create(0);
-            LWutxoModel *utxo = [changeArray objectAtIndex:i];
-            NSString *sign_hash = sighHashArray[i];
+    char *transId = self.transId;
+    NSArray *changeArray = self.changeArray;
+        char *add_change = add_transaction_change(transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
+        NSLog(@"add_transaction_change(%s , %s)",transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
 
-            LWSignTool *signTool = [LWSignTool shareInstance];
-            [signTool setWithAddress:utxo.address andHash:sign_hash];
-            signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
-                NSString *r = [sign objectForKey:@"r"];
-                NSString *signStr = [sign objectForKey:@"sign"];
-                NSString *pubkey = [sign objectForKey:@"pubkey"];
-
-                char *add_transaction_sig_char = add_transaction_sig(transId, i, [LWAddressTool stringToChar:pubkey], [LWAddressTool stringToChar:r], [LWAddressTool stringToChar:signStr]);
-
-                NSLog(@"add_transaction_sig(%s, %ld , %s , %s , %s)",transId,(long)i,[LWAddressTool stringToChar:pubkey], [LWAddressTool stringToChar:r], [LWAddressTool stringToChar:signStr]);
-
-                dispatch_semaphore_signal(semaphore);
-            };
-            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        if (![[LWAddressTool charToString:add_change] isEqualToString:@"true"]) {
+            [WMHUDUntil showMessageToWindow:@"transaction fail"];
+            return;
         }
         
-        char *transaction_to_json_char = transaction_to_json(transId);
-        [self requestTransactionToServer:[LWAddressTool charToObject:transaction_to_json_char]];
-        NSLog(@"%s",transaction_to_json_char);
-    });
-    
+        char *get_sighash = get_transaction_sighash(transId);
+        NSLog(@"get_transaction_sighash(%s)",transId);
+
+        NSArray *sighHashArray = [LWAddressTool charToObject:get_sighash];
+        
+    //    LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
+    //    char *pubkey = get_public_key([LWAddressTool stringToChar:userModel.pk]);
+    //
+        NSMutableArray *transaction_sig_array = [NSMutableArray array];
+        __block dispatch_semaphore_t semaphore;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            
+            for (NSInteger i = 0; i<sighHashArray.count; i++) {
+                semaphore = dispatch_semaphore_create(0);
+                LWutxoModel *utxo = [changeArray objectAtIndex:i];
+                NSString *sign_hash = sighHashArray[i];
+
+                LWSignTool *signTool = [LWSignTool shareInstance];
+                [signTool setWithAddress:utxo.address andHash:sign_hash];
+                signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
+                    NSString *r = [sign objectForKey:@"r"];
+                    NSString *signStr = [sign objectForKey:@"sign"];
+                    NSString *pubkey = [sign objectForKey:@"pubkey"];
+
+                    char *add_transaction_sig_char = add_transaction_sig(transId, i, [LWAddressTool stringToChar:pubkey], [LWAddressTool stringToChar:r], [LWAddressTool stringToChar:signStr]);
+
+                    NSLog(@"add_transaction_sig(%s, %ld , %s , %s , %s)",transId,(long)i,[LWAddressTool stringToChar:pubkey], [LWAddressTool stringToChar:r], [LWAddressTool stringToChar:signStr]);
+
+                    dispatch_semaphore_signal(semaphore);
+                };
+                dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+            }
+            
+            char *transaction_to_json_char = transaction_to_json(transId);
+            [self requestTransactionToServer:[LWAddressTool charToObject:transaction_to_json_char]];
+            NSLog(@"%s",transaction_to_json_char);
+        });
 }
 
 - (void)requestTransactionToServer:(NSDictionary *)transactionToJson{
@@ -147,7 +159,6 @@ static LWTansactionTool *instance = nil;
     NSDictionary *multipyparams = @{@"rawtx":trans_str,@"wid":@(self.model.walletId),@"value":@(self.transAmount),@"note":self.note};
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBroadcastTrans),@"wallet.broadcast",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
-    [SVProgressHUD dismiss];
     /*
     transactionToJson => msgpack => msgpackdata
     msgpackdata => tohexStr 转成16进制
@@ -161,27 +172,33 @@ static LWTansactionTool *instance = nil;
     NSArray *utxo = self.model.utxo;
     NSMutableArray *chageUtxoArray = [NSMutableArray array];
     for (NSInteger i = 0; i<utxo.count; i++) {
-        
+
         LWutxoModel *utxoModel = utxo[i];
-        if (utxoModel.value > transAmount) {
-            [chageUtxoArray addObj:utxoModel];
-            break;
-        }else{
-            transAmount = transAmount - utxoModel.value;
-            [chageUtxoArray addObj:utxoModel];
+        if (utxoModel.status == 1) {
+            if (utxoModel.value > transAmount) {
+                [chageUtxoArray addObj:utxoModel];
+                break;
+            }else{
+                transAmount = transAmount - utxoModel.value;
+                [chageUtxoArray addObj:utxoModel];
+            }
         }
+
     }
     return chageUtxoArray;
 }
 
 - (void)boardCast:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;
-    NSLog(@"broadcastNotificationSuccess");
-    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+        NSLog(@"broadcastNotificationSuccess");
         if (self.transactionBlock) {
             self.transactionBlock(YES);
         }
-        
+    }else{
+        NSLog(@"%@",notiDic);
+
+        [WMHUDUntil showMessageToWindow:@"trans error"];
     }
 }
 

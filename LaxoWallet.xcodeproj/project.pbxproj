@@ -165,6 +165,7 @@
 		5E755A9A24230D6F00398413 /* LWPersoanlReceiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A8A24230D6F00398413 /* LWPersoanlReceiveView.m */; };
 		5E755A9B24230D6F00398413 /* LWPersonalSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A8B24230D6F00398413 /* LWPersonalSendView.m */; };
 		5E755A9F2423199800398413 /* LWTimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A9E2423199800398413 /* LWTimeTool.m */; };
+		5E755AA2242377E700398413 /* LWNumberTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755AA1242377E700398413 /* LWNumberTool.m */; };
 		5E9172BD241528B700D47A9F /* CBSecp256k1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9172B8241528B700D47A9F /* CBSecp256k1.m */; };
 		5E9172BE241528B700D47A9F /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9172B9241528B700D47A9F /* NSData+HexString.m */; };
 		5E9172BF241528B700D47A9F /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9172BA241528B700D47A9F /* secp256k1.framework */; };
@@ -602,6 +603,8 @@
 		5E755A8C24230D6F00398413 /* LWPersoanDetailListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersoanDetailListView.h; sourceTree = "<group>"; };
 		5E755A9D2423199800398413 /* LWTimeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTimeTool.h; sourceTree = "<group>"; };
 		5E755A9E2423199800398413 /* LWTimeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTimeTool.m; sourceTree = "<group>"; };
+		5E755AA0242377E700398413 /* LWNumberTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWNumberTool.h; sourceTree = "<group>"; };
+		5E755AA1242377E700398413 /* LWNumberTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWNumberTool.m; sourceTree = "<group>"; };
 		5E9172B8241528B700D47A9F /* CBSecp256k1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSecp256k1.m; sourceTree = "<group>"; };
 		5E9172B9241528B700D47A9F /* NSData+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+HexString.m"; sourceTree = "<group>"; };
 		5E9172BA241528B700D47A9F /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = secp256k1.framework; sourceTree = "<group>"; };
@@ -2091,6 +2094,8 @@
 			children = (
 				5E07FD312421F9D900FA3E1F /* LWAlertTool.h */,
 				5E07FD322421F9D900FA3E1F /* LWAlertTool.m */,
+				5E755AA0242377E700398413 /* LWNumberTool.h */,
+				5E755AA1242377E700398413 /* LWNumberTool.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2686,6 +2691,7 @@
 				5E755A9324230D6F00398413 /* LWPersonalpaySuccessViewController.m in Sources */,
 				5E5F12FA23EDD97F002F0711 /* WMZBannerControl.m in Sources */,
 				5E66A38923EAEBE9004097CB /* LWMineViewController.m in Sources */,
+				5E755AA2242377E700398413 /* LWNumberTool.m in Sources */,
 				5E66A3CA23EBFAA2004097CB /* TYAlertView.m in Sources */,
 				5E2358622403F3E400A7D774 /* LWMineTableViewCell.m in Sources */,
 				5EF5136723F1811B00F5B6C1 /* LBXPermissionSetting.m in Sources */,

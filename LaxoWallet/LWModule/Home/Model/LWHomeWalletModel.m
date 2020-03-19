@@ -34,11 +34,22 @@
     }
     
     CGFloat bitCount = 0;
+    CGFloat canuseCount = 0;
+    CGFloat lockCount = 0;
     for (NSInteger i = 0; i<self.utxo.count; i++) {
         LWutxoModel *model = [self.utxo objectAtIndex:i];
         bitCount += model.value;
+        if (model.status == 1) {
+            canuseCount += model.value;
+        }else{
+            lockCount += model.value;
+        }
+        
     }
     self.personalBitCount = bitCount/1e8;
+    self.canuseBitCount = bitCount/1e8;
+    self.loackBitCount = bitCount/1e8;
+    
     self.personalBitCurrency = [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV].floatValue * bitCount/1e8;
     return YES;
 }

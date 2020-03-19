@@ -270,6 +270,10 @@
     [SVProgressHUD show];
     
     char *seed = get_seed();
+    LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
+    model.jiZhuCi = [LWAddressTool charToString:seed];
+    [[LWUserManager shareInstance] setUser:model];
+    
     char *pk = derive_key(seed, [LWAddressTool stringToChar:@"m/0"]);
     char *secret = sha256(pk);
     char *shares = get_shares(seed, 2, 2);

@@ -7,13 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "LWHomeWalletModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWAlertTool : NSObject
 
 + (void)alertHomeChooseWalletView:(void(^)(NSInteger index))walletBlock;
 
+///个人钱包收款弹窗
++ (void)alertPersonalWalletViewReceive:(LWHomeWalletModel *)params ansComplete:(void(^)(NSInteger index))walletBlock;
+
+///个人钱包发送弹窗
++ (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note andComplete:(void (^)(void))walletBlock;
 
 @end
 

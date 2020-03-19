@@ -7,7 +7,7 @@
 //
 
 #import "LWHomeListCell.h"
-
+#import "LWNumberTool.h"
 @interface LWHomeListCell()
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *personalNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *personalBitCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *joinButton;
+@property (weak, nonatomic) IBOutlet UIView *tipView;
 @end
 
 @implementation LWHomeListCell
@@ -32,8 +33,13 @@
             self.joinButton.hidden = YES;
             self.personalNameLabel.hidden = NO;
             self.personalBitCountLabel.hidden = NO;
-            self.personalNameLabel.text = @"BSV";
-            self.personalBitCountLabel.text = [NSString stringWithFormat:@"%@",@(_model.personalBitCount)];
+            if (_model.name && _model.name.length>0) {
+                self.personalNameLabel.text = _model.name;
+            }else{
+                self.personalNameLabel.text = @"BSV";
+            }
+            self.personalBitCountLabel.text = [LWNumberTool formatSSSFloat:_model.personalBitCount/1e8];
+            self.tipView.hidden = YES;
         }
             
             break;
@@ -43,7 +49,6 @@
             self.bitCountLabel.hidden = NO;
             self.currentPriceLabel.hidden = NO;
             self.personalNameLabel.hidden = NO;
-            
 //            self.typeLabel.text = [NSString stringWithFormat:@"%@",(long)_model.threshold,(long)_model.share];
             self.personalNameLabel.text = _model.name;
             self.personalBitCountLabel.text = [NSString stringWithFormat:@"%@",@(_model.personalBitCount)];
@@ -51,10 +56,12 @@
             if(_model.status == 0){//状态0-创建中，1-已创建，2-已删除
                 self.bitCountLabel.hidden = YES;
                 self.currentPriceLabel.hidden = YES;
-                [self.personalBitCountLabel setTextColor:[UIColor redColor]];
                 self.personalBitCountLabel.hidden= NO;
-                self.personalBitCountLabel.text = [NSString stringWithFormat:@"%ld方待加入",(long)_model.needToJoinCount];
+//                self.personalBitCountLabel.text = [NSString stringWithFormat:@"%ld方待加入",(long)_model.needToJoinCount];
                 self.joinButton.hidden = _model.join;
+                self.personalBitCountLabel.text = @"0";
+                self.tipView.hidden = NO;
+
 //                self.personalBitCountLabel.hidden = !_model.join;
             }else if (model.status == 1){
                 self.bitCountLabel.hidden = NO;
@@ -63,7 +70,11 @@
                 self.bitCountLabel.text = [NSString stringWithFormat:@"%@",@(_model.personalBitCount)];
                 self.joinButton.hidden = YES;
                 self.currentPriceLabel.text = [NSString stringWithFormat:@"¥%.2f",_model.personalBitCurrency];
+                self.tipView.hidden = YES;
+
             }
+            
+
         }
             
             break;

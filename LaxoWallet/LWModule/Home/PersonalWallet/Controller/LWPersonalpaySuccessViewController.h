@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LWPersonalpaySuccessViewController : LWBaseViewController
 
+- (void)setSuccessWithAmount:(NSString *)amount andaddress:(NSString *)address andnote:(NSString *)note andfee:(NSString *)fee;
 @end
 
 NS_ASSUME_NONNULL_END

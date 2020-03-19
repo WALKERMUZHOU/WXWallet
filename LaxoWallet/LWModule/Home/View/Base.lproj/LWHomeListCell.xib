@@ -20,14 +20,14 @@
                         <rect key="frame" x="15" y="15" width="290" height="75"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_navilogo_bit" translatesAutoresizingMaskIntoConstraints="NO" id="nq5-9x-kEf">
-                                <rect key="frame" x="7" y="22" width="40" height="31"/>
+                                <rect key="frame" x="7" y="22" width="31" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="HdF-oi-cSZ"/>
-                                    <constraint firstAttribute="width" constant="40" id="SC4-bT-tOP"/>
+                                    <constraint firstAttribute="width" constant="31" id="SC4-bT-tOP"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zab-cr-2p0">
-                                <rect key="frame" x="57" y="29" width="36" height="17"/>
+                                <rect key="frame" x="48" y="29" width="36" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -44,15 +44,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rL-yp-PwN">
+                                <rect key="frame" x="28" y="20" width="12" height="12"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="W9O-ri-SeQ"/>
+                                    <constraint firstAttribute="width" constant="12" id="WRX-4C-jez"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBound" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="zab-cr-2p0" firstAttribute="centerY" secondItem="aRq-Qa-ccl" secondAttribute="centerY" id="8Ia-EJ-lOV"/>
                             <constraint firstItem="nq5-9x-kEf" firstAttribute="leading" secondItem="aRq-Qa-ccl" secondAttribute="leading" constant="7" id="C4T-qV-Uep"/>
+                            <constraint firstItem="8rL-yp-PwN" firstAttribute="leading" secondItem="nq5-9x-kEf" secondAttribute="trailing" constant="-10" id="FGE-9b-bDp"/>
                             <constraint firstAttribute="trailing" secondItem="dYS-ph-Bbm" secondAttribute="trailing" constant="20" id="Glb-2h-Un0"/>
                             <constraint firstItem="BdT-ag-kdh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zab-cr-2p0" secondAttribute="trailing" constant="8" symbolic="YES" id="N8f-Rw-YOP"/>
                             <constraint firstItem="dYS-ph-Bbm" firstAttribute="centerY" secondItem="aRq-Qa-ccl" secondAttribute="centerY" constant="0.5" id="PBm-mX-4RQ"/>
                             <constraint firstItem="zab-cr-2p0" firstAttribute="leading" secondItem="nq5-9x-kEf" secondAttribute="trailing" constant="10" id="PkM-rD-EZM"/>
+                            <constraint firstItem="8rL-yp-PwN" firstAttribute="top" secondItem="nq5-9x-kEf" secondAttribute="top" constant="-2" id="TXB-F7-2RA"/>
                             <constraint firstItem="dYS-ph-Bbm" firstAttribute="leading" secondItem="BdT-ag-kdh" secondAttribute="trailing" constant="2" id="mCj-UR-Cb9"/>
                             <constraint firstItem="nq5-9x-kEf" firstAttribute="centerY" secondItem="aRq-Qa-ccl" secondAttribute="centerY" id="vXa-2Q-qOX"/>
                             <constraint firstItem="BdT-ag-kdh" firstAttribute="centerY" secondItem="aRq-Qa-ccl" secondAttribute="centerY" id="w5g-7P-VAn"/>
@@ -77,6 +93,7 @@
             <connections>
                 <outlet property="personalBitCountLabel" destination="BdT-ag-kdh" id="RHd-qA-cRy"/>
                 <outlet property="personalNameLabel" destination="zab-cr-2p0" id="bVd-Ut-0Ej"/>
+                <outlet property="tipView" destination="8rL-yp-PwN" id="KGM-BH-uNZ"/>
             </connections>
             <point key="canvasLocation" x="111.59420289855073" y="99.776785714285708"/>
         </tableViewCell>

@@ -11,13 +11,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^TransactionBlock)(BOOL success);
+typedef void(^TransactionFeeBlock)(NSString *fee);
+
 @interface LWTansactionTool : NSObject
 
 + (LWTansactionTool *)shareInstance;
 
 - (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model;
-
+- (void)transStart;
 @property (nonatomic, copy) TransactionBlock transactionBlock;
+@property (nonatomic, copy) TransactionFeeBlock feeBlock;
+@property (nonatomic, strong) NSString *fee;
 
 @end
 

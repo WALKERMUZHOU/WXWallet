@@ -16,7 +16,7 @@
 
 + (LWCurrentLanguage)getCurrentLanguage{
     NSString *language = [[NSUserDefaults standardUserDefaults] objectForKey:kAppCurrentLanguage_userdefault];
-    if (language && [language isEqualToString:@"English"]) {
+    if (language && [language isEqualToString:@"Chinese"]) {
         return LWCurrentLanguageEnglish;
     }
     return LWCurrentLanguageChinese;
@@ -24,14 +24,25 @@
 
 + (LWCurrentCurrency)getCurrentCurrency{
     NSString *currency = [[NSUserDefaults standardUserDefaults] objectForKey:kAppCurrentCurrency_userdefault];
-    if (currency && [currency isEqualToString:@"USD"]) {
-        return LWCurrentCurrencyUSD;
+    if (currency && [currency isEqualToString:@"cny"]) {
+        return LWCurrentCurrencyCNY;
     }
-    return LWCurrentCurrencyCNY;
+    return LWCurrentCurrencyUSD;
 }
 
 + (NSString *)getCurrentCurrencyPrice{
     return [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV];
+}
+
++ (NSString *)getCurrentCurrencyPriceWithAmount:(CGFloat)amount{
+    NSString *currentcy = [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV];
+    
+    CGFloat totalAmount = amount * currentcy.floatValue;
+    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
+        return [NSString stringWithFormat:@"¥ %.2f",totalAmount];
+    }
+    
+    return [NSString stringWithFormat:@"$ %.2f",totalAmount];
 }
 
 + (void)setCurrentLanguage:(LWCurrentLanguage)languageType{
@@ -48,9 +59,9 @@
 + (void)setCurrentCurrency:(LWCurrentCurrency)currencyType{
     NSString *laguage ;
     if (currencyType == LWCurrentCurrencyCNY) {
-        laguage = @"CNY";
+        laguage = @"cny";
     }else{
-        laguage = @"USD";
+        laguage = @"usd";
     }
     [[NSUserDefaults standardUserDefaults] setObject:laguage forKey:kAppCurrentCurrency_userdefault];
     [[NSUserDefaults standardUserDefaults] synchronize];

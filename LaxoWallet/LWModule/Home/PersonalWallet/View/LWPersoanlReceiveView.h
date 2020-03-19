@@ -7,11 +7,14 @@
 //
 
 #import "LWBaseView.h"
-
+#import "LWHomeWalletModel.h"
 NS_ASSUME_NONNULL_BEGIN
+typedef void(^PersoanlReceiveBlock)(void);
 
 @interface LWPersoanlReceiveView : LWBaseView
 
+@property (nonatomic, copy) PersoanlReceiveBlock block;
+- (void)setContentModel:(LWHomeWalletModel *)model;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -18,6 +18,11 @@
 		5E07FD262420E48B00FA3E1F /* LWHomeListViewNew.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD252420E48B00FA3E1F /* LWHomeListViewNew.m */; };
 		5E07FD292420E55E00FA3E1F /* LWHomeListHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD282420E55E00FA3E1F /* LWHomeListHeadView.m */; };
 		5E07FD2B2420E56A00FA3E1F /* LWHomeListHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD2A2420E56A00FA3E1F /* LWHomeListHeadView.xib */; };
+		5E07FD2E2421F4BD00FA3E1F /* LWHomeAddWalletView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD2D2421F4BD00FA3E1F /* LWHomeAddWalletView.m */; };
+		5E07FD302421F4CC00FA3E1F /* LWHomeAddWalletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD2F2421F4CC00FA3E1F /* LWHomeAddWalletView.xib */; };
+		5E07FD332421F9D900FA3E1F /* LWAlertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD322421F9D900FA3E1F /* LWAlertTool.m */; };
+		5E07FD38242204DD00FA3E1F /* LWCreateMultipyWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD36242204DD00FA3E1F /* LWCreateMultipyWalletViewController.m */; };
+		5E07FD39242204DD00FA3E1F /* LWCreateMultipyWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD37242204DD00FA3E1F /* LWCreateMultipyWalletViewController.xib */; };
 		5E0FE6962408E72D00733B05 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE6952408E72D00733B05 /* index.js */; };
 		5E23584823FBE09D00A7D774 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584423FBE09C00A7D774 /* index.html */; };
 		5E23584E23FD0D0600A7D774 /* LWutxoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E23584D23FD0D0600A7D774 /* LWutxoModel.m */; };
@@ -143,6 +148,23 @@
 		5E66A3D423EBFAA2004097CB /* TYBaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66A3C623EBFAA2004097CB /* TYBaseAnimation.m */; };
 		5E66A3D523EBFAA2004097CB /* TYAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66A3C823EBFAA2004097CB /* TYAlertController.m */; };
 		5E722B7223F694CF000991DE /* LWLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E722B7123F694CF000991DE /* LWLaunchViewController.m */; };
+		5E755A2924221E7700398413 /* LWEmailBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A2824221E7700398413 /* LWEmailBtnView.m */; };
+		5E755A8D24230D6F00398413 /* LWPersonalpaySuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A7524230D6F00398413 /* LWPersonalpaySuccessViewController.xib */; };
+		5E755A8E24230D6F00398413 /* LWPersonalWalletEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A7624230D6F00398413 /* LWPersonalWalletEditViewController.m */; };
+		5E755A8F24230D6F00398413 /* LWPersonalWalletDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A7724230D6F00398413 /* LWPersonalWalletDetailViewController.xib */; };
+		5E755A9024230D6F00398413 /* LWPersonalWalletDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A7824230D6F00398413 /* LWPersonalWalletDetailViewController.m */; };
+		5E755A9124230D6F00398413 /* LWPersonalSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A7924230D6F00398413 /* LWPersonalSendViewController.m */; };
+		5E755A9224230D6F00398413 /* LWPersonalSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A7A24230D6F00398413 /* LWPersonalSendViewController.xib */; };
+		5E755A9324230D6F00398413 /* LWPersonalpaySuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A7B24230D6F00398413 /* LWPersonalpaySuccessViewController.m */; };
+		5E755A9424230D6F00398413 /* LWPersonalWalletEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A7D24230D6F00398413 /* LWPersonalWalletEditViewController.xib */; };
+		5E755A9524230D6F00398413 /* LWPersonalListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A8224230D6F00398413 /* LWPersonalListTableViewCell.m */; };
+		5E755A9624230D6F00398413 /* LWPersoanDetailListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A8324230D6F00398413 /* LWPersoanDetailListView.m */; };
+		5E755A9724230D6F00398413 /* LWPersoanlReceiveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A8524230D6F00398413 /* LWPersoanlReceiveView.xib */; };
+		5E755A9824230D6F00398413 /* LWPersonalSendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A8724230D6F00398413 /* LWPersonalSendView.xib */; };
+		5E755A9924230D6F00398413 /* LWPersonalListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A8924230D6F00398413 /* LWPersonalListTableViewCell.xib */; };
+		5E755A9A24230D6F00398413 /* LWPersoanlReceiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A8A24230D6F00398413 /* LWPersoanlReceiveView.m */; };
+		5E755A9B24230D6F00398413 /* LWPersonalSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A8B24230D6F00398413 /* LWPersonalSendView.m */; };
+		5E755A9F2423199800398413 /* LWTimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A9E2423199800398413 /* LWTimeTool.m */; };
 		5E9172BD241528B700D47A9F /* CBSecp256k1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9172B8241528B700D47A9F /* CBSecp256k1.m */; };
 		5E9172BE241528B700D47A9F /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9172B9241528B700D47A9F /* NSData+HexString.m */; };
 		5E9172BF241528B700D47A9F /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9172BA241528B700D47A9F /* secp256k1.framework */; };
@@ -301,6 +323,14 @@
 		5E07FD272420E55E00FA3E1F /* LWHomeListHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWHomeListHeadView.h; sourceTree = "<group>"; };
 		5E07FD282420E55E00FA3E1F /* LWHomeListHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWHomeListHeadView.m; sourceTree = "<group>"; };
 		5E07FD2A2420E56A00FA3E1F /* LWHomeListHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWHomeListHeadView.xib; sourceTree = "<group>"; };
+		5E07FD2C2421F4BD00FA3E1F /* LWHomeAddWalletView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWHomeAddWalletView.h; sourceTree = "<group>"; };
+		5E07FD2D2421F4BD00FA3E1F /* LWHomeAddWalletView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWHomeAddWalletView.m; sourceTree = "<group>"; };
+		5E07FD2F2421F4CC00FA3E1F /* LWHomeAddWalletView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWHomeAddWalletView.xib; sourceTree = "<group>"; };
+		5E07FD312421F9D900FA3E1F /* LWAlertTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWAlertTool.h; sourceTree = "<group>"; };
+		5E07FD322421F9D900FA3E1F /* LWAlertTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWAlertTool.m; sourceTree = "<group>"; };
+		5E07FD35242204DD00FA3E1F /* LWCreateMultipyWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWCreateMultipyWalletViewController.h; sourceTree = "<group>"; };
+		5E07FD36242204DD00FA3E1F /* LWCreateMultipyWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCreateMultipyWalletViewController.m; sourceTree = "<group>"; };
+		5E07FD37242204DD00FA3E1F /* LWCreateMultipyWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWCreateMultipyWalletViewController.xib; sourceTree = "<group>"; };
 		5E0FE6952408E72D00733B05 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		5E23584423FBE09C00A7D774 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		5E23584C23FD0D0600A7D774 /* LWutxoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWutxoModel.h; sourceTree = "<group>"; };
@@ -545,6 +575,33 @@
 		5E66A3C923EBFAA2004097CB /* TYAlertFadeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAlertFadeAnimation.h; sourceTree = "<group>"; };
 		5E722B7023F694CF000991DE /* LWLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLaunchViewController.h; sourceTree = "<group>"; };
 		5E722B7123F694CF000991DE /* LWLaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLaunchViewController.m; sourceTree = "<group>"; };
+		5E755A2724221E7700398413 /* LWEmailBtnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWEmailBtnView.h; sourceTree = "<group>"; };
+		5E755A2824221E7700398413 /* LWEmailBtnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWEmailBtnView.m; sourceTree = "<group>"; };
+		5E755A7524230D6F00398413 /* LWPersonalpaySuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersonalpaySuccessViewController.xib; sourceTree = "<group>"; };
+		5E755A7624230D6F00398413 /* LWPersonalWalletEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonalWalletEditViewController.m; sourceTree = "<group>"; };
+		5E755A7724230D6F00398413 /* LWPersonalWalletDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersonalWalletDetailViewController.xib; sourceTree = "<group>"; };
+		5E755A7824230D6F00398413 /* LWPersonalWalletDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonalWalletDetailViewController.m; sourceTree = "<group>"; };
+		5E755A7924230D6F00398413 /* LWPersonalSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonalSendViewController.m; sourceTree = "<group>"; };
+		5E755A7A24230D6F00398413 /* LWPersonalSendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersonalSendViewController.xib; sourceTree = "<group>"; };
+		5E755A7B24230D6F00398413 /* LWPersonalpaySuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonalpaySuccessViewController.m; sourceTree = "<group>"; };
+		5E755A7C24230D6F00398413 /* LWPersonalWalletEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonalWalletEditViewController.h; sourceTree = "<group>"; };
+		5E755A7D24230D6F00398413 /* LWPersonalWalletEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersonalWalletEditViewController.xib; sourceTree = "<group>"; };
+		5E755A7E24230D6F00398413 /* LWPersonalWalletDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonalWalletDetailViewController.h; sourceTree = "<group>"; };
+		5E755A7F24230D6F00398413 /* LWPersonalpaySuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonalpaySuccessViewController.h; sourceTree = "<group>"; };
+		5E755A8024230D6F00398413 /* LWPersonalSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonalSendViewController.h; sourceTree = "<group>"; };
+		5E755A8224230D6F00398413 /* LWPersonalListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonalListTableViewCell.m; sourceTree = "<group>"; };
+		5E755A8324230D6F00398413 /* LWPersoanDetailListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersoanDetailListView.m; sourceTree = "<group>"; };
+		5E755A8424230D6F00398413 /* LWPersonalSendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonalSendView.h; sourceTree = "<group>"; };
+		5E755A8524230D6F00398413 /* LWPersoanlReceiveView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersoanlReceiveView.xib; sourceTree = "<group>"; };
+		5E755A8624230D6F00398413 /* LWPersoanlReceiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersoanlReceiveView.h; sourceTree = "<group>"; };
+		5E755A8724230D6F00398413 /* LWPersonalSendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersonalSendView.xib; sourceTree = "<group>"; };
+		5E755A8824230D6F00398413 /* LWPersonalListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonalListTableViewCell.h; sourceTree = "<group>"; };
+		5E755A8924230D6F00398413 /* LWPersonalListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersonalListTableViewCell.xib; sourceTree = "<group>"; };
+		5E755A8A24230D6F00398413 /* LWPersoanlReceiveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersoanlReceiveView.m; sourceTree = "<group>"; };
+		5E755A8B24230D6F00398413 /* LWPersonalSendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonalSendView.m; sourceTree = "<group>"; };
+		5E755A8C24230D6F00398413 /* LWPersoanDetailListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersoanDetailListView.h; sourceTree = "<group>"; };
+		5E755A9D2423199800398413 /* LWTimeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTimeTool.h; sourceTree = "<group>"; };
+		5E755A9E2423199800398413 /* LWTimeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTimeTool.m; sourceTree = "<group>"; };
 		5E9172B8241528B700D47A9F /* CBSecp256k1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSecp256k1.m; sourceTree = "<group>"; };
 		5E9172B9241528B700D47A9F /* NSData+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+HexString.m"; sourceTree = "<group>"; };
 		5E9172BA241528B700D47A9F /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = secp256k1.framework; sourceTree = "<group>"; };
@@ -815,11 +872,25 @@
 		5E07FD232420E47600FA3E1F /* new */ = {
 			isa = PBXGroup;
 			children = (
+				5E755A4F24230A4000398413 /* personal */,
 				5E07FD242420E48B00FA3E1F /* LWHomeListViewNew.h */,
 				5E07FD252420E48B00FA3E1F /* LWHomeListViewNew.m */,
 				5E07FD272420E55E00FA3E1F /* LWHomeListHeadView.h */,
 				5E07FD282420E55E00FA3E1F /* LWHomeListHeadView.m */,
 				5E07FD2A2420E56A00FA3E1F /* LWHomeListHeadView.xib */,
+				5E07FD2C2421F4BD00FA3E1F /* LWHomeAddWalletView.h */,
+				5E07FD2D2421F4BD00FA3E1F /* LWHomeAddWalletView.m */,
+				5E07FD2F2421F4CC00FA3E1F /* LWHomeAddWalletView.xib */,
+			);
+			path = new;
+			sourceTree = "<group>";
+		};
+		5E07FD342422049A00FA3E1F /* new */ = {
+			isa = PBXGroup;
+			children = (
+				5E07FD35242204DD00FA3E1F /* LWCreateMultipyWalletViewController.h */,
+				5E07FD36242204DD00FA3E1F /* LWCreateMultipyWalletViewController.m */,
+				5E07FD37242204DD00FA3E1F /* LWCreateMultipyWalletViewController.xib */,
 			);
 			path = new;
 			sourceTree = "<group>";
@@ -1446,6 +1517,7 @@
 		5E66A37923EAEBD8004097CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5E07FD342422049A00FA3E1F /* new */,
 				5E66A37B23EAEBD8004097CB /* LWHomeViewController.h */,
 				5E66A37A23EAEBD8004097CB /* LWHomeViewController.m */,
 				5EF5133623F1369200F5B6C1 /* LWNewMultiPartyWalletViewController.h */,
@@ -1636,6 +1708,68 @@
 				5E66A3BC23EBFAA2004097CB /* TYAlertController+BlurEffects.h */,
 			);
 			path = "Blur Effects";
+			sourceTree = "<group>";
+		};
+		5E755A4F24230A4000398413 /* personal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = personal;
+			sourceTree = "<group>";
+		};
+		5E755A5324230CB900398413 /* PersonalWallet */ = {
+			isa = PBXGroup;
+			children = (
+				5E755A7424230D6F00398413 /* Controller */,
+				5E755A8124230D6F00398413 /* View */,
+			);
+			path = PersonalWallet;
+			sourceTree = "<group>";
+		};
+		5E755A7424230D6F00398413 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5E755A7C24230D6F00398413 /* LWPersonalWalletEditViewController.h */,
+				5E755A7624230D6F00398413 /* LWPersonalWalletEditViewController.m */,
+				5E755A7D24230D6F00398413 /* LWPersonalWalletEditViewController.xib */,
+				5E755A7E24230D6F00398413 /* LWPersonalWalletDetailViewController.h */,
+				5E755A7824230D6F00398413 /* LWPersonalWalletDetailViewController.m */,
+				5E755A7724230D6F00398413 /* LWPersonalWalletDetailViewController.xib */,
+				5E755A8024230D6F00398413 /* LWPersonalSendViewController.h */,
+				5E755A7924230D6F00398413 /* LWPersonalSendViewController.m */,
+				5E755A7A24230D6F00398413 /* LWPersonalSendViewController.xib */,
+				5E755A7F24230D6F00398413 /* LWPersonalpaySuccessViewController.h */,
+				5E755A7B24230D6F00398413 /* LWPersonalpaySuccessViewController.m */,
+				5E755A7524230D6F00398413 /* LWPersonalpaySuccessViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5E755A8124230D6F00398413 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5E755A8C24230D6F00398413 /* LWPersoanDetailListView.h */,
+				5E755A8324230D6F00398413 /* LWPersoanDetailListView.m */,
+				5E755A8424230D6F00398413 /* LWPersonalSendView.h */,
+				5E755A8B24230D6F00398413 /* LWPersonalSendView.m */,
+				5E755A8724230D6F00398413 /* LWPersonalSendView.xib */,
+				5E755A8624230D6F00398413 /* LWPersoanlReceiveView.h */,
+				5E755A8A24230D6F00398413 /* LWPersoanlReceiveView.m */,
+				5E755A8524230D6F00398413 /* LWPersoanlReceiveView.xib */,
+				5E755A8824230D6F00398413 /* LWPersonalListTableViewCell.h */,
+				5E755A8224230D6F00398413 /* LWPersonalListTableViewCell.m */,
+				5E755A8924230D6F00398413 /* LWPersonalListTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5E755A9C2423198A00398413 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				5E755A9D2423199800398413 /* LWTimeTool.h */,
+				5E755A9E2423199800398413 /* LWTimeTool.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		5E9172B7241528B700D47A9F /* secp256k1 */ = {
@@ -1834,6 +1968,7 @@
 		5EA807CE23E94ED500012837 /* LWPublic */ = {
 			isa = PBXGroup;
 			children = (
+				5E755A9C2423198A00398413 /* Tool */,
 				5EF513BB23F550F100F5B6C1 /* LWPublic */,
 				5EF5138823F2CAD000F5B6C1 /* PublicKey */,
 				5EF5136B23F1815400F5B6C1 /* Scan */,
@@ -1860,6 +1995,7 @@
 		5EA807D023E94ED500012837 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				5E755A5324230CB900398413 /* PersonalWallet */,
 				5E91736624172B1100D47A9F /* Transaction */,
 				5E66A37923EAEBD8004097CB /* Controller */,
 				5E66A37C23EAEBD8004097CB /* Model */,
@@ -1953,6 +2089,8 @@
 		5EF5134223F14B5E00F5B6C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5E07FD312421F9D900FA3E1F /* LWAlertTool.h */,
+				5E07FD322421F9D900FA3E1F /* LWAlertTool.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1966,6 +2104,8 @@
 				5EF5134823F16C9100F5B6C1 /* LWCommonBottomBtn.m */,
 				5EF5134A23F16E1200F5B6C1 /* LWEmailBtn.h */,
 				5EF5134B23F16E1200F5B6C1 /* LWEmailBtn.m */,
+				5E755A2724221E7700398413 /* LWEmailBtnView.h */,
+				5E755A2824221E7700398413 /* LWEmailBtnView.m */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -2277,9 +2417,11 @@
 			files = (
 				5E66A34323EAB58C004097CB /* README.md in Resources */,
 				5E9172C62416227D00D47A9F /* Localizable.strings in Resources */,
+				5E755A8D24230D6F00398413 /* LWPersonalpaySuccessViewController.xib in Resources */,
 				5E66A35F23EAC378004097CB /* backImage@2x.png in Resources */,
 				5E317A84241E5B8100C951B2 /* LWLoginStepOneView.xib in Resources */,
 				5E9172E02416376200D47A9F /* com.baidu.idl.face.faceSDK.bundle in Resources */,
+				5E755A9924230D6F00398413 /* LWPersonalListTableViewCell.xib in Resources */,
 				5EF5139C23F3D14E00F5B6C1 /* LWRocoveryViewController.xib in Resources */,
 				5E66A34223EAB58C004097CB /* SVProgressHUD.bundle in Resources */,
 				5E317A7E241E55F700C951B2 /* LWLoginController.xib in Resources */,
@@ -2291,12 +2433,16 @@
 				5E66A34623EAB58C004097CB /* WMHUDUntil.bundle in Resources */,
 				5E9918A7241E6074005D6A38 /* LWLoginStepTwoView.xib in Resources */,
 				5EB31EC1240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib in Resources */,
+				5E755A9224230D6F00398413 /* LWPersonalSendViewController.xib in Resources */,
+				5E07FD302421F4CC00FA3E1F /* LWHomeAddWalletView.xib in Resources */,
 				5EB31E92240428CD00974FD4 /* LWMineSettingLanguageCell.xib in Resources */,
 				5E9172DE2416376200D47A9F /* idl-license.face-ios in Resources */,
 				5E5F12D723ED8BD3002F0711 /* LWRecoveryTrustholdsView.xib in Resources */,
 				5EA807A823E94E2400012837 /* LaunchScreen.storyboard in Resources */,
 				5E9172DF2416376200D47A9F /* com.baidu.idl.face.model.bundle in Resources */,
+				5E755A9724230D6F00398413 /* LWPersoanlReceiveView.xib in Resources */,
 				5E9918B6241E70D3005D6A38 /* LWLoginStepFiveView.xib in Resources */,
+				5E07FD39242204DD00FA3E1F /* LWCreateMultipyWalletViewController.xib in Resources */,
 				5E07FD2B2420E56A00FA3E1F /* LWHomeListHeadView.xib in Resources */,
 				5E9918B1241E68A9005D6A38 /* LWLoginStepFourView.xib in Resources */,
 				5EB31E8724041CAF00974FD4 /* LWMineSecurityTableViewCell.xib in Resources */,
@@ -2313,7 +2459,10 @@
 				5E23585B2403CBAF00A7D774 /* LWPersonalCollectionViewController.xib in Resources */,
 				5E9172D324162A7300D47A9F /* LWHomeListCell.xib in Resources */,
 				5E66A36023EAC379004097CB /* backImage@3x.png in Resources */,
+				5E755A9824230D6F00398413 /* LWPersonalSendView.xib in Resources */,
+				5E755A8F24230D6F00398413 /* LWPersonalWalletDetailViewController.xib in Resources */,
 				5EA807A523E94E2400012837 /* Assets.xcassets in Resources */,
+				5E755A9424230D6F00398413 /* LWPersonalWalletEditViewController.xib in Resources */,
 				5E5F12CA23ED874B002F0711 /* LWLoginSecondStepView.xib in Resources */,
 				5EA807A323E94E2100012837 /* Main.storyboard in Resources */,
 				5E66A34423EAB58C004097CB /* LICENSE.txt in Resources */,
@@ -2399,9 +2548,11 @@
 				5E66A34123EAB58C004097CB /* SVIndefiniteAnimatedView.m in Sources */,
 				5E5F128D23EC0E12002F0711 /* WMZDialog+Loading.m in Sources */,
 				5E91736324163DEB00D47A9F /* ImageUtils.m in Sources */,
+				5E755A9524230D6F00398413 /* LWPersonalListTableViewCell.m in Sources */,
 				5EF513E023F550F200F5B6C1 /* LWEmailBtn.m in Sources */,
 				5E66A30823EAADA1004097CB /* AxcAE_TabBarItem.m in Sources */,
 				5EB31E9C2404BD1900974FD4 /* LWTextFieldAlertView.m in Sources */,
+				5E07FD38242204DD00FA3E1F /* LWCreateMultipyWalletViewController.m in Sources */,
 				5E5F12BB23ED58B9002F0711 /* LWUser.m in Sources */,
 				5E66A3CC23EBFAA2004097CB /* TYAlertScaleFadeAnimation.m in Sources */,
 				5E66A3D523EBFAA2004097CB /* TYAlertController.m in Sources */,
@@ -2419,6 +2570,7 @@
 				5EE8FB7124066B7C00AEE861 /* LWPartiesModel.m in Sources */,
 				5E66A33D23EAB58C004097CB /* TYLScrollView.m in Sources */,
 				5E5F129323EC0E12002F0711 /* WMZDialog+PopView.m in Sources */,
+				5E755A9124230D6F00398413 /* LWPersonalSendViewController.m in Sources */,
 				5EB31EBC2406489400974FD4 /* LWMessageDeleteUserView.m in Sources */,
 				5E5F12B823ED5758002F0711 /* LWDevice.m in Sources */,
 				5EF5133E23F1386C00F5B6C1 /* LWInputTextField.m in Sources */,
@@ -2435,6 +2587,7 @@
 				5E91735E24163DEB00D47A9F /* FaceBaseViewController.m in Sources */,
 				5EA1D49223FA527E00A0A747 /* SocketRocketUtility.m in Sources */,
 				5EE8FB7C2407911700AEE861 /* LWMessageDetailTitleContentView.m in Sources */,
+				5E755A9024230D6F00398413 /* LWPersonalWalletDetailViewController.m in Sources */,
 				5E66A34023EAB58C004097CB /* SVProgressHUD.m in Sources */,
 				5E91735F24163DEB00D47A9F /* RemindView.m in Sources */,
 				5E91737C241B208800D47A9F /* LWMultipySignTool.m in Sources */,
@@ -2442,6 +2595,7 @@
 				5EF513DF23F550F200F5B6C1 /* QQLBXScanViewController.m in Sources */,
 				5EE8FB7424076B9300AEE861 /* LWMessageDetailListView.m in Sources */,
 				5E91736924172B5300D47A9F /* LWTansactionTool.m in Sources */,
+				5E755A8E24230D6F00398413 /* LWPersonalWalletEditViewController.m in Sources */,
 				5E66A3CF23EBFAA2004097CB /* TYAlertFadeAnimation.m in Sources */,
 				5E5F12FC23EDD97F002F0711 /* WMZPageNaviBtn.m in Sources */,
 				5E66A34E23EAB595004097CB /* CZRefreshFooter.m in Sources */,
@@ -2454,6 +2608,7 @@
 				5E5F12A323EC0E12002F0711 /* WMZDialog+Advertisement.m in Sources */,
 				5EF513DC23F550F200F5B6C1 /* CZRefreshHeader.m in Sources */,
 				5E07FD1B2420BA4000FA3E1F /* LWLoginStepEightView.m in Sources */,
+				5E07FD2E2421F4BD00FA3E1F /* LWHomeAddWalletView.m in Sources */,
 				5E5F128C23EC0E12002F0711 /* WMZDialog+NaviMenu.m in Sources */,
 				EFEBEEA423FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m in Sources */,
 				5E5F129F23EC0E12002F0711 /* NSDate+WMZCalendarDate.m in Sources */,
@@ -2470,6 +2625,7 @@
 				5E66A38323EAEBE1004097CB /* LWMessageViewController.m in Sources */,
 				5E66A30A23EAADA1004097CB /* MGSwipeButton.m in Sources */,
 				5E66A3D023EBFAA2004097CB /* TYAlertController+TransitionAnimate.m in Sources */,
+				5E07FD332421F9D900FA3E1F /* LWAlertTool.m in Sources */,
 				5E66A33F23EAB58C004097CB /* SVProgressAnimatedView.m in Sources */,
 				5E9918AF241E6899005D6A38 /* LWLoginStepFourView.m in Sources */,
 				5E91735C24163DEB00D47A9F /* DetectionViewController.m in Sources */,
@@ -2484,6 +2640,7 @@
 				5E5F12A523EC0E12002F0711 /* WMZDialog+Sheet.m in Sources */,
 				5E5F12A423EC0E12002F0711 /* WMZDialog+Select.m in Sources */,
 				5E66A3D323EBFAA2004097CB /* TYShowAlertView.m in Sources */,
+				5E755A9B24230D6F00398413 /* LWPersonalSendView.m in Sources */,
 				5EF5136623F1811B00F5B6C1 /* UIAlertController+supportedInterfaceOrientations.m in Sources */,
 				5E5F129123EC0E12002F0711 /* WMZDialog+Location.m in Sources */,
 				5E5F12A223EC0E12002F0711 /* WMZDialog+Normal.m in Sources */,
@@ -2524,7 +2681,9 @@
 				5EF5136E23F1815400F5B6C1 /* QQLBXScanViewController.m in Sources */,
 				5E91736024163DEB00D47A9F /* CircleView.m in Sources */,
 				5E66A3B023EB1184004097CB /* PopoverViewCell.m in Sources */,
+				5E755A9F2423199800398413 /* LWTimeTool.m in Sources */,
 				5E66A36D23EAC43A004097CB /* LWNavigationViewController.m in Sources */,
+				5E755A9324230D6F00398413 /* LWPersonalpaySuccessViewController.m in Sources */,
 				5E5F12FA23EDD97F002F0711 /* WMZBannerControl.m in Sources */,
 				5E66A38923EAEBE9004097CB /* LWMineViewController.m in Sources */,
 				5E66A3CA23EBFAA2004097CB /* TYAlertView.m in Sources */,
@@ -2550,14 +2709,17 @@
 				5EF513DE23F550F200F5B6C1 /* LogicHandle.m in Sources */,
 				5EF5138B23F2CAD000F5B6C1 /* PublicKeyView.m in Sources */,
 				5EF5136A23F1811B00F5B6C1 /* LBXPermission.m in Sources */,
+				5E755A9A24230D6F00398413 /* LWPersoanlReceiveView.m in Sources */,
 				5E66A3A423EAFF14004097CB /* LWHomeListHeaderView.m in Sources */,
 				5E07FD112420B60600FA3E1F /* LWLoginStepSixView.m in Sources */,
 				5EB31E992404BC9800974FD4 /* LWTextViewAlertView.m in Sources */,
+				5E755A9624230D6F00398413 /* LWPersoanDetailListView.m in Sources */,
 				5E66A36123EAC379004097CB /* JTNavigationController.m in Sources */,
 				5E5F12A623EC0E12002F0711 /* WMZDialog.m in Sources */,
 				5E07FD262420E48B00FA3E1F /* LWHomeListViewNew.m in Sources */,
 				5E5F12F923EDD97F002F0711 /* WMZBannerView.m in Sources */,
 				5EF5136523F1811B00F5B6C1 /* UIAlertView+LBXAlertAction.m in Sources */,
+				5E755A2924221E7700398413 /* LWEmailBtnView.m in Sources */,
 				5E5F12A823EC0E12002F0711 /* WMZDialog+Share.m in Sources */,
 				5E5F129223EC0E12002F0711 /* WMZDialog+DatePicker.m in Sources */,
 				5E66A37D23EAEBD9004097CB /* LWHomeViewController.m in Sources */,

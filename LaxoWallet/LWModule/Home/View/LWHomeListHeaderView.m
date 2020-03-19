@@ -123,13 +123,13 @@
 }
 - (void)jumpToScan{
         QQLBXScanViewController *vc = [QQLBXScanViewController new];
-           vc.libraryType = SLT_ZXing;
+        vc.libraryType = SLT_ZXing;
     //       vc.scanCodeType = [Global sharedManager].scanCodeType;
 
-           vc.style = [QQLBXScanViewController qqStyle];
+        vc.style = [QQLBXScanViewController qqStyle];
            
            //镜头拉远拉近功能
-           vc.isVideoZoom = YES;
+        vc.isVideoZoom = YES;
         [LogicHandle pushViewController:vc];
 }
 @end

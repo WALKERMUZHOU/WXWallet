@@ -58,10 +58,11 @@
 #define kAppContactMobile           @"kAppcustomerContactMobile"
 #define kAppUnReadMessage           @"kAppUnReadMessage"
 
-#define kRevocerSuccessKey_userdefault   @"kAppRevocerSuccessKey_userdefault"
-#define kAppPubkeyManager_userdefault   @"NSUserDefaultPubkeyManagerssss"
-#define kAppTouchIdStart_userdefault   @"kAppTouchIdStart_userdefault"
-#define kAppTokenPrice_userdefault   @"kAppTokenPrice_userdefault"
+#define kRevocerSuccessKey_userdefault    @"kAppRevocerSuccessKey_userdefault"
+#define kAppPubkeyManager_userdefault     @"NSUserDefaultPubkeyManagerssss"
+#define kAppTouchIdStart_userdefault      @"kAppTouchIdStart_userdefault"
+///当前币价格
+#define kAppTokenPrice_userdefault        @"kAppTokenPrice_userdefault"
 
 #define kAppCurrentLanguage_userdefault   @"kAppCurrentLanguage_userdefault"
 #define kAppCurrentCurrency_userdefault   @"kAppCurrentCurrency_userdefault"

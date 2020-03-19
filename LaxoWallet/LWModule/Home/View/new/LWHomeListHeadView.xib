@@ -169,7 +169,6 @@
                 <outlet property="multipyBtn" destination="CnH-ah-jDJ" id="s9M-P1-Ms4"/>
                 <outlet property="personalBtn" destination="K7S-Vw-ww1" id="abK-J8-tWC"/>
                 <outlet property="priceLabel" destination="gl6-zx-Ag5" id="SYG-wf-4q2"/>
-                <outlet property="seeButton" destination="cW7-cu-IXG" id="3Dz-BF-zkn"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="-142.29910714285714"/>
         </view>

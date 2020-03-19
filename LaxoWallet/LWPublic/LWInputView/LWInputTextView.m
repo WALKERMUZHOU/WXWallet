@@ -8,7 +8,7 @@
 
 #import "LWInputTextView.h"
 #import "LWEmailBtn.h"
-
+#import "LWEmailBtnView.h"
 @interface LWInputTextView ()<UITextViewDelegate>
 
 @property (nonatomic, strong) UITextView    *textView;
@@ -30,13 +30,14 @@
 }
 
 - (void)initBasic{
-    self.layer.borderWidth = 0.5;
-    self.layer.borderColor = lwColorGray9.CGColor;
-    self.layer.cornerRadius = 2;
-    self.backgroundColor = lwColorGray1;
+    self.layer.borderWidth = 1;
+    self.layer.borderColor = [UIColor hex:@"#DBDBDB"].CGColor;
+    self.layer.cornerRadius = 4;
+//    self.backgroundColor = lwColorGray1;
 }
 
 - (void)createUI{
+    
     [self initBasic];
     
     self.textView = [[UITextView alloc]initWithFrame:CGRectMake(10, 18.5, self.frame.size.width - 10*2, self.frame.size.height - 18.5) textContainer:nil];
@@ -69,6 +70,10 @@
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    if (self.maxEmailCount == 0) {
+        [WMHUDUntil showMessageToWindow:@"Please Input Total Members Holding Key Shares"];
+        return NO;
+    }
 //    self.placeHolderView.hidden = YES;
     return YES;
 }
@@ -108,6 +113,11 @@
 
 #pragma mark - method
 - (void)manageCurrentTextView:(UITextView *)textView{
+    if (self.emailArray.count  == self.maxEmailCount - 1) {
+        self.textView.text = @"";
+        return;
+    }
+    
     if (!self.emailArray) {
         self.emailArray = [NSMutableArray array];
     }
@@ -124,26 +134,32 @@
     CGFloat y = 5;
     CGFloat gapY = 7.5;
     CGFloat maxWidth = self.scrollView.frame.size.width;
-    CGFloat btnHeight = 24;
+    CGFloat btnHeight = 30;
     
     for (NSInteger i = 0; i<self.emailArray.count; i++) {
-        LWEmailBtn *emailBtn = [[LWEmailBtn alloc]init];
+    
+        LWEmailBtnView *emailBtn = [[LWEmailBtnView alloc] init];
         emailBtn.tag = 1000+i;
-        [emailBtn addTarget:self action:@selector(emailBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [emailBtn setTitle:self.emailArray[i] forState:UIControlStateNormal];
+
+        emailBtn.block = ^{
+            [self emailBtnClick:1000+i];
+        };
+        [emailBtn setViewTitle:self.emailArray[i]];
         [self.scrollView addSubview:emailBtn];
-        CGFloat emailBtnWidth = [emailBtn getCurrentWidth];
-        if ((x+emailBtnWidth) > maxWidth){
-            x = 0;
-            y += (btnHeight + gapY);
-        }
-        emailBtn.frame = CGRectMake(x, y, emailBtnWidth, btnHeight);
-        x = (x+gapx+emailBtnWidth);
+          CGFloat emailBtnWidth = [emailBtn getCurrentWidth];
+          if ((x+emailBtnWidth) > maxWidth){
+              x = 0;
+              y += (btnHeight + gapY);
+          }
+//        emailBtn.kleft = x;
+//        emailBtn.ktop = y;
+          emailBtn.frame = CGRectMake(x, y, emailBtnWidth, btnHeight);
+          x = (x+gapx+emailBtnWidth);
     }
     
     self.scrollView.frame = CGRectMake(10, 0, self.frame.size.width - 10*2, y + btnHeight + gapY);
-    if (self.scrollView.frame.size.height > (165-25)) {
-        self.scrollView.kheight = 140;
+    if (self.scrollView.frame.size.height > (210-25)) {
+        self.scrollView.kheight = 185;
         self.scrollView.contentSize = CGSizeMake(self.frame.size.width - 10*2, y + btnHeight + gapY);
         self.scrollView.alwaysBounceVertical = YES;
         self.scrollView.scrollEnabled = YES;
@@ -165,8 +181,8 @@
     }
 }
 
-- (void)emailBtnClick:(UIButton *)sender{
-    NSInteger currentIndex = sender.tag - 1000;
+- (void)emailBtnClick:(NSInteger )senderIndex{
+    NSInteger currentIndex = senderIndex - 1000;
     [self.emailArray removeObjectAtIndex:currentIndex];
     [self refrshCurrentButton];
 }

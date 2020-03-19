@@ -18,6 +18,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = lwColorBackground;
     // Do any additional setup after loading the view.
+    self.title = @"";
 }
 
 /*

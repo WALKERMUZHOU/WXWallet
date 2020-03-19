@@ -30,6 +30,10 @@
     return LWCurrentCurrencyCNY;
 }
 
++ (NSString *)getCurrentCurrencyPrice{
+    return [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV];
+}
+
 + (void)setCurrentLanguage:(LWCurrentLanguage)languageType{
     NSString *laguage ;
     if (languageType == LWCurrentLanguageChinese) {

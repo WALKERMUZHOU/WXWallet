@@ -49,7 +49,7 @@
         // 示例中为了方便就在这写了
         UIViewController *vc = [obj objectForKey:@"vc"];
         vc.view.backgroundColor = [UIColor whiteColor];
-        vc.title = model.itemTitle;
+//        vc.title = model.itemTitle;
         // 5.将VC添加到系统控制组
         [tabBarVCs addObject:[[LWNavigationViewController alloc]initWithRootViewController:vc]];
         // 5.1添加构造Model到集合

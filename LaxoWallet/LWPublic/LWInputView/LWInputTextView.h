@@ -13,6 +13,7 @@ typedef void(^LWInputEmailBlock)(NSArray *emailArray);
 @interface LWInputTextView : UIView
 
 @property (nonatomic, copy) LWInputEmailBlock emailBlock;
+@property (nonatomic, assign) NSInteger maxEmailCount;
 
 @end
 

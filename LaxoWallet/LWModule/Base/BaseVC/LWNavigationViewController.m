@@ -20,6 +20,21 @@
     [super viewDidLoad];
     self.delegate = self;
     // Do any additional setup after loading the view.
+    
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"common_navi_Back"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.shadowImage = nil;
+    self.navigationBar.translucent = NO;
+    self.navigationBar.tintColor = [UIColor whiteColor];
+    
+//    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor clearColor]}
+//                                                forState:UIControlStateNormal];
+//    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor clearColor]}
+//                                                forState:UIControlStateHighlighted];
+//    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:17]}];
+    
+    UIImageView *logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"common_navilogo_bit"]];
+    logoImageView.frame = CGRectMake(kScreenWidth/2 - 31, 3, 62, 62);
+    [self.navigationBar addSubview:logoImageView];
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{

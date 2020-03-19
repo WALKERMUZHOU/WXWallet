@@ -16,6 +16,8 @@ typedef NS_OPTIONS(NSInteger, LWHomeListViewType){
 @interface LWHomeListView : LWBaseTableView
 
 @property (nonatomic, assign) LWHomeListViewType currentViewType;
+//修改选中类型
+- (void)changeCurrentSelectData:(NSInteger)selectIndex;
 
 - (void)setPersonalWalletdData:(NSDictionary *)personalDic;
 - (void)setMultipyWalletdata:(NSDictionary *)multipyDic;

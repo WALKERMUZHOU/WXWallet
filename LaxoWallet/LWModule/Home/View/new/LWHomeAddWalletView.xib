@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LWHomeAddWalletView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="159"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new wallet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2B-TU-ZY2">
+                    <rect key="frame" x="20" y="20" width="374" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="UJl-db-epE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyS-ep-87K">
+                    <rect key="frame" x="20" y="70" width="179.5" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRF-gq-XLy">
+                            <rect key="frame" x="0.0" y="0.0" width="179.5" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title=" Personal" image="home_add_mini">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="personalClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="mbB-Gj-XFF"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.12000831219999999" green="0.70127743480000004" blue="0.5751753449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="cRF-gq-XLy" secondAttribute="bottom" id="TDm-IL-PYC"/>
+                        <constraint firstAttribute="trailing" secondItem="cRF-gq-XLy" secondAttribute="trailing" id="fsl-hp-Lfr"/>
+                        <constraint firstAttribute="height" constant="40" id="hUX-SX-Hqn"/>
+                        <constraint firstItem="cRF-gq-XLy" firstAttribute="leading" secondItem="yyS-ep-87K" secondAttribute="leading" id="qNq-Os-FBJ"/>
+                        <constraint firstItem="cRF-gq-XLy" firstAttribute="top" secondItem="yyS-ep-87K" secondAttribute="top" id="xT1-JU-7Tm"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWX-vZ-NAs">
+                    <rect key="frame" x="214.5" y="70" width="179.5" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGW-nh-PKV">
+                            <rect key="frame" x="0.0" y="0.0" width="179.5" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title=" Multiparty" image="home_add_mini">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="multipyClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="h9U-UM-mzN"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.12000831219999999" green="0.70127743480000004" blue="0.5751753449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="aGW-nh-PKV" firstAttribute="leading" secondItem="XWX-vZ-NAs" secondAttribute="leading" id="6dg-L1-mHG"/>
+                        <constraint firstAttribute="trailing" secondItem="aGW-nh-PKV" secondAttribute="trailing" id="7Av-aH-cML"/>
+                        <constraint firstAttribute="bottom" secondItem="aGW-nh-PKV" secondAttribute="bottom" id="QCX-Y0-5mz"/>
+                        <constraint firstItem="aGW-nh-PKV" firstAttribute="top" secondItem="XWX-vZ-NAs" secondAttribute="top" id="mq4-up-qS8"/>
+                        <constraint firstAttribute="height" constant="40" id="pDj-kq-TyB"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Y2B-TU-ZY2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="31O-tr-5L8"/>
+                <constraint firstItem="XWX-vZ-NAs" firstAttribute="width" secondItem="yyS-ep-87K" secondAttribute="width" id="400-EQ-yWC"/>
+                <constraint firstItem="XWX-vZ-NAs" firstAttribute="top" secondItem="Y2B-TU-ZY2" secondAttribute="bottom" constant="20" id="A6c-rd-oYQ"/>
+                <constraint firstItem="Y2B-TU-ZY2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Cki-eD-Pgs"/>
+                <constraint firstAttribute="trailing" secondItem="XWX-vZ-NAs" secondAttribute="trailing" constant="20" id="H85-0H-Z6x"/>
+                <constraint firstItem="yyS-ep-87K" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="K7U-BU-Wne"/>
+                <constraint firstItem="yyS-ep-87K" firstAttribute="top" secondItem="Y2B-TU-ZY2" secondAttribute="bottom" constant="20" id="MpT-vF-Hz2"/>
+                <constraint firstAttribute="trailing" secondItem="Y2B-TU-ZY2" secondAttribute="trailing" constant="20" id="bGc-bm-dYb"/>
+                <constraint firstItem="XWX-vZ-NAs" firstAttribute="leading" secondItem="yyS-ep-87K" secondAttribute="trailing" constant="15" id="j39-b1-gxA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="131.8840579710145" y="-167.41071428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="home_add_mini" width="20" height="20"/>
+    </resources>
+</document>

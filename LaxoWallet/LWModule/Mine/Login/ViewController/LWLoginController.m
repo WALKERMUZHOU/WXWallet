@@ -448,7 +448,7 @@
     LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
     model.jiZhuCi = [LWPublicManager getRecoverJizhuciWithShares:array];
     [[LWUserManager shareInstance] setUser:model];
-    [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 8, 0) animated:YES];
+    [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 8, 0) animated:NO];
 
 }
 

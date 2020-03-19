@@ -9,13 +9,18 @@
 #import "LWHomeViewController.h"
 #import "LWHomeListView.h"
 #import "LWHomeListHeadView.h"
+#import "LWAlertTool.h"
 
 #import "LWPersonalCollectionViewController.h"
+#import "LWCreateMultipyWalletViewController.h"
 
 #import "PublicKeyView.h"
 #import "PubkeyManager.h"
 #import "libthresholdsig.h"
 #import "LWAddressTool.h"
+
+#import "QQLBXScanViewController.h"
+#import "LBXPermission.h"
 
 #import "NSData+HexString.h"
 
@@ -35,7 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appLogin) name:KUserAccountLogIn object:nil];
     [self createUI];
     [self getprikey];
 }
@@ -43,12 +48,68 @@
 - (void)createUI{
     self.view.backgroundColor = lwColorBackground;
     
+    __weak typeof(self) weakself = self;
     self.listHeadView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWHomeListHeadView class]) owner:nil options:nil].lastObject;
-    self.listHeadView.frame = CGRectMake(0, kNavigationBarHeight, kScreenWidth, 196);
+    self.listHeadView.frame = CGRectMake(0, 0, kScreenWidth, 196);
     [self.view addSubview:self.listHeadView];
+    self.listHeadView.block = ^(NSInteger selectIndex) {
+        [weakself.listView changeCurrentSelectData:selectIndex];
+    };
     
     self.listView = [[LWHomeListView alloc] initWithFrame:CGRectMake(0, self.listHeadView.kbottom, kScreenWidth, kScreenHeight - kTabBarHeight - self.listHeadView.kbottom) style:UITableViewStyleGrouped];
     [self.view addSubview:self.listView];
+    
+    UIBarButtonItem *addBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_add"] style:UIBarButtonItemStylePlain target:self action:@selector(addWaletClick)];
+    self.navigationItem.leftBarButtonItem = addBarItem;
+    
+    UIBarButtonItem *scanBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_scan_white"] style:UIBarButtonItemStylePlain target:self action:@selector(scanClick)];
+    self.navigationItem.rightBarButtonItem = scanBarItem;
+}
+
+#pragma mark - homemethod
+- (void)addWaletClick{
+    [LWAlertTool alertHomeChooseWalletView:^(NSInteger index) {
+        if (index == 2) {
+            LWCreateMultipyWalletViewController *multipyVC = [[LWCreateMultipyWalletViewController alloc] init];
+            multipyVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:multipyVC animated:YES];
+        }
+    }];
+}
+
+- (void)scanClick{
+    [self jumpToScanPermission];
+}
+
+- (void)jumpToScanPermission {
+    __weak __typeof(self) weakSelf = self;
+    [LBXPermission authorizeWithType:LBXPermissionType_Camera completion:^(BOOL granted, BOOL firstTime) {
+        if (granted) {
+            [weakSelf jumpToScan];
+        }
+        else if(!firstTime)
+        {
+            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"没有相机权限，是否前往设置" cancel:@"取消" setting:@"设置" ];
+        }
+    }];
+    
+
+}
+- (void)jumpToScan{
+    QQLBXScanViewController *vc = [QQLBXScanViewController new];
+    vc.libraryType = SLT_ZXing;
+    vc.style = [QQLBXScanViewController qqStyle];
+    //镜头拉远拉近功能
+    vc.isVideoZoom = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+    vc.scanresult = ^(LBXScanResult *result) {
+        
+    };
+}
+
+#pragma mark - startwebsocket
+- (void)appLogin{
+    [self getprikey];
 }
 
 - (void)getprikey{
@@ -94,9 +155,6 @@
 
 - (void)SRWebSocketDidOpen {
     NSLog(@"开启成功");
-//    NSArray *requetCurrentPriceArray = @[@"req",@(WSRequestIdWalletQueryTokenPrice),@"wallet.tokenPrice",@""];
-//    [[SocketRocketUtility instance] sendData:[requetCurrentPriceArray mp_messagePack]];
-    
     [self requestPersonalWalletInfo];
     [self requestMulipyWalletInfo];
 }
@@ -122,6 +180,7 @@
     });
 }
 
+#pragma mark - websocketDelegate
 - (void)SRWebSocketDidReceiveMsg:(NSNotification *)note {
     //收到服务端发送过来的消息
     id responseData = note.object;
@@ -344,11 +403,13 @@
 
 #pragma mark - websocket Manage Method
 - (void)managePersonalWalletData:(NSDictionary *)personalData{
+    [self.listHeadView setPersonalWalletdData:personalData];
     [self.listView setPersonalWalletdData:personalData];
 }
 
 - (void)manageMultipyWalletData:(NSDictionary *)personalData{
     [SVProgressHUD dismiss];
+    [self.listHeadView setMultipyWalletdata:personalData];
     [self.listView setMultipyWalletdata:personalData];
 }
 

@@ -14,6 +14,7 @@
 #import "PublicKeyView.h"
 #import "LWRocoveryViewController.h"
 #import "LWFaceBindViewController.h"
+#import "LWPersonalWalletDetailViewController.h"
 
 #import "LWUserVefifyViewController.h"
 #import "IDLFaceSDK/IDLFaceSDK.h"
@@ -34,13 +35,15 @@
     [self getCurrentTokenPrice];
     [self registerBDFace];
     
-//    [LogicHandle showTabbarVC];
-    [LogicHandle chooseStartVC];
+    [LogicHandle showTabbarVC];
+//    [LogicHandle chooseStartVC];
 //    [LogicHandle showLoginVC];
     
     LWUserVefifyViewController *launchVC = [[LWUserVefifyViewController alloc] init];
  //   self.window.rootViewController = launchVC;
-    
+    LWPersonalWalletDetailViewController *personalVC = [[LWPersonalWalletDetailViewController alloc] init];
+//    self.window.rootViewController = [[LWNavigationViewController alloc] initWithRootViewController:personalVC];;
+
     [self.window makeKeyAndVisible];
     
     return YES;

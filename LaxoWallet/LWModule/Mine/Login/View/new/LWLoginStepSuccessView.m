@@ -65,6 +65,8 @@
                 }
                 [[LWUserManager shareInstance] setLoginSuccess];
                 [[NSUserDefaults standardUserDefaults] synchronize];
+                [[NSNotificationCenter defaultCenter] postNotificationName:KUserAccountLogIn object:nil];
+                
                 [LogicHandle showTabbarVC];
             } else if (state == TDTouchIDStateInputPassword) { //用户选择手动输入密码
     //            UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"当前设备不支持生物验证" message:@"请输入密码来验证" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];

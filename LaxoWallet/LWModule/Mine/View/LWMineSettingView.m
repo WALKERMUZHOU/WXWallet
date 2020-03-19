@@ -133,6 +133,7 @@
         
     }];
     UIAlertAction *actionSure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[SocketRocketUtility instance] SRWebSocketClose];
         [[LWUserManager shareInstance] clearUser];
         [LogicHandle showLoginVC];
     }];

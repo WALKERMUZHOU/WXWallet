@@ -21,6 +21,8 @@
 #import "LWSignTool.h"
 #import "LWMultipyAdressTool.h"
 
+#import "LWPersonalWalletDetailViewController.h"
+
 @interface LWHomeListView()<LWCoordinatorDelegate,MGSwipeTableCellDelegate>{
     NSIndexPath *_deleteIndexPath;
     BOOL _isCanApplyBorrow;
@@ -37,7 +39,6 @@
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     self = [super initWithFrame:frame style:UITableViewStyleGrouped];
-    self.currentViewType = 1;
     if (self) {
         self.currentViewType = LWHomeListViewTypePersonalWallet;
         
@@ -150,7 +151,13 @@
     if (self.currentViewType == LWHomeListViewTypePersonalWallet) {
         detailVC.detailViewType = 1;
         detailVC.title = @"个人钱包";
-        [LogicHandle pushViewController:detailVC];
+//        [LogicHandle pushViewController:detailVC];
+        
+        LWPersonalWalletDetailViewController *personalVC = [[LWPersonalWalletDetailViewController alloc] init];
+        personalVC.contentModel = model;
+        [LogicHandle pushViewController:personalVC];
+
+        
     }else{
         detailVC.detailViewType = 2;
         detailVC.title = model.name;
@@ -158,7 +165,7 @@
             [LogicHandle pushViewController:detailVC];
             return;
         }
-        [LogicHandle pushViewController:detailVC];
+//        [LogicHandle pushViewController:detailVC];
     }
 }
 

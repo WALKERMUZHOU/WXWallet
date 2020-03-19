@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LWPersoanlReceiveView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="560"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zn-Hp-okr">
+                    <rect key="frame" x="0.0" y="20" width="414" height="540"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Wallet One" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTH-PV-Dwx">
+                            <rect key="frame" x="20" y="37" width="374" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="gQZ-UF-b9Y"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bH-It-aqL">
+                            <rect key="frame" x="20" y="112" width="374" height="1"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="cKb-75-xy7"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receive BSV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhY-As-rSn">
+                            <rect key="frame" x="166.5" y="77" width="81.5" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="MKK-PJ-ULh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6hF-GK-k09">
+                            <rect key="frame" x="143" y="138" width="128" height="128"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="128" id="3ye-E3-KJm"/>
+                                <constraint firstAttribute="width" constant="128" id="nJH-H5-9pe"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receive BSV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ib-hq-fND">
+                            <rect key="frame" x="166.5" y="291" width="81.5" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="mMY-gf-foS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Po-fW-WWH">
+                            <rect key="frame" x="258" y="291" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="ewT-7g-0rc"/>
+                                <constraint firstAttribute="height" constant="20" id="r7s-sk-3Yu"/>
+                            </constraints>
+                            <state key="normal" image="home_wallet_copy"/>
+                        </button>
+                        <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTi-nz-s7e">
+                            <rect key="frame" x="20" y="336" width="374" height="1"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="KOj-MJ-CMY"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paymail address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxa-5d-BtF">
+                            <rect key="frame" x="146.5" y="362" width="121" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="8cq-ij-N3J"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="KhS-Oq-y3G"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receive BSV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ds-XX-GwY">
+                            <rect key="frame" x="166.5" y="397" width="81.5" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="qMG-kI-82e"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaI-dx-BEC">
+                            <rect key="frame" x="258" y="399.5" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="NIW-Dm-4si"/>
+                                <constraint firstAttribute="height" constant="20" id="uI9-hm-VYi"/>
+                            </constraints>
+                            <state key="normal" image="home_wallet_copy"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAv-wv-uNy">
+                            <rect key="frame" x="147" y="462" width="120" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="RQc-T8-SJ9"/>
+                                <constraint firstAttribute="height" constant="40" id="jHZ-p9-aI6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                            <state key="normal" title="Done">
+                                <color key="titleColor" red="0.12000831219999999" green="0.70127743480000004" blue="0.5751753449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="nTH-PV-Dwx" firstAttribute="leading" secondItem="1zn-Hp-okr" secondAttribute="leading" constant="20" id="049-Lu-EN2"/>
+                        <constraint firstItem="9bH-It-aqL" firstAttribute="top" secondItem="LhY-As-rSn" secondAttribute="bottom" constant="20" id="2sc-2m-6AT"/>
+                        <constraint firstItem="3ib-hq-fND" firstAttribute="top" secondItem="6hF-GK-k09" secondAttribute="bottom" constant="25" id="4gb-iT-BGP"/>
+                        <constraint firstItem="LaI-dx-BEC" firstAttribute="leading" secondItem="5ds-XX-GwY" secondAttribute="trailing" constant="10" id="9fy-cc-iU6"/>
+                        <constraint firstItem="9Po-fW-WWH" firstAttribute="centerY" secondItem="3ib-hq-fND" secondAttribute="centerY" id="G1e-Hz-pfF"/>
+                        <constraint firstItem="cTi-nz-s7e" firstAttribute="top" secondItem="9Po-fW-WWH" secondAttribute="bottom" constant="25" id="HqT-lH-2Rx"/>
+                        <constraint firstItem="9Po-fW-WWH" firstAttribute="leading" secondItem="3ib-hq-fND" secondAttribute="trailing" constant="10" id="JEA-GJ-eRg"/>
+                        <constraint firstItem="yAv-wv-uNy" firstAttribute="centerX" secondItem="1zn-Hp-okr" secondAttribute="centerX" id="JHq-JX-tWn"/>
+                        <constraint firstItem="yAv-wv-uNy" firstAttribute="top" secondItem="5ds-XX-GwY" secondAttribute="bottom" constant="40" id="JM4-Eg-fIh"/>
+                        <constraint firstItem="LhY-As-rSn" firstAttribute="top" secondItem="nTH-PV-Dwx" secondAttribute="bottom" constant="10" id="SWf-Vh-JHt"/>
+                        <constraint firstItem="cTi-nz-s7e" firstAttribute="leading" secondItem="1zn-Hp-okr" secondAttribute="leading" constant="20" id="THp-Pk-MnV"/>
+                        <constraint firstItem="9bH-It-aqL" firstAttribute="leading" secondItem="1zn-Hp-okr" secondAttribute="leading" constant="20" id="UPq-TR-84l"/>
+                        <constraint firstAttribute="trailing" secondItem="nTH-PV-Dwx" secondAttribute="trailing" constant="20" id="V9a-tu-z9K"/>
+                        <constraint firstItem="5ds-XX-GwY" firstAttribute="top" secondItem="fxa-5d-BtF" secondAttribute="bottom" constant="5" id="Vux-Q7-lf3"/>
+                        <constraint firstItem="LaI-dx-BEC" firstAttribute="centerY" secondItem="5ds-XX-GwY" secondAttribute="centerY" id="YWA-QP-vYf"/>
+                        <constraint firstAttribute="trailing" secondItem="cTi-nz-s7e" secondAttribute="trailing" constant="20" id="Yvw-HI-zvx"/>
+                        <constraint firstItem="6hF-GK-k09" firstAttribute="centerX" secondItem="1zn-Hp-okr" secondAttribute="centerX" id="Yzb-JU-NqU"/>
+                        <constraint firstItem="nTH-PV-Dwx" firstAttribute="top" secondItem="1zn-Hp-okr" secondAttribute="top" constant="37" id="abw-SP-2Ju"/>
+                        <constraint firstItem="LhY-As-rSn" firstAttribute="centerX" secondItem="nTH-PV-Dwx" secondAttribute="centerX" id="auA-sJ-KOI"/>
+                        <constraint firstItem="3ib-hq-fND" firstAttribute="centerX" secondItem="1zn-Hp-okr" secondAttribute="centerX" id="b0W-fa-jl9"/>
+                        <constraint firstItem="fxa-5d-BtF" firstAttribute="top" secondItem="cTi-nz-s7e" secondAttribute="bottom" constant="25" id="e1a-AP-gPH"/>
+                        <constraint firstAttribute="trailing" secondItem="9bH-It-aqL" secondAttribute="trailing" constant="20" id="iAT-03-6AW"/>
+                        <constraint firstItem="6hF-GK-k09" firstAttribute="top" secondItem="9bH-It-aqL" secondAttribute="bottom" constant="25" id="soy-py-EWT"/>
+                        <constraint firstItem="fxa-5d-BtF" firstAttribute="centerX" secondItem="1zn-Hp-okr" secondAttribute="centerX" id="yR4-Qu-048"/>
+                        <constraint firstItem="5ds-XX-GwY" firstAttribute="centerX" secondItem="1zn-Hp-okr" secondAttribute="centerX" id="zhh-Yx-BXG"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_wallet_send_c" translatesAutoresizingMaskIntoConstraints="NO" id="57F-QA-MgL">
+                    <rect key="frame" x="179" y="0.0" width="56" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="56" id="L5J-Zj-pwE"/>
+                        <constraint firstAttribute="height" constant="56" id="hRK-zW-otd"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="1zn-Hp-okr" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Kif-Ok-cFi"/>
+                <constraint firstItem="57F-QA-MgL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PXT-CG-a6W"/>
+                <constraint firstItem="1zn-Hp-okr" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="PY3-dM-LZk"/>
+                <constraint firstItem="1zn-Hp-okr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="a0l-48-UFw"/>
+                <constraint firstItem="1zn-Hp-okr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jB9-kK-QH4"/>
+                <constraint firstItem="57F-QA-MgL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vXC-Yw-obD"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="addressLabel" destination="3ib-hq-fND" id="C90-dr-zsH"/>
+                <outlet property="doneLabel" destination="yAv-wv-uNy" id="67f-wZ-enf"/>
+                <outlet property="namelabel" destination="nTH-PV-Dwx" id="t3p-Pt-qGy"/>
+                <outlet property="paymailLabel" destination="5ds-XX-GwY" id="z2w-hS-BZL"/>
+                <outlet property="qrcodelImgView" destination="6hF-GK-k09" id="zUn-ef-zH3"/>
+            </connections>
+            <point key="canvasLocation" x="168.11594202898553" y="-248.10267857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="home_wallet_copy" width="16" height="18.5"/>
+        <image name="home_wallet_send_c" width="52" height="52"/>
+    </resources>
+</document>

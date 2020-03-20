@@ -58,7 +58,6 @@
 
 + (void)getRecoverySMSCodeWithModel:(LWTrusteeModel *)model SuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
     
-    
 //    NSString *pubKey = [PubkeyManager getPubkey];
     NSString *pubKey = [LWPublicManager getInitDataPubKey];
     LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];

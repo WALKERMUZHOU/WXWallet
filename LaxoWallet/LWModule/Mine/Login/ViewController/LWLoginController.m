@@ -49,6 +49,7 @@
     // Do any additional setup after loading the view from its nib.
    [[LWUserManager shareInstance] clearUser];
     [self createUI];
+    [LWPublicManager getInitData];
 }
 
 - (void)createUI{

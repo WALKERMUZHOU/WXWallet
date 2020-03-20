@@ -220,6 +220,12 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message  {
     
+    if ([message isKindOfClass:[NSString class]] && [message integerValue] == 400) {
+        [self SRWebSocketClose];
+        [SVProgressHUD dismiss];
+        return;
+    }
+    
     if (webSocket == self.socket) {
         //NSLog(@"************************** socket收到数据了************************** ");
         if ([message isKindOfClass:[NSString class]]) {

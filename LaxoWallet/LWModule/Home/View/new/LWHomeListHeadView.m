@@ -72,6 +72,9 @@
         self.block(LWHomeListViewTypeMultipyWallet);
     }
 }
+- (IBAction)lalalCLick:(UIButton *)sender {
+    
+}
 
 - (IBAction)eyeClick:(UIButton *)sender {
     sender.selected = !sender.isSelected;

@@ -110,7 +110,7 @@
             self.iconImageView.image = [UIImage imageNamed:@"message_statue_waiting"];
             self.titleLabel.textColor = lwColorBlack;
             [self.bottomBtn setTitle:@"取消交易" forState:UIControlStateNormal];
-            infoArray = @[@{@"title":@"收款方",@"content":@""},@{@"title":@"备注",@"content":_model.note},@{@"title":@"签名状态",@"content":@[_model.parties,_model.user_status]},];
+//            infoArray = @[@{@"title":@"收款方",@"content":@""},@{@"title":@"备注",@"content":_model.note},@{@"title":@"签名状态",@"content":@[_model.parties,_model.user_status]},];
         }else{
             self.titleLabel.text = @"待签名转账";
             self.titleLabel.textColor = [UIColor hex:@"#D0021B"];
@@ -124,7 +124,7 @@
                 }
             }
             
-            infoArray = @[@{@"title":@"收款方",@"content":@""},@{@"title":@"备注",@"content":_model.note},@{@"title":@"交易发起人",@"content":faqiren},];
+//            infoArray = @[@{@"title":@"收款方",@"content":@""},@{@"title":@"备注",@"content":_model.note},@{@"title":@"交易发起人",@"content":faqiren},];
         }
         self.bottomBtn.hidden = NO;
         self.bottomBtn.frame = CGRectMake(0, self.backView.kheight - 48, self.backView.kwidth, 48);

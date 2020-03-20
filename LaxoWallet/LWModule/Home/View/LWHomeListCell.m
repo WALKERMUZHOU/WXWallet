@@ -38,7 +38,7 @@
             }else{
                 self.personalNameLabel.text = @"BSV";
             }
-            self.personalBitCountLabel.text = [LWNumberTool formatSSSFloat:_model.personalBitCount/1e8];
+            self.personalBitCountLabel.text = [LWNumberTool formatSSSFloat:_model.personalBitCount];
             self.tipView.hidden = YES;
         }
             

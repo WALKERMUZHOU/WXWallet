@@ -32,7 +32,7 @@
     self.timeLabel.text = [LWTimeTool subStingOfYMD:time abbreviations:YES EnglishShortNameForDate:NO];;
     
     if (_model.status == 2){
-        if (_model.type == 1) {//转出
+        if (_model.type == 2) {//转出
             self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",@(_model.value/1e8)];
             self.typeLabel.text = @"Send";
             self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];

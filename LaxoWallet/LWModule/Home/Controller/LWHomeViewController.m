@@ -50,13 +50,13 @@
     
     __weak typeof(self) weakself = self;
     self.listHeadView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWHomeListHeadView class]) owner:nil options:nil].lastObject;
-    self.listHeadView.frame = CGRectMake(0, 0, kScreenWidth, 196);
+//    self.listHeadView.frame = CGRectMake(0, 0, kScreenWidth, 196);
     [self.view addSubview:self.listHeadView];
     self.listHeadView.block = ^(NSInteger selectIndex) {
         [weakself.listView changeCurrentSelectData:selectIndex];
     };
     
-    self.listView = [[LWHomeListView alloc] initWithFrame:CGRectMake(0, self.listHeadView.kbottom, kScreenWidth, kScreenHeight - kTabBarHeight - self.listHeadView.kbottom) style:UITableViewStyleGrouped];
+    self.listView = [[LWHomeListView alloc] initWithFrame:CGRectMake(0, 196, kScreenWidth, kScreenHeight - kTabBarHeight - 196) style:UITableViewStyleGrouped];
     [self.view addSubview:self.listView];
     
     UIBarButtonItem *addBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_add"] style:UIBarButtonItemStylePlain target:self action:@selector(addWaletClick)];

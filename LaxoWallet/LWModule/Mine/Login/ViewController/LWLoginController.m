@@ -387,12 +387,17 @@
         LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
         userModel.face_token = face_token;
         [[LWUserManager shareInstance] setUser:userModel];
-        
-        if (self.isRegister) {
-            [self.scrollView setContentOffset:CGPointMake(kScreenWidth *8, 0) animated:NO];
+        if (face_token && face_token.length > 0) {
+            if (self.isRegister) {
+                [self.scrollView setContentOffset:CGPointMake(kScreenWidth *8, 0) animated:NO];
+            }else{
+                [self.scrollView setContentOffset:CGPointMake(kScreenWidth *5, 0) animated:NO];
+            }
         }else{
-            [self.scrollView setContentOffset:CGPointMake(kScreenWidth *5, 0) animated:NO];
+//            [WMHUDUntil showMessageToWindow:@"face error"];
         }
+        
+
         
     };
 }

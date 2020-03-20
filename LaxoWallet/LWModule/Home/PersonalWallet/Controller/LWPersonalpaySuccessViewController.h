@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWPersonalpaySuccessViewController : LWBaseViewController
-
+///viewtypy == 1 多人钱包
+@property (nonatomic, assign) NSInteger viewType;
 - (void)setSuccessWithAmount:(NSString *)amount andaddress:(NSString *)address andnote:(NSString *)note andfee:(NSString *)fee;
 @end
 

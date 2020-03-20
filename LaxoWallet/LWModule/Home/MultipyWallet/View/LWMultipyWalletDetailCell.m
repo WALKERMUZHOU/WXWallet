@@ -39,18 +39,16 @@
             self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
             self.statueLabel.text = @"Success";
             self.statueBackView.backgroundColor = lwColorNormal;
-            
-            
-            
-            
         }
     }else if(_model.status == 1){//未完成
-        
+        self.iconImageView.image = [UIImage imageNamed:@"home_wallet_waiting"];
+
     }else{
-        self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",biCountStr];
-        self.typeLabel.text = @"Sent";
+        self.typeLabel.text = @"Cancle";
         self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
     }
+    self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",biCountStr];
+
 }
 
 

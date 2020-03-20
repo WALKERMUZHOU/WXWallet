@@ -9,6 +9,7 @@
 #import "LWBaseView.h"
 #import "LWHomeWalletModel.h"
 NS_ASSUME_NONNULL_BEGIN
+//statue 0 失败 statue 1 成功
 typedef void(^PersonalSendBlock)(NSInteger statue);
 
 @interface LWPersonalSendView : LWBaseView

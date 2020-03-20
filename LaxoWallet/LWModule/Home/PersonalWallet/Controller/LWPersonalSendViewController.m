@@ -34,7 +34,6 @@
      }else{
          self.amountLabel.text = [NSString stringWithFormat:@"$ 0"];
      }
-
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
@@ -58,7 +57,9 @@
     }
     [LWAlertTool alertPersonalWalletViewSend:self.model andAdress:self.addressTF.text andAmount:self.amountTF.text andNote:self.noteTF.text andComplete:^(void) {
 
-    }];
+     }];
+
+
 }
 
 /*

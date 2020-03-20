@@ -73,10 +73,17 @@
         [cell setModel:messageModel];
         return cell;
     }else{
-        LWMultipyWalletDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWMultipyWalletDetailCell"];
-        [cell setModel:messageModel];
+        
+        if (messageModel.status == 3) {
+            LWPersonalListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWPersonalListTableViewCell"];
+            [cell setModel:messageModel];
+            return cell;
+        }else{
+            LWMultipyWalletDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWMultipyWalletDetailCell"];
+            [cell setModel:messageModel];
             return cell;
         }
+    }
     
 
 }
@@ -86,7 +93,12 @@
     if(messageModel.type == 1){
         return 50.f;
     }else{
-        return 70.f;
+        if (messageModel.status == 3) {
+         return 50.f;
+
+           }else{
+               return 70.f;
+           }
     }
 }
 

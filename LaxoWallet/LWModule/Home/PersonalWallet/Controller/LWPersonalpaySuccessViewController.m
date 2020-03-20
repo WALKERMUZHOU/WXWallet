@@ -9,6 +9,11 @@
 #import "LWPersonalpaySuccessViewController.h"
 
 @interface LWPersonalpaySuccessViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *successDescribeLabe;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UITextField *noteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *feeLabel;
@@ -32,6 +37,19 @@
     NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc] initWithString:addressStr attributes:@{NSFontAttributeName:kFont(12),NSForegroundColorAttributeName:[UIColor colorWithColor:[UIColor blackColor] alpha:0.5]}];
     [attribute addAttributes:@{NSFontAttributeName:kBoldFont(12),NSForegroundColorAttributeName:[UIColor blackColor]} range:[amountStr rangeOfString:address]];
     [self.amountLabel setAttributedText:attribute];
+    
+    if (self.viewType == 1) {
+        self.iconImageView.image
+        = [UIImage imageNamed:@"home_wallet_success_m"];
+        self.successDescribeLabe.text = @"Transaction signed by you";
+        addressStr = [NSString stringWithFormat:@"You’re requesting members to sign for a successful transaction of %@BSV to be sent to %@",amount,address];
+        amountStr = [NSString stringWithFormat:@"%@BSV",amount];
+        attribute = [[NSMutableAttributedString alloc] initWithString:addressStr attributes:@{NSFontAttributeName:kFont(12),NSForegroundColorAttributeName:[UIColor colorWithColor:[UIColor blackColor] alpha:0.5]}];
+        [attribute addAttributes:@{NSFontAttributeName:kBoldFont(12),NSForegroundColorAttributeName:[UIColor blackColor]} range:[amountStr rangeOfString:address]];
+        [self.amountLabel setAttributedText:attribute];
+    }
+    
+    
 }
 
 - (IBAction)closeClick:(UIButton *)sender {

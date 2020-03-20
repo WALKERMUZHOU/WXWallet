@@ -44,6 +44,17 @@
             self.iconImageView.image = [UIImage imageNamed:@"home_wallet_receive"];
         }
     }
+    
+    if(_model.status == 3){
+        self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",biCountStr];
+        self.iconImageView.image = [UIImage imageNamed:@"home_wallet_cancel_red"];
+        self.typeLabel.text = @"Cancel";
+        if (_model.type == 2) {//转出
+             self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",biCountStr];
+         }else{
+             self.bitCountLabel.text = [NSString stringWithFormat:@"+%@",biCountStr];
+         }
+    }
 }
 
 - (void)awakeFromNib {

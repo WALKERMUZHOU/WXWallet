@@ -61,6 +61,7 @@
     [backView addSubview:walletView];
     walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 573);
 //    [walletView setContentModel:params];
+    
     [walletView setAddress:address andAmount:amount andMessage:note andModel:params];
     
     [UIView animateWithDuration:0.3 animations:^{

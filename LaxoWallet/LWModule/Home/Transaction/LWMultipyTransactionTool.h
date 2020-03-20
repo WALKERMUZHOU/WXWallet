@@ -19,6 +19,8 @@ typedef void(^MultipyTransactionBlock)(NSDictionary *transInfo);
 - (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model;
 
 @property (nonatomic, copy) MultipyTransactionBlock block;
+@property (nonatomic, strong) NSString *fee;
+- (void)transStart;
 
 @end
 

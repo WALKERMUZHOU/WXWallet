@@ -41,13 +41,17 @@
         self.namelabel.text = @"BSV";
     }
     
-    self.addressLabel.text = [NSString stringWithFormat:@"%@",[address stringByReplacingCharactersInRange:NSMakeRange(address.length/2, 3) withString:@"..." ]];
+    self.addressLabel.text = [NSString stringWithFormat:@"%@",address];
 
 }
 - (IBAction)doneClick:(UIButton *)sender {
     if (self.block) {
          self.block();
      }
+}
+- (IBAction)addressCopy:(UIButton *)sender {
+    [[UIPasteboard generalPasteboard] setString:self.addressLabel.text];
+    
 }
 
 /*

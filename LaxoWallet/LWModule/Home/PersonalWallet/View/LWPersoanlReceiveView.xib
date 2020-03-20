@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -70,6 +71,9 @@
                                 <constraint firstAttribute="height" constant="20" id="r7s-sk-3Yu"/>
                             </constraints>
                             <state key="normal" image="home_wallet_copy"/>
+                            <connections>
+                                <action selector="addressCopy:" destination="iN0-l3-epB" eventType="touchUpInside" id="DO2-ma-LEK"/>
+                            </connections>
                         </button>
                         <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTi-nz-s7e">
                             <rect key="frame" x="20" y="336" width="374" height="1"/>

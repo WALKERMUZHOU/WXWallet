@@ -19,6 +19,9 @@
 @property (nonatomic, strong) NSString  *note;
 @property (nonatomic, strong) LWHomeWalletModel  *model;
 
+@property (nonatomic, assign) char  *transId;
+@property (nonatomic, strong) NSArray *changeArray;
+
 @end
 
 
@@ -79,41 +82,26 @@ static LWMultipyTransactionTool *instance = nil;
     char *get_sighash = get_transaction_sighash(transId);
     NSLog(@"get_transaction_sighash(%s)",transId);
 
-    NSArray *sighHashArray = [LWAddressTool charToObject:get_sighash];
+    self.transId = transId;
+    self.changeArray = changeArray;
     
-//    LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
-//    char *pubkey = get_public_key([LWAddressTool stringToChar:userModel.pk]);
-//
+    char *fee = get_transaction_fee(transId);
+    self.fee = [LWAddressTool charToString:fee];
+    
+    NSArray *sighHashArray = [LWAddressTool charToObject:get_sighash];
+
     NSMutableArray *transaction_sig_array = [NSMutableArray array];
     __block dispatch_semaphore_t semaphore;
+
+    
+}
+
+- (void)transStart{
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
-//        for (NSInteger i = 0; i<sighHashArray.count; i++) {
-//            semaphore = dispatch_semaphore_create(0);
-//            LWutxoModel *utxo = [changeArray objectAtIndex:i];
-//            NSString *sign_hash = sighHashArray[i];
-//            
-//            LWMultipySignTool *signTool = [LWMultipySignTool shareInstance];
-//            [signTool setWithAddress:utxo.address andHash:sign_hash];
-//            signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
-//                NSString *r = [sign objectForKey:@"r"];
-//                NSString *signStr = [sign objectForKey:@"sign"];
-//                NSString *pubkey = [sign objectForKey:@"pubkey"];
-//
-//                char *add_transaction_sig_char = add_transaction_sig(transId, i, [LWAddressTool stringToChar:pubkey], [LWAddressTool stringToChar:r], [LWAddressTool stringToChar:signStr]);
-//
-//                NSLog(@"add_transaction_sig(%s, %ld , %s , %s , %s)",transId,(long)i,[LWAddressTool stringToChar:pubkey], [LWAddressTool stringToChar:r], [LWAddressTool stringToChar:signStr]);
-//
-//                dispatch_semaphore_signal(semaphore);
-//            };
-//            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-//        }
-        
-        char *transaction_to_json_char = transaction_to_json(transId);
+        char *transaction_to_json_char = transaction_to_json(self.transId);
         [self broadcastUnSignTranscationToServer:[LWAddressTool charToObject:transaction_to_json_char]];
         NSLog(@"%s",transaction_to_json_char);
     });
-    
 }
 
 - (void)broadcastUnSignTranscationToServer:(NSDictionary *)transaction{
@@ -147,12 +135,14 @@ static LWMultipyTransactionTool *instance = nil;
     for (NSInteger i = 0; i<utxo.count; i++) {
         
         LWutxoModel *utxoModel = utxo[i];
-        if (utxoModel.value > transAmount) {
-            [chageUtxoArray addObj:utxoModel];
-            break;
-        }else{
-            transAmount = transAmount - utxoModel.value;
-            [chageUtxoArray addObj:utxoModel];
+        if (utxoModel.status == 1) {
+            if (utxoModel.value > transAmount) {
+                [chageUtxoArray addObj:utxoModel];
+                break;
+            }else{
+                transAmount = transAmount - utxoModel.value;
+                [chageUtxoArray addObj:utxoModel];
+            }
         }
     }
     return chageUtxoArray;

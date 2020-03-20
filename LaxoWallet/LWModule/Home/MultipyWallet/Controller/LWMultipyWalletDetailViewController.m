@@ -7,8 +7,11 @@
 //
 
 #import "LWMultipyWalletDetailViewController.h"
+#import "LWPersonalSendViewController.h"
 
 #import "LWMultipyWalletDetailListView.h"
+#import "LWAlertTool.h"
+
 @interface LWMultipyWalletDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *receiveBtn;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -27,10 +30,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self createUI];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMultipyAddress:) name:kWebScoket_multipyAddress object:nil];
+
 }
 
 - (void)createUI{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress object:nil];
     
     self.receiveBtn.layer.borderColor = [UIColor hex:@"#D8D8D8"].CGColor;
     self.sendBtn.layer.borderColor = [UIColor hex:@"#D8D8D8"].CGColor;
@@ -77,6 +82,53 @@
     
 }
 - (IBAction)editBtn:(UIButton *)sender {
+    
+}
+
+- (IBAction)receiveClick:(UIButton *)sender {
+    [self getMulityQrCode];
+
+}
+
+- (IBAction)sendClick:(UIButton *)sender {
+    
+    LWPersonalSendViewController *sendVC = [[LWPersonalSendViewController alloc] init];
+     sendVC.model = self.contentModel;
+    sendVC.viewType = 1;
+     [self.navigationController pushViewController:sendVC animated:YES];
+    
+}
+
+- (void)getMulityQrCode{
+    LWHomeWalletModel *model = self.contentModel;
+    NSDictionary *params = @{@"wid":@(model.walletId)};
+    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQueryMultipyAddress),WS_Home_getMutipyAddress,[params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    [[SocketRocketUtility instance] sendData:data];
+
+    [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:kAppCreateMulitpyAddress_userdefault];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)createMultipyAddress:(NSNotification *)notification{
+    NSDictionary *notiDic = notification.object;
+    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+        NSDictionary *dataDic = [notiDic objectForKey:@"data"];
+        NSString *address = [dataDic objectForKey:@"address"];
+        self.contentModel.address = address;
+        if (!address || address.length == 0) {
+
+
+        }else{
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppCreateMulitpyAddress_userdefault];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+
+            [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
+            
+        }
+  
+    }
+    
 }
 
 /*

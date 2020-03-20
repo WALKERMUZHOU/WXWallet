@@ -48,6 +48,8 @@
 		5E3160CF2424A00A005CA564 /* LWScanResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160CD2424A00A005CA564 /* LWScanResultViewController.xib */; };
 		5E3160D42424A81E005CA564 /* LWScanLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160D22424A81E005CA564 /* LWScanLoginViewController.m */; };
 		5E3160D52424A81E005CA564 /* LWScanLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160D32424A81E005CA564 /* LWScanLoginViewController.xib */; };
+		5E3160D92424E06F005CA564 /* LWMultipypaySuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160D72424E06F005CA564 /* LWMultipypaySuccessViewController.m */; };
+		5E3160DA2424E06F005CA564 /* LWMultipypaySuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160D82424E06F005CA564 /* LWMultipypaySuccessViewController.xib */; };
 		5E317A7D241E55F700C951B2 /* LWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E317A7B241E55F700C951B2 /* LWLoginController.m */; };
 		5E317A7E241E55F700C951B2 /* LWLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E317A7C241E55F700C951B2 /* LWLoginController.xib */; };
 		5E317A81241E5B5E00C951B2 /* LWLoginStepOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E317A80241E5B5E00C951B2 /* LWLoginStepOneView.m */; };
@@ -387,6 +389,9 @@
 		5E3160D12424A81E005CA564 /* LWScanLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWScanLoginViewController.h; sourceTree = "<group>"; };
 		5E3160D22424A81E005CA564 /* LWScanLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWScanLoginViewController.m; sourceTree = "<group>"; };
 		5E3160D32424A81E005CA564 /* LWScanLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWScanLoginViewController.xib; sourceTree = "<group>"; };
+		5E3160D62424E06F005CA564 /* LWMultipypaySuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMultipypaySuccessViewController.h; sourceTree = "<group>"; };
+		5E3160D72424E06F005CA564 /* LWMultipypaySuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipypaySuccessViewController.m; sourceTree = "<group>"; };
+		5E3160D82424E06F005CA564 /* LWMultipypaySuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWMultipypaySuccessViewController.xib; sourceTree = "<group>"; };
 		5E317A7A241E55F700C951B2 /* LWLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginController.h; sourceTree = "<group>"; };
 		5E317A7B241E55F700C951B2 /* LWLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginController.m; sourceTree = "<group>"; };
 		5E317A7C241E55F700C951B2 /* LWLoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginController.xib; sourceTree = "<group>"; };
@@ -973,6 +978,9 @@
 				5E3160BC24244155005CA564 /* LWMultipyBeInvitedViewController.h */,
 				5E3160BD24244155005CA564 /* LWMultipyBeInvitedViewController.m */,
 				5E3160BE24244155005CA564 /* LWMultipyBeInvitedViewController.xib */,
+				5E3160D62424E06F005CA564 /* LWMultipypaySuccessViewController.h */,
+				5E3160D72424E06F005CA564 /* LWMultipypaySuccessViewController.m */,
+				5E3160D82424E06F005CA564 /* LWMultipypaySuccessViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2552,6 +2560,7 @@
 				5E0FE6962408E72D00733B05 /* index.js in Resources */,
 				5E07FD222420BC0D00FA3E1F /* LWLoginStepSuccessView.xib in Resources */,
 				EFEBEEA523FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib in Resources */,
+				5E3160DA2424E06F005CA564 /* LWMultipypaySuccessViewController.xib in Resources */,
 				5E3160C424246885005CA564 /* LWHomeListHeadView.xib in Resources */,
 				5E2358632403F3E400A7D774 /* LWMineTableViewCell.xib in Resources */,
 				5E5F130223EDD97F002F0711 /* PageController.bundle in Resources */,
@@ -2789,6 +2798,7 @@
 				5E66A3CD23EBFAA2004097CB /* TYAlertController+BlurEffects.m in Sources */,
 				5EA8079A23E94E2100012837 /* AppDelegate.m in Sources */,
 				5EB31EC0240648AD00974FD4 /* LWMessageDeleteTableViewCell.m in Sources */,
+				5E3160D92424E06F005CA564 /* LWMultipypaySuccessViewController.m in Sources */,
 				5E317A7D241E55F700C951B2 /* LWLoginController.m in Sources */,
 				5E5F129623EC0E12002F0711 /* CalanderModel.m in Sources */,
 				5EF5136E23F1815400F5B6C1 /* QQLBXScanViewController.m in Sources */,

@@ -149,17 +149,12 @@
     LWHomeWalletModel *model = [self.dataSource objectAtIndex:indexPath.row];
 
     if (self.currentViewType == LWHomeListViewTypePersonalWallet) {
-
-        
         LWPersonalWalletDetailViewController *personalVC = [[LWPersonalWalletDetailViewController alloc] init];
         personalVC.contentModel = model;
         [LogicHandle pushViewController:personalVC];
-
         
     }else{
         
-  
-
         if (model.needToJoinCount == 0) {
             LWMultipyWalletDetailViewController *multipyVC = [[LWMultipyWalletDetailViewController alloc] init];
               multipyVC.contentModel = model;
@@ -251,7 +246,7 @@
         }
     }else{
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self getMulityQrCodeWithIndex:index];
+//            [self getMulityQrCodeWithIndex:index];
         });
 
     }
@@ -301,39 +296,39 @@
         [personalTA setModel:model];
         [LogicHandle presentViewController:personalTA animate:YES];
     }else{
-        [self getQrCodeWithIndex:index];
+//        [self getQrCodeWithIndex:index];
     }
 }
 
 #pragma mark - 多人钱包
-
-- (void)getMulityQrCodeWithIndex:(NSInteger)index{
-    LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
-    NSDictionary *params = @{@"wid":@(model.walletId)};
-    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQueryMultipyAddress),WS_Home_getMutipyAddress,[params jsonStringEncoded]];
-    NSData *data = [requestPersonalWalletArray mp_messagePack];
-    [[SocketRocketUtility instance] sendData:data];
-
-    [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:kAppCreateMulitpyAddress_userdefault];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (void)createMultipyAddress:(NSNotification *)notification{
-    NSDictionary *notiDic = notification.object;
-    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
-        NSDictionary *dataDic = [notiDic objectForKey:@"data"];
-        NSString *address = [dataDic objectForKey:@"address"];
-        if (!address || address.length == 0) {
-
-
-        }else{
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppCreateMulitpyAddress_userdefault];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
-              [LogicHandle presentViewController:personVC animate:YES];
-        }
-  
-    }
-    
-}
+//
+//- (void)getMulityQrCodeWithIndex:(NSInteger)index{
+//    LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
+//    NSDictionary *params = @{@"wid":@(model.walletId)};
+//    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQueryMultipyAddress),WS_Home_getMutipyAddress,[params jsonStringEncoded]];
+//    NSData *data = [requestPersonalWalletArray mp_messagePack];
+//    [[SocketRocketUtility instance] sendData:data];
+//
+//    [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:kAppCreateMulitpyAddress_userdefault];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//}
+//
+//- (void)createMultipyAddress:(NSNotification *)notification{
+//    NSDictionary *notiDic = notification.object;
+//    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+//        NSDictionary *dataDic = [notiDic objectForKey:@"data"];
+//        NSString *address = [dataDic objectForKey:@"address"];
+//        if (!address || address.length == 0) {
+//
+//
+//        }else{
+//            [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppCreateMulitpyAddress_userdefault];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
+//            LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
+//              [LogicHandle presentViewController:personVC animate:YES];
+//        }
+//
+//    }
+//
+//}
 @end

@@ -29,6 +29,8 @@
 
 @interface LWHomeViewController (){
     NSOperationQueue * queue;
+    dispatch_semaphore_t signSemphore;
+
 }
 
 @property (nonatomic, strong) LWHomeListView *listView;
@@ -263,14 +265,26 @@
 }
 
 - (void)manageSignInfo:(NSArray *)signArray{
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        dispatch_semaphore_t signSemphore = dispatch_semaphore_create(0);
-        LWMultipySignTool *signTool = [[LWMultipySignTool alloc] initWithInitInfo:signArray];
-        signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
-              dispatch_semaphore_signal(signSemphore);
-        };
-        dispatch_semaphore_wait(signSemphore, DISPATCH_TIME_FOREVER);
-    });
+    
+    if (!queue) {
+        queue = [[NSOperationQueue alloc] init];
+        queue.maxConcurrentOperationCount = 1;
+        signSemphore = dispatch_semaphore_create(0);
+    }
+    
+    NSBlockOperation * operation = [NSBlockOperation blockOperationWithBlock:^{
+               dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                   LWMultipySignTool *signTool = [[LWMultipySignTool alloc] initWithInitInfo:signArray];
+                   signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
+                       dispatch_semaphore_signal(self->signSemphore);
+                   };
+                   dispatch_semaphore_wait(self->signSemphore, DISPATCH_TIME_FOREVER);
+               });
+        
+    }];
+    [queue addOperation:operation];
+    
+
 }
 
 

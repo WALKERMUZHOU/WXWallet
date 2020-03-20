@@ -99,9 +99,9 @@
     NSInteger pollBroadcastAppend = arc4random();
     NSInteger submitSigAppend = arc4random();
     
-    self.broadcastId = [NSString stringWithFormat:@"30000%ld",broadcastAppend].integerValue;
-    self.pollbroadcatsId = [NSString stringWithFormat:@"31000%ld",pollBroadcastAppend].integerValue;
-    self.submitSigId = [NSString stringWithFormat:@"32000%ld",submitSigAppend].integerValue;
+    self.broadcastId = [NSString stringWithFormat:@"30000%ld",(long)broadcastAppend].integerValue;
+    self.pollbroadcatsId = [NSString stringWithFormat:@"31000%ld",(long)pollBroadcastAppend].integerValue;
+    self.submitSigId = [NSString stringWithFormat:@"32000%ld",(long)submitSigAppend].integerValue;
     
     self.info = info;
     self.rid = [info firstObject];
@@ -272,7 +272,7 @@
 #pragma mark - netrequest
 
 - (void)submitSig:(NSDictionary *)sigDic{
-    NSDictionary *params = @{@"rid":self.rid,@"sig":sigDic};
+    NSDictionary *params = @{@"rid":self.rid,@"sig":[sigDic jsonStringEncoded]};
     NSArray *requestPersonalWalletArray = @[@"req",
                                              @(self.submitSigId),
                                              WS_Home_multipySubmitSig,
@@ -382,6 +382,8 @@
             });
             NSLog(@"signal");
         }
+    }else{
+        NSLog(@"return duplic boardCast");
     }
 }
 
@@ -396,6 +398,8 @@
             dispatch_semaphore_signal(self->_semaphoreSignal);
             NSLog(@"signal");
         }
+    }else{
+        NSLog(@"return duplic pollbroadcatsId");
     }
 }
 
@@ -412,6 +416,8 @@
             }
         }
 
+    }else{
+        NSLog(@"return duplic sign");
     }
 }
 @end

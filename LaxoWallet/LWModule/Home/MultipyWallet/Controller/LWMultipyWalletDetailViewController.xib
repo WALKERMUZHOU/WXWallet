@@ -161,6 +161,9 @@
                                     <color key="value" red="0.85872977969999997" green="0.85887759919999995" blue="0.85872042179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="receiveClick:" destination="-1" eventType="touchUpInside" id="xtw-SS-ybb"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ef-n8-UF5">
                             <rect key="frame" x="217.5" y="191" width="150" height="40"/>
@@ -184,6 +187,9 @@
                                     <color key="value" red="0.85872977969999997" green="0.85887759919999995" blue="0.85872042179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="sendClick:" destination="-1" eventType="touchUpInside" id="kO9-yT-cm7"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwy-J3-2rz">
                             <rect key="frame" x="0.0" y="261" width="414" height="1"/>

@@ -1,5 +1,5 @@
 //
-//  LWMultipyBeInvitedViewController.h
+//  LWScanLoginViewController.h
 //  LaxoWallet
 //
 //  Created by walkermuzhou on 2020/3/20.
@@ -7,13 +7,12 @@
 //
 
 #import "LWBaseViewController.h"
-#import "LWHomeWalletModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LWMultipyBeInvitedViewController : LWBaseViewController
+@interface LWScanLoginViewController : LWBaseViewController
 
-@property (nonatomic, strong) LWHomeWalletModel *contentModel;
+@property (nonatomic, strong) NSString *scanId;
 
 @end
 

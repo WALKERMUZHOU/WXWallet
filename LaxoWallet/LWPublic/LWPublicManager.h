@@ -38,6 +38,8 @@ typedef NS_OPTIONS(NSInteger, TokenType){
 
 + (NSString *)getPubkeyWithPriKey:(NSString *)prikey;
 + (NSString *)getPKWithZhuJiCi;
++ (NSString *)getPubKeyWithZhuJiCi;
+
 + (NSString *)getPKWithZhuJiCiAndPath:(NSString *)path;
 
 + (NSString *)getRecoverJizhuciWithShares:(NSArray *)shares;

@@ -48,6 +48,10 @@
 #import "LWPublicManager.h"
 #import "PubkeyManager.h"
 #import "LWEncryptTool.h"
+#import "LWNumberTool.h"
+#import "LWTimeTool.h"
+#import "LWScanTool.h"
+#import "LWAddressTool.h"
 
 #import "SceneDelegate.h"
 #import "AppDelegate.h"

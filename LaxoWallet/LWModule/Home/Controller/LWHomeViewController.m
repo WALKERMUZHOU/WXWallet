@@ -78,7 +78,10 @@
 }
 
 - (void)scanClick{
-    [self jumpToScanPermission];
+    [LWScanTool startScan:^(id  _Nonnull result) {
+        
+    }];
+    //[self jumpToScanPermission];
 }
 
 - (void)jumpToScanPermission {
@@ -345,10 +348,6 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipyUnSignTrans object:responseArray[2]];
             }
             break;
-            /*#define kWebScoket_MultipySignBroadcast     @"kWebScoket_MultipySignBoardcast"
-            #define kWebScoket_MultipyAddressBroadcast  @"kWebScoket_MultipyAddressBroadcast"
-            #define kWebScoket_MultipySignPollBroadcast @"kWebScoket_MultipySignPollBroadcast"
-            #define kWebScoket_MultipyAddressPollBroadcast       @"kWebScoket_MultipyAddressPollBroadcast"*/
         case WSRequestId_multipy_broadcast_sig:{
 //                [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyBroadcast_sig object:responseArray[2]];
@@ -367,6 +366,11 @@
         case WSRequestId_multipy_pollBroadcast_address:{
 //                [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyPollBroadcast_address object:responseArray[2]];
+            }
+                  break;
+        case WSRequestId_scanLogin:{
+//                [SVProgressHUD dismiss];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_scanLogin object:responseArray[2]];
             }
                   break;
          default:{

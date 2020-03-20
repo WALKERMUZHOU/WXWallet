@@ -35,8 +35,8 @@
     [self getCurrentTokenPrice];
     [self registerBDFace];
     
-    [LogicHandle showTabbarVC];
-//    [LogicHandle chooseStartVC];
+//    [LogicHandle showTabbarVC];
+    [LogicHandle chooseStartVC];
 //    [LogicHandle showLoginVC];
     
     LWUserVefifyViewController *launchVC = [[LWUserVefifyViewController alloc] init];

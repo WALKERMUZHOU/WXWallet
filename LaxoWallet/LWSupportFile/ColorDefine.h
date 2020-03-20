@@ -35,6 +35,7 @@
 
 #define lwColorBackground   [UIColor hex:@"#f6f6f6"]
 
+#define lwColorNormalDeep       [UIColor hex:@"#229278"]
 #define lwColorNormal       [UIColor hex:@"#2BB696"]
 #define lwColorNormalLight  [UIColor hex:@"#AEEDDF"]
 
@@ -60,6 +61,9 @@
 #define lwColorBlack2       [UIColor hex:@"#3A3B42"]
 
 #define lwColorWhite        [UIColor hex:@"#ffffff"]
+
+#define lwColorRedLight        [UIColor hex:@"#EB5757"]
+
 
 #define lwColorLabel1       [UIColor hex:@"#666C72"]
 

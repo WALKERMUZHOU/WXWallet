@@ -7,10 +7,12 @@
 //
 
 #import "LWBaseViewController.h"
+#import "LWHomeWalletModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWMultipyWalletDetailViewController : LWBaseViewController
+@property (nonatomic, strong) LWHomeWalletModel *contentModel;
 
 @end
 

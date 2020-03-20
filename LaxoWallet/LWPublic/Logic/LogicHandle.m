@@ -39,7 +39,7 @@
         AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
         LWNavigationViewController *naviVC = (LWNavigationViewController *)appdelete.tabBarVC.selectedViewController;
         viewController.hidesBottomBarWhenPushed = YES;
-        [naviVC pushViewController:viewController animated:YES];
+        [naviVC pushViewController:viewController animated:NO];
     }
     
 }

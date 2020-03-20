@@ -56,6 +56,8 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestId_multipy_broadcast_address        = 10022,//多人钱包broadcast
     WSRequestId_multipy_pollBroadcast_address    = 10023,//多人钱包pollbroadcast
 
+    WSRequestId_scanLogin                        = 10024,//扫一扫登录
+
 };
 
 #if 0

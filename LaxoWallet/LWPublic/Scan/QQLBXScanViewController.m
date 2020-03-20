@@ -239,13 +239,14 @@
 
 - (void)showNextVCWithScanResult:(LBXScanResult*)strResult
 {
-    if (self.scanresult) {
-        self.scanresult(strResult);
-    }
+
     if (self.navigationController.presentingViewController) {
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }else{
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:NO];
+    }
+    if (self.scanresult) {
+        self.scanresult(strResult);
     }
 //    ScanResultViewController *vc = [ScanResultViewController new];
 //    vc.imgScan = strResult.imgScanned;

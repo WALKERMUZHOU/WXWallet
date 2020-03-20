@@ -59,7 +59,7 @@
         self.nameLabel.text = @"BSV";
     }
     
-    self.bitCountLabel.text = [NSString stringWithFormat:@"%@",@(self.contentModel.personalBitCount)];
+    self.bitCountLabel.text = [LWNumberTool formatSSSFloat:self.contentModel.personalBitCount];
     if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
         self.priceLabel.text = [NSString stringWithFormat:@"¥%.2f",self.contentModel.personalBitCurrency];
     }else{

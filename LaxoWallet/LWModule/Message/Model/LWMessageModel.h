@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) NSInteger     messageId;//id*
 @property (nonatomic, strong) NSString      *uid;//用户id
-@property (nonatomic, assign) NSInteger      type;//1-转出，2-转入
+@property (nonatomic, assign) NSInteger      type;//1-转入，2-转出
 @property (nonatomic, assign) NSInteger      wid;//钱包id
 @property (nonatomic, assign) CGFloat      value;//金额
 @property (nonatomic, assign) CGFloat      fee;//手续费

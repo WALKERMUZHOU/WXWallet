@@ -9,6 +9,15 @@
 #import "LWTimeTool.h"
 
 @implementation LWTimeTool
+
++ (NSString *)dataFormateYYMMDD:(NSString *)timeStr{
+    NSDateFormatter *dateStringFormatter = [[NSDateFormatter alloc] init];
+    [dateStringFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStr.integerValue/1000];
+    NSString *time = [dateStringFormatter stringFromDate:date];
+    return time;
+}
+
 /** 将一个时间为2015-05-20格式的字符串的月份转成英文月份
  *
  *  @param timeNormal  2015-05-20格式的字符串

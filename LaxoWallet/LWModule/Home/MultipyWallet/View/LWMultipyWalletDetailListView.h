@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LWMutipyWalletDetailListView : LWBaseTableView
+@interface LWMultipyWalletDetailListView : LWBaseTableView
+
+@property (nonatomic, assign) NSInteger walletId;
+- (void)getCurrentData;
 
 @end
 

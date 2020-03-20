@@ -22,6 +22,8 @@
 #import "LWMultipyAdressTool.h"
 
 #import "LWPersonalWalletDetailViewController.h"
+#import "LWMultipyWalletDetailViewController.h"
+#import "LWMultipyBeInvitedViewController.h"
 
 @interface LWHomeListView()<LWCoordinatorDelegate,MGSwipeTableCellDelegate>{
     NSIndexPath *_deleteIndexPath;
@@ -145,12 +147,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     LWHomeWalletModel *model = [self.dataSource objectAtIndex:indexPath.row];
-    LWMessageDetailViewController *detailVC = [[LWMessageDetailViewController alloc] init];
-    detailVC.contentModel = model;
+
     if (self.currentViewType == LWHomeListViewTypePersonalWallet) {
-        detailVC.detailViewType = 1;
-        detailVC.title = @"个人钱包";
-//        [LogicHandle pushViewController:detailVC];
+
         
         LWPersonalWalletDetailViewController *personalVC = [[LWPersonalWalletDetailViewController alloc] init];
         personalVC.contentModel = model;
@@ -158,11 +157,18 @@
 
         
     }else{
-        detailVC.detailViewType = 2;
-        detailVC.title = model.name;
+        
+  
+
         if (model.needToJoinCount == 0) {
-            [LogicHandle pushViewController:detailVC];
-            return;
+            LWMultipyWalletDetailViewController *multipyVC = [[LWMultipyWalletDetailViewController alloc] init];
+              multipyVC.contentModel = model;
+              [LogicHandle pushViewController:multipyVC];
+
+        }else{
+            LWMultipyBeInvitedViewController  *multipyVC = [[LWMultipyBeInvitedViewController alloc] init];
+            multipyVC.contentModel = model;
+            [LogicHandle pushViewController:multipyVC];
         }
 //        [LogicHandle pushViewController:detailVC];
     }

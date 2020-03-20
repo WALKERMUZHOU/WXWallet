@@ -30,15 +30,16 @@
     NSString *time = [dateStringFormatter stringFromDate:date];
 
     self.timeLabel.text = [LWTimeTool subStingOfYMD:time abbreviations:YES EnglishShortNameForDate:NO];;
-    
-    if (_model.status == 2){
+    NSString *biCountStr = [LWNumberTool formatSSSFloat:_model.value/1e8];
+
+    if (_model.status == 2){//完成
         if (_model.type == 2) {//转出
-            self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",@(_model.value/1e8)];
-            self.typeLabel.text = @"Send";
+            self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",biCountStr];
+            self.typeLabel.text = @"Sent";
             self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
 
         }else{
-            self.bitCountLabel.text = [NSString stringWithFormat:@"+%@",@(_model.value/1e8)];
+            self.bitCountLabel.text = [NSString stringWithFormat:@"+%@",biCountStr];
             self.typeLabel.text = @"Receive";
             self.iconImageView.image = [UIImage imageNamed:@"home_wallet_receive"];
         }

@@ -43,6 +43,8 @@
 #define kWebScoket_multipyUnSignTrans       @"kWebScoket_multipyUnSignTrans"
 #define kWebScoket_multipySubmitSig         @"kWebScoket_multipySubmitSig"
 
+#define kWebScoket_scanLogin        @"kWebScoket_scanLogin"
+
 
 #pragma mark - Userdefault
 #define kAppConstantFirstInstall    @"kAppConstantFirstInstall"

@@ -115,6 +115,24 @@
     return [LWAddressTool charToString:pk];
 }
 
++ (NSString *)getPubKeyWithZhuJiCi{
+    LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
+    NSString *seed = userModel.jiZhuCi;
+
+    if (!seed || seed.length == 0) {//注册时未保存seed
+       NSDictionary *infoDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
+        seed = [infoDic objectForKey:@"seed"];
+        userModel.jiZhuCi = seed;
+        [[LWUserManager shareInstance] setUser:userModel];
+    }
+    char *pk = derive_key([LWAddressTool stringToChar:seed], [LWAddressTool stringToChar:@"m/0"]);
+
+    NSData *priData = [NSData hexStringToData:[NSString stringWithFormat:@"%s",pk]];
+    NSData *pubkey = [CBSecp256k1 generatePublicKeyWithPrivateKey:priData compression:YES];
+    return [pubkey hexString];
+    
+}
+
 + (NSString *)getPKWithZhuJiCiAndPath:(NSString *)path{
     NSString *seed = [[LWUserManager shareInstance] getUserModel].jiZhuCi;
     

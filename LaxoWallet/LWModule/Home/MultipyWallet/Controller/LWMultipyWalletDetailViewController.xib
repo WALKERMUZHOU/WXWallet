@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWMultipyWalletDetailViewController">
             <connections>
                 <outlet property="bitCountLabel" destination="hKb-sd-1qd" id="LYZ-Id-Otd"/>
+                <outlet property="editBtn" destination="71a-lh-4zy" id="ZLh-Yx-ZSv"/>
                 <outlet property="nameLabel" destination="3mv-9a-wWA" id="UrU-GZ-ccq"/>
                 <outlet property="priceLabel" destination="sNB-6b-HkP" id="JlI-ew-7Qg"/>
                 <outlet property="receiveBtn" destination="jcJ-WN-NkK" id="STp-ah-dGA"/>

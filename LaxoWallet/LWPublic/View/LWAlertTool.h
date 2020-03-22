@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "LWHomeWalletModel.h"
+
+#import "LWHomeWalletModel.h"
+#import "LWMessageModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWAlertTool : NSObject
@@ -19,6 +23,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///个人钱包发送弹窗
 + (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note andComplete:(void (^)(void))walletBlock;
+
++ (void)alertMultipySignedView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id complete))walletBlock;
+
++ (void)alertMultipyOutgoingView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id complete))walletBlock;
+
++ (void)alertMultipyPendingView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id complete))walletBlock;
+
++ (void)alertMultipyCancleView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id complete))walletBlock;
+
++ (void)alertSigneseStatueView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id complete))walletBlock;
+
 
 @end
 

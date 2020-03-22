@@ -47,6 +47,10 @@
     [self getprikey];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
 - (void)createUI{
     self.view.backgroundColor = lwColorBackground;
     

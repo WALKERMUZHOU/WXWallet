@@ -7,10 +7,13 @@
 //
 
 #import "LWBaseTableView.h"
+#import "LWHomeWalletModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWMultipyWalletDetailListView : LWBaseTableView
+
+@property (nonatomic, strong) LWHomeWalletModel *homeWallteModel;
 
 @property (nonatomic, assign) NSInteger walletId;
 - (void)getCurrentData;

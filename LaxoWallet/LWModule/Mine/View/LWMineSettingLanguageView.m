@@ -40,7 +40,7 @@
                            @{@"title":@"USD",@"type":@1}
                            ];
     }else if (viewType == 2){
-        array = @[@{@"title":@"中文",@"type":@2},
+        array = @[@{@"title":@"简体中文",@"type":@2},
                            @{@"title":@"English",@"type":@2}
                            ];
     }
@@ -81,10 +81,18 @@
 
     }else{
         LWCurrentLanguage language = [LWPublicManager getCurrentLanguage];
-        if (indexPath.row == language-1) {
-            cell.isCellSelect = YES;
+         if (language == LWCurrentLanguageChinese) {
+            if (indexPath.row == 0) {
+                cell.isCellSelect = YES;
+            }else{
+                cell.isCellSelect = NO;
+            }
         }else{
-            cell.isCellSelect = NO;
+            if (indexPath.row == 1) {
+                    cell.isCellSelect = YES;
+            }else{
+                cell.isCellSelect = NO;
+            }
         }
     }
     
@@ -127,7 +135,7 @@
         }
     }else{
         LWCurrentLanguage language = [LWPublicManager getCurrentLanguage];
-        if (indexPath.row == language-1) {
+        if (indexPath.row+1 == language) {
             return;
         }else{
             [LWPublicManager setCurrentLanguage:indexPath.row + 1];

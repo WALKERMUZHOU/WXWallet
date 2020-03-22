@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LWHomeWalletModel.h"
+#import "LWMessageModel.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+typedef void(^SendToBeSignedBlock)(NSInteger signStyle);
+
 @interface LWMultipySendToBeSignedView : UIView
+
+- (void)setSignedViewWithWalletModel:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel;
+
+@property (nonatomic, copy) SendToBeSignedBlock block;
 
 @end
 

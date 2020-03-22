@@ -12,6 +12,8 @@
 #import "LWMineViewController.h"
 @interface LWNavigationViewController ()<UINavigationControllerDelegate>
 
+@property (nonatomic, strong) UIImageView *logoImageView;
+
 @end
 
 @implementation LWNavigationViewController
@@ -32,9 +34,22 @@
 //                                                forState:UIControlStateHighlighted];
 //    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:17]}];
     
-    UIImageView *logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"common_navilogo_bit"]];
-    logoImageView.frame = CGRectMake(kScreenWidth/2 - 31, 3, 62, 62);
-    [self.navigationBar addSubview:logoImageView];
+    self.logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"common_navilogo_bit"]];
+    self.logoImageView.frame = CGRectMake(kScreenWidth/2 - 31, 3, 62, 62);
+    [self.navigationBar addSubview:self.logoImageView];
+}
+
+- (void)setIconType:(NSInteger)iconType{
+    if (iconType == 0) {
+        self.logoImageView.hidden = NO;
+        self.logoImageView.image = [UIImage imageNamed:@"common_navilogo_bit"];
+    }else if(iconType == 1){
+        self.logoImageView.hidden = NO;
+        self.logoImageView.image = [UIImage imageNamed:@"common_navilogo_camera"];
+    }else{
+        self.logoImageView.hidden = YES;
+    }
+    
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{

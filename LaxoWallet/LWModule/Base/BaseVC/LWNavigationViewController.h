@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LWNavigationViewController : UINavigationController
 
+///0,1 normal 2camera 3,none
+@property (nonatomic, assign) NSInteger iconType;
+
 @end
 
 NS_ASSUME_NONNULL_END

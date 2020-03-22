@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "LWMessageModel.h"
+#import "LWHomeWalletModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWMultipyWalletDetailCell : UITableViewCell
+
+@property (nonatomic, strong) LWHomeWalletModel *cotentmodel;
+
 
 @property (nonatomic, strong) LWMessageModel *model;
 

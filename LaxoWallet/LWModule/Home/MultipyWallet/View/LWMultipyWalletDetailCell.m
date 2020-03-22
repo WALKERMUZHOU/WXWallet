@@ -22,6 +22,10 @@
 
 @implementation LWMultipyWalletDetailCell
 
+- (void)setCotentmodel:(LWHomeWalletModel *)cotentmodel{
+    _cotentmodel = cotentmodel;
+}
+
 - (void)setModel:(LWMessageModel *)model{
     _model = model;
     
@@ -34,13 +38,92 @@
     NSString *biCountStr = [LWNumberTool formatSSSFloat:_model.value/1e8];
     if (_model.status == 2){
         if (_model.type == 2) {//转出
+            
+            NSDictionary *userStatues = _model.user_status;
+            NSArray *approve = [userStatues objectForKey:@"approve"];
+            NSArray *reject = [userStatues objectForKey:@"reject"];
+            
             self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",biCountStr];
             self.typeLabel.text = @"Sent";
             self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
             self.statueLabel.text = @"Success";
             self.statueBackView.backgroundColor = lwColorNormal;
+            self.statueDescribeLabel.text = [NSString stringWithFormat:@"Transaction success.\n%ld of %ld members signed",(long)( approve.count),(long)(_cotentmodel.share)];
         }
     }else if(_model.status == 1){//未完成
+        
+        NSDictionary *userStatues = _model.user_status;
+        NSArray *approve = [userStatues objectForKey:@"approve"];
+        NSArray *reject = [userStatues objectForKey:@"reject"];
+        
+        if (_model.isMineCreateTrans) {
+            if (approve.count == 0) {//outgoing
+                self.typeLabel.text = @"OUTGOING";
+                self.iconImageView.image = [UIImage imageNamed:@"home_wallet_waiting"];
+
+                self.statueBackView.backgroundColor = lwColorRedLight;
+                self.statueLabel.text = @"RECALL TX??";
+                self.statueDescribeLabel.text = @"Until the first sign you can cancel this transaction";
+            }else{// you unSigned / you signed
+
+                NSInteger ismineSigned = 0;
+                for (NSInteger i = 0; i<approve.count; i++) {
+                    NSString *approveID = [NSString stringWithFormat:@"%@",approve[i]];
+                    if ([approveID isEqualToString:[[LWUserManager shareInstance] getUserModel].uid]) {
+                        ismineSigned = 1;
+                        break;
+                    }
+                }
+                
+                if (ismineSigned == 1) {
+                    self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
+
+                    self.statueBackView.backgroundColor = lwColorNormalLight;
+                    self.statueLabel.text = @"Signed";
+                    self.statueDescribeLabel.text = [NSString stringWithFormat:@"You’ve signed.\nAwaiting others to sign (%ld of %ld)",(long)(_cotentmodel.threshold - approve.count),(long)(_cotentmodel.threshold)];
+                }else{//
+                    self.iconImageView.image = [UIImage imageNamed:@"home_wallet_pending"];
+
+                    self.statueBackView.backgroundColor = lwColorOrange;
+                     self.statueLabel.text = @"UNSIGNED";
+                     self.statueDescribeLabel.text = [NSString stringWithFormat:@"Awaiting you to sign"];
+                }
+                
+            }
+        }else{
+            if (approve.count == 0) {//outgoing
+                self.iconImageView.image = [UIImage imageNamed:@"home_wallet_pending"];
+
+                 self.typeLabel.text = @"PENDING";
+                 self.statueBackView.backgroundColor = lwColorOrange;
+                 self.statueLabel.text = @"UNSIGNED";
+                 self.statueDescribeLabel.text = @"Awaiting you to sign";
+             }else{// you unSigned / you signed
+                 
+                 NSInteger ismineSigned = 0;
+                 for (NSInteger i = 0; i<approve.count; i++) {
+                     NSString *approveID = [NSString stringWithFormat:@"%@",approve[i]];
+                     if ([approveID isEqualToString:[[LWUserManager shareInstance] getUserModel].uid]) {
+                         ismineSigned = 1;
+                         break;
+                     }
+                 }
+                 
+                 if (ismineSigned == 1) {
+                     self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
+                     self.statueBackView.backgroundColor = lwColorNormalLight;
+                     self.statueLabel.text = @"Signed";
+                     self.statueDescribeLabel.text = [NSString stringWithFormat:@"You’ve signed.\n Awaiting others to sign (%ld of %ld)",(long)(_cotentmodel.threshold - approve.count),(long)(_cotentmodel.threshold)];
+                 }else{//
+                     self.iconImageView.image = [UIImage imageNamed:@"home_wallet_pending"];
+
+                     self.statueBackView.backgroundColor = lwColorOrange;
+                      self.statueLabel.text = @"UnSigned";
+                      self.statueDescribeLabel.text = [NSString stringWithFormat:@"Awaiting you to sign"];
+                 }
+                 
+             }
+        }
         self.iconImageView.image = [UIImage imageNamed:@"home_wallet_waiting"];
 
     }else{

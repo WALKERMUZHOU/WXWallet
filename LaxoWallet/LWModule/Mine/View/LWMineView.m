@@ -100,11 +100,11 @@
     if (indexPath.row == 0) {
         LWMineSecurityViewController *securityVC = [[LWMineSecurityViewController alloc]init];
         securityVC.MineVCType = 1;
-        [LogicHandle pushViewController:securityVC];
+        [LogicHandle pushViewController:securityVC animate:YES];
     }else if (indexPath.row == 2){
         LWMineSecurityViewController *securityVC = [[LWMineSecurityViewController alloc]init];
         securityVC.MineVCType = 2;
-        [LogicHandle pushViewController:securityVC];
+        [LogicHandle pushViewController:securityVC animate:YES];
     }
 }
 

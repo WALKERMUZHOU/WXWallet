@@ -12,6 +12,7 @@
 #import "LWMineSettingLanguageView.h"
 
 @interface LWMineSecurityViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 
 @end
 
@@ -20,6 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.emailLabel.text = [[LWUserManager shareInstance] getUserModel].email;
+    
+    return;
     if (self.MineVCType == 1) {
         self.title = @"Security";
         LWMineSecurityView *securtyView = [[LWMineSecurityView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];

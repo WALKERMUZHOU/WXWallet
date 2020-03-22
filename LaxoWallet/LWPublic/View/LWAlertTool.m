@@ -11,6 +11,13 @@
 #import "LWPersoanlReceiveView.h"
 #import "LWPersonalSendView.h"
 
+#import "LWMultipySendToBeSignedView.h"
+#import "LWMultipySendOutgoingView.h"
+#import "LWMultipySendPendingView.h"
+#import "LWMultipySendCancleView.h"
+
+#import "LWSignessSatuteView.h"
+
 @implementation LWAlertTool
 
 + (void)alertHomeChooseWalletView:(void (^)(NSInteger))walletBlock{
@@ -19,6 +26,11 @@
     LWHomeAddWalletView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWHomeAddWalletView class]) owner:nil options:nil].lastObject;
     [backView addSubview:walletView];
     walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 159);
+   
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            NSLog(@"%@",sender);
+        }];
+    [walletView addGestureRecognizer:tap1];
     
     [UIView animateWithDuration:0.3 animations:^{
         walletView.frame = CGRectMake(0, kScreenHeight - 159, kScreenWidth, 159);
@@ -79,6 +91,180 @@
     };
 }
 
++ (void)alertMultipySignedView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id _Nonnull))walletBlock{
+    
+    CGFloat viewHeight = 589.f;
+    UIView *backView = [LWAlertTool ligntBackView];
+     
+    LWMultipySendToBeSignedView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWMultipySendToBeSignedView class]) owner:nil options:nil].lastObject;
+    [backView addSubview:walletView];
+    walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, viewHeight);
+    [walletView setSignedViewWithWalletModel:walletModel andMessageModel:messageModel];
+    walletView.block = ^(NSInteger signStyle) {
+        [UIView animateWithDuration:0.3 animations:^{
+            backView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [backView removeFromSuperview];
+        }];
+        if (signStyle == 1) {
+            
+            
+        }
+    };
+    
+    
+     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+             NSLog(@"%@",sender);
+         }];
+     [walletView addGestureRecognizer:tap1];
+     
+     [UIView animateWithDuration:0.3 animations:^{
+         walletView.frame = CGRectMake(0, kScreenHeight - viewHeight, kScreenWidth, viewHeight);
+     }];
+     
+//     walletView.block = ^(NSInteger selectIndex) {
+//         walletBlock(selectIndex);
+//         [UIView animateWithDuration:0.3 animations:^{
+//             backView.alpha = 0;
+//         } completion:^(BOOL finished) {
+//             [backView removeFromSuperview];
+//         }];
+//     };
+    
+}
+
++ (void)alertMultipyOutgoingView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id _Nonnull))walletBlock{
+    
+    CGFloat viewHeight = 589.f;
+    UIView *backView = [LWAlertTool ligntBackView];
+     
+    LWMultipySendOutgoingView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWMultipySendOutgoingView class]) owner:nil options:nil].lastObject;
+    [backView addSubview:walletView];
+    walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, viewHeight);
+    [walletView setSignedViewWithWalletModel:walletModel andMessageModel:messageModel];
+    walletView.block = ^(NSInteger signStyle) {
+        [UIView animateWithDuration:0.3 animations:^{
+            backView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [backView removeFromSuperview];
+        }];
+        if (signStyle == 1) {
+            
+            
+        }
+    };
+    
+    
+     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+             NSLog(@"%@",sender);
+         }];
+     [walletView addGestureRecognizer:tap1];
+     
+     [UIView animateWithDuration:0.3 animations:^{
+         walletView.frame = CGRectMake(0, kScreenHeight - viewHeight, kScreenWidth, viewHeight);
+     }];
+    
+    
+}
+
++ (void)alertMultipyPendingView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id _Nonnull))walletBlock{
+    
+    CGFloat viewHeight = 589.f;
+    UIView *backView = [LWAlertTool ligntBackView];
+     
+    LWMultipySendPendingView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWMultipySendPendingView class]) owner:nil options:nil].lastObject;
+    [backView addSubview:walletView];
+    walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, viewHeight);
+    [walletView setSignedPendingViewWithWalletModel:walletModel andMessageModel:messageModel];
+    walletView.block = ^(NSInteger signStyle) {
+        [UIView animateWithDuration:0.3 animations:^{
+            backView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [backView removeFromSuperview];
+        }];
+        if (signStyle == 1) {
+            
+            
+        }
+    };
+    
+    
+     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+             NSLog(@"%@",sender);
+         }];
+     [walletView addGestureRecognizer:tap1];
+     
+     [UIView animateWithDuration:0.3 animations:^{
+         walletView.frame = CGRectMake(0, kScreenHeight - viewHeight, kScreenWidth, viewHeight);
+     }];
+    
+    
+}
+
++ (void)alertMultipyCancleView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id _Nonnull))walletBlock{
+    
+    CGFloat viewHeight = 589.f;
+    UIView *backView = [LWAlertTool ligntBackView];
+     
+    LWMultipySendCancleView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWMultipySendCancleView class]) owner:nil options:nil].lastObject;
+    [backView addSubview:walletView];
+    walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, viewHeight);
+    [walletView setSignedCancelViewWithWalletModel:walletModel andMessageModel:messageModel];
+    walletView.block = ^(NSInteger signStyle) {
+        [UIView animateWithDuration:0.3 animations:^{
+            backView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [backView removeFromSuperview];
+        }];
+        if (signStyle == 1) {
+            
+            
+        }
+    };
+    
+    
+     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+             NSLog(@"%@",sender);
+         }];
+     [walletView addGestureRecognizer:tap1];
+     
+     [UIView animateWithDuration:0.3 animations:^{
+         walletView.frame = CGRectMake(0, kScreenHeight - viewHeight, kScreenWidth, viewHeight);
+     }];
+    
+}
+
++ (void)alertSigneseStatueView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id _Nonnull))walletBlock{
+    CGFloat viewHeight = 589.f;
+    UIView *backView = [LWAlertTool ligntBackView];
+     
+    LWSignessSatuteView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWSignessSatuteView class]) owner:nil options:nil].lastObject;
+    [backView addSubview:walletView];
+    walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
+    [walletView setSignessSatuteViewWithWalletModel:walletModel andMessageModel:messageModel];
+    walletView.block = ^(NSInteger signStyle) {
+        [UIView animateWithDuration:0.3 animations:^{
+            backView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [backView removeFromSuperview];
+        }];
+        if (signStyle == 1) {
+            
+            
+        }
+    };
+    
+    
+//     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+//             NSLog(@"%@",sender);
+//         }];
+//     [walletView addGestureRecognizer:tap1];
+     
+     [UIView animateWithDuration:0.3 animations:^{
+         walletView.frame = CGRectMake(0, 0, kScreenWidth, viewHeight);
+     }];
+}
+
 + (UIView *)ligntBackView{
     
     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
@@ -103,13 +289,10 @@
           } completion:^(BOOL finished) {
                 [backView removeFromSuperview];
           }];
-        
- 
-
     }];
-
     [backView addGestureRecognizer:tap1];
     return backView;
 }
+
 
 @end

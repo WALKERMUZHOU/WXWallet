@@ -28,6 +28,21 @@
         self.parties = [NSArray modelArrayWithClass:[LWPartiesModel class] json:partiesArray];
     }
     
+    NSString *uid = [[LWUserManager shareInstance] getUserModel].uid;
+    NSString *walletUid = [NSString stringWithFormat:@"%@", [dic objectForKey:@"uid"]];
+    if ([uid isEqualToString:walletUid]) {
+        self.isMineCreateTrans = YES;
+    }
+    
+    if([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY){
+        
+        NSInteger value = [[dic objectForKey:@"value"] integerValue];
+        self.priceDefine = [NSString stringWithFormat:@"¥ %.2f",[LWPublicManager getCurrentCurrencyPrice].floatValue * value/1e8];
+    }else{
+        NSInteger value = [[dic objectForKey:@"value"] integerValue];
+        self.priceDefine = [NSString stringWithFormat:@"$ %.2f",[LWPublicManager getCurrentCurrencyPrice].floatValue * value/1e8];
+    }
+    
     return YES;
 }
 

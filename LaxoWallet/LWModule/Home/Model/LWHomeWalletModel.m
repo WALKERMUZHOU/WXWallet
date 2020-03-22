@@ -51,6 +51,13 @@
     self.loackBitCount = bitCount/1e8;
     
     self.personalBitCurrency = [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV].floatValue * bitCount/1e8;
+    
+    NSString *uid = [[LWUserManager shareInstance] getUserModel].uid;
+    NSString *walletUid = [NSString stringWithFormat:@"%@", [dic objectForKey:@"uid"]];
+    if ([uid isEqualToString:walletUid]) {
+        self.isMineCreateWallet = YES;
+    }
+    
     return YES;
 }
 

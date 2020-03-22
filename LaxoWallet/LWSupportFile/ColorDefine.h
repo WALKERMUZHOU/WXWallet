@@ -35,11 +35,11 @@
 
 #define lwColorBackground   [UIColor hex:@"#f6f6f6"]
 
-#define lwColorNormalDeep       [UIColor hex:@"#229278"]
-#define lwColorNormal       [UIColor hex:@"#2BB696"]
+#define lwColorNormal       [UIColor hex:@"#229278"]
+#define lwColorNormalDeep       [UIColor hex:@"#2BB696"]
 #define lwColorNormalLight  [UIColor hex:@"#AEEDDF"]
 
-#define lwColorNormalDeep   [UIColor hex:@"#01424A"]
+//#define lwColorNormalDeep   [UIColor hex:@"#01424A"]
 
 #define lwColorGray         [UIColor hex:@"#F3F3F3"]
 #define lwColorGray0        [UIColor hex:@"#F0F0F0"]
@@ -63,6 +63,7 @@
 #define lwColorWhite        [UIColor hex:@"#ffffff"]
 
 #define lwColorRedLight        [UIColor hex:@"#EB5757"]
+#define lwColorOrange        [UIColor hex:@"#F2994A"]
 
 
 #define lwColorLabel1       [UIColor hex:@"#666C72"]

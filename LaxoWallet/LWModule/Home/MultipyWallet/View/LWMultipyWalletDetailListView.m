@@ -7,10 +7,12 @@
 //
 
 #import "LWMultipyWalletDetailListView.h"
+#import "LWMultipyBeInvitedViewController.h"
 
 #import "LWMessageModel.h"
 #import "LWPersonalListTableViewCell.h"
 #import "LWMultipyWalletDetailCell.h"
+#import "LWAlertTool.h"
 
 @implementation LWMultipyWalletDetailListView
 
@@ -80,6 +82,7 @@
             return cell;
         }else{
             LWMultipyWalletDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWMultipyWalletDetailCell"];
+            [cell setCotentmodel:self.homeWallteModel];
             [cell setModel:messageModel];
             return cell;
         }
@@ -97,7 +100,7 @@
          return 50.f;
 
            }else{
-               return 70.f;
+               return 90.f;
            }
     }
 }
@@ -124,6 +127,99 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    LWMessageModel *messageModel = [self.dataSource objectAtIndex:indexPath.section];
+    
+    [LWAlertTool alertSigneseStatueView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
+        
+    }];
+    return;
+    
+    if(messageModel.type == 1){
+
+    }else{
+        
+        if (messageModel.status == 1) {
+            NSDictionary *userStatues = messageModel.user_status;
+            NSArray *approve = [userStatues objectForKey:@"approve"];
+            NSArray *reject = [userStatues objectForKey:@"reject"];
+            
+            if (messageModel.isMineCreateTrans) {
+                if (approve.count == 0) {//outgoing
+                    [LWAlertTool alertMultipyOutgoingView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
+                        
+                    }];
+                    
+                }else{// you unSigned / you signed
+
+                    NSInteger ismineSigned = 0;
+                    for (NSInteger i = 0; i<approve.count; i++) {
+                        NSString *approveID = [NSString stringWithFormat:@"%@",approve[i]];
+                        if ([approveID isEqualToString:[[LWUserManager shareInstance] getUserModel].uid]) {
+                            ismineSigned = 1;
+                            break;
+                        }
+                    }
+                    
+                    if (ismineSigned == 1) {
+                        [LWAlertTool alertMultipyPendingView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
+                                  
+                        }];
+                        
+                    }else{//
+                        [LWAlertTool alertMultipySignedView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
+                                              
+                                        
+                        }];
+                        
+                    }
+                    
+                }
+            }else{
+                if (approve.count == 0) {//outgoing
+                    [LWAlertTool alertMultipyPendingView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
+                
+                    }];
+                    
+                 }else{// you unSigned / you signed
+                     
+                     NSInteger ismineSigned = 0;
+                     for (NSInteger i = 0; i<approve.count; i++) {
+                         NSString *approveID = [NSString stringWithFormat:@"%@",approve[i]];
+                         if ([approveID isEqualToString:[[LWUserManager shareInstance] getUserModel].uid]) {
+                             ismineSigned = 1;
+                             break;
+                         }
+                     }
+                     
+                     if (ismineSigned == 1) {
+                         [LWAlertTool alertMultipySignedView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
+                                                    
+                                              
+                        }];
+                         
+                     }else{//
+                         [LWAlertTool alertMultipyPendingView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
+                                     
+                           }];
+                     }
+                     
+                 }
+            }
+            
+        }else if(messageModel.status == 2){
+
+            
+        }else if(messageModel.status == 3){
+            [LWAlertTool alertMultipyCancleView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
+                
+            }];
+        }
+    }
+    
+    
+    
+    
 }
 
 /*

@@ -27,9 +27,9 @@
     self.delegate = self;
     // 创建选项卡的数据 想怎么写看自己，这块我就写笨点了
     NSArray <NSDictionary *>*VCArray =
-    @[@{@"vc":[LWHomeViewController new],@"normalImg":@"tab_home",@"selectImg":@"tab_home_sel",@"itemTitle":@"Money"},
+    @[@{@"vc":[LWHomeViewController new],@"normalImg":@"tab_home",@"selectImg":@"tab_home_sel",@"itemTitle":@"Wallets"},
      // @{@"vc":[LWMessageViewController new],@"normalImg":@"tab_message",@"selectImg":@"tab_message_sel",@"itemTitle":@"Message"},
-      @{@"vc":[LWMineViewController new],@"normalImg":@"tab_mine",@"selectImg":@"tab_mine_sel",@"itemTitle":@"Mine"}];
+      @{@"vc":[LWMineViewController new],@"normalImg":@"tab_mine",@"selectImg":@"tab_mine_sel",@"itemTitle":@"Me"}];
     // 1.遍历这个集合
     // 1.1 设置一个保存构造器的数组
     NSMutableArray *tabBarConfs = @[].mutableCopy;
@@ -44,14 +44,16 @@
         model.normalImageName = [obj objectForKey:@"normalImg"];
         // 4.设置单个选中item标题状态下的颜色
         model.selectColor = lwColorNormal;
-        
+        model.titleLabel.font = kMediumFont(12);
         // 备注 如果一步设置的VC的背景颜色，VC就会提前绘制驻留，优化这方面的话最好不要这么写
         // 示例中为了方便就在这写了
         UIViewController *vc = [obj objectForKey:@"vc"];
         vc.view.backgroundColor = [UIColor whiteColor];
 //        vc.title = model.itemTitle;
         // 5.将VC添加到系统控制组
-        [tabBarVCs addObject:[[LWNavigationViewController alloc]initWithRootViewController:vc]];
+        LWNavigationViewController *naviVC = [[LWNavigationViewController alloc] initWithRootViewController:vc];
+        naviVC.iconType = idx;
+        [tabBarVCs addObject:naviVC];
         // 5.1添加构造Model到集合
         [tabBarConfs addObject:model];
     }];
@@ -70,6 +72,7 @@
     self.axcTabBar.tabBarConfig = tabBarConfs;
     // 7.设置委托
     self.axcTabBar.delegate = self;
+    self.axcTabBar.backgroundColor = [UIColor whiteColor];
     // DEMO 设置背景图片
     /******************************************************************************/
 //    self.axcTabBar.backgroundImageView.image = [UIImage imageNamed:@"backImg"];

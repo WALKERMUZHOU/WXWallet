@@ -53,7 +53,7 @@
     }else if ([selectVC isKindOfClass:[UITabBarController class]]){
         AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
         LWNavigationViewController *naviVC = (LWNavigationViewController *)appdelete.tabBarVC.selectedViewController;
-        viewController.hidesBottomBarWhenPushed = YES;
+        viewController.hidesBottomBarWhenPushed = animated;
         [naviVC pushViewController:viewController animated:animated];
     }
 }

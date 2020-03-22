@@ -18,6 +18,21 @@
     return time;
 }
 
++ (NSString *)dataFormateMMDDYYHHSS:(NSString *)timeStr{
+    
+    NSString *firstStr = [LWTimeTool EngLishMonthWithTimeStamp:timeStr abbreviations:YES EnglishShortNameForDate:NO];
+    
+    NSDateFormatter *dataHHSSFormatter = [[NSDateFormatter alloc] init];
+    [dataHHSSFormatter setDateFormat:@"yyyy-MM-dd-HH-mm"];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStr.integerValue/1000];
+    NSString *timeStrD = [dataHHSSFormatter stringFromDate:date];
+    
+    NSArray *timeArray = [timeStrD componentsSeparatedByString:@"-"];
+    NSString *returnStr = [NSString stringWithFormat:@"%@ @ %@:%@",firstStr,timeArray[3],timeArray[4]];
+    return returnStr;
+    
+}
+
 /** 将一个时间为2015-05-20格式的字符串的月份转成英文月份
  *
  *  @param timeNormal  2015-05-20格式的字符串
@@ -45,7 +60,7 @@
     NSDateFormatter *dateStringFormatter = [[NSDateFormatter alloc] init];
     [dateStringFormatter setDateFormat:@"yyyy-MM-dd"];
     //SET_TIME_NORMAL_FORMATTER;//设置标准格式yyyy-mm-dd
-    NSDate *changeDate = [NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]];
+    NSDate *changeDate = [NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]/1000];
     NSString *time = [dateStringFormatter stringFromDate:changeDate];
     
     if (time.length != 10) {

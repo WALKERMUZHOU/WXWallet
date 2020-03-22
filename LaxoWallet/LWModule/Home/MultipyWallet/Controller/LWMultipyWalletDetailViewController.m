@@ -8,11 +8,17 @@
 
 #import "LWMultipyWalletDetailViewController.h"
 #import "LWPersonalSendViewController.h"
+#import "LWMultipyEditMemberViewController.h"
+
+#import "UIView+TYAutoLayout.h"
 
 #import "LWMultipyWalletDetailListView.h"
+#import "LWMultipyEditViewController.h"
+
 #import "LWAlertTool.h"
 
 @interface LWMultipyWalletDetailViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *editBtn;
 @property (weak, nonatomic) IBOutlet UIButton *receiveBtn;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bitCountLabel;
@@ -40,17 +46,26 @@
     self.receiveBtn.layer.borderColor = [UIColor hex:@"#D8D8D8"].CGColor;
     self.sendBtn.layer.borderColor = [UIColor hex:@"#D8D8D8"].CGColor;
     
-    UIBarButtonItem *addBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_wallet_qrcode"] style:UIBarButtonItemStylePlain target:self action:@selector(qrClick)];
-//    self.navigationItem.leftBarButtonItem = addBarItem;
-       
-    UIBarButtonItem *scanBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_scan_white"] style:UIBarButtonItemStylePlain target:self action:@selector(scanClick)];
-    self.navigationItem.rightBarButtonItems = @[scanBarItem,addBarItem];
+//    UIBarButtonItem *addBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_wallet_qrcode"] style:UIBarButtonItemStylePlain target:self action:@selector(qrClick)];
+////    self.navigationItem.leftBarButtonItem = addBarItem;
+//
+//    UIBarButtonItem *scanBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_scan_white"] style:UIBarButtonItemStylePlain target:self action:@selector(scanClick)];
+//    self.navigationItem.rightBarButtonItems = @[scanBarItem,addBarItem];
     
     self.listView = [[LWMultipyWalletDetailListView alloc]initWithFrame:CGRectMake(0, 262, kScreenWidth, KScreenHeightBar - 262) style:UITableViewStyleGrouped];
+    self.listView.homeWallteModel = self.contentModel;
     self.listView.walletId = self.contentModel.walletId;
     [self.view addSubview:self.listView];
     [self.listView getCurrentData];
 
+    if (!self.contentModel.isMineCreateWallet) {
+        self.editBtn.hidden = YES;
+//        [self.nameLabel removeConstraintWithView:self.editBtn attribute:NSLayoutAttributeRight];
+        [self.editBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@0);
+        }];
+    }
+    
     if (self.contentModel.name && self.contentModel.name.length>0) {
         self.nameLabel.text = self.contentModel.name;
     }else{
@@ -82,7 +97,8 @@
     
 }
 - (IBAction)editBtn:(UIButton *)sender {
-    
+    LWMultipyEditMemberViewController *editVC = [[LWMultipyEditMemberViewController alloc] init];
+    [self.navigationController pushViewController:editVC animated:YES];
 }
 
 - (IBAction)receiveClick:(UIButton *)sender {

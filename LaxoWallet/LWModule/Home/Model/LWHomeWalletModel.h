@@ -10,6 +10,8 @@
 #import "LWutxoModel.h"
 #import "LWPartiesModel.h"
 
+#import "LWMessageModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWHomeWalletModel : LWBaseModel
@@ -42,6 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger     needToJoinCount;
 
 @property (nonatomic, strong) NSString      *address;
+@property (nonatomic, assign) NSInteger     isMineCreateWallet;
+
+@property (nonatomic, strong) LWMessageModel   *messageModel;
 
 @end
 

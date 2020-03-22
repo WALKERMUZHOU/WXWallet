@@ -31,6 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) CGFloat     viewHeight;//高度
 
+@property (nonatomic, assign) BOOL     isMineCreateTrans;
+@property (nonatomic, strong) NSString     *priceDefine;//有单位当前价格
+
+
 @end
 
 NS_ASSUME_NONNULL_END

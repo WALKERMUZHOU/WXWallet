@@ -410,26 +410,47 @@
     NSMutableArray *seedDataArray = [NSMutableArray array];
     [SVProgressHUD show];
 
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    LWTrusteeModel *model = [array objectAtIndex:0];
+    [LWLoginCoordinator verifyRecoveryEmailCodeWithCode:msgCode andModel:model WithSuccessBlock:^(id  _Nonnull data) {
+        NSLog(@"data%@",[data objectForKey:@"data"]);
+        [seedDataArray addObject:[data objectForKey:@"data"]];
+        
+        LWTrusteeModel *model1 = [array objectAtIndex:1];
 
-        dispatch_semaphore_t signal = dispatch_semaphore_create(0);
-        for (NSInteger i = 0; i<2; i++) {
-            LWTrusteeModel *model = [array objectAtIndex:i];
+        [LWLoginCoordinator verifyRecoveryEmailCodeWithCode:msgCode andModel:model1 WithSuccessBlock:^(id  _Nonnull data) {
+                    NSLog(@"data%@",[data objectForKey:@"data"]);
+                    [seedDataArray addObject:[data objectForKey:@"data"]];
+                        [self calculateSeed:seedDataArray];
 
-            [LWLoginCoordinator verifyRecoveryEmailCodeWithCode:msgCode andModel:model WithSuccessBlock:^(id  _Nonnull data) {
-                NSLog(@"data%@",[data objectForKey:@"data"]);
-                [seedDataArray addObject:[data objectForKey:@"data"]];
-                if (i == 1) {//最后一次 根据data 计算seed
-                    [self calculateSeed:seedDataArray];
-                }
-                dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
-
+               
             } WithFailBlock:^(id  _Nonnull data) {
-                dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
-            }];
-            dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
-        }
-    });
+
+        }];
+
+        } WithFailBlock:^(id  _Nonnull data) {
+
+    }];
+    
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//
+//        dispatch_semaphore_t signal = dispatch_semaphore_create(0);
+//        for (NSInteger i = 0; i<2; i++) {
+//            LWTrusteeModel *model = [array objectAtIndex:i];
+//
+//            [LWLoginCoordinator verifyRecoveryEmailCodeWithCode:msgCode andModel:model WithSuccessBlock:^(id  _Nonnull data) {
+//                NSLog(@"data%@",[data objectForKey:@"data"]);
+//                [seedDataArray addObject:[data objectForKey:@"data"]];
+//                if (i == 1) {//最后一次 根据data 计算seed
+//                    [self calculateSeed:seedDataArray];
+//                }
+//                dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
+//
+//            } WithFailBlock:^(id  _Nonnull data) {
+//                dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
+//            }];
+//            dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+//        }
+//    });
 }
 
 - (void)calculateSeed:(NSArray *)dataArray{

@@ -206,6 +206,9 @@
                             <state key="normal" title="Check Signee statuses">
                                 <color key="titleColor" red="0.1236214414" green="0.51611816880000005" blue="0.42251092200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="statueClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="zBV-IV-PwJ"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67p-26-P7e">
                             <rect key="frame" x="203.5" y="340.5" width="20" height="20"/>
@@ -214,6 +217,9 @@
                                 <constraint firstAttribute="height" constant="20" id="nyV-gi-sIi"/>
                             </constraints>
                             <state key="normal" image="message_link"/>
+                            <connections>
+                                <action selector="copyClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="hvL-sp-ogE"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oy1-Rh-UoH">
                             <rect key="frame" x="147" y="444.5" width="120" height="40"/>
@@ -233,6 +239,9 @@
                                     <integer key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="closeClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="4uf-AM-Y1n"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -305,6 +314,19 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="addressLabel" destination="IWR-Eh-HWs" id="WMz-Hg-G8q"/>
+                <outlet property="amountDetailLabel" destination="RWy-cJ-iVg" id="l16-RM-rVl"/>
+                <outlet property="closeBtn" destination="Oy1-Rh-UoH" id="Sf1-A3-EK6"/>
+                <outlet property="createTimeLabel" destination="DAW-hM-in6" id="KAK-PZ-tnd"/>
+                <outlet property="noteLabel" destination="vDu-JU-KQx" id="dea-a1-YfW"/>
+                <outlet property="satuedescribeLabel" destination="AEV-u4-Rqj" id="d2T-Nk-5lL"/>
+                <outlet property="signCountLabel" destination="Dta-r2-cKf" id="TNi-D9-gfT"/>
+                <outlet property="signStatueBtn" destination="Q6z-cO-kBc" id="Ezl-fJ-lky"/>
+                <outlet property="timeLabel" destination="bLO-yw-sn3" id="dTg-vz-FKJ"/>
+                <outlet property="txLinkLabel" destination="Vg9-vl-mFq" id="CcD-bo-vfn"/>
+                <outlet property="walletNameLabel" destination="hmO-ny-160" id="443-mp-aEv"/>
+            </connections>
             <point key="canvasLocation" x="131.8840579710145" y="-28.459821428571427"/>
         </view>
     </objects>

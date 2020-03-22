@@ -17,9 +17,9 @@
 + (LWCurrentLanguage)getCurrentLanguage{
     NSString *language = [[NSUserDefaults standardUserDefaults] objectForKey:kAppCurrentLanguage_userdefault];
     if (language && [language isEqualToString:@"Chinese"]) {
-        return LWCurrentLanguageEnglish;
+        return LWCurrentLanguageChinese;
     }
-    return LWCurrentLanguageChinese;
+    return LWCurrentLanguageEnglish;
 }
 
 + (LWCurrentCurrency)getCurrentCurrency{
@@ -48,7 +48,7 @@
 + (void)setCurrentLanguage:(LWCurrentLanguage)languageType{
     NSString *laguage ;
     if (languageType == LWCurrentLanguageChinese) {
-        laguage = @"中文";
+        laguage = @"Chinese";
     }else{
         laguage = @"English";
     }

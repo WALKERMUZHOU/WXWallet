@@ -315,7 +315,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "482"
             endingLineNumber = "482"
-            landmarkName = "-manageWalletMessageList:"
+            landmarkName = "-manageTokenPrice:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -331,7 +331,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "487"
             endingLineNumber = "487"
-            landmarkName = "-manageJoinWalletInfo:"
+            landmarkName = "-manageTokenPrice:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -348,22 +348,6 @@
             startingLineNumber = "196"
             endingLineNumber = "196"
             landmarkName = "+checkUserFaceWithParams:WithSuccessBlock:WithFailBlock:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6A7D2F8E-37DD-461F-AE2E-9D1408DD319E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LaxoWallet/LWModule/Mine/UserVerify/ViewController/LivenessViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
-            landmarkName = "-verfiyImage:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

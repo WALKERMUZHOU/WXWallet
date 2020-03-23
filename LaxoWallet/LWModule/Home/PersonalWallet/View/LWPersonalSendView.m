@@ -12,6 +12,14 @@
 #import "LWMultipyTransactionTool.h"
 #import "LWMultipypaySuccessViewController.h"
 
+#import "LivenessViewController.h"
+#import "DetectionViewController.h"
+#import "LivingConfigModel.h"
+#import "IDLFaceSDK/IDLFaceSDK.h"
+#import "FaceParameterConfig.h"
+
+#import "TDTouchID.h"
+
 @interface LWPersonalSendView ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bitCountLabel;
@@ -112,11 +120,54 @@
 }
 
 - (IBAction)completeClick:(UIButton *)sender {
-    if (self.homeWalletModel.type == 1) {
-        [self.trans transStart];
-    }else{
-        [self.mutipyTrans transStart];
-    }
+   
+//    [[TDTouchID sharedInstance] td_showTouchIDWithDescribe:@"通过Home键验证已有指纹" FaceIDDescribe:@"通过已有面容ID验证" BlockState:^(TDTouchIDState state, NSError *error) {
+//        if (state == TDTouchIDStateNotSupport) {    //不支持TouchID/FaceID
+//            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"当前设备不支持生物验证,请打开生物识别" message:nil preferredStyle:UIAlertControllerStyleAlert];
+//            UIAlertAction *alertAc = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//                if (@available(iOS 10.0, *)){
+//                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+//                }else{
+//                    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+//                }
+//
+//            }];
+//            [alertVC addAction:alertAc];
+//            [LogicHandle presentViewController:alertAc animate:YES];
+//
+//        } else if (state == TDTouchIDStateSuccess) {    //TouchID/FaceID验证成功
+//            if (self.homeWalletModel.type == 1) {
+//                 [self.trans transStart];
+//             }else{
+//                 [self.mutipyTrans transStart];
+//             }
+//        } else if (state == TDTouchIDStateInputPassword) { //用户选择手动输入密码
+//
+//        }
+//    }];
+    
+    
+    if ([[FaceSDKManager sharedInstance] canWork]) {
+         NSString* licensePath = [[NSBundle mainBundle] pathForResource:FACE_LICENSE_NAME ofType:FACE_LICENSE_SUFFIX];
+         [[FaceSDKManager sharedInstance] setLicenseID:FACE_LICENSE_ID andLocalLicenceFile:licensePath];
+     }
+     LivenessViewController* lvc = [[LivenessViewController alloc] init];
+     LivingConfigModel* model = [LivingConfigModel sharedInstance];
+     [lvc livenesswithList:model.liveActionArray order:model.isByOrder numberOfLiveness:model.numOfLiveness];
+    lvc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [LogicHandle presentViewController:lvc animate:YES];
+    lvc.livenessBlock = ^(NSString *face_token) {
+        LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
+        userModel.face_token = face_token;
+        [[LWUserManager shareInstance] setUser:userModel];
+
+        if (self.homeWalletModel.type == 1) {
+            [self.trans transStart];
+        }else{
+            [self.mutipyTrans transStart];
+        }
+    };
 }
 
 

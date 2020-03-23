@@ -51,7 +51,8 @@
 }
 - (IBAction)addressCopy:(UIButton *)sender {
     [[UIPasteboard generalPasteboard] setString:self.addressLabel.text];
-    
+    [WMHUDUntil showMessageToWindow:@"Copy Success"];
+
 }
 
 /*

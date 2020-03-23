@@ -72,6 +72,7 @@
     
     UIPasteboard *paste = [UIPasteboard generalPasteboard];
     [paste setString:self.messagemodel.txid];
+    [WMHUDUntil showMessageToWindow:@"Copy Success"];
     
 }
 

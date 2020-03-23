@@ -420,6 +420,26 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_CreatePersonalWallet object:responseArray[2]];
         }
             break;
+        case WSRequestId_paymail_queryByWid:{
+            [SVProgressHUD dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_paymail_queryByWid object:responseArray[2]];
+        }
+            break;
+        case WSRequestId_paymail_update:{
+            [SVProgressHUD dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_paymail_update object:responseArray[2]];
+        }
+            break;
+        case WSRequestId_paymail_setMain:{
+            [SVProgressHUD dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_paymail_setMain object:responseArray[2]];
+        }
+            break;
+        case WSRequestId_paymail_query:{
+            [SVProgressHUD dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_paymail_query object:responseArray[2]];
+        }
+            break;
          default:{
              NSString *idString = [NSString stringWithFormat:@"%ld",(long)requestId];
              if (idString.length>5) {

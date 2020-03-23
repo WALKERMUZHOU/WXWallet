@@ -1,0 +1,36 @@
+//
+//  LWAssetInheritanceSuccessorViewController.m
+//  LaxoWallet
+//
+//  Created by walkermuzhou on 2020/3/23.
+//  Copyright © 2020 LaxoWallet. All rights reserved.
+//
+
+#import "LWAssetInheritanceSuccessorViewController.h"
+
+@interface LWAssetInheritanceSuccessorViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *namelabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel2;
+@property (weak, nonatomic) IBOutlet UILabel *nameTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *amountLabel;
+
+@end
+
+@implementation LWAssetInheritanceSuccessorViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

@@ -67,6 +67,12 @@ static NSString * const WS_Home_mulpity_cancelTrans = @"wallet.cancelTransaction
 static NSString * const WS_Home_wallet_rename = @"wallet.setName";
 static NSString * const WS_Home_wallet_createPersonalWallet = @"wallet.createSingleWallet";
 
+static NSString * const WS_paymail_queryByWid = @"paymail.queryByWid";
+static NSString * const WS_paymail_update = @"paymail.update";
+static NSString * const WS_paymail_setMain = @"paymail.setMain";
+static NSString * const WS_paymail_query = @"paymail.query";
+
+
 
 //系统版本
 #define kSystemVersion [[UIDevice currentDevice]systemVersion].floatValue

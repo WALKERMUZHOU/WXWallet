@@ -8,6 +8,7 @@
 
 #import "LWMultipyEditViewController.h"
 #import "LWMultipyEditMemberViewController.h"
+#import "LWPayMailViewController.h"
 
 @interface LWMultipyEditViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *walletName;
@@ -43,13 +44,16 @@
         return YES;
     }else if (textField.tag == 12001){
         //checkStatue
+
         return NO;
     }
     return YES;
 }
 
 - (IBAction)addPaymailClick:(UIButton *)sender {
-    
+    LWPayMailViewController *paymailVC = [[LWPayMailViewController alloc] init];
+    paymailVC.model = self.model;
+    [self.navigationController pushViewController:paymailVC animated:YES];
 }
 
 - (IBAction)saveClick:(UIButton *)sender {

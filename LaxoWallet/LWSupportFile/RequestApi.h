@@ -66,6 +66,11 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestIdWallet_resetWalletName        = 10029,//钱包名称设置
     WSRequestIdWallet_CreatePersonalWallet     = 10030,
 
+    WSRequestId_paymail_queryByWid     = 10031,
+    WSRequestId_paymail_update         = 10032,
+    WSRequestId_paymail_setMain        = 10033,
+    WSRequestId_paymail_query          = 10034,
+
     
 };
 

@@ -35,6 +35,8 @@
     
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(manageMessageListData:) name:kWebScoket_messageListInfo object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getCurrentData) name:kWebScoket_Multipy_refrshWalletDetail object:nil];
+
 }
 
 - (void)getCurrentData{
@@ -46,6 +48,7 @@
 
 - (void)manageMessageListData:(NSNotification *)notification{
     [SVProgressHUD dismiss];
+    [self.dataSource removeAllObjects];
     NSDictionary *requestInfo = notification.object;
     if ([[requestInfo objectForKey:@"success"]integerValue] == 1) {
         NSArray *dataArray = [[requestInfo objectForKey:@"data"] objectForKey:@"rows"];
@@ -130,11 +133,11 @@
     
     LWMessageModel *messageModel = [self.dataSource objectAtIndex:indexPath.section];
     
-    [LWAlertTool alertSigneseStatueView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
-        
-    }];
-    return;
-    
+//    [LWAlertTool alertSigneseStatueView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
+//        
+//    }];
+//    return;
+//    
     if(messageModel.type == 1){
 
     }else{
@@ -145,7 +148,7 @@
             NSArray *reject = [userStatues objectForKey:@"reject"];
             
             if (messageModel.isMineCreateTrans) {
-                if (approve.count == 0) {//outgoing
+                if (approve.count == 0 || approve.count == 1) {//outgoing
                     [LWAlertTool alertMultipyOutgoingView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
                         
                     }];

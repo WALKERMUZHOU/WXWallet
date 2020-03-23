@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 
+@property (weak, nonatomic) IBOutlet UIButton *loginoutBtn;
 @end
 
 @implementation LWMineViewController
@@ -26,6 +27,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+#if DEBUGER
+    self.loginoutBtn.hidden = YES;
+#else
+    self.loginoutBtn.hidden = YES;
+#endif
+    
 }
 - (IBAction)listSelect:(UIButton *)sender {
     NSInteger index = sender.tag - 11000;
@@ -70,13 +78,13 @@
     
     NSString *seed = [[LWUserManager shareInstance] getUserModel].jiZhuCi;
     NSString *secret = [[LWUserManager shareInstance] getUserModel].secret;
-    
-    NSString *ecrypt = [LWEncryptTool encrywithTheKey:secret message:seed andHex:1];
-    
-    UIImage *qrImage = [LBXScanNative createQRWithString:ecrypt QRSize:CGSizeMake(400, 400)];
-      UIImageWriteToSavedPhotosAlbum(qrImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
-    
-    return;
+
+//    NSString *ecrypt = [LWEncryptTool encrywithTheKey:secret message:seed andHex:1];
+//
+//    UIImage *qrImage = [LBXScanNative createQRWithString:ecrypt QRSize:CGSizeMake(400, 400)];
+//      UIImageWriteToSavedPhotosAlbum(qrImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+//
+//    return;
     NSString *jsStr = [NSString stringWithFormat:@"encryptWithKey('%@','%@',0)",[secret md5String],seed];
     PublicKeyView *pbView = [PublicKeyView shareInstance];
     [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
@@ -110,5 +118,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)loginoutClick:(UIButton *)sender {
+    [[SocketRocketUtility instance] SRWebSocketClose];
+    [[LWUserManager shareInstance] clearUser];
+    [LogicHandle showLoginVC];
+    
+}
 
 @end

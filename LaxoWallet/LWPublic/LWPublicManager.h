@@ -49,6 +49,9 @@ typedef NS_OPTIONS(NSInteger, TokenType){
 + (NSString *)getInitDataPK;
 + (NSString *)getInitDataPubKey;
 
++ (void)getPersonalWalletData;
++ (void)getMultipyWalletData;
+
 @end
 
 NS_ASSUME_NONNULL_END

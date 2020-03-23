@@ -7,10 +7,15 @@
 //
 
 #import "LWBaseViewController.h"
+#import "LWHomeWalletModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^PersonalWalletEditBlock)(NSString *name);
 @interface LWPersonalWalletEditViewController : LWBaseViewController
+
+@property (nonatomic, strong) LWHomeWalletModel *model;
+@property (nonatomic, copy) PersonalWalletEditBlock block;
+
 
 @end
 

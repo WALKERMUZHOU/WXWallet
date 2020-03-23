@@ -33,6 +33,7 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.closeBtn.layer.borderColor = lwColorGrayD8.CGColor;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rejectSign:) name:kWebScoket_multipy_cancelTrans object:nil];
 }
 
 
@@ -54,7 +55,7 @@
     
 
     self.noteLabel.text = messageModel.note;
-    self.txLinkLabel.text = [messageModel.txid stringByReplacingCharactersInRange:NSMakeRange(2, 10) withString:@"****"];
+    self.txLinkLabel.text = [messageModel.txid stringByReplacingCharactersInRange:NSMakeRange(2, messageModel.txid.length - 6) withString:@"****"];
     self.amountDetailLabel.text = [NSString stringWithFormat:@"- %@ BSV  |  -%@",[LWNumberTool formatSSSFloat:messageModel.value/1e8],messageModel.priceDefine];
 }
 
@@ -64,8 +65,31 @@
     }
 }
 - (IBAction)statueClick:(UIButton *)sender {
-    if (self.block) {
-        self.block(1);
+    [SVProgressHUD show];
+    [self canceltrans];
+    
+    
+//    if (self.block) {
+//        self.block(1);
+//    }
+}
+
+- (void)canceltrans{
+
+    NSDictionary *params = @{@"id":self.messagemodel.messageId};
+    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWallet_multipy_cancelTransaction),WS_Home_mulpity_cancelTrans,[params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    [[SocketRocketUtility instance] sendData:data];
+}
+
+- (void)rejectSign:(NSNotification *)notification{
+    NSDictionary *notiDic = notification.object;
+    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+        [WMHUDUntil showMessageToWindow:@"Transaction cancel"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_Multipy_refrshWalletDetail object:nil];
+        if (self.block) {
+            self.block(1);
+        }
     }
 }
 

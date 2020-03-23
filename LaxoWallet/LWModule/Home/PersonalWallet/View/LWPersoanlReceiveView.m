@@ -31,7 +31,7 @@
 
 - (void)setContentModel:(LWHomeWalletModel *)model{
     self.model = model;
-    NSString *address = [model.deposit objectForKey:@"address"];
+    NSString *address = model.address;
     UIImage *qrImage = [LBXScanNative createQRWithString:address QRSize:CGSizeMake(400, 400)];
     [self.qrcodelImgView setImage:qrImage];
     

@@ -30,6 +30,9 @@
 #define kWebScoket_boardcast                @"kWebScoket_boardcast"
 #define kWebScoket_pollBroadcast            @"kWebScoket_pollBroadcast"
 
+#define kWebScoket_Multipy_refrshWalletDetail              @"kWebScoket_Multipy_refrshWalletDetail"
+
+
 #define kWebScoket_MultipyBroadcast_sig     @"kWebScoket_MultipySignBoardcast"
 #define kWebScoket_MultipyBroadcast_address @"kWebScoket_MultipyAddressBroadcast"
 #define kWebScoket_MultipyPollBroadcast_sig @"kWebScoket_MultipySignPollBroadcast"
@@ -43,7 +46,15 @@
 #define kWebScoket_multipyUnSignTrans       @"kWebScoket_multipyUnSignTrans"
 #define kWebScoket_multipySubmitSig         @"kWebScoket_multipySubmitSig"
 
-#define kWebScoket_scanLogin        @"kWebScoket_scanLogin"
+#define kWebScoket_scanLogin                @"kWebScoket_scanLogin"
+
+#define kWebScoket_multipy_JoinWallet         @"kWebScoket_multipy_JoinWallet"
+#define kWebScoket_multipy_sign               @"kWebScoket_multipy_sign"
+#define kWebScoket_multipy_rejectSign         @"kWebScoket_multipy_rejectSign"
+#define kWebScoket_multipy_cancelTrans        @"kWebScoket_multipy_cancelTrans"
+
+#define kWebScoket_walletReName               @"kWebScoket_walletReName"
+#define kWebScoket_CreatePersonalWallet       @"kWebScoket_CreatePersonalWallet"
 
 
 #pragma mark - Userdefault

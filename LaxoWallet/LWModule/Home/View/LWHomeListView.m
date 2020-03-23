@@ -16,6 +16,7 @@
 #import "LWPersonalTransferAccountViewController.h"
 #import "LWPersonalCollectionViewController.h"
 #import "LWMessageDetailViewController.h"
+#import "LWMultipyOtherNotJoinViewController.h"
 
 #import "LWAddressTool.h"
 #import "LWSignTool.h"
@@ -161,9 +162,15 @@
               [LogicHandle pushViewController:multipyVC];
 
         }else{
-            LWMultipyBeInvitedViewController  *multipyVC = [[LWMultipyBeInvitedViewController alloc] init];
-            multipyVC.contentModel = model;
-            [LogicHandle pushViewController:multipyVC];
+            if (model.join == 1) {
+                LWMultipyOtherNotJoinViewController *multipyVC = [[LWMultipyOtherNotJoinViewController alloc] init];
+                multipyVC.contentModel = model;
+                [LogicHandle pushViewController:multipyVC];
+            }else{
+                LWMultipyBeInvitedViewController  *multipyVC = [[LWMultipyBeInvitedViewController alloc] init];
+                multipyVC.contentModel = model;
+                [LogicHandle pushViewController:multipyVC];
+            }
         }
 //        [LogicHandle pushViewController:detailVC];
     }

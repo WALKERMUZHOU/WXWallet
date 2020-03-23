@@ -32,7 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSDictionary   *deposit;//收款地址对象
 
 @property (nonatomic, assign) CGFloat       personalBitCount;
-@property (nonatomic, assign) CGFloat       personalBitCurrency;
+@property (nonatomic, assign) CGFloat       personalBitCurrency;//不带单位价格
+@property (nonatomic, strong) NSString      *personalPrice;//带单位当前价格
 
 @property (nonatomic, assign) CGFloat       canuseBitCount;
 @property (nonatomic, assign) CGFloat       loackBitCount;

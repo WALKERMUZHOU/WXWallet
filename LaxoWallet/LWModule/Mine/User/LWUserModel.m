@@ -16,6 +16,10 @@
 }
 
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic{
+    NSString *uid = [NSString stringWithFormat:@"%@", [dic objectForKey:@"uid"]];
+    if (uid && uid.length>0) {
+        self.uid = uid;
+    }
 //    NSDictionary *tokenDic = [dic ds_dictionaryForKey:@"token"];
 //    self.accessToken = [tokenDic ds_stringForKey:@"accessToken"];
 //    self.authType = [tokenDic ds_integerForKey:@"authType"];

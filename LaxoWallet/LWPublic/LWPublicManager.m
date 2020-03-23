@@ -107,6 +107,7 @@
     if (!seed || seed.length == 0) {//注册时未保存seed
        NSDictionary *infoDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
         seed = [infoDic objectForKey:@"seed"];
+
         userModel.jiZhuCi = seed;
         [[LWUserManager shareInstance] setUser:userModel];
     }
@@ -190,4 +191,24 @@
     NSDictionary *infoDic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppPubkeyManager_userdefault];
     return [infoDic objectForKey:@"publicKey"];
 }
+
++ (void)getPersonalWalletData{
+    NSDictionary *params = @{@"type":@1};
+    NSArray *requestPersonalWalletArray = @[@"req",
+                                            @(WSRequestIdWalletQueryPersonalWallet),
+                                            @"wallet.query",
+                                            [params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    
+    [[SocketRocketUtility instance] sendData:data];
+
+}
+
++ (void)getMultipyWalletData{
+    NSDictionary *multipyparams = @{@"type":@2};
+    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMulpityWallet),@"wallet.query",[multipyparams jsonStringEncoded]];
+    [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+
+}
+
 @end

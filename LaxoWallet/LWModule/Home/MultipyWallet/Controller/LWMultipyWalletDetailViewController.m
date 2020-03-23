@@ -97,8 +97,12 @@
     
 }
 - (IBAction)editBtn:(UIButton *)sender {
-    LWMultipyEditMemberViewController *editVC = [[LWMultipyEditMemberViewController alloc] init];
+    LWMultipyEditViewController *editVC = [[LWMultipyEditViewController alloc] init];
+    editVC.model = self.contentModel;
     [self.navigationController pushViewController:editVC animated:YES];
+    editVC.block = ^(NSString * _Nonnull walletName) {
+        self.nameLabel.text = walletName;
+    };
 }
 
 - (IBAction)receiveClick:(UIButton *)sender {
@@ -116,6 +120,16 @@
 }
 
 - (void)getMulityQrCode{
+    
+    NSDictionary *deposit = self.contentModel.deposit;
+    NSString *address = [deposit objectForKey:@"address"];
+    if (address && address.length>0) {
+        self.contentModel.address = address;
+        [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
+        return;
+    }
+    
+    
     LWHomeWalletModel *model = self.contentModel;
     NSDictionary *params = @{@"wid":@(model.walletId)};
     NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQueryMultipyAddress),WS_Home_getMutipyAddress,[params jsonStringEncoded]];

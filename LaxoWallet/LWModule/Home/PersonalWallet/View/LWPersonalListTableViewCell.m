@@ -40,7 +40,7 @@
 
         }else{
             self.bitCountLabel.text = [NSString stringWithFormat:@"+%@",biCountStr];
-            self.typeLabel.text = @"Receive";
+            self.typeLabel.text = @"Received";
             self.iconImageView.image = [UIImage imageNamed:@"home_wallet_receive"];
         }
     }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +31,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mar 01 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-cj-t41">
-                        <rect key="frame" x="100" y="17" width="78.5" height="16"/>
+                        <rect key="frame" x="110" y="17" width="78.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -62,7 +63,7 @@
                     <constraint firstItem="4uU-hl-Ejb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Dk2-my-nhq"/>
                     <constraint firstItem="I5g-cj-t41" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GKu-91-CEY"/>
                     <constraint firstItem="wIj-Rt-ZMB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Vjy-Sk-SmF"/>
-                    <constraint firstItem="I5g-cj-t41" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="100" id="Yf8-wo-HLw"/>
+                    <constraint firstItem="I5g-cj-t41" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="110" id="Yf8-wo-HLw"/>
                     <constraint firstAttribute="trailing" secondItem="wIj-Rt-ZMB" secondAttribute="trailing" id="aIw-tS-gK5"/>
                     <constraint firstItem="MeT-Bi-8lb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="adg-QP-OrQ"/>
                     <constraint firstItem="740-PN-MVL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="aqY-l3-EH7"/>

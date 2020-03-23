@@ -48,9 +48,7 @@ static LWMultipyTransactionTool *instance = nil;
 }
 
 - (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model{
-    
-    [SVProgressHUD show];
-    
+        
     self.model = model;
     self.transAmount = amount * 1e8;
     self.note = note;
@@ -192,6 +190,8 @@ static LWMultipyTransactionTool *instance = nil;
              
              */
             
+        }else{
+            [WMHUDUntil showMessageToWindow:[NSString stringWithFormat: @"error:%@",[notiDic objectForKey:@"success"]]];
         }
 }
 

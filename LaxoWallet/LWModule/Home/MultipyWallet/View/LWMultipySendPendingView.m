@@ -33,6 +33,8 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.closeBtn.layer.borderColor = lwColorGrayD8.CGColor;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rejectSign:) name:kWebScoket_multipy_sign object:nil];
+
 }
 
 - (void)setSignedPendingViewWithWalletModel:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel{
@@ -54,7 +56,7 @@
     
 
     self.noteLabel.text = messageModel.note;
-    self.txLinkLabel.text = [messageModel.txid stringByReplacingCharactersInRange:NSMakeRange(2, 10) withString:@"****"];
+    self.txLinkLabel.text = [messageModel.txid stringByReplacingCharactersInRange:NSMakeRange(2, messageModel.txid.length - 6) withString:@"****"];
     self.amountDetailLabel.text = [NSString stringWithFormat:@"- %@ BSV  |  -%@",[LWNumberTool formatSSSFloat:messageModel.value/1e8],messageModel.priceDefine];
 }
 
@@ -64,6 +66,9 @@
     }
 }
 - (IBAction)statueClick:(UIButton *)sender {
+    [self signClick];
+    return;
+    
     if (self.block) {
         self.block(1);
     }
@@ -75,5 +80,26 @@
     [paste setString:self.messagemodel.txid];
     
 }
+
+- (void)signClick{
+
+    NSDictionary *params = @{@"id":self.messagemodel.messageId,@"uid":[[LWUserManager shareInstance] getUserModel].uid};
+    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWallet_multipy_sign),WS_Home_mulpity_sign,[params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    [[SocketRocketUtility instance] sendData:data];
+}
+
+- (void)rejectSign:(NSNotification *)notification{
+    NSDictionary *notiDic = notification.object;
+    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+        [WMHUDUntil showMessageToWindow:@"Sign Success"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_Multipy_refrshWalletDetail object:nil];
+        if (self.block) {
+            self.block(1);
+        }
+    }
+}
+
+
 
 @end

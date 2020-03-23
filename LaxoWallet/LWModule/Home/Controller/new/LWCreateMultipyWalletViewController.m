@@ -116,7 +116,7 @@
     [SVProgressHUD dismiss];
     NSDictionary *resInfo = notification.object;
     if ([[resInfo objectForKey:@"success"] integerValue] == 1) {
-        [WMHUDUntil showMessageToWindow:@"multipy wallet create success"];
+        [WMHUDUntil showMessageToWindow:@"wallet create success"];
         
         NSDictionary *multipyparams = @{@"type":@2};
          NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMulpityWallet),@"wallet.query",[multipyparams jsonStringEncoded]];

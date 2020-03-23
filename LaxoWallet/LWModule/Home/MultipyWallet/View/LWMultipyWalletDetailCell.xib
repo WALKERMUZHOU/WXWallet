@@ -23,8 +23,8 @@
                             <constraint firstAttribute="height" constant="20" id="kD9-4p-p1a"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Received" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEO-AR-IpR">
-                        <rect key="frame" x="30" y="18.5" width="60.5" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEO-AR-IpR">
+                        <rect key="frame" x="30" y="18.5" width="30.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -36,7 +36,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mar 01 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTr-ts-TeT">
-                        <rect key="frame" x="100" y="19" width="78.5" height="16"/>
+                        <rect key="frame" x="110" y="19" width="78.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -73,7 +73,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjY-w3-gyE">
-                        <rect key="frame" x="100" y="41" width="210" height="14.5"/>
+                        <rect key="frame" x="110" y="41" width="200" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -103,7 +103,7 @@
                     <constraint firstItem="ped-zN-cGR" firstAttribute="leading" secondItem="sQg-Ij-klE" secondAttribute="trailing" constant="2" id="oQk-K7-5xL"/>
                     <constraint firstItem="xTr-ts-TeT" firstAttribute="centerY" secondItem="OyW-Sv-etA" secondAttribute="centerY" id="qSJ-Dh-Yf4"/>
                     <constraint firstItem="ped-zN-cGR" firstAttribute="centerY" secondItem="OyW-Sv-etA" secondAttribute="centerY" id="vNs-OL-rec"/>
-                    <constraint firstItem="xTr-ts-TeT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="100" id="wls-z9-9Ex"/>
+                    <constraint firstItem="xTr-ts-TeT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="110" id="wls-z9-9Ex"/>
                     <constraint firstItem="sQg-Ij-klE" firstAttribute="centerY" secondItem="OyW-Sv-etA" secondAttribute="centerY" id="zs5-AB-eB8"/>
                 </constraints>
             </tableViewCellContentView>

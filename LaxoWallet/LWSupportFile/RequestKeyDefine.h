@@ -59,6 +59,15 @@ static NSString * const WS_Home_multipyConfirmAdress = @"wallet.addShare";
 static NSString * const WS_Home_multipyUnSignTrans = @"wallet.createTransaction";
 static NSString * const WS_Home_multipySubmitSig = @"wallet.submitSig";
 
+static NSString * const WS_Home_mulpity_JoinWallet = @"wallet.join";
+static NSString * const WS_Home_mulpity_sign = @"wallet.approveTransaction";
+static NSString * const WS_Home_mulpity_rejectSign = @"wallet.rejectTransaction";
+static NSString * const WS_Home_mulpity_cancelTrans = @"wallet.cancelTransaction";
+
+static NSString * const WS_Home_wallet_rename = @"wallet.setName";
+static NSString * const WS_Home_wallet_createPersonalWallet = @"wallet.createSingleWallet";
+
+
 //系统版本
 #define kSystemVersion [[UIDevice currentDevice]systemVersion].floatValue
 //app版本

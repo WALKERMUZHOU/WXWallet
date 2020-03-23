@@ -18,6 +18,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *noteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *feeLabel;
 
+@property (nonatomic, strong) NSString *amount;
+
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *note;
+@property (nonatomic, strong) NSString *fee;
 @end
 
 @implementation LWPersonalpaySuccessViewController
@@ -25,29 +30,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    // Do any additional setup after loading the view from its nib.
-}
 
-- (void)setSuccessWithAmount:(NSString *)amount andaddress:(NSString *)address andnote:(NSString *)note andfee:(NSString *)fee{
-
-    NSString *addressStr = [NSString stringWithFormat:@"Sent %@BSV to %@",amount,address];
-    self.feeLabel.text = [NSString stringWithFormat:@"Network fee %@ BSV",fee];
-    self.noteLabel.text = note;
-    NSString *amountStr = [NSString stringWithFormat:@"%@BSV",amount];
+    
+    
+    NSString *addressStr = [NSString stringWithFormat:@"Sent %@BSV to %@",self.amount,self.address];
+    self.feeLabel.text = [NSString stringWithFormat:@"Network fee %@ BSV",self.fee];
+    self.noteLabel.text = self.note;
+    NSString *amountStr = [NSString stringWithFormat:@"%@BSV",self.amount];
     NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc] initWithString:addressStr attributes:@{NSFontAttributeName:kFont(12),NSForegroundColorAttributeName:[UIColor colorWithColor:[UIColor blackColor] alpha:0.5]}];
-    [attribute addAttributes:@{NSFontAttributeName:kBoldFont(12),NSForegroundColorAttributeName:[UIColor blackColor]} range:[amountStr rangeOfString:address]];
+    [attribute addAttributes:@{NSFontAttributeName:kBoldFont(12),NSForegroundColorAttributeName:[UIColor blackColor]} range:[amountStr rangeOfString:self.address]];
     [self.amountLabel setAttributedText:attribute];
     
     if (self.viewType == 1) {
         self.iconImageView.image
         = [UIImage imageNamed:@"home_wallet_success_m"];
         self.successDescribeLabe.text = @"Transaction signed by you";
-        addressStr = [NSString stringWithFormat:@"You’re requesting members to sign for a successful transaction of %@BSV to be sent to %@",amount,address];
-        amountStr = [NSString stringWithFormat:@"%@BSV",amount];
+        addressStr = [NSString stringWithFormat:@"You’re requesting members to sign for a successful transaction of %@BSV to be sent to %@",self.amount,self.address];
+        amountStr = [NSString stringWithFormat:@"%@BSV",self.amount];
         attribute = [[NSMutableAttributedString alloc] initWithString:addressStr attributes:@{NSFontAttributeName:kFont(12),NSForegroundColorAttributeName:[UIColor colorWithColor:[UIColor blackColor] alpha:0.5]}];
-        [attribute addAttributes:@{NSFontAttributeName:kBoldFont(12),NSForegroundColorAttributeName:[UIColor blackColor]} range:[amountStr rangeOfString:address]];
+        [attribute addAttributes:@{NSFontAttributeName:kBoldFont(12),NSForegroundColorAttributeName:[UIColor blackColor]} range:[amountStr rangeOfString:self.address]];
         [self.amountLabel setAttributedText:attribute];
     }
+}
+
+- (void)setSuccessWithAmount:(NSString *)amount andaddress:(NSString *)address andnote:(NSString *)note andfee:(NSString *)fee{
+
+    self.amount = amount;
+    self.address = address;
+    self.note = note;
+    self.fee = fee;
     
     
 }

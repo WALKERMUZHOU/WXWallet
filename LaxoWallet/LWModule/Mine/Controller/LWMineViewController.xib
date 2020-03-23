@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWMineViewController">
             <connections>
                 <outlet property="bitCountLabel" destination="Wyu-c7-28v" id="Hzj-sq-yzz"/>
+                <outlet property="loginoutBtn" destination="s21-KL-lNK" id="Uxt-dO-NX6"/>
                 <outlet property="nameLabel" destination="FDr-V2-taC" id="Yv9-F9-atY"/>
                 <outlet property="priceLabel" destination="GU7-59-Ifn" id="fLK-Sj-FoK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -372,13 +373,29 @@
                                                 <constraint firstAttribute="height" constant="1" id="vrC-qy-xtO"/>
                                             </constraints>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s21-KL-lNK">
+                                            <rect key="frame" x="137.66666666666666" y="10" width="100" height="40"/>
+                                            <color key="backgroundColor" red="0.1236214414" green="0.51611816880000005" blue="0.42251092200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="IB5-oJ-eT0"/>
+                                                <constraint firstAttribute="width" constant="100" id="MiT-tD-viU"/>
+                                            </constraints>
+                                            <state key="normal" title="LoginOut">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="loginoutClick:" destination="-1" eventType="touchUpInside" id="QRh-hB-GbW"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
+                                        <constraint firstItem="s21-KL-lNK" firstAttribute="centerY" secondItem="3EO-9I-ULo" secondAttribute="centerY" id="97X-PF-RFw"/>
                                         <constraint firstItem="hPL-ku-U6z" firstAttribute="centerY" secondItem="MBe-TH-fos" secondAttribute="centerY" id="CFP-Zb-UPh"/>
                                         <constraint firstItem="Du9-zL-Jps" firstAttribute="top" secondItem="vEq-C4-ipd" secondAttribute="bottom" id="FX7-uS-Cuo"/>
                                         <constraint firstAttribute="bottom" secondItem="Du9-zL-Jps" secondAttribute="bottom" id="JOt-Qg-sfi"/>
                                         <constraint firstAttribute="trailing" secondItem="hPL-ku-U6z" secondAttribute="trailing" constant="20" id="Q3E-0U-b97"/>
+                                        <constraint firstItem="s21-KL-lNK" firstAttribute="centerX" secondItem="3EO-9I-ULo" secondAttribute="centerX" id="Swl-Cr-k9J"/>
                                         <constraint firstAttribute="height" constant="60" id="Swv-rO-zU6"/>
                                         <constraint firstItem="Du9-zL-Jps" firstAttribute="leading" secondItem="3EO-9I-ULo" secondAttribute="leading" id="Xjw-OG-cYa"/>
                                         <constraint firstItem="vEq-C4-ipd" firstAttribute="leading" secondItem="3EO-9I-ULo" secondAttribute="leading" id="YNp-O6-hzM"/>

@@ -13,6 +13,7 @@
 
 #import "LWPersonalCollectionViewController.h"
 #import "LWCreateMultipyWalletViewController.h"
+#import "LWCreatePersonalWalletViewController.h"
 
 #import "PublicKeyView.h"
 #import "PubkeyManager.h"
@@ -75,6 +76,11 @@
 #pragma mark - homemethod
 - (void)addWaletClick{
     [LWAlertTool alertHomeChooseWalletView:^(NSInteger index) {
+        if (index == 1) {
+            LWCreatePersonalWalletViewController *multipyVC = [[LWCreatePersonalWalletViewController alloc] init];
+            multipyVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:multipyVC animated:YES];
+        }
         if (index == 2) {
             LWCreateMultipyWalletViewController *multipyVC = [[LWCreateMultipyWalletViewController alloc] init];
             multipyVC.hidesBottomBarWhenPushed = YES;
@@ -125,13 +131,6 @@
     [SVProgressHUD show];
     NSString *prikey = [LWPublicManager getPKWithZhuJiCi];
     [self getSignWithPriKey:prikey];
-
-//        [PubkeyManager getPrikeyByZhujiciSuccessBlock:^(id  _Nonnull data) {
-//            NSString *prikey = [data objectForKey:@"prikey"];
-//            [self getSignWithPriKey:prikey];
-//        } WithFailBlock:^(id  _Nonnull data) {
-//
-//        }];
 }
 
 - (void)getSignWithPriKey:(NSString *)prikey{
@@ -391,6 +390,36 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_scanLogin object:responseArray[2]];
             }
                   break;
+        case WSRequestIdWallet_multipy_JoinWallet:{
+            [SVProgressHUD dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipy_JoinWallet object:responseArray[2]];
+        }
+            break;
+        case WSRequestIdWallet_multipy_rejectsign:{
+            [SVProgressHUD dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipy_rejectSign object:responseArray[2]];
+        }
+            break;
+        case WSRequestIdWallet_multipy_sign:{
+            [SVProgressHUD dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipy_sign object:responseArray[2]];
+        }
+            break;
+        case WSRequestIdWallet_multipy_cancelTransaction:{
+            [SVProgressHUD dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipy_cancelTrans object:responseArray[2]];
+        }
+            break;
+        case WSRequestIdWallet_resetWalletName:{
+            [SVProgressHUD dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_walletReName object:responseArray[2]];
+        }
+            break;
+        case WSRequestIdWallet_CreatePersonalWallet:{
+            [SVProgressHUD dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_CreatePersonalWallet object:responseArray[2]];
+        }
+            break;
          default:{
              NSString *idString = [NSString stringWithFormat:@"%ld",(long)requestId];
              if (idString.length>5) {

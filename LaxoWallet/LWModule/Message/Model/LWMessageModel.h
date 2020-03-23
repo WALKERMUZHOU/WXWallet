@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LWMessageModel : LWBaseModel
 
-@property (nonatomic, assign) NSInteger     messageId;//id*
+@property (nonatomic, strong) NSString    *messageId;//id*
 @property (nonatomic, strong) NSString      *uid;//用户id
 @property (nonatomic, assign) NSInteger      type;//1-转入，2-转出
 @property (nonatomic, assign) NSInteger      wid;//钱包id

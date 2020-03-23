@@ -52,9 +52,16 @@
     
     self.personalBitCurrency = [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV].floatValue * bitCount/1e8;
     
+    if([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY){
+        self.personalPrice = [NSString stringWithFormat:@"¥ %.2f",self.personalBitCurrency];
+    }else{
+        self.personalPrice = [NSString stringWithFormat:@"$ %.2f",self.personalBitCurrency];
+    }
+    
+    
     NSString *uid = [[LWUserManager shareInstance] getUserModel].uid;
     NSString *walletUid = [NSString stringWithFormat:@"%@", [dic objectForKey:@"uid"]];
-    if ([uid isEqualToString:walletUid]) {
+    if (uid.intValue == walletUid.intValue) {
         self.isMineCreateWallet = YES;
     }
     

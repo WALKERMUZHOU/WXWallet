@@ -28,6 +28,7 @@
 
 @property (nonatomic, strong) LWMultipyTransactionTool *mutipyTrans;
 
+@property (nonatomic, strong) LWHomeWalletModel *homeWalletModel;
 @end
 
 @implementation LWPersonalSendView
@@ -38,6 +39,8 @@
 }
 
 - (void)setAddress:(NSString *)address andAmount:(NSString *)amount andMessage:(NSString *)note andModel:(LWHomeWalletModel *)model{
+    self.homeWalletModel = model;
+    
     self.addressLabel.text = address;
     self.bitCountLabel.text = [NSString stringWithFormat:@"%@ BSV",amount];
     self.noteLabel.text = note;
@@ -109,7 +112,11 @@
 }
 
 - (IBAction)completeClick:(UIButton *)sender {
-    [self.trans transStart];
+    if (self.homeWalletModel.type == 1) {
+        [self.trans transStart];
+    }else{
+        [self.mutipyTrans transStart];
+    }
 }
 
 

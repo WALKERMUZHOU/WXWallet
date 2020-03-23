@@ -62,7 +62,7 @@
                 self.iconImageView.image = [UIImage imageNamed:@"home_wallet_waiting"];
 
                 self.statueBackView.backgroundColor = lwColorRedLight;
-                self.statueLabel.text = @"RECALL TX??";
+                self.statueLabel.text = @"RECALL TX?";
                 self.statueDescribeLabel.text = @"Until the first sign you can cancel this transaction";
             }else{// you unSigned / you signed
 
@@ -75,14 +75,25 @@
                     }
                 }
                 
-                if (ismineSigned == 1) {
-                    self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
+                if (ismineSigned == 1 && approve.count == 1) {
+                    self.typeLabel.text = @"OUTGOING";
+                    self.iconImageView.image = [UIImage imageNamed:@"home_wallet_waiting"];
 
-                    self.statueBackView.backgroundColor = lwColorNormalLight;
+                    self.statueBackView.backgroundColor = lwColorRedLight;
+                    self.statueLabel.text = @"RECALL TX?";
+                    self.statueDescribeLabel.text = @"Until the first sign you can cancel this transaction";
+       
+                }else if(ismineSigned==1){
+                
+                    self.typeLabel.text = @"SENT";
+                    self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
+                    self.statueBackView.backgroundColor = lwColorNormalDeep;
                     self.statueLabel.text = @"Signed";
                     self.statueDescribeLabel.text = [NSString stringWithFormat:@"You’ve signed.\nAwaiting others to sign (%ld of %ld)",(long)(_cotentmodel.threshold - approve.count),(long)(_cotentmodel.threshold)];
+                    
                 }else{//
                     self.iconImageView.image = [UIImage imageNamed:@"home_wallet_pending"];
+                    self.typeLabel.text = @"PENDING";
 
                     self.statueBackView.backgroundColor = lwColorOrange;
                      self.statueLabel.text = @"UNSIGNED";
@@ -111,7 +122,7 @@
                  
                  if (ismineSigned == 1) {
                      self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
-                     self.statueBackView.backgroundColor = lwColorNormalLight;
+                     self.statueBackView.backgroundColor = lwColorNormalDeep;
                      self.statueLabel.text = @"Signed";
                      self.statueDescribeLabel.text = [NSString stringWithFormat:@"You’ve signed.\n Awaiting others to sign (%ld of %ld)",(long)(_cotentmodel.threshold - approve.count),(long)(_cotentmodel.threshold)];
                  }else{//
@@ -124,7 +135,6 @@
                  
              }
         }
-        self.iconImageView.image = [UIImage imageNamed:@"home_wallet_waiting"];
 
     }else{
         self.typeLabel.text = @"Cancle";

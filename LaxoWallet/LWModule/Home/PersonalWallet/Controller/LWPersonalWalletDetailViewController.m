@@ -8,6 +8,7 @@
 
 #import "LWPersonalWalletDetailViewController.h"
 #import "LWPersonalSendViewController.h"
+#import "LWPersonalWalletEditViewController.h"
 
 #import "LWPersoanDetailListView.h"
 #import "LWMessageModel.h"
@@ -46,7 +47,7 @@
 //    self.navigationItem.leftBarButtonItem = addBarItem;
        
     UIBarButtonItem *scanBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_scan_white"] style:UIBarButtonItemStylePlain target:self action:@selector(scanClick)];
-    self.navigationItem.rightBarButtonItems = @[scanBarItem,addBarItem];
+//    self.navigationItem.rightBarButtonItems = @[scanBarItem,addBarItem];
     
     self.listView = [[LWPersoanDetailListView alloc]initWithFrame:CGRectMake(0, 262, kScreenWidth, KScreenHeightBar - 262) style:UITableViewStyleGrouped];
     self.listView.walletId = self.contentModel.walletId;
@@ -67,6 +68,14 @@
     }
     
 }
+- (IBAction)editClick:(UIButton *)sender {
+    LWPersonalWalletEditViewController *sendVC = [[LWPersonalWalletEditViewController alloc] init];
+    sendVC.model = self.contentModel;
+    sendVC.block = ^(NSString * _Nonnull name) {
+        self.nameLabel.text = name;
+    };
+    [self.navigationController pushViewController:sendVC animated:YES];
+}
 
 - (IBAction)eyeClick:(UIButton *)sender {
     sender.selected = !sender.isSelected;
@@ -84,6 +93,7 @@
 }
 - (void)qrClick{
         NSString *address = [self.contentModel.deposit objectForKey:@"address"];
+    self.contentModel.address = address;
 //        LWSignTool *signtool = [LWSignTool shareInstance];
 //        [signtool setWithAddress:address];
 //        return;
@@ -134,6 +144,7 @@
 }
 
 - (IBAction)recevieClick:(UIButton *)sender {
+    
     [self qrClick];
 }
 

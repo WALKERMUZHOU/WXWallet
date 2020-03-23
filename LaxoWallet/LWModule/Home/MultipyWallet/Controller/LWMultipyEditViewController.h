@@ -7,11 +7,13 @@
 //
 
 #import "LWBaseViewController.h"
-
+#import "LWHomeWalletModel.h"
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^EditViewBlock)(NSString *walletName);
 @interface LWMultipyEditViewController : LWBaseViewController
+@property (nonatomic, strong) LWHomeWalletModel *model;
 
+@property (nonatomic, copy) EditViewBlock block;
 @end
 
 NS_ASSUME_NONNULL_END

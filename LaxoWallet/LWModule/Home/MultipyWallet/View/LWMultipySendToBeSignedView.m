@@ -53,7 +53,7 @@
     
     self.signCountLabel.text =  [NSString stringWithFormat:@"%ld/%ld Signed",(long)approve.count,(long)walletModel.threshold];
     self.noteLabel.text = messageModel.note;
-    self.txLinkLabel.text = [messageModel.txid stringByReplacingCharactersInRange:NSMakeRange(2, 10) withString:@"****"];
+    self.txLinkLabel.text = [messageModel.txid stringByReplacingCharactersInRange:NSMakeRange(2, messageModel.txid.length - 6) withString:@"****"];
     self.amountDetailLabel.text = [NSString stringWithFormat:@"- %@ BSV  |  -%@",[LWNumberTool formatSSSFloat:messageModel.value/1e8],messageModel.priceDefine];
 }
 

@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DkF-B5-7vU">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="20" width="414" height="876"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pmc-DW-TrM">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="825.5"/>
@@ -210,7 +210,7 @@
             <constraints>
                 <constraint firstItem="DkF-B5-7vU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6lu-30-IAE"/>
                 <constraint firstAttribute="trailing" secondItem="DkF-B5-7vU" secondAttribute="trailing" id="Ei0-Io-2Kr"/>
-                <constraint firstItem="DkF-B5-7vU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cBi-4S-4s7"/>
+                <constraint firstItem="DkF-B5-7vU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="cBi-4S-4s7"/>
                 <constraint firstItem="Pmc-DW-TrM" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="iWQ-Zu-hkt"/>
                 <constraint firstAttribute="bottom" secondItem="DkF-B5-7vU" secondAttribute="bottom" id="kDu-CN-EzJ"/>
             </constraints>

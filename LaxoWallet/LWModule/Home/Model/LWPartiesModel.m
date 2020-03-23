@@ -12,4 +12,11 @@
 + (NSDictionary *)modelCustomPropertyMapper{
     return @{@"partiesId":@"id"};
 }
+
+- (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic{
+    NSString *uid = [NSString stringWithFormat:@"%@",[dic objectForKey:@"uid"]];
+    self.uid = uid;
+    return YES;
+}
+
 @end

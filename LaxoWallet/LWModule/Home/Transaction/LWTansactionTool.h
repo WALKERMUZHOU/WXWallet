@@ -17,7 +17,7 @@ typedef void(^TransactionFeeBlock)(NSString *fee);
 
 + (LWTansactionTool *)shareInstance;
 
-- (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model;
+- (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model andChangeAddress:(NSString *)changeAddress;
 - (void)transStart;
 @property (nonatomic, copy) TransactionBlock transactionBlock;
 @property (nonatomic, copy) TransactionFeeBlock feeBlock;

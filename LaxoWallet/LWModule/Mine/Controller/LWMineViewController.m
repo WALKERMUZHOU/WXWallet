@@ -29,12 +29,72 @@
     // Do any additional setup after loading the view from its nib.
     
 #if DEBUGER
-    self.loginoutBtn.hidden = YES;
+    self.loginoutBtn.hidden = NO;
 #else
     self.loginoutBtn.hidden = YES;
 #endif
     
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self manageCurrentBit];
+}
+
+- (void)manageCurrentBit{
+
+     NSString *personalWallet = [[NSUserDefaults standardUserDefaults] objectForKey:kPersonalWallet_userdefault];
+     NSString *multipyWallet = [[NSUserDefaults standardUserDefaults] objectForKey:kMultipyWallet_userdefault];
+
+     NSDictionary *personalWalletDic = [NSJSONSerialization JSONObjectWithData:[personalWallet dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+     NSDictionary *multipyWalletDic = [NSJSONSerialization JSONObjectWithData:[multipyWallet dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+     
+     NSArray *personalDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:[personalWalletDic objectForKey:@"data"]];
+     NSArray *multipyDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:[personalWalletDic objectForKey:@"data"]];
+     
+     CGFloat bitCount = 0;
+
+     if (personalDataArray.count == 0) {
+    
+     }else{
+         for (NSInteger i = 0; i<personalDataArray.count; i++) {
+             LWHomeWalletModel *dataModel = [personalDataArray objectAtIndex:i];
+             for (NSInteger j = 0; j<dataModel.utxo.count; j++) {
+                 LWutxoModel *umodel = [dataModel.utxo objectAtIndex:j];
+                 bitCount += umodel.value;
+             }
+         }
+     }
+     
+     if (multipyDataArray.count == 0) {
+
+     }else{
+         for (NSInteger i = 0; i<multipyDataArray.count; i++) {
+             LWHomeWalletModel *dataModel = [multipyDataArray objectAtIndex:i];
+             for (NSInteger j = 0; j<dataModel.utxo.count; j++) {
+                 LWutxoModel *umodel = [dataModel.utxo objectAtIndex:j];
+                 bitCount += umodel.value;
+             }
+         }
+     }
+
+     if (bitCount>0) {
+         
+         NSString *tokenPrice = [LWPublicManager getCurrentCurrencyPrice];
+         CGFloat personalBitCount = [NSDecimalNumber decimalNumberWithString:tokenPrice].floatValue * bitCount/1e8;
+         
+         NSString *priceTypeStr = @"$";
+         if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
+             priceTypeStr = @"¥";
+         }else{
+             priceTypeStr = @"$";
+         }
+         
+         self.bitCountLabel.text = [LWNumberTool formatSSSFloat:bitCount];
+         self.priceLabel.text = [NSString stringWithFormat:@"%@%.2f",priceTypeStr,personalBitCount];
+     }
+}
+
 - (IBAction)listSelect:(UIButton *)sender {
     NSInteger index = sender.tag - 11000;
     if (index == 1) {
@@ -64,11 +124,7 @@
         self.bitCountLabel.text = @"***";
         self.priceLabel.text = @"***";
     }else{
-//        if (self.currentViewType == LWHomeListViewTypePersonalWallet) {
-//            [self setCurrentArray:self.personalDataArray];
-//        }else{
-//            [self setCurrentArray:self.multipyDataArray];
-//        }
+        [self manageCurrentBit];
     }
 }
 

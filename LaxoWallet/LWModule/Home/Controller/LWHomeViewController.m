@@ -308,6 +308,9 @@
          case WSRequestIdWalletQuerySingleAddress:
              [self manageCollectionAddress:responseArray[2]];
              break;
+        case WSRequestIdWalletQuerySingleAddress_change:
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_createSingleAddress_change object:responseArray[2]];
+            break;
          case WSRequestIdWalletQueryCreatMultipyWallet:
              [self manageCreateMultiyWallet:responseArray[2]];
              break;
@@ -484,6 +487,10 @@
 
 - (void)manageMultipyWalletData:(NSDictionary *)personalData{
     [SVProgressHUD dismiss];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[personalData jsonStringEncoded] forKey:kMultipyWallet_userdefault];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [self.listHeadView setMultipyWalletdata:personalData];
     [self.listView setMultipyWalletdata:personalData];
 }

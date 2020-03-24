@@ -127,7 +127,7 @@
     if (self.isFirstPayMail) {
         [self addpayMail];
     }else{
-        [self registerPaymail];
+        [self verifyPaymailAddress];
         
     }
 }
@@ -141,6 +141,7 @@
 
 #pragma mark - verify paymail
 - (void)verifyPaymailAddress{
+    [SVProgressHUD show];
     NSDictionary *params = @{@"name":[NSString stringWithFormat:@"%@",self.payMailTF.text]};
     NSArray *requestPersonalWalletArray = @[@"req",
                                             @(WSRequestId_paymail_query),
@@ -164,23 +165,46 @@
 }
 
 #pragma mark - registerpaymail
-- (void)registerPaymail{
+- (void)queryChangeAddress{
+    LWHomeWalletModel *model = self.firstWallet;
+     NSDictionary *params = @{@"wid":@(model.walletId),@"type":@(2)};
+     NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQuerySingleAddress_change),@"wallet.createSingleAddress",[params jsonStringEncoded]];
+     NSData *data = [requestPersonalWalletArray mp_messagePack];
+     [[SocketRocketUtility instance] sendData:data];
+}
+
+- (void)createSingleAddress:(NSNotification *)notification{
+    NSDictionary *notiDic = notification.object;
+    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+    
+        NSDictionary *notiDicData = [notiDic objectForKey:@"data"];
+        NSString *addresssChange = [notiDicData ds_stringForKey:@"address"];
+        if (addresssChange && addresssChange.length>0) {
+            [SVProgressHUD dismiss];
+            [self registerPaymail:addresssChange];
+            return;
+        }
+        
+        NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
+        NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;
+
+        [SVProgressHUD show];
+        LWAddressTool *addressTool = [LWAddressTool shareInstance];
+        [addressTool setWithrid:rid andPath:path];
+        addressTool.addressBlock = ^(NSString * _Nonnull address) {
+            [SVProgressHUD dismiss];
+            [self registerPaymail:address];
+        };
+    }
+}
+
+- (void)registerPaymail:(NSString *)changeAddress{
     
     CGFloat amount = 1/[LWPublicManager getCurrentUSDPrice].floatValue;
-    
-    [LWAlertTool alertPersonalWalletViewSend:self.firstWallet andAdress:@"1Ex49LfhSdY7ukoaakw7S5QGTS6vtretKD" andAmount:[LWNumberTool formatSSSFloat:amount] andNote:@"pay for paymail" ispaymail:YES andComplete:^{
+    [LWAlertTool alertPersonalWalletViewSend:self.firstWallet andAdress:@"1Ex49LfhSdY7ukoaakw7S5QGTS6vtretKD" andAmount:[LWNumberTool formatSSSFloat:amount] andNote:@"pay for paymail" changeAddress:changeAddress ispaymail:YES andComplete:^{
+        
         [self addpayMail];
     }];
-    
-    
-//    LWTansactionTool *trans = [LWTansactionTool shareInstance];
-//    [trans startTransactionWithAmount:amount address:@"1Ex49LfhSdY7ukoaakw7S5QGTS6vtretKD" note:@"pay for paymail" andTotalModel:self.model];
-//    trans.transactionBlock = ^(BOOL success) {
-//        if (success) {
-//            [self addpayMail];
-//        }
-//    };
-//    [trans transStart];
 }
 
 - (void)addpayMail{

@@ -46,7 +46,7 @@
     self.cancelBtn.layer.borderColor = lwColorGrayD8.CGColor;
 }
 
-- (void)setAddress:(NSString *)address andAmount:(NSString *)amount andMessage:(NSString *)note andModel:(LWHomeWalletModel *)model{
+- (void)setAddress:(NSString *)address andAmount:(NSString *)amount andMessage:(NSString *)note andModel:(LWHomeWalletModel *)model andChangeAddress:(nonnull NSString *)changeAddress{
     self.homeWalletModel = model;
     
     self.addressLabel.text = address;
@@ -63,7 +63,7 @@
 
     if (model.type == 1) {
             self.trans = [[LWTansactionTool alloc]init];
-        [self.trans startTransactionWithAmount:amount.floatValue address:address note:note andTotalModel:model];
+        [self.trans startTransactionWithAmount:amount.floatValue address:address note:note andTotalModel:model andChangeAddress:changeAddress];
         self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",amount,@(self.trans.fee.integerValue/1e8)];
 
         self.trans.transactionBlock = ^(BOOL success) {

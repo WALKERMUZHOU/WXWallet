@@ -60,14 +60,6 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foN-ZB-cZs">
-                            <rect key="frame" x="206.5" y="20" width="1" height="20"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="1" id="D3I-X5-RRJ"/>
-                                <constraint firstAttribute="height" constant="20" id="nqO-WM-Hm3"/>
-                            </constraints>
-                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wqd-oJ-I4Z">
                             <rect key="frame" x="15" y="155" width="384" height="1"/>
                             <color key="backgroundColor" red="0.85872977969999997" green="0.85887759919999995" blue="0.85872042179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -233,12 +225,10 @@
                         <constraint firstAttribute="trailing" secondItem="l0i-zw-BcY" secondAttribute="trailing" constant="20" id="A0t-bz-3oH"/>
                         <constraint firstItem="u4l-U3-ohm" firstAttribute="top" secondItem="prf-Db-6zy" secondAttribute="top" constant="30" id="AbU-dn-GtE"/>
                         <constraint firstItem="e0D-sY-TvM" firstAttribute="centerY" secondItem="5gI-ZT-rOL" secondAttribute="centerY" id="Cx1-MA-2Mm"/>
-                        <constraint firstItem="foN-ZB-cZs" firstAttribute="centerX" secondItem="prf-Db-6zy" secondAttribute="centerX" id="JaF-et-Yyc"/>
                         <constraint firstItem="BBv-Ct-R9Q" firstAttribute="centerY" secondItem="ApZ-iR-V3P" secondAttribute="centerY" id="KIs-Rw-xx7"/>
                         <constraint firstItem="nc6-gm-br1" firstAttribute="leading" secondItem="4tb-0V-V6r" secondAttribute="trailing" constant="20" id="KLP-y1-Ofd"/>
                         <constraint firstItem="l0i-zw-BcY" firstAttribute="centerY" secondItem="5Ah-LD-s9U" secondAttribute="centerY" id="NVl-lB-mWS"/>
                         <constraint firstItem="ROu-bk-44u" firstAttribute="centerY" secondItem="nc6-gm-br1" secondAttribute="centerY" id="Ofh-bT-7S2"/>
-                        <constraint firstItem="foN-ZB-cZs" firstAttribute="top" secondItem="prf-Db-6zy" secondAttribute="top" constant="20" id="PyC-WA-Pim"/>
                         <constraint firstItem="4tb-0V-V6r" firstAttribute="top" secondItem="5gI-ZT-rOL" secondAttribute="bottom" constant="19" id="SeP-Tp-ivJ"/>
                         <constraint firstItem="3VM-Pz-Ao5" firstAttribute="top" secondItem="4tb-0V-V6r" secondAttribute="bottom" constant="19" id="SuN-Tv-3oW"/>
                         <constraint firstItem="QpM-Tg-jnY" firstAttribute="centerX" secondItem="prf-Db-6zy" secondAttribute="centerX" id="TJ4-mn-ujk"/>

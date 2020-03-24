@@ -62,7 +62,7 @@ static LWTansactionTool *instance = nil;
  */
 
 
-- (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model{
+- (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model andChangeAddress:(nonnull NSString *)changeAddress{
     
 //    self.transAmount = amount;
 //    self.transAddress = address;
@@ -86,6 +86,8 @@ static LWTansactionTool *instance = nil;
     char *add_output = add_transaction_output(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]), self.transAmount);
     NSLog(@"add_transaction_output(%s , %s , %ld )",transId,address_to_script([LWAddressTool stringToChar:self.transAddress]),(long)self.transAmount);
 
+    char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]));
+    
     if (![[LWAddressTool charToString:add_output] isEqualToString:@"true"]) {
         [WMHUDUntil showMessageToWindow:@"transaction fail"];
         return;
@@ -114,11 +116,7 @@ static LWTansactionTool *instance = nil;
         NSLog(@"get_transaction_sighash(%s)",transId);
 
         NSArray *sighHashArray = [LWAddressTool charToObject:get_sighash];
-        
-    //    LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
-    //    char *pubkey = get_public_key([LWAddressTool stringToChar:userModel.pk]);
-    //
-        NSMutableArray *transaction_sig_array = [NSMutableArray array];
+
         __block dispatch_semaphore_t semaphore;
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             

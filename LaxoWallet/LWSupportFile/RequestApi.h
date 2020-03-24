@@ -33,6 +33,8 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestIdWalletQueryMulpityWallet         = 10001,
     WSRequestIdWalletQueryTokenPrice            = 10002,
     WSRequestIdWalletQuerySingleAddress          = 10003,
+    WSRequestIdWalletQuerySingleAddress_change          = 11003,
+
     WSRequestIdWalletQueryCreatMultipyWallet     = 10004,
     WSRequestIdWalletQueryGetWalletMessageList   = 10005,
     WSRequestIdWalletQueryJoingNewWallet         = 10006,
@@ -75,7 +77,7 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     
 };
 
-#if 0
+#if 1
 static NSString * const kBaseAddress = @"https://api.laxo.io/api.json?";
 static NSString * const kWSAddress = @"wss://api.laxo.io/?";
 

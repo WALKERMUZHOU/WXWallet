@@ -134,7 +134,7 @@
 }
 
 
-+ (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note andComplete:(void (^)(void))walletBlock{
++ (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note changeAddress:(NSString *)changeAddress andComplete:(void (^)(void))walletBlock{
     UIView *backView = [LWAlertTool ligntBackView];
     
     LWPersonalSendView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWPersonalSendView class]) owner:nil options:nil].lastObject;
@@ -142,7 +142,7 @@
     walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 573);
 //    [walletView setContentModel:params];
     
-    [walletView setAddress:address andAmount:amount andMessage:note andModel:params];
+    [walletView setAddress:address andAmount:amount andMessage:note andModel:params andChangeAddress:changeAddress];
     
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
             NSLog(@"%@",sender);
@@ -164,7 +164,7 @@
     };
 }
 
-+ (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note ispaymail:(BOOL)ispayMail andComplete:(void (^)(void))walletBlock{
++ (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note changeAddress:(NSString *)changeAddress ispaymail:(BOOL)ispayMail andComplete:(void (^)(void))walletBlock{
         UIView *backView = [LWAlertTool ligntBackView];
         
         LWPersonalSendView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWPersonalSendView class]) owner:nil options:nil].lastObject;
@@ -173,7 +173,7 @@
         walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 573);
     //    [walletView setContentModel:params];
         
-        [walletView setAddress:address andAmount:amount andMessage:note andModel:params];
+        [walletView setAddress:address andAmount:amount andMessage:note andModel:params andChangeAddress:changeAddress];
         
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
             NSLog(@"%@",sender);

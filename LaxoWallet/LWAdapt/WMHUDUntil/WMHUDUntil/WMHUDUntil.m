@@ -125,7 +125,8 @@ NSTimeInterval delay = 2;
     }
     hud.removeFromSuperViewOnHide = YES;
     hud.detailsLabel.text = message;
-    
+    hud.userInteractionEnabled = YES;
+
     if (image==nil) {
         hud.mode = MBProgressHUDModeText;
     }else{

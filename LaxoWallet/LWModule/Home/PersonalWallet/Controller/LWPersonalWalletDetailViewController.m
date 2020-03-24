@@ -43,12 +43,6 @@
     self.receiveBtn.layer.borderColor = [UIColor hex:@"#D8D8D8"].CGColor;
     self.sendBtn.layer.borderColor = [UIColor hex:@"#D8D8D8"].CGColor;
     
-    UIBarButtonItem *addBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_wallet_qrcode"] style:UIBarButtonItemStylePlain target:self action:@selector(qrClick)];
-//    self.navigationItem.leftBarButtonItem = addBarItem;
-       
-    UIBarButtonItem *scanBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_scan_white"] style:UIBarButtonItemStylePlain target:self action:@selector(scanClick)];
-//    self.navigationItem.rightBarButtonItems = @[scanBarItem,addBarItem];
-    
     self.listView = [[LWPersoanDetailListView alloc]initWithFrame:CGRectMake(0, 262, kScreenWidth, KScreenHeightBar - 262) style:UITableViewStyleGrouped];
     self.listView.walletId = self.contentModel.walletId;
     self.listView.homeWallteModel = self.contentModel;
@@ -93,17 +87,17 @@
      }
 }
 - (void)qrClick{
-        NSString *address = [self.contentModel.deposit objectForKey:@"address"];
+    NSString *address = [self.contentModel.deposit objectForKey:@"address"];
     self.contentModel.address = address;
 //        LWSignTool *signtool = [LWSignTool shareInstance];
 //        [signtool setWithAddress:address];
 //        return;
-        if (address && address.length >0) {
-            [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
+    if (address && address.length >0) {
+        [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
 
-        }else{
-            [self getQrCode];
-        }
+    }else{
+        [self getQrCode];
+    }
 }
 
 #pragma mark - 个人钱包
@@ -145,7 +139,6 @@
 }
 
 - (IBAction)recevieClick:(UIButton *)sender {
-    
     [self qrClick];
 }
 

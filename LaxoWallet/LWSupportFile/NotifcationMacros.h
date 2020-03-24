@@ -16,7 +16,12 @@
 #define kLanguageChange_nsnotification  @"kLanguageChange_nsnotification"
 #define kCurrencyChange_nsnotification  @"kCurrencyChange_nsnotification"
 
+#define kWebScoket_personalWalletData      @"kWebScoket_personalWalletData"
+#define kWebScoket_multipyWalletData       @"kWebScoket_multipyWalletData"
+
 #define kWebScoket_createSingleAddress      @"kWebScoket_createSingleAddress"
+#define kWebScoket_createSingleAddress_change      @"kWebScoket_createSingleAddress_change"
+
 #define kWebScoket_createMultiPartyWallet   @"kWebScoket_createMultiParty"
 #define kWebScoket_queryTransaction         @"kWebScoket_queryTransaction"
 #define kWebScoket_getMessageListInfo       @"kWebScoket_getMessageInfo"
@@ -90,6 +95,7 @@
 #define kAppCreateMulitpyAddress_userdefault   @"kAppCreateMulitpyAddress_userdefault"
 
 #define kPersonalWallet_userdefault        @"kPersonalWallet_userdefault"
+#define kMultipyWallet_userdefault        @"kMultipyWallet_userdefault"
 
 
 #endif /* NotifcationMacros_h */

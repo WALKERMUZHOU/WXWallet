@@ -16,7 +16,7 @@ typedef void(^PersonalSendBlock)(NSInteger statue);
 
 @property (nonatomic, copy) PersonalSendBlock block;
 
-- (void)setAddress:(NSString *)address andAmount:(NSString *)amount andMessage:(NSString *)note andModel:(LWHomeWalletModel *)model;
+- (void)setAddress:(NSString *)address andAmount:(NSString *)amount andMessage:(NSString *)note andModel:(LWHomeWalletModel *)model andChangeAddress:(NSString *)changeAddress;
 
 @property (nonatomic, assign) BOOL ispayMail;
 

@@ -18,6 +18,8 @@ typedef void(^PersonalSendBlock)(NSInteger statue);
 
 - (void)setAddress:(NSString *)address andAmount:(NSString *)amount andMessage:(NSString *)note andModel:(LWHomeWalletModel *)model;
 
+@property (nonatomic, assign) BOOL ispayMail;
+
 @end
 
 NS_ASSUME_NONNULL_END

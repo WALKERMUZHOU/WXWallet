@@ -34,6 +34,19 @@
     return [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV];
 }
 
++ (NSString *)getCurrentUSDPrice{
+    
+    NSString *tokenName = @"bsv";
+    NSArray *dataArray = [[NSUserDefaults standardUserDefaults] objectForKey:kAppTokenPrice_userdefault];
+    for (NSInteger i = 0; i<dataArray.count; i++) {
+        NSDictionary *tokenDic = [dataArray objectAtIndex:i];
+        if ([[tokenDic objectForKey:@"token"] isEqualToString:tokenName]) {
+            return [tokenDic objectForKey:@"usd"];
+        }
+    }
+    return @"";
+}
+
 + (NSString *)getCurrentCurrencyPriceWithAmount:(CGFloat)amount{
     NSString *currentcy = [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV];
     
@@ -80,7 +93,7 @@
          default:
              break;
      }
-    NSArray *dataArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"kAppTokenPrice_userdefault"];
+    NSArray *dataArray = [[NSUserDefaults standardUserDefaults] objectForKey:kAppTokenPrice_userdefault];
     for (NSInteger i = 0; i<dataArray.count; i++) {
         NSDictionary *tokenDic = [dataArray objectAtIndex:i];
         if ([[tokenDic objectForKey:@"token"] isEqualToString:tokenName]) {

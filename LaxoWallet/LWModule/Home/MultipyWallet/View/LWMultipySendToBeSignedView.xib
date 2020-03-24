@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -294,6 +295,12 @@
                         <constraint firstItem="Oy1-Rh-UoH" firstAttribute="top" secondItem="RWy-cJ-iVg" secondAttribute="bottom" constant="45" id="xob-rn-Pbc"/>
                         <constraint firstItem="e8w-C2-zpb" firstAttribute="top" secondItem="gYs-JJ-7uh" secondAttribute="bottom" constant="19" id="yUV-x3-fCm"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_wallet_send_c" translatesAutoresizingMaskIntoConstraints="NO" id="bmq-V9-53q">
                     <rect key="frame" x="179" y="0.0" width="56" height="56"/>
@@ -302,15 +309,25 @@
                         <constraint firstAttribute="height" constant="56" id="tXH-Mf-sCu"/>
                     </constraints>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bF4-UU-MqX">
+                    <rect key="frame" x="0.0" y="553" width="414" height="20"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="xHS-Kz-O0B"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="bF4-UU-MqX" secondAttribute="trailing" id="CGR-sf-oZH"/>
                 <constraint firstItem="bmq-V9-53q" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Nah-Y0-64b"/>
                 <constraint firstAttribute="trailing" secondItem="1wZ-t2-VhT" secondAttribute="trailing" id="gzQ-tY-5Fq"/>
                 <constraint firstItem="1wZ-t2-VhT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hQJ-6D-fe1"/>
                 <constraint firstItem="1wZ-t2-VhT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="jfX-bq-8kI"/>
                 <constraint firstItem="bmq-V9-53q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lWY-QL-1NZ"/>
                 <constraint firstAttribute="bottom" secondItem="1wZ-t2-VhT" secondAttribute="bottom" constant="20" symbolic="YES" id="mSS-OL-p8e"/>
+                <constraint firstItem="bF4-UU-MqX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nio-EG-rUx"/>
+                <constraint firstAttribute="bottom" secondItem="bF4-UU-MqX" secondAttribute="bottom" id="tbX-cw-omm"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

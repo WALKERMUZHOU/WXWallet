@@ -82,7 +82,7 @@ typedef void(^LWScanResultBlock)(LWScanModel *model);
         if(([handleString containsString:@"http://"]||[handleString containsString:@"https://"])){
             NSArray *urlComps = [handleString componentsSeparatedByString:@"?"];
             NSString *headerString = [urlComps objectAtIndex:0];
-            if ([headerString hasPrefix:@"https://laxo.io"] || [headerString hasPrefix:@"http://laxo.io"] || [headerString hasPrefix:@"http://info.bitmesh.com/auth"]) {//
+            if ([headerString hasPrefix:@"https://laxo.io"] || [headerString hasPrefix:@"http://laxo.io"] || [headerString hasPrefix:@"https://voltwallet.io/login"] ||[headerString hasPrefix:@"http://voltwallet.io/login"]) {//
                 if([urlComps count]){
                     NSArray *paramArray = [[urlComps objectWithIndex:1] componentsSeparatedByString:@"&"];
                     NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
@@ -100,8 +100,8 @@ typedef void(^LWScanResultBlock)(LWScanModel *model);
                             scanModel.scanType = 2;
                             scanModel.scanResult = returnId;
                         }
-                        scanModel.scanType = 1;
-                        scanModel.scanResult = [paramDic objectForKey:@"id"];;
+//                        scanModel.scanType = 1;
+//                        scanModel.scanResult = [paramDic objectForKey:@"id"];;
                     }
                 }
             }
@@ -124,7 +124,7 @@ typedef void(^LWScanResultBlock)(LWScanModel *model);
 }
 
 - (void)manageScanReult:(LWScanModel *)model{
-    if (model.scanType == 1) {
+    if (model.scanType == 2) {
         LWScanLoginViewController *loginVC = [[LWScanLoginViewController alloc] init];
         loginVC.modalPresentationStyle = UIModalPresentationFullScreen;
         loginVC.scanId = model.scanResult;

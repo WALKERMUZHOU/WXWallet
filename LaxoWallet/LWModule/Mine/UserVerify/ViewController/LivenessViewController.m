@@ -300,7 +300,7 @@
         [self dismissViewControllerAnimated:YES completion:nil];
 
     } WithFailBlock:^(id  _Nonnull data) {
-        [WMHUDUntil showMessageToWindow:@"face verify error"];
+        [WMHUDUntil showMessageToWindow:@"face verify fail"];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
     

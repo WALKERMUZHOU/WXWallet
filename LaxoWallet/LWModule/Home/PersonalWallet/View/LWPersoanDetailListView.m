@@ -97,6 +97,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    LWMessageModel *messageModel = [self.dataSource objectAtIndex:indexPath.section];
+
+    if(messageModel.type == 2){
+        [LWAlertTool alertSendAlertView:self.homeWallteModel andMessageModel:messageModel andComplete:nil];
+    }else{
+        [LWAlertTool alertReceiveddAlertView:self.homeWallteModel andMessageModel:messageModel andComplete:nil];
+    }
+    
+    
 }
 
 

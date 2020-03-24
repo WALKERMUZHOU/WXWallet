@@ -107,24 +107,24 @@ static LWMultipyTransactionTool *instance = nil;
     NSData *trans_data = [transaction mp_messagePack];
     NSString *trans_str = [trans_data dataToHexString];
     
-    NSDictionary *multipyparams = @{@"rawtx":trans_str,@"wid":@(self.model.walletId),@"value":@(self.transAmount),@"note":self.note};
+    NSDictionary *multipyparams = @{@"rawtx":trans_str,@"wid":@(self.model.walletId),@"value":@(self.transAmount),@"note":self.note,@"biz_data":self.transAddress};
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBroadcastUnSignTrans),WS_Home_multipyUnSignTrans,[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
     [SVProgressHUD dismiss];
 }
 
 
-- (void)requestTransactionToServer:(NSDictionary *)transactionToJson{
-
-    NSData *trans_data = [transactionToJson mp_messagePack];
-    NSString *trans_str = [trans_data dataToHexString];
-    
-    NSDictionary *multipyparams = @{@"rawtx":trans_str,@"wid":@(self.model.walletId),@"value":@(self.transAmount),@"note":self.note};
-    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBroadcastTrans),@"wallet.broadcast",[multipyparams jsonStringEncoded]];
-    [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
-    [SVProgressHUD dismiss];
-
-}
+//- (void)requestTransactionToServer:(NSDictionary *)transactionToJson{
+//
+//    NSData *trans_data = [transactionToJson mp_messagePack];
+//    NSString *trans_str = [trans_data dataToHexString];
+//    
+//    NSDictionary *multipyparams = @{@"rawtx":trans_str,@"wid":@(self.model.walletId),@"value":@(self.transAmount),@"note":self.note};
+//    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBroadcastTrans),@"wallet.broadcast",[multipyparams jsonStringEncoded]];
+//    [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+//    [SVProgressHUD dismiss];
+//
+//}
 
 - (NSArray *)manageChange:(CGFloat)transAmount{
     //零钱排序

@@ -53,6 +53,7 @@
 #import "LWScanTool.h"
 #import "LWAddressTool.h"
 #import "LWEmailTool.h"
+#import "LWAlertTool.h"
 
 #import "SceneDelegate.h"
 #import "AppDelegate.h"

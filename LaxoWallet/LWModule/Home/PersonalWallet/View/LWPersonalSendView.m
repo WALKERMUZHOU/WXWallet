@@ -53,7 +53,12 @@
     self.bitCountLabel.text = [NSString stringWithFormat:@"%@ BSV",amount];
     self.noteLabel.text = note;
     [self.completeBtn setTitle:[NSString stringWithFormat:@"Send %@ BSV",amount] forState:UIControlStateNormal];
+    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
+        self.priceLabel.text = [NSString stringWithFormat:@"%.2f CNY",amount.floatValue*[[LWPublicManager getCurrentCurrencyPrice] floatValue]];
+    }else{
+        self.priceLabel.text = [NSString stringWithFormat:@"%.2f USD",amount.floatValue*[[LWPublicManager getCurrentCurrencyPrice] floatValue]];
 
+    }
     __weak typeof(self) weakself = self;
 
     if (model.type == 1) {
@@ -66,11 +71,18 @@
                 
                 [weakself requestPersonalWalletInfo];
                 if (weakself.block) {
-                    weakself.block(0);
+                    weakself.block(1);
+                }
+                if (weakself.ispayMail) {
+                    return ;
                 }
                 LWPersonalpaySuccessViewController *successVC = [[LWPersonalpaySuccessViewController alloc] init];
                 [successVC setSuccessWithAmount:amount andaddress:address andnote:note andfee:[NSString stringWithFormat:@"%@",@(self.trans.fee.integerValue/1e8)]];
                 [LogicHandle pushViewController:successVC];
+            }else{
+                if (weakself.block) {
+                     weakself.block(0);
+                 }
             }
         };
     }else{
@@ -80,7 +92,7 @@
 //        self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",amount,@(self.mutipyTrans.fee.integerValue/1e8)];
         self.mutipyTrans.block = ^(NSDictionary * _Nonnull transInfo) {
             if (weakself.block) {
-                weakself.block(0);
+                weakself.block(1);
             }
 
             LWPersonalpaySuccessViewController *successVC = [[LWPersonalpaySuccessViewController alloc] init];

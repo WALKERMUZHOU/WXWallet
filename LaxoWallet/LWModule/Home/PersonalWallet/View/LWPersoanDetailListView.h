@@ -7,11 +7,14 @@
 //
 
 #import "LWBaseTableView.h"
+#import "LWHomeWalletModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWPersoanDetailListView : LWBaseTableView
 @property (nonatomic, assign) NSInteger walletId;
+@property (nonatomic, strong) LWHomeWalletModel *homeWallteModel;
+
 - (void)getCurrentData;
 @end
 

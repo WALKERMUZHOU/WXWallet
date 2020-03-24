@@ -87,7 +87,7 @@
                         <fragment>
                             <string key="content">, and under further conditions, transfer of their assets will be given to you, and possibly with other Successors they’ve allocated percentages to.</string>
                             <attributes>
-                                <font key="NSFont" metaFont="system" size="14"/>
+                                <font key="NSFont" metaFont="menu" size="14"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                             </attributes>
                         </fragment>

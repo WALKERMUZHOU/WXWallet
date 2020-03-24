@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "LWPaymailModel.h"
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^PaymailCellBlock)(NSString *paymailID);
 @interface LWPaymailTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) LWPaymailModel *model;
+@property (nonatomic, copy) PaymailCellBlock block;
 
 @end
 

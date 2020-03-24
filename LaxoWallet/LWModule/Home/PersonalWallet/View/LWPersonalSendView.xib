@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,13 +36,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBi-BM-7G9">
-                            <rect key="frame" x="147" y="477" width="120" height="40"/>
+                            <rect key="frame" x="147" y="474" width="120" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="mhk-PD-Jqv"/>
                                 <constraint firstAttribute="width" constant="120" id="pXb-hw-Uhh"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                            <state key="normal" title="Cancle">
+                            <state key="normal" title="Cancel">
                                 <color key="titleColor" red="0.12000831219999999" green="0.70127743480000004" blue="0.5751753449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
@@ -210,11 +211,8 @@
                                 <action selector="completeClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="dhU-YI-SCO"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sending 0.55 BSV / Network fee of 0.00001 BSV" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QA9-pa-bdL">
-                            <rect key="frame" x="51.5" y="417" width="311" height="20"/>
-                            <constraints>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="yqq-Bn-vZW"/>
-                            </constraints>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sending 0.55 BSV / Network fee of 0.00001 BSV" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QA9-pa-bdL">
+                            <rect key="frame" x="20" y="417" width="374" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -232,7 +230,9 @@
                         <constraint firstAttribute="trailing" secondItem="RYL-3b-XKD" secondAttribute="trailing" constant="20" id="CGt-p5-XYc"/>
                         <constraint firstItem="6zd-Mr-Gxy" firstAttribute="top" secondItem="x4n-qi-Leu" secondAttribute="bottom" constant="30" id="Dg1-gP-DnL"/>
                         <constraint firstItem="mGB-3V-pkx" firstAttribute="centerY" secondItem="x4n-qi-Leu" secondAttribute="centerY" id="Djp-bF-e0O"/>
+                        <constraint firstItem="QA9-pa-bdL" firstAttribute="leading" secondItem="Apw-X4-iVb" secondAttribute="leading" constant="20" id="FK0-yd-Cti"/>
                         <constraint firstAttribute="trailing" secondItem="Ajh-fw-Rjp" secondAttribute="trailing" constant="20" id="Fcc-ek-KBq"/>
+                        <constraint firstAttribute="trailing" secondItem="QA9-pa-bdL" secondAttribute="trailing" constant="20" id="HSE-zY-oEy"/>
                         <constraint firstItem="QA9-pa-bdL" firstAttribute="top" secondItem="gdF-jD-Ik8" secondAttribute="bottom" constant="20" id="IQ4-KY-076"/>
                         <constraint firstItem="gdF-jD-Ik8" firstAttribute="leading" secondItem="Apw-X4-iVb" secondAttribute="leading" constant="20" id="Jvt-M3-Hww"/>
                         <constraint firstItem="QA9-pa-bdL" firstAttribute="centerX" secondItem="Apw-X4-iVb" secondAttribute="centerX" id="Kot-Yb-J48"/>

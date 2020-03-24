@@ -24,6 +24,13 @@ NS_ASSUME_NONNULL_BEGIN
 ///个人钱包发送弹窗
 + (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note andComplete:(void (^)(void))walletBlock;
 
++ (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note ispaymail:(BOOL)ispayMail andComplete:(void (^)(void))walletBlock;
+
+
++ (void)alertSendAlertView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id complete))walletBlock;
+
++ (void)alertReceiveddAlertView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id complete))walletBlock;
+
 + (void)alertMultipySignedView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id complete))walletBlock;
 
 + (void)alertMultipyOutgoingView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id complete))walletBlock;

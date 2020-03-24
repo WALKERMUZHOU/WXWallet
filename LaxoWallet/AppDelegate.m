@@ -28,6 +28,9 @@
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD setDefaultAnimationType:SVProgressHUDAnimationTypeNative];
+    [SVProgressHUD dismissWithDelay:10];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setBackgroundColor:[UIColor whiteColor]];
@@ -35,8 +38,8 @@
     [self getCurrentTokenPrice];
     [self registerBDFace];
     
-    [LogicHandle showTabbarVC];
-//    [LogicHandle chooseStartVC];
+//    [LogicHandle showTabbarVC];
+    [LogicHandle chooseStartVC];
 //    [LogicHandle showLoginVC];
     
     LWUserVefifyViewController *launchVC = [[LWUserVefifyViewController alloc] init];
@@ -89,5 +92,22 @@
     } WithFailBlock:^(id  _Nonnull data) {
         [self getCurrentTokenPrice];
     }];
+    
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+//        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+//        dispatch_source_set_event_handler(timer, ^{
+//            [LWHomeListCoordinator getTokenPriceWithSuccessBlock:^(id  _Nonnull data) {
+//                    
+//            } WithFailBlock:^(id  _Nonnull data) {
+//                    [self getCurrentTokenPrice];
+//            }];
+//        });
+//        dispatch_resume(timer);
+//    });
+
+    
+    
+
 }
 @end

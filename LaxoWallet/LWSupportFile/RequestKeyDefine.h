@@ -71,6 +71,7 @@ static NSString * const WS_paymail_queryByWid = @"paymail.queryByWid";
 static NSString * const WS_paymail_update = @"paymail.update";
 static NSString * const WS_paymail_setMain = @"paymail.setMain";
 static NSString * const WS_paymail_query = @"paymail.query";
+static NSString * const WS_paymail_add = @"paymail.add";
 
 
 

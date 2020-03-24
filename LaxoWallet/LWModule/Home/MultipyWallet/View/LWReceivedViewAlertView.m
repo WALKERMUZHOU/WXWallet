@@ -6,18 +6,16 @@
 //  Copyright © 2020 LaxoWallet. All rights reserved.
 //
 
-#import "LWMultipySendToBeSignedView.h"
+#import "LWReceivedViewAlertView.h"
 
-@interface LWMultipySendToBeSignedView ()
+@interface LWReceivedViewAlertView ()
 @property (weak, nonatomic) IBOutlet UILabel *walletNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *satuedescribeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *createTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *signCountLabel;
-@property (weak, nonatomic) IBOutlet UIButton *signStatueBtn;
+
 @property (weak, nonatomic) IBOutlet UILabel *noteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *txLinkLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountDetailLabel;
@@ -27,7 +25,7 @@
 
 @end
 
-@implementation LWMultipySendToBeSignedView
+@implementation LWReceivedViewAlertView
 
 - (void)awakeFromNib{
     [super awakeFromNib];
@@ -41,7 +39,6 @@
     NSDictionary *userStatues = messageModel.user_status;
     NSArray *approve = [userStatues objectForKey:@"approve"];
             
-    self.satuedescribeLabel.text = [NSString stringWithFormat:@"You’ve signed. Awaiting others to sign (%ld of %ld)",(long)(walletModel.threshold - approve.count),(long)walletModel.threshold];
     
     self.timeLabel.text = [LWTimeTool EngLishMonthWithTimeStamp:messageModel.createtime abbreviations:YES EnglishShortNameForDate:NO];
     self.amountLabel.text = [NSString stringWithFormat:@"-%@", [LWNumberTool formatSSSFloat:messageModel.value/1e8]];
@@ -51,7 +48,6 @@
     self.addressLabel.text = messageModel.biz_data;
     self.createTimeLabel.text = [LWTimeTool dataFormateMMDDYYHHSS:messageModel.createtime];
     
-    self.signCountLabel.text =  [NSString stringWithFormat:@"%ld/%ld Signed",(long)approve.count,(long)walletModel.threshold];
     self.noteLabel.text = messageModel.note;
     self.txLinkLabel.text = [messageModel.txid stringByReplacingCharactersInRange:NSMakeRange(2, messageModel.txid.length - 6) withString:@"****"];
     self.amountDetailLabel.text = [NSString stringWithFormat:@"- %@ BSV  |  -%@",[LWNumberTool formatSSSFloat:messageModel.value/1e8],messageModel.priceDefine];
@@ -62,11 +58,8 @@
         self.block(0);
     }
 }
-- (IBAction)statueClick:(UIButton *)sender {
-    if (self.block) {
-        self.block(1);
-    }
-}
+
+
 
 - (IBAction)copyClick:(UIButton *)sender {
     

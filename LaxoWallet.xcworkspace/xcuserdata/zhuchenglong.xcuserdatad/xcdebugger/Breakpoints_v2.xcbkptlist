@@ -313,9 +313,9 @@
             filePath = "LaxoWallet/LWModule/Home/Controller/LWHomeViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "482"
-            endingLineNumber = "482"
-            landmarkName = "-manageTokenPrice:"
+            startingLineNumber = "512"
+            endingLineNumber = "512"
+            landmarkName = "-manageWalletMessageList:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -329,9 +329,9 @@
             filePath = "LaxoWallet/LWModule/Home/Controller/LWHomeViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "487"
-            endingLineNumber = "487"
-            landmarkName = "-manageTokenPrice:"
+            startingLineNumber = "517"
+            endingLineNumber = "517"
+            landmarkName = "-manageJoinWalletInfo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -393,10 +393,42 @@
             filePath = "LaxoWallet/LWModule/Home/PersonalWallet/View/LWPersonalSendView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "-setAddress:andAmount:andMessage:andModel:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "15009891-3893-4BF3-8FE8-021A7A42E8AE - fc669094858ed566"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LWPersonalSendView setAddress:andAmount:andMessage:andModel:]"
+                  moduleName = "LaxoWallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhuchenglong/WXWallet/LaxoWallet/LWModule/Home/PersonalWallet/View/LWPersonalSendView.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "2420">
+               </Location>
+               <Location
+                  uuid = "15009891-3893-4BF3-8FE8-021A7A42E8AE - 9b9632e80c9cc201"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__63-[LWPersonalSendView setAddress:andAmount:andMessage:andModel:]_block_invoke.185"
+                  moduleName = "LaxoWallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhuchenglong/WXWallet/LaxoWallet/LWModule/Home/PersonalWallet/View/LWPersonalSendView.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -460,6 +492,22 @@
             startingLineNumber = "64"
             endingLineNumber = "64"
             landmarkName = "-statueClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D7D062A-486F-4758-9191-0BB330699E6C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LaxoWallet/LWModule/Mine/PayMail/View/LWPaymialListTableView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "-setmain:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

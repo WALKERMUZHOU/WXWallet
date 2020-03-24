@@ -31,6 +31,8 @@ typedef NS_OPTIONS(NSInteger, TokenType){
 + (void)setCurrentLanguage:(LWCurrentLanguage)languageType;
 + (void)setCurrentCurrency:(LWCurrentCurrency)currencyType;
 + (NSString *)getCurrentCurrencyPrice;//得到当前币种汇率
++ (NSString *)getCurrentUSDPrice;//得到当前币种汇率
+
 ///得到当前汇率带单位
 + (NSString *)getCurrentCurrencyPriceWithAmount:(CGFloat)amount;
 

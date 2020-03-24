@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat      fee;//手续费
 @property (nonatomic, strong) NSString     *note;//备注
 @property (nonatomic, strong) NSString     *txid;//texid
+@property (nonatomic, strong) NSString     *biz_data;
 
 @property (nonatomic, assign) NSInteger      status;//状态1-待签名，2-完成，3-取消
 @property (nonatomic, strong) NSDictionary     *user_status;//包含approve和reject

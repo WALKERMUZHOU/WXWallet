@@ -10,4 +10,7 @@
 
 @implementation LWPaymailModel
 
++ (NSDictionary *)modelCustomPropertyMapper{
+    return @{@"paymailId":@"id"};
+}
 @end

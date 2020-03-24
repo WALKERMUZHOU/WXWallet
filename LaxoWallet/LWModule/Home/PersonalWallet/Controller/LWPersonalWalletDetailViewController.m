@@ -51,6 +51,7 @@
     
     self.listView = [[LWPersoanDetailListView alloc]initWithFrame:CGRectMake(0, 262, kScreenWidth, KScreenHeightBar - 262) style:UITableViewStyleGrouped];
     self.listView.walletId = self.contentModel.walletId;
+    self.listView.homeWallteModel = self.contentModel;
     [self.view addSubview:self.listView];
     [self.listView getCurrentData];
 

@@ -60,6 +60,7 @@
 #define kWebScoket_paymail_queryByWid       @"kWebScoket_paymail_queryByWid"
 #define kWebScoket_paymail_setMain       @"kWebScoket_paymail_setMain"
 #define kWebScoket_paymail_query      @"kWebScoket_paymail_query"
+#define kWebScoket_paymail_add       @"kWebScoket_paymail_add"
 
 
 
@@ -87,5 +88,8 @@
 #define kAppCurrentLanguage_userdefault   @"kAppCurrentLanguage_userdefault"
 #define kAppCurrentCurrency_userdefault   @"kAppCurrentCurrency_userdefault"
 #define kAppCreateMulitpyAddress_userdefault   @"kAppCreateMulitpyAddress_userdefault"
+
+#define kPersonalWallet_userdefault        @"kPersonalWallet_userdefault"
+
 
 #endif /* NotifcationMacros_h */

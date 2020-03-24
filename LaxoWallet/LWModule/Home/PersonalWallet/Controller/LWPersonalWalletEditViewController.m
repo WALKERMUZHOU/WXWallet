@@ -7,10 +7,13 @@
 //
 
 #import "LWPersonalWalletEditViewController.h"
+#import "LWPayMailViewController.h"
+#import "LWPaymailModel.h"
 
 @interface LWPersonalWalletEditViewController ()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *walletName;
+@property (weak, nonatomic) IBOutlet UITextField *paymailTF;
 @property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 @property (weak, nonatomic) IBOutlet UITextField *memberStatueTF;
 @property (weak, nonatomic) IBOutlet UITextField *ownerTF;
@@ -36,7 +39,8 @@
     self.amountLabel.text = [NSString stringWithFormat:@" %@ BSV | %@",[LWNumberTool formatSSSFloat:self.model.personalBitCount],self.model.personalPrice];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(renameNotification:) name:kWebScoket_walletReName object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUserSatue:) name:kWebScoket_paymail_queryByWid object:nil];
+    [self getCurrentPaymailSatue];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -53,7 +57,9 @@
 }
 
 - (IBAction)addPaymailClick:(UIButton *)sender {
-    
+    LWPayMailViewController *paymailVC = [[LWPayMailViewController alloc] init];
+    paymailVC.model = self.model;
+    [self.navigationController pushViewController:paymailVC animated:YES];
 }
 
 - (IBAction)saveClick:(UIButton *)sender {
@@ -67,6 +73,7 @@
     }
 }
 
+#pragma mark - rename
 - (void)resetWalletName{
     [SVProgressHUD show];
     NSDictionary *params = @{@"wid":@(self.model.walletId),@"name":self.walletName.text};
@@ -87,6 +94,38 @@
       }
 }
 
+#pragma mark - paymail
+- (void)getCurrentPaymailSatue{
+    [SVProgressHUD show];
+    NSDictionary *multipyparams = @{@"wid":@(self.model.walletId)};
+      NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestId_paymail_queryByWid),WS_paymail_queryByWid,[multipyparams jsonStringEncoded]];
+      [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+}
+
+- (void)getUserSatue:(NSNotification *)notification{
+
+    NSDictionary *resInfo = notification.object;
+     if ([[resInfo objectForKey:@"success"] integerValue] == 1) {
+         NSArray *statueArray = [resInfo objectForKey:@"data"];
+         for (NSInteger i = 0; i<statueArray.count; i++) {
+             LWPaymailModel *model = [LWPaymailModel modelWithDictionary:statueArray[i]];
+             if (model.index == 0) {
+                 self.paymailTF.text = [NSString stringWithFormat:@"%@@volt.io",model.name];
+             }
+             
+             if (model.main == 1) {
+                 self.paymailTF.text = [NSString stringWithFormat:@"%@@volt.io",model.name];
+                 break;
+             }
+         }
+
+     }else{
+         NSString *message = [resInfo objectForKey:@"message"];
+         if (message && message.length>0) {
+             [WMHUDUntil showMessageToWindow:message];
+         }
+     }
+}
 /*
 #pragma mark - Navigation
 

@@ -22,16 +22,25 @@
 
 - (void)createUI{
     [self setRefreshHeaderAndFooterNeeded:NO];
-
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    
     UINib *nib1 = [UINib nibWithNibName:@"LWPaymailTableViewCell" bundle: nil];
     [self.tableView registerNib:nib1 forCellReuseIdentifier:@"LWPaymailTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUserSatue:) name:kWebScoket_userIsOnLine object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUserSatue:) name:kWebScoket_paymail_queryByWid object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setmain:) name:kWebScoket_paymail_setMain object:nil];
+
+    
+//    [self getCurrentPaymailSatue];
+}
+
+- (void)setModel:(LWHomeWalletModel *)model{
+    _model = model;
     [self getCurrentPaymailSatue];
 }
 
-
-
+#pragma mark - listdata
 - (void)getCurrentPaymailSatue{
     [SVProgressHUD show];
     NSDictionary *multipyparams = @{@"wid":@(self.model.walletId)};
@@ -40,19 +49,50 @@
 }
 
 - (void)getUserSatue:(NSNotification *)notification{
+    [self.dataSource removeAllObjects];
     NSDictionary *resInfo = notification.object;
      if ([[resInfo objectForKey:@"success"] integerValue] == 1) {
          NSArray *statueArray = [resInfo objectForKey:@"data"];
-         
-         if (statueArray.count == 0) {
-             LWPaymailModel *model = [[LWPaymailModel alloc] init];
-             [self.dataSource addObj:model];
-         }else{
-             [self.dataSource addObjectsFromArray:[NSArray modelArrayWithClass:[LWPaymailModel class] json:statueArray]];
+         if (self.block) {
+             self.block(statueArray.count);
          }
          
+         for (NSInteger i = 0; i<statueArray.count; i++) {
+             LWPaymailModel *model = [LWPaymailModel modelWithDictionary:statueArray[i]];
+             model.index = i;
+             if (model.main == 1) {
+                 [self.dataSource insertObject:model atIndex:0];
+                 for (NSInteger j = 0; j<self.dataSource.count; j++) {
+                      LWPaymailModel *model = self.dataSource[j];
+                      model.index = j;
+                  }
+             }else{
+                 [self.dataSource addObj:model];
+             }
+         }
          [self.tableView reloadData];
          
+     }else{
+         NSString *message = [resInfo objectForKey:@"message"];
+         if (message && message.length>0) {
+             [WMHUDUntil showMessageToWindow:message];
+         }
+     }
+}
+
+#pragma mark - setmain
+- (void)setMain:(NSString *)paymaiID{
+    [SVProgressHUD show];
+    NSDictionary *multipyparams = @{@"wid":@(self.model.walletId),@"uid":[[LWUserManager shareInstance] getUserModel].uid,@"id":paymaiID};
+      NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestId_paymail_setMain),WS_paymail_setMain,[multipyparams jsonStringEncoded]];
+      [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+}
+
+- (void)setmain:(NSNotification *)notification{
+    [self.dataSource removeAllObjects];
+    NSDictionary *resInfo = notification.object;
+     if ([[resInfo objectForKey:@"success"] integerValue] == 1) {
+         [self getCurrentPaymailSatue];
      }else{
          NSString *message = [resInfo objectForKey:@"message"];
          if (message && message.length>0) {
@@ -75,6 +115,10 @@
     LWPaymailModel *messageModel = [self.dataSource objectAtIndex:indexPath.section];
     LWPaymailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWPaymailTableViewCell"];
     cell.model = messageModel;
+    cell.block = ^(NSString * _Nonnull paymailID) {
+        [SVProgressHUD show];
+        [self setMain:paymailID];
+    };
     return cell;
 }
 
@@ -91,11 +135,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 30.f;
+    return 0.0001f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.00001;
+    return 30.f;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

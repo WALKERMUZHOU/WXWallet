@@ -35,6 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat       personalBitCurrency;//不带单位价格
 @property (nonatomic, strong) NSString      *personalPrice;//带单位当前价格
 
+@property (nonatomic, assign) CGFloat       personalBitUSDCurrency;//不带单位USD
+
+
 @property (nonatomic, assign) CGFloat       canuseBitCount;
 @property (nonatomic, assign) CGFloat       loackBitCount;
 

@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWPersonalWalletEditViewController">
             <connections>
                 <outlet property="amountLabel" destination="ZI0-0b-35Z" id="btx-sR-V7z"/>
+                <outlet property="paymailTF" destination="nzM-6O-lvd" id="eps-9u-cay"/>
                 <outlet property="saveBtn" destination="n9f-lj-ovN" id="LYX-iw-UG3"/>
                 <outlet property="timeLabel" destination="aFt-lo-6vX" id="lUG-l7-FeK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

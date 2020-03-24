@@ -137,7 +137,7 @@
         }
 
     }else{
-        self.typeLabel.text = @"Cancle";
+        self.typeLabel.text = @"Cancel";
         self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
     }
     self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",biCountStr];

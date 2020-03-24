@@ -224,6 +224,10 @@
 		5E7E092F2428D83D00C75C0F /* LWAssetInheritanceModifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E092D2428D83D00C75C0F /* LWAssetInheritanceModifyViewController.xib */; };
 		5E7E09332428DA5200C75C0F /* LWAssetInheritanceSuccessorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09312428DA5200C75C0F /* LWAssetInheritanceSuccessorViewController.m */; };
 		5E7E09342428DA5200C75C0F /* LWAssetInheritanceSuccessorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E09322428DA5200C75C0F /* LWAssetInheritanceSuccessorViewController.xib */; };
+		5E7E09372429F66800C75C0F /* LWSendViewAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09362429F66800C75C0F /* LWSendViewAlertView.m */; };
+		5E7E09392429F67800C75C0F /* LWSendViewAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E09382429F67800C75C0F /* LWSendViewAlertView.xib */; };
+		5E7E093C2429F69C00C75C0F /* LWReceivedViewAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E093B2429F69C00C75C0F /* LWReceivedViewAlertView.m */; };
+		5E7E093E2429F6A700C75C0F /* LWReceivedViewAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E093D2429F6A700C75C0F /* LWReceivedViewAlertView.xib */; };
 		5E9172BD241528B700D47A9F /* CBSecp256k1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9172B8241528B700D47A9F /* CBSecp256k1.m */; };
 		5E9172BE241528B700D47A9F /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9172B9241528B700D47A9F /* NSData+HexString.m */; };
 		5E9172BF241528B700D47A9F /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9172BA241528B700D47A9F /* secp256k1.framework */; };
@@ -752,6 +756,12 @@
 		5E7E09302428DA5200C75C0F /* LWAssetInheritanceSuccessorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWAssetInheritanceSuccessorViewController.h; sourceTree = "<group>"; };
 		5E7E09312428DA5200C75C0F /* LWAssetInheritanceSuccessorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWAssetInheritanceSuccessorViewController.m; sourceTree = "<group>"; };
 		5E7E09322428DA5200C75C0F /* LWAssetInheritanceSuccessorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWAssetInheritanceSuccessorViewController.xib; sourceTree = "<group>"; };
+		5E7E09352429F66800C75C0F /* LWSendViewAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWSendViewAlertView.h; sourceTree = "<group>"; };
+		5E7E09362429F66800C75C0F /* LWSendViewAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWSendViewAlertView.m; sourceTree = "<group>"; };
+		5E7E09382429F67800C75C0F /* LWSendViewAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWSendViewAlertView.xib; sourceTree = "<group>"; };
+		5E7E093A2429F69C00C75C0F /* LWReceivedViewAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWReceivedViewAlertView.h; sourceTree = "<group>"; };
+		5E7E093B2429F69C00C75C0F /* LWReceivedViewAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWReceivedViewAlertView.m; sourceTree = "<group>"; };
+		5E7E093D2429F6A700C75C0F /* LWReceivedViewAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWReceivedViewAlertView.xib; sourceTree = "<group>"; };
 		5E9172B8241528B700D47A9F /* CBSecp256k1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSecp256k1.m; sourceTree = "<group>"; };
 		5E9172B9241528B700D47A9F /* NSData+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+HexString.m"; sourceTree = "<group>"; };
 		5E9172BA241528B700D47A9F /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = secp256k1.framework; sourceTree = "<group>"; };
@@ -1117,6 +1127,12 @@
 				5E31610224273B16005CA564 /* LWMultipySendCancleView.h */,
 				5E31610324273B16005CA564 /* LWMultipySendCancleView.m */,
 				5E31610524273B2D005CA564 /* LWMultipySendCancleView.xib */,
+				5E7E09352429F66800C75C0F /* LWSendViewAlertView.h */,
+				5E7E09362429F66800C75C0F /* LWSendViewAlertView.m */,
+				5E7E09382429F67800C75C0F /* LWSendViewAlertView.xib */,
+				5E7E093A2429F69C00C75C0F /* LWReceivedViewAlertView.h */,
+				5E7E093B2429F69C00C75C0F /* LWReceivedViewAlertView.m */,
+				5E7E093D2429F6A700C75C0F /* LWReceivedViewAlertView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2761,6 +2777,7 @@
 				5E9172CA2416284B00D47A9F /* LWHomeListHeaderView.xib in Resources */,
 				5E23584823FBE09D00A7D774 /* index.html in Resources */,
 				5E07FD132420B61300FA3E1F /* LWLoginStepSixView.xib in Resources */,
+				5E7E09392429F67800C75C0F /* LWSendViewAlertView.xib in Resources */,
 				5E07FD182420B88A00FA3E1F /* LWLoginStepSevenView.xib in Resources */,
 				5EB31EA72405182800974FD4 /* LWMessageTableViewCell.xib in Resources */,
 				5E66A34623EAB58C004097CB /* WMHUDUntil.bundle in Resources */,
@@ -2785,6 +2802,7 @@
 				5E9918B6241E70D3005D6A38 /* LWLoginStepFiveView.xib in Resources */,
 				5E07FD39242204DD00FA3E1F /* LWCreateMultipyWalletViewController.xib in Resources */,
 				5E9918B1241E68A9005D6A38 /* LWLoginStepFourView.xib in Resources */,
+				5E7E093E2429F6A700C75C0F /* LWReceivedViewAlertView.xib in Resources */,
 				5EB31E8724041CAF00974FD4 /* LWMineSecurityTableViewCell.xib in Resources */,
 				5E0FE6962408E72D00733B05 /* index.js in Resources */,
 				5E07FD222420BC0D00FA3E1F /* LWLoginStepSuccessView.xib in Resources */,
@@ -3022,6 +3040,7 @@
 				5E66A39C23EAF103004097CB /* LWHomeListCell.m in Sources */,
 				5E66A37023EAC48B004097CB /* LWBaseView.m in Sources */,
 				5EF5137523F273DB00F5B6C1 /* LWTestWebView.m in Sources */,
+				5E7E09372429F66800C75C0F /* LWSendViewAlertView.m in Sources */,
 				5E7E09172428B5D100C75C0F /* LWEmailTool.m in Sources */,
 				5E5F129723EC0E12002F0711 /* WMZDialog+time.m in Sources */,
 				5E5F123623EC06F1002F0711 /* LogicHandle.m in Sources */,
@@ -3048,6 +3067,7 @@
 				5E917379241B1F1300D47A9F /* LWMultipyTransactionTool.m in Sources */,
 				5E3161162427939C005CA564 /* LWSignStatueModel.m in Sources */,
 				5E3160D42424A81E005CA564 /* LWScanLoginViewController.m in Sources */,
+				5E7E093C2429F69C00C75C0F /* LWReceivedViewAlertView.m in Sources */,
 				5E5F12D023ED8B3F002F0711 /* LWRecoveryFileView.m in Sources */,
 				5E66A3CB23EBFAA2004097CB /* UIView+TYAlertView.m in Sources */,
 				5E9172BD241528B700D47A9F /* CBSecp256k1.m in Sources */,

@@ -30,18 +30,25 @@
                         <rect key="frame" x="20" y="35" width="335" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfQ-4j-1VL">
-                                <rect key="frame" x="15" y="14" width="132.5" height="22.5"/>
+                                <rect key="frame" x="15" y="14" width="74.5" height="22.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="username">
                                         <attributes>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="NSColor" red="0.13587096330000001" green="0.57124239210000005" blue="0.46952360869999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="16" name="PingFangSC-Semibold"/>
                                         </attributes>
                                     </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vv-g9-tHn">
+                                <rect key="frame" x="91.5" y="14" width="58" height="22.5"/>
+                                <attributedString key="attributedText">
                                     <fragment content="@volt.io">
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <font key="NSFont" metaFont="system" size="16"/>
+                                            <font key="NSFont" size="16" name="PingFangSC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -52,6 +59,8 @@
                         <constraints>
                             <constraint firstItem="RfQ-4j-1VL" firstAttribute="leading" secondItem="0KQ-fd-QRb" secondAttribute="leading" constant="15" id="11R-NI-8II"/>
                             <constraint firstItem="RfQ-4j-1VL" firstAttribute="centerY" secondItem="0KQ-fd-QRb" secondAttribute="centerY" id="jaQ-al-5Wx"/>
+                            <constraint firstItem="6Vv-g9-tHn" firstAttribute="centerY" secondItem="RfQ-4j-1VL" secondAttribute="centerY" id="l0t-M2-nWt"/>
+                            <constraint firstItem="6Vv-g9-tHn" firstAttribute="leading" secondItem="RfQ-4j-1VL" secondAttribute="trailing" constant="2" id="wJi-fK-MyL"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -69,20 +78,28 @@
                         <state key="normal" title="Assign as primary">
                             <color key="titleColor" red="0.1236214414" green="0.51611816880000005" blue="0.42251092200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <connections>
+                            <action selector="primierClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="suw-Fs-3Cv"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="0KQ-fd-QRb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="2xw-2M-ZZw"/>
-                    <constraint firstAttribute="trailing" secondItem="0KQ-fd-QRb" secondAttribute="trailing" constant="20" id="9tL-Aw-3wh"/>
                     <constraint firstItem="nWZ-rF-6N2" firstAttribute="centerY" secondItem="mUl-6k-HCQ" secondAttribute="centerY" id="I19-Vy-3BB"/>
                     <constraint firstItem="mUl-6k-HCQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="IpD-eB-jH9"/>
                     <constraint firstItem="0KQ-fd-QRb" firstAttribute="top" secondItem="mUl-6k-HCQ" secondAttribute="bottom" constant="15" id="OO3-9J-W5n"/>
                     <constraint firstAttribute="trailing" secondItem="nWZ-rF-6N2" secondAttribute="trailing" constant="20" id="W5B-jV-xyu"/>
                     <constraint firstItem="mUl-6k-HCQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="YXU-c5-RQ3"/>
                     <constraint firstAttribute="bottom" secondItem="0KQ-fd-QRb" secondAttribute="bottom" id="n2c-Kl-uKK"/>
+                    <constraint firstAttribute="trailing" secondItem="0KQ-fd-QRb" secondAttribute="trailing" constant="20" symbolic="YES" id="r1D-Db-LRf"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="indexLabel" destination="mUl-6k-HCQ" id="OLM-Lb-fVq"/>
+                <outlet property="primaryBtn" destination="nWZ-rF-6N2" id="Q4h-WU-mtm"/>
+                <outlet property="userNameLabel" destination="RfQ-4j-1VL" id="UI9-Ec-PTE"/>
+            </connections>
             <point key="canvasLocation" x="131.8840579710145" y="111.49553571428571"/>
         </tableViewCell>
     </objects>

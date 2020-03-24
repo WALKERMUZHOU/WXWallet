@@ -70,6 +70,7 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestId_paymail_update         = 10032,
     WSRequestId_paymail_setMain        = 10033,
     WSRequestId_paymail_query          = 10034,
+    WSRequestId_paymail_add          = 10035,
 
     
 };

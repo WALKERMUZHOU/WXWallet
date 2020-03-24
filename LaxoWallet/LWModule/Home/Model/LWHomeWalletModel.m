@@ -15,6 +15,11 @@
 }
 
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic{
+    NSString *name = [dic ds_stringForKey:@"name"];
+    if (!name || name.length == 0) {
+        self.name = @"BSV";
+    }
+    
     NSArray *utxoArray = [dic objectForKey:@"utxo"];
     self.utxo = [NSArray modelArrayWithClass:[LWutxoModel class] json:utxoArray];
     NSArray *partiesArray = [dic objectForKey:@"parties"];
@@ -47,10 +52,12 @@
         
     }
     self.personalBitCount = bitCount/1e8;
-    self.canuseBitCount = bitCount/1e8;
-    self.loackBitCount = bitCount/1e8;
+    self.canuseBitCount = canuseCount/1e8;
+    self.loackBitCount = lockCount/1e8;
     
     self.personalBitCurrency = [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV].floatValue * bitCount/1e8;
+    
+    self.personalBitUSDCurrency = [LWPublicManager getCurrentUSDPrice].floatValue *bitCount/1e8;
     
     if([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY){
         self.personalPrice = [NSString stringWithFormat:@"¥ %.2f",self.personalBitCurrency];

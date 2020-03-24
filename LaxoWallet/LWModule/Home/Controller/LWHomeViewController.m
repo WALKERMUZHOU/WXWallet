@@ -440,6 +440,11 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_paymail_query object:responseArray[2]];
         }
             break;
+        case WSRequestId_paymail_add:{
+            [SVProgressHUD dismiss];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_paymail_add object:responseArray[2]];
+        }
+            break;
          default:{
              NSString *idString = [NSString stringWithFormat:@"%ld",(long)requestId];
              if (idString.length>5) {
@@ -468,6 +473,11 @@
 
 #pragma mark - websocket Manage Method
 - (void)managePersonalWalletData:(NSDictionary *)personalData{
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[personalData jsonStringEncoded] forKey:kPersonalWallet_userdefault];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
     [self.listHeadView setPersonalWalletdData:personalData];
     [self.listView setPersonalWalletdData:personalData];
 }

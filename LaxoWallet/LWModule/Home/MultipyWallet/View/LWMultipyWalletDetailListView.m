@@ -132,14 +132,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     LWMessageModel *messageModel = [self.dataSource objectAtIndex:indexPath.section];
-    
-//    [LWAlertTool alertSigneseStatueView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
-//        
-//    }];
-//    return;
-//    
-    if(messageModel.type == 1){
 
+    if(messageModel.type == 1){
+        [LWAlertTool alertReceiveddAlertView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
+            
+        }];
     }else{
         
         if (messageModel.status == 1) {
@@ -164,17 +161,21 @@
                         }
                     }
                     
-                    if (ismineSigned == 1) {
-                        [LWAlertTool alertMultipyPendingView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
+                    if (ismineSigned == 1 && approve.count == 1) {
+                        [LWAlertTool alertMultipyOutgoingView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
                                   
                         }];
                         
-                    }else{//
+                    }else if(ismineSigned == 1){
                         [LWAlertTool alertMultipySignedView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
-                                              
-                                        
-                        }];
-                        
+                                                          
+                                                    
+                                    }];
+                    }else{//
+            
+                        [LWAlertTool alertMultipyPendingView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
+                                             
+                                   }];
                     }
                     
                 }
@@ -211,6 +212,9 @@
             }
             
         }else if(messageModel.status == 2){
+            [LWAlertTool alertSendAlertView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
+                        
+              }];
 
             
         }else if(messageModel.status == 3){

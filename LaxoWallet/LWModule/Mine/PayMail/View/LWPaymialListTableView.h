@@ -10,10 +10,13 @@
 #import "LWHomeWalletModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^PayMailCountBlock)(NSInteger count);
 @interface LWPaymialListTableView : LWBaseTableView
 
 @property (nonatomic, strong) LWHomeWalletModel *model;
+@property (nonatomic, copy) PayMailCountBlock block;
 
+- (void)getCurrentPaymailSatue;
 @end
 
 NS_ASSUME_NONNULL_END

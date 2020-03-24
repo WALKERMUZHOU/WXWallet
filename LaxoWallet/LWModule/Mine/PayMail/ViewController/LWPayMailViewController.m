@@ -8,6 +8,7 @@
 
 #import "LWPayMailViewController.h"
 #import "LWPaymialListTableView.h"
+#import "LWTansactionTool.h"
 
 @interface LWPayMailViewController ()<UITextFieldDelegate>
 
@@ -25,12 +26,20 @@
 
 @property (nonatomic, strong) LWPaymialListTableView *listView;
 
+@property (nonatomic, strong) LWHomeWalletModel *firstWallet;
+
+@property (nonatomic, assign) BOOL currencySufficient;
+@property (nonatomic, assign) BOOL isFirstPayMail;
+
 @end
 
 @implementation LWPayMailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    __weak typeof(self) weakself = self;
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.statueLabel.hidden = YES;
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor whiteColor];
     self.payMailTFBackView.layer.borderColor = lwColorGrayD8.CGColor;
@@ -38,9 +47,33 @@
     self.payMailTF.delegate = self;
     
     self.listView = [[LWPaymialListTableView alloc] initWithFrame:self.firstView.bounds style:UITableViewStyleGrouped];
+    self.listView.model = self.model;
     [self.firstView addSubview:self.listView];
+    self.listView.block = ^(NSInteger count) {
+        if (count == 0 && self.firstWallet.walletId == self.model.walletId) {
+            weakself.isFirstPayMail = YES;
+        }
+    };
+    NSString *personalStr = [[NSUserDefaults standardUserDefaults] objectForKey:kPersonalWallet_userdefault];
+
+    NSDictionary *personalDic = [NSJSONSerialization JSONObjectWithData:[personalStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+    NSArray *personalArray = [personalDic objectForKey:@"data"];
+    NSArray *personalDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:personalArray];
+    self.firstWallet = personalDataArray.firstObject;
+
+    
+    self.amountLabel.text = [NSString stringWithFormat:@"Available funds %@ from %@ ",self.firstWallet.personalPrice,self.firstWallet.name];
+
+    CGFloat amount = 1/[LWPublicManager getCurrentUSDPrice].floatValue;
+    if (amount > self.model.canuseBitCount) {
+        self.currencySufficient = NO;
+    }else{
+        self.currencySufficient = YES;
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payMailEditResult:) name:kWebScoket_paymail_query object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addMailResult:) name:kWebScoket_paymail_add object:nil];
+
 }
 
 - (IBAction)personBtnClick:(UIButton *)sender {
@@ -77,6 +110,26 @@
     
 }
 - (IBAction)buyClick:(UIButton *)sender {
+    if (!self.payMailTF.text || self.payMailTF.text.length == 0) {
+        [WMHUDUntil showMessageToWindow:@"please input paymail"];
+        return;
+    }
+    if ([self.statueLabel.text isEqualToString:@"UnAvailable!"] || self.statueLabel.hidden) {
+        [WMHUDUntil showMessageToWindow:@"UnAvailable paymail"];
+        return;
+    }
+    
+    if (!self.currencySufficient) {
+        [WMHUDUntil showMessageToWindow:@"not sufficient funds"];
+        return;
+    }
+    
+    if (self.isFirstPayMail) {
+        [self addpayMail];
+    }else{
+        [self registerPaymail];
+        
+    }
 }
 
 #pragma mark - textfield
@@ -86,8 +139,9 @@
     }
 }
 
+#pragma mark - verify paymail
 - (void)verifyPaymailAddress{
-    NSDictionary *params = @{@"name":[NSString stringWithFormat:@"%@@volt.io",self.payMailTF.text]};
+    NSDictionary *params = @{@"name":[NSString stringWithFormat:@"%@",self.payMailTF.text]};
     NSArray *requestPersonalWalletArray = @[@"req",
                                             @(WSRequestId_paymail_query),
                                             WS_paymail_query,
@@ -98,16 +152,59 @@
 
 - (void)payMailEditResult:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;
+    self.statueLabel.hidden = NO;
     if ([[notiDic objectForKey:@"success"] integerValue] == 1 ) {
-        if (1) {
-            self.statueLabel.text = @"Available!";
-            self.statueLabel.textColor = lwColorNormal;
-        }else{
-            self.statueLabel.text = @"UnAvailable!";
-            self.statueLabel.textColor = lwColorRedLight;
-        }
+        self.statueLabel.text = @"Available!";
+           self.statueLabel.textColor = lwColorNormal;
+        
+    }else{
+        self.statueLabel.text = @"UnAvailable!";
+        self.statueLabel.textColor = lwColorRedLight;
     }
+}
 
+#pragma mark - registerpaymail
+- (void)registerPaymail{
+    
+    CGFloat amount = 1/[LWPublicManager getCurrentUSDPrice].floatValue;
+    
+    [LWAlertTool alertPersonalWalletViewSend:self.firstWallet andAdress:@"1Ex49LfhSdY7ukoaakw7S5QGTS6vtretKD" andAmount:[LWNumberTool formatSSSFloat:amount] andNote:@"pay for paymail" ispaymail:YES andComplete:^{
+        [self addpayMail];
+    }];
+    
+    
+//    LWTansactionTool *trans = [LWTansactionTool shareInstance];
+//    [trans startTransactionWithAmount:amount address:@"1Ex49LfhSdY7ukoaakw7S5QGTS6vtretKD" note:@"pay for paymail" andTotalModel:self.model];
+//    trans.transactionBlock = ^(BOOL success) {
+//        if (success) {
+//            [self addpayMail];
+//        }
+//    };
+//    [trans transStart];
+}
+
+- (void)addpayMail{
+    NSDictionary *params = @{@"name":[NSString stringWithFormat:@"%@",self.payMailTF.text],@"uid":[[LWUserManager shareInstance] getUserModel].uid,@"wid":@(self.model.walletId)};
+    NSArray *requestPersonalWalletArray = @[@"req",
+                                            @(WSRequestId_paymail_add),
+                                            WS_paymail_add,
+                                            [params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    [[SocketRocketUtility instance] sendData:data];
+}
+
+- (void)addMailResult:(NSNotification *)notification{
+    NSDictionary *notiDic = notification.object;
+
+    if ([[notiDic objectForKey:@"success"] integerValue] == 1 ) {
+        [WMHUDUntil showMessageToWindow:@"pay mail buy success"];
+        [self.listView getCurrentPaymailSatue];
+        self.payMailTF.text = @"";
+        self.isFirstPayMail = NO;
+        [self personBtnClick:self.ownedBtn];
+    }else{
+        [WMHUDUntil showMessageToWindow:@"pay mail add fail"];
+    }
 }
 
 /*

@@ -23,13 +23,31 @@
 
 @implementation LWSignessSatuteView
 
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    
+}
+
+- (void)setFrame:(CGRect)frame{
+    frame.size.width=kScreenWidth;
+    [super setFrame:frame];
+}
+
 - (void)setSignessSatuteViewWithWalletModel:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel{
     self.walletModel = walletModel;
     self.messageModel = messageModel;
 
-    LWSignStatueListView *listView = [[LWSignStatueListView alloc] initWithFrame:self.backView.bounds style:UITableViewStyleGrouped];
+    LWSignStatueListView *listView = [[LWSignStatueListView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, self.backView.kheight) style:UITableViewStyleGrouped];
     [listView setSignessSatuteViewWithWalletModel:self.walletModel andMessageModel:self.messageModel];
     [self.backView addSubview:listView];
+    listView.block = ^{
+        if (self.block) {
+            self.block(0);
+        }
+    };
+    
+    self.timeLabel.text = [LWTimeTool EngLishMonthWithTimeStamp:self.messageModel.createtime abbreviations:YES EnglishShortNameForDate:NO];
+    self.amountLabel.text = self.messageModel.priceDefine;
 }
 
 

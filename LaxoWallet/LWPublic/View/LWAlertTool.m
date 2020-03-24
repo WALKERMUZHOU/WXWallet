@@ -359,10 +359,10 @@
     };
     
     
-//     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
-//             NSLog(@"%@",sender);
-//         }];
-//     [walletView addGestureRecognizer:tap1];
+     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+             NSLog(@"%@",sender);
+         }];
+     [walletView addGestureRecognizer:tap1];
      
      [UIView animateWithDuration:0.3 animations:^{
          walletView.frame = CGRectMake(0, 0, kScreenWidth, viewHeight);

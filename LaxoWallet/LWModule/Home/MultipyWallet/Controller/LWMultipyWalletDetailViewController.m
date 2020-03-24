@@ -37,6 +37,8 @@
     // Do any additional setup after loading the view from its nib.
     [self createUI];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMultipyAddress:) name:kWebScoket_multipyAddress object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(partiesNotification:) name:kWebScoket_messageParties object:nil];
+    [self queryParties];
 
 }
 
@@ -128,8 +130,7 @@
         [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
         return;
     }
-    
-    
+ 
     LWHomeWalletModel *model = self.contentModel;
     NSDictionary *params = @{@"wid":@(model.walletId)};
     NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQueryMultipyAddress),WS_Home_getMutipyAddress,[params jsonStringEncoded]];
@@ -158,7 +159,26 @@
         }
   
     }
+}
+
+#pragma mark - getpartiespate
+- (void)queryParties{
+    [SVProgressHUD show];
+    NSDictionary *params = @{@"wid":@(self.contentModel.walletId)};
+    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQueryMessageParties),WS_Home_MessageParties,[params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    [[SocketRocketUtility instance] sendData:data];
     
+}
+
+- (void)partiesNotification:(NSNotification *)notification{
+    [SVProgressHUD dismiss];
+     NSDictionary *notiDic = notification.object;
+      if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+          NSArray *partiesArray = [notiDic objectForKey:@"data"];
+          self.contentModel.parties = [NSArray modelArrayWithClass:[LWPartiesModel class] json:partiesArray];
+          self.listView.homeWallteModel = self.contentModel;
+      }
 }
 
 /*

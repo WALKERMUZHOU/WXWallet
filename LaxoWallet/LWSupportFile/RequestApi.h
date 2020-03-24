@@ -61,9 +61,9 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestId_scanLogin                        = 10024,//扫一扫登录
 
     WSRequestIdWallet_multipy_JoinWallet         = 10025,//加入钱包
-    WSRequestIdWallet_multipy_sign        = 10026,//同意签名
-    WSRequestIdWallet_multipy_rejectsign        = 10027,//拒绝签名
-    WSRequestIdWallet_multipy_cancelTransaction        = 10028,//取消交易
+    WSRequestIdWallet_multipy_sign               = 10026,//同意签名
+    WSRequestIdWallet_multipy_rejectsign         = 10027,//拒绝签名
+    WSRequestIdWallet_multipy_cancelTransaction  = 10028,//取消交易
 
     WSRequestIdWallet_resetWalletName        = 10029,//钱包名称设置
     WSRequestIdWallet_CreatePersonalWallet     = 10030,

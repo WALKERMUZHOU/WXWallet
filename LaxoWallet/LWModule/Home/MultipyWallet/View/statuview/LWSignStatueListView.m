@@ -22,7 +22,8 @@
 
 - (void)createUI{
     [self setRefreshHeaderAndFooterNeeded:NO];
-
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    
     UINib *nib1 = [UINib nibWithNibName:@"LWSignSatueTableViewCell" bundle: nil];
     [self.tableView registerNib:nib1 forCellReuseIdentifier:@"LWSignSatueTableViewCell"];
     
@@ -133,7 +134,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0.0001f;
+    return 15.f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

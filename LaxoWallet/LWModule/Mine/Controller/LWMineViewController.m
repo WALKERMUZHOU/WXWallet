@@ -11,6 +11,7 @@
 #import "LWMinePreferencesViewController.h"
 #import "LBXScanNative.h"
 #import "PublicKeyView.h"
+#import "LWBaseWebViewController.h"
 
 @interface LWMineViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -27,8 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-#if DEBUGER
+    self.nameLabel.text = [[LWUserManager shareInstance]getUserModel].email;
+#if DEBUG
     self.loginoutBtn.hidden = NO;
 #else
     self.loginoutBtn.hidden = YES;
@@ -50,7 +51,7 @@
      NSDictionary *multipyWalletDic = [NSJSONSerialization JSONObjectWithData:[multipyWallet dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
      
      NSArray *personalDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:[personalWalletDic objectForKey:@"data"]];
-     NSArray *multipyDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:[personalWalletDic objectForKey:@"data"]];
+     NSArray *multipyDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:[multipyWalletDic objectForKey:@"data"]];
      
      CGFloat bitCount = 0;
 
@@ -90,7 +91,7 @@
              priceTypeStr = @"$";
          }
          
-         self.bitCountLabel.text = [LWNumberTool formatSSSFloat:bitCount];
+         self.bitCountLabel.text = [LWNumberTool formatSSSFloat:personalBitCount];
          self.priceLabel.text = [NSString stringWithFormat:@"%@%.2f",priceTypeStr,personalBitCount];
      }
 }
@@ -107,11 +108,10 @@
     }else if (index == 3){
         [self downLoadClick];
     }else if (index == 4){
-        LWMineSecurityViewController *securityVC = [[LWMineSecurityViewController alloc]init];
-        securityVC.MineVCType = 2;
+        LWBaseWebViewController *securityVC = [[LWBaseWebViewController alloc]init];
+        securityVC.url = @"https://twitter.com/Voltfinance";
         [LogicHandle pushViewController:securityVC animate:YES];
-    }
-    
+    }    
 }
 
 - (IBAction)editCLick:(UIButton *)sender {

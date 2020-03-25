@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PublicKeyView : UIView
 
 + (instancetype)shareInstance;
+
+- (void)loadWebViewWithURLString:(NSString *)url;
 - (void)getInitDataBlock:(void(^)(NSDictionary *dicData))successBlock;
 - (void)getOtherData:(NSString *)methodSte andBlock:(void(^)(id dicData))successBlock;
 

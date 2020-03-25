@@ -55,6 +55,9 @@
     self.canuseBitCount = canuseCount/1e8;
     self.loackBitCount = lockCount/1e8;
     
+    self.canuseBitCountInterger = canuseCount;
+    self.loackBitCountInterger = lockCount;
+    
     self.personalBitCurrency = [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV].floatValue * bitCount/1e8;
     
     self.personalBitUSDCurrency = [LWPublicManager getCurrentUSDPrice].floatValue *bitCount/1e8;

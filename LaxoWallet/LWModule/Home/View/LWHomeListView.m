@@ -13,7 +13,6 @@
 #import "LWHomeListCoordinator.h"
 #import "LWHomeWalletModel.h"
 
-#import "LWPersonalTransferAccountViewController.h"
 #import "LWPersonalCollectionViewController.h"
 #import "LWMessageDetailViewController.h"
 #import "LWMultipyOtherNotJoinViewController.h"
@@ -100,22 +99,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LWHomeWalletModel *model = [self.dataSource objectAtIndex:indexPath.row];
     LWHomeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWHomeListCell"];
-    cell.delegate = self;
+//    cell.delegate = self;
     
-    MGSwipeButton *leftBtn = [MGSwipeButton buttonWithTitle:@"转账" backgroundColor:lwColorNormal];
-    leftBtn.buttonWidth = 90;
-    leftBtn.callback = ^BOOL(MGSwipeTableCell * _Nonnull cell) {
-        [self transferAccount:indexPath.row];
-        return YES;
-    };
-    cell.leftButtons = @[leftBtn];
-    MGSwipeButton *rightBtn = [MGSwipeButton buttonWithTitle:@"收款" backgroundColor:lwColorNormalDeep];
-    rightBtn.buttonWidth = 90;
-    rightBtn.callback = ^BOOL(MGSwipeTableCell * _Nonnull cell) {
-        [self collection:indexPath.row];
-        return YES;
-    };
-    cell.rightButtons = @[rightBtn];
+//    MGSwipeButton *leftBtn = [MGSwipeButton buttonWithTitle:@"转账" backgroundColor:lwColorNormal];
+//    leftBtn.buttonWidth = 90;
+//    leftBtn.callback = ^BOOL(MGSwipeTableCell * _Nonnull cell) {
+//        [self transferAccount:indexPath.row];
+//        return YES;
+//    };
+//    cell.leftButtons = @[leftBtn];
+//    MGSwipeButton *rightBtn = [MGSwipeButton buttonWithTitle:@"收款" backgroundColor:lwColorNormalDeep];
+//    rightBtn.buttonWidth = 90;
+//    rightBtn.callback = ^BOOL(MGSwipeTableCell * _Nonnull cell) {
+//        [self collection:indexPath.row];
+//        return YES;
+//    };
+//    cell.rightButtons = @[rightBtn];
     [cell setModel:model];
     return cell;
 }
@@ -295,17 +294,6 @@
     }
 }
 
-- (void)transferAccount:(NSInteger)index{
-    LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
-    NSString *address = [model.deposit objectForKey:@"address"];
-    if (address && address.length >0) {
-        LWPersonalTransferAccountViewController *personalTA = [[LWPersonalTransferAccountViewController alloc]init];
-        [personalTA setModel:model];
-        [LogicHandle presentViewController:personalTA animate:YES];
-    }else{
-//        [self getQrCodeWithIndex:index];
-    }
-}
 
 #pragma mark - 多人钱包
 //

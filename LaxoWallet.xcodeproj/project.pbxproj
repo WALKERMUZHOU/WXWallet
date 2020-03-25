@@ -211,6 +211,10 @@
 		5E755A9B24230D6F00398413 /* LWPersonalSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A8B24230D6F00398413 /* LWPersonalSendView.m */; };
 		5E755A9F2423199800398413 /* LWTimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A9E2423199800398413 /* LWTimeTool.m */; };
 		5E755AA2242377E700398413 /* LWNumberTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755AA1242377E700398413 /* LWNumberTool.m */; };
+		5E7BACA6242B1E3800901EA5 /* LWWebSoketTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACA5242B1E3800901EA5 /* LWWebSoketTool.m */; };
+		5E7BACAE242B4FC400901EA5 /* LWBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACAD242B4FC400901EA5 /* LWBaseWebViewController.m */; };
+		5E7BACB4242B4FDF00901EA5 /* IMYWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACB0242B4FDF00901EA5 /* IMYWebView.m */; };
+		5E7BACB5242B4FDF00901EA5 /* IMY_NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACB3242B4FDF00901EA5 /* IMY_NJKWebViewProgress.m */; };
 		5E7E09132428ABE700C75C0F /* LWCreatePersonalWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09112428ABE700C75C0F /* LWCreatePersonalWalletViewController.m */; };
 		5E7E09142428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E09122428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib */; };
 		5E7E09172428B5D100C75C0F /* LWEmailTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09162428B5D100C75C0F /* LWEmailTool.m */; };
@@ -343,8 +347,6 @@
 		5EF513E423F550F200F5B6C1 /* LWInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF513D823F550F100F5B6C1 /* LWInputTextView.m */; };
 		5EF513E723F5510E00F5B6C1 /* LWFaceBindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF513E623F5510E00F5B6C1 /* LWFaceBindViewController.m */; };
 		5EFC51C82411E19200BE9DDB /* LWSignTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC51C72411E19200BE9DDB /* LWSignTool.m */; };
-		EFEBEEA423FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEBEEA223FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m */; };
-		EFEBEEA523FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEBEEA323FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib */; };
 		EFEBEEA823FE57C0006D4B5F /* LWBottomLineInputTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEBEEA723FE57C0006D4B5F /* LWBottomLineInputTextField.m */; };
 /* End PBXBuildFile section */
 
@@ -735,6 +737,14 @@
 		5E755A9E2423199800398413 /* LWTimeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTimeTool.m; sourceTree = "<group>"; };
 		5E755AA0242377E700398413 /* LWNumberTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWNumberTool.h; sourceTree = "<group>"; };
 		5E755AA1242377E700398413 /* LWNumberTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWNumberTool.m; sourceTree = "<group>"; };
+		5E7BACA4242B1E3800901EA5 /* LWWebSoketTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWWebSoketTool.h; sourceTree = "<group>"; };
+		5E7BACA5242B1E3800901EA5 /* LWWebSoketTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWWebSoketTool.m; sourceTree = "<group>"; };
+		5E7BACAC242B4FC400901EA5 /* LWBaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWBaseWebViewController.h; sourceTree = "<group>"; };
+		5E7BACAD242B4FC400901EA5 /* LWBaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWBaseWebViewController.m; sourceTree = "<group>"; };
+		5E7BACAF242B4FDF00901EA5 /* IMYWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMYWebView.h; sourceTree = "<group>"; };
+		5E7BACB0242B4FDF00901EA5 /* IMYWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMYWebView.m; sourceTree = "<group>"; };
+		5E7BACB2242B4FDF00901EA5 /* IMY_NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMY_NJKWebViewProgress.h; sourceTree = "<group>"; };
+		5E7BACB3242B4FDF00901EA5 /* IMY_NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMY_NJKWebViewProgress.m; sourceTree = "<group>"; };
 		5E7E09102428ABE700C75C0F /* LWCreatePersonalWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWCreatePersonalWalletViewController.h; sourceTree = "<group>"; };
 		5E7E09112428ABE700C75C0F /* LWCreatePersonalWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCreatePersonalWalletViewController.m; sourceTree = "<group>"; };
 		5E7E09122428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWCreatePersonalWalletViewController.xib; sourceTree = "<group>"; };
@@ -981,9 +991,6 @@
 		5EFC51C62411E19200BE9DDB /* LWSignTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWSignTool.h; sourceTree = "<group>"; };
 		5EFC51C72411E19200BE9DDB /* LWSignTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWSignTool.m; sourceTree = "<group>"; };
 		978A27D43A937A7EDE48D448 /* libPods-LaxoWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LaxoWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFEBEEA123FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPersonalTransferAccountViewController.h; sourceTree = "<group>"; };
-		EFEBEEA223FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPersonalTransferAccountViewController.m; sourceTree = "<group>"; };
-		EFEBEEA323FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWPersonalTransferAccountViewController.xib; sourceTree = "<group>"; };
 		EFEBEEA623FE57C0006D4B5F /* LWBottomLineInputTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWBottomLineInputTextField.h; sourceTree = "<group>"; };
 		EFEBEEA723FE57C0006D4B5F /* LWBottomLineInputTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWBottomLineInputTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1768,6 +1775,8 @@
 				5E66A36623EAC439004097CB /* LWTabBarViewController.m */,
 				5E66A36A23EAC439004097CB /* LWNavigationViewController.h */,
 				5E66A36723EAC439004097CB /* LWNavigationViewController.m */,
+				5E7BACAC242B4FC400901EA5 /* LWBaseWebViewController.h */,
+				5E7BACAD242B4FC400901EA5 /* LWBaseWebViewController.m */,
 			);
 			path = BaseVC;
 			sourceTree = "<group>";
@@ -1812,9 +1821,6 @@
 				5EF5133723F1369300F5B6C1 /* LWNewMultiPartyWalletViewController.m */,
 				5EF5137323F273DB00F5B6C1 /* LWTestWebView.h */,
 				5EF5137423F273DB00F5B6C1 /* LWTestWebView.m */,
-				EFEBEEA123FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.h */,
-				EFEBEEA223FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m */,
-				EFEBEEA323FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib */,
 				5E2358572403CBAE00A7D774 /* LWPersonalCollectionViewController.h */,
 				5E2358582403CBAE00A7D774 /* LWPersonalCollectionViewController.m */,
 				5E2358592403CBAE00A7D774 /* LWPersonalCollectionViewController.xib */,
@@ -2076,8 +2082,29 @@
 				5E3160CD2424A00A005CA564 /* LWScanResultViewController.xib */,
 				5E7E09152428B5D100C75C0F /* LWEmailTool.h */,
 				5E7E09162428B5D100C75C0F /* LWEmailTool.m */,
+				5E7BACA4242B1E3800901EA5 /* LWWebSoketTool.h */,
+				5E7BACA5242B1E3800901EA5 /* LWWebSoketTool.m */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		5E7BACA7242B4E3C00901EA5 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				5E7BACAF242B4FDF00901EA5 /* IMYWebView.h */,
+				5E7BACB0242B4FDF00901EA5 /* IMYWebView.m */,
+				5E7BACB1242B4FDF00901EA5 /* UIWebViewProgress */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		5E7BACB1242B4FDF00901EA5 /* UIWebViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				5E7BACB2242B4FDF00901EA5 /* IMY_NJKWebViewProgress.h */,
+				5E7BACB3242B4FDF00901EA5 /* IMY_NJKWebViewProgress.m */,
+			);
+			path = UIWebViewProgress;
 			sourceTree = "<group>";
 		};
 		5E7E09232428D01C00C75C0F /* Asset Inheritance */ = {
@@ -2283,6 +2310,7 @@
 		5EA807CD23E94ED500012837 /* LWAdapt */ = {
 			isa = PBXGroup;
 			children = (
+				5E7BACA7242B4E3C00901EA5 /* WebView */,
 				5E9172D82416376100D47A9F /* FaceSDK */,
 				5E9172B7241528B700D47A9F /* secp256k1 */,
 				5E0FE6912408AB9D00733B05 /* rust */,
@@ -2806,7 +2834,6 @@
 				5EB31E8724041CAF00974FD4 /* LWMineSecurityTableViewCell.xib in Resources */,
 				5E0FE6962408E72D00733B05 /* index.js in Resources */,
 				5E07FD222420BC0D00FA3E1F /* LWLoginStepSuccessView.xib in Resources */,
-				EFEBEEA523FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.xib in Resources */,
 				5E31611B24279CA3005CA564 /* LWSignStauteBottomView.xib in Resources */,
 				5E3160DA2424E06F005CA564 /* LWMultipypaySuccessViewController.xib in Resources */,
 				5E31610B24278485005CA564 /* LWSignessSatuteView.xib in Resources */,
@@ -2969,6 +2996,7 @@
 				5E3160B524243709005CA564 /* LWMultipyWalletDetailCell.m in Sources */,
 				5EE8FB7C2407911700AEE861 /* LWMessageDetailTitleContentView.m in Sources */,
 				5E755A9024230D6F00398413 /* LWPersonalWalletDetailViewController.m in Sources */,
+				5E7BACB5242B4FDF00901EA5 /* IMY_NJKWebViewProgress.m in Sources */,
 				5E66A34023EAB58C004097CB /* SVProgressHUD.m in Sources */,
 				5E91735F24163DEB00D47A9F /* RemindView.m in Sources */,
 				5E91737C241B208800D47A9F /* LWMultipySignTool.m in Sources */,
@@ -2983,6 +3011,7 @@
 				5E66A34E23EAB595004097CB /* CZRefreshFooter.m in Sources */,
 				5E3160FA24273A5F005CA564 /* LWMultipySendOutgoingView.m in Sources */,
 				5EB31E8624041CAF00974FD4 /* LWMineSecurityTableViewCell.m in Sources */,
+				5E7BACB4242B4FDF00901EA5 /* IMYWebView.m in Sources */,
 				5E66A39223EAEE6D004097CB /* LWBaseModel.m in Sources */,
 				5EB31E91240428CD00974FD4 /* LWMineSettingLanguageCell.m in Sources */,
 				5E23584E23FD0D0600A7D774 /* LWutxoModel.m in Sources */,
@@ -2993,7 +3022,6 @@
 				5E07FD1B2420BA4000FA3E1F /* LWLoginStepEightView.m in Sources */,
 				5E07FD2E2421F4BD00FA3E1F /* LWHomeAddWalletView.m in Sources */,
 				5E5F128C23EC0E12002F0711 /* WMZDialog+NaviMenu.m in Sources */,
-				EFEBEEA423FE2CBE006D4B5F /* LWPersonalTransferAccountViewController.m in Sources */,
 				5E5F129F23EC0E12002F0711 /* NSDate+WMZCalendarDate.m in Sources */,
 				5EF513E323F550F200F5B6C1 /* LWInputTextField.m in Sources */,
 				5E5F129023EC0E12002F0711 /* WMZDialog+Down.m in Sources */,
@@ -3098,6 +3126,7 @@
 				5EF5132C23EFE81100F5B6C1 /* LWTrusteeManager.m in Sources */,
 				5EA807AB23E94E2400012837 /* main.m in Sources */,
 				5E5F12B523ED5680002F0711 /* LWNetWorkSessionManager.m in Sources */,
+				5E7BACAE242B4FC400901EA5 /* LWBaseWebViewController.m in Sources */,
 				5E5F130123EDD97F002F0711 /* UIView+PageRect.m in Sources */,
 				5E5F129D23EC0E12002F0711 /* WMZDialogTool.m in Sources */,
 				5E66A36B23EAC43A004097CB /* LWBaseViewController.m in Sources */,
@@ -3119,6 +3148,7 @@
 				5E66A3A423EAFF14004097CB /* LWHomeListHeaderView.m in Sources */,
 				5E07FD112420B60600FA3E1F /* LWLoginStepSixView.m in Sources */,
 				5EB31E992404BC9800974FD4 /* LWTextViewAlertView.m in Sources */,
+				5E7BACA6242B1E3800901EA5 /* LWWebSoketTool.m in Sources */,
 				5E755A9624230D6F00398413 /* LWPersoanDetailListView.m in Sources */,
 				5E66A36123EAC379004097CB /* JTNavigationController.m in Sources */,
 				5E5F12A623EC0E12002F0711 /* WMZDialog.m in Sources */,

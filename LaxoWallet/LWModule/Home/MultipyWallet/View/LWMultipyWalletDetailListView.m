@@ -132,11 +132,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     LWMessageModel *messageModel = [self.dataSource objectAtIndex:indexPath.section];
-
-    [LWAlertTool alertSigneseStatueView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {
-        
-    }];
-    return;
     
     if(messageModel.type == 1){
         [LWAlertTool alertReceiveddAlertView:self.homeWallteModel andMessageModel:messageModel andComplete:^(id  _Nonnull complete) {

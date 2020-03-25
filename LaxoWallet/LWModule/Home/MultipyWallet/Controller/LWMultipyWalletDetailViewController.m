@@ -39,6 +39,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMultipyAddress:) name:kWebScoket_multipyAddress object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(partiesNotification:) name:kWebScoket_messageParties object:nil];
     [self queryParties];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress_change object:nil];
+
 
 }
 
@@ -153,13 +155,45 @@
         }else{
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppCreateMulitpyAddress_userdefault];
             [[NSUserDefaults standardUserDefaults] synchronize];
-
             [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
-            
         }
-  
     }
 }
+#pragma mark - get changeAddress
+
+- (void)queryChangeAddress{
+    LWHomeWalletModel *model = self.contentModel;
+     NSDictionary *params = @{@"wid":@(model.walletId),@"type":@(2)};
+     NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQueryMultipyAddress_change),WS_Home_getMutipyAddress,[params jsonStringEncoded]];
+     NSData *data = [requestPersonalWalletArray mp_messagePack];
+     [[SocketRocketUtility instance] sendData:data];
+}
+
+- (void)createSingleAddress:(NSNotification *)notification{
+    NSDictionary *notiDic = notification.object;
+    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+    
+        NSDictionary *notiDicData = [notiDic objectForKey:@"data"];
+        NSString *addresssChange = [notiDicData ds_stringForKey:@"address"];
+        if (addresssChange && addresssChange.length>0) {
+            self.contentModel.changeAddress = addresssChange;
+            return;
+        }
+        
+        
+        NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
+        NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;
+
+        [SVProgressHUD show];
+        LWAddressTool *addressTool = [LWAddressTool shareInstance];
+        [addressTool setWithrid:rid andPath:path];
+        addressTool.addressBlock = ^(NSString * _Nonnull address) {
+            [SVProgressHUD dismiss];
+            self.contentModel.changeAddress = address;
+        };
+    }
+}
+
 
 #pragma mark - getpartiespate
 - (void)queryParties{

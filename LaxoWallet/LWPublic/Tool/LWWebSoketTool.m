@@ -1,141 +1,40 @@
 //
-//  LWHomeViewController.m
+//  LWWebSoketTool.m
 //  LaxoWallet
 //
-//  Created by walkermuzhou on 2020/2/5.
+//  Created by walkermuzhou on 2020/3/25.
 //  Copyright © 2020 LaxoWallet. All rights reserved.
 //
 
-#import "LWHomeViewController.h"
-#import "LWHomeListView.h"
-#import "LWHomeListHeadView.h"
-#import "LWAlertTool.h"
-
 #import "LWWebSoketTool.h"
+typedef void(^WebSocketBlock)(id result);
 
+@interface LWWebSoketTool ()
 
-#import "LWPersonalCollectionViewController.h"
-#import "LWCreateMultipyWalletViewController.h"
-#import "LWCreatePersonalWalletViewController.h"
-
-#import "PublicKeyView.h"
-#import "PubkeyManager.h"
-#import "libthresholdsig.h"
-#import "LWAddressTool.h"
-
-#import "QQLBXScanViewController.h"
-#import "LBXPermission.h"
-
-#import "NSData+HexString.h"
-
-#import "LWMultipyAdressTool.h"
-#import "LWMultipySignTool.h"
-
-@interface LWHomeViewController (){
-    NSOperationQueue * queue;
-    dispatch_semaphore_t signSemphore;
-
-}
-
-@property (nonatomic, strong) LWHomeListView *listView;
-@property (nonatomic, strong) LWHomeListHeadView *listHeadView;
-
+@property (nonatomic, copy) WebSocketBlock socketBlock;
 @end
 
-@implementation LWHomeViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appLogin) name:KUserAccountLogIn object:nil];
-    [self createUI];
-    [self getprikey];
-
-//    NSDictionary *params = @{@"type":@1};
-//    NSArray *requestPersonalWalletArray = @[@"req",
-//                                            @(WSRequestIdWalletQueryPersonalWallet),
-//                                            @"wallet.query",
-//                                            [params jsonStringEncoded]];
-//    NSData *data = [requestPersonalWalletArray mp_messagePack];
-//    [[LWWebSoketTool shareInstance] webscoketSendData:requestPersonalWalletArray andSuccessBlock:^(id  _Nonnull result) {
-//
-//    }];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-}
-
-- (void)createUI{
-    self.view.backgroundColor = lwColorBackground;
+@implementation LWWebSoketTool{
     
-    __weak typeof(self) weakself = self;
-    self.listHeadView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWHomeListHeadView class]) owner:nil options:nil].lastObject;
-//    self.listHeadView.frame = CGRectMake(0, 0, kScreenWidth, 196);
-    [self.view addSubview:self.listHeadView];
-    self.listHeadView.block = ^(NSInteger selectIndex) {
-        [weakself.listView changeCurrentSelectData:selectIndex];
-    };
-    
-    self.listView = [[LWHomeListView alloc] initWithFrame:CGRectMake(0, 196, kScreenWidth, kScreenHeight - kTabBarHeight - 196) style:UITableViewStyleGrouped];
-    [self.view addSubview:self.listView];
-    
-    UIBarButtonItem *addBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_add"] style:UIBarButtonItemStylePlain target:self action:@selector(addWaletClick)];
-    self.navigationItem.leftBarButtonItem = addBarItem;
-    
-    UIBarButtonItem *scanBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_scan_white"] style:UIBarButtonItemStylePlain target:self action:@selector(scanClick)];
-    self.navigationItem.rightBarButtonItem = scanBarItem;
+}
+static LWWebSoketTool *instance = nil;
++ (LWWebSoketTool *)shareInstance{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[LWWebSoketTool alloc]init];
+    });
+    return instance;
 }
 
-#pragma mark - homemethod
-- (void)addWaletClick{
-    [LWAlertTool alertHomeChooseWalletView:^(NSInteger index) {
-        if (index == 1) {
-            LWCreatePersonalWalletViewController *multipyVC = [[LWCreatePersonalWalletViewController alloc] init];
-            multipyVC.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:multipyVC animated:YES];
-        }
-        if (index == 2) {
-            LWCreateMultipyWalletViewController *multipyVC = [[LWCreateMultipyWalletViewController alloc] init];
-            multipyVC.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:multipyVC animated:YES];
-        }
-    }];
+
+- (instancetype)init{
+    self= [super init];
+    if (self) {
+        [self appLogin];
+    }
+    return self;
 }
 
-- (void)scanClick{
-    [LWScanTool startScan:^(id  _Nonnull result) {
-        
-    }];
-    //[self jumpToScanPermission];
-}
-
-- (void)jumpToScanPermission {
-    __weak __typeof(self) weakSelf = self;
-    [LBXPermission authorizeWithType:LBXPermissionType_Camera completion:^(BOOL granted, BOOL firstTime) {
-        if (granted) {
-            [weakSelf jumpToScan];
-        }
-        else if(!firstTime)
-        {
-            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"没有相机权限，是否前往设置" cancel:@"取消" setting:@"设置" ];
-        }
-    }];
-    
-
-}
-- (void)jumpToScan{
-    QQLBXScanViewController *vc = [QQLBXScanViewController new];
-    vc.libraryType = SLT_ZXing;
-    vc.style = [QQLBXScanViewController qqStyle];
-    //镜头拉远拉近功能
-    vc.isVideoZoom = YES;
-    [self.navigationController pushViewController:vc animated:YES];
-    vc.scanresult = ^(LBXScanResult *result) {
-        
-    };
-}
-
-#pragma mark - startwebsocket
 - (void)appLogin{
     [self getprikey];
 }
@@ -153,6 +52,13 @@
    
     NSString *sig = [LWPublicManager getSigWithMessage:timeString];
     [self startWebScoket:sig andmessage:timeString];
+
+//    [PubkeyManager getSigWithPK:prikey message:timeString SuccessBlock:^(id  _Nonnull data) {
+//        NSString *sig = (NSString *)data;
+//        [self startWebScoket:sig andmessage:timeString];
+//    } WithFailBlock:^(id  _Nonnull data) {
+//
+//    }];
 }
 
 - (void)startWebScoket:(NSString *)sig andmessage:(NSString *)message{
@@ -169,9 +75,25 @@
 
 - (void)SRWebSocketDidOpen {
     NSLog(@"开启成功");
-    [self requestPersonalWalletInfo];
-    [self requestMulipyWalletInfo];
+//    [self requestPersonalWalletInfo];
+//    [self requestMulipyWalletInfo];
 }
+
+- (void)webscoketSendData:(NSArray *)params andSuccessBlock:(void (^)(id _Nonnull))block{
+    
+    NSData *data = [params mp_messagePack];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[SocketRocketUtility instance] sendData:data];
+            
+            self.socketBlock = ^(id result) {
+                block(result);
+            };
+    
+    });
+    
+}
+
 
 - (void)requestPersonalWalletInfo{
     NSDictionary *params = @{@"type":@1};
@@ -203,6 +125,9 @@
         NSString *firstObj = [responseData objectAtIndex:0];
         NSLog(@"ws_recieve_data:%@",note.object);
         if ([firstObj isEqualToString:@"res"]) {
+            if(self.socketBlock){
+                self.socketBlock(responseArray);
+            }
             [self manageData:responseArray];
         }else if ([firstObj isEqualToString:@"update"]){
 //            [self manageData:responseArray];
@@ -216,56 +141,28 @@
             [self requestMulipyWalletInfo];
             
         }else if ([firstObj isEqualToString:@"key"]){//多方签名address
-            NSArray *dataArray = [responseArray objectAtIndex:1];
-            LWMultipyAdressTool *addressTool = [[LWMultipyAdressTool alloc] initWithInitInfo:dataArray];
-            addressTool.addressBlock = ^(NSString * _Nonnull address) {
-                NSString *key_adress = [[NSUserDefaults standardUserDefaults] objectForKey:kAppCreateMulitpyAddress_userdefault];
-                if (key_adress && key_adress.length>0) {
-                    LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
-                             [LogicHandle presentViewController:personVC animate:YES];
-                }
-            } ;
+//            NSArray *dataArray = [responseArray objectAtIndex:1];
+//            LWMultipyAdressTool *addressTool = [[LWMultipyAdressTool alloc] initWithInitInfo:dataArray];
+//            addressTool.addressBlock = ^(NSString * _Nonnull address) {
+//                NSString *key_adress = [[NSUserDefaults standardUserDefaults] objectForKey:kAppCreateMulitpyAddress_userdefault];
+//                if (key_adress && key_adress.length>0) {
+//                    LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
+//                             [LogicHandle presentViewController:personVC animate:YES];
+//                }
+//            } ;
 
             
         }else if ([firstObj isEqualToString:@"sign"]){//多方签名
             NSArray *dataArray = [responseArray objectAtIndex:1];
 
             [self manageSignInfo:dataArray];
-            
-//            dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//                NSArray *dataArray = [responseArray objectAtIndex:1];
-//                self->signSemphore = dispatch_semaphore_create(0);
-//                LWMultipySignTool *signTool = [[LWMultipySignTool alloc] initWithInitInfo:dataArray];
-//                signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
-//                      dispatch_semaphore_signal(self->signSemphore);
-//                };
-//                dispatch_semaphore_wait(self->signSemphore, DISPATCH_TIME_FOREVER);
-//            });
-  
-            
-            
         }else if ([firstObj isEqualToString:@"OK"]){
             NSDictionary *responseDic = [responseArray objectAtIndex:1];
             LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
             model.dk = [responseDic objectForKey:@"dk"];
             model.ek = [responseDic objectForKey:@"ek"];
             [[LWUserManager shareInstance] setUser:model];
-            /*
-             <__NSArrayM 0x280ee1680>(
-             OK,
-             {
-                 createtime = 1583400289000;
-                 dk = f44f519c890a1a8b4af5728a581801edcf51d2c30845b1ec42411055856b557647ed8bd2c9881e3f4be1890eb353e3a9f7633236f27ee714bcb13aad319821f8b836fff854a6c48047de3087758813a3475bcc0a96ffcefc6f601116ce3732701cc071361b81de5b996af6f2852a60e7ae090ef9a0a1d1bd0d2e768b9447755dd464fd93d1b9d48e37bf39cc193de81c8b63e66478e69ae63685545ff32e8a5d78fcfe3e7da256ba760837089e8371404b512572aa0e07dd64ebe3bbbd8e7f10bf0f7b69190fefd0d198a1da836e0cb4daf3a4ee4b82660dfe9362b7a206dbb25e09f2c42278bf3999fa8a971be7bde1ab6ff1d0fd35d9679852d8f8bd85579eb526fee4b0eaf585214e3fa3fc363c3c;
-                 ek = 2ce0dd420ca4a9ed5bf8248125f4822d79097cb3bcc80fe594ff11cd807abc5aea1ff8f0f1586de80e38643bb589aed03b183f5885ac17d5bfa4a85e9a9fc868176e2d9c3ed2710349ab306dc5c0d8af73fa050078a591452a7502bbf48260c1cd6880ba7ff7612739551214c71402fc8919bebb51a72a0a14ab4972d6528b19;
-                 email = "36153297@qq.com";
-                 id = 1005;
-                 secret = f864e63049b0ef789bdb200e15a146ae;
-                 status = 1;
-                 updatetime = 1583400289000;
-                 xpub = xpub661MyMwAqRbcH1BPTTo4CZFripMafep9fFDa15PoM7x5fmS39BZvmwmnSg6ioSQHTotmTybbwzuoifiqpmx4N2spqM1Tqq3Wgq3jmE5cUuP;
-             */
         }
-            
     }
 }
 
@@ -275,24 +172,24 @@
 
 - (void)manageSignInfo:(NSArray *)signArray{
     
-    if (!queue) {
-        queue = [[NSOperationQueue alloc] init];
-        queue.maxConcurrentOperationCount = 1;
-        signSemphore = dispatch_semaphore_create(0);
-    }
-    
-    NSBlockOperation * operation = [NSBlockOperation blockOperationWithBlock:^{
-               dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                   LWMultipySignTool *signTool = [[LWMultipySignTool alloc] initWithInitInfo:signArray];
-                   signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
-                       dispatch_semaphore_signal(self->signSemphore);
-                   };
-                   dispatch_semaphore_wait(self->signSemphore, DISPATCH_TIME_FOREVER);
-               });
-        
-    }];
-    [queue addOperation:operation];
-    
+//    if (!queue) {
+//        queue = [[NSOperationQueue alloc] init];
+//        queue.maxConcurrentOperationCount = 1;
+//        signSemphore = dispatch_semaphore_create(0);
+//    }
+//
+//    NSBlockOperation * operation = [NSBlockOperation blockOperationWithBlock:^{
+//               dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//                   LWMultipySignTool *signTool = [[LWMultipySignTool alloc] initWithInitInfo:signArray];
+//                   signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
+//                       dispatch_semaphore_signal(self->signSemphore);
+//                   };
+//                   dispatch_semaphore_wait(self->signSemphore, DISPATCH_TIME_FOREVER);
+//               });
+//
+//    }];
+//    [queue addOperation:operation];
+//
 
 }
 
@@ -485,9 +382,6 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:[personalData jsonStringEncoded] forKey:kPersonalWallet_userdefault];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    [self.listHeadView setPersonalWalletdData:personalData];
-    [self.listView setPersonalWalletdData:personalData];
 }
 
 - (void)manageMultipyWalletData:(NSDictionary *)personalData{
@@ -495,9 +389,6 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:[personalData jsonStringEncoded] forKey:kMultipyWallet_userdefault];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    [self.listHeadView setMultipyWalletdata:personalData];
-    [self.listView setMultipyWalletdata:personalData];
 }
 
 - (void)manageTokenPrice:(NSDictionary *)tokenPrice{
@@ -534,14 +425,5 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_messageDetail object:requestInfo];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

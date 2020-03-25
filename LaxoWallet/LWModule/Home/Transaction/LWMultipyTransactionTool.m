@@ -47,7 +47,7 @@ static LWMultipyTransactionTool *instance = nil;
     return self;
 }
 
-- (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model{
+- (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model andChangeAddress:(nonnull NSString *)changeAddress{
         
     self.model = model;
     self.transAmount = amount * 1e8;
@@ -61,6 +61,11 @@ static LWMultipyTransactionTool *instance = nil;
         NSLog(@"add_transaction_input(%s \n, %@\n,%ld \n, %s \n,%ld \n)",transId,utxo.txid,(long)utxo.vout,address_to_script([LWAddressTool stringToChar:utxo.address]),(long)utxo.value);
     }
     
+    
+    char *add_change = add_transaction_change(transId,address_to_script([LWAddressTool stringToChar:changeAddress]));
+    NSLog(@"add_transaction_change(%s , %s)",transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
+    
+    
     char *add_output = add_transaction_output(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]), self.transAmount);
     NSLog(@"add_transaction_output(%s , %s , %ld )",transId,address_to_script([LWAddressTool stringToChar:self.transAddress]),(long)self.transAmount);
 
@@ -68,9 +73,7 @@ static LWMultipyTransactionTool *instance = nil;
         [WMHUDUntil showMessageToWindow:@"transaction fail"];
         return;
     }
-    
-    char *add_change = add_transaction_change(transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
-    NSLog(@"add_transaction_change(%s , %s)",transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
+
 
     if (![[LWAddressTool charToString:add_change] isEqualToString:@"true"]) {
         [WMHUDUntil showMessageToWindow:@"transaction fail"];

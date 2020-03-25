@@ -30,7 +30,7 @@
     } else if (fmodf(f*100000000, 1)==0) {//如果有一位小数点
         return [NSString stringWithFormat:@"%.8f",f];
     } else {//如果有两位或以上小数点
-        return [NSString stringWithFormat:@"%.9f",f];
+        return [NSString stringWithFormat:@"%.8f",f];
     }
 }
 

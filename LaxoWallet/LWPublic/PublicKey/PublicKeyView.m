@@ -72,6 +72,10 @@ static PublicKeyView *instance = nil;
     return self;
 }
 
+- (void)loadWebViewWithURLString:(NSString *)url{
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+}
+
 //OC调用JS
 - (void)ocToJs{
     //changeColor()是JS方法名，completionHandler是异步回调block

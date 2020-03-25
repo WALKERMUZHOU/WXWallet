@@ -344,7 +344,7 @@
      
     LWSignessSatuteView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWSignessSatuteView class]) owner:nil options:nil].lastObject;
     [backView addSubview:walletView];
-    walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
+    walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight-kNavigationBarHeight);
     [walletView setSignessSatuteViewWithWalletModel:walletModel andMessageModel:messageModel];
     walletView.block = ^(NSInteger signStyle) {
         [UIView animateWithDuration:0.3 animations:^{

@@ -27,7 +27,7 @@
     LWCommonBottomBtn *bottomBtn = [[LWCommonBottomBtn alloc]init];
     [bottomBtn addTarget:self action:@selector(bottomClick:) forControlEvents:UIControlEventTouchUpInside];
     bottomBtn.tag = 1000;
-    [bottomBtn setTitle:@"打开app" forState:UIControlStateNormal];
+    [bottomBtn setTitle:@"Open App" forState:UIControlStateNormal];
     bottomBtn.selected = YES;
     [self.view addSubview:bottomBtn];
     [bottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -37,18 +37,18 @@
         make.centerY.equalTo(self.view.mas_centerY);
     }];
     
-    LWCommonBottomBtn *bottomBtn1 = [[LWCommonBottomBtn alloc]init];
-    [bottomBtn1 addTarget:self action:@selector(bottomClick:) forControlEvents:UIControlEventTouchUpInside];
-    bottomBtn1.tag = 1001;
-    [bottomBtn1 setTitle:@"重新登录" forState:UIControlStateNormal];
-    bottomBtn1.selected = YES;
-    [self.view addSubview:bottomBtn1];
-    [bottomBtn1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).offset(12);
-        make.right.equalTo(self.view.mas_right).offset(-12);
-        make.height.equalTo(@(50));
-        make.top.equalTo(bottomBtn.mas_bottom).offset(30);
-    }];
+//    LWCommonBottomBtn *bottomBtn1 = [[LWCommonBottomBtn alloc]init];
+//    [bottomBtn1 addTarget:self action:@selector(bottomClick:) forControlEvents:UIControlEventTouchUpInside];
+//    bottomBtn1.tag = 1001;
+//    [bottomBtn1 setTitle:@"重新登录" forState:UIControlStateNormal];
+//    bottomBtn1.selected = YES;
+//    [self.view addSubview:bottomBtn1];
+//    [bottomBtn1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.view.mas_left).offset(12);
+//        make.right.equalTo(self.view.mas_right).offset(-12);
+//        make.height.equalTo(@(50));
+//        make.top.equalTo(bottomBtn.mas_bottom).offset(30);
+//    }];
 }
 
 - (void)bottomClick:(UIButton *)sender{

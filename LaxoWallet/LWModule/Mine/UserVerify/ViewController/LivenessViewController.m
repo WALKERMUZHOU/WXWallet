@@ -133,107 +133,210 @@
                 break;
             }
             case LivenessRemindCodePitchOutofDownRange:
-                [self warningStatus:PoseStatus warning:@"建议略微抬头" conditionMeet:false];
+                [self warningStatus:PoseStatus warning:@"Suggested slightly higher" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodePitchOutofUpRange:
-                [self warningStatus:PoseStatus warning:@"建议略微低头" conditionMeet:false];
+                [self warningStatus:PoseStatus warning:@"Suggest bending slightly" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeYawOutofLeftRange:
-                [self warningStatus:PoseStatus warning:@"建议略微向右转头" conditionMeet:false];
+                [self warningStatus:PoseStatus warning:@"Turn your head slightly to the right" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeYawOutofRightRange:
-                [self warningStatus:PoseStatus warning:@"建议略微向左转头" conditionMeet:false];
+                [self warningStatus:PoseStatus warning:@"Suggest turning your head slightly to the left" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodePoorIllumination:
-                [self warningStatus:CommonStatus warning:@"光线再亮些" conditionMeet:false];
+                [self warningStatus:CommonStatus warning:@"The light is too dim" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeNoFaceDetected:
-                [self warningStatus:CommonStatus warning:@"把脸移入框内" conditionMeet:false];
+                [self warningStatus:CommonStatus warning:@"Move the face into the frame" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeImageBlured:
-                [self warningStatus:CommonStatus warning:@"请保持不动" conditionMeet:false];
+                [self warningStatus:CommonStatus warning:@"Please keep still" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeOcclusionLeftEye:
-                [self warningStatus:occlusionStatus warning:@"左眼有遮挡" conditionMeet:false];
+                [self warningStatus:occlusionStatus warning:@"The left eye is shaded" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeOcclusionRightEye:
-                [self warningStatus:occlusionStatus warning:@"右眼有遮挡" conditionMeet:false];
+                [self warningStatus:occlusionStatus warning:@"The right eye is shaded" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeOcclusionNose:
-                [self warningStatus:occlusionStatus warning:@"鼻子有遮挡" conditionMeet:false];
+                [self warningStatus:occlusionStatus warning:@"Nose covered" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeOcclusionMouth:
-                [self warningStatus:occlusionStatus warning:@"嘴巴有遮挡" conditionMeet:false];
+                [self warningStatus:occlusionStatus warning:@"Mouth covered" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeOcclusionLeftContour:
-                [self warningStatus:occlusionStatus warning:@"左脸颊有遮挡" conditionMeet:false];
+                [self warningStatus:occlusionStatus warning:@"The left cheek is shaded" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeOcclusionRightContour:
-                [self warningStatus:occlusionStatus warning:@"右脸颊有遮挡" conditionMeet:false];
+                [self warningStatus:occlusionStatus warning:@"Her right cheek is shaded" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeOcclusionChinCoutour:
-                [self warningStatus:occlusionStatus warning:@"下颚有遮挡" conditionMeet:false];
+                [self warningStatus:occlusionStatus warning:@"The chin is shaded" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeTooClose:
-                [self warningStatus:CommonStatus warning:@"手机拿远一点" conditionMeet:false];
+                [self warningStatus:CommonStatus warning:@"Keep your phone away" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeTooFar:
-                [self warningStatus:CommonStatus warning:@"手机拿近一点" conditionMeet:false];
+                [self warningStatus:CommonStatus warning:@"Hold your phone closer" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeBeyondPreviewFrame:
-                [self warningStatus:CommonStatus warning:@"把脸移入框内" conditionMeet:false];
+                [self warningStatus:CommonStatus warning:@"Move the face into the frame" conditionMeet:false];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeLiveEye:
-                [self warningStatus:CommonStatus warning:@"眨眨眼" conditionMeet:true];
+                [self warningStatus:CommonStatus warning:@"Blink eyes" conditionMeet:true];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeLiveMouth:
-                [self warningStatus:CommonStatus warning:@"张张嘴" conditionMeet:true];
+                [self warningStatus:CommonStatus warning:@"Open mouth" conditionMeet:true];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeLiveYawRight:
-                [self warningStatus:CommonStatus warning:@"向右缓慢转头" conditionMeet:true];
+                [self warningStatus:CommonStatus warning:@"Turn your head slowly to the right" conditionMeet:true];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeLiveYawLeft:
-                [self warningStatus:CommonStatus warning:@"向左缓慢转头" conditionMeet:true];
+                [self warningStatus:CommonStatus warning:@"Turn your head slowly to the left" conditionMeet:true];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeLivePitchUp:
-                [self warningStatus:CommonStatus warning:@"缓慢抬头" conditionMeet:true];
+                [self warningStatus:CommonStatus warning:@"rise your head slowly" conditionMeet:true];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeLivePitchDown:
-                [self warningStatus:CommonStatus warning:@"缓慢低头" conditionMeet:true];
+                [self warningStatus:CommonStatus warning:@"lower your head slowly" conditionMeet:true];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeLiveYaw:
-                [self warningStatus:CommonStatus warning:@"摇摇头" conditionMeet:true];
+                [self warningStatus:CommonStatus warning:@"shake your head" conditionMeet:true];
                 [self singleActionSuccess:false];
                 break;
             case LivenessRemindCodeSingleLivenessFinished:
             {
-                [self warningStatus:CommonStatus warning:@"非常好" conditionMeet:true];
+                [self warningStatus:CommonStatus warning:@"Good" conditionMeet:true];
                 [self singleActionSuccess:true];
             }
                 break;
+            
+//            case LivenessRemindCodePitchOutofDownRange:
+//                [self warningStatus:PoseStatus warning:@"建议略微抬头" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodePitchOutofUpRange:
+//                [self warningStatus:PoseStatus warning:@"建议略微低头" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeYawOutofLeftRange:
+//                [self warningStatus:PoseStatus warning:@"建议略微向右转头" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeYawOutofRightRange:
+//                [self warningStatus:PoseStatus warning:@"建议略微向左转头" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodePoorIllumination:
+//                [self warningStatus:CommonStatus warning:@"光线再亮些" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeNoFaceDetected:
+//                [self warningStatus:CommonStatus warning:@"把脸移入框内" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeImageBlured:
+//                [self warningStatus:CommonStatus warning:@"请保持不动" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeOcclusionLeftEye:
+//                [self warningStatus:occlusionStatus warning:@"左眼有遮挡" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeOcclusionRightEye:
+//                [self warningStatus:occlusionStatus warning:@"右眼有遮挡" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeOcclusionNose:
+//                [self warningStatus:occlusionStatus warning:@"鼻子有遮挡" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeOcclusionMouth:
+//                [self warningStatus:occlusionStatus warning:@"嘴巴有遮挡" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeOcclusionLeftContour:
+//                [self warningStatus:occlusionStatus warning:@"左脸颊有遮挡" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeOcclusionRightContour:
+//                [self warningStatus:occlusionStatus warning:@"右脸颊有遮挡" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeOcclusionChinCoutour:
+//                [self warningStatus:occlusionStatus warning:@"下颚有遮挡" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeTooClose:
+//                [self warningStatus:CommonStatus warning:@"手机拿远一点" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeTooFar:
+//                [self warningStatus:CommonStatus warning:@"手机拿近一点" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeBeyondPreviewFrame:
+//                [self warningStatus:CommonStatus warning:@"把脸移入框内" conditionMeet:false];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeLiveEye:
+//                [self warningStatus:CommonStatus warning:@"眨眨眼" conditionMeet:true];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeLiveMouth:
+//                [self warningStatus:CommonStatus warning:@"张张嘴" conditionMeet:true];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeLiveYawRight:
+//                [self warningStatus:CommonStatus warning:@"向右缓慢转头" conditionMeet:true];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeLiveYawLeft:
+//                [self warningStatus:CommonStatus warning:@"向左缓慢转头" conditionMeet:true];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeLivePitchUp:
+//                [self warningStatus:CommonStatus warning:@"缓慢抬头" conditionMeet:true];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeLivePitchDown:
+//                [self warningStatus:CommonStatus warning:@"缓慢低头" conditionMeet:true];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeLiveYaw:
+//                [self warningStatus:CommonStatus warning:@"摇摇头" conditionMeet:true];
+//                [self singleActionSuccess:false];
+//                break;
+//            case LivenessRemindCodeSingleLivenessFinished:
+//            {
+//                [self warningStatus:CommonStatus warning:@"非常好" conditionMeet:true];
+//                [self singleActionSuccess:true];
+//            }
+//                break;
             case LivenessRemindCodeVerifyInitError:
                 [self warningStatus:CommonStatus warning:@"验证失败"];
                 break;
@@ -260,8 +363,8 @@
                 break;
             case LivenessRemindCodeTimeout: {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"remind" message:@"超时" preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction* action = [UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"remind" message:@"over time" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* action = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                         NSLog(@"知道啦");
                     }];
                     [alert addAction:action];

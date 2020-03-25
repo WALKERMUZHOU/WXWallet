@@ -80,23 +80,43 @@ static LWTansactionTool *instance = nil;
     NSArray *changeArray = [self manageChange:self.transAmount];
     for (LWutxoModel *utxo in changeArray) {
         char *add_input = add_transaction_input(transId,[LWAddressTool stringToChar:utxo.txid], utxo.vout, address_to_script([LWAddressTool stringToChar:utxo.address]), utxo.value);
-        NSLog(@"add_transaction_input(%s \n, %@\n,%ld \n, %s \n,%ld \n)",transId,utxo.txid,(long)utxo.vout,address_to_script([LWAddressTool stringToChar:utxo.address]),(long)utxo.value);
     }
     
     char *add_output = add_transaction_output(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]), self.transAmount);
-    NSLog(@"add_transaction_output(%s , %s , %ld )",transId,address_to_script([LWAddressTool stringToChar:self.transAddress]),(long)self.transAmount);
-
-    char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]));
-    
     if (![[LWAddressTool charToString:add_output] isEqualToString:@"true"]) {
         [WMHUDUntil showMessageToWindow:@"transaction fail"];
         return;
     }
-    self.transId = transId;
-    self.changeArray = changeArray;
     
+    char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:changeAddress]));
+    if (![[LWAddressTool charToString:add_transaction_change_char] isEqualToString:@"true"]) {
+        [WMHUDUntil showMessageToWindow:@"transaction fail"];
+        return;
+    }
     char *fee = get_transaction_fee(transId);
     self.fee = [LWAddressTool charToString:fee];
+    
+    if (self.fee.floatValue + self.transAmount > self.model.canuseBitCount) {
+        destroy_transaction(transId);
+        
+        transId = create_transaction();
+        
+        NSArray *changeArray = [self manageChange:self.transAmount];
+        for (LWutxoModel *utxo in changeArray) {
+            char *add_input = add_transaction_input(transId,[LWAddressTool stringToChar:utxo.txid], utxo.vout, address_to_script([LWAddressTool stringToChar:utxo.address]), utxo.value);
+        }
+        
+        char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:changeAddress]));
+        if (![[LWAddressTool charToString:add_transaction_change_char] isEqualToString:@"true"]) {
+            [WMHUDUntil showMessageToWindow:@"transaction fail"];
+            return;
+        }
+        char *feeTemp = get_transaction_fee(transId);
+        self.fee = [LWAddressTool charToString:feeTemp];
+    }
+    
+    self.transId = transId;
+    self.changeArray = changeArray;
 }
 
 - (void)transStart{
@@ -104,17 +124,14 @@ static LWTansactionTool *instance = nil;
 
     char *transId = self.transId;
     NSArray *changeArray = self.changeArray;
-        char *add_change = add_transaction_change(transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
-        NSLog(@"add_transaction_change(%s , %s)",transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
+//    char *add_change = add_transaction_change(transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
+//    NSLog(@"add_transaction_change(%s , %s)",transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
 
-        if (![[LWAddressTool charToString:add_change] isEqualToString:@"true"]) {
-            [WMHUDUntil showMessageToWindow:@"transaction fail"];
-            return;
-        }
-        
+
+    
         char *get_sighash = get_transaction_sighash(transId);
         NSLog(@"get_transaction_sighash(%s)",transId);
-
+    
         NSArray *sighHashArray = [LWAddressTool charToObject:get_sighash];
 
         __block dispatch_semaphore_t semaphore;
@@ -125,7 +142,7 @@ static LWTansactionTool *instance = nil;
                 LWutxoModel *utxo = [changeArray objectAtIndex:i];
                 NSString *sign_hash = sighHashArray[i];
 
-                LWSignTool *signTool = [LWSignTool shareInstance];
+                LWSignTool *signTool = [[LWSignTool alloc] init];
                 [signTool setWithAddress:utxo.address andHash:sign_hash];
                 signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
                     NSString *r = [sign objectForKey:@"r"];
@@ -144,13 +161,12 @@ static LWTansactionTool *instance = nil;
             char *transaction_to_json_char = transaction_to_json(transId);
             [self requestTransactionToServer:[LWAddressTool charToObject:transaction_to_json_char]];
             NSLog(@"%s",transaction_to_json_char);
+            destroy_transaction(transId);
+
         });
 }
 
 - (void)requestTransactionToServer:(NSDictionary *)transactionToJson{
-    
-    //NSDictionary *trans_dic = @{@"hash":@"40e6607fd65a6da308487fd473d13fad2d83bd7fabd5be8d732c5d466c4e37c1",@"inputs":@[@{@"output":@{@"satoshis":@(9744735),@"script":@"76a91404a4aed8add944c0ec34de0fa960cdff12db456988ac"},@"outputIndex":@(0),@"prevTxId":@"3f1ba570632e27278cc0a824177589f1a843232ffcb368f4a32f35b338aee8c8",@"script":@"483045022100c861431b67f2511df863f81d3b8cb31dfea02c878de381cc167fd560029b61cb022011c02a0a47fa8a71c67b048c6dd67ae882ffcaacaa55b7bb31b62e399804f19241210294c8dbda492d6d39dd29212a085105870dd25bf128c4c9e5330544d02f5bd58d",@"sequenceNumber":@(4294967295)},@{@"output":@{@"satoshis":@(96784028),@"script":@"76a9142cfa8e4e9cc31c062d83bd72f0bb98974a59fc7c88ac"},@"outputIndex":@(0),@"prevTxId":@"832a42e325ae6d1669874ffce600e44d0393ee42118b8f72356515b65c50eda3",@"script":@"4830450221008c479e5f4a2b05d5b40d2b2b3bb7a65a9ab7c89d4437f68ff163d58ed3e8c8d4022012ffb1fa57b4280562d713a9ddc02b9b8ebbecf5c6aa947d752498b114aa607a4121029afd0e600caf0c9253d0507aa0f58f1a7751d48ffaac4ce9211747bce308bccc",@"sequenceNumber":@(4294967295)}],@"nLockTime":@(0),@"outputs":@[@{@"satoshis":@(20000000),@"script":@"76a914bbc1e42a39d05a4cc61752d6963b7f69d09bb27b88ac"},@{@"satoshis":@(86528427),@"script":@"76a9142cfa8e4e9cc31c062d83bd72f0bb98974a59fc7c88ac"}],@"version":@(1)};
-    
     NSData *trans_data = [transactionToJson mp_messagePack];
     NSString *trans_str = [trans_data dataToHexString];
     
@@ -170,7 +186,6 @@ static LWTansactionTool *instance = nil;
     NSArray *utxo = self.model.utxo;
     NSMutableArray *chageUtxoArray = [NSMutableArray array];
     for (NSInteger i = 0; i<utxo.count; i++) {
-
         LWutxoModel *utxoModel = utxo[i];
         if (utxoModel.status == 1) {
             if (utxoModel.value > transAmount) {
@@ -181,21 +196,28 @@ static LWTansactionTool *instance = nil;
                 [chageUtxoArray addObj:utxoModel];
             }
         }
-
     }
     return chageUtxoArray;
 }
+
+//手续费和差值比较
+- (void)checkFeeAndAmountWithTotalAmount{
+    
+}
+
+
 
 - (void)boardCast:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;
      if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
         NSLog(@"broadcastNotificationSuccess");
+         [SVProgressHUD dismiss];
         if (self.transactionBlock) {
             self.transactionBlock(YES);
         }
     }else{
         NSLog(@"%@",notiDic);
-
+        [SVProgressHUD dismiss];
         [WMHUDUntil showMessageToWindow:@"trans error"];
     }
 }

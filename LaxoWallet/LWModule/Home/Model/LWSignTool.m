@@ -67,7 +67,9 @@ static LWSignTool *instance = nil;
 - (void)setWithAddress:(NSString *)address andHash:(NSString *)hash{
     self.address = address;
     self.hashStr = hash;
-    [self requestSignInfo];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self requestSignInfo];
+    });
 }
 
 - (void)startGetSign{
@@ -76,26 +78,12 @@ static LWSignTool *instance = nil;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         char *secret_char = sha256([LWAddressTool stringToChar:self.pk]);
-
-//        self->_mainThreadSignal = dispatch_semaphore_create(0);
-//        __block NSArray *pqArray;
-//        [PubkeyManager decrptWithNoAppendNumberSecret:[LWAddressTool charToString:secret_char] ansMessage:[[LWUserManager shareInstance] getUserModel].dk SuccessBlock:^(id  _Nonnull data) {
-//            NSString *pqStr = (NSString *)data;
-//            pqArray = [pqStr componentsSeparatedByString:@","];
-//            dispatch_semaphore_signal(self->_mainThreadSignal);
-//        } WithFailBlock:^(id  _Nonnull data) {
-//               
-//        }];
-//        dispatch_semaphore_wait(self->_mainThreadSignal, DISPATCH_TIME_FOREVER);
         
         NSString *pqStr = [LWEncryptTool decryptwithTheKey:[LWAddressTool charToString:secret_char] message:[[LWUserManager shareInstance] getUserModel].dk andHex:1];
         NSArray *pqArray = [pqStr componentsSeparatedByString:@","];
         
         NSString *p = pqArray.firstObject;
         NSString *q = pqArray.lastObject;
-        
-//        p = @"63cb350e5d28e4a399bc68e61d5b5ca3ac97c60f7ce8cc4bbb08b34459074c8b827129c3313ede198fdb976fe723b852efa779b9ab3746b972fdcc3ea63efdc3";
-//        q = @"a19159debe2598325c5830654cb68d4c50915d4c44ed123d2cc502ac81f67b02f282d218982e122fa0caa52ae02f1a0f9049c72eff372d79230b70dba38c5be3";
         
         NSString *ek = [[LWUserManager shareInstance] getUserModel].ek;
         
@@ -158,6 +146,13 @@ static LWSignTool *instance = nil;
         NSLog(@"sign_handle_round_2:%@",sign_handle_round_2_params);
         
         char *sign_handle_round_2 = sign_handle_round([LWAddressTool stringToChar:signer_id], 2, [LWAddressTool objectToChar:poll_for_p2p_Array]);
+        
+        if (sign_handle_round_2 == nil) {
+            destroy_sign([LWAddressTool stringToChar:signer_id]);
+            [WMHUDUntil showMessageToWindow:@"error"];
+            [SVProgressHUD dismiss];
+            return ;
+        }
         
         self->_broadcastSignal = dispatch_semaphore_create(0);
         [self broadCast:4 data:[LWAddressTool charToObject:sign_handle_round_2]];
@@ -229,35 +224,6 @@ static LWSignTool *instance = nil;
     NSDictionary *multipyparams = @{@"hash":self.hashStr,@"address":self.address,@"sig":sig};
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryrequestPartySign),@"wallet.requestPartySign",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        self.pk = [LWPublicManager getPKWithZhuJiCi];
-//        __block NSString *prikey;
-//        self->_semaphoreSignal = dispatch_semaphore_create(0);
-//        [PubkeyManager getPrikeyByZhujiciSuccessBlock:^(id  _Nonnull data) {
-//            prikey = [data objectForKey:@"prikey"];
-//            self.pk = prikey;
-//            dispatch_semaphore_signal(self->_semaphoreSignal);
-//        } WithFailBlock:^(id  _Nonnull data) {
-//
-//        }];
-//        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
-
-//        __block NSString *sig;
-//        self->_getKeySignal = dispatch_semaphore_create(0);
-//        [PubkeyManager getSigWithPK:self.pk message:self.hashStr SuccessBlock:^(id  _Nonnull data) {
-//            sig = (NSString *)data;
-//            dispatch_semaphore_signal(self->_getKeySignal);
-//
-//        } WithFailBlock:^(id  _Nonnull data) {
-//
-//        }];
-//        dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-//        char *sig_char = get_message_sig([LWAddressTool stringToChar:self.hashStr], [LWAddressTool stringToChar:self.pk]);
-//        NSString *sig = [LWAddressTool charToString:sig_char];
-//        NSDictionary *multipyparams = @{@"hash":self.hashStr,@"address":self.address,@"sig":sig};
-//         NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryrequestPartySign),@"wallet.requestPartySign",[multipyparams jsonStringEncoded]];
-//         [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
-//    });
 }
 
 - (void)requestShare{
@@ -300,7 +266,7 @@ static LWSignTool *instance = nil;
                 NSString *key = [@[@(i),@(round)] componentsJoinedByString:@"_"];
 
                 dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
                 dispatch_source_set_event_handler(timer, ^{
                     [self getKey:key];
                 });
@@ -328,7 +294,7 @@ static LWSignTool *instance = nil;
                 NSString *key = [@[@(i),@(round),@(party_index)] componentsJoinedByString:@"_"];
                 
                 dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
                 dispatch_source_set_event_handler(timer, ^{
                     NSLog(@"poll_for_p2p");
                     [self getKey:key];
@@ -367,8 +333,6 @@ static LWSignTool *instance = nil;
         self.rid = [dataDic objectForKey:@"rid"];
         NSString *vssStr = [dataDic objectForKey:@"vss"];
         self.vss = [NSJSONSerialization JSONObjectWithData:[vssStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
-        //[self setWithResponseInfo: [notiDic objectForKey:@"data"]];
-//                self.vss = @[@[@"0319f56db7acb8898b5f125ff9eb2e2f639fb0e316d46c3e43f3d66919d3d3c873",@"020eaf5bd50cdccf3a3d0fab1eb94ed55ad96fa5362a59301c7f0080e5b664a9c1"],@[@"034bacb401506db04aad970511ce18ec4d19d607c93d2f215c3a425e8be35043f5",@"02a0ae4d3164baa209f6af3a86ae02fb168e44cf0829ff50f9fd27fea1666d26c7"],@[@"02b923ecd94b858b6fb3ad9304c151b63ad2208f3c5e4bf7fd31b2a112aa246d8b",@"03b49cedd3cc49380cd3e0dc6d461f6065b89fd260cd931476e9e196fd0c8bfb68"]];
         [self requestShare];
     }
 }
@@ -382,16 +346,6 @@ static LWSignTool *instance = nil;
         
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             char *secret_char = sha256([LWAddressTool stringToChar:self.pk]);
-
-//            self->_semaphoreSignal = dispatch_semaphore_create(0);
-//            [PubkeyManager decrptWithNoAppendNumberSecret:[LWAddressTool charToString:secret_char] ansMessage:shareKey SuccessBlock:^(id  _Nonnull data) {
-//                self.share_key = (NSString *)data;
-//                dispatch_semaphore_signal(self->_semaphoreSignal);
-//            } WithFailBlock:^(id  _Nonnull data) {
-//                dispatch_semaphore_signal(self->_broadcastWithValSignal);
-//                return ;
-//            }];
-//            dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
             self.share_key = [LWEncryptTool decryptwithTheKey:[LWAddressTool charToString:secret_char] message:shareKey andHex:1];
             
             [self startGetSign];
@@ -428,7 +382,12 @@ static LWSignTool *instance = nil;
     NSDictionary *notiDic = notification.object;
     NSLog(@"getTheKeySuccess");
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+        id getTheKeyDataID = [notiDic objectForKey:@"data"];
+        if ([getTheKeyData isEqual:getTheKeyDataID]) {
+            return;
+        }
         getTheKeyData = [notiDic objectForKey:@"data"];
+        
         dispatch_semaphore_signal(self->_semaphoreSignal);
         NSLog(@"signal");
     }

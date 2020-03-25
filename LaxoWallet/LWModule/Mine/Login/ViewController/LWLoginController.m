@@ -424,7 +424,7 @@
 
                
             } WithFailBlock:^(id  _Nonnull data) {
-
+                [WMHUDUntil showMessageToWindow:@"Trusthold verify fail,please check your email code"];
         }];
 
         } WithFailBlock:^(id  _Nonnull data) {

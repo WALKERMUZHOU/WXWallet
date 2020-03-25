@@ -41,6 +41,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat       canuseBitCount;
 @property (nonatomic, assign) CGFloat       loackBitCount;
 
+@property (nonatomic, assign) CGFloat       canuseBitCountInterger;
+@property (nonatomic, assign) CGFloat       loackBitCountInterger;
+
 
 @property (nonatomic, strong) UIColor       *iconColor;
 @property (nonatomic, strong) NSArray        *parties;//
@@ -51,6 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger     isMineCreateWallet;
 
 @property (nonatomic, strong) LWMessageModel   *messageModel;
+@property (nonatomic, strong) NSString      *changeAddress;//用于多人钱包转账 暂时存值
 
 @end
 

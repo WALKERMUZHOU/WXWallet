@@ -29,7 +29,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="487"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DoY-V5-nhA">
-                                    <rect key="frame" x="87.666666666666671" y="40" width="199.66666666666663" height="40"/>
+                                    <rect key="frame" x="105.33333333333333" y="40" width="164.66666666666669" height="40"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+usernamehandle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDr-V2-taC">
                                             <rect key="frame" x="15" y="0.0" width="134.66666666666666" height="40"/>
@@ -37,26 +37,13 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azm-9g-V7e">
-                                            <rect key="frame" x="159.66666666666669" y="7.6666666666666643" width="25" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="25" id="rsc-aA-7L0"/>
-                                                <constraint firstAttribute="height" constant="25" id="xq0-5v-tQ1"/>
-                                            </constraints>
-                                            <state key="normal" image="home_wallet_input"/>
-                                            <connections>
-                                                <action selector="editCLick:" destination="-1" eventType="touchUpInside" id="yMW-q8-74Q"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.76767665149999997" green="0.79556107519999997" blue="0.83298206330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="FDr-V2-taC" firstAttribute="leading" secondItem="DoY-V5-nhA" secondAttribute="leading" constant="15" id="GWx-bM-cHg"/>
                                         <constraint firstItem="FDr-V2-taC" firstAttribute="top" secondItem="DoY-V5-nhA" secondAttribute="top" id="Mfc-0Q-ORX"/>
-                                        <constraint firstAttribute="trailing" secondItem="azm-9g-V7e" secondAttribute="trailing" constant="15" id="PTI-bY-E05"/>
-                                        <constraint firstItem="azm-9g-V7e" firstAttribute="centerY" secondItem="DoY-V5-nhA" secondAttribute="centerY" id="Wei-ml-DVj"/>
                                         <constraint firstAttribute="height" constant="40" id="cHe-bL-I9g"/>
-                                        <constraint firstItem="azm-9g-V7e" firstAttribute="leading" secondItem="FDr-V2-taC" secondAttribute="trailing" constant="10" id="spl-jt-uKQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="FDr-V2-taC" secondAttribute="trailing" constant="15" id="fDt-z4-Wo6"/>
                                         <constraint firstAttribute="bottom" secondItem="FDr-V2-taC" secondAttribute="bottom" id="za6-A2-iuO"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
@@ -408,6 +395,5 @@
     <resources>
         <image name="common_rightArrow" width="12" height="20"/>
         <image name="home_eye" width="24" height="15"/>
-        <image name="home_wallet_input" width="25" height="25"/>
     </resources>
 </document>

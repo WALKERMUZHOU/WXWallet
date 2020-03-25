@@ -25,6 +25,7 @@
 
 @property (nonatomic, strong) LWPersoanDetailListView *listView;
 
+@property (nonatomic, assign) NSInteger addressflag;
 @end
 
 @implementation LWPersonalWalletDetailViewController
@@ -32,7 +33,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createUI];
-    
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -112,15 +112,34 @@
 - (void)createSingleAddress:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+        NSDictionary *notiDicdata = [notiDic objectForKey:@"data"];
+        NSString *address = [notiDicdata ds_stringForKey:@"address"];
+        if (address && address.length>0) {
+            self.contentModel.address = address;
+            [SVProgressHUD dismiss];
+
+            //刷新下首页个人钱包数据
+            NSDictionary *params = @{@"type":@1};
+            NSArray *requestPersonalWalletArray = @[@"req",
+                                                    @(WSRequestIdWalletQueryPersonalWallet),
+                                                    @"wallet.query",
+                                                    [params jsonStringEncoded]];
+            NSData *data = [requestPersonalWalletArray mp_messagePack];
+            [[SocketRocketUtility instance] sendData:data];
+            
+            [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
+            return;
+        }
+        
+        
         NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
         NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;
-
-        [SVProgressHUD show];
         LWAddressTool *addressTool = [LWAddressTool shareInstance];
         [addressTool setWithrid:rid andPath:path];
         addressTool.addressBlock = ^(NSString * _Nonnull address) {
             [SVProgressHUD dismiss];
             self.contentModel.address = address;
+
             //刷新下首页个人钱包数据
             NSDictionary *params = @{@"type":@1};
             NSArray *requestPersonalWalletArray = @[@"req",

@@ -16,7 +16,7 @@ typedef void(^MultipyTransactionBlock)(NSDictionary *transInfo);
 
 + (LWMultipyTransactionTool *)shareInstance;
 
-- (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model;
+- (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model andChangeAddress:(NSString *)changeAddress;
 
 @property (nonatomic, copy) MultipyTransactionBlock block;
 @property (nonatomic, strong) NSString *fee;

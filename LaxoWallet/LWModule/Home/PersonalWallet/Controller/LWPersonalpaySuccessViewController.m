@@ -57,8 +57,8 @@
 
     self.amount = amount;
     self.address = address;
-    self.note = note;
-    self.fee = fee;
+    self.note = [NSString stringWithFormat:@"note: %@",note];
+    self.fee = [LWNumberTool formatSSSFloat:fee.floatValue];
     
     
 }

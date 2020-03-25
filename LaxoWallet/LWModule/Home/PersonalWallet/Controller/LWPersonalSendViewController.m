@@ -26,7 +26,7 @@
     [super viewDidLoad];
 
     
-    self.amountDescribeLabel.text = [NSString stringWithFormat:@"Available %@ / Locked in Pending TX %@",@(self.model.canuseBitCount),@(self.model.loackBitCount)];
+    self.amountDescribeLabel.text = [NSString stringWithFormat:@"Available %@ / Locked in Pending TX %@",[LWNumberTool formatSSSFloat:self.model.canuseBitCount],[LWNumberTool formatSSSFloat:self.model.loackBitCount]];
     self.amountTF.delegate = self;
     
     if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
@@ -54,7 +54,8 @@
         return;
     }
     
-    if (self.amountTF.text.floatValue > self.model.canuseBitCount) {
+    NSInteger amountInteger = self.amountTF.text.floatValue * 1e8;
+    if (amountInteger > self.model.canuseBitCountInterger) {
         [WMHUDUntil showMessageToWindow:@"amount need less than available"];
         return;
     }

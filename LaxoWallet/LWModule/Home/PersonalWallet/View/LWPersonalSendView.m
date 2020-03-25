@@ -88,7 +88,7 @@
     }else{
         self.mutipyTrans = [[LWMultipyTransactionTool alloc] init];
         
-        [self.mutipyTrans startTransactionWithAmount:amount.floatValue address:address note:note andTotalModel:model];
+        [self.mutipyTrans startTransactionWithAmount:amount.floatValue address:address note:note andTotalModel:model andChangeAddress:changeAddress];
 //        self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",amount,@(self.mutipyTrans.fee.integerValue/1e8)];
         self.mutipyTrans.block = ^(NSDictionary * _Nonnull transInfo) {
             if (weakself.block) {

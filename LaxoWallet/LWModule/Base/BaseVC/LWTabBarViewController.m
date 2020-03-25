@@ -42,6 +42,7 @@
         model.itemTitle = [obj objectForKey:@"itemTitle"];
         model.selectImageName = [obj objectForKey:@"selectImg"];
         model.normalImageName = [obj objectForKey:@"normalImg"];
+        model.icomImgViewSize = CGSizeMake(25, 25);
         // 4.设置单个选中item标题状态下的颜色
         model.selectColor = lwColorNormal;
         model.titleLabel.font = kMediumFont(12);

@@ -27,10 +27,13 @@
     _model = model;
     if (model.index == 0) {
         self.indexLabel.text = @"Primary Paymail handle";
-        self.primaryBtn.hidden = YES;
+        self.primaryBtn.hidden = NO;
+        [self.primaryBtn setTitle:@"Primary" forState:UIControlStateNormal];;
     }else{
         self.indexLabel.text = [NSString stringWithFormat:@"NO.%ld Paymail handle",self.model.index+1];
         self.primaryBtn.hidden = NO;
+        [self.primaryBtn setTitle:@"Assign as primary" forState:UIControlStateNormal];;
+
     }
     self.userNameLabel.text = _model.name;
 }
@@ -41,6 +44,9 @@
     // Configure the view for the selected state
 }
 - (IBAction)primierClick:(UIButton *)sender {
+    if(_model.index == 0){
+        return;
+    }
     if (self.block) {
         self.block(self.model.paymailId);
     }

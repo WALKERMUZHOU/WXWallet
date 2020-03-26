@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^AddressBlock)(NSString *address);
 @interface LWAddressTool : NSObject
 + (LWAddressTool *)shareInstance;
++ (void)attempDealloc;
+
 - (void)setWithrid:(NSString *)rid andPath:(NSString *)path;
 - (instancetype)initWithRid:(NSString *)rid;
 @property (nonatomic, copy) AddressBlock addressBlock;

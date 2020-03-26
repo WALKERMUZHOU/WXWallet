@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIView *firstView;
 @property (weak, nonatomic) IBOutlet UIView *payMailTFBackView;
 
+@property (weak, nonatomic) IBOutlet UIButton *bottomBtn;
 @property (nonatomic, strong) LWPaymialListTableView *listView;
 
 @property (nonatomic, strong) LWHomeWalletModel *firstWallet;
@@ -52,6 +53,7 @@
     self.listView.block = ^(NSInteger count) {
         if (count == 0 && self.firstWallet.walletId == self.model.walletId) {
             weakself.isFirstPayMail = YES;
+            [weakself refreshBuyButton];
         }
     };
     NSString *personalStr = [[NSUserDefaults standardUserDefaults] objectForKey:kPersonalWallet_userdefault];
@@ -60,12 +62,11 @@
     NSArray *personalArray = [personalDic objectForKey:@"data"];
     NSArray *personalDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:personalArray];
     self.firstWallet = personalDataArray.firstObject;
-
     
     self.amountLabel.text = [NSString stringWithFormat:@"Available funds %@ from %@ ",self.firstWallet.personalPrice,self.firstWallet.name];
 
     CGFloat amount = 1/[LWPublicManager getCurrentUSDPrice].floatValue;
-    if (amount > self.model.canuseBitCount) {
+    if (amount > self.firstWallet.canuseBitCount) {
         self.currencySufficient = NO;
     }else{
         self.currencySufficient = YES;
@@ -73,7 +74,16 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payMailEditResult:) name:kWebScoket_paymail_query object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addMailResult:) name:kWebScoket_paymail_add object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress_change object:nil];
 
+}
+
+- (void)refreshBuyButton{
+    if (_isFirstPayMail) {
+        [self.bottomBtn setTitle:@"Get Your First Paymail For Free" forState:UIControlStateNormal];
+    }else{
+        [self.bottomBtn setTitle:@"Buy for $1 USD" forState:UIControlStateNormal];
+    }
 }
 
 - (IBAction)personBtnClick:(UIButton *)sender {
@@ -119,16 +129,14 @@
         return;
     }
     
-    if (!self.currencySufficient) {
-        [WMHUDUntil showMessageToWindow:@"not sufficient funds"];
-        return;
-    }
-    
     if (self.isFirstPayMail) {
         [self addpayMail];
     }else{
-        [self verifyPaymailAddress];
-        
+        if (!self.currencySufficient) {
+            [WMHUDUntil showMessageToWindow:@"not sufficient funds"];
+            return;
+        }
+        [self queryChangeAddress];
     }
 }
 
@@ -201,7 +209,18 @@
 - (void)registerPaymail:(NSString *)changeAddress{
     
     CGFloat amount = 1/[LWPublicManager getCurrentUSDPrice].floatValue;
-    [LWAlertTool alertPersonalWalletViewSend:self.firstWallet andAdress:@"1Ex49LfhSdY7ukoaakw7S5QGTS6vtretKD" andAmount:[LWNumberTool formatSSSFloat:amount] andNote:@"pay for paymail" changeAddress:changeAddress ispaymail:YES andComplete:^{
+    
+    LWTransactionModel *model = [[LWTransactionModel alloc] init];
+    model.address = @"1K6wGPRxpkV6UZTSbyH52Nxa2WMiqYhbiH";
+    model.transAmount = [LWNumberTool formatSSSFloat:amount];
+    model.note = @"pay for paymail";
+    model.changeAddress = changeAddress;
+    [LWAlertTool alertPersonalWalletViewSend:self.firstWallet andTransactionModel:model andComplete:^{
+       [self addpayMail];
+    }];
+    return;
+    
+    [LWAlertTool alertPersonalWalletViewSend:self.firstWallet andAdress:@"1K6wGPRxpkV6UZTSbyH52Nxa2WMiqYhbiH" andAmount:[LWNumberTool formatSSSFloat:amount] andNote:@"pay for paymail" changeAddress:changeAddress ispaymail:YES andComplete:^{
         
         [self addpayMail];
     }];
@@ -226,6 +245,7 @@
         self.payMailTF.text = @"";
         self.isFirstPayMail = NO;
         [self personBtnClick:self.ownedBtn];
+        [self refreshBuyButton];
     }else{
         [WMHUDUntil showMessageToWindow:@"pay mail add fail"];
     }

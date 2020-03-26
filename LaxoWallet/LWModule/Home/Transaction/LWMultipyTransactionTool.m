@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSString  *transAddress;
 @property (nonatomic, strong) NSString  *note;
 @property (nonatomic, strong) LWHomeWalletModel  *model;
+@property (nonatomic, strong) LWTransactionModel  *transModel;
 
 @property (nonatomic, assign) char  *transId;
 @property (nonatomic, strong) NSArray *changeArray;
@@ -47,6 +48,13 @@ static LWMultipyTransactionTool *instance = nil;
     return self;
 }
 
+- (void)startTransactionWithTranscationModek:(LWTransactionModel *)transModel andTotalModel:(LWHomeWalletModel *)model{
+    self.model = model;
+    self.transModel = transModel;
+    
+    [self startTransactionWithAmount:transModel.transAmount.floatValue address:transModel.address note:transModel.note andTotalModel:model andChangeAddress:transModel.changeAddress];
+}
+
 - (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model andChangeAddress:(nonnull NSString *)changeAddress{
         
     self.model = model;
@@ -61,6 +69,12 @@ static LWMultipyTransactionTool *instance = nil;
         NSLog(@"add_transaction_input(%s \n, %@\n,%ld \n, %s \n,%ld \n)",transId,utxo.txid,(long)utxo.vout,address_to_script([LWAddressTool stringToChar:utxo.address]),(long)utxo.value);
     }
     
+    char *address_script =  address_to_script([LWAddressTool stringToChar:self.transAddress]);
+    if (!address_script) {
+        destroy_transaction(transId);
+        [WMHUDUntil showMessageToWindow:@"Wrong Address"];
+        return;
+    }
     
     char *add_change = add_transaction_change(transId,address_to_script([LWAddressTool stringToChar:changeAddress]));
     NSLog(@"add_transaction_change(%s , %s)",transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
@@ -88,12 +102,10 @@ static LWMultipyTransactionTool *instance = nil;
     
     char *fee = get_transaction_fee(transId);
     self.fee = [LWAddressTool charToString:fee];
-    
+        
     NSArray *sighHashArray = [LWAddressTool charToObject:get_sighash];
 
     NSMutableArray *transaction_sig_array = [NSMutableArray array];
-    __block dispatch_semaphore_t semaphore;
-
     
 }
 
@@ -110,7 +122,12 @@ static LWMultipyTransactionTool *instance = nil;
     NSData *trans_data = [transaction mp_messagePack];
     NSString *trans_str = [trans_data dataToHexString];
     
-    NSDictionary *multipyparams = @{@"rawtx":trans_str,@"wid":@(self.model.walletId),@"value":@(self.transAmount),@"note":self.note,@"biz_data":self.transAddress};
+    NSString *biz_data = self.transModel.address;
+    if (self.transModel.payMail && self.transModel.payMail.length >0) {
+        biz_data = [NSString stringWithFormat:@"%@(%@)",self.transModel.payMail,self.transModel.address];
+    }
+    
+    NSDictionary *multipyparams = @{@"rawtx":trans_str,@"wid":@(self.model.walletId),@"value":@(self.transAmount),@"note":self.note,@"biz_data":biz_data};
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBroadcastUnSignTrans),WS_Home_multipyUnSignTrans,[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
     [SVProgressHUD dismiss];

@@ -133,6 +133,35 @@
      }];
 }
 
++ (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andTransactionModel:(LWTransactionModel *)transModel andComplete:(void (^)(void))walletBlock{
+        UIView *backView = [LWAlertTool ligntBackView];
+        
+       
+    LWPersonalSendView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWPersonalSendView class]) owner:nil options:nil].lastObject;
+    [backView addSubview:walletView];
+    walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 573);
+    //    [walletView setContentModel:params];
+    [walletView setWithLWTransactionModel:transModel andModel:params];
+        
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            NSLog(@"%@",sender);
+        }];
+    [walletView addGestureRecognizer:tap1];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        walletView.frame = CGRectMake(0, kScreenHeight - 573, kScreenWidth, 573);
+    }];
+    walletView.block = ^(NSInteger statue) {
+        [UIView animateWithDuration:0.3 animations:^{
+             backView.alpha = 0;
+         } completion:^(BOOL finished) {
+             [backView removeFromSuperview];
+         }];
+        if (statue == 1) {
+            walletBlock();
+        }
+    };
+}
 
 + (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note changeAddress:(NSString *)changeAddress andComplete:(void (^)(void))walletBlock{
     UIView *backView = [LWAlertTool ligntBackView];

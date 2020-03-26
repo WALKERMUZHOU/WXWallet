@@ -458,6 +458,10 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_paymail_add object:responseArray[2]];
         }
             break;
+        case WSRequestId_paymail_toAddress:{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_paymail_toAddress object:responseArray[2]];
+        }
+            break;
          default:{
              NSString *idString = [NSString stringWithFormat:@"%ld",(long)requestId];
              if (idString.length>5) {
@@ -513,6 +517,7 @@
 }
 
 - (void)manageCollectionAddress:(id)addressDic{
+    NSLog(@"kWebScoket_createSingleAddress:%@",addressDic);
     [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_createSingleAddress object:addressDic];
 }
 

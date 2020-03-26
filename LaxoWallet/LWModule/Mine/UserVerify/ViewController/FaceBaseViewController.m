@@ -181,7 +181,7 @@
     [closeButton setImage:[ImageUtils getImageResourceForName:@"close"] forState:UIControlStateNormal];
     [closeButton addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
     closeButton.frame = CGRectMake(20, 30, 30, 30);
-    [self.view addSubview:closeButton];
+//    [self.view addSubview:closeButton];
     
     self.processingStatueLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, ScreenHeight*(1-scaleValue)/2.0 + 20, kScreenWidth, 30)];
     self.processingStatueLabel.textColor = lwColorBlack;

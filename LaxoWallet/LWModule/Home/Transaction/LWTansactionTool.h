@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "LWHomeWalletModel.h"
+#import "LWTransactionModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^TransactionBlock)(BOOL success);
@@ -16,6 +18,8 @@ typedef void(^TransactionFeeBlock)(NSString *fee);
 @interface LWTansactionTool : NSObject
 
 + (LWTansactionTool *)shareInstance;
+
+- (void)startTransactionWithTransactionModel:(LWTransactionModel *)transModel andTotalModel:(LWHomeWalletModel *)homeModel;
 
 - (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model andChangeAddress:(NSString *)changeAddress;
 - (void)transStart;

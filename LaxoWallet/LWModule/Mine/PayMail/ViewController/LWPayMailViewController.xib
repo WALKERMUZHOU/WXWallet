@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWPayMailViewController">
             <connections>
                 <outlet property="amountLabel" destination="zqo-VL-KIL" id="paA-Rg-On4"/>
+                <outlet property="bottomBtn" destination="lTP-iW-Rg8" id="pNG-Z1-efm"/>
                 <outlet property="buyNewBtn" destination="bns-Xu-3kG" id="1e5-GF-2QV"/>
                 <outlet property="coverView" destination="efB-pY-094" id="sXO-xR-XGt"/>
                 <outlet property="firstView" destination="U2h-3A-Ft6" id="t1B-oZ-3AM"/>
@@ -143,7 +144,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arc-Pc-j0F">
                                     <rect key="frame" x="375" y="0.0" width="375" height="600.66666666666663"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for volt.io Paymail handles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KD0-SJ-KR4">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for volt.id Paymail handles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KD0-SJ-KR4">
                                             <rect key="frame" x="20" y="0.0" width="262" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="asc-FD-XK6"/>
@@ -160,7 +161,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@volt.io" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJr-7E-I3g">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@volt.id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJr-7E-I3g">
                                                     <rect key="frame" x="245" y="0.0" width="90" height="50"/>
                                                     <color key="backgroundColor" red="0.96068006750000001" green="0.96084433790000001" blue="0.96066969629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>

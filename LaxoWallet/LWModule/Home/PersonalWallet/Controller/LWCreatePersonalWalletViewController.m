@@ -48,7 +48,7 @@
     [SVProgressHUD dismiss];
     NSDictionary *resInfo = notification.object;
     if ([[resInfo objectForKey:@"success"] integerValue] == 1) {
-        [WMHUDUntil showMessageToWindow:@"multipy wallet create success"];
+        [WMHUDUntil showMessageToWindow:@"wallet create success"];
         
         [LWPublicManager getPersonalWalletData];
         

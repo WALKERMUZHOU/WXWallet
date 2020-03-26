@@ -400,6 +400,7 @@ static LWWebSoketTool *instance = nil;
 }
 
 - (void)manageCollectionAddress:(id)addressDic{
+    NSLog(@"kWebScoket_createSingleAddress:%@",addressDic);
     [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_createSingleAddress object:addressDic];
 }
 

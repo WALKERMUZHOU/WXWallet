@@ -151,24 +151,24 @@
     if (self.currentViewType == LWHomeListViewTypePersonalWallet) {
         LWPersonalWalletDetailViewController *personalVC = [[LWPersonalWalletDetailViewController alloc] init];
         personalVC.contentModel = model;
-        [LogicHandle pushViewController:personalVC];
+        [LogicHandle pushViewController:personalVC animate:YES];
         
     }else{
         
         if (model.needToJoinCount == 0) {
             LWMultipyWalletDetailViewController *multipyVC = [[LWMultipyWalletDetailViewController alloc] init];
               multipyVC.contentModel = model;
-              [LogicHandle pushViewController:multipyVC];
+              [LogicHandle pushViewController:multipyVC animate:YES];
 
         }else{
             if (model.join == 1) {
                 LWMultipyOtherNotJoinViewController *multipyVC = [[LWMultipyOtherNotJoinViewController alloc] init];
                 multipyVC.contentModel = model;
-                [LogicHandle pushViewController:multipyVC];
+                [LogicHandle pushViewController:multipyVC animate:YES];
             }else{
                 LWMultipyBeInvitedViewController  *multipyVC = [[LWMultipyBeInvitedViewController alloc] init];
                 multipyVC.contentModel = model;
-                [LogicHandle pushViewController:multipyVC];
+                [LogicHandle pushViewController:multipyVC animate:YES];
             }
         }
 //        [LogicHandle pushViewController:detailVC];

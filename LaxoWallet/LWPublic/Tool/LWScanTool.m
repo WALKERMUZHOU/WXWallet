@@ -82,7 +82,7 @@ typedef void(^LWScanResultBlock)(LWScanModel *model);
         if(([handleString containsString:@"http://"]||[handleString containsString:@"https://"])){
             NSArray *urlComps = [handleString componentsSeparatedByString:@"?"];
             NSString *headerString = [urlComps objectAtIndex:0];
-            if ([headerString hasPrefix:@"https://laxo.io"] || [headerString hasPrefix:@"http://laxo.io"] || [headerString hasPrefix:@"https://voltwallet.io/login"] ||[headerString hasPrefix:@"http://voltwallet.io/login"]) {//
+            if ([headerString hasPrefix:@"https://laxo.io"] || [headerString hasPrefix:@"http://laxo.io"] || [headerString hasPrefix:@"https://voltwallet.io/login"] ||[headerString hasPrefix:@"http://voltwallet.io/login"] || [headerString hasPrefix:@"https://volt.id/login"] ||[headerString hasPrefix:@"http://volt.id/login"]) {//
                 if([urlComps count]){
                     NSArray *paramArray = [[urlComps objectWithIndex:1] componentsSeparatedByString:@"&"];
                     NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];

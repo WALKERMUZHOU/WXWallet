@@ -7,6 +7,7 @@
 //
 
 #import "LWBaseViewController.h"
+#import "LWTransactionModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///viewtypy == 1 多人钱包
 @property (nonatomic, assign) NSInteger viewType;
 - (void)setSuccessWithAmount:(NSString *)amount andaddress:(NSString *)address andnote:(NSString *)note andfee:(NSString *)fee;
+- (void)setSuccessWithTransactionModel:(LWTransactionModel *)transModel;
+
 @end
 
 NS_ASSUME_NONNULL_END

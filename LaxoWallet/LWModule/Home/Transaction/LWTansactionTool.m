@@ -21,7 +21,7 @@
 
 @property (nonatomic, assign) char  *transId;
 @property (nonatomic, strong) NSArray *changeArray;
-
+@property (nonatomic, strong) LWTransactionModel *transModel;
 @end
 
 @implementation LWTansactionTool
@@ -61,6 +61,17 @@ static LWTansactionTool *instance = nil;
  char *add_transaction_change(const char *id, const char *script);
  */
 
+- (void)startTransactionWithTransactionModel:(LWTransactionModel *)transModel andTotalModel:(LWHomeWalletModel *)homeModel{
+    self.transModel = transModel;
+//    self.model = homeModel;
+//    self.transAmount = transModel.transAmount * 1e8;
+//    self.note = transModel.note;
+//    self.transAddress = transModel.address;
+    
+    [self startTransactionWithAmount:transModel.transAmount.floatValue address:transModel.address note:transModel.note andTotalModel:homeModel andChangeAddress:transModel.changeAddress];
+    
+}
+
 
 - (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model andChangeAddress:(nonnull NSString *)changeAddress{
     
@@ -78,6 +89,15 @@ static LWTansactionTool *instance = nil;
     
     char *transId = create_transaction();
     NSArray *changeArray = [self manageChange:self.transAmount];
+    
+    char *address_script = address_to_script([LWAddressTool stringToChar:self.transAddress]);
+    NSString *address_script_str = [LWAddressTool charToString:address_script];
+    if (!address_script_str || address_script_str.length == 0) {
+        destroy_transaction(transId);
+        [WMHUDUntil showMessageToWindow:@"Wrong Address"];
+        return;
+    }
+    
     for (LWutxoModel *utxo in changeArray) {
         char *add_input = add_transaction_input(transId,[LWAddressTool stringToChar:utxo.txid], utxo.vout, address_to_script([LWAddressTool stringToChar:utxo.address]), utxo.value);
     }
@@ -85,12 +105,14 @@ static LWTansactionTool *instance = nil;
     char *add_output = add_transaction_output(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]), self.transAmount);
     if (![[LWAddressTool charToString:add_output] isEqualToString:@"true"]) {
         [WMHUDUntil showMessageToWindow:@"transaction fail"];
+        destroy_transaction(transId);
         return;
     }
     
     char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:changeAddress]));
     if (![[LWAddressTool charToString:add_transaction_change_char] isEqualToString:@"true"]) {
         [WMHUDUntil showMessageToWindow:@"transaction fail"];
+        destroy_transaction(transId);
         return;
     }
     char *fee = get_transaction_fee(transId);
@@ -106,7 +128,7 @@ static LWTansactionTool *instance = nil;
             char *add_input = add_transaction_input(transId,[LWAddressTool stringToChar:utxo.txid], utxo.vout, address_to_script([LWAddressTool stringToChar:utxo.address]), utxo.value);
         }
         
-        char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:changeAddress]));
+        char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]));
         if (![[LWAddressTool charToString:add_transaction_change_char] isEqualToString:@"true"]) {
             [WMHUDUntil showMessageToWindow:@"transaction fail"];
             return;
@@ -170,7 +192,12 @@ static LWTansactionTool *instance = nil;
     NSData *trans_data = [transactionToJson mp_messagePack];
     NSString *trans_str = [trans_data dataToHexString];
     
-    NSDictionary *multipyparams = @{@"rawtx":trans_str,@"wid":@(self.model.walletId),@"value":@(self.transAmount),@"note":self.note,@"biz_data":self.transAddress};
+    NSString *biz_data = self.transModel.address;
+    if (self.transModel.payMail && self.transModel.payMail.length>0) {
+        biz_data = [NSString stringWithFormat:@"%@(%@)",self.transModel.payMail,self.transModel.address];
+    }
+    
+    NSDictionary *multipyparams = @{@"rawtx":trans_str,@"wid":@(self.model.walletId),@"value":@(self.transAmount),@"note":self.note,@"biz_data":biz_data};
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBroadcastTrans),@"wallet.broadcast",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
     /*

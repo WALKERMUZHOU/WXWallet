@@ -58,9 +58,20 @@
     self.amount = amount;
     self.address = address;
     self.note = [NSString stringWithFormat:@"note: %@",note];
-    self.fee = [LWNumberTool formatSSSFloat:fee.floatValue];
+    self.fee = fee;
     
     
+}
+
+- (void)setSuccessWithTransactionModel:(LWTransactionModel *)transModel{
+    self.amount = transModel.transAmount;
+    self.note = [NSString stringWithFormat:@"note: %@",transModel.note];
+    self.fee = transModel.fee;
+    if (transModel.payMail && transModel.payMail.length >0) {
+        self.address = transModel.payMail;
+    }else{
+        self.address = transModel.address;
+    }
 }
 
 - (IBAction)closeClick:(UIButton *)sender {

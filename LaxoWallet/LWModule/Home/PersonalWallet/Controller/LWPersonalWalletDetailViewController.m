@@ -87,6 +87,8 @@
      }
 }
 - (void)qrClick{
+    [self getQrCode];
+    return;
     NSString *address = [self.contentModel.deposit objectForKey:@"address"];
     self.contentModel.address = address;
 //        LWSignTool *signtool = [LWSignTool shareInstance];
@@ -102,6 +104,7 @@
 
 #pragma mark - 个人钱包
 - (void)getQrCode{
+    [SVProgressHUD show];
     LWHomeWalletModel *model = self.contentModel;
     NSDictionary *params = @{@"wid":@(model.walletId)};
     NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQuerySingleAddress),@"wallet.createSingleAddress",[params jsonStringEncoded]];
@@ -151,6 +154,7 @@
             
             [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
 
+            [LWAddressTool  attempDealloc];
 //            LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
 //            [LogicHandle presentViewController:personVC animate:YES];
         };
@@ -158,7 +162,11 @@
 }
 
 - (IBAction)recevieClick:(UIButton *)sender {
+    sender.userInteractionEnabled = NO;
     [self qrClick];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        sender.userInteractionEnabled = YES;
+    });
 }
 
 - (IBAction)sendClick:(UIButton *)sender {
@@ -197,5 +205,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end

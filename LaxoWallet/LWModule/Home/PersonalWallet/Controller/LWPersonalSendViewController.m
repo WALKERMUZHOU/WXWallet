@@ -9,14 +9,20 @@
 #import "LWPersonalSendViewController.h"
 #import "LWPersonalSendViewController.h"
 #import "LWPersonalpaySuccessViewController.h"
+#import "libthresholdsig.h"
 
 #import "LWAlertTool.h"
+#import "LWTransactionModel.h"
+
 @interface LWPersonalSendViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *addressTF;
 @property (weak, nonatomic) IBOutlet UILabel *amountDescribeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *amountTF;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UITextField *noteTF;
+
+@property (nonatomic, strong) NSString  *address;
+@property (nonatomic, assign) BOOL ispayMail;
 
 @end
 
@@ -25,7 +31,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
     self.amountDescribeLabel.text = [NSString stringWithFormat:@"Available %@ / Locked in Pending TX %@",[LWNumberTool formatSSSFloat:self.model.canuseBitCount],[LWNumberTool formatSSSFloat:self.model.loackBitCount]];
     self.amountTF.delegate = self;
     
@@ -36,6 +41,9 @@
      }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress_change object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getMultipyChangeAddress:) name:kWebScoket_multipyAddress_change object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getpaymailToAddress:) name:kWebScoket_paymail_toAddress object:nil];
+
 
 }
 
@@ -59,27 +67,39 @@
         [WMHUDUntil showMessageToWindow:@"amount need less than available"];
         return;
     }
-    
     [self queryChangeAddress];
-
 }
 
 - (void)queryChangeAddress{
     
-    if (self.viewType == 1) {
-           [LWAlertTool alertPersonalWalletViewSend:self.model andAdress:self.addressTF.text andAmount:self.amountTF.text andNote:self.noteTF.text changeAddress:self.model.changeAddress andComplete:^(void) {
-
-         }];
-
-    }else{
-        LWHomeWalletModel *model = self.model;
-         NSDictionary *params = @{@"wid":@(model.walletId),@"type":@(2)};
-         NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQuerySingleAddress_change),@"wallet.createSingleAddress",[params jsonStringEncoded]];
-         NSData *data = [requestPersonalWalletArray mp_messagePack];
-         [[SocketRocketUtility instance] sendData:data];
+    if([LWEmailTool isEmail:self.addressTF.text] && !self.address){
+        [self paymailToAddress];
+        return;
+    }else if(!self.address || self.address.length == 0 ){
+        char *address_char = address_to_script([LWAddressTool stringToChar:self.addressTF.text]);
+        NSString *address_str = [LWAddressTool charToString:address_char];
+        if (!address_str || address_str.length == 0) {
+            [WMHUDUntil showMessageToWindow:@"Wrong Address"];
+            return;
+        }
+        self.address = self.addressTF.text;
     }
     
+    if (self.viewType == 1) {
+        [self queryMultipyChangeAddress];
+    }else{
+        [self queryPersonalChangeAddress];
+    }
+}
 
+#pragma mark - personal change address
+
+- (void)queryPersonalChangeAddress{
+    LWHomeWalletModel *model = self.model;
+     NSDictionary *params = @{@"wid":@(model.walletId),@"type":@(2)};
+     NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQuerySingleAddress_change),@"wallet.createSingleAddress",[params jsonStringEncoded]];
+     NSData *data = [requestPersonalWalletArray mp_messagePack];
+     [[SocketRocketUtility instance] sendData:data];
 }
 
 - (void)createSingleAddress:(NSNotification *)notification{
@@ -92,13 +112,27 @@
         }
         NSString *addresssChange = [notiDicData ds_stringForKey:@"address"];
         if (addresssChange && addresssChange.length>0) {
-            [LWAlertTool alertPersonalWalletViewSend:self.model andAdress:self.addressTF.text andAmount:self.amountTF.text andNote:self.noteTF.text changeAddress:addresssChange andComplete:^(void) {
-
+            
+            LWTransactionModel *model = [[LWTransactionModel alloc] init];
+            model.address = self.address;
+            model.transAmount = self.amountTF.text;
+            model.note = self.noteTF.text;
+            model.changeAddress = addresssChange;
+            if (self.ispayMail) {
+                model.payMail = self.addressTF.text;
+            }
+            
+            
+            [LWAlertTool alertPersonalWalletViewSend:self.model andTransactionModel:model andComplete:^{
+                
             }];
+            
+//            [LWAlertTool alertPersonalWalletViewSend:self.model andAdress:self.address andAmount:self.amountTF.text andNote:self.noteTF.text changeAddress:addresssChange andComplete:^(void) {
+//
+//            }];
             return;
         }
-        
-        
+
         NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
         NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;
 
@@ -108,14 +142,121 @@
         addressTool.addressBlock = ^(NSString * _Nonnull address) {
             [SVProgressHUD dismiss];
         
-            [LWAlertTool alertPersonalWalletViewSend:self.model andAdress:self.addressTF.text andAmount:self.amountTF.text andNote:self.noteTF.text changeAddress:address andComplete:^(void) {
+            LWTransactionModel *model = [[LWTransactionModel alloc] init];
+            model.address = self.address;
+            model.transAmount = self.amountTF.text;
+            model.note = self.noteTF.text;
+            model.changeAddress = address;
+            if (self.ispayMail) {
+                model.payMail = self.addressTF.text;
+            }
 
-             }];
+            [LWAlertTool alertPersonalWalletViewSend:self.model andTransactionModel:model andComplete:^{
+                
+            }];
             
+//            [LWAlertTool alertPersonalWalletViewSend:self.model andAdress:self.address andAmount:self.amountTF.text andNote:self.noteTF.text changeAddress:address andComplete:^(void) {
+//
+//             }];
         };
     }
 }
 
+#pragma mark - paymailtoAddress
+- (void)paymailToAddress{
+    NSDictionary *params = @{@"paymail":self.addressTF.text};
+    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestId_paymail_toAddress),WS_paymail_toAddress,[params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    [[SocketRocketUtility instance] sendData:data];
+}
+
+- (void)getpaymailToAddress:(NSNotification *)notification{
+    NSDictionary *notiDic = notification.object;
+    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+        NSString *dataAddress = [notiDic objectForKey:@"data"];
+        if (dataAddress && dataAddress.length >0) {
+            self.address = [notiDic objectForKey:@"data"];
+            self.ispayMail = YES;
+            [self queryChangeAddress];
+        }else{
+            [WMHUDUntil showMessageToWindow:@"Wrong paymail"];
+        }
+    }
+}
+
+
+#pragma mark multipy change address
+- (void)queryMultipyChangeAddress{
+    LWHomeWalletModel *model = self.model;
+    NSDictionary *params = @{@"wid":@(model.walletId),@"type":@(2)};
+    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQueryMultipyAddress_change),WS_Home_getMutipyAddress,[params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    [[SocketRocketUtility instance] sendData:data];
+}
+
+- (void)getMultipyChangeAddress:(NSNotification *)notification{
+    NSDictionary *notiDic = notification.object;
+    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+    
+        NSDictionary *notiDicData = [notiDic objectForKey:@"data"];
+        NSString *addresssChange = [notiDicData ds_stringForKey:@"address"];
+        if (addresssChange && addresssChange.length>0) {
+            self.model.changeAddress = addresssChange;
+            
+            LWTransactionModel *model = [[LWTransactionModel alloc] init];
+            model.address = self.address;
+            model.transAmount = self.amountTF.text;
+            model.note = self.noteTF.text;
+            model.changeAddress = addresssChange;
+            if (self.ispayMail) {
+                model.payMail = self.addressTF.text;
+            }
+
+            [LWAlertTool alertPersonalWalletViewSend:self.model andTransactionModel:model andComplete:^{
+                
+            }];
+            
+            
+            
+//            [LWAlertTool alertPersonalWalletViewSend:self.model andAdress:self.address andAmount:self.amountTF.text andNote:self.noteTF.text changeAddress:addresssChange andComplete:^(void) {
+//
+//               }];
+            return;
+        }
+        
+        NSArray *userArray = [notiDicData ds_arrayForKey:@"users"];
+        if (userArray.count >0) {
+            NSDictionary *deposit = self.model.deposit;
+            if (deposit) {
+                self.model.changeAddress = [deposit objectForKey:@"address"];
+                
+                LWTransactionModel *model = [[LWTransactionModel alloc] init];
+                model.address = self.address;
+                model.transAmount = self.amountTF.text;
+                model.note = self.noteTF.text;
+                model.changeAddress = [deposit objectForKey:@"address"];
+                if (self.ispayMail) {
+                    model.payMail = self.addressTF.text;
+                }
+
+                [LWAlertTool alertPersonalWalletViewSend:self.model andTransactionModel:model andComplete:^{
+                    
+                }];
+                
+                
+                
+//                [LWAlertTool alertPersonalWalletViewSend:self.model andAdress:self.address andAmount:self.amountTF.text andNote:self.noteTF.text changeAddress:[deposit objectForKey:@"address"] andComplete:^(void) {
+//
+//                    }];
+            }
+            return;
+        }
+    }
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 /*
 #pragma mark - Navigation
 

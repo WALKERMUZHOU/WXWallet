@@ -8,6 +8,8 @@
 
 #import "LWBaseView.h"
 #import "LWHomeWalletModel.h"
+#import "LWTransactionModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 //statue 0 失败 statue 1 成功
 typedef void(^PersonalSendBlock)(NSInteger statue);
@@ -15,6 +17,8 @@ typedef void(^PersonalSendBlock)(NSInteger statue);
 @interface LWPersonalSendView : LWBaseView
 
 @property (nonatomic, copy) PersonalSendBlock block;
+
+- (void)setWithLWTransactionModel:(LWTransactionModel *)transModel andModel:(LWHomeWalletModel *)model;
 
 - (void)setAddress:(NSString *)address andAmount:(NSString *)amount andMessage:(NSString *)note andModel:(LWHomeWalletModel *)model andChangeAddress:(NSString *)changeAddress;
 

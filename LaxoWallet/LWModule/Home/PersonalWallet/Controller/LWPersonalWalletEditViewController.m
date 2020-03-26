@@ -110,11 +110,11 @@
          for (NSInteger i = 0; i<statueArray.count; i++) {
              LWPaymailModel *model = [LWPaymailModel modelWithDictionary:statueArray[i]];
              if (model.index == 0) {
-                 self.paymailTF.text = [NSString stringWithFormat:@"%@@volt.io",model.name];
+                 self.paymailTF.text = [NSString stringWithFormat:@"%@@volt.id",model.name];
              }
              
              if (model.main == 1) {
-                 self.paymailTF.text = [NSString stringWithFormat:@"%@@volt.io",model.name];
+                 self.paymailTF.text = [NSString stringWithFormat:@"%@@volt.id",model.name];
                  break;
              }
          }

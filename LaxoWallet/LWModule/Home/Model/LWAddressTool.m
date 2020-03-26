@@ -61,8 +61,8 @@ NSInteger PARTIES = 3;
 @implementation LWAddressTool
 
 static LWAddressTool *instance = nil;
+static dispatch_once_t onceToken;
 + (LWAddressTool *)shareInstance{
-    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[LWAddressTool alloc]init];
     });
@@ -100,6 +100,8 @@ static LWAddressTool *instance = nil;
 
     char *derive_key_char = derive_key([LWAddressTool stringToChar:seed], [LWAddressTool stringToChar:self.path]);
     self.pk = [LWAddressTool charToString:derive_key_char];
+    
+    self.pk = [LWPublicManager getPKWithZhuJiCiAndPath:self.path];
     
 //    self->_mainThreadSignal = dispatch_semaphore_create(0);
 //    [PubkeyManager getPrikeyByZhujiciandIndex:@(0) SuccessBlock:^(id  _Nonnull data) {
@@ -222,21 +224,7 @@ static LWAddressTool *instance = nil;
               //对let item of share_list
               for (NSInteger k = 0; k<share_list.count; k++) {
                   NSArray *item = share_list[k];
-//                  __block NSString *key;
-//
-//
-//
-//                  self->_sendp2pSignal = dispatch_semaphore_create(0);
-//                  [PubkeyManager encrptWithTheKey:secrets[k] andSecret_share:item[1] SuccessBlock:^(id  _Nonnull data) {
-//                      key = data;
-//                      dispatch_semaphore_signal(self->_sendp2pSignal);
-//                  } WithFailBlock:^(id  _Nonnull data) {
-//                      dispatch_semaphore_signal(self->_sendp2pSignal);
-//                      return ;
-//
-//                  }];
-               NSString *keytemp = [LWEncryptTool encrywithKey_tss:secrets[k] message:item[1]];
-//                  dispatch_semaphore_wait(self->_sendp2pSignal, DISPATCH_TIME_FOREVER);
+                  NSString *keytemp = [LWEncryptTool encrywithKey_tss:secrets[k] message:item[1]];
                   
                   self->_semaphoreSignal = dispatch_semaphore_create(0);
                   [self sendp2p:[item[0] integerValue] round:2 data:keytemp];
@@ -268,22 +256,7 @@ static LWAddressTool *instance = nil;
                 NSString *decryptStr_temp = [LWEncryptTool decryptwithKey_tss:secrets[j] message:poll_for_p2p_Array[j] andHex:1];
                 [poll_for_p2p_Array_decrypt addObj:decryptStr_temp];
             }
-            
-            
-//            for (NSInteger j = 0; j<poll_for_p2p_Array.count; j++) {
-//                self->_broadcastWithValSignal = dispatch_semaphore_create(0);
-//                
-//                [PubkeyManager decrptWithSecret:secrets[j] andSecret_share:poll_for_p2p_Array[j] SuccessBlock:^(id  _Nonnull data) {
-//                    NSString *decryptStr = (NSString *)data;
-//                    [poll_for_p2p_Array_decrypt addObj:decryptStr];
-//                    dispatch_semaphore_signal(self->_broadcastWithValSignal);
-//                 } WithFailBlock:^(id  _Nonnull data) {
-//                    dispatch_semaphore_signal(self->_broadcastWithValSignal);
-//                    return ;
-//                }];
-//              dispatch_semaphore_wait(self->_broadcastWithValSignal, DISPATCH_TIME_FOREVER);
-//            }
-  
+
             self->_getKeySignal = dispatch_semaphore_create(0);
             NSArray *poll_for_broadCast3_array = [self poll_for_broadCast:3];
             dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
@@ -296,8 +269,12 @@ static LWAddressTool *instance = nil;
             
             char *key_handle_round2_char = key_handle_round2([LWAddressTool stringToChar:key[0]],[LWAddressTool objectToChar:poll_for_p2p_Array_decrypt] ,[LWAddressTool objectToChar:poll_for_broadCast3_array]);
             NSLog(@"key_handle_round2_char_success");
-
+  
             NSArray *key_handle_round2_array = [LWAddressTool charToObject:key_handle_round2_char];
+            if (!key_handle_round2_array || key_handle_round2_array.count ==0) {
+                [WMHUDUntil showMessageToWindow:@"error"];
+                return ;
+            }
             NSString *shared_keys = key_handle_round2_array.firstObject;
             NSDictionary *dlog_proof = key_handle_round2_array[1];
             NSArray *vss = key_handle_round2_array.lastObject;
@@ -335,27 +312,7 @@ static LWAddressTool *instance = nil;
 
 - (void)requestAddress:(NSString *)shares andvss:(NSArray *)vss{
     
-//    __block NSString *pk;
-//    self->_mainThreadSignal = dispatch_semaphore_create(0);
-//    [PubkeyManager getPrikeyByZhujiciSuccessBlock:^(id  _Nonnull data) {
-//        pk = [data objectForKey:@"prikey"];
-//        dispatch_semaphore_signal(self->_mainThreadSignal);
-//    } WithFailBlock:^(id  _Nonnull data) {
-//
-//    }];
-//    dispatch_semaphore_wait(self->_mainThreadSignal, DISPATCH_TIME_FOREVER);
-    
     char *secret_char = sha256([LWAddressTool stringToChar:self.prikey]);
-    
-//    __block NSString *shares_encrypt;
-//    self->_semaphoreSignal = dispatch_semaphore_create(0);
-//    [PubkeyManager getDkWithSecret:[LWAddressTool charToString:secret_char] andpJoin:shares SuccessBlock:^(id  _Nonnull data) {
-//        shares_encrypt = data;
-//        dispatch_semaphore_signal(self->_semaphoreSignal);
-//    } WithFailBlock:^(id  _Nonnull data) {
-//
-//    }];
-//    dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
 
     NSString *shares_encrypt = [LWEncryptTool encrywithTheKey:[LWAddressTool charToString:secret_char] message:shares andHex:1];
     
@@ -400,7 +357,7 @@ static LWAddressTool *instance = nil;
                 NSString *key = [@[@(i),@(round)] componentsJoinedByString:@"_"];
                 NSLog(@"getkeystart");
                 dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
                 dispatch_source_set_event_handler(timer, ^{
                     [self getKey:key];
                 });
@@ -457,6 +414,7 @@ static LWAddressTool *instance = nil;
 
 - (void)boardCast:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;
+    NSLog(@"broadcast:%@",notiDic);
     NSLog(@"broadcastNotificationSuccess");
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
         dispatch_semaphore_signal(_semaphoreSignal);
@@ -467,6 +425,10 @@ static LWAddressTool *instance = nil;
     NSDictionary *notiDic = notification.object;
     NSLog(@"getTheKeySuccess");
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+        id getTheKeyDataID = [notiDic objectForKey:@"data"];
+        if ([getTheKeyData isEqual:getTheKeyDataID]) {
+            return;
+        }
         getTheKeyData = [notiDic objectForKey:@"data"];
         dispatch_semaphore_signal(_semaphoreSignal);
     }
@@ -483,7 +445,16 @@ static LWAddressTool *instance = nil;
             }
         }
         
+    }else{
+        [SVProgressHUD dismiss];
+        [WMHUDUntil showMessageToWindow:@"Get Address Error"];
+        return;
     }
+}
+
++ (void)attempDealloc{
+   onceToken = 0; // 只有置成0,GCD才会认为它从未执行过.它默认为0.这样才能保证下次再次调用shareInstance的时候,再次创建对象.
+   instance = nil;
 }
 
 

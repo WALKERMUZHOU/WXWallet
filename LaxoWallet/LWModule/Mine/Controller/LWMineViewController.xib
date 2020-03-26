@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNf-Lv-JUu">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="487"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DoY-V5-nhA">
                                     <rect key="frame" x="105.33333333333333" y="40" width="164.66666666666669" height="40"/>
@@ -34,11 +34,11 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+usernamehandle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDr-V2-taC">
                                             <rect key="frame" x="15" y="0.0" width="134.66666666666666" height="40"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.76767665149999997" green="0.79556107519999997" blue="0.83298206330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.95675891639999999" green="0.95692259069999996" blue="0.95674854519999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="FDr-V2-taC" firstAttribute="leading" secondItem="DoY-V5-nhA" secondAttribute="leading" constant="15" id="GWx-bM-cHg"/>
                                         <constraint firstItem="FDr-V2-taC" firstAttribute="top" secondItem="DoY-V5-nhA" secondAttribute="top" id="Mfc-0Q-ORX"/>
@@ -114,14 +114,14 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eg6-ya-b8N">
-                                    <rect key="frame" x="0.0" y="201" width="375" height="1"/>
+                                    <rect key="frame" x="0.0" y="196" width="375" height="1"/>
                                     <color key="backgroundColor" red="0.85872977969999997" green="0.85887759919999995" blue="0.85872042179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="rmY-O0-hLq"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNU-Wi-chL">
-                                    <rect key="frame" x="0.0" y="202" width="375" height="60"/>
+                                    <rect key="frame" x="0.0" y="197" width="375" height="60"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxV-Ub-SSZ">
                                             <rect key="frame" x="20" y="20" width="65.666666666666671" height="20"/>
@@ -170,7 +170,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXW-K2-77v">
-                                    <rect key="frame" x="0.0" y="262" width="375" height="60"/>
+                                    <rect key="frame" x="0.0" y="257" width="375" height="60"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preferences" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQG-EL-mlt">
                                             <rect key="frame" x="20.000000000000007" y="20" width="94.666666666666686" height="20"/>
@@ -219,7 +219,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJA-zs-Yol">
-                                    <rect key="frame" x="0.0" y="322" width="375" height="85"/>
+                                    <rect key="frame" x="0.0" y="317" width="375" height="85"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Backup Secret QR Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3D2-wN-ntt">
                                             <rect key="frame" x="20" y="20" width="184.66666666666666" height="20"/>
@@ -280,7 +280,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3EO-9I-ULo">
-                                    <rect key="frame" x="0.0" y="407" width="375" height="60"/>
+                                    <rect key="frame" x="0.0" y="402" width="375" height="60"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBe-TH-fos">
                                             <rect key="frame" x="19.999999999999996" y="20" width="63.666666666666657" height="20"/>
@@ -356,7 +356,7 @@
                                 <constraint firstItem="AJA-zs-Yol" firstAttribute="top" secondItem="UXW-K2-77v" secondAttribute="bottom" id="K4R-nt-5xT"/>
                                 <constraint firstItem="UXW-K2-77v" firstAttribute="leading" secondItem="wNf-Lv-JUu" secondAttribute="leading" id="Lph-mG-YaP"/>
                                 <constraint firstItem="KNU-Wi-chL" firstAttribute="leading" secondItem="wNf-Lv-JUu" secondAttribute="leading" id="MuK-Ar-Hz9"/>
-                                <constraint firstItem="Eg6-ya-b8N" firstAttribute="top" secondItem="laG-FX-0NX" secondAttribute="bottom" constant="30" id="N3s-UV-lYc"/>
+                                <constraint firstItem="Eg6-ya-b8N" firstAttribute="top" secondItem="laG-FX-0NX" secondAttribute="bottom" constant="25" id="N3s-UV-lYc"/>
                                 <constraint firstItem="laG-FX-0NX" firstAttribute="centerX" secondItem="wNf-Lv-JUu" secondAttribute="centerX" id="Reb-6D-1xp"/>
                                 <constraint firstAttribute="trailing" secondItem="UXW-K2-77v" secondAttribute="trailing" id="Vd5-IL-j5o"/>
                                 <constraint firstAttribute="trailing" secondItem="3EO-9I-ULo" secondAttribute="trailing" id="cYK-hf-15d"/>

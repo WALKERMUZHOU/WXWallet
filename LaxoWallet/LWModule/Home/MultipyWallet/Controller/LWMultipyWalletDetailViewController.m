@@ -115,7 +115,6 @@
 }
 
 - (IBAction)sendClick:(UIButton *)sender {
-    
     LWPersonalSendViewController *sendVC = [[LWPersonalSendViewController alloc] init];
     sendVC.model = self.contentModel;
     sendVC.viewType = 1;
@@ -205,16 +204,16 @@
             return;
         }
         
-        NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
-        NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;
-
-        [SVProgressHUD show];
-        LWAddressTool *addressTool = [LWAddressTool shareInstance];
-        [addressTool setWithrid:rid andPath:path];
-        addressTool.addressBlock = ^(NSString * _Nonnull address) {
-            [SVProgressHUD dismiss];
-            self.contentModel.changeAddress = address;
-        };
+//        NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
+//        NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;
+//
+//        [SVProgressHUD show];
+//        LWAddressTool *addressTool = [LWAddressTool shareInstance];
+//        [addressTool setWithrid:rid andPath:path];
+//        addressTool.addressBlock = ^(NSString * _Nonnull address) {
+//            [SVProgressHUD dismiss];
+//            self.contentModel.changeAddress = address;
+//        };
     }
 }
 
@@ -237,6 +236,10 @@
           self.contentModel.parties = [NSArray modelArrayWithClass:[LWPartiesModel class] json:partiesArray];
           self.listView.homeWallteModel = self.contentModel;
       }
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*

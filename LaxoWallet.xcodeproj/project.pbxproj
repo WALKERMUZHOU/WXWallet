@@ -217,6 +217,7 @@
 		5E7BACB5242B4FDF00901EA5 /* IMY_NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACB3242B4FDF00901EA5 /* IMY_NJKWebViewProgress.m */; };
 		5E7BACB8242B6AC200901EA5 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7BACB7242B6AC100901EA5 /* Bugly.framework */; };
 		5E7BACBA242B6C3600901EA5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7BACB9242B6C3600901EA5 /* Security.framework */; };
+		5E7BACBE242C888E00901EA5 /* LWTransactionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACBD242C888E00901EA5 /* LWTransactionModel.m */; };
 		5E7E09132428ABE700C75C0F /* LWCreatePersonalWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09112428ABE700C75C0F /* LWCreatePersonalWalletViewController.m */; };
 		5E7E09142428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E09122428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib */; };
 		5E7E09172428B5D100C75C0F /* LWEmailTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09162428B5D100C75C0F /* LWEmailTool.m */; };
@@ -750,6 +751,8 @@
 		5E7BACB7242B6AC100901EA5 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
 		5E7BACB9242B6C3600901EA5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5E7BACBB242B6C4B00901EA5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		5E7BACBC242C888E00901EA5 /* LWTransactionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTransactionModel.h; sourceTree = "<group>"; };
+		5E7BACBD242C888E00901EA5 /* LWTransactionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTransactionModel.m; sourceTree = "<group>"; };
 		5E7E09102428ABE700C75C0F /* LWCreatePersonalWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWCreatePersonalWalletViewController.h; sourceTree = "<group>"; };
 		5E7E09112428ABE700C75C0F /* LWCreatePersonalWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCreatePersonalWalletViewController.m; sourceTree = "<group>"; };
 		5E7E09122428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWCreatePersonalWalletViewController.xib; sourceTree = "<group>"; };
@@ -2248,6 +2251,8 @@
 				5E91736824172B5300D47A9F /* LWTansactionTool.m */,
 				5E917377241B1F1200D47A9F /* LWMultipyTransactionTool.h */,
 				5E917378241B1F1200D47A9F /* LWMultipyTransactionTool.m */,
+				5E7BACBC242C888E00901EA5 /* LWTransactionModel.h */,
+				5E7BACBD242C888E00901EA5 /* LWTransactionModel.m */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -3115,6 +3120,7 @@
 				5E3160D42424A81E005CA564 /* LWScanLoginViewController.m in Sources */,
 				5E7E093C2429F69C00C75C0F /* LWReceivedViewAlertView.m in Sources */,
 				5E5F12D023ED8B3F002F0711 /* LWRecoveryFileView.m in Sources */,
+				5E7BACBE242C888E00901EA5 /* LWTransactionModel.m in Sources */,
 				5E66A3CB23EBFAA2004097CB /* UIView+TYAlertView.m in Sources */,
 				5E9172BD241528B700D47A9F /* CBSecp256k1.m in Sources */,
 				5E5F12D323ED8B5B002F0711 /* LWRecoveryTrustholdsView.m in Sources */,

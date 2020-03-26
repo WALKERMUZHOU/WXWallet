@@ -63,11 +63,12 @@
 #define kWebScoket_walletReName               @"kWebScoket_walletReName"
 #define kWebScoket_CreatePersonalWallet       @"kWebScoket_CreatePersonalWallet"
 
-#define kWebScoket_paymail_update       @"kWebScoket_paymail_update"
+#define kWebScoket_paymail_update           @"kWebScoket_paymail_update"
 #define kWebScoket_paymail_queryByWid       @"kWebScoket_paymail_queryByWid"
-#define kWebScoket_paymail_setMain       @"kWebScoket_paymail_setMain"
-#define kWebScoket_paymail_query      @"kWebScoket_paymail_query"
-#define kWebScoket_paymail_add       @"kWebScoket_paymail_add"
+#define kWebScoket_paymail_setMain          @"kWebScoket_paymail_setMain"
+#define kWebScoket_paymail_query            @"kWebScoket_paymail_query"
+#define kWebScoket_paymail_add              @"kWebScoket_paymail_add"
+#define kWebScoket_paymail_toAddress        @"kWebScoket_paymail_toAddress"
 
 
 

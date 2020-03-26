@@ -11,6 +11,7 @@
 
 #import "LWHomeWalletModel.h"
 #import "LWMessageModel.h"
+#import "LWTransactionModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///个人钱包收款弹窗
 + (void)alertPersonalWalletViewReceive:(LWHomeWalletModel *)params ansComplete:(void(^)(NSInteger index))walletBlock;
+
++ (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andTransactionModel:(LWTransactionModel *)transModel andComplete:(void (^)(void))walletBlock;
+
++ (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andTransactionModel:(LWTransactionModel *)transModel andComplete:(void (^)(void))walletBlock;
 
 ///个人钱包发送弹窗
 + (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note changeAddress:(NSString *)changeAddress andComplete:(void (^)(void))walletBlock;

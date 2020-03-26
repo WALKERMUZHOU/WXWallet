@@ -39,7 +39,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMultipyAddress:) name:kWebScoket_multipyAddress object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(partiesNotification:) name:kWebScoket_messageParties object:nil];
     [self queryParties];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress_change object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_multipyAddress_change object:nil];
 
 
 }
@@ -117,21 +117,20 @@
 - (IBAction)sendClick:(UIButton *)sender {
     
     LWPersonalSendViewController *sendVC = [[LWPersonalSendViewController alloc] init];
-     sendVC.model = self.contentModel;
+    sendVC.model = self.contentModel;
     sendVC.viewType = 1;
-     [self.navigationController pushViewController:sendVC animated:YES];
-    
+    [self.navigationController pushViewController:sendVC animated:YES];
 }
 
 - (void)getMulityQrCode{
     
     NSDictionary *deposit = self.contentModel.deposit;
     NSString *address = [deposit objectForKey:@"address"];
-    if (address && address.length>0) {
-        self.contentModel.address = address;
-        [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
-        return;
-    }
+//    if (address && address.length>0) {
+//        self.contentModel.address = address;
+//        [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
+//        return;
+//    }
  
     LWHomeWalletModel *model = self.contentModel;
     NSDictionary *params = @{@"wid":@(model.walletId)};
@@ -147,8 +146,28 @@
     NSDictionary *notiDic = notification.object;
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
         NSDictionary *dataDic = [notiDic objectForKey:@"data"];
-        NSString *address = [dataDic objectForKey:@"address"];
+        NSString *address = [dataDic ds_stringForKey:@"address"];
         self.contentModel.address = address;
+        
+        if (!address || address.length == 0) {
+            NSArray *userArray = [dataDic ds_arrayForKey:@"users"];
+            NSInteger onlineUsercount = 0;
+            if (userArray && userArray.count>0) {
+                for (NSInteger i = 0 ; i<userArray.count ;i++) {
+                    NSInteger isonline = [[userArray[i] objectForKey:@"online"] integerValue];
+                    if (isonline == 1) {
+                        onlineUsercount ++;
+                    }
+                }
+                
+                if (onlineUsercount < self.contentModel.threshold) {
+                    [WMHUDUntil showMessageToWindow:@"please check other user online"];
+                    return;
+                }
+            }
+        }
+ 
+        
         if (!address || address.length == 0) {
 
 
@@ -156,6 +175,7 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppCreateMulitpyAddress_userdefault];
             [[NSUserDefaults standardUserDefaults] synchronize];
             [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
+            [self queryChangeAddress];
         }
     }
 }
@@ -163,10 +183,10 @@
 
 - (void)queryChangeAddress{
     LWHomeWalletModel *model = self.contentModel;
-     NSDictionary *params = @{@"wid":@(model.walletId),@"type":@(2)};
-     NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQueryMultipyAddress_change),WS_Home_getMutipyAddress,[params jsonStringEncoded]];
-     NSData *data = [requestPersonalWalletArray mp_messagePack];
-     [[SocketRocketUtility instance] sendData:data];
+    NSDictionary *params = @{@"wid":@(model.walletId),@"type":@(2)};
+    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQueryMultipyAddress_change),WS_Home_getMutipyAddress,[params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    [[SocketRocketUtility instance] sendData:data];
 }
 
 - (void)createSingleAddress:(NSNotification *)notification{
@@ -180,6 +200,10 @@
             return;
         }
         
+        NSArray *userArray = [notiDicData ds_arrayForKey:@"users"];
+        if (userArray.count >0) {
+            return;
+        }
         
         NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
         NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;

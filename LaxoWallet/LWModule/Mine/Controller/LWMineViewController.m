@@ -91,7 +91,7 @@
              priceTypeStr = @"$";
          }
          
-         self.bitCountLabel.text = [LWNumberTool formatSSSFloat:personalBitCount];
+         self.bitCountLabel.text = [LWNumberTool formatSSSFloat:bitCount/1e8];
          self.priceLabel.text = [NSString stringWithFormat:@"%@%.2f",priceTypeStr,personalBitCount];
      }
 }
@@ -111,7 +111,7 @@
         LWBaseWebViewController *securityVC = [[LWBaseWebViewController alloc]init];
         securityVC.url = @"https://twitter.com/Voltfinance";
         [LogicHandle pushViewController:securityVC animate:YES];
-    }    
+    }
 }
 
 - (IBAction)editCLick:(UIButton *)sender {

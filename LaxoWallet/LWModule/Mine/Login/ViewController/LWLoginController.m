@@ -181,7 +181,9 @@
                [SVProgressHUD dismiss];
                [[LWUserManager shareInstance] setUserDic:dataDic];
                [[LWUserManager shareInstance] setEmail:self.emailStr];
-               if([[LWUserManager shareInstance] getUserModel].uid.length>0){//老用户
+               NSString *uid = [dataDic ds_stringForKey:@"uid"];
+               
+               if(uid && uid.length>0){//老用户
                    [self.scrollView setContentOffset:CGPointMake(kScreenWidth *4, 0) animated:NO];
                }else{//新用户
                    //选择thrustholds

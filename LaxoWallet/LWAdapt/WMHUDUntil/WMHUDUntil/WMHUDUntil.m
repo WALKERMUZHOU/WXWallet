@@ -10,7 +10,7 @@
 
 BOOL HUDAnimated = NO;
 
-NSTimeInterval delay = 2;
+NSTimeInterval delay = 1;
 
 @implementation WMHUDUntil
 

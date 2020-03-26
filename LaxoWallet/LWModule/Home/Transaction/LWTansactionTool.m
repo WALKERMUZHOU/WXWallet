@@ -96,7 +96,7 @@ static LWTansactionTool *instance = nil;
     char *fee = get_transaction_fee(transId);
     self.fee = [LWAddressTool charToString:fee];
     
-    if (self.fee.floatValue + self.transAmount > self.model.canuseBitCount) {
+    if (self.fee.integerValue + self.transAmount > self.model.canuseBitCountInterger) {
         destroy_transaction(transId);
         
         transId = create_transaction();

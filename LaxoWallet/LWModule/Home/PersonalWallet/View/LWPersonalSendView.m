@@ -62,7 +62,10 @@
     __weak typeof(self) weakself = self;
 
     if (model.type == 1) {
-            self.trans = [[LWTansactionTool alloc]init];
+        self.trans = [[LWTansactionTool alloc]init];
+        if (!changeAddress || changeAddress.length == 0) {
+            changeAddress = model.address;
+        }
         [self.trans startTransactionWithAmount:amount.floatValue address:address note:note andTotalModel:model andChangeAddress:changeAddress];
         self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",amount,@(self.trans.fee.integerValue/1e8)];
 

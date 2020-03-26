@@ -370,6 +370,10 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipyAddress object:responseArray[2]];
             }
                   break;
+        case WSRequestIdWalletQueryMultipyAddress_change:{
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipyAddress_change object:responseArray[2]];
+            }
+                  break;
         case WSRequestIdWalletQueryBroadcastUnSignTrans:{
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipyUnSignTrans object:responseArray[2]];
             }

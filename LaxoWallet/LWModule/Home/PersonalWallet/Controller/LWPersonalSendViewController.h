@@ -10,9 +10,11 @@
 #import "LWHomeWalletModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface LWPersonalSendViewController : LWBaseViewController
 
 @property (nonatomic, strong) LWHomeWalletModel *model;
+///viewtype = 1 多人钱包
 @property (nonatomic, assign) NSInteger viewType;
 
 @end

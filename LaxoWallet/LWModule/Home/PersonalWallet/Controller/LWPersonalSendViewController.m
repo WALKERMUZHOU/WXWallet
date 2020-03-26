@@ -65,18 +65,31 @@
 }
 
 - (void)queryChangeAddress{
-    LWHomeWalletModel *model = self.model;
-     NSDictionary *params = @{@"wid":@(model.walletId),@"type":@(2)};
-     NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQuerySingleAddress_change),@"wallet.createSingleAddress",[params jsonStringEncoded]];
-     NSData *data = [requestPersonalWalletArray mp_messagePack];
-     [[SocketRocketUtility instance] sendData:data];
+    
+    if (self.viewType == 1) {
+           [LWAlertTool alertPersonalWalletViewSend:self.model andAdress:self.addressTF.text andAmount:self.amountTF.text andNote:self.noteTF.text changeAddress:self.model.changeAddress andComplete:^(void) {
+
+         }];
+
+    }else{
+        LWHomeWalletModel *model = self.model;
+         NSDictionary *params = @{@"wid":@(model.walletId),@"type":@(2)};
+         NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQuerySingleAddress_change),@"wallet.createSingleAddress",[params jsonStringEncoded]];
+         NSData *data = [requestPersonalWalletArray mp_messagePack];
+         [[SocketRocketUtility instance] sendData:data];
+    }
+    
+
 }
 
 - (void)createSingleAddress:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
     
-        NSDictionary *notiDicData = [notiDic objectForKey:@"data"];
+        id notiDicData = [notiDic objectForKey:@"data"];
+        if(![notiDicData isKindOfClass:[NSDictionary class]]){
+            return;
+        }
         NSString *addresssChange = [notiDicData ds_stringForKey:@"address"];
         if (addresssChange && addresssChange.length>0) {
             [LWAlertTool alertPersonalWalletViewSend:self.model andAdress:self.addressTF.text andAmount:self.amountTF.text andNote:self.noteTF.text changeAddress:addresssChange andComplete:^(void) {

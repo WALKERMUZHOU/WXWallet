@@ -48,6 +48,8 @@
 #define kWebScoket_getkeyshare              @"kWebScoket_getsharedkey"
 #define kWebScoket_boardcast_trans          @"kWebScoket_boardcast_trans"
 #define kWebScoket_multipyAddress           @"kWebScoket_multipyAddress"
+#define kWebScoket_multipyAddress_change           @"kWebScoket_multipyAddress_change"
+
 #define kWebScoket_multipyUnSignTrans       @"kWebScoket_multipyUnSignTrans"
 #define kWebScoket_multipySubmitSig         @"kWebScoket_multipySubmitSig"
 

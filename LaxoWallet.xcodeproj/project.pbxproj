@@ -215,6 +215,8 @@
 		5E7BACAE242B4FC400901EA5 /* LWBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACAD242B4FC400901EA5 /* LWBaseWebViewController.m */; };
 		5E7BACB4242B4FDF00901EA5 /* IMYWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACB0242B4FDF00901EA5 /* IMYWebView.m */; };
 		5E7BACB5242B4FDF00901EA5 /* IMY_NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACB3242B4FDF00901EA5 /* IMY_NJKWebViewProgress.m */; };
+		5E7BACB8242B6AC200901EA5 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7BACB7242B6AC100901EA5 /* Bugly.framework */; };
+		5E7BACBA242B6C3600901EA5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7BACB9242B6C3600901EA5 /* Security.framework */; };
 		5E7E09132428ABE700C75C0F /* LWCreatePersonalWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09112428ABE700C75C0F /* LWCreatePersonalWalletViewController.m */; };
 		5E7E09142428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E09122428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib */; };
 		5E7E09172428B5D100C75C0F /* LWEmailTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09162428B5D100C75C0F /* LWEmailTool.m */; };
@@ -745,6 +747,9 @@
 		5E7BACB0242B4FDF00901EA5 /* IMYWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMYWebView.m; sourceTree = "<group>"; };
 		5E7BACB2242B4FDF00901EA5 /* IMY_NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMY_NJKWebViewProgress.h; sourceTree = "<group>"; };
 		5E7BACB3242B4FDF00901EA5 /* IMY_NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMY_NJKWebViewProgress.m; sourceTree = "<group>"; };
+		5E7BACB7242B6AC100901EA5 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
+		5E7BACB9242B6C3600901EA5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5E7BACBB242B6C4B00901EA5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5E7E09102428ABE700C75C0F /* LWCreatePersonalWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWCreatePersonalWalletViewController.h; sourceTree = "<group>"; };
 		5E7E09112428ABE700C75C0F /* LWCreatePersonalWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCreatePersonalWalletViewController.m; sourceTree = "<group>"; };
 		5E7E09122428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWCreatePersonalWalletViewController.xib; sourceTree = "<group>"; };
@@ -1000,9 +1005,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E7BACB8242B6AC200901EA5 /* Bugly.framework in Frameworks */,
 				5E9172E624163CB300D47A9F /* libc++.tbd in Frameworks */,
 				5EF5133023F1090000F5B6C1 /* JavaScriptCore.framework in Frameworks */,
 				5E9172DD2416376100D47A9F /* IDLFaceSDK.framework in Frameworks */,
+				5E7BACBA242B6C3600901EA5 /* Security.framework in Frameworks */,
 				5EC1A991240F52F70086ED19 /* libthresholdsig.a in Frameworks */,
 				5E9172BF241528B700D47A9F /* secp256k1.framework in Frameworks */,
 			);
@@ -1028,6 +1035,8 @@
 		51EFFA0A50EC1838107FEAF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E7BACBB242B6C4B00901EA5 /* libz.tbd */,
+				5E7BACB9242B6C3600901EA5 /* Security.framework */,
 				5E9172E524163CA100D47A9F /* libc++.tbd */,
 				5EF5132F23F1090000F5B6C1 /* JavaScriptCore.framework */,
 				978A27D43A937A7EDE48D448 /* libPods-LaxoWallet.a */,
@@ -2107,6 +2116,14 @@
 			path = UIWebViewProgress;
 			sourceTree = "<group>";
 		};
+		5E7BACB6242B6AC100901EA5 /* Bugly */ = {
+			isa = PBXGroup;
+			children = (
+				5E7BACB7242B6AC100901EA5 /* Bugly.framework */,
+			);
+			path = Bugly;
+			sourceTree = "<group>";
+		};
 		5E7E09232428D01C00C75C0F /* Asset Inheritance */ = {
 			isa = PBXGroup;
 			children = (
@@ -2310,6 +2327,7 @@
 		5EA807CD23E94ED500012837 /* LWAdapt */ = {
 			isa = PBXGroup;
 			children = (
+				5E7BACB6242B6AC100901EA5 /* Bugly */,
 				5E7BACA7242B4E3C00901EA5 /* WebView */,
 				5E9172D82416376100D47A9F /* FaceSDK */,
 				5E9172B7241528B700D47A9F /* secp256k1 */,
@@ -3400,6 +3418,7 @@
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/secp256k1",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/FaceSDK",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/FaceSDK/FaceSDK-Collect-WithLiveness-iOS/Frameworks/FaceSDK",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/Bugly",
 				);
 				GCC_PREFIX_HEADER = /Users/zhuchenglong/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
 				INFOPLIST_FILE = LaxoWallet/Info.plist;
@@ -3435,6 +3454,7 @@
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/secp256k1",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/FaceSDK",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/FaceSDK/FaceSDK-Collect-WithLiveness-iOS/Frameworks/FaceSDK",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/Bugly",
 				);
 				GCC_PREFIX_HEADER = /Users/zhuchenglong/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
 				INFOPLIST_FILE = LaxoWallet/Info.plist;

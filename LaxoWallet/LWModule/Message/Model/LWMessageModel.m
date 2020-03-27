@@ -34,6 +34,18 @@
         self.isMineCreateTrans = YES;
     }
     
+    NSDictionary *user_status = [dic objectForKey:@"user_status"];
+    NSArray *approve = [user_status ds_arrayForKey:@"approve"];
+    if (approve.count > 0) {
+        self.approve = approve;
+    }
+    
+    NSArray *reject = [user_status ds_arrayForKey:@"reject"];
+    if (reject.count > 0) {
+        self.reject = reject;
+    }
+    
+    
     if([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY){
         
         NSInteger value = [[dic objectForKey:@"value"] integerValue];

@@ -226,22 +226,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "042ADE2E-6062-4347-BDE4-66285CE2E2B1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LaxoWallet/LWModule/Home/Controller/LWHomeViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290"
-            landmarkName = "-manageSignInfo:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "5AAC509B-9CEE-45B0-8181-ED34EB82A977"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -466,16 +450,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "259179D1-785E-440D-AAF7-972BF4FEC331"
+            uuid = "E30A2D4A-1201-453B-A04E-5644B6C29C11"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LaxoWallet/LWModule/Home/Model/LWAddressTool.m"
+            filePath = "LaxoWallet/LWPublic/View/LWCurrentExchangeTool.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "438"
-            endingLineNumber = "438"
-            landmarkName = "-confirmAddress:"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-getCurrentExchange"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E30A2D4A-1201-453B-A04E-5644B6C29C11 - 62eed409844cc48a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[LWCurrentExchangeTool getCurrentExchange]_block_invoke_2.106"
+                  moduleName = "Volt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhuchenglong/WXWallet/LaxoWallet/LWPublic/View/LWCurrentExchangeTool.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "E30A2D4A-1201-453B-A04E-5644B6C29C11 - 5bd51e27fc9e3062"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[LWCurrentExchangeTool getCurrentExchange]_block_invoke_3"
+                  moduleName = "Volt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhuchenglong/WXWallet/LaxoWallet/LWPublic/View/LWCurrentExchangeTool.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A5075DB0-4150-414E-98B7-5A52EB2DEC55"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LaxoWallet/LWPublic/View/LWCurrentExchangeTool.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-getCurrentExchange"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

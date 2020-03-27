@@ -223,6 +223,7 @@
 		5E7BACCB242D0E5E00901EA5 /* ZZRModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACC5242D0E5E00901EA5 /* ZZRModel.m */; };
 		5E7BACCC242D0E5E00901EA5 /* iCloudHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACC6242D0E5E00901EA5 /* iCloudHandle.m */; };
 		5E7BACCD242D0E5E00901EA5 /* ZZRDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACC7242D0E5E00901EA5 /* ZZRDocument.m */; };
+		5E7BACD0242DA5D900901EA5 /* LWCurrentExchangeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACCF242DA5D900901EA5 /* LWCurrentExchangeTool.m */; };
 		5E7E09132428ABE700C75C0F /* LWCreatePersonalWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09112428ABE700C75C0F /* LWCreatePersonalWalletViewController.m */; };
 		5E7E09142428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E09122428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib */; };
 		5E7E09172428B5D100C75C0F /* LWEmailTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09162428B5D100C75C0F /* LWEmailTool.m */; };
@@ -767,6 +768,8 @@
 		5E7BACC8242D0E5E00901EA5 /* iCloudHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudHandle.h; sourceTree = "<group>"; };
 		5E7BACC9242D0E5E00901EA5 /* ZZRModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZRModel.h; sourceTree = "<group>"; };
 		5E7BACCA242D0E5E00901EA5 /* ZZRDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZRDocument.h; sourceTree = "<group>"; };
+		5E7BACCE242DA5D900901EA5 /* LWCurrentExchangeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWCurrentExchangeTool.h; sourceTree = "<group>"; };
+		5E7BACCF242DA5D900901EA5 /* LWCurrentExchangeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCurrentExchangeTool.m; sourceTree = "<group>"; };
 		5E7E09102428ABE700C75C0F /* LWCreatePersonalWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWCreatePersonalWalletViewController.h; sourceTree = "<group>"; };
 		5E7E09112428ABE700C75C0F /* LWCreatePersonalWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCreatePersonalWalletViewController.m; sourceTree = "<group>"; };
 		5E7E09122428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWCreatePersonalWalletViewController.xib; sourceTree = "<group>"; };
@@ -2518,6 +2521,8 @@
 				5E07FD322421F9D900FA3E1F /* LWAlertTool.m */,
 				5E755AA0242377E700398413 /* LWNumberTool.h */,
 				5E755AA1242377E700398413 /* LWNumberTool.m */,
+				5E7BACCE242DA5D900901EA5 /* LWCurrentExchangeTool.h */,
+				5E7BACCF242DA5D900901EA5 /* LWCurrentExchangeTool.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3022,6 +3027,7 @@
 				5EB31E8224041C2600974FD4 /* LWMineSecurityView.m in Sources */,
 				5EF513BA23F5298000F5B6C1 /* TDTouchID.m in Sources */,
 				5E66A3D123EBFAA2004097CB /* UIView+TYAutoLayout.m in Sources */,
+				5E7BACD0242DA5D900901EA5 /* LWCurrentExchangeTool.m in Sources */,
 				5E66A33E23EAB58C004097CB /* SVRadialGradientLayer.m in Sources */,
 				5EF5136823F1811B00F5B6C1 /* LBXPermissionPhotos.m in Sources */,
 				5EB31E9524042A3200974FD4 /* LWMineSettingLanguageView.m in Sources */,

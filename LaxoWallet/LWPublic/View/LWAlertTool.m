@@ -394,7 +394,7 @@
      [walletView addGestureRecognizer:tap1];
      
      [UIView animateWithDuration:0.3 animations:^{
-         walletView.frame = CGRectMake(0, 0, kScreenWidth, viewHeight);
+         walletView.frame = CGRectMake(0, kScreenHeight - viewHeight, kScreenWidth, viewHeight);
      }];
 }
 

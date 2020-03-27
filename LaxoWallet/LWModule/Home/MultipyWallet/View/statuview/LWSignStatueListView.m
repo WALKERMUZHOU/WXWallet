@@ -32,7 +32,13 @@
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUserSatue:) name:kWebScoket_userIsOnLine object:nil];
     
+    __weak typeof(self) weakself = self;
     _walletBottomView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWSignStauteBottomView class]) owner:nil options:nil].lastObject;
+    _walletBottomView.block = ^{
+        if (weakself.block) {
+            weakself.block();
+        }
+    };
     self.tableView.tableFooterView = _walletBottomView;
 }
 

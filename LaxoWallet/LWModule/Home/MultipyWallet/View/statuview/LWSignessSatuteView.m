@@ -36,7 +36,12 @@
 - (void)setSignessSatuteViewWithWalletModel:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel{
     self.walletModel = walletModel;
     self.messageModel = messageModel;
-
+    
+    self.timeLabel.text = [LWTimeTool EngLishMonthWithTimeStamp:messageModel.createtime abbreviations:YES EnglishShortNameForDate:NO];
+     self.amountLabel.text = [LWNumberTool formatSSSFloat:self.messageModel.value/1e8];
+     
+     self.signCountLabel.text = [NSString stringWithFormat:@"%ld signees assigned",(long)self.messageModel.approve.count];
+    
     LWSignStatueListView *listView = [[LWSignStatueListView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, self.backView.kheight) style:UITableViewStyleGrouped];
     [listView setSignessSatuteViewWithWalletModel:self.walletModel andMessageModel:self.messageModel];
     [self.backView addSubview:listView];
@@ -45,9 +50,6 @@
             self.block(0);
         }
     };
-    
-    self.timeLabel.text = [LWTimeTool EngLishMonthWithTimeStamp:self.messageModel.createtime abbreviations:YES EnglishShortNameForDate:NO];
-    self.amountLabel.text = self.messageModel.priceDefine;
 }
 
 

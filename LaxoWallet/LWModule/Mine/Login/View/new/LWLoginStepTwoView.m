@@ -7,6 +7,7 @@
 //
 
 #import "LWLoginStepTwoView.h"
+#import "LWEmailTool.h"
 
 @interface LWLoginStepTwoView ()
 
@@ -21,7 +22,12 @@
 - (IBAction)nextClick:(UIButton *)sender {
     
     if (self.emailTF.text.length == 0) {
-        [WMHUDUntil showMessageToWindow:@"请输入email"];
+        [WMHUDUntil showMessageToWindow:@"Please Input Email"];
+        return;
+    }
+    
+    if (![LWEmailTool isEmail:self.emailTF.text]) {
+        [WMHUDUntil showMessageToWindow:@"Invalid Email"];
         return;
     }
     

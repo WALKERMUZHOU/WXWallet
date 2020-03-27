@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 
 @property (nonatomic, strong) LWMessageModel *messagemodel;
+@property (nonatomic, strong) LWHomeWalletModel *walletModel;
 
 @end
 
@@ -36,6 +37,8 @@
 
 - (void)setSignedViewWithWalletModel:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel{
     self.messagemodel = messageModel;
+    self.walletModel = walletModel;
+    
     self.walletNameLabel.text = walletModel.name;
 
     NSDictionary *userStatues = messageModel.user_status;
@@ -63,6 +66,13 @@
     }
 }
 - (IBAction)statueClick:(UIButton *)sender {
+    
+    [LWAlertTool alertSigneseStatueView:self.walletModel andMessageModel:self.messagemodel andComplete:^(id  _Nonnull complete) {
+        
+    }];
+    return;
+    
+    
     if (self.block) {
         self.block(1);
     }

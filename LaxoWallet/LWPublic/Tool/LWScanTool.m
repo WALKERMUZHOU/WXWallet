@@ -13,6 +13,7 @@
 #import "LWScanModel.h"
 #import "LWScanResultViewController.h"
 #import "LWScanLoginViewController.h"
+#import "LWPersonalSendViewController.h"
 
 typedef void(^LWScanResultBlock)(LWScanModel *model);
 
@@ -129,9 +130,13 @@ typedef void(^LWScanResultBlock)(LWScanModel *model);
         loginVC.modalPresentationStyle = UIModalPresentationFullScreen;
         loginVC.scanId = model.scanResult;
         [LogicHandle presentViewController:[[LWNavigationViewController alloc] initWithRootViewController:loginVC] animate:NO];
+    }else if(model.scanType == 2){
         
-//        [self manageLogin:model.scanResult];
-    }else{
+        
+        
+        
+        
+    }{
         LWScanResultViewController *scanReusltVC = [[LWScanResultViewController alloc] init];
         scanReusltVC.contentStr = model.scanResult;
         [LogicHandle pushViewController:scanReusltVC];

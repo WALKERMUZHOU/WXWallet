@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWMineSecurityViewController">
             <connections>
                 <outlet property="emailLabel" destination="Col-d3-4nJ" id="bdf-Jc-USW"/>
+                <outlet property="icloudSyncBtn" destination="22t-bi-5vG" id="5zX-Bi-qWV"/>
                 <outlet property="view" destination="iN0-l3-epB" id="qMW-T7-WbF"/>
             </connections>
         </placeholder>
@@ -78,6 +79,27 @@
                                 <constraint firstAttribute="height" constant="1" id="KhS-fu-Hsr"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22t-bi-5vG">
+                            <rect key="frame" x="361.5" y="22.5" width="40" height="40"/>
+                            <color key="backgroundColor" red="0.88225668670000001" green="0.88240832089999999" blue="0.88224714989999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="ifS-v6-cKh"/>
+                                <constraint firstAttribute="height" constant="40" id="uhn-LN-rVa"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <state key="normal" title="Sync">
+                                <color key="titleColor" red="0.13587096330000001" green="0.57124239210000005" blue="0.46952360869999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="scynClick:" destination="-1" eventType="touchUpInside" id="WQR-xd-62v"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
@@ -90,7 +112,9 @@
                         <constraint firstItem="lnn-pG-Cg6" firstAttribute="leading" secondItem="bXy-um-neB" secondAttribute="leading" id="N2o-Nn-HaE"/>
                         <constraint firstItem="Fe1-Jx-OkV" firstAttribute="centerY" secondItem="bXy-um-neB" secondAttribute="centerY" id="RKh-h0-wv9"/>
                         <constraint firstItem="tjX-XG-RPf" firstAttribute="top" secondItem="bXy-um-neB" secondAttribute="top" constant="20" id="aM0-J5-W8F"/>
+                        <constraint firstItem="Fe1-Jx-OkV" firstAttribute="centerX" secondItem="22t-bi-5vG" secondAttribute="centerX" id="dpp-1a-Jlb"/>
                         <constraint firstItem="Vwd-TL-Zzg" firstAttribute="leading" secondItem="bXy-um-neB" secondAttribute="leading" constant="20" id="f7Z-u8-Rv4"/>
+                        <constraint firstItem="Fe1-Jx-OkV" firstAttribute="centerY" secondItem="22t-bi-5vG" secondAttribute="centerY" id="gYa-Up-zlz"/>
                         <constraint firstItem="tjX-XG-RPf" firstAttribute="leading" secondItem="bXy-um-neB" secondAttribute="leading" constant="20" id="hll-HZ-07n"/>
                         <constraint firstAttribute="trailing" secondItem="lnn-pG-Cg6" secondAttribute="trailing" id="l9K-2V-QoF"/>
                         <constraint firstItem="v6n-lm-h5W" firstAttribute="top" secondItem="lnn-pG-Cg6" secondAttribute="bottom" id="mT3-l6-rND"/>
@@ -301,6 +325,6 @@
         </view>
     </objects>
     <resources>
-        <image name="mine_select" width="32" height="32"/>
+        <image name="mine_select" width="800" height="800"/>
     </resources>
 </document>

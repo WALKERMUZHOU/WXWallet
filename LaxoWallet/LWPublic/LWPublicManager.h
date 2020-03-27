@@ -47,6 +47,8 @@ typedef NS_OPTIONS(NSInteger, TokenType){
 + (NSString *)getRecoverJizhuciWithShares:(NSArray *)shares;
 + (NSString *)getSigWithMessage:(NSString *)timeStr;
 
++ (NSString *)getRecoverQRCodeStr;
+
 + (NSDictionary *)getInitData;
 + (NSString *)getInitDataPK;
 + (NSString *)getInitDataPubKey;

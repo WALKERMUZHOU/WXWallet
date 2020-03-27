@@ -31,6 +31,7 @@
 
 #import "QQLBXScanViewController.h"
 #import "LBXPermission.h"
+#import "iCloudHandle.h"
 
 @interface LWLoginController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *scrollBackView;
@@ -39,6 +40,7 @@
 @property (nonatomic, strong) NSString *recoverProcess;
 
 @property (nonatomic, assign) BOOL isRegister;
+@property (nonatomic, assign) BOOL canRecoverFromICloud;
 
 @end
 
@@ -395,6 +397,7 @@
                 [self.scrollView setContentOffset:CGPointMake(kScreenWidth *8, 0) animated:NO];
             }else{
                 [self.scrollView setContentOffset:CGPointMake(kScreenWidth *5, 0) animated:NO];
+                [self recoverWithICloud];
             }
         }else{
 //            [WMHUDUntil showMessageToWindow:@"face error"];
@@ -541,6 +544,15 @@
     }else{
         [[LWUserManager shareInstance] setJiZhuCi:jizhuci];
         [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 8, 0) animated:NO];
+    }
+}
+
+#pragma mark recoverWithIcloud
+- (void)recoverWithICloud{
+    NSString *recoverCode = [iCloudHandle getKeyValueICloudStoreWithKey:self.emailStr];
+    if (recoverCode && recoverCode.length >0) {
+        [SVProgressHUD showWithStatus:@"recover from icloud"];
+        [self recoverWithScanedStr:recoverCode];
     }
 }
 

@@ -110,7 +110,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLs-W6-L3H">
                                     <rect key="frame" x="15" y="185" width="384" height="40"/>
                                     <subviews>
-                                        <textField opaque="NO" tag="12001" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Check statuses" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aVk-fY-afU">
+                                        <textField opaque="NO" tag="12001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Check statuses" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aVk-fY-afU">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="40"/>
                                             <color key="backgroundColor" red="0.85872977969999997" green="0.85887759919999995" blue="0.85872042179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>

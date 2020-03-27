@@ -50,7 +50,7 @@
     
     self.noteLabel.text = messageModel.note;
     self.txLinkLabel.text = [messageModel.txid stringByReplacingCharactersInRange:NSMakeRange(2, messageModel.txid.length - 6) withString:@"****"];
-    self.amountDetailLabel.text = [NSString stringWithFormat:@"- %@ BSV  |  -%@",[LWNumberTool formatSSSFloat:messageModel.value/1e8],messageModel.priceDefine];
+    self.amountDetailLabel.text = [NSString stringWithFormat:@"+ %@ BSV | +%@",[LWNumberTool formatSSSFloat:messageModel.value/1e8],messageModel.priceDefine];
 }
 
 - (IBAction)closeClick:(UIButton *)sender {

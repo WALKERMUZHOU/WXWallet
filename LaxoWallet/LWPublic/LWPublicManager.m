@@ -170,6 +170,14 @@
     return [LWAddressTool charToString:get_message_sig_char];
 }
 
++ (NSString *)getRecoverQRCodeStr{
+    NSString *seed = [[LWUserManager shareInstance] getUserModel].jiZhuCi;
+    NSString *secret = [[LWUserManager shareInstance] getUserModel].secret;
+
+    NSString *ecryptResult = [LWEncryptTool encrywithTheKey:[secret md5String] message:seed andHex:0 returnType:1];
+    return ecryptResult;
+}
+
 + (NSDictionary *)getInitData{
     char *seed = get_seed();
     char *pk = derive_key(seed, [LWAddressTool stringToChar:@"m/0"]);

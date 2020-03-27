@@ -10,7 +10,9 @@
 #import "LWSignSatueTableViewCell.h"
 #import "LWSignStatueModel.h"
 #import "LWSignStauteBottomView.h"
-@implementation LWSignStatueListView
+@implementation LWSignStatueListView{
+    LWSignStauteBottomView *_walletBottomView;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     self = [super initWithFrame:frame style:style];
@@ -30,13 +32,8 @@
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUserSatue:) name:kWebScoket_userIsOnLine object:nil];
     
-    LWSignStauteBottomView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWSignStauteBottomView class]) owner:nil options:nil].lastObject;
-    walletView.block = ^{
-        if (self.block) {
-            self.block();
-        }
-    };
-    self.tableView.tableFooterView = walletView;
+    _walletBottomView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWSignStauteBottomView class]) owner:nil options:nil].lastObject;
+    self.tableView.tableFooterView = _walletBottomView;
 }
 
 - (void)setSignessSatuteViewWithWalletModel:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel{
@@ -50,16 +47,23 @@
         model.email = partiesModel.user;
         model.uid = partiesModel.uid;
         
-        NSDictionary *statueDic = messageModel.user_status;
-        NSArray *approve = [statueDic objectForKey:@"approve"];
-        for (NSInteger i = 0; i<approve.count; i++) {
-            NSString *uid = [NSString stringWithFormat:@"%@", [approve objectAtIndex:i]];
- 
-            if ([uid isEqualToString:partiesModel.uid]) {
-                model.currentStatue = 1;
-                break;
-            }
+        if (messageModel) {
+               NSDictionary *statueDic = messageModel.user_status;
+               NSArray *approve = [statueDic objectForKey:@"approve"];
+               for (NSInteger i = 0; i<approve.count; i++) {
+                   NSString *uid = [NSString stringWithFormat:@"%@", [approve objectAtIndex:i]];
+        
+                   if ([uid isEqualToString:partiesModel.uid]) {
+                       model.currentStatue = 1;
+                       break;
+                   }
+               }
+        }else{
+            model.isUserStatueView = YES;
+            _walletBottomView.isHiddenBtn = YES;
         }
+        
+
         [self.dataSource addObj:model];
     }
     
@@ -70,9 +74,9 @@
 - (void)getCurrentUserSatue{
     for (NSInteger i = 0; i<self.dataSource.count; i++) {
         LWSignStatueModel *model = [self.dataSource objectAtIndex:i];
-        if ([model.uid isEqualToString:[[LWUserManager shareInstance]getUserModel].uid]) {
-            continue;
-        }
+//        if ([model.uid isEqualToString:[[LWUserManager shareInstance]getUserModel].uid]) {
+//            continue;
+//        }
         NSDictionary *multipyparams = @{@"uid":model.uid};
         NSString *idstring = [NSString stringWithFormat:@"20000%@",model.uid];
         NSArray *requestmultipyWalletArray = @[@"req",idstring,WS_Home_UserIsOnLine,[multipyparams jsonStringEncoded]];
@@ -86,16 +90,15 @@
          NSArray *statueArray = [resInfo objectForKey:@"data"];
          NSInteger statue = [[statueArray objectAtIndex:0] integerValue];
          NSString *uid =[NSString stringWithFormat:@"%@",[resInfo objectForKey:@"uid"]];
-         
+         uid = [uid stringByReplacingCharactersInRange:NSMakeRange(0, 5) withString:@""];
          for (NSInteger i = 0; i<self.dataSource.count; i++) {
              LWSignStatueModel *model = [self.dataSource objectAtIndex:i];
              if ([uid isEqualToString:model.uid]) {
-                 continue;
+                 model.isOnLine = statue;
+                [self.tableView reloadSection:i withRowAnimation:UITableViewRowAnimationFade];
+                 return;
              }
-             model.isOnLine = statue;
-             [self.tableView reloadSection:i withRowAnimation:UITableViewRowAnimationFade];
-             return;
-         }         
+         }
      }else{
          NSString *message = [resInfo objectForKey:@"message"];
          if (message && message.length>0) {

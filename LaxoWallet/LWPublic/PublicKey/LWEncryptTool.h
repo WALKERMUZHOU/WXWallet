@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)encrywithTheKey:(NSString *)key message:(id)message andHex:(NSInteger)isHex;;
 + (NSString *)decryptwithTheKey:(NSString *)key message:(NSString *)message andHex:(NSInteger)isHex;
 
++ (NSString *)encrywithTheKey:(NSString *)key message:(id)message andHex:(NSInteger)isHex returnType:(NSInteger)isEncryptWithHex;
+
+
 + (NSString *)encryptWithPk:(NSString *)pk pubkey:(NSString *)pubkey andMessage:(NSString *)message;
 + (NSString *)decryptWithPk:(NSString *)pk pubkey:(NSString *)pubkey andMessage:(NSString *)message;
 

@@ -14,6 +14,7 @@
 @end
 
 @implementation LWSignStauteBottomView
+
 - (IBAction)closeClick:(UIButton *)sender {
     if (self.block) {
         self.block();
@@ -23,6 +24,13 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.closeBtn.layer.borderColor = lwColorGrayD8.CGColor;
+}
+
+- (void)setIsHiddenBtn:(BOOL)isHiddenBtn{
+    _isHiddenBtn = isHiddenBtn;
+    if (isHiddenBtn) {
+        self.closeBtn.hidden = YES;
+    }
 }
 
 /*

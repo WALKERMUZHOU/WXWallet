@@ -11,7 +11,7 @@
 @implementation LWHomeAddWalletView
 - (void)awakeFromNib{
     [super awakeFromNib];
-    [WMZDialogTool setView:self Radii:CGSizeMake(20,20) RoundingCorners:UIRectCornerTopLeft |UIRectCornerTopRight];
+
 }
 
 - (IBAction)personalClick:(UIButton *)sender {

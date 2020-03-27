@@ -12,7 +12,7 @@
 #import "LBXScanNative.h"
 #import "PublicKeyView.h"
 #import "LWBaseWebViewController.h"
-
+#import "iCloudHandle.h"
 @interface LWMineViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
@@ -47,6 +47,10 @@
      NSString *personalWallet = [[NSUserDefaults standardUserDefaults] objectForKey:kPersonalWallet_userdefault];
      NSString *multipyWallet = [[NSUserDefaults standardUserDefaults] objectForKey:kMultipyWallet_userdefault];
 
+    if (!personalWallet || personalWallet.length == 0 || !multipyWallet || multipyWallet.length == 0) {
+        return;
+    }
+    
      NSDictionary *personalWalletDic = [NSJSONSerialization JSONObjectWithData:[personalWallet dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
      NSDictionary *multipyWalletDic = [NSJSONSerialization JSONObjectWithData:[multipyWallet dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
      
@@ -130,27 +134,31 @@
 
 - (void)downLoadClick{
     [SVProgressHUD show];
-#warning secret 得到的途径
     
-    NSString *seed = [[LWUserManager shareInstance] getUserModel].jiZhuCi;
-    NSString *secret = [[LWUserManager shareInstance] getUserModel].secret;
-
-//    NSString *ecrypt = [LWEncryptTool encrywithTheKey:secret message:seed andHex:1];
+    NSString *ecryptResult = [LWPublicManager getRecoverQRCodeStr];
+    [iCloudHandle setUpKeyValueICloudStoreWithKey:[[LWUserManager shareInstance] getUserModel].email value:ecryptResult];
+               
+    UIImage *qrImage = [LBXScanNative createQRWithString:ecryptResult QRSize:CGSizeMake(400, 400)];
+    UIImageWriteToSavedPhotosAlbum(qrImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+    return;
 //
 //    UIImage *qrImage = [LBXScanNative createQRWithString:ecrypt QRSize:CGSizeMake(400, 400)];
 //      UIImageWriteToSavedPhotosAlbum(qrImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
 //
 //    return;
-    NSString *jsStr = [NSString stringWithFormat:@"encryptWithKey('%@','%@',0)",[secret md5String],seed];
-    PublicKeyView *pbView = [PublicKeyView shareInstance];
-    [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
-        if (dicData) {
-            UIImage *qrImage = [LBXScanNative createQRWithString:dicData QRSize:CGSizeMake(400, 400)];
-            UIImageWriteToSavedPhotosAlbum(qrImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
-        }else{
-
-        }
-    }];
+//    NSString *jsStr = [NSString stringWithFormat:@"encryptWithKey('%@','%@',0)",[secret md5String],seed];
+//    PublicKeyView *pbView = [PublicKeyView shareInstance];
+//    [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
+//        if (dicData) {
+//
+//            [iCloudHandle setUpKeyValueICloudStoreWithKey:[[LWUserManager shareInstance] getUserModel].email value:dicData];
+//
+//            UIImage *qrImage = [LBXScanNative createQRWithString:dicData QRSize:CGSizeMake(400, 400)];
+//            UIImageWriteToSavedPhotosAlbum(qrImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+//        }else{
+//
+//        }
+//    }];
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{

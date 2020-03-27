@@ -64,6 +64,11 @@
             [weakSelf changeCurrentSelectData:selectIndex];
         };
 //        self.tableView.tableHeaderView = self.headerView;
+        
+        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 60)];
+        self.tableView.tableFooterView = bottomView;
+        
+        
         [self initWsInfo];
     }
     return self;
@@ -278,7 +283,8 @@
         [addressTool setWithrid:rid andPath:path];
         addressTool.addressBlock = ^(NSString * _Nonnull address) {
             [SVProgressHUD dismiss];
-            
+            [LWAddressTool  attempDealloc];
+
             //刷新下首页个人钱包数据
             NSDictionary *params = @{@"type":@1};
             NSArray *requestPersonalWalletArray = @[@"req",

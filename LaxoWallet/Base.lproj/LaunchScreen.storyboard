@@ -16,16 +16,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="EvD-tf-zs1">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKm-Zn-X1m">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="897"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_laxo_white" translatesAutoresizingMaskIntoConstraints="NO" id="Cfe-NV-wfw">
+                                        <rect key="frame" x="149" y="390.5" width="116" height="68"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="116" id="IW5-4g-sAf"/>
+                                            <constraint firstAttribute="height" constant="68" id="RWx-U0-3M8"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V O L T" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4JJ-2N-Pvt">
+                                        <rect key="frame" x="159.5" y="475.5" width="95" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="kyK-ed-UEZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="26"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.13587096330000001" green="0.57124239210000005" blue="0.46952360869999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Cfe-NV-wfw" firstAttribute="centerX" secondItem="EKm-Zn-X1m" secondAttribute="centerX" id="NgA-LS-sSL"/>
+                                    <constraint firstItem="Cfe-NV-wfw" firstAttribute="centerY" secondItem="EKm-Zn-X1m" secondAttribute="centerY" constant="-24" id="gLd-3y-MSY"/>
+                                    <constraint firstItem="4JJ-2N-Pvt" firstAttribute="centerX" secondItem="EKm-Zn-X1m" secondAttribute="centerX" id="piV-iZ-PAR"/>
+                                    <constraint firstItem="4JJ-2N-Pvt" firstAttribute="top" secondItem="Cfe-NV-wfw" secondAttribute="bottom" constant="17" id="thD-dV-3pQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="EvD-tf-zs1" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="7h4-1Y-XCN"/>
-                            <constraint firstItem="EvD-tf-zs1" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="9w3-6V-UTA"/>
-                            <constraint firstAttribute="trailing" secondItem="EvD-tf-zs1" secondAttribute="trailing" id="H3N-5y-5hc"/>
-                            <constraint firstAttribute="bottom" secondItem="EvD-tf-zs1" secondAttribute="bottom" id="mIW-Vs-osF"/>
+                            <constraint firstItem="EKm-Zn-X1m" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-44" id="1Qz-Ac-4Uu"/>
+                            <constraint firstItem="EKm-Zn-X1m" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="Hca-Kb-ZqP"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="EKm-Zn-X1m" secondAttribute="bottom" constant="-35" id="Taj-C9-wtC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EKm-Zn-X1m" secondAttribute="trailing" constant="-20" id="ZPY-F7-FIK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -36,6 +61,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchImage" width="414" height="896"/>
+        <image name="logo_laxo_white" width="512" height="306"/>
     </resources>
 </document>

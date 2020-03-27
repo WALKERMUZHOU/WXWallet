@@ -31,19 +31,25 @@
     self.indexLabel.text = [NSString stringWithFormat:@"%ld",(long)_stauteModel.index];
     self.emailLabel.text = _stauteModel.email;
     
-    if (_stauteModel.currentStatue == 1) {
-        self.statueLabel.text = @"SIGNED";
-        self.coverView.backgroundColor = lwColorNormal;
-    }else{
-        self.statueLabel.text = @"PENDING";
-        self.coverView.backgroundColor = lwColorOrange;
+    if (!_stauteModel.isUserStatueView) {
+        self.statueLabel.hidden = NO;
+        self.coverView.hidden = NO;
+        if (_stauteModel.currentStatue == 1) {
+            self.statueLabel.text = @"SIGNED";
+            self.coverView.backgroundColor = lwColorNormal;
+        }else{
+            self.statueLabel.text = @"PENDING";
+            self.coverView.backgroundColor = lwColorOrange;
+        }
     }
-    
 }
 
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.statueLabel.hidden = YES;
+    self.coverView.hidden = YES;
+
     // Initialization code
 }
 

@@ -30,6 +30,7 @@
 
 #import "LWMultipyAdressTool.h"
 #import "LWMultipySignTool.h"
+#import "iCloudHandle.h"
 
 @interface LWHomeViewController (){
     NSOperationQueue * queue;
@@ -39,6 +40,7 @@
 
 @property (nonatomic, strong) LWHomeListView *listView;
 @property (nonatomic, strong) LWHomeListHeadView *listHeadView;
+@property (nonatomic, assign) BOOL isfirstLaunch;
 
 @end
 
@@ -50,6 +52,7 @@
     [self createUI];
     [self getprikey];
 
+    
 //    NSDictionary *params = @{@"type":@1};
 //    NSArray *requestPersonalWalletArray = @[@"req",
 //                                            @(WSRequestIdWalletQueryPersonalWallet),
@@ -63,6 +66,15 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    if (!_isfirstLaunch) {
+        
+        NSString *icloudRecoverStr = [LWPublicManager getRecoverQRCodeStr];
+        [iCloudHandle setUpKeyValueICloudStoreWithKey:[[LWUserManager shareInstance] getUserModel].email value:icloudRecoverStr];
+        _isfirstLaunch = YES;
+    }
+    
+
 }
 
 - (void)createUI{

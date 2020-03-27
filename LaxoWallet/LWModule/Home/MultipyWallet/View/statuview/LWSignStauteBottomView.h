@@ -14,6 +14,8 @@ typedef void(^BottomBlock)(void);
 
 @property (nonatomic, copy) BottomBlock block;
 
+@property (nonatomic, assign) BOOL isHiddenBtn;
+
 @end
 
 NS_ASSUME_NONNULL_END

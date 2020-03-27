@@ -9,6 +9,7 @@
 #import "LWMultipyEditViewController.h"
 #import "LWMultipyEditMemberViewController.h"
 #import "LWPayMailViewController.h"
+#import "LWMultipyUserStatueViewController.h"
 
 @interface LWMultipyEditViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *walletName;
@@ -25,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.walletName.delegate = self;
+    self.memberStatueTF.delegate = self;
     self.saveBtn.hidden = YES;
     
     self.walletName.text = self.model.name;
@@ -44,7 +46,9 @@
         return YES;
     }else if (textField.tag == 12001){
         //checkStatue
-
+        LWMultipyUserStatueViewController *userStatueVC = [[LWMultipyUserStatueViewController alloc] init];
+        userStatueVC.walletModel = self.model;
+        [self.navigationController pushViewController:userStatueVC animated:YES];
         return NO;
     }
     return YES;

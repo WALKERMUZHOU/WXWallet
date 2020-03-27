@@ -10,9 +10,10 @@
 #import "LWMineSecurityView.h"
 #import "LWMineSettingView.h"
 #import "LWMineSettingLanguageView.h"
-
+#import "iCloudHandle.h"
 @interface LWMineSecurityViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UIButton *icloudSyncBtn;
 
 @end
 
@@ -22,8 +23,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.emailLabel.text = [[LWUserManager shareInstance] getUserModel].email;
+    LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
+    self.emailLabel.text = userModel.email;
     
+    NSString *ecryptResult = [iCloudHandle getKeyValueICloudStoreWithKey:userModel.email];
+    if (ecryptResult && ecryptResult.length >0) {
+        self.icloudSyncBtn.hidden = YES;
+    }
+
     return;
     if (self.MineVCType == 1) {
         self.title = @"Security";
@@ -45,6 +52,20 @@
         [self.view addSubview:securtyView];
     }
 
+}
+- (IBAction)scynClick:(UIButton *)sender {
+    
+    [SVProgressHUD show];
+    
+    NSString *ecryptResult = [LWPublicManager getRecoverQRCodeStr];
+
+    [iCloudHandle setUpKeyValueICloudStoreWithKey:[[LWUserManager shareInstance] getUserModel].email value:ecryptResult];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+        self.icloudSyncBtn.hidden = YES;
+        [WMHUDUntil showMessageToWindow:@"Sync Success"];
+    });
+    
 }
 
 /*

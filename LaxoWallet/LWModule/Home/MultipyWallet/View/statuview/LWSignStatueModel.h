@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL  isOnLine;
 @property (nonatomic, assign) NSInteger currentStatue;
 
+@property (nonatomic, assign) BOOL  isUserStatueView;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -82,6 +82,33 @@ NSString *iv = @"30303030303030303030303030303030";
     }
 }
 
++ (NSString *)encrywithTheKey:(NSString *)key message:(id)message andHex:(NSInteger)isHex returnType:(NSInteger)isEncryptWithHex{
+    // 1.16进制转成2进制
+    NSString *messageStr;
+    if ([message isKindOfClass:[NSArray class]]) {
+        messageStr = [message componentsJoinedByString:@","];
+    }else{
+        messageStr = (NSString *)message;
+    }
+    
+    NSData *encrypt_tss_key_data = [NSData hexStringToData:key];
+    if (!isHex) {
+        encrypt_tss_key_data = [key dataUsingEncoding:NSUTF8StringEncoding];
+    }
+    NSData *encrypt_tss_message_data = [messageStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *ivData = [NSData hexStringToData:iv];
+    
+    NSData *encryptdata = [encrypt_tss_message_data aes256EncryptWithKey:encrypt_tss_key_data iv:ivData];
+    
+    if (isEncryptWithHex == 1) {
+        NSString *testencrypt_hex = [encryptdata hexString];
+          return testencrypt_hex;
+    }else{
+        NSString *testencrypt_str = [[NSString alloc] initWithData:encryptdata encoding:NSUTF8StringEncoding];
+        return testencrypt_str;
+    }
+}
+
 + (NSString *)encryptWithPk:(NSString *)pk pubkey:(NSString *)pubkey andMessage:(NSString *)message{
     char *computeSecret = get_shared_secret([LWAddressTool stringToChar:pk], [LWAddressTool stringToChar:pubkey]);
     NSString *secret = [LWAddressTool charToString:computeSecret];

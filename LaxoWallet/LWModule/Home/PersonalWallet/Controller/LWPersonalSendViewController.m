@@ -154,7 +154,8 @@
             [LWAlertTool alertPersonalWalletViewSend:self.model andTransactionModel:model andComplete:^{
                 
             }];
-            
+            [LWAddressTool  attempDealloc];
+
 //            [LWAlertTool alertPersonalWalletViewSend:self.model andAdress:self.address andAmount:self.amountTF.text andNote:self.noteTF.text changeAddress:address andComplete:^(void) {
 //
 //             }];

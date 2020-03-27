@@ -8,6 +8,7 @@
 
 #import "LWPersoanlReceiveView.h"
 #import "LBXScanNative.h"
+#import "LWPaymailModel.h"
 
 @interface LWPersoanlReceiveView ()
 @property (weak, nonatomic) IBOutlet UILabel *namelabel;
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *paymailLabel;
 @property (weak, nonatomic) IBOutlet UIButton *doneLabel;
 @property (weak, nonatomic) IBOutlet UIView *backView;
+@property (weak, nonatomic) IBOutlet UIButton *paymailCopyBtn;
 
 @property (nonatomic, strong) LWHomeWalletModel *model;
 @end
@@ -27,10 +29,12 @@
     self.doneLabel.layer.borderColor = [UIColor hex:@"DBDBDB"].CGColor;
     [WMZDialogTool setView:self.backView Radii:CGSizeMake(20,20) RoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight];
     self.backView.layer.cornerRadius = 20;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUserSatue:) name:kWebScoket_paymail_queryByWid object:nil];
+    
 }
 
 - (void)setContentModel:(LWHomeWalletModel *)model{
-    self.model = model;
+    _model = model;
     NSString *address = model.address;
     UIImage *qrImage = [LBXScanNative createQRWithString:address QRSize:CGSizeMake(400, 400)];
     [self.qrcodelImgView setImage:qrImage];
@@ -42,6 +46,9 @@
     }
     
     self.addressLabel.text = [NSString stringWithFormat:@"%@",address];
+    
+    [self getCurrentPaymailSatue];
+
 
 }
 - (IBAction)doneClick:(UIButton *)sender {
@@ -54,7 +61,46 @@
     [WMHUDUntil showMessageToWindow:@"Copy Success"];
 
 }
+- (IBAction)paymailCopy:(UIButton *)sender {
+    [[UIPasteboard generalPasteboard] setString:self.paymailLabel.text];
+    [WMHUDUntil showMessageToWindow:@"Copy Success"];
+}
 
+#pragma mark paymail
+
+- (void)getCurrentPaymailSatue{
+    [SVProgressHUD show];
+    NSDictionary *multipyparams = @{@"wid":@(self.model.walletId)};
+      NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestId_paymail_queryByWid),WS_paymail_queryByWid,[multipyparams jsonStringEncoded]];
+      [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+}
+
+
+- (void)getUserSatue:(NSNotification *)notification{
+    NSDictionary *resInfo = notification.object;
+     if ([[resInfo objectForKey:@"success"] integerValue] == 1) {
+         NSArray *statueArray = [resInfo objectForKey:@"data"];
+         
+         if ( statueArray && statueArray.count > 0) {
+             for (NSInteger i = 0; i<statueArray.count; i++) {
+                 LWPaymailModel *model = [LWPaymailModel modelWithDictionary:statueArray[i]];
+                 model.index = i;
+                 if (model.main == 1) {
+                     self.paymailLabel.text = [NSString stringWithFormat:@"%@@volt.id",model.name] ;
+                     self.paymailLabel.hidden = NO;
+                     self.paymailCopyBtn.hidden = NO;
+                     return;
+                 }
+             }
+             
+             LWPaymailModel *model = [LWPaymailModel modelWithDictionary:statueArray[0]];
+             self.paymailLabel.text = [NSString stringWithFormat:@"%@@volt.id",model.name];
+             self.paymailLabel.hidden = NO;
+             self.paymailCopyBtn.hidden = NO;
+            return;
+         }
+     }
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

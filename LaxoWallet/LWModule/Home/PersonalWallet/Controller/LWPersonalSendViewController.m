@@ -43,8 +43,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress_change object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getMultipyChangeAddress:) name:kWebScoket_multipyAddress_change object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getpaymailToAddress:) name:kWebScoket_paymail_toAddress object:nil];
-
-
+    
+    if (self.sendAddress) {
+        self.addressTF.text = self.sendAddress;
+    }
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
@@ -92,6 +94,11 @@
     }
 }
 
+- (IBAction)scanClick:(UIButton *)sender {
+    [LWScanTool startScanInTextInputView:^(LWScanModel * _Nonnull result) {
+        self.addressTF.text = result.scanResult;
+    }];
+}
 #pragma mark - personal change address
 
 - (void)queryPersonalChangeAddress{

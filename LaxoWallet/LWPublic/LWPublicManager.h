@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LWHomeWalletModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 typedef NS_OPTIONS(NSInteger, LWCurrentLanguage){
@@ -35,9 +36,9 @@ typedef NS_OPTIONS(NSInteger, TokenType){
 
 ///得到当前汇率带单位
 + (NSString *)getCurrentCurrencyPriceWithAmount:(CGFloat)amount;
-
 + (NSString *)getCurrentPriceWithTokenType:(TokenType)tokenType;
 
+#pragma mark - pk share...
 + (NSString *)getPubkeyWithPriKey:(NSString *)prikey;
 + (NSString *)getPKWithZhuJiCi;
 + (NSString *)getPubKeyWithZhuJiCi;
@@ -53,8 +54,11 @@ typedef NS_OPTIONS(NSInteger, TokenType){
 + (NSString *)getInitDataPK;
 + (NSString *)getInitDataPubKey;
 
+#pragma mark - walletData
 + (void)getPersonalWalletData;
 + (void)getMultipyWalletData;
++ (LWHomeWalletModel *)getPersonalFirstWallet;
+
 
 @end
 

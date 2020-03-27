@@ -20,6 +20,8 @@ typedef void(^ListHeadBlock)(NSInteger selectIndex);
 - (void)setPersonalWalletdData:(NSDictionary *)personalDic;
 - (void)setMultipyWalletdata:(NSDictionary *)multipyDic;
 
+- (void)refreshCurrentCurrency;
+
 @end
 
 NS_ASSUME_NONNULL_END

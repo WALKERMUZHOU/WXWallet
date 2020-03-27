@@ -49,6 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appLogin) name:KUserAccountLogIn object:nil];
+
     [self createUI];
     [self getprikey];
 
@@ -68,7 +69,6 @@
     [super viewWillAppear:animated];
     
     if (!_isfirstLaunch) {
-        
         NSString *icloudRecoverStr = [LWPublicManager getRecoverQRCodeStr];
         [iCloudHandle setUpKeyValueICloudStoreWithKey:[[LWUserManager shareInstance] getUserModel].email value:icloudRecoverStr];
         _isfirstLaunch = YES;

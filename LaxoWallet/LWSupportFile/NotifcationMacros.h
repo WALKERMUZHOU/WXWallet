@@ -16,6 +16,11 @@
 #define kLanguageChange_nsnotification  @"kLanguageChange_nsnotification"
 #define kCurrencyChange_nsnotification  @"kCurrencyChange_nsnotification"
 
+///当前汇率改变
+#define kCuurentCurrencyChange_nsnotification  @"kCuurentCurrencyChange_nsnotification"
+
+
+
 #define kWebScoket_personalWalletData      @"kWebScoket_personalWalletData"
 #define kWebScoket_multipyWalletData       @"kWebScoket_multipyWalletData"
 
@@ -99,6 +104,5 @@
 
 #define kPersonalWallet_userdefault        @"kPersonalWallet_userdefault"
 #define kMultipyWallet_userdefault        @"kMultipyWallet_userdefault"
-
 
 #endif /* NotifcationMacros_h */

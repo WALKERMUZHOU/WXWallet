@@ -62,13 +62,13 @@
     [self.view addSubview:self.listView];
     [self.listView getCurrentData];
 
-    if (!self.contentModel.isMineCreateWallet) {
-        self.editBtn.hidden = YES;
-//        [self.nameLabel removeConstraintWithView:self.editBtn attribute:NSLayoutAttributeRight];
-        [self.editBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.width.height.equalTo(@0);
-        }];
-    }
+//    if (!self.contentModel.isMineCreateWallet) {
+//        self.editBtn.hidden = YES;
+////        [self.nameLabel removeConstraintWithView:self.editBtn attribute:NSLayoutAttributeRight];
+//        [self.editBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.width.height.equalTo(@0);
+//        }];
+//    }
     
     if (self.contentModel.name && self.contentModel.name.length>0) {
         self.nameLabel.text = self.contentModel.name;

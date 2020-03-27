@@ -92,7 +92,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receive BSV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ds-XX-GwY">
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receive BSV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ds-XX-GwY">
                             <rect key="frame" x="166.5" y="397" width="81.5" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="qMG-kI-82e"/>
@@ -101,13 +101,16 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaI-dx-BEC">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaI-dx-BEC">
                             <rect key="frame" x="258" y="399.5" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="NIW-Dm-4si"/>
                                 <constraint firstAttribute="height" constant="20" id="uI9-hm-VYi"/>
                             </constraints>
                             <state key="normal" image="home_wallet_copy"/>
+                            <connections>
+                                <action selector="paymailCopy:" destination="iN0-l3-epB" eventType="touchUpInside" id="uSS-px-zV6"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAv-wv-uNy">
                             <rect key="frame" x="147" y="462" width="120" height="40"/>
@@ -197,6 +200,7 @@
                 <outlet property="backView" destination="1zn-Hp-okr" id="CDk-u4-Td4"/>
                 <outlet property="doneLabel" destination="yAv-wv-uNy" id="67f-wZ-enf"/>
                 <outlet property="namelabel" destination="nTH-PV-Dwx" id="t3p-Pt-qGy"/>
+                <outlet property="paymailCopyBtn" destination="LaI-dx-BEC" id="Kup-zT-gHr"/>
                 <outlet property="paymailLabel" destination="5ds-XX-GwY" id="z2w-hS-BZL"/>
                 <outlet property="qrcodelImgView" destination="6hF-GK-k09" id="zUn-ef-zH3"/>
             </connections>

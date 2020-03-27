@@ -34,6 +34,7 @@
     self.personalBtn.selected = YES;
     self.multipyBtn.selected = NO;
     [self.multipyBtn.titleLabel setFont:kFont(16)];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshCurrentCurrency) name:kCuurentCurrencyChange_nsnotification object:nil];
 }
 
 
@@ -142,6 +143,16 @@
         }
         
         self.priceLabel.text = [NSString stringWithFormat:@"%@%.2f",priceTypeStr,personalBitCount];
+    }
+}
+
+- (void)refreshCurrentCurrency{
+    if (self.personalDataArray.count >0) {
+        if (self.currentViewType == LWHomeListViewTypePersonalWallet) {
+            [self setCurrentArray:self.personalDataArray];
+        }else{
+            [self setCurrentArray:self.multipyDataArray];
+        }
     }
 }
 

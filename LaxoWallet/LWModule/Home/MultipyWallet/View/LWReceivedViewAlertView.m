@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 
 @property (nonatomic, strong) LWMessageModel *messagemodel;
-
+@property (nonatomic, strong) LWHomeWalletModel *walletModel;
 @end
 
 @implementation LWReceivedViewAlertView

@@ -20,7 +20,7 @@ typedef void(^LWScanResultBlock)(LWScanModel *model);
 @interface LWScanTool()
 
 @property (nonatomic, copy) LWScanResultBlock resultBlock;
-
+@property (nonatomic, assign) BOOL inTextField;
 @end
 
 @implementation LWScanTool
@@ -36,9 +36,20 @@ typedef void(^LWScanResultBlock)(LWScanModel *model);
             };
         }
     }];
-    
 }
 
++ (void)startScanInTextInputView:(void (^)(LWScanModel * _Nonnull))scanResult{
+    LWScanTool *scan = [[LWScanTool alloc] init];
+    scan.inTextField = YES;
+    [scan scanPermission:^(BOOL permmit) {
+        if (permmit) {
+            [scan jumpToScan];
+            scan.resultBlock = ^(LWScanModel *model) {
+                scanResult(model);
+            };
+        }
+    }];
+}
 
 - (void)scanPermission:(void (^)(BOOL permmit))permissionResult {
     __weak __typeof(self) weakSelf = self;
@@ -125,18 +136,26 @@ typedef void(^LWScanResultBlock)(LWScanModel *model);
 }
 
 - (void)manageScanReult:(LWScanModel *)model{
+    if (self.inTextField) {
+        if (self.resultBlock) {
+            self.resultBlock(model);
+        }
+        return;
+    }
+    
     if (model.scanType == 2) {
         LWScanLoginViewController *loginVC = [[LWScanLoginViewController alloc] init];
         loginVC.modalPresentationStyle = UIModalPresentationFullScreen;
         loginVC.scanId = model.scanResult;
         [LogicHandle presentViewController:[[LWNavigationViewController alloc] initWithRootViewController:loginVC] animate:NO];
-    }else if(model.scanType == 2){
+    }else if(model.scanType == 1){
         
-        
-        
-        
-        
-    }{
+        LWPersonalSendViewController *sendVC = [[LWPersonalSendViewController alloc]init];
+        sendVC.model = [LWPublicManager getPersonalFirstWallet];
+        sendVC.sendAddress = model.scanResult;
+        sendVC.hidesBottomBarWhenPushed = YES;
+        [LogicHandle pushViewController:sendVC animate:NO];
+    }else{
         LWScanResultViewController *scanReusltVC = [[LWScanResultViewController alloc] init];
         scanReusltVC.contentStr = model.scanResult;
         [LogicHandle pushViewController:scanReusltVC];

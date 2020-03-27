@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///viewtype = 1 多人钱包
 @property (nonatomic, assign) NSInteger viewType;
 
+@property (nonatomic, strong) NSString *sendAddress;
+
 @end
 
 NS_ASSUME_NONNULL_END

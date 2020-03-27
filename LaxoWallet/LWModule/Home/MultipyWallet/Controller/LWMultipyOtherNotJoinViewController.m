@@ -11,6 +11,7 @@
 @interface LWMultipyOtherNotJoinViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *ownLabel;
 @property (weak, nonatomic) IBOutlet UILabel *unJoinLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
 
@@ -18,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.nameLabel.text = self.contentModel.name;
     
     for (NSInteger i = 0; i<self.contentModel.parties.count; i++) {
         LWPartiesModel *model = self.contentModel.parties[i];

@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWMultipyOtherNotJoinViewController">
             <connections>
+                <outlet property="nameLabel" destination="frS-58-McO" id="U60-7u-c3J"/>
                 <outlet property="ownLabel" destination="bNE-jU-nPu" id="K4G-4e-9JF"/>
                 <outlet property="unJoinLabel" destination="4pT-mB-bM4" id="AQW-pp-0gl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

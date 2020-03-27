@@ -232,4 +232,24 @@
 
 }
 
++ (LWHomeWalletModel *)getPersonalFirstWallet{
+     NSString *personalWallet = [[NSUserDefaults standardUserDefaults] objectForKey:kPersonalWallet_userdefault];
+
+    if (!personalWallet || personalWallet.length == 0) {
+        return nil;
+    }
+    
+     NSDictionary *personalWalletDic = [NSJSONSerialization JSONObjectWithData:[personalWallet dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+     
+     NSArray *personalDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:[personalWalletDic objectForKey:@"data"]];
+     
+     if (personalDataArray.count == 0) {
+         return nil;
+     }else{
+         return personalDataArray[0];
+     }
+     
+}
+
+
 @end

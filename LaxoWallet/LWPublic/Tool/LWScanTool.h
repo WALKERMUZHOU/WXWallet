@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "LWScanModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWScanTool : NSObject
 
 + (void)startScan:(void(^)(id result))scanResult;
+
++ (void)startScanInTextInputView:(void(^)(LWScanModel *result))scanResult;
 
 @end
 

@@ -53,7 +53,7 @@
     titleLabel.textColor = lwColorLabel1;
     titleLabel.font = kSemBoldFont(16);
     titleLabel.numberOfLines = 0;
-    titleLabel.text = @"you are creating a multiparty wallet that requires n out of m(m>n) members to successfully sign a transaction";
+    titleLabel.text = @"you are creating a multiparty account that requires n out of m(m>n) members to successfully sign a transaction";
     [self.scrollView addSubview:titleLabel];
     
     self.partyNumTF = [[LWInputTextField alloc] initWithFrame:CGRectMake(preLeft, 0, kScreenWidth- preLeft*2, 42.5) andType:LWInputTextFieldTypeNormal];
@@ -77,7 +77,7 @@
     [self.scrollView addSubview:self.selectBtn];
     
     self.walletNameTF = [[LWInputTextField alloc] initWithFrame:CGRectMake(preLeft, 0, kScreenWidth- preLeft*2, 42.5) andType:LWInputTextFieldTypeleftSelect];
-    self.walletNameTF.lwTextField.placeholder = @"Wallet Name:";
+    self.walletNameTF.lwTextField.placeholder = @"Account Name:";
     [self.scrollView addSubview:self.walletNameTF];
     
     self.emailTV = [[LWInputTextView alloc] initWithFrame:CGRectMake(preLeft, 0, kScreenWidth - preLeft*2, 165)];

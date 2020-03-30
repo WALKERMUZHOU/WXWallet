@@ -89,7 +89,7 @@
           if (self.block) {
               self.block(self.walletName.text);
           }
-          [WMHUDUntil showMessageToWindow:@"Wallet Name Edit Success"];
+          [WMHUDUntil showMessageToWindow:@"Account Name Edit Success"];
           [LWPublicManager getPersonalWalletData];
       }
 }

@@ -386,6 +386,7 @@
 }
 
 - (void)verfiyImage:(NSString *)image{
+    NSLog(@"startverfiyImage");
     [self.circleView setDetectCompelet:YES];
     [self processingStatue];
 

@@ -17,8 +17,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="prf-Db-6zy">
                     <rect key="frame" x="0.0" y="20" width="414" height="569"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Wallet One" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4l-U3-ohm">
-                            <rect key="frame" x="133" y="30" width="148.5" height="30"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My account One" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4l-U3-ohm">
+                            <rect key="frame" x="123" y="30" width="168" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="U7y-23-1hl"/>
                             </constraints>

@@ -62,7 +62,7 @@
             [weakSelf.remindView setHidden:true];
             [weakSelf.remindDetailLabel setHidden:false];
             weakSelf.remindDetailLabel.text = warning;
-            weakSelf.remindLabel.text = @"脸部有遮挡";
+            weakSelf.remindLabel.text = @"Face covered";
         }else {
             [weakSelf.remindLabel setHidden:false];
             [weakSelf.remindView setHidden:true];
@@ -96,7 +96,7 @@
         self.completeContentLabel.text = @"Your 3D facial map data has been securely stored and encrypted and is now linked to your Volt account. ";
         self.completeContentLabel1.text = @"It will not be shared with anyone and you are the owner of this 3D facial map data.";
         
-        [self.bottomBtn setTitle:@"Create my Volt ID, Wallet and Account" forState:UIControlStateNormal];
+        [self.bottomBtn setTitle:@"Create my Volt ID, Account" forState:UIControlStateNormal];
 
     });
 }
@@ -236,7 +236,7 @@
 
     self.bottomBtn = [[LWCommonBottomBtn alloc] init];
     self.bottomBtn.selected = YES;
-    [self.bottomBtn setTitle:@"Create my Volt ID, Wallet and Account" forState:UIControlStateNormal];
+    [self.bottomBtn setTitle:@"Create my Volt ID, Account" forState:UIControlStateNormal];
     self.bottomBtn.layer.cornerRadius = 25;
     [self.bottomBtn.titleLabel setFont:kFont(14)];
     self.bottomBtn.layer.masksToBounds = YES;

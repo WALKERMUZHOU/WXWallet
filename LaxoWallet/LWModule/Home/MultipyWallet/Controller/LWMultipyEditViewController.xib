@@ -30,8 +30,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lsH-D5-0bf">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="685"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzc-FF-jSS">
-                                    <rect key="frame" x="149.5" y="50" width="115" height="20"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzc-FF-jSS">
+                                    <rect key="frame" x="141.5" y="50" width="131.5" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="nf4-fS-sBf"/>
                                     </constraints>
@@ -144,8 +144,8 @@
                                         <constraint firstItem="aVk-fY-afU" firstAttribute="leading" secondItem="JLs-W6-L3H" secondAttribute="leading" id="gfe-3s-SOn"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Bw-LW-IeR">
-                                    <rect key="frame" x="157" y="255" width="100.5" height="20"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Bw-LW-IeR">
+                                    <rect key="frame" x="149" y="255" width="116.5" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="LL7-Hz-x6h"/>
                                     </constraints>

@@ -16,8 +16,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNv-eS-ZDH">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="159"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new wallet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2B-TU-ZY2">
-                            <rect key="frame" x="106.5" y="20" width="201.5" height="30"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2B-TU-ZY2">
+                            <rect key="frame" x="95.5" y="20" width="223.5" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="UJl-db-epE"/>
                             </constraints>

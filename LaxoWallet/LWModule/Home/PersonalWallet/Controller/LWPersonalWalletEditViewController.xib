@@ -23,8 +23,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taX-47-FbX">
-                    <rect key="frame" x="130" y="94" width="115" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taX-47-FbX">
+                    <rect key="frame" x="122.00000000000001" y="94" width="131.33333333333337" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="w1q-MB-Dse"/>
                     </constraints>
@@ -54,8 +54,8 @@
                         <constraint firstAttribute="width" constant="25" id="mva-kK-cGG"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet Paymails" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yun-h4-D4r">
-                    <rect key="frame" x="126.66666666666669" y="194" width="122" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Paymails" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yun-h4-D4r">
+                    <rect key="frame" x="118.66666666666667" y="194" width="137.66666666666663" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="oen-Ps-arc"/>
                     </constraints>

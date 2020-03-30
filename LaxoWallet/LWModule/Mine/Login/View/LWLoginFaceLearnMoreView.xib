@@ -18,7 +18,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="569"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eUT-Bs-Ezz">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="617.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="636.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About facial recognition scans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcD-YD-5cg">
                                     <rect key="frame" x="51" y="30" width="312" height="30"/>
@@ -36,22 +36,22 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xeo-aR-Ale">
-                                    <rect key="frame" x="20" y="157.5" width="374" height="115"/>
-                                    <string key="text">This facial recognition scan will enable you to recover a wallet or send out large amounts.
+                                    <rect key="frame" x="20" y="157.5" width="374" height="134"/>
+                                    <string key="text">This facial recognition scan will enable you to recover a account or send out large amounts.
 
- A facial scan will be required to compare with stored facial data to ensure you are the real identity allowed to recover a wallet or initiate a transaction.</string>
+ A facial scan will be required to compare with stored facial data to ensure you are the real identity allowed to recover a account or initiate a transaction.</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disclaimer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZq-vc-wXb">
-                                    <rect key="frame" x="20" y="302.5" width="374" height="19.5"/>
+                                    <rect key="frame" x="20" y="321.5" width="374" height="19.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKQ-th-SPz">
-                                    <rect key="frame" x="147" y="537.5" width="120" height="40"/>
+                                    <rect key="frame" x="147" y="556.5" width="120" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="biU-MB-cdq"/>
                                         <constraint firstAttribute="width" constant="120" id="e0H-SW-cEa"/>
@@ -73,37 +73,37 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZF-ba-BM1">
-                                    <rect key="frame" x="20" y="342" width="8" height="20"/>
+                                    <rect key="frame" x="20" y="361" width="8" height="20"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                     <color key="textColor" red="0.13587096330000001" green="0.57124239210000005" blue="0.46952360869999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Identical twins might be able to unlock each others' accounts " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSg-Ja-zv7">
-                                    <rect key="frame" x="45" y="342" width="349" height="38.5"/>
+                                    <rect key="frame" x="45" y="361" width="349" height="38.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQU-u5-rK5">
-                                    <rect key="frame" x="20" y="400.5" width="10" height="20"/>
+                                    <rect key="frame" x="20" y="419.5" width="10" height="20"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                     <color key="textColor" red="0.13587096330000001" green="0.57124239210000005" blue="0.46952360869999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plastic surgery may cause facial recognition fail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uI9-LE-221">
-                                    <rect key="frame" x="45" y="400.5" width="349" height="19.5"/>
+                                    <rect key="frame" x="45" y="419.5" width="349" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8c-gf-8oP">
-                                    <rect key="frame" x="20" y="440" width="10.5" height="19.5"/>
+                                    <rect key="frame" x="20" y="459" width="10.5" height="19.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                     <color key="textColor" red="0.13587096330000001" green="0.57124239210000005" blue="0.46952360869999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rescanning your face periodically will ensure the system adapts to your natural changing appearance." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FY-vy-fMx">
-                                    <rect key="frame" x="45" y="440" width="349" height="57.5"/>
+                                    <rect key="frame" x="45" y="459" width="349" height="57.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>

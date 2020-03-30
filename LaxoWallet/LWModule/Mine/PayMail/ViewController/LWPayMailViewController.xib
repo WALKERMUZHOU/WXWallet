@@ -156,7 +156,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGx-gd-jnv">
                                             <rect key="frame" x="20" y="35" width="335" height="50"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wallet Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="crO-PG-DoQ">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="crO-PG-DoQ">
                                                     <rect key="frame" x="5" y="0.0" width="240" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -222,8 +222,8 @@
                                                 <action selector="buyClick:" destination="-1" eventType="touchUpInside" id="DOM-Vf-rZ6"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available funds $864.71 from My Wallet One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqo-VL-KIL">
-                                            <rect key="frame" x="62.333333333333329" y="209.99999999999997" width="250.33333333333337" height="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available funds $864.71 from My account One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqo-VL-KIL">
+                                            <rect key="frame" x="57.333333333333314" y="209.99999999999997" width="260.66666666666669" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="E1B-ua-U2x"/>
                                             </constraints>

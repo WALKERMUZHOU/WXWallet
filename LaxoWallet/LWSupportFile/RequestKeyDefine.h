@@ -37,6 +37,8 @@ static NSString * const Url_Login_checkFace = @"method=user.queryFace";//
 
 
 static NSString * const Url_Home_tokenPrice = @"method=wallet.tokenPrice";//获取实时价格
+static NSString * const Url_Home_tokenPrice_new = @"method=wallet.currency";//获取实时价格_new
+
 static NSString * const Url_Home_SingleAddress = @"method=wallet.createSingleAddress";//获取个人收款地址
 
 static NSString * const WS_Login_ScanLogin = @"user.doLogin";//扫一扫登录

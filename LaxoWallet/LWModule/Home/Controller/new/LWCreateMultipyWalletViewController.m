@@ -55,7 +55,7 @@
 
 - (IBAction)completeClick:(UIButton *)sender {
     if (self.walletNameTF.text.length == 0) {
-        [WMHUDUntil showMessageToWindow:@"please input wallet name"];
+        [WMHUDUntil showMessageToWindow:@"please input account name"];
         return;
     }
         if(self.signCountTF.text.length == 0){
@@ -116,7 +116,7 @@
     [SVProgressHUD dismiss];
     NSDictionary *resInfo = notification.object;
     if ([[resInfo objectForKey:@"success"] integerValue] == 1) {
-        [WMHUDUntil showMessageToWindow:@"wallet create success"];
+        [WMHUDUntil showMessageToWindow:@"account create success"];
         
         NSDictionary *multipyparams = @{@"type":@2};
          NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMulpityWallet),@"wallet.query",[multipyparams jsonStringEncoded]];

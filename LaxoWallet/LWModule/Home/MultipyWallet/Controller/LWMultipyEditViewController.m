@@ -83,7 +83,7 @@
     [SVProgressHUD dismiss];
      NSDictionary *notiDic = notification.object;
       if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
-          [WMHUDUntil showMessageToWindow:@"Wallet Name Edit Success"];
+          [WMHUDUntil showMessageToWindow:@"Account Name Edit Success"];
           [self requestMulipyWalletInfo];
       }
 }

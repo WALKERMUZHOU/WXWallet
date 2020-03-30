@@ -24,7 +24,7 @@
     for (NSInteger i = 0; i<self.contentModel.parties.count; i++) {
         LWPartiesModel *model = self.contentModel.parties[i];
         if ([model.uid isEqualToString:self.contentModel.uid]) {
-            self.label1.text =[NSString stringWithFormat:@"You’ve been invited to join this wallet owned by %@. ",model.user];
+            self.label1.text =[NSString stringWithFormat:@"You’ve been invited to join this account owned by %@. ",model.user];
             break;
         }
     }

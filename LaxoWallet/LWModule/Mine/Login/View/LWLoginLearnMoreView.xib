@@ -29,7 +29,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trusthold is a service that provides key slice storage, transaction signing and wallet recovery service." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJD-9Q-ndc">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trusthold is a service that provides key slice storage, transaction signing and account recovery service." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJD-9Q-ndc">
                                     <rect key="frame" x="20" y="90" width="374" height="57.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                     <nil key="textColor"/>
@@ -39,11 +39,11 @@
                                     <rect key="frame" x="20" y="157.5" width="374" height="286.5"/>
                                     <mutableString key="text">hy we need Trusthold: With threshold signatures, we get rid of a single point failure risk by making signature signing possible without a full private key.
 
- In order to do so, the key is split into several parts upon wallet creation and stored with different trusthold parties and the user device. 
+ In order to do so, the key is split into several parts upon account creation and stored with different trusthold parties and the user device. 
 
 In such way, there’s no single point of failure and even if a user lost their device or backup, their asset can still be recovered through trusthold computation. 
 
-Only the real user can initiate a transaction or recover their wallet with the help of Volt ID. </mutableString>
+Only the real user can initiate a transaction or recover their account with the help of Volt ID. </mutableString>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>

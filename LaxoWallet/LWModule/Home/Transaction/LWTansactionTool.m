@@ -146,46 +146,42 @@ static LWTansactionTool *instance = nil;
 
     char *transId = self.transId;
     NSArray *changeArray = self.changeArray;
-//    char *add_change = add_transaction_change(transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
-//    NSLog(@"add_transaction_change(%s , %s)",transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
 
+    char *get_sighash = get_transaction_sighash(transId);
+    NSLog(@"get_transaction_sighash(%s)",transId);
 
-    
-        char *get_sighash = get_transaction_sighash(transId);
-        NSLog(@"get_transaction_sighash(%s)",transId);
-    
-        NSArray *sighHashArray = [LWAddressTool charToObject:get_sighash];
+    NSArray *sighHashArray = [LWAddressTool charToObject:get_sighash];
 
-        __block dispatch_semaphore_t semaphore;
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            
-            for (NSInteger i = 0; i<sighHashArray.count; i++) {
-                semaphore = dispatch_semaphore_create(0);
-                LWutxoModel *utxo = [changeArray objectAtIndex:i];
-                NSString *sign_hash = sighHashArray[i];
+    __block dispatch_semaphore_t semaphore;
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        for (NSInteger i = 0; i<sighHashArray.count; i++) {
+            semaphore = dispatch_semaphore_create(0);
+            LWutxoModel *utxo = [changeArray objectAtIndex:i];
+            NSString *sign_hash = sighHashArray[i];
 
-                LWSignTool *signTool = [[LWSignTool alloc] init];
-                [signTool setWithAddress:utxo.address andHash:sign_hash];
-                signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
-                    NSString *r = [sign objectForKey:@"r"];
-                    NSString *signStr = [sign objectForKey:@"sign"];
-                    NSString *pubkey = [sign objectForKey:@"pubkey"];
+            LWSignTool *signTool = [[LWSignTool alloc] init];
+            [signTool setWithAddress:utxo.address andHash:sign_hash];
+            signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
+                NSString *r = [sign objectForKey:@"r"];
+                NSString *signStr = [sign objectForKey:@"sign"];
+                NSString *pubkey = [sign objectForKey:@"pubkey"];
 
-                    char *add_transaction_sig_char = add_transaction_sig(transId, i, [LWAddressTool stringToChar:pubkey], [LWAddressTool stringToChar:r], [LWAddressTool stringToChar:signStr]);
+                char *add_transaction_sig_char = add_transaction_sig(transId, i, [LWAddressTool stringToChar:pubkey], [LWAddressTool stringToChar:r], [LWAddressTool stringToChar:signStr]);
 
-                    NSLog(@"add_transaction_sig(%s, %ld , %s , %s , %s)",transId,(long)i,[LWAddressTool stringToChar:pubkey], [LWAddressTool stringToChar:r], [LWAddressTool stringToChar:signStr]);
+                NSLog(@"add_transaction_sig(%s, %ld , %s , %s , %s)",transId,(long)i,[LWAddressTool stringToChar:pubkey], [LWAddressTool stringToChar:r], [LWAddressTool stringToChar:signStr]);
 
-                    dispatch_semaphore_signal(semaphore);
-                };
-                dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-            }
-            
-            char *transaction_to_json_char = transaction_to_json(transId);
-            [self requestTransactionToServer:[LWAddressTool charToObject:transaction_to_json_char]];
-            NSLog(@"%s",transaction_to_json_char);
-            destroy_transaction(transId);
+                dispatch_semaphore_signal(semaphore);
+            };
+            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        }
+        
+        char *transaction_to_json_char = transaction_to_json(transId);
+        [self requestTransactionToServer:[LWAddressTool charToObject:transaction_to_json_char]];
+        NSLog(@"%s",transaction_to_json_char);
+        destroy_transaction(transId);
 
-        });
+    });
 }
 
 - (void)requestTransactionToServer:(NSDictionary *)transactionToJson{
@@ -217,7 +213,11 @@ static LWTansactionTool *instance = nil;
         if (utxoModel.status == 1) {
             if (utxoModel.value > transAmount) {
                 [chageUtxoArray addObj:utxoModel];
-                break;
+                if ([self enoughFee:chageUtxoArray]) {
+                    break;
+                }else{
+                   if( i == utxo.count -1) break;
+                }
             }else{
                 transAmount = transAmount - utxoModel.value;
                 [chageUtxoArray addObj:utxoModel];
@@ -225,6 +225,32 @@ static LWTansactionTool *instance = nil;
         }
     }
     return chageUtxoArray;
+}
+
+- (BOOL)enoughFee:(NSArray *)changeTempArray{
+    char * transId = create_transaction();
+      
+    NSArray *changeArray = changeTempArray;
+    NSInteger changeAmount = 0;
+    for (LWutxoModel *utxo in changeArray) {
+        char *add_input = add_transaction_input(transId,[LWAddressTool stringToChar:utxo.txid], utxo.vout, address_to_script([LWAddressTool stringToChar:utxo.address]), utxo.value);
+        changeAmount += utxo.value;
+    }
+      
+    char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]));
+    char *feeTemp = get_transaction_fee(transId);
+    
+    if (changeAmount > self.transAmount + [LWAddressTool charToString:feeTemp].integerValue) {
+        destroy_transaction(transId);
+        return YES;
+    }else{
+        destroy_transaction(transId);
+        return NO;
+    }
+    
+    
+    
+    return YES;
 }
 
 //手续费和差值比较

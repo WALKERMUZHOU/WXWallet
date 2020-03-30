@@ -71,7 +71,7 @@
                 switch (remindCode) {
                     case LivenessRemindCodeOK: {
                         weakSelf.hasFinished = YES;
-                        [self warningStatus:CommonStatus warning:@"非常好"];
+                        [self warningStatus:CommonStatus warning:@"Good"];
                         NSMutableArray *imageArray = [NSMutableArray array];
                         if (images[@"bestImage"] != nil && [images[@"bestImage"] count] != 0) {
                             

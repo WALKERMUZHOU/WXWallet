@@ -16,8 +16,8 @@
 
 @implementation LWLoginStepFourView
 - (IBAction)learnMoreClick:(UIButton *)sender {
-    [WMHUDUntil showMessageToWindow:@"laernMore"];
-
+    [LWAlertTool alertloginLaeanMore];
+    
 }
 
 - (IBAction)selectClick:(UIButton *)sender {

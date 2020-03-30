@@ -14,6 +14,10 @@
         self.block();
     }
 }
+- (IBAction)learnMore:(UIButton *)sender {
+    [LWAlertTool alertloginLaeanMoreFace];
+    
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

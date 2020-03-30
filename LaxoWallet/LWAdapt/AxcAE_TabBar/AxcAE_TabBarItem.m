@@ -92,7 +92,7 @@
     self.icomImgView.hidden = NO;
     switch (self.itemModel.itemLayoutStyle) {
         case AxcAE_TabBarItemLayoutStyleTopPictureBottomTitle:{         // 上图片下文字 使用图3 文1比
-            iconImgFrame.origin.y = self.itemModel.componentMargin.top + 5;
+            iconImgFrame.origin.y = self.itemModel.componentMargin.top;
             iconImgFrame.origin.x = (self.frame.size.width - iconImgFrame.size.width)/2;
             // 图上文下 文label的高度要减去间距
             titleFrame.size.height -= self.itemModel.pictureWordsMargin;

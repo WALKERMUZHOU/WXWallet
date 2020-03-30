@@ -20,6 +20,9 @@
 
 #import "LWSignessSatuteView.h"
 
+#import "LWLoginLearnMoreView.h"
+#import "LWLoginFaceLearnMoreView.h"
+
 @implementation LWAlertTool
 
 + (void)alertHomeChooseWalletView:(void (^)(NSInteger))walletBlock{
@@ -427,5 +430,53 @@
     return backView;
 }
 
++ (void)alertloginLaeanMore{
+    CGFloat viewHeight = 589.f;
+    UIView *backView = [LWAlertTool ligntBackView];
+     
+    LWLoginLearnMoreView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginLearnMoreView class]) owner:nil options:nil].lastObject;
+    [backView addSubview:walletView];
+    walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight-kNavigationBarHeight);
+    walletView.block = ^{
+        [UIView animateWithDuration:0.3 animations:^{
+            backView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [backView removeFromSuperview];
+        }];
+    };
+     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+             NSLog(@"%@",sender);
+         }];
+     [walletView addGestureRecognizer:tap1];
+     
+     [UIView animateWithDuration:0.3 animations:^{
+         walletView.frame = CGRectMake(0, kScreenHeight - viewHeight, kScreenWidth, viewHeight);
+     }];
+
+}
+
++ (void)alertloginLaeanMoreFace{
+    CGFloat viewHeight = 589.f;
+    UIView *backView = [LWAlertTool ligntBackView];
+     
+    LWLoginFaceLearnMoreView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginFaceLearnMoreView class]) owner:nil options:nil].lastObject;
+    [backView addSubview:walletView];
+    walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight-kNavigationBarHeight);
+    walletView.block = ^{
+        [UIView animateWithDuration:0.3 animations:^{
+            backView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [backView removeFromSuperview];
+        }];
+    };
+     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+             NSLog(@"%@",sender);
+         }];
+     [walletView addGestureRecognizer:tap1];
+     
+     [UIView animateWithDuration:0.3 animations:^{
+         walletView.frame = CGRectMake(0, kScreenHeight - viewHeight, kScreenWidth, viewHeight);
+     }];
+}
 
 @end

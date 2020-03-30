@@ -397,7 +397,7 @@
                 [self.scrollView setContentOffset:CGPointMake(kScreenWidth *8, 0) animated:NO];
             }else{
                 [self.scrollView setContentOffset:CGPointMake(kScreenWidth *5, 0) animated:NO];
-                [self recoverWithICloud];
+              //  [self recoverWithICloud];
             }
         }else{
 //            [WMHUDUntil showMessageToWindow:@"face error"];

@@ -27,7 +27,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOh-3V-tdG">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1220.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1251.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a multiparty wallet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNH-PI-PAz">
                                     <rect key="frame" x="0.0" y="30" width="414" height="30"/>
@@ -97,21 +97,21 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter all key share holder members’ email addresses" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbS-bk-CTy">
-                                    <rect key="frame" x="20" y="472" width="374" height="38.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter other key share holders‘ email id" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbS-bk-CTy">
+                                    <rect key="frame" x="20" y="472" width="374" height="19.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Le-Xd-zbt">
-                                    <rect key="frame" x="20" y="525.5" width="374" height="210"/>
+                                    <rect key="frame" x="20" y="506.5" width="374" height="210"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="210" id="hxq-ov-fYe"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 of 2 members added. Please add 1 more members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BX4-Ch-PPh">
-                                    <rect key="frame" x="20" y="750.5" width="374" height="20"/>
+                                    <rect key="frame" x="20" y="731.5" width="374" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="Nba-3U-gOL"/>
                                     </constraints>
@@ -120,7 +120,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New users have to register with Volt using the same email addresses you’ve added to successfully join this wallet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDO-Ea-iEb">
-                                    <rect key="frame" x="20" y="780.5" width="374" height="35"/>
+                                    <rect key="frame" x="20" y="761.5" width="374" height="35"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="HPU-kV-Vep"/>
                                     </constraints>
@@ -129,7 +129,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default display currency" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8U-5K-qjJ">
-                                    <rect key="frame" x="20" y="845.5" width="189.5" height="20"/>
+                                    <rect key="frame" x="20" y="826.5" width="189.5" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="0i7-5S-NLa"/>
                                     </constraints>
@@ -138,7 +138,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bitcoin SV - BSV" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B42-xM-lqn">
-                                    <rect key="frame" x="20" y="880.5" width="374" height="50"/>
+                                    <rect key="frame" x="20" y="861.5" width="374" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="ian-vz-trk"/>
                                     </constraints>
@@ -146,7 +146,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTI-7U-kww">
-                                    <rect key="frame" x="354" y="880.5" width="40" height="50"/>
+                                    <rect key="frame" x="354" y="861.5" width="40" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="q3a-Aq-Y7W"/>
                                         <constraint firstAttribute="height" constant="50" id="qyZ-Ep-J6h"/>
@@ -155,7 +155,7 @@
                                     <state key="normal" image="chevron.down" catalog="system"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0p-Av-fhS">
-                                    <rect key="frame" x="20" y="970.5" width="374" height="50"/>
+                                    <rect key="frame" x="20" y="951.5" width="374" height="50"/>
                                     <color key="backgroundColor" red="0.1236214414" green="0.51611816880000005" blue="0.42251092200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="hPB-XK-kCh"/>
@@ -222,7 +222,7 @@
                                 <constraint firstItem="f0p-Av-fhS" firstAttribute="top" secondItem="B42-xM-lqn" secondAttribute="bottom" constant="40" id="tnK-KS-KtZ"/>
                                 <constraint firstItem="9iX-OT-bFg" firstAttribute="top" secondItem="k4b-SO-tX1" secondAttribute="bottom" constant="15" id="ump-kL-fi1"/>
                                 <constraint firstItem="Vh1-iy-5p8" firstAttribute="leading" secondItem="SOh-3V-tdG" secondAttribute="leading" constant="20" id="up0-rn-x6I"/>
-                                <constraint firstAttribute="bottom" secondItem="f0p-Av-fhS" secondAttribute="bottom" constant="200" id="wZe-iF-lZg"/>
+                                <constraint firstAttribute="bottom" secondItem="f0p-Av-fhS" secondAttribute="bottom" constant="250" id="wZe-iF-lZg"/>
                                 <constraint firstItem="TDO-Ea-iEb" firstAttribute="top" secondItem="BX4-Ch-PPh" secondAttribute="bottom" constant="10" id="zgy-ue-D96"/>
                             </constraints>
                         </view>

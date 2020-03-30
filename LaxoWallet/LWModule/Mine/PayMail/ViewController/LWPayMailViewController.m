@@ -46,7 +46,7 @@
     self.payMailTFBackView.layer.borderColor = lwColorGrayD8.CGColor;
     
     self.payMailTF.delegate = self;
-    
+    [self refreshBuyButton];
     self.listView = [[LWPaymialListTableView alloc] initWithFrame:self.firstView.bounds style:UITableViewStyleGrouped];
     self.listView.model = self.model;
     [self.firstView addSubview:self.listView];
@@ -82,7 +82,11 @@
     if (_isFirstPayMail) {
         [self.bottomBtn setTitle:@"Get Your First Paymail For Free" forState:UIControlStateNormal];
     }else{
-        [self.bottomBtn setTitle:@"Buy for $1 USD" forState:UIControlStateNormal];
+        CGFloat amount = 1/[LWPublicManager getCurrentUSDPrice].floatValue;
+        NSString *payBSV = [NSString stringWithFormat:@"Cost %@BSV(≈$1 USD)",[LWNumberTool formatSSSFloat:amount]];
+        [self.bottomBtn setTitle:payBSV forState:UIControlStateNormal];
+
+//        [self.bottomBtn setTitle:@"Buy for $1 USD" forState:UIControlStateNormal];
     }
 }
 

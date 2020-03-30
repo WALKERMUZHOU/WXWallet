@@ -45,7 +45,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)alertSigneseStatueView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id complete))walletBlock;
 
-
+#pragma mark - login learn more
++ (void)alertloginLaeanMore;
++ (void)alertloginLaeanMoreFace;
 @end
 
 NS_ASSUME_NONNULL_END

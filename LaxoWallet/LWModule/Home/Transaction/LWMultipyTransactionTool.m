@@ -88,24 +88,38 @@ static LWMultipyTransactionTool *instance = nil;
         return;
     }
 
-
     if (![[LWAddressTool charToString:add_change] isEqualToString:@"true"]) {
         [WMHUDUntil showMessageToWindow:@"transaction fail"];
         return;
     }
     
+    char *fee = get_transaction_fee(transId);
+    self.fee = [LWAddressTool charToString:fee];
+    
+    if (self.fee.integerValue + self.transAmount > self.model.canuseBitCountInterger) {
+        destroy_transaction(transId);
+        
+        transId = create_transaction();
+        
+        NSArray *changeArray = [self manageChange:self.transAmount];
+        for (LWutxoModel *utxo in changeArray) {
+            char *add_input = add_transaction_input(transId,[LWAddressTool stringToChar:utxo.txid], utxo.vout, address_to_script([LWAddressTool stringToChar:utxo.address]), utxo.value);
+        }
+        
+        char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]));
+        if (![[LWAddressTool charToString:add_transaction_change_char] isEqualToString:@"true"]) {
+            [WMHUDUntil showMessageToWindow:@"transaction fail"];
+            return;
+        }
+        char *feeTemp = get_transaction_fee(transId);
+        self.fee = [LWAddressTool charToString:feeTemp];
+    }
+
     char *get_sighash = get_transaction_sighash(transId);
-    NSLog(@"get_transaction_sighash(%s)",transId);
+    NSLog(@"get_transaction_sighash(%s)",get_sighash);
 
     self.transId = transId;
     self.changeArray = changeArray;
-    
-    char *fee = get_transaction_fee(transId);
-    self.fee = [LWAddressTool charToString:fee];
-        
-    NSArray *sighHashArray = [LWAddressTool charToObject:get_sighash];
-
-    NSMutableArray *transaction_sig_array = [NSMutableArray array];
     
 }
 
@@ -154,17 +168,46 @@ static LWMultipyTransactionTool *instance = nil;
         
         LWutxoModel *utxoModel = utxo[i];
         if (utxoModel.status == 1) {
-            if (utxoModel.value > transAmount) {
-                [chageUtxoArray addObj:utxoModel];
-                break;
-            }else{
-                transAmount = transAmount - utxoModel.value;
-                [chageUtxoArray addObj:utxoModel];
-            }
+           if (utxoModel.value > transAmount) {
+               [chageUtxoArray addObj:utxoModel];
+                if ([self enoughFee:chageUtxoArray]) {
+                      break;
+                 
+                }else{
+                     if( i == utxo.count -1) break;
+                }
+           }else{
+              transAmount = transAmount - utxoModel.value;
+              [chageUtxoArray addObj:utxoModel];
+           }
         }
     }
     return chageUtxoArray;
 }
+
+- (BOOL)enoughFee:(NSArray *)changeTempArray{
+    char * transId = create_transaction();
+      
+    NSArray *changeArray = changeTempArray;
+    NSInteger changeAmount = 0;
+    for (LWutxoModel *utxo in changeArray) {
+        char *add_input = add_transaction_input(transId,[LWAddressTool stringToChar:utxo.txid], utxo.vout, address_to_script([LWAddressTool stringToChar:utxo.address]), utxo.value);
+        changeAmount += utxo.value;
+    }
+      
+    char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]));
+    char *feeTemp = get_transaction_fee(transId);
+    
+    if (changeAmount > self.transAmount + [LWAddressTool charToString:feeTemp].integerValue) {
+        destroy_transaction(transId);
+        return YES;
+    }else{
+        destroy_transaction(transId);
+        return NO;
+    }
+}
+
+
 
 - (void)boardCast:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;

@@ -255,19 +255,9 @@ static LWTansactionTool *instance = nil;
         destroy_transaction(transId);
         return NO;
     }
-    
-    
-    
-    return YES;
 }
 
-//手续费和差值比较
-- (void)checkFeeAndAmountWithTotalAmount{
-    
-}
-
-
-
+#pragma mark - boardCast
 - (void)boardCast:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;
      if ([[notiDic objectForKey:@"success"] integerValue] == 1) {

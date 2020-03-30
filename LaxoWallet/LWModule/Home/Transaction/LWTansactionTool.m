@@ -168,8 +168,16 @@ static LWTansactionTool *instance = nil;
                 NSString *pubkey = [sign objectForKey:@"pubkey"];
 
                 char *add_transaction_sig_char = add_transaction_sig(transId, i, [LWAddressTool stringToChar:pubkey], [LWAddressTool stringToChar:r], [LWAddressTool stringToChar:signStr]);
-
                 NSLog(@"add_transaction_sig(%s, %ld , %s , %s , %s)",transId,(long)i,[LWAddressTool stringToChar:pubkey], [LWAddressTool stringToChar:r], [LWAddressTool stringToChar:signStr]);
+                if([[LWAddressTool charToString:add_transaction_sig_char] isEqualToString:@"false"]){
+                    [SVProgressHUD dismiss];
+                    if (self.transactionBlock) {
+                        self.transactionBlock(NO);
+                    }
+                    [WMHUDUntil showMessageToWindow:@"sig error"];
+                    dispatch_semaphore_signal(semaphore);
+                    return ;
+                }
 
                 dispatch_semaphore_signal(semaphore);
             };
@@ -271,6 +279,9 @@ static LWTansactionTool *instance = nil;
     }else{
         NSLog(@"%@",notiDic);
         [SVProgressHUD dismiss];
+        if (self.transactionBlock) {
+            self.transactionBlock(NO);
+        }
         [WMHUDUntil showMessageToWindow:@"trans error"];
     }
 }

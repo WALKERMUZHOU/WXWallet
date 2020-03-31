@@ -107,15 +107,9 @@
                                         <constraint firstAttribute="width" constant="24" id="3GF-Qw-WfB"/>
                                     </constraints>
                                     <state key="normal" image="home_eye"/>
+                                    <state key="selected" image="home_eye_close"/>
                                     <connections>
                                         <action selector="eyeClick:" destination="-1" eventType="touchUpInside" id="BRt-Eu-iA6"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3d-At-UyE">
-                                    <rect key="frame" x="0.0" y="0.0" width="110.5" height="21"/>
-                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <connections>
-                                        <action selector="eyeClick:" destination="-1" eventType="touchUpInside" id="ZKr-VS-aIw"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -124,15 +118,11 @@
                                 <constraint firstItem="pSz-gN-ZVs" firstAttribute="top" secondItem="xxc-DF-dTf" secondAttribute="top" id="6BP-Gm-tlf"/>
                                 <constraint firstItem="Svz-Vb-nXt" firstAttribute="top" secondItem="xxc-DF-dTf" secondAttribute="top" id="722-h1-hTJ"/>
                                 <constraint firstItem="pSz-gN-ZVs" firstAttribute="leading" secondItem="xxc-DF-dTf" secondAttribute="leading" constant="20" symbolic="YES" id="GsC-Kw-CCd"/>
-                                <constraint firstItem="o3d-At-UyE" firstAttribute="top" secondItem="xxc-DF-dTf" secondAttribute="top" id="Jv8-j4-W14"/>
-                                <constraint firstAttribute="trailing" secondItem="o3d-At-UyE" secondAttribute="trailing" id="LMU-FS-A0h"/>
                                 <constraint firstAttribute="bottom" secondItem="Svz-Vb-nXt" secondAttribute="bottom" id="M8W-S3-Ps8"/>
                                 <constraint firstItem="Svz-Vb-nXt" firstAttribute="leading" secondItem="pSz-gN-ZVs" secondAttribute="trailing" constant="10" id="PpX-mR-xR4"/>
-                                <constraint firstAttribute="bottom" secondItem="o3d-At-UyE" secondAttribute="bottom" id="RdE-uZ-KiC"/>
                                 <constraint firstAttribute="height" constant="21" id="lFc-rp-eW3"/>
                                 <constraint firstAttribute="bottom" secondItem="pSz-gN-ZVs" secondAttribute="bottom" id="nTi-eE-ta5"/>
                                 <constraint firstAttribute="trailing" secondItem="Svz-Vb-nXt" secondAttribute="trailing" constant="20" symbolic="YES" id="pds-xj-Bjh"/>
-                                <constraint firstItem="o3d-At-UyE" firstAttribute="leading" secondItem="xxc-DF-dTf" secondAttribute="leading" id="ptM-KT-34j"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vVm-vo-BNr">
@@ -235,7 +225,8 @@
         </view>
     </objects>
     <resources>
-        <image name="home_eye" width="24" height="15"/>
+        <image name="home_eye" width="32" height="24"/>
+        <image name="home_eye_close" width="32" height="18.5"/>
         <image name="home_wallet_info" width="25" height="25"/>
         <image name="home_wallet_receive" width="11" height="15.5"/>
         <image name="home_wallet_send" width="11" height="15.5"/>

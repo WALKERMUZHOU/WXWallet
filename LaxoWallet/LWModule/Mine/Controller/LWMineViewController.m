@@ -35,6 +35,10 @@
     self.loginoutBtn.hidden = YES;
 #endif
     
+    if(!isIphoneX){
+        self.bitCountLabel.font = kBoldFont(20);
+    }
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{

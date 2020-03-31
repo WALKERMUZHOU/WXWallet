@@ -34,6 +34,10 @@
     [super viewDidLoad];
     [self createUI];
     
+    if(!isIphoneX){
+        self.bitCountLabel.font = kBoldFont(20);
+    }
+    
     // Do any additional setup after loading the view from its nib.
 }
 

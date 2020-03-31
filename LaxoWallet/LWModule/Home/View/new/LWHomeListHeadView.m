@@ -23,6 +23,8 @@
 @property (nonatomic, strong) NSArray   *personalDataArray;
 @property (nonatomic, strong) NSArray   *multipyDataArray;
 
+@property (nonatomic, assign) BOOL isAmountHidden;
+
 @end
 
 
@@ -35,6 +37,13 @@
     self.multipyBtn.selected = NO;
     [self.multipyBtn.titleLabel setFont:kFont(16)];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshCurrentCurrency) name:kCuurentCurrencyChange_nsnotification object:nil];
+    
+    self.isAmountHidden = NO;
+    
+    if(!isIphoneX){
+        self.bitCountLabel.font = kBoldFont(20);
+    }
+    
 }
 
 
@@ -50,6 +59,7 @@
     [UIView animateWithDuration:0.3 animations:^{
         self.coverView.frame = CGRectMake(0, 0, 115, 40);
     }];
+    self.currentViewType = LWHomeListViewTypePersonalWallet;
     [self setCurrentArray:self.personalDataArray];
     if (self.block) {
         self.block(LWHomeListViewTypePersonalWallet);
@@ -64,7 +74,7 @@
     self.personalBtn.selected = NO;
     [self.multipyBtn.titleLabel setFont:kBoldFont(16)];
     [self.personalBtn.titleLabel setFont:kFont(16)];
-    
+    self.currentViewType = LWHomeListViewTypeMultipyWallet;
     [self setCurrentArray:self.multipyDataArray];
     [UIView animateWithDuration:0.3 animations:^{
         self.coverView.frame = CGRectMake(115, 0, 115, 40);
@@ -79,6 +89,7 @@
 
 - (IBAction)eyeClick:(UIButton *)sender {
     sender.selected = !sender.isSelected;
+    self.isAmountHidden = sender.isSelected;
     if (sender.isSelected) {
         self.bitCountLabel.text = @"***";
         self.priceLabel.text = @"***";
@@ -113,6 +124,10 @@
 }
 
 - (void)setCurrentArray:(NSArray *)currentArray{
+    if (self.isAmountHidden) {
+        return;
+    }
+    
     if (currentArray.count == 0) {
         self.bitCountLabel.text = @"0";
         self.priceLabel.text = @"0";
@@ -148,6 +163,9 @@
 }
 
 - (void)refreshCurrentCurrency{
+    if (self.isAmountHidden) {
+        return;
+    }
     if (self.personalDataArray.count >0) {
         if (self.currentViewType == LWHomeListViewTypePersonalWallet) {
             [self setCurrentArray:self.personalDataArray];

@@ -73,8 +73,8 @@
             filePath = "LaxoWallet/LWModule/Home/Controller/LWHomeViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "394"
-            endingLineNumber = "394"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
             landmarkName = "-manageData:"
             landmarkType = "7">
          </BreakpointContent>
@@ -153,8 +153,8 @@
             filePath = "LaxoWallet/LWModule/Home/Controller/LWHomeViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "399"
-            endingLineNumber = "399"
+            startingLineNumber = "404"
+            endingLineNumber = "404"
             landmarkName = "-manageData:"
             landmarkType = "7">
          </BreakpointContent>
@@ -169,8 +169,8 @@
             filePath = "LaxoWallet/LWModule/Home/Controller/LWHomeViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "545"
-            endingLineNumber = "545"
+            startingLineNumber = "550"
+            endingLineNumber = "550"
             landmarkName = "-manageWalletMessageList:"
             landmarkType = "7">
          </BreakpointContent>
@@ -185,8 +185,8 @@
             filePath = "LaxoWallet/LWModule/Home/Controller/LWHomeViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "550"
-            endingLineNumber = "550"
+            startingLineNumber = "555"
+            endingLineNumber = "555"
             landmarkName = "-manageJoinWalletInfo:"
             landmarkType = "7">
          </BreakpointContent>
@@ -329,8 +329,8 @@
             filePath = "LaxoWallet/LWModule/Home/PersonalWallet/Controller/LWPersonalSendViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "LWPersonalSendViewController"
             landmarkType = "3">
          </BreakpointContent>

@@ -112,8 +112,11 @@
         LWCurrencyModel *model = [self.dataSource objectAtIndex:i];
         if (i == indexPath.row) {
             model.statue = 2;
-            [[NSNotificationCenter defaultCenter] postNotificationName:kCurrencyChange_nsnotification object:nil];
             [LWPublicManager setCurrentCurrencyEnglishCode:model.title];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:kCuurentCurrencyChange_nsnotification object:nil];
+            });
+            
         }else {
             model.statue = 1;
         }

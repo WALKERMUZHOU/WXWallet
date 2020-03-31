@@ -56,7 +56,6 @@
 		5E3160E924267632005CA564 /* LWMinePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160E724267632005CA564 /* LWMinePreferencesViewController.m */; };
 		5E3160EA24267632005CA564 /* LWMinePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160E824267632005CA564 /* LWMinePreferencesViewController.xib */; };
 		5E3160EE24267974005CA564 /* LWMineCurrencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160EC24267974005CA564 /* LWMineCurrencyViewController.m */; };
-		5E3160EF24267974005CA564 /* LWMineCurrencyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160ED24267974005CA564 /* LWMineCurrencyViewController.xib */; };
 		5E3160F624271586005CA564 /* LWPayMailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160F424271586005CA564 /* LWPayMailViewController.m */; };
 		5E3160F724271586005CA564 /* LWPayMailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160F524271586005CA564 /* LWPayMailViewController.xib */; };
 		5E3160FA24273A5F005CA564 /* LWMultipySendOutgoingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160F924273A5F005CA564 /* LWMultipySendOutgoingView.m */; };
@@ -465,7 +464,6 @@
 		5E3160E824267632005CA564 /* LWMinePreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWMinePreferencesViewController.xib; sourceTree = "<group>"; };
 		5E3160EB24267974005CA564 /* LWMineCurrencyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMineCurrencyViewController.h; sourceTree = "<group>"; };
 		5E3160EC24267974005CA564 /* LWMineCurrencyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMineCurrencyViewController.m; sourceTree = "<group>"; };
-		5E3160ED24267974005CA564 /* LWMineCurrencyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWMineCurrencyViewController.xib; sourceTree = "<group>"; };
 		5E3160F324271586005CA564 /* LWPayMailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPayMailViewController.h; sourceTree = "<group>"; };
 		5E3160F424271586005CA564 /* LWPayMailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPayMailViewController.m; sourceTree = "<group>"; };
 		5E3160F524271586005CA564 /* LWPayMailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWPayMailViewController.xib; sourceTree = "<group>"; };
@@ -2004,7 +2002,6 @@
 				5E3160E824267632005CA564 /* LWMinePreferencesViewController.xib */,
 				5E3160EB24267974005CA564 /* LWMineCurrencyViewController.h */,
 				5E3160EC24267974005CA564 /* LWMineCurrencyViewController.m */,
-				5E3160ED24267974005CA564 /* LWMineCurrencyViewController.xib */,
 				5E84097B2431F10200CBE2FE /* LWMineLanguageViewController.h */,
 				5E84097C2431F10200CBE2FE /* LWMineLanguageViewController.m */,
 				5E84097D2431F10200CBE2FE /* LWMineLanguageViewController.xib */,
@@ -2915,7 +2912,6 @@
 				5E3160CF2424A00A005CA564 /* LWScanResultViewController.xib in Resources */,
 				5E3161102427893A005CA564 /* LWSignSatueTableViewCell.xib in Resources */,
 				5E3160FC24273A70005CA564 /* LWMultipySendOutgoingView.xib in Resources */,
-				5E3160EF24267974005CA564 /* LWMineCurrencyViewController.xib in Resources */,
 				5E31610124273AAB005CA564 /* LWMultipySendPendingView.xib in Resources */,
 				5E3161252427B84A005CA564 /* LWMultipyEditMemberViewController.xib in Resources */,
 				5E07FD302421F4CC00FA3E1F /* LWHomeAddWalletView.xib in Resources */,
@@ -3505,7 +3501,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LaxoWallet/LaxoWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3528,6 +3524,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laxoWallet;
 				PRODUCT_NAME = Volt;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3542,7 +3539,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LaxoWallet/LaxoWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3565,6 +3562,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laxoWallet;
 				PRODUCT_NAME = Volt;
 				TARGETED_DEVICE_FAMILY = 1;

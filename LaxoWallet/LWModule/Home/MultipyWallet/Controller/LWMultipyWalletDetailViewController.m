@@ -86,6 +86,10 @@
 //        self.priceLabel.text = [NSString stringWithFormat:@"$%.2f",self.contentModel.personalBitCurrency];
 //    }
     
+    if(!isIphoneX){
+        self.bitCountLabel.font = kBoldFont(20);
+    }
+    
 }
 
 - (IBAction)eyeClick:(UIButton *)sender {

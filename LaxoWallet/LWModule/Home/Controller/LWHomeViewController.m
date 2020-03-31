@@ -88,6 +88,11 @@
         [weakself.listView changeCurrentSelectData:selectIndex];
     };
     
+    [self.listHeadView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self.view);
+        make.height.equalTo(@196);
+    }];
+    
     self.listView = [[LWHomeListView alloc] initWithFrame:CGRectMake(0, 196, kScreenWidth, kScreenHeight - kTabBarHeight - 196) style:UITableViewStyleGrouped];
     [self.view addSubview:self.listView];
     

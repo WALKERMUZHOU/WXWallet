@@ -39,6 +39,8 @@
     self.switchCoverView.layer.borderWidth = 1;
     self.switchCoverView.layer.borderColor = lwColorNormal.CGColor;
     
+    [self.usdBtn setTitle:[LWCurrencyTool getCurrentCurrencyEnglishCode] forState:UIControlStateNormal];
+    
     self.amountDescribeLabel.text = [NSString stringWithFormat:@"Available %@ / Locked in Pending TX %@",[LWNumberTool formatSSSFloat:self.model.canuseBitCount],[LWNumberTool formatSSSFloat:self.model.loackBitCount]];
     self.amountTF.delegate = self;
     

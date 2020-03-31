@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -107,29 +108,22 @@
                                         <constraint firstAttribute="width" constant="24" id="ylR-qE-Biy"/>
                                     </constraints>
                                     <state key="normal" image="home_eye"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQa-wh-0fe">
-                                    <rect key="frame" x="0.0" y="0.0" width="111" height="21"/>
-                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="selected" image="home_eye_close"/>
                                     <connections>
-                                        <action selector="eyeClick:" destination="-1" eventType="touchUpInside" id="EM0-ZW-eY9"/>
+                                        <action selector="eyeClick:" destination="-1" eventType="touchUpInside" id="ikc-Rv-Iax"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstItem="sNB-6b-HkP" firstAttribute="top" secondItem="TDu-0g-fe8" secondAttribute="top" id="2wZ-xf-xng"/>
-                                <constraint firstAttribute="trailing" secondItem="PQa-wh-0fe" secondAttribute="trailing" id="6fA-xU-34f"/>
                                 <constraint firstItem="w4h-JB-G8Z" firstAttribute="top" secondItem="TDu-0g-fe8" secondAttribute="top" id="Adx-ie-yRK"/>
                                 <constraint firstAttribute="trailing" secondItem="w4h-JB-G8Z" secondAttribute="trailing" constant="20" symbolic="YES" id="DvC-Qa-Dh4"/>
-                                <constraint firstItem="PQa-wh-0fe" firstAttribute="leading" secondItem="TDu-0g-fe8" secondAttribute="leading" id="GCL-f0-WZo"/>
                                 <constraint firstItem="sNB-6b-HkP" firstAttribute="leading" secondItem="TDu-0g-fe8" secondAttribute="leading" constant="20" symbolic="YES" id="TG2-aD-eg2"/>
                                 <constraint firstItem="w4h-JB-G8Z" firstAttribute="leading" secondItem="sNB-6b-HkP" secondAttribute="trailing" constant="10" id="dsI-wF-lxC"/>
                                 <constraint firstAttribute="bottom" secondItem="w4h-JB-G8Z" secondAttribute="bottom" id="exx-pS-oN4"/>
                                 <constraint firstAttribute="bottom" secondItem="sNB-6b-HkP" secondAttribute="bottom" id="kc1-it-7On"/>
-                                <constraint firstItem="PQa-wh-0fe" firstAttribute="top" secondItem="TDu-0g-fe8" secondAttribute="top" id="pfp-yt-KJx"/>
                                 <constraint firstAttribute="height" constant="21" id="uPC-nW-rui"/>
-                                <constraint firstAttribute="bottom" secondItem="PQa-wh-0fe" secondAttribute="bottom" id="wj7-SQ-ncc"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEX-89-Hbm">
@@ -232,7 +226,8 @@
         </view>
     </objects>
     <resources>
-        <image name="home_eye" width="24" height="15"/>
+        <image name="home_eye" width="32" height="24"/>
+        <image name="home_eye_close" width="32" height="18.5"/>
         <image name="home_wallet_info" width="25" height="25"/>
         <image name="home_wallet_receive" width="11" height="15.5"/>
         <image name="home_wallet_send" width="11" height="15.5"/>

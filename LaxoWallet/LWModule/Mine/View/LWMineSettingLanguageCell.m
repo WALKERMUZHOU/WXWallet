@@ -16,23 +16,27 @@
 
 @implementation LWMineSettingLanguageCell
 
-- (void)setInfoDic:(NSDictionary *)infoDic{
-    _infoDic = infoDic;
-    self.titleDesLabel.text = [_infoDic objectForKey:@"title"];
-//    NSInteger type = [[_infoDic objectForKey:@"type"] integerValue];
-    
-}
-
-- (void)setIsCellSelect:(BOOL)isCellSelect{
-    _isCellSelect = isCellSelect;
-    if(_isCellSelect){
-        [self.titleDesLabel setTextColor:lwColorNormal];
+- (void)setModel:(LWCurrencyModel *)model{
+    _model = model;
+    self.titleDesLabel.text = _model.title;
+    if (_model.statue == 2) {
         self.rightImgV.hidden = NO;
     }else{
-        [self.titleDesLabel setTextColor:lwColorBlackLight];
         self.rightImgV.hidden = YES;
     }
 }
+
+
+//- (void)setIsCellSelect:(BOOL)isCellSelect{
+//    _isCellSelect = isCellSelect;
+//    if(_isCellSelect){
+//        [self.titleDesLabel setTextColor:lwColorNormal];
+//        self.rightImgV.hidden = NO;
+//    }else{
+//        [self.titleDesLabel setTextColor:lwColorBlackLight];
+//        self.rightImgV.hidden = YES;
+//    }
+//}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

@@ -19,8 +19,6 @@
 ///当前汇率改变
 #define kCuurentCurrencyChange_nsnotification  @"kCuurentCurrencyChange_nsnotification"
 
-
-
 #define kWebScoket_personalWalletData      @"kWebScoket_personalWalletData"
 #define kWebScoket_multipyWalletData       @"kWebScoket_multipyWalletData"
 
@@ -97,9 +95,12 @@
 #define kAppTouchIdStart_userdefault      @"kAppTouchIdStart_userdefault"
 ///当前币价格
 #define kAppTokenPrice_userdefault        @"kAppTokenPrice_userdefault"
+#define kAppCurrencyToUSD_userdefault        @"kAppCurrencyToUSD_userdefault"
+#define kAppCurrentCurrencyName_userdefault   @"kAppCurrentCurrencyName_userdefault"
+
+
 
 #define kAppCurrentLanguage_userdefault   @"kAppCurrentLanguage_userdefault"
-#define kAppCurrentCurrency_userdefault   @"kAppCurrentCurrency_userdefault"
 #define kAppCreateMulitpyAddress_userdefault   @"kAppCreateMulitpyAddress_userdefault"
 
 #define kPersonalWallet_userdefault        @"kPersonalWallet_userdefault"

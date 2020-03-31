@@ -25,11 +25,14 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    if( [LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY){
-        self.currencyLabel.text = @"CNY";
-    }else{
-        self.currencyLabel.text = @"USD";
-    }
+    self.currencyLabel.text = [LWPublicManager getCurrentCurrencyEnglishCode];
+
+    
+//    if( [LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY){
+//        self.currencyLabel.text = @"CNY";
+//    }else{
+//        self.currencyLabel.text = @"USD";
+//    }
     if( [LWPublicManager getCurrentLanguage] == LWCurrentLanguageChinese){
         self.languageLabel.text = @"简体中文";
     }else{

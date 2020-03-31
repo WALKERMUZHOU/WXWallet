@@ -15,9 +15,29 @@
         [SVProgressHUD dismiss];
         if ([[result objectForKey:@"success"] integerValue] == 1) {//success
             NSArray *dataArray = [result objectForKey:@"data"];
-            [[NSUserDefaults standardUserDefaults] setObject:dataArray forKey:kAppTokenPrice_userdefault];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            NSLog(@"kAppTokenPrice_userdefault");
+            
+            [LWCurrencyTool setAllToken:dataArray];
+            NSLog(@"kAppTokenPrice set success");
+            successBlock(result);
+        }else{
+            if (error) {
+                FailBlock(error);
+            }else{
+                FailBlock(result);
+            }
+        }
+    }];
+}
+
++ (void)getCurrentCurrencyWithUSDWithSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
+    [[LWNetWorkSessionManager shareInstance] getPath:Url_Home_tokenPrice_new parameters:@{} withBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        [SVProgressHUD dismiss];
+        if ([[result objectForKey:@"success"] integerValue] == 1) {//success
+            NSDictionary *dataDic = [result objectForKey:@"data"];
+            
+            [LWCurrencyTool setAllCurrency:dataDic];
+
+            NSLog(@"kAppallcurrency set success");
             successBlock(result);
         }else{
             if (error) {

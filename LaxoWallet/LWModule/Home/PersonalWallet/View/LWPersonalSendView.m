@@ -63,11 +63,13 @@
     self.bitCountLabel.text = [NSString stringWithFormat:@"%@ BSV",transModel.transAmount];
     self.noteLabel.text = transModel.note;
     [self.completeBtn setTitle:[NSString stringWithFormat:@"Send %@ BSV",transModel.transAmount] forState:UIControlStateNormal];
-    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
-        self.priceLabel.text = [NSString stringWithFormat:@"%.2f CNY",transModel.transAmount.floatValue*[[LWPublicManager getCurrentCurrencyPrice] floatValue]];
-    }else{
-        self.priceLabel.text = [NSString stringWithFormat:@"%.2f USD",transModel.transAmount.floatValue*[[LWPublicManager getCurrentCurrencyPrice] floatValue]];
-    }
+//    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
+//        self.priceLabel.text = [NSString stringWithFormat:@"%.2f CNY",transModel.transAmount.floatValue*[[LWPublicManager getCurrentCurrencyPrice] floatValue]];
+//    }else{
+//        self.priceLabel.text = [NSString stringWithFormat:@"%.2f USD",transModel.transAmount.floatValue*[[LWPublicManager getCurrentCurrencyPrice] floatValue]];
+//    }
+    self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:transModel.transAmount.floatValue];
+
     __weak typeof(self) weakself = self;
 
     if (model.type == 1) {
@@ -129,12 +131,14 @@
     self.bitCountLabel.text = [NSString stringWithFormat:@"%@ BSV",amount];
     self.noteLabel.text = note;
     [self.completeBtn setTitle:[NSString stringWithFormat:@"Send %@ BSV",amount] forState:UIControlStateNormal];
-    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
-        self.priceLabel.text = [NSString stringWithFormat:@"%.2f CNY",amount.floatValue*[[LWPublicManager getCurrentCurrencyPrice] floatValue]];
-    }else{
-        self.priceLabel.text = [NSString stringWithFormat:@"%.2f USD",amount.floatValue*[[LWPublicManager getCurrentCurrencyPrice] floatValue]];
+//    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
+//        self.priceLabel.text = [NSString stringWithFormat:@"%.2f CNY",amount.floatValue*[[LWPublicManager getCurrentCurrencyPrice] floatValue]];
+//    }else{
+//        self.priceLabel.text = [NSString stringWithFormat:@"%.2f USD",amount.floatValue*[[LWPublicManager getCurrentCurrencyPrice] floatValue]];
+//
+//    }
+    self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:amount.floatValue];
 
-    }
     __weak typeof(self) weakself = self;
 
     if (model.type == 1) {

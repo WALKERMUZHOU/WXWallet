@@ -23,12 +23,21 @@
 }
 
 + (LWCurrentCurrency)getCurrentCurrency{
-    NSString *currency = [[NSUserDefaults standardUserDefaults] objectForKey:kAppCurrentCurrency_userdefault];
+    NSString *currency = [[NSUserDefaults standardUserDefaults] objectForKey:kAppCurrentCurrencyName_userdefault];
     if (currency && [currency isEqualToString:@"cny"]) {
         return LWCurrentCurrencyCNY;
     }
     return LWCurrentCurrencyUSD;
 }
+
++ (NSString *)getCurrentCurrencyEnglishCode{
+    NSString *currency = [[NSUserDefaults standardUserDefaults] objectForKey:kAppCurrentCurrencyName_userdefault];
+    if (currency && currency.length>0) {
+        return currency;
+    }
+    return @"USD";
+}
+
 
 + (NSString *)getCurrentCurrencyPrice{
     return [LWPublicManager getCurrentPriceWithTokenType:TokenTypeBSV];
@@ -76,7 +85,12 @@
     }else{
         laguage = @"usd";
     }
-    [[NSUserDefaults standardUserDefaults] setObject:laguage forKey:kAppCurrentCurrency_userdefault];
+    [[NSUserDefaults standardUserDefaults] setObject:laguage forKey:kAppCurrentCurrencyName_userdefault];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (void)setCurrentCurrencyEnglishCode:(NSString *)currency{
+    [[NSUserDefaults standardUserDefaults] setObject:[currency uppercaseString] forKey:kAppCurrentCurrencyName_userdefault];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

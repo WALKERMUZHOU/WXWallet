@@ -143,6 +143,7 @@
         }
         
         self.priceLabel.text = [NSString stringWithFormat:@"%@%.2f",priceTypeStr,personalBitCount];
+        self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:bitCount/1e8];
     }
 }
 

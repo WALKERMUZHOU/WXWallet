@@ -8,25 +8,25 @@
 
 #import "LWMineCurrencyViewController.h"
 #import "LWMineSettingLanguageView.h"
-@interface LWMineCurrencyViewController ()
+#import "LWBaseTableView.h"
+#import "LWMineSettingLanguageCell.h"
+#import "LWCurrencyModel.h"
+#import "LWCurrencyListView.h"
 
+@interface LWMineCurrencyViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, strong) LWBaseTableView *tableView;
+@property (nonatomic, strong) NSMutableArray    *datasource;
 @end
 
 @implementation LWMineCurrencyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
-    if (self.MineVCType == 3){
-        LWMineSettingLanguageView *securtyView = [[LWMineSettingLanguageView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-        securtyView.viewType = 1;
-        [self.view addSubview:securtyView];
-    }else if (self.MineVCType == 4){
-        LWMineSettingLanguageView *securtyView = [[LWMineSettingLanguageView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-        securtyView.viewType = 2;
-        [self.view addSubview:securtyView];
-    }
+    LWCurrencyListView *listView = [[LWCurrencyListView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    [self.view addSubview:listView];
+    
 }
 
 /*

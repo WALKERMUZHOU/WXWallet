@@ -56,11 +56,13 @@
     }
     
     self.bitCountLabel.text = [LWNumberTool formatSSSFloat:self.contentModel.personalBitCount];
-    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
-        self.priceLabel.text = [NSString stringWithFormat:@"¥%.2f",self.contentModel.personalBitCurrency];
-    }else{
-        self.priceLabel.text = [NSString stringWithFormat:@"$%.2f",self.contentModel.personalBitCurrency];
-    }
+//    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
+//        self.priceLabel.text = [NSString stringWithFormat:@"¥%.2f",self.contentModel.personalBitCurrency];
+//    }else{
+//        self.priceLabel.text = [NSString stringWithFormat:@"$%.2f",self.contentModel.personalBitCurrency];
+//    }
+    self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:self.contentModel.personalBitCount];
+
     
 }
 - (IBAction)editClick:(UIButton *)sender {

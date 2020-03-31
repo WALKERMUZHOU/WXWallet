@@ -33,7 +33,7 @@
     
     self.timeLabel.text = [LWTimeTool EngLishMonthWithTimeStamp:self.model.createtime abbreviations:YES EnglishShortNameForDate:NO];
     
-    self.amountLabel.text = [NSString stringWithFormat:@" %@ BSV | %@",[LWNumberTool formatSSSFloat:self.model.personalBitCount],self.model.personalPrice];
+    self.amountLabel.text = [NSString stringWithFormat:@" %@ BSV | %@",[LWNumberTool formatSSSFloat:self.model.personalBitCount],[LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:self.model.personalBitCount]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(partiesNotification:) name:kWebScoket_messageParties object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(renameNotification:) name:kWebScoket_walletReName object:nil];
     [self queryParties];

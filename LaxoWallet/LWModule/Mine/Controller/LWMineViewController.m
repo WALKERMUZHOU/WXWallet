@@ -88,15 +88,17 @@
          NSString *tokenPrice = [LWPublicManager getCurrentCurrencyPrice];
          CGFloat personalBitCount = [NSDecimalNumber decimalNumberWithString:tokenPrice].floatValue * bitCount/1e8;
          
-         NSString *priceTypeStr = @"$";
-         if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
-             priceTypeStr = @"¥";
-         }else{
-             priceTypeStr = @"$";
-         }
+//         NSString *priceTypeStr = @"$";
+//         if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
+//             priceTypeStr = @"¥";
+//         }else{
+//             priceTypeStr = @"$";
+//         }
          
          self.bitCountLabel.text = [LWNumberTool formatSSSFloat:bitCount/1e8];
-         self.priceLabel.text = [NSString stringWithFormat:@"%@%.2f",priceTypeStr,personalBitCount];
+//         self.priceLabel.text = [NSString stringWithFormat:@"%@%.2f",priceTypeStr,personalBitCount];
+         self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:bitCount/1e8];
+
      }
 }
 

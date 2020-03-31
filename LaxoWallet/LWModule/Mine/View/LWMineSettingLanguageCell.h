@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LWCurrencyModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LWMineSettingLanguageCell : UITableViewCell
 
-@property (nonatomic, strong) NSDictionary *infoDic;
+//@property (nonatomic, strong) NSDictionary *infoDic;
+//
+//@property (nonatomic, assign) BOOL isCellSelect;
 
-@property (nonatomic, assign) BOOL isCellSelect;
+@property (nonatomic, strong) LWCurrencyModel *model;
 
 @end
 

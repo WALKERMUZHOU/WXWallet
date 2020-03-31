@@ -55,6 +55,8 @@
 #import "LWEmailTool.h"
 #import "LWAlertTool.h"
 
+#import "LWCurrencyTool.h"
+
 #import "SceneDelegate.h"
 #import "AppDelegate.h"
 

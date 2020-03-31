@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///根据当前bit数量 得到法币的值（带单位）
 + (NSString *)getCurrentSymbolCurrencyWithBitCount:(CGFloat)bitCount;
 
++ (NSString *)getCurrentSymbolCurrencyWithBCurrency:(CGFloat)currency;
+
+
 ///根据当前法币数量 得到当前bitshul
 + (NSString *)getBitCountWithCurrency:(CGFloat)currency;
 

@@ -89,6 +89,25 @@
     return [NSString stringWithFormat:@"%.2f%@",currentCurrency.floatValue,currentCurrencyType];
 }
 
++ (NSString *)getCurrentSymbolCurrencyWithBCurrency:(CGFloat)currency{
+    NSString *currentCurrencyType = [LWCurrencyTool getCurrentCurrencyEnglishCode];
+    
+    NSString *typeArrayPath = [[NSBundle mainBundle] pathForResource:@"currency" ofType:@"plist"];
+    NSArray *typeArray = [[NSArray array] initWithContentsOfFile:typeArrayPath];
+    
+    NSString *currentCurrency = [LWNumberTool formatSSSFloat:currency];
+    
+    for (NSInteger i = 0; i<typeArray.count; i++) {
+        NSDictionary *currencyDic = [typeArray objectAtIndex:i];
+        NSString *currencyCode = [currencyDic objectForKey:@"currencyCode"];
+        if ([currencyCode isEqualToString:currentCurrencyType]) {
+            NSString *symbolStr = [currencyDic objectForKey:@"currencytSymbol"];
+            return [NSString stringWithFormat:@"%@%.2f %@",symbolStr,currentCurrency.floatValue,currentCurrencyType];
+        }
+    }
+    return [NSString stringWithFormat:@"%.2f%@",currentCurrency.floatValue,currentCurrencyType];
+}
+
 + (NSString *)getBitCountWithCurrency:(CGFloat)currency{
     return [LWNumberTool formatSSSFloat:currency/[LWCurrencyTool getCurrentBitCurrency].floatValue];
 }

@@ -329,10 +329,10 @@
             filePath = "LaxoWallet/LWModule/Home/PersonalWallet/Controller/LWPersonalSendViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "-getMultipyChangeAddress:"
-            landmarkType = "7">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "LWPersonalSendViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -412,22 +412,6 @@
             startingLineNumber = "56"
             endingLineNumber = "56"
             landmarkName = "-loginRes:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9486B9FA-6ADA-4BB2-94AB-40C6DAB755F7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LaxoWallet/LWModule/Home/Transaction/LWTansactionTool.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
-            landmarkName = "-transStart"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

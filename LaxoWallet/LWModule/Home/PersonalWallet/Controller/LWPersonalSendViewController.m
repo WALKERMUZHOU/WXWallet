@@ -20,7 +20,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *amountTF;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UITextField *noteTF;
+@property (weak, nonatomic) IBOutlet UIView *switchCoverView;
+@property (weak, nonatomic) IBOutlet UIView *coverView;
+@property (weak, nonatomic) IBOutlet UIButton *bitcoinBtn;
+@property (weak, nonatomic) IBOutlet UIButton *usdBtn;
 
+///type = 1 输入的是bsv 2输入法币
+@property (nonatomic, assign) NSInteger amountType;
 @property (nonatomic, strong) NSString  *address;
 @property (nonatomic, assign) BOOL ispayMail;
 
@@ -30,15 +36,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.switchCoverView.layer.borderWidth = 1;
+    self.switchCoverView.layer.borderColor = lwColorNormal.CGColor;
+    
     self.amountDescribeLabel.text = [NSString stringWithFormat:@"Available %@ / Locked in Pending TX %@",[LWNumberTool formatSSSFloat:self.model.canuseBitCount],[LWNumberTool formatSSSFloat:self.model.loackBitCount]];
     self.amountTF.delegate = self;
     
-    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
-         self.amountLabel.text = [NSString stringWithFormat:@"¥ 0"];
-     }else{
-         self.amountLabel.text = [NSString stringWithFormat:@"$ 0"];
-     }
+    self.amountType = 1;
+    
+    self.amountLabel.text =[LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:0];
+    
+//    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
+//        self.amountLabel.text  = [NSString stringWithFormat:@"¥ 0"];
+//     }else{
+//         self.amountLabel.text = [NSString stringWithFormat:@"$ 0"];
+//     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress_change object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getMultipyChangeAddress:) name:kWebScoket_multipyAddress_change object:nil];
@@ -50,7 +62,13 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-    self.amountLabel.text = [LWPublicManager getCurrentCurrencyPriceWithAmount:textField.text.floatValue];
+//    self.amountLabel.text = [LWPublicManager getCurrentCurrencyPriceWithAmount:textField.text.floatValue];
+    
+    if (self.amountType == 1) {
+        self.amountLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:textField.text.floatValue];
+    }else{
+        self.amountLabel.text = [NSString stringWithFormat:@"%@ BSV",[LWCurrencyTool getBitCountWithCurrency:textField.text.floatValue]];
+    }
 }
 
 - (IBAction)completeClick:(UIButton *)sender {
@@ -64,7 +82,14 @@
         return;
     }
     
+    
+    
     NSInteger amountInteger = self.amountTF.text.floatValue * 1e8;
+    
+    if (self.amountType == 2) {
+        amountInteger = [LWCurrencyTool getBitCountWithCurrency:self.amountTF.text.floatValue].floatValue * 1e8;
+    }
+    
     if (amountInteger > self.model.canuseBitCountInterger) {
         [WMHUDUntil showMessageToWindow:@"amount need less than available"];
         return;
@@ -99,6 +124,46 @@
         self.addressTF.text = result.scanResult;
     }];
 }
+
+- (IBAction)bitcoinClick:(UIButton *)sender {
+    if (sender.isSelected) {
+          return;
+    }
+    CGFloat originX = 0;
+    if (sender.tag == 10000) {
+        self.bitcoinBtn.selected = YES;
+        self.usdBtn.selected = NO;
+        [self.bitcoinBtn.titleLabel setFont:kBoldFont(10)];
+        [self.usdBtn.titleLabel setFont:kFont(10)];
+        originX = 0;
+        self.amountType = 1;
+                
+        self.amountLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBCurrency:self.amountTF.text.floatValue];
+        self.amountTF.text = [LWCurrencyTool getBitCountWithCurrency:self.amountTF.text.floatValue];
+        
+        
+    }else{
+        self.bitcoinBtn.selected = NO;
+        self.usdBtn.selected = YES;
+        [self.usdBtn.titleLabel setFont:kBoldFont(10)];
+        [self.bitcoinBtn.titleLabel setFont:kFont(10)];
+        originX = 65;
+        self.amountType = 2;
+        
+        self.amountLabel.text = [NSString stringWithFormat:@"%@ BSV",self.amountTF.text];
+        self.amountTF.text = [LWCurrencyTool getCurrentCurrencyWithBitCount:self.amountTF.text.floatValue];
+    }
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.coverView.frame = CGRectMake(originX, 0, 75, 30);
+    }];
+    
+    
+    
+    
+}
+
+
 #pragma mark - personal change address
 
 - (void)queryPersonalChangeAddress{
@@ -123,6 +188,9 @@
             LWTransactionModel *model = [[LWTransactionModel alloc] init];
             model.address = self.address;
             model.transAmount = self.amountTF.text;
+            if (self.amountType == 2) {
+                model.transAmount = [LWCurrencyTool getBitCountWithCurrency:self.amountTF.text.floatValue];
+            }
             model.note = self.noteTF.text;
             model.changeAddress = addresssChange;
             if (self.ispayMail) {

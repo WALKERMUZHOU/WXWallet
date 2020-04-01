@@ -124,6 +124,8 @@ static LWMultipyTransactionTool *instance = nil;
     
     if (self.isAllTransaction) {
         self.transAmount = self.model.canuseBitCountInterger - fee_str.integerValue;
+        self.transModel.transAmount = [LWNumberTool formatSSSFloat:self.transAmount/1e8];
+        self.transModel.fee = self.fee;
     }
 }
 

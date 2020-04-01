@@ -272,6 +272,12 @@
         }else if ([firstObj isEqualToString:@"address"]){
             NSArray *dataArray = [responseArray objectAtIndex:1];
             [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipy_address_update object:dataArray];
+        }else if ([firstObj isEqualToString:@"tx_create"]){
+            [self requestMulipyWalletInfo];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_Multipy_refrshWalletDetail object:nil];
+        }else if ([firstObj isEqualToString:@"tx_sent"]){
+            [self requestMulipyWalletInfo];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_Multipy_refrshWalletDetail object:nil];
         }
             
     }

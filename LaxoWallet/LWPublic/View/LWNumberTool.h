@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)formatSSSFloat:(float)f;
 
++ (CGFloat)formatFloadString:(NSString *)fStr;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -51,7 +51,7 @@
             self.personalNameLabel.hidden = NO;
 //            self.typeLabel.text = [NSString stringWithFormat:@"%@",(long)_model.threshold,(long)_model.share];
             self.personalNameLabel.text = _model.name;
-            self.personalBitCountLabel.text = [NSString stringWithFormat:@"%@",@(_model.personalBitCount)];
+            self.personalBitCountLabel.text = [LWNumberTool formatSSSFloat:_model.personalBitCount];
 
             if(_model.status == 0){//状态0-创建中，1-已创建，2-已删除
                 self.bitCountLabel.hidden = YES;

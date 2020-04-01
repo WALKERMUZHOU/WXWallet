@@ -23,6 +23,9 @@
 @property (nonatomic, assign) char  *transId;
 @property (nonatomic, strong) NSArray *changeArray;
 
+@property (nonatomic, assign) BOOL  isAllTransaction;
+
+
 @end
 
 
@@ -51,16 +54,14 @@ static LWMultipyTransactionTool *instance = nil;
 - (void)startTransactionWithTranscationModek:(LWTransactionModel *)transModel andTotalModel:(LWHomeWalletModel *)model{
     self.model = model;
     self.transModel = transModel;
+    self.transAmount = [LWNumberTool formatFloadString:transModel.transAmount] * 1e8;
+    self.note = transModel.note;
+    self.transAddress = transModel.address;
     
     [self startTransactionWithAmount:transModel.transAmount.floatValue address:transModel.address note:transModel.note andTotalModel:model andChangeAddress:transModel.changeAddress];
 }
 
 - (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model andChangeAddress:(nonnull NSString *)changeAddress{
-        
-    self.model = model;
-    self.transAmount = amount * 1e8;
-    self.note = note;
-    self.transAddress = address;
     
     char *transId = create_transaction();
     NSArray *changeArray = [self manageChange:self.transAmount];
@@ -91,11 +92,12 @@ static LWMultipyTransactionTool *instance = nil;
         [WMHUDUntil showMessageToWindow:@"transaction fail"];
         return;
     }
-    
+    self.isAllTransaction = NO;
     char *fee = get_transaction_fee(transId);
     NSString *fee_str = [LWAddressTool charToString:fee];
     if (fee_str.integerValue < 0 || self.fee.integerValue + self.transAmount > self.model.canuseBitCountInterger) {
         destroy_transaction(transId);
+        self.isAllTransaction = YES;
         
         transId = create_transaction();
         
@@ -104,7 +106,7 @@ static LWMultipyTransactionTool *instance = nil;
             char *add_input = add_transaction_input(transId,[LWAddressTool stringToChar:utxo.txid], utxo.vout, address_to_script([LWAddressTool stringToChar:utxo.address]), utxo.value);
         }
         
-        char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:changeAddress]));
+        char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:address]));
         if (![[LWAddressTool charToString:add_transaction_change_char] isEqualToString:@"true"]) {
             [WMHUDUntil showMessageToWindow:@"transaction fail"];
             return;
@@ -120,6 +122,9 @@ static LWMultipyTransactionTool *instance = nil;
     self.transId = transId;
     self.changeArray = changeArray;
     
+    if (self.isAllTransaction) {
+        self.transAmount = self.model.canuseBitCountInterger - fee_str.integerValue;
+    }
 }
 
 - (void)transStart{

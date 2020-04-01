@@ -27,9 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andTransactionModel:(LWTransactionModel *)transModel andComplete:(void (^)(void))walletBlock;
 
 ///个人钱包发送弹窗
-+ (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note changeAddress:(NSString *)changeAddress andComplete:(void (^)(void))walletBlock;
+//+ (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note changeAddress:(NSString *)changeAddress andComplete:(void (^)(void))walletBlock;
 
-+ (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note changeAddress:(NSString *)changeAddress ispaymail:(BOOL)ispayMail andComplete:(void (^)(void))walletBlock;
+//+ (void)alertPersonalWalletViewSend:(LWHomeWalletModel *)params andAdress:(NSString *)address andAmount:(NSString *)amount andNote:(NSString *)note changeAddress:(NSString *)changeAddress ispaymail:(BOOL)ispayMail andComplete:(void (^)(void))walletBlock;
 
 + (void)alertSendAlertView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id complete))walletBlock;
 

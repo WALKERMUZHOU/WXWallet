@@ -394,6 +394,11 @@
         NSLog(@"pollbroadcatsId:%@,%@",notiArray[1],@(self.pollbroadcatsId));
 
         if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+            
+            id getTheKeyDataID = [notiDic objectForKey:@"data"];
+            if ([getTheKeyData isEqual:getTheKeyDataID]) {
+                return;
+            }
             getTheKeyData = [notiDic objectForKey:@"data"];
             dispatch_semaphore_signal(self->_semaphoreSignal);
             NSLog(@"signal");

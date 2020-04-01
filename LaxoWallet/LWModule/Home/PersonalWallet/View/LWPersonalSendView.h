@@ -20,7 +20,7 @@ typedef void(^PersonalSendBlock)(NSInteger statue);
 
 - (void)setWithLWTransactionModel:(LWTransactionModel *)transModel andModel:(LWHomeWalletModel *)model;
 
-- (void)setAddress:(NSString *)address andAmount:(NSString *)amount andMessage:(NSString *)note andModel:(LWHomeWalletModel *)model andChangeAddress:(NSString *)changeAddress;
+//- (void)setAddress:(NSString *)address andAmount:(NSString *)amount andMessage:(NSString *)note andModel:(LWHomeWalletModel *)model andChangeAddress:(NSString *)changeAddress;
 
 @property (nonatomic, assign) BOOL ispayMail;
 

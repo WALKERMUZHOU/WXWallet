@@ -34,4 +34,13 @@
     }
 }
 
++ (CGFloat)formatFloadString:(NSString *)fStr{
+    NSArray *array = [fStr componentsSeparatedByString:@"."];
+    if (array.count == 2) {
+        NSDecimalNumber *textNum = [NSDecimalNumber decimalNumberWithString:fStr];
+        return textNum.doubleValue;
+    }
+    return fStr.floatValue;
+}
+
 @end

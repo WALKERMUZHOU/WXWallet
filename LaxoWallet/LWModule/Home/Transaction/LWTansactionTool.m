@@ -22,6 +22,8 @@
 @property (nonatomic, assign) char  *transId;
 @property (nonatomic, strong) NSArray *changeArray;
 @property (nonatomic, strong) LWTransactionModel *transModel;
+
+@property (nonatomic, assign) BOOL isAllTransaction;
 @end
 
 @implementation LWTansactionTool
@@ -63,10 +65,10 @@ static LWTansactionTool *instance = nil;
 
 - (void)startTransactionWithTransactionModel:(LWTransactionModel *)transModel andTotalModel:(LWHomeWalletModel *)homeModel{
     self.transModel = transModel;
-//    self.model = homeModel;
-//    self.transAmount = transModel.transAmount * 1e8;
-//    self.note = transModel.note;
-//    self.transAddress = transModel.address;
+    self.model = homeModel;
+    self.transAmount = [LWNumberTool formatFloadString:transModel.transAmount] * 1e8;
+    self.note = transModel.note;
+    self.transAddress = transModel.address;
     
     [self startTransactionWithAmount:transModel.transAmount.floatValue address:transModel.address note:transModel.note andTotalModel:homeModel andChangeAddress:transModel.changeAddress];
     
@@ -78,10 +80,10 @@ static LWTansactionTool *instance = nil;
 //    self.transAmount = amount;
 //    self.transAddress = address;
     
-    self.model = model;
-    self.transAmount = amount * 1e8;
-    self.note = note;
-    self.transAddress = address;
+//    self.model = model;
+//    self.transAmount = amount * 1e8;
+//    self.note = note;
+//    self.transAddress = address;
     
 //    [self requestTransactionToServer:nil];
 //    return;
@@ -117,9 +119,11 @@ static LWTansactionTool *instance = nil;
     }
     char *fee = get_transaction_fee(transId);
     self.fee = [LWAddressTool charToString:fee];
+    self.isAllTransaction = NO;
     
     if (self.fee.integerValue + self.transAmount > self.model.canuseBitCountInterger) {
         destroy_transaction(transId);
+        self.isAllTransaction = YES;
         
         transId = create_transaction();
         
@@ -139,6 +143,12 @@ static LWTansactionTool *instance = nil;
     
     self.transId = transId;
     self.changeArray = changeArray;
+    
+    if (self.isAllTransaction) {
+        self.transAmount = self.model.canuseBitCountInterger - self.fee.integerValue;
+        self.transModel.transAmount = [LWNumberTool formatSSSFloat:self.transAmount/1e8];
+    }
+    self.transModel.fee = self.fee;
 }
 
 - (void)transStart{
@@ -174,7 +184,9 @@ static LWTansactionTool *instance = nil;
                     if (self.transactionBlock) {
                         self.transactionBlock(NO);
                     }
-                    [WMHUDUntil showMessageToWindow:@"sig error"];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [WMHUDUntil showMessageToWindow:@"sig error"];
+                    });
                     dispatch_semaphore_signal(semaphore);
                     return ;
                 }
@@ -264,7 +276,7 @@ static LWTansactionTool *instance = nil;
         NSLog(@"broadcastNotificationSuccess");
          [SVProgressHUD dismiss];
         if (self.transactionBlock) {
-            self.transactionBlock(YES);
+            self.transactionBlock(self.transModel);
         }
     }else{
         NSLog(@"%@",notiDic);

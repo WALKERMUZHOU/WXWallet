@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^TransactionBlock)(BOOL success);
+typedef void(^TransactionBlock)(id success);
 typedef void(^TransactionFeeBlock)(NSString *fee);
 
 @interface LWTansactionTool : NSObject

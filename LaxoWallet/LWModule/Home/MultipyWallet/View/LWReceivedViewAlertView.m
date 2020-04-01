@@ -41,7 +41,7 @@
             
     
     self.timeLabel.text = [LWTimeTool EngLishMonthWithTimeStamp:messageModel.createtime abbreviations:YES EnglishShortNameForDate:NO];
-    self.amountLabel.text = [NSString stringWithFormat:@"-%@", [LWNumberTool formatSSSFloat:messageModel.value/1e8]];
+    self.amountLabel.text = [NSString stringWithFormat:@"+%@", [LWNumberTool formatSSSFloat:messageModel.value/1e8]];
     
 //    LWutxoModel *model = messageModel.
     

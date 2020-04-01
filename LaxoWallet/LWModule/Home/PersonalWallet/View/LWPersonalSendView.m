@@ -63,11 +63,6 @@
     self.bitCountLabel.text = [NSString stringWithFormat:@"%@ BSV",transModel.transAmount];
     self.noteLabel.text = transModel.note;
     [self.completeBtn setTitle:[NSString stringWithFormat:@"Send %@ BSV",transModel.transAmount] forState:UIControlStateNormal];
-//    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
-//        self.priceLabel.text = [NSString stringWithFormat:@"%.2f CNY",transModel.transAmount.floatValue*[[LWPublicManager getCurrentCurrencyPrice] floatValue]];
-//    }else{
-//        self.priceLabel.text = [NSString stringWithFormat:@"%.2f USD",transModel.transAmount.floatValue*[[LWPublicManager getCurrentCurrencyPrice] floatValue]];
-//    }
     self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:transModel.transAmount.floatValue];
 
     __weak typeof(self) weakself = self;
@@ -78,13 +73,12 @@
             transModel.changeAddress = model.address;
         }
         [self.trans startTransactionWithTransactionModel:self.transModel andTotalModel:self.homeWalletModel];
-//            [self.trans startTransactionWithAmount:transModel.transAmount.floatValue address:transModel.address note:transModel.note andTotalModel:model andChangeAddress:transModel.changeAddress];
         self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",transModel.transAmount,[LWNumberTool formatSSSFloat: self.trans.fee.integerValue/1e8]];
         self.transModel.fee = [NSString stringWithFormat:@"%@",[LWNumberTool formatSSSFloat:self.trans.fee.integerValue/1e8]];
         
-        self.trans.transactionBlock = ^(BOOL success) {
-            if (success) {
-                
+        self.trans.transactionBlock = ^(id success) {
+            if ([success isKindOfClass:[LWTransactionModel class]]) {
+                LWTransactionModel *successModel = (LWTransactionModel *)success;
                 [weakself requestPersonalWalletInfo];
                 if (weakself.block) {
                     weakself.block(1);
@@ -93,7 +87,7 @@
                     return ;
                 }
                 LWPersonalpaySuccessViewController *successVC = [[LWPersonalpaySuccessViewController alloc] init];
-                [successVC setSuccessWithTransactionModel:weakself.transModel];
+                [successVC setSuccessWithTransactionModel:successModel];
 //                    [successVC setSuccessWithAmount:amount andaddress:address andnote:note andfee:[LWNumberTool formatSSSFloat:weakself.trans.fee.integerValue/1e8]];
                 [LogicHandle pushViewController:successVC];
             }else{
@@ -105,8 +99,6 @@
     }else{
             self.mutipyTrans = [[LWMultipyTransactionTool alloc] init];
             [self.mutipyTrans startTransactionWithTranscationModek:transModel andTotalModel:model];
-//            [self.mutipyTrans startTransactionWithAmount:amount.floatValue address:address note:note andTotalModel:model andChangeAddress:changeAddress];
-    //        self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",amount,@(self.mutipyTrans.fee.integerValue/1e8)];
             self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",transModel.transAmount,[LWNumberTool formatSSSFloat: self.mutipyTrans.fee.integerValue/1e8]];
             self.transModel.fee = [LWNumberTool formatSSSFloat: self.mutipyTrans.fee.integerValue/1e8];
             self.mutipyTrans.block = ^(NSDictionary * _Nonnull transInfo) {
@@ -117,7 +109,6 @@
                 LWPersonalpaySuccessViewController *successVC = [[LWPersonalpaySuccessViewController alloc] init];
                 successVC.viewType = 1;
                 [successVC setSuccessWithTransactionModel:weakself.transModel];
-//                [successVC setSuccessWithAmount:amount andaddress:address andnote:note andfee:[LWNumberTool formatSSSFloat:weakself.mutipyTrans.fee.integerValue/1e8]];
                 [LogicHandle pushViewController:successVC];
             };
         }
@@ -149,7 +140,7 @@
         [self.trans startTransactionWithAmount:amount.floatValue address:address note:note andTotalModel:model andChangeAddress:changeAddress];
         self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",amount,[LWNumberTool formatSSSFloat: self.trans.fee.integerValue/1e8]];
 
-        self.trans.transactionBlock = ^(BOOL success) {
+        self.trans.transactionBlock = ^(id success) {
             if (success) {
                 
                 [weakself requestPersonalWalletInfo];

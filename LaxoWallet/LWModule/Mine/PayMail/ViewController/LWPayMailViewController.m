@@ -225,10 +225,10 @@
     }];
     return;
     
-    [LWAlertTool alertPersonalWalletViewSend:self.firstWallet andAdress:@"1K6wGPRxpkV6UZTSbyH52Nxa2WMiqYhbiH" andAmount:[LWNumberTool formatSSSFloat:amount] andNote:@"pay for paymail" changeAddress:changeAddress ispaymail:YES andComplete:^{
-        
-        [self addpayMail];
-    }];
+//    [LWAlertTool alertPersonalWalletViewSend:self.firstWallet andAdress:@"1K6wGPRxpkV6UZTSbyH52Nxa2WMiqYhbiH" andAmount:[LWNumberTool formatSSSFloat:amount] andNote:@"pay for paymail" changeAddress:changeAddress ispaymail:YES andComplete:^{
+//        
+//        [self addpayMail];
+//    }];
 }
 
 - (void)addpayMail{

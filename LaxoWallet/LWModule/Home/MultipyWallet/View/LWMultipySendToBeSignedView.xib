@@ -334,6 +334,7 @@
             <connections>
                 <outlet property="addressLabel" destination="IWR-Eh-HWs" id="WMz-Hg-G8q"/>
                 <outlet property="amountDetailLabel" destination="RWy-cJ-iVg" id="l16-RM-rVl"/>
+                <outlet property="amountLabel" destination="CXK-cw-61X" id="ghW-Nt-NVD"/>
                 <outlet property="closeBtn" destination="Oy1-Rh-UoH" id="Sf1-A3-EK6"/>
                 <outlet property="createTimeLabel" destination="DAW-hM-in6" id="KAK-PZ-tnd"/>
                 <outlet property="noteLabel" destination="vDu-JU-KQx" id="dea-a1-YfW"/>

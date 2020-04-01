@@ -26,13 +26,13 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Is the camera allowed</string>
+	<string>When it comes to real person verification, we need camera permissions</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Is faceID allowed</string>
+	<string>We need the permission of face id to ensure that you are using the app</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Is it allowed to save pictures to your album</string>
+	<string>We need to save the qr code picture into the album，Is it allowed to save pictures to your album</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Is it allowed to open the album</string>
+	<string>We need to open your album and let you select pictures，Is it allowed to open the album</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -78,33 +78,34 @@
 }
 
 - (void)getCurrentUserSatue{
+    
+    
+    NSMutableArray  *uidArray = [NSMutableArray array];
+    
     for (NSInteger i = 0; i<self.dataSource.count; i++) {
         LWSignStatueModel *model = [self.dataSource objectAtIndex:i];
 //        if ([model.uid isEqualToString:[[LWUserManager shareInstance]getUserModel].uid]) {
 //            continue;
 //        }
-        NSDictionary *multipyparams = @{@"uid":model.uid};
-        NSString *idstring = [NSString stringWithFormat:@"20000%@",model.uid];
-        NSArray *requestmultipyWalletArray = @[@"req",idstring,WS_Home_UserIsOnLine,[multipyparams jsonStringEncoded]];
-        [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+        [uidArray addObj:model.uid];
     }
+    
+    NSDictionary *multipyparams = @{@"uid":[uidArray componentsJoinedByString:@","]};
+    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryUserIsOnLine),WS_Home_UserIsOnLine,[multipyparams jsonStringEncoded]];
+    [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+    
 }
 
 - (void)getUserSatue:(NSNotification *)notification{
     NSDictionary *resInfo = notification.object;
      if ([[resInfo objectForKey:@"success"] integerValue] == 1) {
          NSArray *statueArray = [resInfo objectForKey:@"data"];
-         NSInteger statue = [[statueArray objectAtIndex:0] integerValue];
-         NSString *uid =[NSString stringWithFormat:@"%@",[resInfo objectForKey:@"uid"]];
-         uid = [uid stringByReplacingCharactersInRange:NSMakeRange(0, 5) withString:@""];
+    
          for (NSInteger i = 0; i<self.dataSource.count; i++) {
              LWSignStatueModel *model = [self.dataSource objectAtIndex:i];
-             if ([uid isEqualToString:model.uid]) {
-                 model.isOnLine = statue;
-                [self.tableView reloadSection:i withRowAnimation:UITableViewRowAnimationFade];
-                 return;
-             }
+             model.isOnLine = [statueArray[i] integerValue];
          }
+         [self.tableView reloadData];
      }else{
          NSString *message = [resInfo objectForKey:@"message"];
          if (message && message.length>0) {

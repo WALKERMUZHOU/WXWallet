@@ -58,6 +58,24 @@
         }
         [self.tableView reloadData];
     }
+    
+    for (NSInteger i = 0; i<self.dataSource.count; i++) {
+        LWMessageModel *messageModel = [self.dataSource objectAtIndex:i];
+        if (messageModel.status == 1) {
+            NSArray *approveArray = [messageModel.user_status objectForKey:@"approve"];
+            if (approveArray && approveArray.count == self.homeWallteModel.threshold) {
+                [self broadCastNeedSign];
+                return;
+            }
+        }
+    }
+    
+}
+
+- (void)broadCastNeedSign{
+    NSDictionary *multipyparams = @{@"wid":@(self.walletId)};
+    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWallet_multipy_checkPendingTransaction),@"wallet.checkPendingTransaction",[multipyparams jsonStringEncoded]];
+    [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
 }
 
 #pragma mark - uitableviewDelegate

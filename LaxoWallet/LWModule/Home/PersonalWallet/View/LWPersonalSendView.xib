@@ -254,7 +254,7 @@
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="8"/>
+                            <integer key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
@@ -269,11 +269,21 @@
                         <constraint firstAttribute="width" constant="56" id="PBy-Su-mwA"/>
                     </constraints>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uya-KC-Vwc">
+                    <rect key="frame" x="0.0" y="553" width="414" height="20"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Nr4-sx-FOr"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="1v0-R7-znw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7Ic-tn-ZYv"/>
+                <constraint firstAttribute="trailing" secondItem="uya-KC-Vwc" secondAttribute="trailing" id="BeB-5r-mVg"/>
                 <constraint firstItem="Apw-X4-iVb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="CfV-z8-wbY"/>
+                <constraint firstItem="uya-KC-Vwc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="MgW-zc-Ux8"/>
+                <constraint firstAttribute="bottom" secondItem="uya-KC-Vwc" secondAttribute="bottom" id="Wqq-ei-r37"/>
                 <constraint firstItem="1v0-R7-znw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Yqw-6n-oWY"/>
                 <constraint firstAttribute="bottom" secondItem="Apw-X4-iVb" secondAttribute="bottom" id="jrO-9V-5p9"/>
                 <constraint firstItem="Apw-X4-iVb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jxF-gN-zzx"/>

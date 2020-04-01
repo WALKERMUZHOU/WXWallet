@@ -40,6 +40,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(partiesNotification:) name:kWebScoket_messageParties object:nil];
     [self queryParties];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_multipyAddress_change object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addressUpdate:) name:kWebScoket_multipy_address_update object:nil];
 
 
 }
@@ -153,7 +154,6 @@
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
         NSDictionary *dataDic = [notiDic objectForKey:@"data"];
         NSString *address = [dataDic ds_stringForKey:@"address"];
-        self.contentModel.address = address;
         
         if (!address || address.length == 0) {
             NSArray *userArray = [dataDic ds_arrayForKey:@"users"];
@@ -178,6 +178,7 @@
 
 
         }else{
+            self.contentModel.address = address;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppCreateMulitpyAddress_userdefault];
             [[NSUserDefaults standardUserDefaults] synchronize];
             [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
@@ -185,6 +186,21 @@
         }
     }
 }
+
+
+- (void)addressUpdate:(NSNotification *)notification{
+    NSArray *notiArray = notification.object;
+    NSInteger walletId = [notiArray.firstObject integerValue];
+    if (walletId == self.contentModel.walletId) {
+        NSString *address = [notiArray objectWithIndex:2];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppCreateMulitpyAddress_userdefault];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        self.contentModel.address = address;
+        [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
+        [self queryChangeAddress];
+    }
+}
+
 #pragma mark - get changeAddress
 
 - (void)queryChangeAddress{
@@ -223,7 +239,6 @@
 //        };
     }
 }
-
 
 #pragma mark - getpartiespate
 - (void)queryParties{

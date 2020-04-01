@@ -382,6 +382,7 @@
      if ([[FaceSDKManager sharedInstance] canWork]) {
          NSString* licensePath = [[NSBundle mainBundle] pathForResource:FACE_LICENSE_NAME ofType:FACE_LICENSE_SUFFIX];
          [[FaceSDKManager sharedInstance] setLicenseID:FACE_LICENSE_ID andLocalLicenceFile:licensePath];
+         
      }
      LivenessViewController* lvc = [[LivenessViewController alloc] init];
      LivingConfigModel* model = [LivingConfigModel sharedInstance];
@@ -397,7 +398,7 @@
                 [self.scrollView setContentOffset:CGPointMake(kScreenWidth *8, 0) animated:NO];
             }else{
                 [self.scrollView setContentOffset:CGPointMake(kScreenWidth *5, 0) animated:NO];
-              //  [self recoverWithICloud];
+                [self recoverWithICloud];
             }
         }else{
 //            [WMHUDUntil showMessageToWindow:@"face error"];

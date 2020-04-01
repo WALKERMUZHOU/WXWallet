@@ -79,8 +79,8 @@
         }
         [self.trans startTransactionWithTransactionModel:self.transModel andTotalModel:self.homeWalletModel];
 //            [self.trans startTransactionWithAmount:transModel.transAmount.floatValue address:transModel.address note:transModel.note andTotalModel:model andChangeAddress:transModel.changeAddress];
-    self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",transModel.transAmount,[LWNumberTool formatSSSFloat: self.trans.fee.integerValue/1e8]];
-    self.transModel.fee = [NSString stringWithFormat:@"%@",[LWNumberTool formatSSSFloat:self.trans.fee.integerValue/1e8]];
+        self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",transModel.transAmount,[LWNumberTool formatSSSFloat: self.trans.fee.integerValue/1e8]];
+        self.transModel.fee = [NSString stringWithFormat:@"%@",[LWNumberTool formatSSSFloat:self.trans.fee.integerValue/1e8]];
         
         self.trans.transactionBlock = ^(BOOL success) {
             if (success) {
@@ -102,7 +102,7 @@
                  }
             }
         };
-        }else{
+    }else{
             self.mutipyTrans = [[LWMultipyTransactionTool alloc] init];
             [self.mutipyTrans startTransactionWithTranscationModek:transModel andTotalModel:model];
 //            [self.mutipyTrans startTransactionWithAmount:amount.floatValue address:address note:note andTotalModel:model andChangeAddress:changeAddress];

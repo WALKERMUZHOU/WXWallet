@@ -59,8 +59,6 @@
     self.address = address;
     self.note = [NSString stringWithFormat:@"note: %@",note];
     self.fee = fee;
-    
-    
 }
 
 - (void)setSuccessWithTransactionModel:(LWTransactionModel *)transModel{

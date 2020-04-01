@@ -66,10 +66,14 @@
     if (self.hasFinished) {
         return;
     }
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
             __weak typeof(self) weakSelf = self;
             [[IDLFaceLivenessManager sharedInstance] livenessStratrgyWithImage:image previewRect:self.previewRect detectRect:self.detectRect completionHandler:^(NSDictionary *images, LivenessRemindCode remindCode) {
                 switch (remindCode) {
                     case LivenessRemindCodeOK: {
+                        NSLog(@"remindOK");
                         weakSelf.hasFinished = YES;
                         [self warningStatus:CommonStatus warning:@"Good"];
                         NSMutableArray *imageArray = [NSMutableArray array];
@@ -383,6 +387,8 @@
                         break;
                 }
             }];
+        });
+
 }
 
 - (void)verfiyImage:(NSString *)image{

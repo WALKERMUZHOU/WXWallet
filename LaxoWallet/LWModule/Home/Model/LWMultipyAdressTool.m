@@ -97,9 +97,13 @@
         NSArray *poll_data = [self poll_for_broadCast:1];
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
 
+        NSLog(@"poll_for_broadCast_1_success:%@",poll_data);
+        
         NSString *keyStr = [key objectForKey:@"id"];
         char *handleRound_1 = multi_key_handle_round([LWAddressTool stringToChar:keyStr], 1, [LWAddressTool objectToChar:poll_data]);
 
+        NSLog(@"handleRound_1_success:%s",handleRound_1);
+        
         NSDictionary *handelRount_1_dic = [LWAddressTool charToObject:handleRound_1];
         NSMutableDictionary *dd = [NSMutableDictionary dictionary];
         
@@ -121,21 +125,6 @@
            NSString *encrypt = [LWEncryptTool encrywithTheKey:handelRount_1_first message:handelRount_1_last andHex:1];
            [dd setObj:encrypt forKey:key_round1];
         }
-        
-//        for (NSString *key_round1 in handelRount_1_dic.allKeys) {
-//
-//            NSArray *handelRount_1_dic_value = [handelRount_1_dic objectForKey:key_round1];
-//
-//            NSString *handelRount_1_first = [handelRount_1_dic_value firstObject];
-//            NSString *handelRount_1_last = [handelRount_1_dic_value lastObject];
-//
-//            [handelRount_secret addObj:handelRount_1_first];
-//            [handelRount_key addObj:key_round1];
-//            [handelSecretDic setObject:handelRount_1_first forKey:key_round1];
-//
-//            NSString *encrypt = [LWEncryptTool encrywithTheKey:handelRount_1_first message:handelRount_1_last andHex:1];
-//            [dd setObj:encrypt forKey:key_round1];
-//        }
 
         self->_broadcastSignal = dispatch_semaphore_create(0);
         [self broadCast:2 data:dd];
@@ -145,6 +134,8 @@
         NSArray *poll_for_broadcasts_2 = [self poll_for_broadCast:2];
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
         
+        NSLog(@"poll_for_broadcasts_2_success:%@",poll_for_broadcasts_2);
+
         NSMutableArray *pollForBroadcasts_2_manage_array = [NSMutableArray array];
         
         for (NSInteger i = 0; i<poll_for_broadcasts_2.count; i++) {
@@ -157,29 +148,14 @@
             NSString *decrtptStr = [LWEncryptTool decryptwithTheKey:secretSSS message:needDecrtptStr andHex:1];
             [pollForBroadcasts_2_itemDic setObj:decrtptStr forKey:[NSString stringWithFormat:@"%ld",(long)self.party_index]];
             [pollForBroadcasts_2_manage_array addObj:pollForBroadcasts_2_itemDic];
-
-//            for (NSInteger j = 0; j<poll_for_broadcasts_2_dic.allKeys.count; j++) {
-//                NSString *key_t =[poll_for_broadcasts_2_dic.allKeys objectAtIndex:j];
-//
-//
-//
-//
-//                if (key_t.integerValue == self.party_index) {
-//
-//                    NSString *secretSSS = [handelSecretDic objectForKey:[NSString stringWithFormat:@"%@",[list objectAtIndex:i]]];
-//
-//                    NSString *needDecrtptStr = [poll_for_broadcasts_2_dic objectForKey:poll_for_broadcasts_2_dic.allKeys[j]];
-//                    NSString *decrtptStr = [LWEncryptTool decryptwithTheKey:secretSSS message:needDecrtptStr andHex:1];
-//                    [pollForBroadcasts_2_itemDic setObj:decrtptStr forKey:poll_for_broadcasts_2_dic.allKeys[j]];
-//                }
-//            }
-//            [pollForBroadcasts_2_manage_array addObj:pollForBroadcasts_2_itemDic];
         }
         
         NSLog(@"%@",pollForBroadcasts_2_manage_array);
         
         char *handeRound_2 = multi_key_handle_round([LWAddressTool stringToChar:keyStr], 2, [LWAddressTool objectToChar:pollForBroadcasts_2_manage_array]);
          
+        NSLog(@"handleRound_2_success:%s",handeRound_2);
+
         NSArray *handleRound_2_array = [LWAddressTool charToObject:handeRound_2];
         self.vss = handleRound_2_array.lastObject;
 
@@ -366,6 +342,10 @@
     NSDictionary *notiDic = notification.object;
     NSLog(@"getTheKeySuccess");
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+        id getTheKeyDataID = [notiDic objectForKey:@"data"];
+        if ([getTheKeyData isEqual:getTheKeyDataID]) {
+            return;
+        }
         getTheKeyData = [notiDic objectForKey:@"data"];
         dispatch_semaphore_signal(self->_semaphoreSignal);
         NSLog(@"signal");

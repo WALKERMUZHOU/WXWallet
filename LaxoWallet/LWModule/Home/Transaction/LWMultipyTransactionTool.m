@@ -79,7 +79,6 @@ static LWMultipyTransactionTool *instance = nil;
     char *add_change = add_transaction_change(transId,address_to_script([LWAddressTool stringToChar:changeAddress]));
     NSLog(@"add_transaction_change(%s , %s)",transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
     
-    
     char *add_output = add_transaction_output(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]), self.transAmount);
     NSLog(@"add_transaction_output(%s , %s , %ld )",transId,address_to_script([LWAddressTool stringToChar:self.transAddress]),(long)self.transAmount);
 
@@ -94,9 +93,8 @@ static LWMultipyTransactionTool *instance = nil;
     }
     
     char *fee = get_transaction_fee(transId);
-    self.fee = [LWAddressTool charToString:fee];
-    
-    if (self.fee.integerValue + self.transAmount > self.model.canuseBitCountInterger) {
+    NSString *fee_str = [LWAddressTool charToString:fee];
+    if (fee_str.integerValue < 0 || self.fee.integerValue + self.transAmount > self.model.canuseBitCountInterger) {
         destroy_transaction(transId);
         
         transId = create_transaction();
@@ -106,14 +104,15 @@ static LWMultipyTransactionTool *instance = nil;
             char *add_input = add_transaction_input(transId,[LWAddressTool stringToChar:utxo.txid], utxo.vout, address_to_script([LWAddressTool stringToChar:utxo.address]), utxo.value);
         }
         
-        char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]));
+        char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:changeAddress]));
         if (![[LWAddressTool charToString:add_transaction_change_char] isEqualToString:@"true"]) {
             [WMHUDUntil showMessageToWindow:@"transaction fail"];
             return;
         }
         char *feeTemp = get_transaction_fee(transId);
-        self.fee = [LWAddressTool charToString:feeTemp];
+        fee_str = [LWAddressTool charToString:feeTemp];
     }
+    self.fee = fee_str;
 
     char *get_sighash = get_transaction_sighash(transId);
     NSLog(@"get_transaction_sighash(%s)",get_sighash);

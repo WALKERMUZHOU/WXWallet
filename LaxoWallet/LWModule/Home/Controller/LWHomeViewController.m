@@ -267,20 +267,11 @@
             model.dk = [responseDic objectForKey:@"dk"];
             model.ek = [responseDic objectForKey:@"ek"];
             [[LWUserManager shareInstance] setUser:model];
-            /*
-             <__NSArrayM 0x280ee1680>(
-             OK,
-             {
-                 createtime = 1583400289000;
-                 dk = f44f519c890a1a8b4af5728a581801edcf51d2c30845b1ec42411055856b557647ed8bd2c9881e3f4be1890eb353e3a9f7633236f27ee714bcb13aad319821f8b836fff854a6c48047de3087758813a3475bcc0a96ffcefc6f601116ce3732701cc071361b81de5b996af6f2852a60e7ae090ef9a0a1d1bd0d2e768b9447755dd464fd93d1b9d48e37bf39cc193de81c8b63e66478e69ae63685545ff32e8a5d78fcfe3e7da256ba760837089e8371404b512572aa0e07dd64ebe3bbbd8e7f10bf0f7b69190fefd0d198a1da836e0cb4daf3a4ee4b82660dfe9362b7a206dbb25e09f2c42278bf3999fa8a971be7bde1ab6ff1d0fd35d9679852d8f8bd85579eb526fee4b0eaf585214e3fa3fc363c3c;
-                 ek = 2ce0dd420ca4a9ed5bf8248125f4822d79097cb3bcc80fe594ff11cd807abc5aea1ff8f0f1586de80e38643bb589aed03b183f5885ac17d5bfa4a85e9a9fc868176e2d9c3ed2710349ab306dc5c0d8af73fa050078a591452a7502bbf48260c1cd6880ba7ff7612739551214c71402fc8919bebb51a72a0a14ab4972d6528b19;
-                 email = "36153297@qq.com";
-                 id = 1005;
-                 secret = f864e63049b0ef789bdb200e15a146ae;
-                 status = 1;
-                 updatetime = 1583400289000;
-                 xpub = xpub661MyMwAqRbcH1BPTTo4CZFripMafep9fFDa15PoM7x5fmS39BZvmwmnSg6ioSQHTotmTybbwzuoifiqpmx4N2spqM1Tqq3Wgq3jmE5cUuP;
-             */
+        }else if([firstObj isEqualToString:@"multi_wallet_create"]){
+            [self requestMulipyWalletInfo];
+        }else if ([firstObj isEqualToString:@"address"]){
+            NSArray *dataArray = [responseArray objectAtIndex:1];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipy_address_update object:dataArray];
         }
             
     }

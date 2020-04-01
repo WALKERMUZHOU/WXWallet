@@ -63,6 +63,9 @@
 #define kWebScoket_multipy_rejectSign         @"kWebScoket_multipy_rejectSign"
 #define kWebScoket_multipy_cancelTrans        @"kWebScoket_multipy_cancelTrans"
 
+#define kWebScoket_multipy_address_update              @"kWebScoket_multipy_address_update"
+
+
 #define kWebScoket_walletReName               @"kWebScoket_walletReName"
 #define kWebScoket_CreatePersonalWallet       @"kWebScoket_CreatePersonalWallet"
 

@@ -359,15 +359,15 @@
 }
 
 - (void)captureError {
-    NSString *errorStr = @"出现未知错误，请检查相机设置";
+    NSString *errorStr = @"An unknown error has occurred. Please check the camera Settings";
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
-        errorStr = @"相机权限受限,请在设置中启用";
+        errorStr = @"Camera permissions are limited, please enable in Settings";
     }
     __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil message:errorStr preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* action = [UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction* action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             NSLog(@"知道啦");
         }];
         [alert addAction:action];

@@ -16,5 +16,22 @@
     return [emailTest evaluateWithObject:email];
 }
 
-
++ (NSArray *)isInputMutipyEmail:(NSString *)emailStr{
+    //1判断空格
+    emailStr = [emailStr stringByReplacingOccurrencesOfString:@" " withString:@","];
+    emailStr = [emailStr stringByReplacingOccurrencesOfString:@"\n" withString:@","];
+    NSArray *emailArray = [emailStr componentsSeparatedByString:@","];
+    
+    NSMutableArray *mutalEmailArray = [NSMutableArray array];
+    if (emailArray.count > 1) {
+        for (NSInteger i = 0; i<emailArray.count; i++) {
+            NSString *objecti = [emailArray objectAtIndex:i];
+            if (objecti && ![objecti isEqualToString:@""]) {
+                [mutalEmailArray addObj:objecti];
+            }
+        }
+    }
+    
+    return mutalEmailArray;
+}
 @end

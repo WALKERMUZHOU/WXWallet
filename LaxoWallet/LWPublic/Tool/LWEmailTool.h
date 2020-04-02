@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LWEmailTool : NSObject
 
 + (BOOL)isEmail:(NSString*)email;
-
++ (NSArray *)isInputMutipyEmail:(NSString *)emailStr;
 @end
 
 NS_ASSUME_NONNULL_END

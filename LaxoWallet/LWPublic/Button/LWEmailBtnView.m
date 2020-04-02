@@ -53,6 +53,11 @@
 - (void)setViewTitle:(NSString *)viewTitle{
     _viewTitle = viewTitle;
     self.titleLabel.text = _viewTitle;
+    if(![LWEmailTool isEmail:viewTitle]){
+        self.titleLabel.textColor = [UIColor redColor];
+    }else{
+        self.titleLabel.textColor = [UIColor blackColor];
+    }
 }
 
 - (void)backClick:(UIButton *)sender {

@@ -87,10 +87,13 @@
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView{
+
+    [self manageCurrentTextView:textView];
     if (self.emailArray.count == 0) {
         self.placeHolderView.hidden = NO;
+    }else{
+        self.placeHolderView.hidden = YES;
     }
-    [self manageCurrentTextView:textView];
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
@@ -122,7 +125,8 @@
         self.emailArray = [NSMutableArray array];
     }
     if (textView.text.length == 0) return ;
-    [self.emailArray addObject:textView.text];
+    NSArray *emailArray = [LWEmailTool isInputMutipyEmail:textView.text];
+    [self.emailArray addObjectsFromArray:emailArray];
     textView.text = @"";
     [self refrshCurrentButton];
 }

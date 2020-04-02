@@ -58,29 +58,36 @@
         [WMHUDUntil showMessageToWindow:@"please input account name"];
         return;
     }
-        if(self.signCountTF.text.length == 0){
-            [WMHUDUntil showMessageToWindow:@"please input sign count"];
-            return;
-        }
-        if (self.memberCountTF.text.length == 0) {
-            [WMHUDUntil showMessageToWindow:@"please input total members"];
-            return;
-        }
+    if(self.signCountTF.text.length == 0){
+        [WMHUDUntil showMessageToWindow:@"please input sign count"];
+        return;
+    }
+    if (self.memberCountTF.text.length == 0) {
+        [WMHUDUntil showMessageToWindow:@"please input total members"];
+        return;
+    }
 
-        if (self.emailArr.count == 0) {
-            [WMHUDUntil showMessageToWindow:@"please input email"];
+    if (self.emailArr.count == 0) {
+        [WMHUDUntil showMessageToWindow:@"please input email"];
+        return;
+    }
+    
+    for (NSInteger i = 0; i < self.emailArr.count; i++) {
+        if (![LWEmailTool isEmail:self.emailArr[i]]) {
+            [WMHUDUntil showMessageToWindow:[NSString stringWithFormat:@"invalid email:%@",self.emailArr[i]]];
             return;
         }
-        
-        if (self.signCountTF.text.integerValue > self.memberCountTF.text.integerValue) {
-            [WMHUDUntil showMessageToWindow:@"sign count need less than members count"];
-            return;
-        }
-        
-        if (self.emailArr.count != self.memberCountTF.text.integerValue-1) {
-            [WMHUDUntil showMessageToWindow:@"The number of mailboxes needs to be equal to the members count you filled in -1）"];
-            return;
-        }
+    }
+    
+    if (self.signCountTF.text.integerValue > self.memberCountTF.text.integerValue) {
+        [WMHUDUntil showMessageToWindow:@"sign count need less than members count"];
+        return;
+    }
+    
+    if (self.emailArr.count != self.memberCountTF.text.integerValue-1) {
+        [WMHUDUntil showMessageToWindow:@"The number of mailboxes needs to be equal to the members count you filled in -1）"];
+        return;
+    }
     [SVProgressHUD show];
     //    name    是    string    钱包名称
     //    token    是    string    币种

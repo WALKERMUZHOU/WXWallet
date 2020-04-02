@@ -122,9 +122,11 @@
 }
 
 + (NSString *)getPubkeyWithPriKey:(NSString *)prikey{
-    NSData *prvData = [NSData hexStringToData:prikey];
-    NSData *pubkey = [CBSecp256k1 generatePublicKeyWithPrivateKey:prvData compression:YES];
-    return [pubkey hexString];
+    char *pubkey = get_public_key([LWAddressTool stringToChar:prikey]);
+//    NSData *prvData = [NSData hexStringToData:prikey];
+//    NSData *publickey = [CBSecp256k1 generatePublicKeyWithPrivateKey:prvData compression:YES];
+//    NSLog(@"pubkey:%@\n publickey:%@",[LWAddressTool charToString:pubkey],[publickey hexString]);
+    return [LWAddressTool charToString:pubkey];
 }
 
 + (NSString *)getPKWithZhuJiCi{
@@ -155,9 +157,15 @@
     }
     char *pk = derive_key([LWAddressTool stringToChar:seed], [LWAddressTool stringToChar:@"m/0"]);
 
-    NSData *priData = [NSData hexStringToData:[NSString stringWithFormat:@"%s",pk]];
-    NSData *pubkey = [CBSecp256k1 generatePublicKeyWithPrivateKey:priData compression:YES];
-    return [pubkey hexString];
+//    NSData *priData = [NSData hexStringToData:[NSString stringWithFormat:@"%s",pk]];
+//    NSData *publicckey = [CBSecp256k1 generatePublicKeyWithPrivateKey:priData compression:YES];
+//
+    char *pubkey = get_public_key(pk);
+ 
+//    NSLog(@"pubkey:%@\n publickey:%@",[LWAddressTool charToString:pubkey],[publicckey hexString]);
+    
+    return [LWAddressTool charToString:pubkey];
+    
     
 }
 

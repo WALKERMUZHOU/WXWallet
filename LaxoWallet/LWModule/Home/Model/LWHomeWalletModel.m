@@ -20,6 +20,9 @@
         self.name = @"BSV";
     }
     
+    NSString *walletuid = [NSString stringWithFormat:@"%@",[dic objectForKey:@"uid"]];
+    self.uid = walletuid;
+    
     NSArray *utxoArray = [dic objectForKey:@"utxo"];
     self.utxo = [NSArray modelArrayWithClass:[LWutxoModel class] json:utxoArray];
     NSArray *partiesArray = [dic objectForKey:@"parties"];

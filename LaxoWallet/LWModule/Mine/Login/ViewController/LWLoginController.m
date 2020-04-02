@@ -344,7 +344,7 @@
 //        NSString *zhujici = [userDic objectForKey:@""];
         
         LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
-        model.uid = [data objectForKey:@"uid"];
+        model.uid = [NSString stringWithFormat:@"%@",[data objectForKey:@"uid"]];
         model.secret = [data objectForKey:@"secret"];
         model.login_token = [data objectForKey:@"login_token"];
 //        model.jiZhuCi = [loginParams objectForKey:@"seed"];

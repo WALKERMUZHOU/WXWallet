@@ -73,8 +73,8 @@
             filePath = "LaxoWallet/LWModule/Home/Controller/LWHomeViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
             landmarkName = "-manageData:"
             landmarkType = "7">
          </BreakpointContent>
@@ -153,8 +153,8 @@
             filePath = "LaxoWallet/LWModule/Home/Controller/LWHomeViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
             landmarkName = "-manageData:"
             landmarkType = "7">
          </BreakpointContent>
@@ -169,9 +169,9 @@
             filePath = "LaxoWallet/LWModule/Home/Controller/LWHomeViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "547"
-            endingLineNumber = "547"
-            landmarkName = "-manageWalletMessageList:"
+            startingLineNumber = "554"
+            endingLineNumber = "554"
+            landmarkName = "-manageMessageDetailInfo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -185,10 +185,10 @@
             filePath = "LaxoWallet/LWModule/Home/Controller/LWHomeViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "552"
-            endingLineNumber = "552"
-            landmarkName = "-manageJoinWalletInfo:"
-            landmarkType = "7">
+            startingLineNumber = "559"
+            endingLineNumber = "559"
+            landmarkName = "LWHomeViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -370,22 +370,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B7E14402-E06C-4844-8EEC-F784093028EB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LaxoWallet/LWPublic/Tool/LWScanTool.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "-manageScanReult:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "10FE7BA5-C119-4C4B-9F9F-D264460CBC3A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -428,6 +412,22 @@
             startingLineNumber = "24"
             endingLineNumber = "24"
             landmarkName = "-nextClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3BE87E7-4C8C-46F1-9A1B-6DEE8A76C18B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LaxoWallet/LWPublic/Logic/LWPublicManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "+getPubKeyWithZhuJiCi"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

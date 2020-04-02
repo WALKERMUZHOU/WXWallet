@@ -161,15 +161,4 @@ typedef void(^LWScanResultBlock)(LWScanModel *model);
         [LogicHandle pushViewController:scanReusltVC];
     }
 }
-
-- (void)manageLogin:(NSString *)loginId{
-    
-    loginId =  [LWPublicManager getPubkeyWithPriKey:[LWPublicManager getPKWithZhuJiCi]];
-    
-  
-    
-    
-    
-    
-}
 @end

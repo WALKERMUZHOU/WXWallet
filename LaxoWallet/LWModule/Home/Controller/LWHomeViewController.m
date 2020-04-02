@@ -52,7 +52,6 @@
 
     [self createUI];
     [self getprikey];
-
     
 //    NSDictionary *params = @{@"type":@1};
 //    NSArray *requestPersonalWalletArray = @[@"req",

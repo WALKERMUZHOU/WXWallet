@@ -298,7 +298,7 @@
     [LWLoginCoordinator registerUserWithParams:loginParams WithSuccessBlock:^(id  _Nonnull data) {
         [SVProgressHUD dismiss];
         LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
-        model.uid = [data objectForKey:@"uid"];
+        model.uid = [NSString stringWithFormat:@"%@",[data objectForKey:@"uid"]];
         model.secret = [data objectForKey:@"secret"];
         model.login_token = [data objectForKey:@"login_token"];
         [[LWUserManager shareInstance] setUser:model];

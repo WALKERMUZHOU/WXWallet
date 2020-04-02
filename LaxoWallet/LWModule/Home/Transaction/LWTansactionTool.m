@@ -208,6 +208,10 @@ static LWTansactionTool *instance = nil;
     NSData *trans_data = [transactionToJson mp_messagePack];
     NSString *trans_str = [trans_data dataToHexString];
     
+    if (!trans_str || trans_str.length == 0) {
+        trans_str = @"";
+    }
+    
     NSString *biz_data = self.transModel.address;
     if (self.transModel.payMail && self.transModel.payMail.length>0) {
         biz_data = [NSString stringWithFormat:@"%@(%@)",self.transModel.payMail,self.transModel.address];

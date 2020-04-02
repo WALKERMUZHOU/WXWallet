@@ -24,14 +24,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_enabled" translatesAutoresizingMaskIntoConstraints="NO" id="fDW-f2-4SR">
-                    <rect key="frame" x="109" y="100" width="196" height="196"/>
+                    <rect key="frame" x="109" y="100" width="196.00000000000006" height="196.00000000000006"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="196" id="aBf-jL-o6w"/>
                         <constraint firstAttribute="height" constant="196" id="krJ-yw-aX7"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYb-vz-WMU">
-                    <rect key="frame" x="60" y="346" width="294" height="50"/>
+                    <rect key="frame" x="20" y="346" width="374" height="50"/>
                     <color key="backgroundColor" red="0.12000831219999999" green="0.70127743480000004" blue="0.5751753449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="2BO-be-qET"/>
@@ -64,10 +64,10 @@
             <constraints>
                 <constraint firstItem="Glc-T2-TPj" firstAttribute="top" secondItem="RYb-vz-WMU" secondAttribute="bottom" constant="40" id="6GA-2u-BW2"/>
                 <constraint firstItem="RYb-vz-WMU" firstAttribute="top" secondItem="fDW-f2-4SR" secondAttribute="bottom" constant="50" id="GU5-mg-ihO"/>
-                <constraint firstAttribute="trailing" secondItem="RYb-vz-WMU" secondAttribute="trailing" constant="60" id="MiF-p1-hwG"/>
+                <constraint firstAttribute="trailing" secondItem="RYb-vz-WMU" secondAttribute="trailing" constant="20" id="MiF-p1-hwG"/>
                 <constraint firstItem="MXT-7H-c5n" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="Sl5-XL-CbT"/>
                 <constraint firstItem="fDW-f2-4SR" firstAttribute="top" secondItem="MXT-7H-c5n" secondAttribute="bottom" constant="40" id="biu-RO-pun"/>
-                <constraint firstItem="RYb-vz-WMU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="gaZ-kG-EEd"/>
+                <constraint firstItem="RYb-vz-WMU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="gaZ-kG-EEd"/>
                 <constraint firstItem="MXT-7H-c5n" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iqq-U1-lMr"/>
                 <constraint firstItem="Glc-T2-TPj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pjR-nb-0Fn"/>
                 <constraint firstItem="fDW-f2-4SR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="wVX-wY-6my"/>

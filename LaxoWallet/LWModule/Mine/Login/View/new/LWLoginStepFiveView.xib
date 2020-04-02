@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -11,27 +11,24 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LWLoginStepFiveView">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="577"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="620"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a facial recognition scan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDs-fz-Pju">
-                    <rect key="frame" x="45" y="30" width="324" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="1X6-Yl-jbh"/>
-                    </constraints>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a facial recognition scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDs-fz-Pju">
+                    <rect key="frame" x="20" y="30" width="335" height="26.333333333333329"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pad-uF-pMT">
-                    <rect key="frame" x="20" y="187.5" width="374" height="1"/>
+                    <rect key="frame" x="20" y="206" width="335" height="1"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="zQs-Ki-9vt"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fb-pv-eLd">
-                    <rect key="frame" x="20" y="90" width="374" height="67.5"/>
+                    <rect key="frame" x="20" y="86.333333333333314" width="335" height="89.666666666666686"/>
                     <attributedString key="attributedText">
                         <fragment>
                             <string key="content">To be the most secure wallet we link your assets and account to your 3D facial map data. 
@@ -87,7 +84,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFi-JS-fq1">
-                    <rect key="frame" x="20" y="90" width="374" height="67.5"/>
+                    <rect key="frame" x="20" y="86.333333333333314" width="335" height="89.666666666666686"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -97,7 +94,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tips for a good facial scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egp-aG-QMM">
-                    <rect key="frame" x="94.5" y="223.5" width="225" height="20"/>
+                    <rect key="frame" x="75" y="242" width="225" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="ZAG-2F-ZIS"/>
                     </constraints>
@@ -106,21 +103,21 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_cover-face" translatesAutoresizingMaskIntoConstraints="NO" id="cLc-IY-RTA">
-                    <rect key="frame" x="84.5" y="278.5" width="80" height="80"/>
+                    <rect key="frame" x="65" y="297" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="6A2-5Q-ag7"/>
                         <constraint firstAttribute="width" constant="80" id="GWK-ai-pfp"/>
                     </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_glass-no-reflect" translatesAutoresizingMaskIntoConstraints="NO" id="6aP-jd-oah">
-                    <rect key="frame" x="249.5" y="278.5" width="80" height="80"/>
+                    <rect key="frame" x="230" y="297" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="s0a-a8-DUQ"/>
                         <constraint firstAttribute="height" constant="80" id="u1n-9j-pEH"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KE5-sI-lbc">
-                    <rect key="frame" x="206.5" y="278.5" width="1" height="80"/>
+                    <rect key="frame" x="187" y="297" width="1" height="80"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="ODd-ok-d6a"/>
@@ -128,7 +125,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqB-nO-kCv">
-                    <rect key="frame" x="59.5" y="378.5" width="130" height="33.5"/>
+                    <rect key="frame" x="40" y="397" width="130" height="33.666666666666686"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="130" id="p9C-FV-QcR"/>
                     </constraints>
@@ -139,7 +136,7 @@ not covered </string>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ensure your glasses do not reflect " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMG-Aw-CEu">
-                    <rect key="frame" x="224.5" y="378.5" width="130" height="33.5"/>
+                    <rect key="frame" x="205" y="397" width="130" height="33.666666666666686"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="130" id="Ctk-mE-WGp"/>
                     </constraints>
@@ -148,7 +145,7 @@ not covered </string>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hZ-Hr-sCJ">
-                    <rect key="frame" x="20" y="456" width="374" height="50"/>
+                    <rect key="frame" x="20" y="474.66666666666669" width="335" height="50.000000000000057"/>
                     <color key="backgroundColor" red="0.12000831219999999" green="0.70127743480000004" blue="0.5751753449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="T5A-6U-S2a"/>
@@ -168,7 +165,7 @@ not covered </string>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 4 of 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqI-hk-UgX">
-                    <rect key="frame" x="175.5" y="546" width="63" height="20"/>
+                    <rect key="frame" x="156" y="564.66666666666663" width="63" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="lOk-CK-U46"/>
                     </constraints>
@@ -195,7 +192,6 @@ not covered </string>
                 <constraint firstItem="KE5-sI-lbc" firstAttribute="top" secondItem="egp-aG-QMM" secondAttribute="bottom" constant="35" id="Wnd-iI-PsB"/>
                 <constraint firstItem="iFi-JS-fq1" firstAttribute="trailing" secondItem="3fb-pv-eLd" secondAttribute="trailing" id="YHV-ch-ZX9"/>
                 <constraint firstItem="eqB-nO-kCv" firstAttribute="centerX" secondItem="cLc-IY-RTA" secondAttribute="centerX" id="YI6-nt-t6H"/>
-                <constraint firstItem="cDs-fz-Pju" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="azN-4M-Nji"/>
                 <constraint firstItem="cLc-IY-RTA" firstAttribute="top" secondItem="egp-aG-QMM" secondAttribute="bottom" constant="35" id="byN-1v-RsY"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3fb-pv-eLd" secondAttribute="trailing" constant="20" id="el5-Er-U76"/>
                 <constraint firstItem="6aP-jd-oah" firstAttribute="leading" secondItem="KE5-sI-lbc" secondAttribute="trailing" constant="42" id="gCj-ua-JKP"/>
@@ -203,6 +199,8 @@ not covered </string>
                 <constraint firstItem="CMG-Aw-CEu" firstAttribute="top" secondItem="6aP-jd-oah" secondAttribute="bottom" constant="20" id="k5F-dS-amw"/>
                 <constraint firstAttribute="trailing" secondItem="Pad-uF-pMT" secondAttribute="trailing" constant="20" id="m44-0m-KZn"/>
                 <constraint firstItem="3fb-pv-eLd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="oHA-d3-hPs"/>
+                <constraint firstItem="cDs-fz-Pju" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="qbP-wf-cCC"/>
+                <constraint firstAttribute="trailing" secondItem="cDs-fz-Pju" secondAttribute="trailing" constant="20" id="srM-Gl-cUU"/>
                 <constraint firstItem="CMG-Aw-CEu" firstAttribute="centerX" secondItem="6aP-jd-oah" secondAttribute="centerX" id="uCR-AA-12E"/>
                 <constraint firstItem="uqI-hk-UgX" firstAttribute="top" secondItem="0hZ-Hr-sCJ" secondAttribute="bottom" constant="40" id="xO3-qG-vO8"/>
                 <constraint firstItem="Pad-uF-pMT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="xmf-kn-OOK"/>
@@ -211,7 +209,7 @@ not covered </string>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="131.8840579710145" y="-19.084821428571427"/>
+            <point key="canvasLocation" x="129.71014492753625" y="-4.6875"/>
         </view>
     </objects>
     <resources>

@@ -17,8 +17,10 @@
 @property (weak, nonatomic) IBOutlet UIView *inputEmailView;
 @property (nonatomic, strong) LWInputTextView   *emailTV;
 
-@property (weak, nonatomic) IBOutlet UILabel *memberCountLabel;
 @property (nonatomic, strong) NSArray   *emailArr;
+@property (weak, nonatomic) IBOutlet UIView *nameBackView;
+@property (weak, nonatomic) IBOutlet UIView *totalBackView;
+@property (weak, nonatomic) IBOutlet UIView *membersBackView;
 
 @end
 
@@ -39,7 +41,14 @@
     };
     [self.inputEmailView addSubview:self.emailTV];
     _memberCountTF.delegate = self;
-    
+    [self initLayer];
+}
+
+- (void)initLayer{
+    self.nameBackView.layer.borderColor = lwColorGrayD8.CGColor;
+    self.totalBackView.layer.borderColor = lwColorGrayD8.CGColor;
+    self.membersBackView.layer.borderColor = lwColorGrayD8.CGColor;
+
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
@@ -116,7 +125,7 @@
     NSInteger emailCount = self.emailArr.count;
     
     NSString *string = [NSString stringWithFormat:@"%ld of %ld members added. Please add %ld more members",(long)(emailCount + 1),(long)maxmembers,(long)(maxmembers - 1 - emailCount)];
-    self.memberCountLabel.text = string;
+//    self.memberCountLabel.text = string;
 }
 
 - (void)multipyWalletCreate:(NSNotification *)notification{

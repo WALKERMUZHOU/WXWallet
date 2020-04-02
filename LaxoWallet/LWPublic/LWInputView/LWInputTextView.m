@@ -116,8 +116,9 @@
 
 #pragma mark - method
 - (void)manageCurrentTextView:(UITextView *)textView{
-    if (self.emailArray.count  == self.maxEmailCount - 1) {
+    if (self.emailArray.count  >= self.maxEmailCount - 1) {
         self.textView.text = @"";
+        [WMHUDUntil showMessageToWindow:@"Exceeding the maximum email quantity"];
         return;
     }
     
@@ -162,13 +163,13 @@
     }
     
     self.scrollView.frame = CGRectMake(10, 0, self.frame.size.width - 10*2, y + btnHeight + gapY);
-    if (self.scrollView.frame.size.height > (210-25)) {
-        self.scrollView.kheight = 185;
+    if (self.scrollView.frame.size.height > (210-35)) {
+        self.scrollView.kheight = 175;
         self.scrollView.contentSize = CGSizeMake(self.frame.size.width - 10*2, y + btnHeight + gapY);
         self.scrollView.alwaysBounceVertical = YES;
         self.scrollView.scrollEnabled = YES;
     }
-    self.textView.frame = CGRectMake(10, self.scrollView.kheight, self.frame.size.width - 10*2, 165-self.scrollView.kheight);
+    self.textView.frame = CGRectMake(10, self.scrollView.kheight, self.frame.size.width - 10*2, 210-self.scrollView.kheight);
     self.placeHolderView.frame = CGRectMake(10, self.scrollView.kheight, self.frame.size.width - 10*2, 165-self.scrollView.kheight);
     
     if (self.emailBlock) {
@@ -181,7 +182,8 @@
     if(pasteBoard.string && pasteBoard.string.length>0){
         NSString *textViewText = self.textView.text;
         self.textView.text = [textViewText stringByAppendingString:pasteBoard.string];
-        [self.textView resignFirstResponder];
+        [self.textView becomeFirstResponder];
+//        [self textViewDidEndEditing:self.textView];;
     }
 }
 

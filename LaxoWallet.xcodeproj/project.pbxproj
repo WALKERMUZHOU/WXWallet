@@ -229,6 +229,9 @@
 		5E7BACDA242DE76500901EA5 /* LWLoginFaceLearnMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7BACD9242DE76500901EA5 /* LWLoginFaceLearnMoreView.xib */; };
 		5E7C3BD02432E8C70086D1EB /* currency.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E7C3BCF2432E8C60086D1EB /* currency.plist */; };
 		5E7C3BD32432EA330086D1EB /* LWCurrencyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C3BD22432EA330086D1EB /* LWCurrencyTool.m */; };
+		5E7C3BDD2435C70D0086D1EB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E7C3BDA2435C70C0086D1EB /* Roboto-Medium.ttf */; };
+		5E7C3BDE2435C70D0086D1EB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E7C3BDB2435C70C0086D1EB /* Roboto-Regular.ttf */; };
+		5E7C3BDF2435C70D0086D1EB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E7C3BDC2435C70C0086D1EB /* Roboto-Bold.ttf */; };
 		5E7E09132428ABE700C75C0F /* LWCreatePersonalWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09112428ABE700C75C0F /* LWCreatePersonalWalletViewController.m */; };
 		5E7E09142428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E09122428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib */; };
 		5E7E09172428B5D100C75C0F /* LWEmailTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09162428B5D100C75C0F /* LWEmailTool.m */; };
@@ -786,6 +789,9 @@
 		5E7C3BCF2432E8C60086D1EB /* currency.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = currency.plist; sourceTree = "<group>"; };
 		5E7C3BD12432EA330086D1EB /* LWCurrencyTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWCurrencyTool.h; sourceTree = "<group>"; };
 		5E7C3BD22432EA330086D1EB /* LWCurrencyTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCurrencyTool.m; sourceTree = "<group>"; };
+		5E7C3BDA2435C70C0086D1EB /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		5E7C3BDB2435C70C0086D1EB /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		5E7C3BDC2435C70C0086D1EB /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		5E7E09102428ABE700C75C0F /* LWCreatePersonalWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWCreatePersonalWalletViewController.h; sourceTree = "<group>"; };
 		5E7E09112428ABE700C75C0F /* LWCreatePersonalWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCreatePersonalWalletViewController.m; sourceTree = "<group>"; };
 		5E7E09122428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWCreatePersonalWalletViewController.xib; sourceTree = "<group>"; };
@@ -2194,6 +2200,16 @@
 			path = CloudHandle;
 			sourceTree = "<group>";
 		};
+		5E7C3BD92435C70C0086D1EB /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				5E7C3BDA2435C70C0086D1EB /* Roboto-Medium.ttf */,
+				5E7C3BDB2435C70C0086D1EB /* Roboto-Regular.ttf */,
+				5E7C3BDC2435C70C0086D1EB /* Roboto-Bold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		5E7E09232428D01C00C75C0F /* Asset Inheritance */ = {
 			isa = PBXGroup;
 			children = (
@@ -2503,6 +2519,7 @@
 		5EA807D523E94EFD00012837 /* LWSupportFile */ = {
 			isa = PBXGroup;
 			children = (
+				5E7C3BD92435C70C0086D1EB /* Font */,
 				5E7C3BCF2432E8C60086D1EB /* currency.plist */,
 				5E23584323FBE09C00A7D774 /* mobile */,
 				5E66A31823EAB3B2004097CB /* ColorDefine.h */,
@@ -2897,6 +2914,7 @@
 				5E317A7E241E55F700C951B2 /* LWLoginController.xib in Resources */,
 				5E3160A92423BEA3005CA564 /* LWMultipyWalletDetailViewController.xib in Resources */,
 				5E7E09142428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib in Resources */,
+				5E7C3BDF2435C70D0086D1EB /* Roboto-Bold.ttf in Resources */,
 				5E3161202427A1CF005CA564 /* LWMultipyEditViewController.xib in Resources */,
 				5E9172CA2416284B00D47A9F /* LWHomeListHeaderView.xib in Resources */,
 				5E23584823FBE09D00A7D774 /* index.html in Resources */,
@@ -2909,6 +2927,7 @@
 				5E9918A7241E6074005D6A38 /* LWLoginStepTwoView.xib in Resources */,
 				5EB31EC1240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib in Resources */,
 				5E755A9224230D6F00398413 /* LWPersonalSendViewController.xib in Resources */,
+				5E7C3BDE2435C70D0086D1EB /* Roboto-Regular.ttf in Resources */,
 				5E3160CF2424A00A005CA564 /* LWScanResultViewController.xib in Resources */,
 				5E3161102427893A005CA564 /* LWSignSatueTableViewCell.xib in Resources */,
 				5E3160FC24273A70005CA564 /* LWMultipySendOutgoingView.xib in Resources */,
@@ -2959,6 +2978,7 @@
 				5E755A8F24230D6F00398413 /* LWPersonalWalletDetailViewController.xib in Resources */,
 				5EA807A523E94E2400012837 /* Assets.xcassets in Resources */,
 				5E755A9424230D6F00398413 /* LWPersonalWalletEditViewController.xib in Resources */,
+				5E7C3BDD2435C70D0086D1EB /* Roboto-Medium.ttf in Resources */,
 				5E7E091F2428C77B00C75C0F /* LWPaymailTableViewCell.xib in Resources */,
 				5E5F12CA23ED874B002F0711 /* LWLoginSecondStepView.xib in Resources */,
 				5EA807A323E94E2100012837 /* Main.storyboard in Resources */,

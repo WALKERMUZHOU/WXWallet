@@ -31,6 +31,9 @@
             }
         }
     }
+    if (mutalEmailArray.count == 0) {
+        return emailArray;
+    }
     
     return mutalEmailArray;
 }

@@ -33,6 +33,12 @@
 	<string>We need to save the qr code picture into the album，Is it allowed to save pictures to your album</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need to open your album and let you select pictures，Is it allowed to open the album</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Roboto-Regular.ttf</string>
+		<string>Roboto-Medium.ttf</string>
+		<string>Roboto-Bold.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

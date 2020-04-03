@@ -15,6 +15,14 @@
 #import "LWTransactionModel.h"
 
 @interface LWPersonalSendViewController ()<UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UILabel *sendtoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *amountFromLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addamessageLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *equivalentLabel;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *addressTF;
 @property (weak, nonatomic) IBOutlet UILabel *amountDescribeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *amountTF;
@@ -61,6 +69,28 @@
     if (self.sendAddress) {
         self.addressTF.text = self.sendAddress;
     }
+    
+    if (kScreenWidth == 320) {
+        self.sendtoLabel.font = kBoldFont(16);
+        self.amountFromLabel.font = kBoldFont(16);
+        self.addamessageLabel.font = kBoldFont(16);
+        
+        [self.sendtoLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view.mas_top).offset(20);
+
+        }];
+        
+        [self.amountFromLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+           make.top.equalTo(self.addressTF.mas_bottom).offset(20);
+        }];
+        
+        [self.addamessageLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.equivalentLabel.mas_bottom).offset(20);
+
+        }];
+    }
+    
+    
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{

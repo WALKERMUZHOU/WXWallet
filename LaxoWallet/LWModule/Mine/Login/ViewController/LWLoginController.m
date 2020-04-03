@@ -35,12 +35,14 @@
 
 @interface LWLoginController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *scrollBackView;
-@property (strong, nonatomic) UIScrollView *scrollView;
+
 @property (nonatomic, strong) NSString *emailStr;
 @property (nonatomic, strong) NSString *recoverProcess;
 
 @property (nonatomic, assign) BOOL isRegister;
 @property (nonatomic, assign) BOOL canRecoverFromICloud;
+
+@property (nonatomic, assign) NSInteger currentIndex;
 
 @end
 
@@ -56,69 +58,70 @@
 
 - (void)createUI{
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    _scrollView = [[UIScrollView alloc]initWithFrame:self.scrollBackView.bounds];
-    _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.scrollsToTop = NO;
-    _scrollView.backgroundColor = [UIColor whiteColor];
-    _scrollView.scrollEnabled = NO;
-    _scrollView.contentSize= CGSizeMake(kScreenWidth * 8, self.scrollBackView.kheight);
-    [self.scrollBackView addSubview:_scrollView];
+    self.currentIndex = 1;
+    CGFloat topHeight = kStatusBarHeight + 140;
+    CGFloat viewHeight = kScreenHeight - (kStatusBarHeight + 140);
 
-    LWLoginStepOneView *viewOne = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepOneView class]) owner:nil options:nil].lastObject;
-    viewOne.frame = CGRectMake(0, 0, kScreenWidth,self.scrollBackView.kheight);
-    viewOne.block = ^{
-        [self.scrollView setContentOffset:CGPointMake(kScreenWidth, 0) animated:YES];
-    };
-    
-    UIScrollView *scrollView1 = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, self.scrollBackView.kheight)];
+    UIScrollView *scrollView1 = [[UIScrollView alloc]initWithFrame:CGRectMake(0, topHeight, kScreenWidth, viewHeight)];
     scrollView1.showsVerticalScrollIndicator = NO;
     scrollView1.showsHorizontalScrollIndicator = NO;
     scrollView1.scrollsToTop = NO;
+    scrollView1.tag = 1;
     scrollView1.backgroundColor = [UIColor whiteColor];
-    scrollView1.contentSize= CGSizeMake(kScreenWidth, self.scrollBackView.kheight);
-    [_scrollView addSubview:scrollView1];
-    [scrollView1 addSubview:viewOne];
-
-    if (kScreenWidth == 320) {
-        scrollView1.contentSize= CGSizeMake(kScreenWidth, 530);
-    }
+    scrollView1.contentSize= CGSizeMake(kScreenWidth, viewHeight);
+    [self.view addSubview:scrollView1];
     
-    LWLoginStepTwoView *view2 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepTwoView class]) owner:nil options:nil].lastObject;
-    view2.frame = CGRectMake(0, 0, kScreenWidth,self.scrollBackView.kheight);
-    view2.block = ^(NSString * _Nonnull email) {
-        [self verifyEmail:email];
+    LWLoginStepOneView *viewOne = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepOneView class]) owner:nil options:nil].lastObject;
+    viewOne.frame = CGRectMake(0, 0, kScreenWidth,viewHeight);
+    viewOne.block = ^{
+        [self scrollWithIndex:2];
     };
-
-    UIScrollView *scrollView2 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, self.scrollBackView.kheight)];
+    [scrollView1 addSubview:viewOne];
+    
+    UIScrollView *scrollView2 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth, topHeight, kScreenWidth, viewHeight)];
     scrollView2.showsVerticalScrollIndicator = NO;
     scrollView2.showsHorizontalScrollIndicator = NO;
     scrollView2.scrollsToTop = NO;
     scrollView2.backgroundColor = [UIColor whiteColor];
-    scrollView2.contentSize= CGSizeMake(kScreenWidth, self.scrollBackView.kheight);
-    [_scrollView addSubview:scrollView2];
+    scrollView2.contentSize= CGSizeMake(kScreenWidth, viewHeight);
+    scrollView2.tag = 2;
+    [self.view addSubview:scrollView2];
+    
+    LWLoginStepTwoView *view2 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepTwoView class]) owner:nil options:nil].lastObject;
+    view2.frame = CGRectMake(0, 0, kScreenWidth,viewHeight);
+    view2.block = ^(NSString * _Nonnull email) {
+        [self verifyEmail:email];
+    };
     [scrollView2 addSubview:view2];
+
+    UIScrollView *scrollView3 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth, topHeight, kScreenWidth, viewHeight)];
+    scrollView3.showsVerticalScrollIndicator = NO;
+    scrollView3.showsHorizontalScrollIndicator = NO;
+    scrollView3.scrollsToTop = NO;
+    scrollView3.backgroundColor = [UIColor whiteColor];
+    scrollView3.contentSize= CGSizeMake(kScreenWidth, viewHeight);
+    scrollView3.tag = 3;
+    [self.view addSubview:scrollView3];
     
     LWLoginStepThreeView *view3 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepThreeView class]) owner:nil options:nil].lastObject;
-    view3.frame = CGRectMake(0 * 2, 0, kScreenWidth,self.scrollBackView.kheight);
-    [self.scrollView addSubview:view3];
+    view3.frame = CGRectMake(0 * 2, 0, kScreenWidth,viewHeight);
+    [scrollView3 addSubview:view3];
     view3.block = ^(NSString * _Nonnull code) {
         [self verifyCode:code];
     };
-//
-    UIScrollView *scrollView3 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth *2, 0, kScreenWidth, self.scrollBackView.kheight)];
-     scrollView3.showsVerticalScrollIndicator = NO;
-     scrollView3.showsHorizontalScrollIndicator = NO;
-     scrollView3.scrollsToTop = NO;
-     scrollView3.backgroundColor = [UIColor whiteColor];
-     scrollView3.contentSize= CGSizeMake(kScreenWidth, self.scrollBackView.kheight);
-     [_scrollView addSubview:scrollView3];
-     [scrollView3 addSubview:view3];
+    [scrollView3 addSubview:view3];
     
-    
+    UIScrollView *scrollView4 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth, topHeight, kScreenWidth, viewHeight)];
+    scrollView4.showsVerticalScrollIndicator = NO;
+    scrollView4.showsHorizontalScrollIndicator = NO;
+    scrollView4.scrollsToTop = NO;
+    scrollView4.backgroundColor = [UIColor whiteColor];
+    scrollView4.contentSize= CGSizeMake(kScreenWidth, viewHeight);
+    [self.view addSubview:scrollView4];
+    scrollView4.tag = 4;
+
     LWLoginStepFourView *view4 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepFourView class]) owner:nil options:nil].lastObject;
-    view4.frame = CGRectMake(0 * 3, 0, kScreenWidth,self.scrollBackView.kheight);
+    view4.frame = CGRectMake(0 * 3, 0, kScreenWidth,viewHeight);
     view4.block = ^(NSInteger type) {
         NSArray *array = @[@(1),@(type)];
         LWUserModel *user = [[LWUserManager shareInstance] getUserModel];
@@ -126,20 +129,19 @@
         [[LWUserManager shareInstance] setUser:user];
         [self registerMethod];
     };
+    [scrollView4 addSubview:view4];
     
-    UIScrollView *scrollView4 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth *3, 0, kScreenWidth, self.scrollBackView.kheight)];
-     scrollView4.showsVerticalScrollIndicator = NO;
-     scrollView4.showsHorizontalScrollIndicator = NO;
-     scrollView4.scrollsToTop = NO;
-     scrollView4.backgroundColor = [UIColor whiteColor];
-     scrollView4.contentSize= CGSizeMake(kScreenWidth, self.scrollBackView.kheight);
-     [_scrollView addSubview:scrollView4];
-     [scrollView4 addSubview:view4];
-    
-    
-    
+    UIScrollView *scrollView5 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth, topHeight, kScreenWidth, viewHeight)];
+    scrollView5.showsVerticalScrollIndicator = NO;
+    scrollView5.showsHorizontalScrollIndicator = NO;
+    scrollView5.scrollsToTop = NO;
+    scrollView5.backgroundColor = [UIColor whiteColor];
+    scrollView5.contentSize= CGSizeMake(kScreenWidth, viewHeight);
+    [self.view addSubview:scrollView5];
+    scrollView5.tag = 5;
+
     LWLoginStepFiveView *view5 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepFiveView class]) owner:nil options:nil].lastObject;
-    view5.frame = CGRectMake(0 * 4, 0, kScreenWidth,self.scrollBackView.kheight);
+    view5.frame = CGRectMake(0 * 4, 0, kScreenWidth,viewHeight);
     view5.block = ^{
         LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
         if (!userModel.face_enable || userModel.face_enable == 0) {
@@ -150,54 +152,56 @@
              //恢复页面
          }
     };
-    
-    UIScrollView *scrollView5 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth *4, 0, kScreenWidth, self.scrollBackView.kheight)];
-     scrollView5.showsVerticalScrollIndicator = NO;
-     scrollView5.showsHorizontalScrollIndicator = NO;
-     scrollView5.scrollsToTop = NO;
-     scrollView5.backgroundColor = [UIColor whiteColor];
-     scrollView5.contentSize= CGSizeMake(kScreenWidth, self.scrollBackView.kheight);
-     [_scrollView addSubview:scrollView5];
-     [scrollView5 addSubview:view5];
-    
+    [scrollView5 addSubview:view5];
+
+    UIScrollView *scrollView6 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth,topHeight, kScreenWidth, viewHeight)];
+    scrollView6.showsVerticalScrollIndicator = NO;
+    scrollView6.showsHorizontalScrollIndicator = NO;
+    scrollView6.scrollsToTop = NO;
+    scrollView6.backgroundColor = [UIColor whiteColor];
+    scrollView6.contentSize= CGSizeMake(kScreenWidth, viewHeight);
+    [self.view addSubview:scrollView6];
+    scrollView6.tag = 6;
+
     LWLoginStepSixView *view6 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepSixView class]) owner:nil options:nil].lastObject;
-    view6.frame = CGRectMake(0 * 5, 0, kScreenWidth,self.scrollBackView.kheight);
+    view6.frame = CGRectMake(0 * 5, 0, kScreenWidth,viewHeight);
     view6.sixBlock = ^(NSInteger index) {
         if (index == 1) {//二维码恢复
-            [self.scrollView setContentOffset:CGPointMake(kScreenWidth *7, 0) animated:YES];
+            [self scrollWithIndex:8];
+//            [self.scrollView setContentOffset:CGPointMake(kScreenWidth *7, 0) animated:YES];
         }else if(index == 2){//短信验证码恢复
             [self getRecoverEmailCodeClick:[[LWUserManager shareInstance]getUserModel].email ];
         }
     };
+    [scrollView6 addSubview:view6];
     
-    UIScrollView *scrollView6 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth *5, 0, kScreenWidth, self.scrollBackView.kheight)];
-     scrollView6.showsVerticalScrollIndicator = NO;
-     scrollView6.showsHorizontalScrollIndicator = NO;
-     scrollView6.scrollsToTop = NO;
-     scrollView6.backgroundColor = [UIColor whiteColor];
-     scrollView6.contentSize= CGSizeMake(kScreenWidth, self.scrollBackView.kheight);
-     [_scrollView addSubview:scrollView6];
-     [scrollView6 addSubview:view6];
-    
-    
-    
+    UIScrollView *scrollView7 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth, topHeight, kScreenWidth, viewHeight)];
+    scrollView7.showsVerticalScrollIndicator = NO;
+    scrollView7.showsHorizontalScrollIndicator = NO;
+    scrollView7.scrollsToTop = NO;
+    scrollView7.backgroundColor = [UIColor whiteColor];
+    scrollView7.contentSize= CGSizeMake(kScreenWidth, viewHeight);
+    [self.view addSubview:scrollView7];
+    scrollView7.tag = 7;
+
     LWLoginStepSevenView *view7 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepSevenView class]) owner:nil options:nil].lastObject;
-    view7.frame = CGRectMake(0 * 6, 0, kScreenWidth,self.scrollBackView.kheight);
+    view7.frame = CGRectMake(0 * 6, 0, kScreenWidth,viewHeight);
     view7.sevenBlock = ^(NSString * _Nonnull msgCode) {
         [self thrustholdsrecover:msgCode];
     };
+    [scrollView7 addSubview:view7];
     
-    UIScrollView *scrollView7 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth *6, 0, kScreenWidth, self.scrollBackView.kheight)];
-     scrollView7.showsVerticalScrollIndicator = NO;
-     scrollView7.showsHorizontalScrollIndicator = NO;
-     scrollView7.scrollsToTop = NO;
-     scrollView7.backgroundColor = [UIColor whiteColor];
-     scrollView7.contentSize= CGSizeMake(kScreenWidth, self.scrollBackView.kheight);
-     [_scrollView addSubview:scrollView7];
-     [scrollView7 addSubview:view7];
-    
+    UIScrollView *scrollView8 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth, topHeight, kScreenWidth, viewHeight)];
+    scrollView8.showsVerticalScrollIndicator = NO;
+    scrollView8.showsHorizontalScrollIndicator = NO;
+    scrollView8.scrollsToTop = NO;
+    scrollView8.backgroundColor = [UIColor whiteColor];
+    scrollView8.contentSize= CGSizeMake(kScreenWidth, viewHeight);
+    [self.view addSubview:scrollView8];
+    scrollView8.tag = 8;
+
     LWLoginStepEightView *view8 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepEightView class]) owner:nil options:nil].lastObject;
-     view8.frame = CGRectMake(0 * 7, 0, kScreenWidth,self.scrollBackView.kheight);
+    view8.frame = CGRectMake(0 * 7, 0, kScreenWidth,viewHeight);
     view8.block = ^(NSInteger index) {
         if (index == 1) {
             [self jumpToScanPermission];
@@ -207,28 +211,35 @@
             [self getRecoverEmailCodeClick:[[LWUserManager shareInstance] getUserModel].email];
         }
     };
+    [scrollView8 addSubview:view8];
     
-    UIScrollView *scrollView8 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth *7, 0, kScreenWidth, self.scrollBackView.kheight)];
-     scrollView8.showsVerticalScrollIndicator = NO;
-     scrollView8.showsHorizontalScrollIndicator = NO;
-     scrollView8.scrollsToTop = NO;
-     scrollView8.backgroundColor = [UIColor whiteColor];
-     scrollView8.contentSize= CGSizeMake(kScreenWidth, self.scrollBackView.kheight);
-     [_scrollView addSubview:scrollView8];
-     [scrollView8 addSubview:view8];
-    
+    UIScrollView *scrollView9 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth,topHeight, kScreenWidth, viewHeight)];
+    scrollView9.showsVerticalScrollIndicator = NO;
+    scrollView9.showsHorizontalScrollIndicator = NO;
+    scrollView9.scrollsToTop = NO;
+    scrollView9.backgroundColor = [UIColor whiteColor];
+    scrollView9.contentSize= CGSizeMake(kScreenWidth, viewHeight);
+    [self.view addSubview:scrollView9];
+    scrollView9.tag = 9;
+
     LWLoginStepSuccessView *view9 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepSuccessView class]) owner:nil options:nil].lastObject;
-     view9.frame = CGRectMake(0 * 8, 0, kScreenWidth,self.scrollBackView.kheight);
+    view9.frame = CGRectMake(0 * 8, 0, kScreenWidth,viewHeight);
+    [scrollView9 addSubview:view9];
+
     
-    UIScrollView *scrollView9 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth *8, 0, kScreenWidth, self.scrollBackView.kheight)];
-     scrollView9.showsVerticalScrollIndicator = NO;
-     scrollView9.showsHorizontalScrollIndicator = NO;
-     scrollView9.scrollsToTop = NO;
-     scrollView9.backgroundColor = [UIColor whiteColor];
-     scrollView9.contentSize= CGSizeMake(kScreenWidth, self.scrollBackView.kheight);
-     [_scrollView addSubview:scrollView9];
-     [scrollView9 addSubview:view9];
+    
+    
+    
     if (kScreenWidth == 375) {
+        scrollView1.contentSize= CGSizeMake(kScreenWidth, 620);
+        scrollView2.contentSize= CGSizeMake(kScreenWidth, 620);
+        scrollView3.contentSize= CGSizeMake(kScreenWidth, 620);
+        scrollView4.contentSize= CGSizeMake(kScreenWidth, 620);
+        scrollView5.contentSize= CGSizeMake(kScreenWidth, 620);
+        scrollView6.contentSize= CGSizeMake(kScreenWidth, 620);
+        scrollView7.contentSize= CGSizeMake(kScreenWidth, 620);
+        scrollView8.contentSize= CGSizeMake(kScreenWidth, 620);
+        scrollView9.contentSize= CGSizeMake(kScreenWidth, 620);
         scrollView9.contentSize= CGSizeMake(kScreenWidth, 620);
         scrollView4.contentSize= CGSizeMake(kScreenWidth, 620);
         scrollView5.contentSize= CGSizeMake(kScreenWidth, 620);
@@ -243,12 +254,18 @@
         scrollView8.contentSize= CGSizeMake(kScreenWidth, 530);
         scrollView9.contentSize= CGSizeMake(kScreenWidth, 580);
     }
-    
-    
-    
-    
-    
 //    [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 7, 0)];
+}
+
+- (void)scrollWithIndex:(NSInteger)selectIndex{
+    
+    UIView *view1 = [self.view viewWithTag:self.currentIndex];
+    UIView *view2 = [self.view viewWithTag:selectIndex];
+    [UIView animateWithDuration:0.3 animations:^{
+        view1.kleft = - kScreenWidth;
+        view2.kleft = 0;
+    }];
+    self.currentIndex = selectIndex;
 }
 
 #pragma mark - requetmethod
@@ -258,7 +275,7 @@
      NSString *emailStr = email;
      [LWLoginCoordinator getSMSCodeWithEmail:emailStr WithSuccessBlock:^(id  _Nonnull data) {
          [SVProgressHUD dismiss];
-         [self.scrollView setContentOffset:CGPointMake(kScreenWidth *2, 0) animated:YES];
+         [self scrollWithIndex:1];
          self.emailStr = email;
      } WithFailBlock:^(id  _Nonnull data) {
          [SVProgressHUD dismiss];
@@ -286,11 +303,13 @@
                NSString *uid = [dataDic ds_stringForKey:@"uid"];
                
                if(uid && uid.length>0){//老用户
-                   [self.scrollView setContentOffset:CGPointMake(kScreenWidth *4, 0) animated:NO];
+                   [self scrollWithIndex:5];
+//                   [self.scrollView setContentOffset:CGPointMake(kScreenWidth *4, 0) animated:NO];
                }else{//新用户
                    //选择thrustholds
                    self.isRegister = YES;
-                   [self.scrollView setContentOffset:CGPointMake(kScreenWidth *3, 0) animated:YES];
+                   [self scrollWithIndex:4];
+//                   [self.scrollView setContentOffset:CGPointMake(kScreenWidth *3, 0) animated:YES];
                }
            }else{
                [WMHUDUntil showMessageToWindow:@"验证失败"];
@@ -313,7 +332,9 @@
             LWTrusteeModel *model = [array objectAtIndex:i];
             [LWLoginCoordinator getRecoverySMSCodeWithModel:model SuccessBlock:^(id  _Nonnull data) {
                 if (i == array.count - 1) {
-                       [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 6, 0)];
+                    [self scrollWithIndex:7];
+
+//                       [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 6, 0)];
 //                       [WMHUDUntil showMessageToWindow:@"验证码发送成功"];
                    }
                   dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
@@ -446,7 +467,9 @@
         model.login_token = [data objectForKey:@"login_token"];
 //        model.jiZhuCi = [loginParams objectForKey:@"seed"];
         [[LWUserManager shareInstance] setUser:model];
-        [self.scrollView setContentOffset:CGPointMake(kScreenWidth *4, 0) animated:NO];
+        [self scrollWithIndex:5];
+
+//        [self.scrollView setContentOffset:CGPointMake(kScreenWidth *4, 0) animated:NO];
 //        LWFaceBindViewController *lwfaceVC = [[LWFaceBindViewController alloc]init];
 //        [self.navigationController pushViewController:lwfaceVC animated:YES];
         
@@ -492,9 +515,12 @@
         [[LWUserManager shareInstance] setUser:userModel];
         if (face_token && face_token.length > 0) {
             if (self.isRegister) {
-                [self.scrollView setContentOffset:CGPointMake(kScreenWidth *8, 0) animated:NO];
+                [self scrollWithIndex:9];
+
+//                [self.scrollView setContentOffset:CGPointMake(kScreenWidth *8, 0) animated:NO];
             }else{
-                [self.scrollView setContentOffset:CGPointMake(kScreenWidth *5, 0) animated:NO];
+                [self scrollWithIndex:6];
+//                [self.scrollView setContentOffset:CGPointMake(kScreenWidth *5, 0) animated:NO];
                 [self recoverWithICloud];
             }
         }else{
@@ -582,7 +608,8 @@
     LWUserModel *model = [[LWUserManager shareInstance] getUserModel];
     model.jiZhuCi = [LWPublicManager getRecoverJizhuciWithShares:array];
     [[LWUserManager shareInstance] setUser:model];
-    [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 8, 0) animated:NO];
+    [self scrollWithIndex:9];
+//    [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 8, 0) animated:NO];
 
 }
 
@@ -641,7 +668,8 @@
         [WMHUDUntil showMessageToWindow:@"QRCode Error"];
     }else{
         [[LWUserManager shareInstance] setJiZhuCi:jizhuci];
-        [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 8, 0) animated:NO];
+        [self scrollWithIndex:9];
+//        [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 8, 0) animated:NO];
     }
 }
 
@@ -663,7 +691,7 @@
         }
         else if(!firstTime)
         {
-            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"没有相机权限，是否前往设置" cancel:@"取消" setting:@"设置" ];
+            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"Notice" msg:@"No camera permissions, whether to go to Settings" cancel:@"Cancel" setting:@"Setting" ];
         }
     }];
     

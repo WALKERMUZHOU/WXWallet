@@ -137,9 +137,9 @@
             filePath = "LaxoWallet/LWModule/Mine/Login/ViewController/LWLoginController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
-            landmarkName = "-verifyRecoverEmailClick:"
+            startingLineNumber = "434"
+            endingLineNumber = "434"
+            landmarkName = "-registerMethod"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -217,42 +217,10 @@
             filePath = "LaxoWallet/LWModule/Mine/Login/ViewController/LWLoginController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
+            startingLineNumber = "422"
+            endingLineNumber = "422"
             landmarkName = "-verifyRecoverEmailClick:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5AAC509B-9CEE-45B0-8181-ED34EB82A977 - 948e154dcdb917a1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LWLoginController verifyRecoverEmailClick:]"
-                  moduleName = "Volt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuchenglong/WXWallet/LaxoWallet/LWModule/Mine/Login/ViewController/LWLoginController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "360"
-                  endingLineNumber = "360"
-                  offsetFromSymbolStart = "96">
-               </Location>
-               <Location
-                  uuid = "5AAC509B-9CEE-45B0-8181-ED34EB82A977 - 26f86bf31c87a136"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__45-[LWLoginController verifyRecoverEmailClick:]_block_invoke"
-                  moduleName = "Volt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuchenglong/WXWallet/LaxoWallet/LWModule/Mine/Login/ViewController/LWLoginController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "361"
-                  endingLineNumber = "361"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -265,42 +233,10 @@
             filePath = "LaxoWallet/LWModule/Mine/Login/ViewController/LWLoginController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "383"
-            endingLineNumber = "383"
-            landmarkName = "-verifyRecoverEmailClick:"
+            startingLineNumber = "445"
+            endingLineNumber = "445"
+            landmarkName = "-registerMethod"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AE84A866-DF11-40E9-9F34-CBA93C9EDFEE - 26f86bf31c87a136"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__45-[LWLoginController verifyRecoverEmailClick:]_block_invoke"
-                  moduleName = "Volt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuchenglong/WXWallet/LaxoWallet/LWModule/Mine/Login/ViewController/LWLoginController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "383"
-                  endingLineNumber = "383"
-                  offsetFromSymbolStart = "984">
-               </Location>
-               <Location
-                  uuid = "AE84A866-DF11-40E9-9F34-CBA93C9EDFEE - af91c3f6e7ad99ce"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__45-[LWLoginController verifyRecoverEmailClick:]_block_invoke_2"
-                  moduleName = "Volt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuchenglong/WXWallet/LaxoWallet/LWModule/Mine/Login/ViewController/LWLoginController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "384"
-                  endingLineNumber = "384"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -364,22 +300,6 @@
             startingLineNumber = "90"
             endingLineNumber = "90"
             landmarkName = "-webscoketSendData:andSuccessBlock:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BA836671-29C0-42C1-8441-9A2BB5AFF804"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LaxoWallet/LWModule/Mine/Login/ViewController/LWLoginController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
-            landmarkName = "-verifyCode:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -450,16 +370,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DC249CC1-CFAA-4DB0-9370-85127AF1DF1A"
+            uuid = "05A1AF81-AE44-4A5F-810A-39B735102C92"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LaxoWallet/LWModule/Mine/Login/ViewController/LWLoginController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "480"
-            endingLineNumber = "480"
-            landmarkName = "-bottom1Click"
+            startingLineNumber = "550"
+            endingLineNumber = "550"
+            landmarkName = "-bottom2Click"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

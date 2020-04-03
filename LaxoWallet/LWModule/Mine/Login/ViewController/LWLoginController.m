@@ -229,32 +229,62 @@
     
     
     
-    
     if (kScreenWidth == 375) {
         scrollView1.contentSize= CGSizeMake(kScreenWidth, 620);
+        viewOne.frame = CGRectMake(0, 0, kScreenWidth,620);
+
         scrollView2.contentSize= CGSizeMake(kScreenWidth, 620);
+        view2.frame = CGRectMake(0, 0, kScreenWidth,620);
+
         scrollView3.contentSize= CGSizeMake(kScreenWidth, 620);
+        view3.frame = CGRectMake(0, 0, kScreenWidth,620);
+
         scrollView4.contentSize= CGSizeMake(kScreenWidth, 620);
+        view4.frame = CGRectMake(0, 0, kScreenWidth,620);
+
         scrollView5.contentSize= CGSizeMake(kScreenWidth, 620);
+        view5.frame = CGRectMake(0, 0, kScreenWidth,620);
+
         scrollView6.contentSize= CGSizeMake(kScreenWidth, 620);
+        view6.frame = CGRectMake(0, 0, kScreenWidth,620);
+
         scrollView7.contentSize= CGSizeMake(kScreenWidth, 620);
+        view7.frame = CGRectMake(0, 0, kScreenWidth,620);
+
         scrollView8.contentSize= CGSizeMake(kScreenWidth, 620);
+        view8.frame = CGRectMake(0, 0, kScreenWidth,620);
+
         scrollView9.contentSize= CGSizeMake(kScreenWidth, 620);
         scrollView9.contentSize= CGSizeMake(kScreenWidth, 620);
-        scrollView4.contentSize= CGSizeMake(kScreenWidth, 620);
-        scrollView5.contentSize= CGSizeMake(kScreenWidth, 620);
+
     }else if (kScreenWidth == 320){
         scrollView1.contentSize= CGSizeMake(kScreenWidth, 530);
+        viewOne.frame = CGRectMake(0, 0, kScreenWidth,530);
+
         scrollView2.contentSize= CGSizeMake(kScreenWidth, 530);
+        view2.frame = CGRectMake(0, 0, kScreenWidth,530);
+
         scrollView3.contentSize= CGSizeMake(kScreenWidth, 530);
+        view3.frame = CGRectMake(0, 0, kScreenWidth,530);
+
         scrollView4.contentSize= CGSizeMake(kScreenWidth, 620);
+        view4.frame = CGRectMake(0, 0, kScreenWidth,620);
+
         scrollView5.contentSize= CGSizeMake(kScreenWidth, 680);
+        view5.frame = CGRectMake(0, 0, kScreenWidth,680);
+
         scrollView6.contentSize= CGSizeMake(kScreenWidth, 530);
+        view6.frame = CGRectMake(0, 0, kScreenWidth,530);
+
         scrollView7.contentSize= CGSizeMake(kScreenWidth, 530);
+        view7.frame = CGRectMake(0, 0, kScreenWidth,530);
+
         scrollView8.contentSize= CGSizeMake(kScreenWidth, 530);
+        view8.frame = CGRectMake(0, 0, kScreenWidth,530);
+
         scrollView9.contentSize= CGSizeMake(kScreenWidth, 580);
+        view9.frame = CGRectMake(0, 0, kScreenWidth,580);
     }
-//    [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 7, 0)];
 }
 
 - (void)scrollWithIndex:(NSInteger)selectIndex{
@@ -275,7 +305,7 @@
      NSString *emailStr = email;
      [LWLoginCoordinator getSMSCodeWithEmail:emailStr WithSuccessBlock:^(id  _Nonnull data) {
          [SVProgressHUD dismiss];
-         [self scrollWithIndex:1];
+         [self scrollWithIndex:3];
          self.emailStr = email;
      } WithFailBlock:^(id  _Nonnull data) {
          [SVProgressHUD dismiss];

@@ -143,14 +143,35 @@
     LWLoginStepFiveView *view5 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepFiveView class]) owner:nil options:nil].lastObject;
     view5.frame = CGRectMake(0 * 4, 0, kScreenWidth,viewHeight);
     view5.block = ^{
-        LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
-        if (!userModel.face_enable || userModel.face_enable == 0) {
-             //跳转至人脸识别,绑定人脸
-            [self bottom1Click];
-         }else{
-             [self bottom2Click];
-             //恢复页面
-         }
+        //摄像头
+        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+        if (authStatus == AVAuthorizationStatusRestricted|| authStatus == AVAuthorizationStatusDenied) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [WMHUDUntil showMessageToWindow:@"Please get camera permission"];
+            });
+            // 获取摄像头失败
+        }else if(authStatus == AVAuthorizationStatusNotDetermined || authStatus == AVAuthorizationStatusAuthorized){
+            //判断点击是允许还是拒绝
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                if (granted) {// 获取摄像头成功
+                    LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
+                    if (!userModel.face_enable || userModel.face_enable == 0) {
+                         //跳转至人脸识别,绑定人脸
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self bottom1Click];                                     });
+                     }else{
+                         dispatch_async(dispatch_get_main_queue(), ^{
+                             [self bottom2Click]; });
+                     }
+                }else {// 获取摄像头失败
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [WMHUDUntil showMessageToWindow:@"Please get camera permission"];
+                    });
+                }
+            }];
+        }else{
+            // 获取摄像头成功
+        }
     };
     [scrollView5 addSubview:view5];
 
@@ -225,9 +246,6 @@
     LWLoginStepSuccessView *view9 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepSuccessView class]) owner:nil options:nil].lastObject;
     view9.frame = CGRectMake(0 * 8, 0, kScreenWidth,viewHeight);
     [scrollView9 addSubview:view9];
-
-    
-    
     
     if (kScreenWidth == 375) {
         scrollView1.contentSize= CGSizeMake(kScreenWidth, 620);

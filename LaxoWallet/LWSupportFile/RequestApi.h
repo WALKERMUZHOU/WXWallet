@@ -82,7 +82,7 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     
 };
 
-#if 0
+#if 1
 static NSString * const kBaseAddress = @"https://api.laxo.io/api.json?";
 static NSString * const kWSAddress = @"wss://api.laxo.io/?";
 

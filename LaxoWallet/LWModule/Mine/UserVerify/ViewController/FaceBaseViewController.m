@@ -59,13 +59,13 @@
             weakSelf.remindDetailLabel.text = warning;
         }else if (status == occlusionStatus) {
             [weakSelf.remindLabel setHidden:false];
-            [weakSelf.remindView setHidden:true];
+//            [weakSelf.remindView setHidden:true];
             [weakSelf.remindDetailLabel setHidden:false];
             weakSelf.remindDetailLabel.text = warning;
             weakSelf.remindLabel.text = @"Face covered";
         }else {
             [weakSelf.remindLabel setHidden:false];
-            [weakSelf.remindView setHidden:true];
+//            [weakSelf.remindView setHidden:true];
             [weakSelf.remindDetailLabel setHidden:true];
             weakSelf.remindLabel.text = warning;
         }

@@ -44,6 +44,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    self.amountFromLabel.text = [NSString stringWithFormat:@"Amount From %@",_model.name];
+    
     self.switchCoverView.layer.borderWidth = 1;
     self.switchCoverView.layer.borderColor = lwColorNormal.CGColor;
     

@@ -29,10 +29,10 @@
                 NSLog(@"😄支持TouchID");
                 break;
             case TDTouchIDSupperTypeNone:{
-                [[NSUserDefaults standardUserDefaults] setObject:@"None" forKey:kAppTouchIdStart_userdefault];
-                 [[LWUserManager shareInstance] setLoginSuccess];
-                 [[NSUserDefaults standardUserDefaults] synchronize];
-                 [LogicHandle showTabbarVC];
+//                [[NSUserDefaults standardUserDefaults] setObject:@"None" forKey:kAppTouchIdStart_userdefault];
+//                 [[LWUserManager shareInstance] setLoginSuccess];
+//                 [[NSUserDefaults standardUserDefaults] synchronize];
+//                 [LogicHandle showTabbarVC];
             }
                 NSLog(@"😭不支持生物验证");
                 break;
@@ -45,12 +45,19 @@
                 UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Current device does not support biometric verification, please turn on biometrics" message:nil preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *alertAc = [UIAlertAction actionWithTitle:@"sure" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     
-                    #define iOS10 ([[UIDevice currentDevice].systemVersion doubleValue] >= 10.0)
-                    if (iOS10) {
-                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
-                    } else {
-                        [[UIApplication sharedApplication] openURL: [NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-                    }
+//                    #define iOS10 ([[UIDevice currentDevice].systemVersion doubleValue] >= 10.0)
+//                    if (iOS10) {
+//                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+//                    } else {
+//                        [[UIApplication sharedApplication] openURL: [NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+//                    }
+                    
+                    [[NSUserDefaults standardUserDefaults] setObject:@"None" forKey:kAppTouchIdStart_userdefault];
+                     [[LWUserManager shareInstance] setLoginSuccess];
+                     [[NSUserDefaults standardUserDefaults] synchronize];
+                     [LogicHandle showTabbarVC];
+                    
+                    
                 }];
                 [alertVC addAction:alertAc];
                 [LogicHandle presentViewController:alertVC animate:YES];

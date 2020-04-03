@@ -47,6 +47,12 @@
     
     self.addressLabel.text = [NSString stringWithFormat:@"%@",address];
     
+    if (kScreenWidth == 320) {
+        address = [address stringByReplacingCharactersInRange:NSMakeRange(4, address.length-8) withString:@"*****"];
+        self.addressLabel.text = [NSString stringWithFormat:@"%@",address];
+    }
+    
+    
     [self getCurrentPaymailSatue];
 
 
@@ -57,7 +63,7 @@
      }
 }
 - (IBAction)addressCopy:(UIButton *)sender {
-    [[UIPasteboard generalPasteboard] setString:self.addressLabel.text];
+    [[UIPasteboard generalPasteboard] setString:_model.address];
     [WMHUDUntil showMessageToWindow:@"Copy Success"];
 
 }

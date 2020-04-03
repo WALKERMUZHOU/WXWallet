@@ -77,7 +77,7 @@
 }
 
 + (void)alertSendAlertView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id _Nonnull))walletBlock{
-    CGFloat viewHeight = 589.f;
+    CGFloat viewHeight =  568.f;
     UIView *backView = [LWAlertTool ligntBackView];
      
     LWSendViewAlertView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWSendViewAlertView class]) owner:nil options:nil].lastObject;
@@ -107,7 +107,7 @@
 }
 
 + (void)alertReceiveddAlertView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id _Nonnull))walletBlock{
-    CGFloat viewHeight = 589.f;
+    CGFloat viewHeight =  568.f;
     UIView *backView = [LWAlertTool ligntBackView];
      
     LWReceivedViewAlertView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWReceivedViewAlertView class]) owner:nil options:nil].lastObject;
@@ -142,7 +142,7 @@
        
     LWPersonalSendView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWPersonalSendView class]) owner:nil options:nil].lastObject;
     [backView addSubview:walletView];
-    walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 573);
+    walletView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 568);
     //    [walletView setContentModel:params];
     [walletView setWithLWTransactionModel:transModel andModel:params];
         
@@ -152,7 +152,7 @@
     [walletView addGestureRecognizer:tap1];
     
     [UIView animateWithDuration:0.3 animations:^{
-        walletView.frame = CGRectMake(0, kScreenHeight - 573, kScreenWidth, 573);
+        walletView.frame = CGRectMake(0, kScreenHeight - 568, kScreenWidth, 568);
     }];
     walletView.block = ^(NSInteger statue) {
         [UIView animateWithDuration:0.3 animations:^{
@@ -229,7 +229,7 @@
 
 + (void)alertMultipySignedView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id _Nonnull))walletBlock{
     
-    CGFloat viewHeight = 589.f;
+    CGFloat viewHeight =  568.f;
     UIView *backView = [LWAlertTool ligntBackView];
      
     LWMultipySendToBeSignedView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWMultipySendToBeSignedView class]) owner:nil options:nil].lastObject;
@@ -271,7 +271,7 @@
 
 + (void)alertMultipyOutgoingView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id _Nonnull))walletBlock{
     
-    CGFloat viewHeight = 589.f;
+    CGFloat viewHeight =  568.f;
     UIView *backView = [LWAlertTool ligntBackView];
      
     LWMultipySendOutgoingView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWMultipySendOutgoingView class]) owner:nil options:nil].lastObject;
@@ -305,7 +305,7 @@
 
 + (void)alertMultipyPendingView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id _Nonnull))walletBlock{
     
-    CGFloat viewHeight = 589.f;
+    CGFloat viewHeight =  568.f;
     UIView *backView = [LWAlertTool ligntBackView];
      
     LWMultipySendPendingView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWMultipySendPendingView class]) owner:nil options:nil].lastObject;
@@ -339,7 +339,7 @@
 
 + (void)alertMultipyCancleView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id _Nonnull))walletBlock{
     
-    CGFloat viewHeight = 589.f;
+    CGFloat viewHeight =  568.f;
     UIView *backView = [LWAlertTool ligntBackView];
      
     LWMultipySendCancleView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWMultipySendCancleView class]) owner:nil options:nil].lastObject;
@@ -371,7 +371,7 @@
 }
 
 + (void)alertSigneseStatueView:(LWHomeWalletModel *)walletModel andMessageModel:(LWMessageModel *)messageModel andComplete:(void (^)(id _Nonnull))walletBlock{
-    CGFloat viewHeight = 589.f;
+    CGFloat viewHeight =  568.f;
     UIView *backView = [LWAlertTool ligntBackView];
      
     LWSignessSatuteView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWSignessSatuteView class]) owner:nil options:nil].lastObject;
@@ -431,7 +431,7 @@
 }
 
 + (void)alertloginLaeanMore{
-    CGFloat viewHeight = 589.f;
+    CGFloat viewHeight =  568.f;
     UIView *backView = [LWAlertTool ligntBackView];
      
     LWLoginLearnMoreView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginLearnMoreView class]) owner:nil options:nil].lastObject;
@@ -456,7 +456,7 @@
 }
 
 + (void)alertloginLaeanMoreFace{
-    CGFloat viewHeight = 589.f;
+    CGFloat viewHeight =  568.f;
     UIView *backView = [LWAlertTool ligntBackView];
      
     LWLoginFaceLearnMoreView *walletView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginFaceLearnMoreView class]) owner:nil options:nil].lastObject;

@@ -24,9 +24,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="lcd-r0-XvB">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9l-9P-gbJ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOh-3V-tdG">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="902"/>
@@ -238,18 +237,21 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="SOh-3V-tdG" secondAttribute="bottom" id="8og-wB-6fV"/>
-                        <constraint firstAttribute="trailing" secondItem="SOh-3V-tdG" secondAttribute="trailing" id="AQc-e3-4d5"/>
-                        <constraint firstItem="SOh-3V-tdG" firstAttribute="leading" secondItem="lcd-r0-XvB" secondAttribute="leading" id="kCt-uc-7cM"/>
-                        <constraint firstItem="SOh-3V-tdG" firstAttribute="top" secondItem="lcd-r0-XvB" secondAttribute="top" id="rFQ-x9-MAG"/>
+                        <constraint firstItem="SOh-3V-tdG" firstAttribute="leading" secondItem="V9l-9P-gbJ" secondAttribute="leading" id="LkT-cH-aw5"/>
+                        <constraint firstItem="SOh-3V-tdG" firstAttribute="top" secondItem="V9l-9P-gbJ" secondAttribute="top" id="We9-c6-kD0"/>
+                        <constraint firstAttribute="bottom" secondItem="SOh-3V-tdG" secondAttribute="bottom" id="dLO-3V-tD7"/>
+                        <constraint firstAttribute="trailing" secondItem="SOh-3V-tdG" secondAttribute="trailing" id="esw-xu-SNb"/>
                     </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="SOh-3V-tdG" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="jRi-cD-crO"/>
+                <constraint firstItem="SOh-3V-tdG" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="DRT-EQ-RLg"/>
+                <constraint firstAttribute="bottom" secondItem="V9l-9P-gbJ" secondAttribute="bottom" id="Rey-aD-Gw0"/>
+                <constraint firstItem="V9l-9P-gbJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kSh-ET-hQ6"/>
+                <constraint firstItem="V9l-9P-gbJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oM1-jB-xAL"/>
+                <constraint firstAttribute="trailing" secondItem="V9l-9P-gbJ" secondAttribute="trailing" id="qAk-jD-Caw"/>
             </constraints>
             <point key="canvasLocation" x="23.199999999999999" y="400.74962518740631"/>
         </view>

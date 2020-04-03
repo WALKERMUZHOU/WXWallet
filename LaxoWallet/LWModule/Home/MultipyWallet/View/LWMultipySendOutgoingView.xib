@@ -259,7 +259,6 @@
                         <constraint firstItem="2jl-aQ-dQb" firstAttribute="top" secondItem="vu2-y9-H01" secondAttribute="bottom" constant="10" id="V8q-yL-iSl"/>
                         <constraint firstItem="2zN-xR-d1h" firstAttribute="top" secondItem="nUS-5o-9SB" secondAttribute="bottom" constant="17" id="Vq9-x6-sjX"/>
                         <constraint firstItem="2zN-xR-d1h" firstAttribute="leading" secondItem="8ty-I2-lXZ" secondAttribute="leading" constant="20" id="WIW-k0-WtI"/>
-                        <constraint firstAttribute="height" constant="569" id="XHp-1p-HrM"/>
                         <constraint firstItem="pKO-hz-61p" firstAttribute="top" secondItem="Afn-yS-x6V" secondAttribute="bottom" constant="30" id="Ysv-Hd-c5k"/>
                         <constraint firstItem="dIX-fg-3SH" firstAttribute="top" secondItem="8ty-I2-lXZ" secondAttribute="top" constant="30" id="Zlm-gF-sN0"/>
                         <constraint firstItem="RH1-OC-A37" firstAttribute="top" secondItem="dIX-fg-3SH" secondAttribute="bottom" constant="10" id="aca-ZJ-5er"/>
@@ -307,7 +306,6 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="8ty-I2-lXZ" secondAttribute="bottom" id="Gne-CI-6ba"/>
                 <constraint firstAttribute="bottom" secondItem="wYY-sN-QiR" secondAttribute="bottom" id="HBV-S6-3Uz"/>
                 <constraint firstAttribute="trailing" secondItem="wYY-sN-QiR" secondAttribute="trailing" id="MHO-Fn-w9h"/>
                 <constraint firstAttribute="trailing" secondItem="8ty-I2-lXZ" secondAttribute="trailing" id="XDL-dY-9gs"/>
@@ -315,6 +313,8 @@
                 <constraint firstItem="sdX-DG-bfC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="djd-Bb-q2h"/>
                 <constraint firstItem="sdX-DG-bfC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eTt-kh-d2q"/>
                 <constraint firstItem="wYY-sN-QiR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mzW-Zo-waA"/>
+                <constraint firstItem="8ty-I2-lXZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="q5L-cF-MLN"/>
+                <constraint firstAttribute="bottom" secondItem="8ty-I2-lXZ" secondAttribute="bottom" id="t5W-2s-43M"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

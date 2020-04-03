@@ -497,7 +497,7 @@
         model.login_token = [data objectForKey:@"login_token"];
 //        model.jiZhuCi = [loginParams objectForKey:@"seed"];
         [[LWUserManager shareInstance] setUser:model];
-        [self scrollWithIndex:5];
+        [self scrollWithIndex:9];
 
 //        [self.scrollView setContentOffset:CGPointMake(kScreenWidth *4, 0) animated:NO];
 //        LWFaceBindViewController *lwfaceVC = [[LWFaceBindViewController alloc]init];

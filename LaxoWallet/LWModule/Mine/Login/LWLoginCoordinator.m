@@ -61,7 +61,7 @@
 //    NSString *pubKey = [PubkeyManager getPubkey];
     NSString *pubKey = [LWPublicManager getInitDataPubKey];
     LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
-    NSDictionary *paramers = @{@"token":[[LWUserManager shareInstance]getUserModel].token,@"pubkey":pubKey,@"trustee":model.name,@"face_token":userModel.face_token};
+    NSDictionary *paramers = @{@"token":[[LWUserManager shareInstance]getUserModel].token,@"pubkey":pubKey,@"trustee":model.name};
     NSString *jsonStr = [paramers jsonStringEncoded];
     NSLog(@"RecoverCode:%@",jsonStr);
     [[LWNetWorkSessionManager shareInstance] getPath:Url_Login_requestRecoverCode parameters:@{@"params":jsonStr} withBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {

@@ -20,7 +20,6 @@
                 <outlet property="coverView" destination="F9y-b0-KUE" id="enC-Qd-aWb"/>
                 <outlet property="equivalentLabel" destination="sGG-AE-sLS" id="jnY-FZ-QWM"/>
                 <outlet property="noteTF" destination="dUy-eo-zub" id="Y1i-e2-x2e"/>
-                <outlet property="sendToLabel" destination="fOn-7K-beF" id="i3V-HH-75J"/>
                 <outlet property="sendtoLabel" destination="fOn-7K-beF" id="NuR-Ud-7sl"/>
                 <outlet property="switchCoverView" destination="MlS-gN-O6k" id="h8u-r7-TSp"/>
                 <outlet property="usdBtn" destination="Jca-7n-b7q" id="gXf-sK-aO3"/>

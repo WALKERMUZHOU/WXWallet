@@ -144,6 +144,8 @@
     view5.frame = CGRectMake(0 * 4, 0, kScreenWidth,viewHeight);
     view5.block = ^{
         LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
+        [self bottom2Click];
+        return ;
         if (!userModel.face_enable || userModel.face_enable == 0) {
              //跳转至人脸识别,绑定人脸
             [self bottom1Click];
@@ -525,6 +527,10 @@
 }
 
 - (void)bottom2Click{
+    [self scrollWithIndex:6];
+    [self recoverWithICloud];
+    return;
+    
     NSString *face_token = @"a5ed77ccc7eb2416f970bbe92343d9ab41cbcb617bd31202c783d1ee4d1938f3";
     LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
     userModel.face_token = face_token;
@@ -715,6 +721,8 @@
 
 #pragma mark recoverWithIcloud
 - (void)recoverWithICloud{
+    return;
+    
     NSString *recoverCode = [iCloudHandle getKeyValueICloudStoreWithKey:self.emailStr];
     if (recoverCode && recoverCode.length >0) {
         [SVProgressHUD showWithStatus:@"recover from icloud"];

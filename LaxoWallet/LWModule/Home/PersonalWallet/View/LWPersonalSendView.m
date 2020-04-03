@@ -15,7 +15,7 @@
 #import "LivenessViewController.h"
 #import "DetectionViewController.h"
 #import "LivingConfigModel.h"
-#import "IDLFaceSDK/IDLFaceSDK.h"
+//#import "IDLFaceSDK/IDLFaceSDK.h"
 #import "FaceParameterConfig.h"
 
 #import "TDTouchID.h"

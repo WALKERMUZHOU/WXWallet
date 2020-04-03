@@ -25,7 +25,7 @@
 #import "LivenessViewController.h"
 #import "DetectionViewController.h"
 #import "LivingConfigModel.h"
-#import "IDLFaceSDK/IDLFaceSDK.h"
+
 #import "FaceParameterConfig.h"
 #import "LWCommonBottomBtn.h"
 
@@ -511,10 +511,6 @@
 
 #pragma mark - face
 - (void)bottom1Click{
-    if ([[FaceSDKManager sharedInstance] canWork]) {
-         NSString* licensePath = [[NSBundle mainBundle] pathForResource:FACE_LICENSE_NAME ofType:FACE_LICENSE_SUFFIX];
-         [[FaceSDKManager sharedInstance] setLicenseID:FACE_LICENSE_ID andLocalLicenceFile:licensePath];
-     }
     
      DetectionViewController* dvc = [[DetectionViewController alloc] init];
      dvc.modalPresentationStyle = UIModalPresentationFullScreen;
@@ -529,11 +525,25 @@
 }
 
 - (void)bottom2Click{
-     if ([[FaceSDKManager sharedInstance] canWork]) {
-         NSString* licensePath = [[NSBundle mainBundle] pathForResource:FACE_LICENSE_NAME ofType:FACE_LICENSE_SUFFIX];
-         [[FaceSDKManager sharedInstance] setLicenseID:FACE_LICENSE_ID andLocalLicenceFile:licensePath];
-         
-     }
+    NSString *face_token = @"a5ed77ccc7eb2416f970bbe92343d9ab41cbcb617bd31202c783d1ee4d1938f3";
+    LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
+    userModel.face_token = face_token;
+    [[LWUserManager shareInstance] setUser:userModel];
+    if (face_token && face_token.length > 0) {
+        if (self.isRegister) {
+            [self scrollWithIndex:9];
+
+//                [self.scrollView setContentOffset:CGPointMake(kScreenWidth *8, 0) animated:NO];
+        }else{
+            [self scrollWithIndex:6];
+//                [self.scrollView setContentOffset:CGPointMake(kScreenWidth *5, 0) animated:NO];
+            [self recoverWithICloud];
+        }
+    }else{
+//            [WMHUDUntil showMessageToWindow:@"face error"];
+    }
+    return;
+    
      LivenessViewController* lvc = [[LivenessViewController alloc] init];
      LivingConfigModel* model = [LivingConfigModel sharedInstance];
      [lvc livenesswithList:model.liveActionArray order:model.isByOrder numberOfLiveness:model.numOfLiveness];

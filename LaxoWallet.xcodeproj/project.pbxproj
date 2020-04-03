@@ -259,18 +259,15 @@
 		5E9172C62416227D00D47A9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E9172C82416227D00D47A9F /* Localizable.strings */; };
 		5E9172CA2416284B00D47A9F /* LWHomeListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9172CC2416284B00D47A9F /* LWHomeListHeaderView.xib */; };
 		5E9172D324162A7300D47A9F /* LWHomeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9172D524162A7300D47A9F /* LWHomeListCell.xib */; };
-		5E9172DD2416376100D47A9F /* IDLFaceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9172D92416376100D47A9F /* IDLFaceSDK.framework */; };
 		5E9172DE2416376200D47A9F /* idl-license.face-ios in Resources */ = {isa = PBXBuildFile; fileRef = 5E9172DA2416376100D47A9F /* idl-license.face-ios */; };
 		5E9172DF2416376200D47A9F /* com.baidu.idl.face.model.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E9172DB2416376100D47A9F /* com.baidu.idl.face.model.bundle */; };
 		5E9172E02416376200D47A9F /* com.baidu.idl.face.faceSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E9172DC2416376100D47A9F /* com.baidu.idl.face.faceSDK.bundle */; };
-		5E9172E4241637D500D47A9F /* LWUserVefifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9172E3241637D500D47A9F /* LWUserVefifyViewController.m */; };
 		5E9172E624163CB300D47A9F /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9172E524163CA100D47A9F /* libc++.tbd */; };
 		5E91735C24163DEB00D47A9F /* DetectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91734624163DEA00D47A9F /* DetectionViewController.m */; };
 		5E91735D24163DEB00D47A9F /* LivenessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91734724163DEA00D47A9F /* LivenessViewController.m */; };
 		5E91735E24163DEB00D47A9F /* FaceBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91734924163DEA00D47A9F /* FaceBaseViewController.m */; };
 		5E91735F24163DEB00D47A9F /* RemindView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91734A24163DEA00D47A9F /* RemindView.m */; };
 		5E91736024163DEB00D47A9F /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91734B24163DEA00D47A9F /* CircleView.m */; };
-		5E91736124163DEB00D47A9F /* LivingConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91734E24163DEA00D47A9F /* LivingConfigViewController.m */; };
 		5E91736224163DEB00D47A9F /* VideoCaptureDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91735424163DEA00D47A9F /* VideoCaptureDevice.m */; };
 		5E91736324163DEB00D47A9F /* ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91735624163DEB00D47A9F /* ImageUtils.m */; };
 		5E91736424163DEB00D47A9F /* LivingConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91735A24163DEB00D47A9F /* LivingConfigModel.m */; };
@@ -840,22 +837,17 @@
 		5E9172D224162A0500D47A9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWHomeListHeaderView.xib; sourceTree = "<group>"; };
 		5E9172D424162A7300D47A9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWHomeListCell.xib; sourceTree = "<group>"; };
 		5E9172D724162A7B00D47A9F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWHomeListCell.strings"; sourceTree = "<group>"; };
-		5E9172D92416376100D47A9F /* IDLFaceSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IDLFaceSDK.framework; sourceTree = "<group>"; };
 		5E9172DA2416376100D47A9F /* idl-license.face-ios */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "idl-license.face-ios"; sourceTree = "<group>"; };
 		5E9172DB2416376100D47A9F /* com.baidu.idl.face.model.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = com.baidu.idl.face.model.bundle; sourceTree = "<group>"; };
 		5E9172DC2416376100D47A9F /* com.baidu.idl.face.faceSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = com.baidu.idl.face.faceSDK.bundle; sourceTree = "<group>"; };
-		5E9172E2241637D500D47A9F /* LWUserVefifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWUserVefifyViewController.h; sourceTree = "<group>"; };
-		5E9172E3241637D500D47A9F /* LWUserVefifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWUserVefifyViewController.m; sourceTree = "<group>"; };
 		5E9172E524163CA100D47A9F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		5E91734624163DEA00D47A9F /* DetectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectionViewController.m; sourceTree = "<group>"; };
 		5E91734724163DEA00D47A9F /* LivenessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivenessViewController.m; sourceTree = "<group>"; };
-		5E91734824163DEA00D47A9F /* LivingConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivingConfigViewController.h; sourceTree = "<group>"; };
 		5E91734924163DEA00D47A9F /* FaceBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceBaseViewController.m; sourceTree = "<group>"; };
 		5E91734A24163DEA00D47A9F /* RemindView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemindView.m; sourceTree = "<group>"; };
 		5E91734B24163DEA00D47A9F /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
 		5E91734C24163DEA00D47A9F /* DetectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectionViewController.h; sourceTree = "<group>"; };
 		5E91734D24163DEA00D47A9F /* FaceBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceBaseViewController.h; sourceTree = "<group>"; };
-		5E91734E24163DEA00D47A9F /* LivingConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivingConfigViewController.m; sourceTree = "<group>"; };
 		5E91734F24163DEA00D47A9F /* LivenessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivenessViewController.h; sourceTree = "<group>"; };
 		5E91735024163DEA00D47A9F /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
 		5E91735124163DEA00D47A9F /* RemindView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemindView.h; sourceTree = "<group>"; };
@@ -1056,7 +1048,6 @@
 				5E7BACB8242B6AC200901EA5 /* Bugly.framework in Frameworks */,
 				5E9172E624163CB300D47A9F /* libc++.tbd in Frameworks */,
 				5EF5133023F1090000F5B6C1 /* JavaScriptCore.framework in Frameworks */,
-				5E9172DD2416376100D47A9F /* IDLFaceSDK.framework in Frameworks */,
 				5E7BACBA242B6C3600901EA5 /* Security.framework in Frameworks */,
 				5EC1A991240F52F70086ED19 /* libthresholdsig.a in Frameworks */,
 				5E9172BF241528B700D47A9F /* secp256k1.framework in Frameworks */,
@@ -2257,7 +2248,6 @@
 		5E9172D82416376100D47A9F /* FaceSDK */ = {
 			isa = PBXGroup;
 			children = (
-				5E9172D92416376100D47A9F /* IDLFaceSDK.framework */,
 				5E9172DA2416376100D47A9F /* idl-license.face-ios */,
 				5E9172DB2416376100D47A9F /* com.baidu.idl.face.model.bundle */,
 				5E9172DC2416376100D47A9F /* com.baidu.idl.face.faceSDK.bundle */,
@@ -2273,8 +2263,6 @@
 				5E91735924163DEB00D47A9F /* Model */,
 				5E91735524163DEB00D47A9F /* Utils */,
 				5E91734524163DEA00D47A9F /* ViewController */,
-				5E9172E2241637D500D47A9F /* LWUserVefifyViewController.h */,
-				5E9172E3241637D500D47A9F /* LWUserVefifyViewController.m */,
 			);
 			path = UserVerify;
 			sourceTree = "<group>";
@@ -2285,12 +2273,10 @@
 				5E91734624163DEA00D47A9F /* DetectionViewController.m */,
 				5E91734F24163DEA00D47A9F /* LivenessViewController.h */,
 				5E91734724163DEA00D47A9F /* LivenessViewController.m */,
-				5E91734824163DEA00D47A9F /* LivingConfigViewController.h */,
 				5E91734924163DEA00D47A9F /* FaceBaseViewController.m */,
 				5E91734A24163DEA00D47A9F /* RemindView.m */,
 				5E91734C24163DEA00D47A9F /* DetectionViewController.h */,
 				5E91734D24163DEA00D47A9F /* FaceBaseViewController.h */,
-				5E91734E24163DEA00D47A9F /* LivingConfigViewController.m */,
 				5E91735024163DEA00D47A9F /* CircleView.h */,
 				5E91734B24163DEA00D47A9F /* CircleView.m */,
 				5E91735124163DEA00D47A9F /* RemindView.h */,
@@ -3196,7 +3182,6 @@
 				5E7E09172428B5D100C75C0F /* LWEmailTool.m in Sources */,
 				5E5F129723EC0E12002F0711 /* WMZDialog+time.m in Sources */,
 				5E5F123623EC06F1002F0711 /* LogicHandle.m in Sources */,
-				5E91736124163DEB00D47A9F /* LivingConfigViewController.m in Sources */,
 				5E91735D24163DEB00D47A9F /* LivenessViewController.m in Sources */,
 				5EF513DA23F550F200F5B6C1 /* PublicKeyView.m in Sources */,
 				5EF513E423F550F200F5B6C1 /* LWInputTextView.m in Sources */,
@@ -3317,7 +3302,6 @@
 				5E5F12A023EC0E12002F0711 /* WMZDialogAnimation.m in Sources */,
 				5E5F130523EEB5FA002F0711 /* LWUserManager.m in Sources */,
 				5E91736C241878D800D47A9F /* LWEncryptTool.m in Sources */,
-				5E9172E4241637D500D47A9F /* LWUserVefifyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

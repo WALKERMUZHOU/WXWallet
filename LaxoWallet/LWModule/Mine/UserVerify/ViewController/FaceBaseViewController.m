@@ -7,7 +7,7 @@
 //
 
 #import "FaceBaseViewController.h"
-#import <IDLFaceSDK/IDLFaceSDK.h>
+//#import <IDLFaceSDK/IDLFaceSDK.h>
 #import "VideoCaptureDevice.h"
 #import "ImageUtils.h"
 #import "RemindView.h"
@@ -271,36 +271,36 @@
     // 监听重新返回APP
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppWillResignAction) name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
-    
-    // 设置最小检测人脸阈值
-    [[FaceSDKManager sharedInstance] setMinFaceSize:200];
-    
-    // 设置截取人脸图片大小
-    [[FaceSDKManager sharedInstance] setCropFaceSizeWidth:400];
-    
-    // 设置人脸遮挡阀值
-    [[FaceSDKManager sharedInstance] setOccluThreshold:0.5];
-    
-    // 设置亮度阀值
-    [[FaceSDKManager sharedInstance] setIllumThreshold:40];
-    
-    // 设置图像模糊阀值
-    [[FaceSDKManager sharedInstance] setBlurThreshold:0.7];
-    
-    // 设置头部姿态角度
-    [[FaceSDKManager sharedInstance] setEulurAngleThrPitch:10 yaw:10 roll:10];
-    
-    // 设置是否进行人脸图片质量检测
-    [[FaceSDKManager sharedInstance] setIsCheckQuality:YES];
-    
-    // 设置超时时间
-    [[FaceSDKManager sharedInstance] setConditionTimeout:10];
-    
-    // 设置人脸检测精度阀值
-    [[FaceSDKManager sharedInstance] setNotFaceThreshold:0.6];
-    
-    // 设置照片采集张数
-    [[FaceSDKManager sharedInstance] setMaxCropImageNum:1];
+//    
+//    // 设置最小检测人脸阈值
+//    [[FaceSDKManager sharedInstance] setMinFaceSize:200];
+//    
+//    // 设置截取人脸图片大小
+//    [[FaceSDKManager sharedInstance] setCropFaceSizeWidth:400];
+//    
+//    // 设置人脸遮挡阀值
+//    [[FaceSDKManager sharedInstance] setOccluThreshold:0.5];
+//    
+//    // 设置亮度阀值
+//    [[FaceSDKManager sharedInstance] setIllumThreshold:40];
+//    
+//    // 设置图像模糊阀值
+//    [[FaceSDKManager sharedInstance] setBlurThreshold:0.7];
+//    
+//    // 设置头部姿态角度
+//    [[FaceSDKManager sharedInstance] setEulurAngleThrPitch:10 yaw:10 roll:10];
+//    
+//    // 设置是否进行人脸图片质量检测
+//    [[FaceSDKManager sharedInstance] setIsCheckQuality:YES];
+//    
+//    // 设置超时时间
+//    [[FaceSDKManager sharedInstance] setConditionTimeout:10];
+//    
+//    // 设置人脸检测精度阀值
+//    [[FaceSDKManager sharedInstance] setNotFaceThreshold:0.6];
+//    
+//    // 设置照片采集张数
+//    [[FaceSDKManager sharedInstance] setMaxCropImageNum:1];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

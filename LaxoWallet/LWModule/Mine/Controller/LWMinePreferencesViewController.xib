@@ -115,7 +115,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" tag="11001" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paw-CN-5k2">
+                        <button opaque="NO" tag="11001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paw-CN-5k2">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
                             <connections>
                                 <action selector="languageClick:" destination="-1" eventType="touchUpInside" id="pNZ-bP-7lY"/>

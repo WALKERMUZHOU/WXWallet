@@ -49,7 +49,8 @@
     
 }
 - (IBAction)languageClick:(UIButton *)sender {
-    
+    [WMHUDUntil showMessageToWindow:@"More language is developing"];
+    return;
     LWMineCurrencyViewController *minevc = [[LWMineCurrencyViewController alloc] init];
     minevc.MineVCType = 4;
     [self.navigationController pushViewController:minevc animated:YES];

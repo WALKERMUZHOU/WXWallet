@@ -15,7 +15,7 @@ typedef void(^AddressBlock)(NSString *address);
 + (void)attempDealloc;
 
 - (void)setWithrid:(NSString *)rid andPath:(NSString *)path;
-- (instancetype)initWithRid:(NSString *)rid;
+
 @property (nonatomic, copy) AddressBlock addressBlock;
 
 

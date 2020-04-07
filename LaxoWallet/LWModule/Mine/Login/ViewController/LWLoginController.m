@@ -348,7 +348,7 @@
                [SVProgressHUD dismiss];
                [[LWUserManager shareInstance] setUserDic:dataDic];
                [[LWUserManager shareInstance] setEmail:self.emailStr];
-               NSString *uid = [dataDic ds_stringForKey:@"uid"];
+               NSString *uid =  [dataDic ds_stringForKey:@"uid"];
                
                if(uid && uid.length>0){//老用户
                    [self scrollWithIndex:5];

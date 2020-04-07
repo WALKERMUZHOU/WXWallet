@@ -14,17 +14,9 @@
 }
 
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic{
-    if ([[dic objectForKey:@"status"] integerValue] == 1) {
-        self.viewHeight= 290;
-    }else if ([[dic objectForKey:@"status"] integerValue] == 2){
-        if ([[dic objectForKey:@"type"] integerValue] == 1) {
-            self.viewHeight = 270;
-        }else{
-            self.viewHeight = 245;
-        }
-    }
+        
     NSArray *partiesArray = [dic objectForKey:@"parties"];
-    if (partiesArray.count>0) {
+    if (partiesArray && partiesArray.count>0) {
         self.parties = [NSArray modelArrayWithClass:[LWPartiesModel class] json:partiesArray];
     }
     
@@ -35,26 +27,18 @@
     }
     
     NSDictionary *user_status = [dic objectForKey:@"user_status"];
-    NSArray *approve = [user_status ds_arrayForKey:@"approve"];
-    if (approve.count > 0) {
-        self.approve = approve;
-    }
-    
-    NSArray *reject = [user_status ds_arrayForKey:@"reject"];
-    if (reject.count > 0) {
-        self.reject = reject;
-    }
-    
-    
-    if([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY){
+    if (user_status) {
+        NSArray *approve = [user_status ds_arrayForKey:@"approve"];
+        if (approve.count > 0) {
+            self.approve = approve;
+        }
         
-        NSInteger value = [[dic objectForKey:@"value"] integerValue];
-        self.priceDefine = [NSString stringWithFormat:@"¥ %.2f",[LWPublicManager getCurrentCurrencyPrice].floatValue * value/1e8];
-    }else{
-        NSInteger value = [[dic objectForKey:@"value"] integerValue];
-        self.priceDefine = [NSString stringWithFormat:@"$ %.2f",[LWPublicManager getCurrentCurrencyPrice].floatValue * value/1e8];
+        NSArray *reject = [user_status ds_arrayForKey:@"reject"];
+        if (reject.count > 0) {
+            self.reject = reject;
+        }
     }
-    
+
     return YES;
 }
 

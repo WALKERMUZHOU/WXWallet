@@ -69,22 +69,6 @@ static dispatch_once_t onceToken;
     return instance;
 }
 
-- (instancetype)init{
-    self = [super init];
-    if (self) {
-//        [self initData];
-    }
-    return self;
-}
-
-- (instancetype)initWithRid:(NSString *)rid{
-    self = [super init];
-    if (self) {
-        [self initData];
-    }
-    return self;
-}
-
 - (void)initData{
     params = @{@"threshold":@(1),@"share_count":@(PARTIES)};
     
@@ -103,38 +87,9 @@ static dispatch_once_t onceToken;
     
     self.pk = [LWPublicManager getPKWithZhuJiCiAndPath:self.path];
     
-//    self->_mainThreadSignal = dispatch_semaphore_create(0);
-//    [PubkeyManager getPrikeyByZhujiciandIndex:@(0) SuccessBlock:^(id  _Nonnull data) {
-//        self.pk = [data objectForKey:@"prikey"];
-//        dispatch_semaphore_signal(self->_mainThreadSignal);
-//    } WithFailBlock:^(id  _Nonnull data) {
-//
-//    }];
-//    dispatch_semaphore_wait(self->_mainThreadSignal, DISPATCH_TIME_FOREVER);
-    
     self.prikey = [LWPublicManager getPKWithZhuJiCi];
-    
-//    self->_mainThreadSignal = dispatch_semaphore_create(0);
-//    [PubkeyManager getPrikeyByZhujiciSuccessBlock:^(id  _Nonnull data) {
-//        self.prikey = [data objectForKey:@"prikey"];
-//        dispatch_semaphore_signal(self->_mainThreadSignal);
-//    } WithFailBlock:^(id  _Nonnull data) {
-//
-//    }];
-//    dispatch_semaphore_wait(self->_mainThreadSignal, DISPATCH_TIME_FOREVER);
    
     char *secret_char = sha256([LWAddressTool stringToChar:self.prikey]);
-
-//    self->_mainThreadSignal = dispatch_semaphore_create(0);
-//    __block NSArray *pqArray;
-//    [PubkeyManager decrptWithNoAppendNumberSecret:[LWAddressTool charToString:secret_char] ansMessage:[[LWUserManager shareInstance] getUserModel].dk SuccessBlock:^(id  _Nonnull data) {
-//        NSString *pqStr = (NSString *)data;
-//        pqArray = [pqStr componentsSeparatedByString:@","];
-//        dispatch_semaphore_signal(self->_mainThreadSignal);
-//    } WithFailBlock:^(id  _Nonnull data) {
-//
-//    }];
-//    dispatch_semaphore_wait(self->_mainThreadSignal, DISPATCH_TIME_FOREVER);
 
     NSString *pqStr = [LWEncryptTool decryptwithTheKey:[LWAddressTool charToString:secret_char] message:[[LWUserManager shareInstance] getUserModel].dk andHex:1];
     NSArray *pqArray = [pqStr componentsSeparatedByString:@","];
@@ -142,27 +97,7 @@ static dispatch_once_t onceToken;
     self.p = [pqArray firstObject];
     self.q = [pqArray lastObject];
     self.share_count = PARTIES;
-    
-//    char *encryptionKey_char =create_party_key([self.pk cStringUsingEncoding:NSASCIIStringEncoding], [self.p cStringUsingEncoding:NSASCIIStringEncoding], [self.q cStringUsingEncoding:NSASCIIStringEncoding], self.party_count);
-//    NSArray *encryptionKeyArray = [LWAddressTool charToObject:encryptionKey_char];
-//
-//    self.encryptionKey = encryptionKeyArray.firstObject;
-//    self.bc = encryptionKeyArray[1];
-//    self.decom = encryptionKeyArray.lastObject;
-   
-    //self.y 私钥推公钥
-//    NSData *pubkeyData = [[CBSecp256k1 generatePublicKeyWithPrivateKey:[self.pk dataUsingEncoding:NSUTF8StringEncoding] compression:YES] copy];
-//    self.pubkey = [pubkeyData dataToHexString];
-    
-//    char *publicKey = get_public_key([self.pk cStringUsingEncoding:NSUTF8StringEncoding]);
-//    self.pubkey = [NSString stringWithFormat:@"%s",publicKey];
-//
-//    char *public_point = get_public_point([self.pubkey cStringUsingEncoding:NSUTF8StringEncoding]);
-//
-//    NSString *yString = [NSString stringWithFormat:@"%s",public_point];
-//    self.y = [NSJSONSerialization JSONObjectWithData:[yString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
-    dispatch_semaphore_signal(self->_semaphoreSignal);
-    
+        
 }
 
 - (void)setWithrid:(NSString *)rid andPath:(nonnull NSString *)path{
@@ -171,10 +106,8 @@ static dispatch_once_t onceToken;
 
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        self->_semaphoreSignal = dispatch_semaphore_create(0);
         [self initData];
-        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
-        
+
         NSMutableArray *keyArray = [NSMutableArray array];
         for (NSInteger i =1 ; i<=1; i++) {
             char *key_generate = create_key([self.pk cStringUsingEncoding:NSASCIIStringEncoding], self.party_num_int, self.party_count, 1, [self.p cStringUsingEncoding:NSASCIIStringEncoding], [self.q cStringUsingEncoding:NSASCIIStringEncoding]);

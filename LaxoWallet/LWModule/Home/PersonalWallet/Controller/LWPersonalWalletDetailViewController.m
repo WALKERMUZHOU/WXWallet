@@ -44,8 +44,8 @@
 - (void)createUI{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress object:nil];
     
-    self.receiveBtn.layer.borderColor = [UIColor hex:@"#D8D8D8"].CGColor;
-    self.sendBtn.layer.borderColor = [UIColor hex:@"#D8D8D8"].CGColor;
+    self.receiveBtn.layer.borderColor = lwColorGrayD8.CGColor;
+    self.sendBtn.layer.borderColor = lwColorGrayD8.CGColor;
     
     self.listView = [[LWPersoanDetailListView alloc]initWithFrame:CGRectMake(0, 262, kScreenWidth, KScreenHeightBar - 262) style:UITableViewStyleGrouped];
     self.listView.walletId = self.contentModel.walletId;

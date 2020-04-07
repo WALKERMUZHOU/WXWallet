@@ -14,5 +14,7 @@ typedef void(^LivenessBlock)(NSString *face_token);
 
 - (void)livenesswithList:(NSArray *)livenessArray order:(BOOL)order numberOfLiveness:(NSInteger)numberOfLiveness;
 
+@property (nonatomic, assign) BOOL firstBindFace;
+
 @property (nonatomic, copy) LivenessBlock livenessBlock;
 @end

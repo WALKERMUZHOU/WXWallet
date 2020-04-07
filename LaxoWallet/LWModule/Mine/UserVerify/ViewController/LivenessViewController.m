@@ -407,18 +407,37 @@
     char *sig_data =  sign_data([LWAddressTool stringToChar:image]);
     NSString *imagesig = [LWAddressTool charToString:sig_data];
 
-    [LWLoginCoordinator checkUserFaceWithParams:@{@"token":token,@"imgdata":imagedata,@"imgname":imagename,@"sig":imagesig} WithSuccessBlock:^(id  _Nonnull data) {
+    if (self.firstBindFace) {
+        NSString *token = [[LWUserManager shareInstance] getUserModel].login_token;
+        NSString *imagedata = image;
+        NSString *imagename = @"imageName.png";
+        char *sig_data =  sign_data([LWAddressTool stringToChar:image]);
+        NSString *imagesig = [LWAddressTool charToString:sig_data];
 
-        if (self.livenessBlock) {
-            self.livenessBlock([data objectForKey:@"face_token"]);
-        }
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [LWLoginCoordinator registerUserFaceWithParams:@{@"token":token,@"imgdata":imagedata,@"imgname":imagename,@"sig":imagesig} WithSuccessBlock:^(id  _Nonnull data) {
+            
+            if (self.livenessBlock) {
+                self.livenessBlock([data objectForKey:@"face_token"]);
+            }
+            [self dismissViewControllerAnimated:YES completion:nil];
 
-    } WithFailBlock:^(id  _Nonnull data) {
-        [WMHUDUntil showMessageToWindow:@"face verify fail"];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
-    
+        } WithFailBlock:^(id  _Nonnull data) {
+          [WMHUDUntil showMessageToWindow:@"error"];
+          [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    }else{
+        [LWLoginCoordinator checkUserFaceWithParams:@{@"token":token,@"imgdata":imagedata,@"imgname":imagename,@"sig":imagesig} WithSuccessBlock:^(id  _Nonnull data) {
+
+            if (self.livenessBlock) {
+                self.livenessBlock([data objectForKey:@"face_token"]);
+            }
+            [self dismissViewControllerAnimated:YES completion:nil];
+
+        } WithFailBlock:^(id  _Nonnull data) {
+            [WMHUDUntil showMessageToWindow:@"face verify fail"];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    }
 }
 
 - (void)verifyFail{

@@ -154,15 +154,9 @@
             //判断点击是允许还是拒绝
             [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
                 if (granted) {// 获取摄像头成功
-                    LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
-                    if (!userModel.face_enable || userModel.face_enable == 0) {
-                         //跳转至人脸识别,绑定人脸
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [self bottom1Click];                                     });
-                     }else{
-                         dispatch_async(dispatch_get_main_queue(), ^{
-                             [self bottom2Click]; });
-                     }
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self bottom2Click];
+                    });
                 }else {// 获取摄像头失败
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [WMHUDUntil showMessageToWindow:@"Please get camera permission"];
@@ -547,12 +541,23 @@
 }
 
 - (void)bottom2Click{
+    
+    LWUserModel *userModel = [[LWUserManager shareInstance] getUserModel];
+    BOOL firstBindFace;
+    if (!userModel.face_enable || userModel.face_enable == 0) {
+       //跳转至人脸识别,绑定人脸
+        firstBindFace = YES;
+    }else{
+        firstBindFace = NO;
+    }
+
      if ([[FaceSDKManager sharedInstance] canWork]) {
          NSString* licensePath = [[NSBundle mainBundle] pathForResource:FACE_LICENSE_NAME ofType:FACE_LICENSE_SUFFIX];
          [[FaceSDKManager sharedInstance] setLicenseID:FACE_LICENSE_ID andLocalLicenceFile:licensePath];
          
      }
      LivenessViewController* lvc = [[LivenessViewController alloc] init];
+    lvc.firstBindFace = firstBindFace;
      LivingConfigModel* model = [LivingConfigModel sharedInstance];
      [lvc livenesswithList:model.liveActionArray order:model.isByOrder numberOfLiveness:model.numOfLiveness];
     lvc.modalPresentationStyle = UIModalPresentationFullScreen;
@@ -576,9 +581,6 @@
         }else{
 //            [WMHUDUntil showMessageToWindow:@"face error"];
         }
-        
-
-        
     };
 }
 

@@ -35,7 +35,7 @@
 - (IBAction)nextClick:(UIButton *)sender {
     if (self.maxthonBtn.isSelected == NO && self.csgBtn.isSelected == NO) {
         
-        [WMHUDUntil showMessageToWindow:@"selcet recover process"];
+        [WMHUDUntil showMessageToWindow:@"select recover process"];
         return;
     }
     

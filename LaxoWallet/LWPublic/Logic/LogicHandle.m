@@ -59,7 +59,7 @@
 }
 
 + (void)presentViewController:(UIViewController *)viewController animate:(BOOL)animated{
-    viewController.modalPresentationStyle = 0;
+    viewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [[LogicHandle topViewController] presentViewController:viewController animated:YES completion:nil];
 }
 

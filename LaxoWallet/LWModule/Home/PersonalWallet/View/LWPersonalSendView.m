@@ -220,7 +220,7 @@
 
             }];
             [alertVC addAction:alertAc];
-            [LogicHandle presentViewController:alertAc animate:YES];
+            [LogicHandle presentViewController:alertVC animate:YES];
 
         } else if (state == TDTouchIDStateSuccess) {    //TouchID/FaceID验证成功
             if (self.homeWalletModel.type == 1) {

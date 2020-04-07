@@ -569,7 +569,9 @@
             }else{
                 [self scrollWithIndex:6];
 //                [self.scrollView setContentOffset:CGPointMake(kScreenWidth *5, 0) animated:NO];
-                [self recoverWithICloud];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self recoverWithICloud];
+                });
             }
         }else{
 //            [WMHUDUntil showMessageToWindow:@"face error"];
@@ -699,7 +701,13 @@
     [LBXZBarWrapper recognizeImage:image block:^(NSArray<LBXZbarResult *> *result) {
         LBXZbarResult *firstObj = result[0];
         NSString *scanedStr = firstObj.strScanned;
-        [self recoverWithScanedStr:scanedStr];
+        if(scanedStr && scanedStr.length>0){
+            [self recoverWithScanedStr:scanedStr];
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [WMHUDUntil showMessageToWindow:@"image error"];
+            });
+        }
     }];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

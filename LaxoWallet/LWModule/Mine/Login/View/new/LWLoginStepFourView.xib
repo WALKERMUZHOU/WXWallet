@@ -134,14 +134,14 @@
                         <constraint firstAttribute="height" constant="1" id="e2n-bC-muN"/>
                     </constraints>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_CSG" translatesAutoresizingMaskIntoConstraints="NO" id="Ap9-dQ-7aQ">
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_CSG" translatesAutoresizingMaskIntoConstraints="NO" id="Ap9-dQ-7aQ">
                     <rect key="frame" x="20" y="345.5" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="8TN-T3-nuT"/>
                         <constraint firstAttribute="height" constant="50" id="peb-rL-qbn"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoinStorageGuru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A27-U6-e0z">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoinStorageGuru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A27-U6-e0z">
                     <rect key="frame" x="90" y="349.5" width="134.5" height="19"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="19" id="CP3-Bn-Mm0"/>
@@ -150,7 +150,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="coinstorage.guru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODW-8C-PXj">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="coinstorage.guru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODW-8C-PXj">
                     <rect key="frame" x="90" y="377.5" width="96" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="e7i-oT-rcQ"/>
@@ -159,7 +159,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" tag="10001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOp-6S-hT0">
+                <button hidden="YES" opaque="NO" tag="10001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOp-6S-hT0">
                     <rect key="frame" x="325" y="355.5" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="CxY-Ul-yg0"/>
@@ -172,7 +172,7 @@
                         <action selector="selectClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Qfk-TZ-ojD"/>
                     </connections>
                 </button>
-                <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzq-BN-Yl9">
+                <view hidden="YES" alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzq-BN-Yl9">
                     <rect key="frame" x="0.0" y="413.5" width="375" height="1"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     <constraints>

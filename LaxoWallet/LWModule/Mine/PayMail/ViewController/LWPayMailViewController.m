@@ -32,9 +32,13 @@
 @property (nonatomic, assign) BOOL currencySufficient;
 @property (nonatomic, assign) BOOL isFirstPayMail;
 
+@property (nonatomic, assign) BOOL goToRegistepayMail;
+
 @end
 
-@implementation LWPayMailViewController
+@implementation LWPayMailViewController{
+    BOOL _keyboardIsVisible;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -76,6 +80,29 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addMailResult:) name:kWebScoket_paymail_add object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress_change object:nil];
 
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center  addObserver:self selector:@selector(keyboardDidShow)  name:UIKeyboardDidShowNotification  object:nil];
+    [center addObserver:self selector:@selector(keyboardDidHide)  name:UIKeyboardWillHideNotification object:nil];
+     _keyboardIsVisible = NO;
+    
+//    UIButton *buttonRight = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+//    buttonRight.backgroundColor = [UIColor redColor];
+//    [self.view addSubview:buttonRight];
+//    [buttonRight addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)keyboardDidShow{
+    _keyboardIsVisible = YES;
+}
+ 
+- (void)keyboardDidHide{
+     _keyboardIsVisible = NO;
+}
+
+- (void)buttonClick{
+    self.goToRegistepayMail = YES;
+    [self.view endEditing:YES];
 }
 
 - (void)refreshBuyButton{
@@ -91,6 +118,7 @@
 }
 
 - (IBAction)personBtnClick:(UIButton *)sender {
+
     if (sender.isSelected) {
         return;
     }
@@ -108,6 +136,7 @@
 }
 
 - (IBAction)buyNewBtnClick:(UIButton *)sender {
+
     if (sender.isSelected) {
           return;
       }
@@ -124,10 +153,20 @@
     
 }
 - (IBAction)buyClick:(UIButton *)sender {
+    if (_keyboardIsVisible) {
+        self.goToRegistepayMail = YES;
+        [self.view endEditing:YES];
+    }else{
+        [self buyLogic];
+    }
+}
+
+- (void)buyLogic{
     if (!self.payMailTF.text || self.payMailTF.text.length == 0) {
         [WMHUDUntil showMessageToWindow:@"please input paymail"];
         return;
     }
+    
     if ([self.statueLabel.text isEqualToString:@"UnAvailable!"] || self.statueLabel.hidden) {
         [WMHUDUntil showMessageToWindow:@"UnAvailable paymail"];
         return;
@@ -146,6 +185,14 @@
 
 #pragma mark - textfield
 - (void)textFieldDidEndEditing:(UITextField *)textField{
+    if (self.goToRegistepayMail) {
+        if (!self.payMailTF.text || self.payMailTF.text.length == 0) {
+            [WMHUDUntil showMessageToWindow:@"please input paymail"];
+            self.goToRegistepayMail = NO;
+            return;
+        }
+    }
+    
     if (textField.text.length>0) {
         [self verifyPaymailAddress];
     }
@@ -167,10 +214,25 @@
     NSDictionary *notiDic = notification.object;
     self.statueLabel.hidden = NO;
     if ([[notiDic objectForKey:@"success"] integerValue] == 1 ) {
-        self.statueLabel.text = @"Available!";
-           self.statueLabel.textColor = lwColorNormal;
-        
+        NSInteger dataInterger = [notiDic ds_integerForKey:@"data"];
+        if (dataInterger > 0) {
+            self.statueLabel.text = @"UnAvailable!";
+            self.statueLabel.textColor = lwColorRedLight;
+            if (self.goToRegistepayMail) {
+                self.goToRegistepayMail = NO;
+                [WMHUDUntil showMessageToWindow:@"UnAvailable Paymail"];
+            }
+        }else{
+            self.statueLabel.text = @"Available!";
+            self.statueLabel.textColor = lwColorNormal;
+
+            if (self.goToRegistepayMail) {
+                self.goToRegistepayMail = NO;
+                [self buyLogic];
+            }
+        }
     }else{
+        self.goToRegistepayMail = NO;
         self.statueLabel.text = @"UnAvailable!";
         self.statueLabel.textColor = lwColorRedLight;
     }

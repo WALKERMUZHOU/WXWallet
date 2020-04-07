@@ -35,26 +35,18 @@ static LWTrusteeManager *instance = nil;
     self.trusteeArr = model;
     NSString *path = [[self class] obtainDeviceDataPath];
 
-    if(@available(iOS 12,*)){
+    if(@available(iOS 11,*)){
         NSData *archiverdata = [NSKeyedArchiver archivedDataWithRootObject:self.trusteeArr requiringSecureCoding:NO error:nil];
         [archiverdata writeToFile:path atomically:YES];
     }else{
         [NSKeyedArchiver archiveRootObject:self.trusteeArr toFile:path];
     }
-
 }
 
 - (NSArray *)trusteeInfoUnArchieve{
     NSData *data = [[NSMutableData alloc] initWithContentsOfFile:[[self class] obtainDeviceDataPath]];
-    if(@available(iOS 12,*)){
-        NSArray *model = [NSKeyedUnarchiver unarchiveObjectWithData:data exception:nil];
-        return model;
-
-    }else{
-        id arrayData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        return arrayData;
-    }
-
+    NSArray *model = [NSKeyedUnarchiver unarchiveObjectWithData:data exception:nil];
+    return model;
 }
 
 /**

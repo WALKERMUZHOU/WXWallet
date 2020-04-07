@@ -36,13 +36,22 @@ static LWUserManager *instance = nil;
 - (void)userInfoArchieve:(LWUserModel *)model{
     [self clearUser];
     self.model = model;
-    NSMutableData *deviceData = [[NSMutableData alloc] init];
+//    NSMutableData *deviceData = [[NSMutableData alloc] init];
 //    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:deviceData];
 //    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initRequiringSecureCoding:YES];
 //    [archiver encodeObject:self.model forKey:kUserInfo_key];
 //    [archiver finishEncoding];
-    NSData *daaarc = [NSKeyedArchiver archivedDataWithRootObject:model requiringSecureCoding:NO error:nil];
-    [daaarc writeToFile:[[self class] obtainDeviceDataPath] atomically:YES];
+//    NSData *daaarc = [NSKeyedArchiver archivedDataWithRootObject:model requiringSecureCoding:NO error:nil];
+//    [daaarc writeToFile:[[self class] obtainDeviceDataPath] atomically:YES];
+ 
+    NSString *path = [[self class] obtainDeviceDataPath];
+
+    if(@available(iOS 11,*)){
+        NSData *archiverdata = [NSKeyedArchiver archivedDataWithRootObject:self.model requiringSecureCoding:NO error:nil];
+        [archiverdata writeToFile:path atomically:YES];
+    }else{
+        [NSKeyedArchiver archiveRootObject:self.model toFile:path];
+    }
 }
 
 /**
@@ -52,12 +61,16 @@ static LWUserManager *instance = nil;
  */
 - (LWUserModel *)userInfoUnArchieve{
     NSData *data = [[NSMutableData alloc] initWithContentsOfFile:[[self class] obtainDeviceDataPath]];
+    LWUserModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:data exception:nil];
+    return model;
+
+    
 //    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:nil];
     
 //   NSKeyedUnarchiver *archiver = [[NSKeyedUnarchiver alloc] initRequiringSecureCoding:YES];
-    LWUserModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:data exception:nil];
 //    [unarchiver finishDecoding];
-    return model;
+//    LWUserModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:data exception:nil];
+//    return model;
 }
 
 /**

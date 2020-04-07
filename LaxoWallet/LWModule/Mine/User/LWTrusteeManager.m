@@ -33,22 +33,28 @@ static LWTrusteeManager *instance = nil;
 - (void)trusteeInfoArchieve:(NSArray *)model{
     [self clearTrustee];
     self.trusteeArr = model;
-    NSMutableData *deviceData = [[NSMutableData alloc] init];
-//    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:deviceData];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initRequiringSecureCoding:NO];
-    NSData *archiverdata = [NSKeyedArchiver archivedDataWithRootObject:self.trusteeArr requiringSecureCoding:NO error:nil];
-//    [archiver encodeObject:self.trusteeArr forKey:kTrusteeInfo_key];
-//    [archiver finishEncoding];
-    [archiverdata writeToFile:[[self class] obtainDeviceDataPath] atomically:YES];
+    NSString *path = [[self class] obtainDeviceDataPath];
+
+    if(@available(iOS 12,*)){
+        NSData *archiverdata = [NSKeyedArchiver archivedDataWithRootObject:self.trusteeArr requiringSecureCoding:NO error:nil];
+        [archiverdata writeToFile:path atomically:YES];
+    }else{
+        [NSKeyedArchiver archiveRootObject:self.trusteeArr toFile:path];
+    }
+
 }
 
 - (NSArray *)trusteeInfoUnArchieve{
     NSData *data = [[NSMutableData alloc] initWithContentsOfFile:[[self class] obtainDeviceDataPath]];
-//    [NSKeyedUnarchiver unarchiveObjectWithData:data exception:nil];
-//    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:nil];
-    NSArray *model = [NSKeyedUnarchiver unarchiveObjectWithData:data exception:nil];
-//    [unarchiver finishDecoding];
-    return model;
+    if(@available(iOS 12,*)){
+        NSArray *model = [NSKeyedUnarchiver unarchiveObjectWithData:data exception:nil];
+        return model;
+
+    }else{
+        id arrayData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        return arrayData;
+    }
+
 }
 
 /**

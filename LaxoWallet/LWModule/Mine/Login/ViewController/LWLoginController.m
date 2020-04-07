@@ -338,7 +338,7 @@
            if (![dataID isKindOfClass:[NSDictionary class]]) {
                if (dataID == NO || [dataID integerValue] == 0) {
                     [SVProgressHUD dismiss];
-                    [WMHUDUntil showMessageToWindow:@"验证失败"];
+                    [WMHUDUntil showMessageToWindow:@"Error Code"];
                     return ;
                 }
            }
@@ -360,7 +360,7 @@
 //                   [self.scrollView setContentOffset:CGPointMake(kScreenWidth *3, 0) animated:YES];
                }
            }else{
-               [WMHUDUntil showMessageToWindow:@"验证失败"];
+               [WMHUDUntil showMessageToWindow:@"Error Code"];
            }
        } WithFailBlock:^(id  _Nonnull data) {
            [SVProgressHUD dismiss];
@@ -387,7 +387,7 @@
                    }
                   dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
               } WithFailBlock:^(id  _Nonnull data) {
-                  [WMHUDUntil showMessageToWindow:@"请求失败"];
+                  [WMHUDUntil showMessageToWindow:@"Request Fail"];
                   dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
                   return ;
               }];
@@ -416,7 +416,7 @@
         if (![dataID isKindOfClass:[NSDictionary class]]) {
             if (dataID == NO || [dataID integerValue] == 0) {
                  [SVProgressHUD dismiss];
-                 [WMHUDUntil showMessageToWindow:@"验证失败"];
+                 [WMHUDUntil showMessageToWindow:@"Error Code"];
                  return ;
              }
         }
@@ -432,7 +432,7 @@
                 [self registerMethod];
             }
         }else{
-            [WMHUDUntil showMessageToWindow:@"验证失败"];
+            [WMHUDUntil showMessageToWindow:@"Error Code"];
         }
     } WithFailBlock:^(id  _Nonnull data) {
         [SVProgressHUD dismiss];
@@ -699,6 +699,13 @@
     }
     
     [LBXZBarWrapper recognizeImage:image block:^(NSArray<LBXZbarResult *> *result) {
+        if (result.count == 0 || !result) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [WMHUDUntil showMessageToWindow:@"image error"];
+            });
+            return ;
+        }
+        
         LBXZbarResult *firstObj = result[0];
         NSString *scanedStr = firstObj.strScanned;
         if(scanedStr && scanedStr.length>0){
@@ -731,7 +738,6 @@
 
 #pragma mark recoverWithIcloud
 - (void)recoverWithICloud{
-    return;
     NSString *recoverCode = [iCloudHandle getKeyValueICloudStoreWithKey:self.emailStr];
     if (recoverCode && recoverCode.length >0) {
         [SVProgressHUD showWithStatus:@"recover from icloud"];

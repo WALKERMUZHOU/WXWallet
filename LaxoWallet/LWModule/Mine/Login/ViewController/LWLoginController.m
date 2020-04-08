@@ -11,6 +11,7 @@
 #import "LWLoginStepTwoView.h"
 #import "LWLoginStepThreeView.h"
 #import "LWLoginStepFourView.h"
+#import "LWLoginStepFiveViewOne.h"
 #import "LWLoginStepFiveView.h"
 #import "LWLoginStepSixView.h"
 #import "LWLoginStepSevenView.h"
@@ -143,32 +144,26 @@
     LWLoginStepFiveView *view5 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepFiveView class]) owner:nil options:nil].lastObject;
     view5.frame = CGRectMake(0 * 4, 0, kScreenWidth,viewHeight);
     view5.block = ^{
-        //摄像头
-        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-        if (authStatus == AVAuthorizationStatusRestricted|| authStatus == AVAuthorizationStatusDenied) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [WMHUDUntil showMessageToWindow:@"Please get camera permission"];
-            });
-            // 获取摄像头失败
-        }else if(authStatus == AVAuthorizationStatusNotDetermined || authStatus == AVAuthorizationStatusAuthorized){
-            //判断点击是允许还是拒绝
-            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-                if (granted) {// 获取摄像头成功
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self bottom2Click];
-                    });
-                }else {// 获取摄像头失败
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [WMHUDUntil showMessageToWindow:@"Please get camera permission"];
-                    });
-                }
-            }];
-        }else{
-            // 获取摄像头成功
-        }
+        [self getTheCameraAuth];
     };
     [scrollView5 addSubview:view5];
 
+    UIScrollView *scrollView51 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth, topHeight, kScreenWidth, viewHeight)];
+    scrollView51.showsVerticalScrollIndicator = NO;
+    scrollView51.showsHorizontalScrollIndicator = NO;
+    scrollView51.scrollsToTop = NO;
+    scrollView51.backgroundColor = [UIColor whiteColor];
+    scrollView51.contentSize= CGSizeMake(kScreenWidth, viewHeight);
+    [self.view addSubview:scrollView51];
+    scrollView51.tag = 51;
+
+    LWLoginStepFiveViewOne *view51 = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWLoginStepFiveViewOne class]) owner:nil options:nil].lastObject;
+    view51.frame = CGRectMake(0 * 4, 0, kScreenWidth,viewHeight);
+    view51.block = ^{
+        [self getTheCameraAuth];
+    };
+    [scrollView51 addSubview:view51];
+    
     UIScrollView *scrollView6 = [[UIScrollView alloc]initWithFrame:CGRectMake(kScreenWidth,topHeight, kScreenWidth, viewHeight)];
     scrollView6.showsVerticalScrollIndicator = NO;
     scrollView6.showsHorizontalScrollIndicator = NO;
@@ -257,6 +252,9 @@
         scrollView5.contentSize= CGSizeMake(kScreenWidth, 620);
         view5.frame = CGRectMake(0, 0, kScreenWidth,620);
 
+        scrollView51.contentSize= CGSizeMake(kScreenWidth, 620);
+        view51.frame = CGRectMake(0, 0, kScreenWidth,620);
+        
         scrollView6.contentSize= CGSizeMake(kScreenWidth, 620);
         view6.frame = CGRectMake(0, 0, kScreenWidth,620);
 
@@ -285,6 +283,9 @@
         scrollView5.contentSize= CGSizeMake(kScreenWidth, 680);
         view5.frame = CGRectMake(0, 0, kScreenWidth,680);
 
+        scrollView51.contentSize= CGSizeMake(kScreenWidth, 680);
+        view51.frame = CGRectMake(0, 0, kScreenWidth,680);
+        
         scrollView6.contentSize= CGSizeMake(kScreenWidth, 530);
         view6.frame = CGRectMake(0, 0, kScreenWidth,530);
 
@@ -345,7 +346,7 @@
                NSString *uid =  [dataDic ds_stringForKey:@"uid"];
                
                if(uid && uid.length>0){//老用户
-                   [self scrollWithIndex:5];
+                   [self scrollWithIndex:51];
 //                   [self.scrollView setContentOffset:CGPointMake(kScreenWidth *4, 0) animated:NO];
                }else{//新用户
                    //选择thrustholds
@@ -445,7 +446,7 @@
     char *pk = derive_key(seed, [LWAddressTool stringToChar:@"m/0"]);
     char *secret = sha256(pk);
     char *shares = get_shares(seed, 2, 2);
-    char *recover_seed = combine_shares(shares);
+//    char *recover_seed = combine_shares(shares);
     char *publickey = get_public_key(pk);
     char *xpub = get_xpub(seed);
     NSString *shares_str = [LWAddressTool charToString:shares];
@@ -522,6 +523,33 @@
 }
 
 #pragma mark - face
+
+- (void)getTheCameraAuth{
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (authStatus == AVAuthorizationStatusRestricted|| authStatus == AVAuthorizationStatusDenied) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [WMHUDUntil showMessageToWindow:@"Please get camera permission"];
+        });
+        // 获取摄像头失败
+    }else if(authStatus == AVAuthorizationStatusNotDetermined || authStatus == AVAuthorizationStatusAuthorized){
+        //判断点击是允许还是拒绝
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+            if (granted) {// 获取摄像头成功
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self bottom2Click];
+                });
+            }else {// 获取摄像头失败
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [WMHUDUntil showMessageToWindow:@"Please get camera permission"];
+                });
+            }
+        }];
+    }else{
+        // 获取摄像头成功
+    }
+
+}
+
 - (void)bottom1Click{
     if ([[FaceSDKManager sharedInstance] canWork]) {
          NSString* licensePath = [[NSBundle mainBundle] pathForResource:FACE_LICENSE_NAME ofType:FACE_LICENSE_SUFFIX];

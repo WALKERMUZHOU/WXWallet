@@ -14,7 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CoreBitcoin.xcscheme</key>
+		<key>Bugly.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -29,12 +29,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>IQKeyboardManager.xcscheme</key>
+		<key>GTSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ISO8601DateFormatter.xcscheme</key>
+		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -69,12 +69,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>OpenSSL-Universal.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-LaxoWallet.xcscheme</key>
+		<key>Pods-LaxoWallet_ab-LaxoWallet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

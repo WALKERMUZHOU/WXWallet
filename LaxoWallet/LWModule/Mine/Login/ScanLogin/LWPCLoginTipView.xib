@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LWPCLoginTipView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_pcLogin" translatesAutoresizingMaskIntoConstraints="NO" id="06F-dA-lxf">
+                    <rect key="frame" x="20" y="19" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="Wi4-rU-OM4"/>
+                        <constraint firstAttribute="width" constant="22" id="mzt-xz-L77"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MO4-1d-xcE">
+                    <rect key="frame" x="60" y="20.5" width="169" height="19"/>
+                    <attributedString key="attributedText">
+                        <fragment content="Logged in to Volt for PC">
+                            <attributes>
+                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <font key="NSFont" size="16" name="Roboto-Regular"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vF7-3J-gdb">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                    <connections>
+                        <action selector="buttinClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="nMg-ax-o1t"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.94499540329999998" green="0.94515722989999995" blue="0.94498521089999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="MO4-1d-xcE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8bU-uB-Z37"/>
+                <constraint firstAttribute="trailing" secondItem="vF7-3J-gdb" secondAttribute="trailing" id="BMl-94-mP0"/>
+                <constraint firstAttribute="bottom" secondItem="vF7-3J-gdb" secondAttribute="bottom" id="QTr-dr-KDE"/>
+                <constraint firstItem="06F-dA-lxf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dDL-P1-eHm"/>
+                <constraint firstItem="MO4-1d-xcE" firstAttribute="leading" secondItem="06F-dA-lxf" secondAttribute="trailing" constant="18" id="eJk-hF-tc2"/>
+                <constraint firstItem="vF7-3J-gdb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jan-Vx-3QN"/>
+                <constraint firstItem="vF7-3J-gdb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kVg-rg-k4e"/>
+                <constraint firstItem="06F-dA-lxf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="q7P-kU-uj0"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="131.8840579710145" y="-182.14285714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="login_pcLogin" width="22" height="22"/>
+    </resources>
+</document>

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E062EC8243DA409009B286E /* LWPCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E062EC6243DA409009B286E /* LWPCLoginViewController.m */; };
+		5E062EC9243DA409009B286E /* LWPCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E062EC7243DA409009B286E /* LWPCLoginViewController.xib */; };
+		5E062ECC243DA473009B286E /* LWPCLoginTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E062ECB243DA473009B286E /* LWPCLoginTipView.m */; };
+		5E062ECE243DA47F009B286E /* LWPCLoginTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E062ECD243DA47F009B286E /* LWPCLoginTipView.xib */; };
 		5E07FD112420B60600FA3E1F /* LWLoginStepSixView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD102420B60600FA3E1F /* LWLoginStepSixView.m */; };
 		5E07FD132420B61300FA3E1F /* LWLoginStepSixView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD122420B61300FA3E1F /* LWLoginStepSixView.xib */; };
 		5E07FD162420B87300FA3E1F /* LWLoginStepSevenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD152420B87300FA3E1F /* LWLoginStepSevenView.m */; };
@@ -214,7 +218,6 @@
 		5E7BACAE242B4FC400901EA5 /* LWBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACAD242B4FC400901EA5 /* LWBaseWebViewController.m */; };
 		5E7BACB4242B4FDF00901EA5 /* IMYWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACB0242B4FDF00901EA5 /* IMYWebView.m */; };
 		5E7BACB5242B4FDF00901EA5 /* IMY_NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACB3242B4FDF00901EA5 /* IMY_NJKWebViewProgress.m */; };
-		5E7BACB8242B6AC200901EA5 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7BACB7242B6AC100901EA5 /* Bugly.framework */; };
 		5E7BACBA242B6C3600901EA5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7BACB9242B6C3600901EA5 /* Security.framework */; };
 		5E7BACBE242C888E00901EA5 /* LWTransactionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACBD242C888E00901EA5 /* LWTransactionModel.m */; };
 		5E7BACC2242CC48500901EA5 /* LWMultipyUserStatueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACC0242CC48500901EA5 /* LWMultipyUserStatueViewController.m */; };
@@ -288,6 +291,8 @@
 		5E9918B4241E70C6005D6A38 /* LWLoginStepFiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9918B3241E70C6005D6A38 /* LWLoginStepFiveView.m */; };
 		5E9918B6241E70D3005D6A38 /* LWLoginStepFiveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9918B5241E70D3005D6A38 /* LWLoginStepFiveView.xib */; };
 		5E9918B9241E9E61005D6A38 /* FCAnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9918B8241E9E61005D6A38 /* FCAnimateView.m */; };
+		5E9A52FF243D638E00182E1B /* LWLoginStepFiveViewOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A52FE243D638E00182E1B /* LWLoginStepFiveViewOne.m */; };
+		5E9A5301243D639D00182E1B /* LWLoginStepFiveViewOne.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A5300243D639D00182E1B /* LWLoginStepFiveViewOne.xib */; };
 		5EA1D49223FA527E00A0A747 /* SocketRocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */; };
 		5EA8079A23E94E2100012837 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079923E94E2100012837 /* AppDelegate.m */; };
 		5EA8079D23E94E2100012837 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079C23E94E2100012837 /* SceneDelegate.m */; };
@@ -367,6 +372,7 @@
 		5EF513E423F550F200F5B6C1 /* LWInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF513D823F550F100F5B6C1 /* LWInputTextView.m */; };
 		5EF513E723F5510E00F5B6C1 /* LWFaceBindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF513E623F5510E00F5B6C1 /* LWFaceBindViewController.m */; };
 		5EFC51C82411E19200BE9DDB /* LWSignTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC51C72411E19200BE9DDB /* LWSignTool.m */; };
+		BE15F556232A513DF1FBCC66 /* libPods-LaxoWallet_ab-LaxoWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A76DF2B545984813F27E395 /* libPods-LaxoWallet_ab-LaxoWallet.a */; };
 		EFEBEEA823FE57C0006D4B5F /* LWBottomLineInputTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEBEEA723FE57C0006D4B5F /* LWBottomLineInputTextField.m */; };
 /* End PBXBuildFile section */
 
@@ -388,8 +394,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		157E43618FB325577C157B22 /* Pods-LaxoWallet_ab-LaxoWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaxoWallet_ab-LaxoWallet.release.xcconfig"; path = "Target Support Files/Pods-LaxoWallet_ab-LaxoWallet/Pods-LaxoWallet_ab-LaxoWallet.release.xcconfig"; sourceTree = "<group>"; };
 		188A899FDE346915C2A47241 /* Pods-LaxoWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaxoWallet.debug.xcconfig"; path = "Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		25333CCFD54DFB01F4502BBC /* Pods-LaxoWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaxoWallet.release.xcconfig"; path = "Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet.release.xcconfig"; sourceTree = "<group>"; };
+		38D8A96A1488396231FD13ED /* Pods-LaxoWallet_ab-LaxoWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaxoWallet_ab-LaxoWallet.debug.xcconfig"; path = "Target Support Files/Pods-LaxoWallet_ab-LaxoWallet/Pods-LaxoWallet_ab-LaxoWallet.debug.xcconfig"; sourceTree = "<group>"; };
+		5A76DF2B545984813F27E395 /* libPods-LaxoWallet_ab-LaxoWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LaxoWallet_ab-LaxoWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E062EB8243D9E1A009B286E /* LaxoWallet.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = LaxoWallet.entitlements; sourceTree = "<group>"; };
+		5E062EC5243DA409009B286E /* LWPCLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPCLoginViewController.h; sourceTree = "<group>"; };
+		5E062EC6243DA409009B286E /* LWPCLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPCLoginViewController.m; sourceTree = "<group>"; };
+		5E062EC7243DA409009B286E /* LWPCLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWPCLoginViewController.xib; sourceTree = "<group>"; };
+		5E062ECA243DA473009B286E /* LWPCLoginTipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPCLoginTipView.h; sourceTree = "<group>"; };
+		5E062ECB243DA473009B286E /* LWPCLoginTipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPCLoginTipView.m; sourceTree = "<group>"; };
+		5E062ECD243DA47F009B286E /* LWPCLoginTipView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWPCLoginTipView.xib; sourceTree = "<group>"; };
 		5E07FD0F2420B60600FA3E1F /* LWLoginStepSixView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepSixView.h; sourceTree = "<group>"; };
 		5E07FD102420B60600FA3E1F /* LWLoginStepSixView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepSixView.m; sourceTree = "<group>"; };
 		5E07FD122420B61300FA3E1F /* LWLoginStepSixView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepSixView.xib; sourceTree = "<group>"; };
@@ -764,7 +780,6 @@
 		5E7BACB0242B4FDF00901EA5 /* IMYWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMYWebView.m; sourceTree = "<group>"; };
 		5E7BACB2242B4FDF00901EA5 /* IMY_NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMY_NJKWebViewProgress.h; sourceTree = "<group>"; };
 		5E7BACB3242B4FDF00901EA5 /* IMY_NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMY_NJKWebViewProgress.m; sourceTree = "<group>"; };
-		5E7BACB7242B6AC100901EA5 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
 		5E7BACB9242B6C3600901EA5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5E7BACBB242B6C4B00901EA5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5E7BACBC242C888E00901EA5 /* LWTransactionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTransactionModel.h; sourceTree = "<group>"; };
@@ -866,7 +881,6 @@
 		5E91735824163DEB00D47A9F /* FaceParameterConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceParameterConfig.h; sourceTree = "<group>"; };
 		5E91735A24163DEB00D47A9F /* LivingConfigModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivingConfigModel.m; sourceTree = "<group>"; };
 		5E91735B24163DEB00D47A9F /* LivingConfigModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivingConfigModel.h; sourceTree = "<group>"; };
-		5E9173652416538600D47A9F /* LaxoWallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LaxoWallet.entitlements; sourceTree = "<group>"; };
 		5E91736724172B5300D47A9F /* LWTansactionTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTansactionTool.h; sourceTree = "<group>"; };
 		5E91736824172B5300D47A9F /* LWTansactionTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTansactionTool.m; sourceTree = "<group>"; };
 		5E91736A241878D800D47A9F /* LWEncryptTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWEncryptTool.h; sourceTree = "<group>"; };
@@ -891,6 +905,9 @@
 		5E9918B5241E70D3005D6A38 /* LWLoginStepFiveView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepFiveView.xib; sourceTree = "<group>"; };
 		5E9918B7241E9E61005D6A38 /* FCAnimateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCAnimateView.h; sourceTree = "<group>"; };
 		5E9918B8241E9E61005D6A38 /* FCAnimateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCAnimateView.m; sourceTree = "<group>"; };
+		5E9A52FD243D638E00182E1B /* LWLoginStepFiveViewOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepFiveViewOne.h; sourceTree = "<group>"; };
+		5E9A52FE243D638E00182E1B /* LWLoginStepFiveViewOne.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepFiveViewOne.m; sourceTree = "<group>"; };
+		5E9A5300243D639D00182E1B /* LWLoginStepFiveViewOne.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepFiveViewOne.xib; sourceTree = "<group>"; };
 		5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketUtility.m; sourceTree = "<group>"; };
 		5EA1D49023FA527E00A0A747 /* SocketRocketUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketUtility.h; sourceTree = "<group>"; };
 		5EA8079523E94E2100012837 /* Volt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1053,13 +1070,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E7BACB8242B6AC200901EA5 /* Bugly.framework in Frameworks */,
 				5E9172E624163CB300D47A9F /* libc++.tbd in Frameworks */,
 				5EF5133023F1090000F5B6C1 /* JavaScriptCore.framework in Frameworks */,
 				5E9172DD2416376100D47A9F /* IDLFaceSDK.framework in Frameworks */,
 				5E7BACBA242B6C3600901EA5 /* Security.framework in Frameworks */,
 				5EC1A991240F52F70086ED19 /* libthresholdsig.a in Frameworks */,
 				5E9172BF241528B700D47A9F /* secp256k1.framework in Frameworks */,
+				BE15F556232A513DF1FBCC66 /* libPods-LaxoWallet_ab-LaxoWallet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1088,6 +1105,7 @@
 				5E9172E524163CA100D47A9F /* libc++.tbd */,
 				5EF5132F23F1090000F5B6C1 /* JavaScriptCore.framework */,
 				978A27D43A937A7EDE48D448 /* libPods-LaxoWallet.a */,
+				5A76DF2B545984813F27E395 /* libPods-LaxoWallet_ab-LaxoWallet.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1210,6 +1228,12 @@
 				5E3160D12424A81E005CA564 /* LWScanLoginViewController.h */,
 				5E3160D22424A81E005CA564 /* LWScanLoginViewController.m */,
 				5E3160D32424A81E005CA564 /* LWScanLoginViewController.xib */,
+				5E062EC5243DA409009B286E /* LWPCLoginViewController.h */,
+				5E062EC6243DA409009B286E /* LWPCLoginViewController.m */,
+				5E062EC7243DA409009B286E /* LWPCLoginViewController.xib */,
+				5E062ECA243DA473009B286E /* LWPCLoginTipView.h */,
+				5E062ECB243DA473009B286E /* LWPCLoginTipView.m */,
+				5E062ECD243DA47F009B286E /* LWPCLoginTipView.xib */,
 			);
 			path = ScanLogin;
 			sourceTree = "<group>";
@@ -1285,6 +1309,9 @@
 				5E9918B2241E70C6005D6A38 /* LWLoginStepFiveView.h */,
 				5E9918B3241E70C6005D6A38 /* LWLoginStepFiveView.m */,
 				5E9918B5241E70D3005D6A38 /* LWLoginStepFiveView.xib */,
+				5E9A52FD243D638E00182E1B /* LWLoginStepFiveViewOne.h */,
+				5E9A52FE243D638E00182E1B /* LWLoginStepFiveViewOne.m */,
+				5E9A5300243D639D00182E1B /* LWLoginStepFiveViewOne.xib */,
 				5E07FD0F2420B60600FA3E1F /* LWLoginStepSixView.h */,
 				5E07FD102420B60600FA3E1F /* LWLoginStepSixView.m */,
 				5E07FD122420B61300FA3E1F /* LWLoginStepSixView.xib */,
@@ -2179,14 +2206,6 @@
 			path = UIWebViewProgress;
 			sourceTree = "<group>";
 		};
-		5E7BACB6242B6AC100901EA5 /* Bugly */ = {
-			isa = PBXGroup;
-			children = (
-				5E7BACB7242B6AC100901EA5 /* Bugly.framework */,
-			);
-			path = Bugly;
-			sourceTree = "<group>";
-		};
 		5E7BACC4242D0E5E00901EA5 /* CloudHandle */ = {
 			isa = PBXGroup;
 			children = (
@@ -2374,7 +2393,7 @@
 		5EA8079723E94E2100012837 /* LaxoWallet */ = {
 			isa = PBXGroup;
 			children = (
-				5E9173652416538600D47A9F /* LaxoWallet.entitlements */,
+				5E062EB8243D9E1A009B286E /* LaxoWallet.entitlements */,
 				5EA807CF23E94ED500012837 /* LWModule */,
 				5EA807CD23E94ED500012837 /* LWAdapt */,
 				5EA807CE23E94ED500012837 /* LWPublic */,
@@ -2416,7 +2435,6 @@
 			isa = PBXGroup;
 			children = (
 				5E7BACC4242D0E5E00901EA5 /* CloudHandle */,
-				5E7BACB6242B6AC100901EA5 /* Bugly */,
 				5E7BACA7242B4E3C00901EA5 /* WebView */,
 				5E9172D82416376100D47A9F /* FaceSDK */,
 				5E9172B7241528B700D47A9F /* secp256k1 */,
@@ -2790,6 +2808,8 @@
 			children = (
 				188A899FDE346915C2A47241 /* Pods-LaxoWallet.debug.xcconfig */,
 				25333CCFD54DFB01F4502BBC /* Pods-LaxoWallet.release.xcconfig */,
+				38D8A96A1488396231FD13ED /* Pods-LaxoWallet_ab-LaxoWallet.debug.xcconfig */,
+				157E43618FB325577C157B22 /* Pods-LaxoWallet_ab-LaxoWallet.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -2926,6 +2946,7 @@
 				5E66A34623EAB58C004097CB /* WMHUDUntil.bundle in Resources */,
 				5E9918A7241E6074005D6A38 /* LWLoginStepTwoView.xib in Resources */,
 				5EB31EC1240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib in Resources */,
+				5E062EC9243DA409009B286E /* LWPCLoginViewController.xib in Resources */,
 				5E755A9224230D6F00398413 /* LWPersonalSendViewController.xib in Resources */,
 				5E7C3BDE2435C70D0086D1EB /* Roboto-Regular.ttf in Resources */,
 				5E3160CF2424A00A005CA564 /* LWScanResultViewController.xib in Resources */,
@@ -2944,11 +2965,13 @@
 				5E755A9724230D6F00398413 /* LWPersoanlReceiveView.xib in Resources */,
 				5E9918B6241E70D3005D6A38 /* LWLoginStepFiveView.xib in Resources */,
 				5E07FD39242204DD00FA3E1F /* LWCreateMultipyWalletViewController.xib in Resources */,
+				5E9A5301243D639D00182E1B /* LWLoginStepFiveViewOne.xib in Resources */,
 				5E9918B1241E68A9005D6A38 /* LWLoginStepFourView.xib in Resources */,
 				5E7E093E2429F6A700C75C0F /* LWReceivedViewAlertView.xib in Resources */,
 				5EB31E8724041CAF00974FD4 /* LWMineSecurityTableViewCell.xib in Resources */,
 				5E0FE6962408E72D00733B05 /* index.js in Resources */,
 				5E07FD222420BC0D00FA3E1F /* LWLoginStepSuccessView.xib in Resources */,
+				5E062ECE243DA47F009B286E /* LWPCLoginTipView.xib in Resources */,
 				5E31611B24279CA3005CA564 /* LWSignStauteBottomView.xib in Resources */,
 				5E3160DA2424E06F005CA564 /* LWMultipypaySuccessViewController.xib in Resources */,
 				5E31610B24278485005CA564 /* LWSignessSatuteView.xib in Resources */,
@@ -3019,7 +3042,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LaxoWallet-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-LaxoWallet_ab-LaxoWallet-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3032,15 +3055,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-LaxoWallet_ab-LaxoWallet/Pods-LaxoWallet_ab-LaxoWallet-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-LaxoWallet_ab-LaxoWallet/Pods-LaxoWallet_ab-LaxoWallet-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LaxoWallet/Pods-LaxoWallet-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LaxoWallet_ab-LaxoWallet/Pods-LaxoWallet_ab-LaxoWallet-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3072,6 +3095,7 @@
 				5E755A9524230D6F00398413 /* LWPersonalListTableViewCell.m in Sources */,
 				5E7E09222428CB1100C75C0F /* LWPaymailModel.m in Sources */,
 				5EF513E023F550F200F5B6C1 /* LWEmailBtn.m in Sources */,
+				5E9A52FF243D638E00182E1B /* LWLoginStepFiveViewOne.m in Sources */,
 				5E66A30823EAADA1004097CB /* AxcAE_TabBarItem.m in Sources */,
 				5EB31E9C2404BD1900974FD4 /* LWTextFieldAlertView.m in Sources */,
 				5E07FD38242204DD00FA3E1F /* LWCreateMultipyWalletViewController.m in Sources */,
@@ -3234,6 +3258,7 @@
 				5E3160D92424E06F005CA564 /* LWMultipypaySuccessViewController.m in Sources */,
 				5E3160F624271586005CA564 /* LWPayMailViewController.m in Sources */,
 				5E317A7D241E55F700C951B2 /* LWLoginController.m in Sources */,
+				5E062EC8243DA409009B286E /* LWPCLoginViewController.m in Sources */,
 				5E5F129623EC0E12002F0711 /* CalanderModel.m in Sources */,
 				5EF5136E23F1815400F5B6C1 /* QQLBXScanViewController.m in Sources */,
 				5E91736024163DEB00D47A9F /* CircleView.m in Sources */,
@@ -3275,6 +3300,7 @@
 				5EF5138B23F2CAD000F5B6C1 /* PublicKeyView.m in Sources */,
 				5EF5136A23F1811B00F5B6C1 /* LBXPermission.m in Sources */,
 				5E755A9A24230D6F00398413 /* LWPersoanlReceiveView.m in Sources */,
+				5E062ECC243DA473009B286E /* LWPCLoginTipView.m in Sources */,
 				5E66A3A423EAFF14004097CB /* LWHomeListHeaderView.m in Sources */,
 				5E07FD112420B60600FA3E1F /* LWLoginStepSixView.m in Sources */,
 				5EB31E992404BC9800974FD4 /* LWTextViewAlertView.m in Sources */,
@@ -3516,12 +3542,12 @@
 		};
 		5EA807C523E94E2400012837 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 188A899FDE346915C2A47241 /* Pods-LaxoWallet.debug.xcconfig */;
+			baseConfigurationReference = 38D8A96A1488396231FD13ED /* Pods-LaxoWallet_ab-LaxoWallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LaxoWallet/LaxoWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3532,6 +3558,7 @@
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/FaceSDK",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/FaceSDK/FaceSDK-Collect-WithLiveness-iOS/Frameworks/FaceSDK",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/Bugly",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/GtSdkLib-noidfa",
 				);
 				GCC_PREFIX_HEADER = /Users/zhuchenglong/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
 				INFOPLIST_FILE = LaxoWallet/Info.plist;
@@ -3554,12 +3581,12 @@
 		};
 		5EA807C623E94E2400012837 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25333CCFD54DFB01F4502BBC /* Pods-LaxoWallet.release.xcconfig */;
+			baseConfigurationReference = 157E43618FB325577C157B22 /* Pods-LaxoWallet_ab-LaxoWallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LaxoWallet/LaxoWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3570,6 +3597,7 @@
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/FaceSDK",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/FaceSDK/FaceSDK-Collect-WithLiveness-iOS/Frameworks/FaceSDK",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/Bugly",
+					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/GtSdkLib-noidfa",
 				);
 				GCC_PREFIX_HEADER = /Users/zhuchenglong/WXWallet/LaxoWallet/LWSupportFile/PrefixHeader.pch;
 				INFOPLIST_FILE = LaxoWallet/Info.plist;

@@ -86,9 +86,13 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
 static NSString * const kBaseAddress = @"https://api.laxo.io/api.json?";
 static NSString * const kWSAddress = @"wss://api.laxo.io/?";
 
+
+#define kGTSequenceUid [[LWUserManager shareInstance] getUserModel].uid
+
 #else
 static NSString * const kBaseAddress = @"http://192.168.0.106:7001/api.json?";
 static NSString * const kWSAddress = @"ws://192.168.0.106:7001/?";
+#define kGTSequenceUid     [NSString stringWithFormat:@"test%@",[[LWUserManager shareInstance] getUserModel].uid]
 
 #endif
 
@@ -99,6 +103,11 @@ static NSString * const kWSAddress = @"ws://192.168.0.106:7001/?";
 // （您申请的应用名称(appname)+「-face-ios」后缀，如申请的应用名称(appname)为test123，则此处填写test123-face-ios）
 // 在后台 -> 产品服务 -> 人脸识别 -> 客户端SDK管理查看，如果没有的话就新建一个
 #define FACE_LICENSE_ID        @"laxowallet-face-ios"
+
+// GTSDK 配置信息
+#define kGtAppId @"eKBdfXUs8V5tinpl6hPGh2"
+#define kGtAppKey @"AiaDPDiHeY9YGBVQATrxT"
+#define kGtAppSecret @"QiruDMnLOE99nK5J7fMUa4"
 
 
 #endif /* RequestApi_h */

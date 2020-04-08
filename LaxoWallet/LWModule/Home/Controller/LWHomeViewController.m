@@ -52,7 +52,7 @@
 
     [self createUI];
     [self getprikey];
-    
+    NSLog(@"uid:%@",kGTSequenceUid);
 //    NSDictionary *params = @{@"type":@1};
 //    NSArray *requestPersonalWalletArray = @[@"req",
 //                                            @(WSRequestIdWalletQueryPersonalWallet),
@@ -173,7 +173,7 @@
 
 - (void)startWebScoket:(NSString *)sig andmessage:(NSString *)message{
     NSString *uid = [[LWUserManager shareInstance] getUserModel].login_token;
-    NSString *requestStr = [NSString stringWithFormat:@"%@t=%@&sig=%@&uid=%@",kWSAddress,message,sig,uid];
+    NSString *requestStr = [NSString stringWithFormat:@"%@t=%@&sig=%@&uid=%@&device=ios",kWSAddress,message,sig,uid];
 //    NSString *requestStr = [NSString stringWithFormat:@"ws://192.168.0.106:7001/?t=%@&sig=%@&uid=%@",message,sig,uid];
     [[SocketRocketUtility instance] SRWebSocketOpenWithURLString:requestStr];
     

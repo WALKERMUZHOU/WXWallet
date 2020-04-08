@@ -108,138 +108,120 @@ static dispatch_once_t onceToken;
         
         [self initData];
 
-        NSMutableArray *keyArray = [NSMutableArray array];
-        for (NSInteger i =1 ; i<=1; i++) {
-            char *key_generate = create_key([self.pk cStringUsingEncoding:NSASCIIStringEncoding], self.party_num_int, self.party_count, 1, [self.p cStringUsingEncoding:NSASCIIStringEncoding], [self.q cStringUsingEncoding:NSASCIIStringEncoding]);
-            NSArray *key_generate_array = [LWAddressTool charToObject:key_generate];
-            [keyArray addObj:key_generate_array];
-        }
+            char *key_generate_char = create_key([self.pk cStringUsingEncoding:NSASCIIStringEncoding], self.party_num_int, self.party_count, 1, [self.p cStringUsingEncoding:NSASCIIStringEncoding], [self.q cStringUsingEncoding:NSASCIIStringEncoding]);
+            NSArray *key_generate_array = [LWAddressTool charToObject:key_generate_char];
         
-        for (NSInteger i = 0; i<keyArray.count; i++) {
-            NSArray *key_generate = keyArray[i];
+            NSArray *key_generate = key_generate_array;
             NSLog(@"broadCast1:begin");
              self->_semaphoreSignal = dispatch_semaphore_create(0);
              [self broadCast:1 data:key_generate[1]];
              dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
              NSLog(@"broadCast1:end");
-        }
         
-        NSMutableArray *secretsArray = [NSMutableArray array];
-        for (NSInteger i = 0; i<keyArray.count; i++) {
-            NSArray *key_generate = keyArray[i];
-            self->_getKeySignal = dispatch_semaphore_create(0);
-            NSArray *poll_for_broadCast_list_1 = [self poll_for_broadCast:1];;
-            dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+        self->_getKeySignal = dispatch_semaphore_create(0);
+        NSArray *poll_for_broadCast_list_1 = [self poll_for_broadCast:1];;
+        dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
               
-              char *key_handle_round1_char = key_handle_round1([LWAddressTool stringToChar:key_generate[0]], [LWAddressTool objectToChar:poll_for_broadCast_list_1]);
-              NSArray *key_handle_round1_array = [LWAddressTool charToObject:key_handle_round1_char];
-              NSArray *share_list = key_handle_round1_array.firstObject;
-              NSArray *vss = key_handle_round1_array.lastObject;
+        char *key_handle_round1_char = key_handle_round1([LWAddressTool stringToChar:key_generate[0]], [LWAddressTool objectToChar:poll_for_broadCast_list_1]);
+        NSArray *key_handle_round1_array = [LWAddressTool charToObject:key_handle_round1_char];
+        NSArray *share_list = key_handle_round1_array.firstObject;
+        NSArray *vss = key_handle_round1_array.lastObject;
               
-              //获取secret
-              NSInteger j = 0;
-              NSMutableArray *secrets = [NSMutableArray array];
-              for (NSInteger i = 1; i<PARTIES+1; i++) {
-                  if (i == self.party_num_int) {
+        //获取secret
+        NSInteger j = 0;
+        NSMutableArray *secrets = [NSMutableArray array];
+        for (NSInteger i = 1; i<PARTIES+1; i++) {
+            if (i == self.party_num_int) {
 
-                  }else{
-                      NSArray *list = poll_for_broadCast_list_1[j];
-                      NSString *firstObject_Str = list.firstObject;
-                      const char *firstObject_char = [firstObject_Str cStringUsingEncoding:NSUTF8StringEncoding];
-                      char *get_shared_secret_char = get_shared_secret([self.pk cStringUsingEncoding:NSUTF8StringEncoding], firstObject_char);
-                      [secrets addObj:[NSString stringWithFormat:@"%s",get_shared_secret_char]];
-                      NSLog(@"self.pk:%@ \n y_i:%@ \n result:%@",self.pk,firstObject_Str,[NSString stringWithFormat:@"%s",get_shared_secret_char]);
-                      j++;
-                  }
-              }
-              [secretsArray addObj:secrets];
-              
-              //对let item of share_list
-              for (NSInteger k = 0; k<share_list.count; k++) {
-                  NSArray *item = share_list[k];
-                  NSString *keytemp = [LWEncryptTool encrywithKey_tss:secrets[k] message:item[1]];
-                  
-                  self->_semaphoreSignal = dispatch_semaphore_create(0);
-                  [self sendp2p:[item[0] integerValue] round:2 data:keytemp];
-                  NSLog(@"sendp2p:item0:%@ \n key:%@",item[0],keytemp);
-                  dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
-              }
-              
-              self->_semaphoreSignal = dispatch_semaphore_create(0);
-              [self broadCast:3 data:vss];
-              dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+            }else{
+                NSArray *list = poll_for_broadCast_list_1[j];
+                NSString *firstObject_Str = list.firstObject;
+                const char *firstObject_char = [firstObject_Str cStringUsingEncoding:NSUTF8StringEncoding];
+                char *get_shared_secret_char = get_shared_secret([self.pk cStringUsingEncoding:NSUTF8StringEncoding], firstObject_char);
+                [secrets addObj:[NSString stringWithFormat:@"%s",get_shared_secret_char]];
+                NSLog(@"self.pk:%@ \n y_i:%@ \n result:%@",self.pk,firstObject_Str,[NSString stringWithFormat:@"%s",get_shared_secret_char]);
+                j++;
+            }
         }
+              
+        //对let item of share_list
+        for (NSInteger k = 0; k<share_list.count; k++) {
+            NSArray *item = share_list[k];
+            NSString *keytemp = [LWEncryptTool encrywithKey_tss:secrets[k] message:item[1]];
+
+            self->_semaphoreSignal = dispatch_semaphore_create(0);
+            [self sendp2p:[item[0] integerValue] round:2 data:keytemp];
+            NSLog(@"sendp2p:item0:%@ \n key:%@",item[0],keytemp);
+            dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+        }
+
+        self->_semaphoreSignal = dispatch_semaphore_create(0);
+        [self broadCast:3 data:vss];
+        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+
         
         NSString *shareRequest;
         NSArray *vssRequest;
-        for (NSInteger i = 0; i<keyArray.count; i++) {
             
-            self->_getKeySignal = dispatch_semaphore_create(0);
-            NSArray *poll_for_p2p_Array = [self poll_for_p2p:2];
-            dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-            
-            NSArray *key = keyArray[i];
-            
-            NSMutableArray *poll_for_p2p_Array_decrypt = [NSMutableArray array];
-            NSArray *secrets = [secretsArray objectAtIndex:i];
-            
-            //decrypt poll_for_p2p 返回的值
-            
-            for (NSInteger j = 0; j<poll_for_p2p_Array.count; j++) {
-                NSString *decryptStr_temp = [LWEncryptTool decryptwithKey_tss:secrets[j] message:poll_for_p2p_Array[j] andHex:1];
-                [poll_for_p2p_Array_decrypt addObj:decryptStr_temp];
-            }
-
-            self->_getKeySignal = dispatch_semaphore_create(0);
-            NSArray *poll_for_broadCast3_array = [self poll_for_broadCast:3];
-            dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-            
-            NSString *key0 = key[0];
-            NSString *poll_for_p2p_Array_decrypt_Json = [poll_for_p2p_Array_decrypt jsonStringEncoded];
-            NSString *poll_for_broadCast_array_json = [poll_for_broadCast3_array jsonStringEncoded];
-
-            NSLog(@"poll_for_p2p_Array_Count:%ld \n key:%@ \n poll_for_p2p_Array_decrypt:%@ \n poll_for_broadCast_array:%@",(long)poll_for_p2p_Array.count,key0,poll_for_p2p_Array_decrypt_Json,poll_for_broadCast_array_json);
-            
-            char *key_handle_round2_char = key_handle_round2([LWAddressTool stringToChar:key[0]],[LWAddressTool objectToChar:poll_for_p2p_Array_decrypt] ,[LWAddressTool objectToChar:poll_for_broadCast3_array]);
-            NSLog(@"key_handle_round2_char_success");
-  
-            NSArray *key_handle_round2_array = [LWAddressTool charToObject:key_handle_round2_char];
-            if (!key_handle_round2_array || key_handle_round2_array.count ==0) {
-                [WMHUDUntil showMessageToWindow:@"error"];
-                return ;
-            }
-            NSString *shared_keys = key_handle_round2_array.firstObject;
-            NSDictionary *dlog_proof = key_handle_round2_array[1];
-            NSArray *vss = key_handle_round2_array.lastObject;
-            
-            self->_semaphoreSignal = dispatch_semaphore_create(0);
-            [self broadCast:4 data:dlog_proof];
-            dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
-            
-            NSLog(@"shared_keys:%@",shared_keys);
-            NSLog(@"vss:%@",vss);
-            shareRequest = shared_keys;
-            vssRequest = vss;
+        self->_getKeySignal = dispatch_semaphore_create(0);
+        NSArray *poll_for_p2p_Array = [self poll_for_p2p:2];
+        dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+                    
+        NSMutableArray *poll_for_p2p_Array_decrypt = [NSMutableArray array];
+        
+        //decrypt poll_for_p2p 返回的值
+        
+        for (NSInteger j = 0; j<poll_for_p2p_Array.count; j++) {
+            NSString *decryptStr_temp = [LWEncryptTool decryptwithKey_tss:secrets[j] message:poll_for_p2p_Array[j] andHex:1];
+            [poll_for_p2p_Array_decrypt addObj:decryptStr_temp];
         }
+
+        self->_getKeySignal = dispatch_semaphore_create(0);
+        NSArray *poll_for_broadCast3_array = [self poll_for_broadCast:3];
+        dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+        
+        NSString *key0 = key_generate_array[0];
+        NSString *poll_for_p2p_Array_decrypt_Json = [poll_for_p2p_Array_decrypt jsonStringEncoded];
+        NSString *poll_for_broadCast_array_json = [poll_for_broadCast3_array jsonStringEncoded];
+
+        NSLog(@"poll_for_p2p_Array_Count:%ld \n key:%@ \n poll_for_p2p_Array_decrypt:%@ \n poll_for_broadCast_array:%@",(long)poll_for_p2p_Array.count,key0,poll_for_p2p_Array_decrypt_Json,poll_for_broadCast_array_json);
+        
+        char *key_handle_round2_char = key_handle_round2([LWAddressTool stringToChar:key_generate_array[0]],[LWAddressTool objectToChar:poll_for_p2p_Array_decrypt] ,[LWAddressTool objectToChar:poll_for_broadCast3_array]);
+        NSLog(@"key_handle_round2_char_success");
+
+        NSArray *key_handle_round2_array = [LWAddressTool charToObject:key_handle_round2_char];
+        if (!key_handle_round2_array || key_handle_round2_array.count ==0) {
+            [WMHUDUntil showMessageToWindow:@"error"];
+            return ;
+        }
+        NSString *shared_keys = key_handle_round2_array.firstObject;
+        NSDictionary *dlog_proof = key_handle_round2_array[1];
+        NSArray *vss_2 = key_handle_round2_array.lastObject;
+        
+        self->_semaphoreSignal = dispatch_semaphore_create(0);
+        [self broadCast:4 data:dlog_proof];
+        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+        
+        NSLog(@"shared_keys:%@",shared_keys);
+        NSLog(@"vss:%@",vss_2);
+        shareRequest = shared_keys;
+        vssRequest = vss_2;
         
         
-        for (NSArray *key in keyArray) {
+        
           
-            self->_getKeySignal = dispatch_semaphore_create(0);
-            NSArray *poll_for_broadCast_array = [self poll_for_broadCast:4];
-            dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-            
-            char *ret = key_handle_round3([LWAddressTool stringToChar:key[0]], [LWAddressTool objectToChar:poll_for_broadCast_array]);
-            NSLog(@"ret:%s",ret);//返回ture成功 其他fail
-            if ([[LWAddressTool charToString:ret] isEqualToString:@"true"]) {
-                [self requestAddress:shareRequest andvss:vssRequest];
-            }
+        self->_getKeySignal = dispatch_semaphore_create(0);
+        NSArray *poll_for_broadCast_array = [self poll_for_broadCast:4];
+        dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+        
+        char *ret = key_handle_round3([LWAddressTool stringToChar:key_generate_array[0]], [LWAddressTool objectToChar:poll_for_broadCast_array]);
+        NSLog(@"ret:%s",ret);//返回ture成功 其他fail
+        if ([[LWAddressTool charToString:ret] isEqualToString:@"true"]) {
+            [self requestAddress:shareRequest andvss:vssRequest];
         }
         
-        for (NSArray *key in keyArray) {
-            char *destroy_key_char =  destroy_key([LWAddressTool stringToChar:key[0]]);
-            NSLog(@"destroy_key_char:%s",destroy_key_char);
-        }
+        char *destroy_key_char =  destroy_key([LWAddressTool stringToChar:key_generate_array[0]]);
+        NSLog(@"destroy_key_char:%s",destroy_key_char);
     });
 }
 

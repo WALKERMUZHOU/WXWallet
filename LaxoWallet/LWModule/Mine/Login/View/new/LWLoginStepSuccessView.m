@@ -8,7 +8,7 @@
 
 #import "LWLoginStepSuccessView.h"
 #import "TDTouchID.h"
-
+#import <GTSDK/GeTuiSdk.h>
 @implementation LWLoginStepSuccessView
 
 /*
@@ -19,6 +19,9 @@
 }
 */
 - (IBAction)successClick:(UIButton *)sender {
+    
+    [GeTuiSdk bindAlias:@"iOS" andSequenceNum:kGTSequenceUid.md5String];
+    
     
         TDTouchIDSupperType type = [[TDTouchID sharedInstance] td_canSupperBiometrics];
         switch (type) {

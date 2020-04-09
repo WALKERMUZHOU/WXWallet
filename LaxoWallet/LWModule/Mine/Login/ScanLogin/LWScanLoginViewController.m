@@ -28,7 +28,7 @@
     
     NSDictionary *params = @{@"id":self.scanId,@"key":[LWPublicManager getPubKeyWithZhuJiCi],@"seed":zhujiciEncrypt};
     NSArray *requestPersonalWalletArray = @[@"req",
-                                            @(WSRequestId_scanLogin),
+                                            @(WSRequestId_Login_scanLogin),
                                             WS_Login_ScanLogin,
                                             [params jsonStringEncoded]];
     NSData *data = [requestPersonalWalletArray mp_messagePack];

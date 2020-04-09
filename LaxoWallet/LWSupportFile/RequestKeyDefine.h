@@ -41,9 +41,6 @@ static NSString * const Url_Home_tokenPrice_new = @"method=wallet.currency";//�
 
 static NSString * const Url_Home_SingleAddress = @"method=wallet.createSingleAddress";//获取个人收款地址
 
-static NSString * const WS_Login_ScanLogin = @"user.doLogin";//扫一扫登录
-
-
 static NSString * const WS_Home_MessageList = @"wallet.queryTransaction";//获取消息列表
 static NSString * const WS_Home_MessageParties = @"wallet.queryParties";//获取多方信息
 
@@ -76,6 +73,9 @@ static NSString * const WS_paymail_query        = @"paymail.query";
 static NSString * const WS_paymail_add          = @"paymail.add";
 static NSString * const WS_paymail_toAddress    = @"paymail.paymentDestination";
 
+static NSString * const WS_Login_ScanLogin              = @"user.doLogin";//扫一扫登录
+static NSString * const WS_Login_isDeviceOnLine         = @"user.isDeviceOnline";
+static NSString * const WS_Login_pcLogOut               = @"user.forceLogout";
 
 
 //系统版本

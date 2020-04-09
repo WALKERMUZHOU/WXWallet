@@ -291,7 +291,7 @@ static LWWebSoketTool *instance = nil;
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyPollBroadcast_address object:responseArray[2]];
             }
                   break;
-        case WSRequestId_scanLogin:{
+        case WSRequestId_Login_scanLogin:{
 //                [SVProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_scanLogin object:responseArray[2]];
             }

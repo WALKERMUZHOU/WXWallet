@@ -17,6 +17,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pcLogoutSatue:) name:kWebScoket_Login_pcLogOut object:nil];
+}
+- (IBAction)logoutClick:(UIButton *)sender {
+    [SVProgressHUD show];
+    [self logoutPCStatue];
+}
+
+
+- (void)logoutPCStatue{
+    NSDictionary *params = @{@"device":@"pc"};
+    NSArray *requestPersonalWalletArray = @[@"req",
+                                            @(WSRequestIdWallet_Login_pcLogOut),
+                                            WS_Login_pcLogOut,
+                                            [params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    [[SocketRocketUtility instance] sendData:data];
+}
+
+- (void)pcLogoutSatue:(NSNotification *)notification{
+    [SVProgressHUD dismiss];
+    [WMHUDUntil showMessageToWindow:@"PC Logout Success"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.navigationController popViewControllerAnimated:YES];
+    });
 }
 
 /*

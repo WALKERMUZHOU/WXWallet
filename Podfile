@@ -38,6 +38,8 @@ abstract_target ‘LaxoWallet_ab’ do
 #      pod 'secp256k1'
       pod 'Bugly'
       pod 'GTSDK', '2.4.1.0-noidfa'
+      pod 'EBBannerView'
+
 #      pod 'GTExtensionSDK'
 
   #    pod 'BCGenerator'

@@ -768,6 +768,10 @@
 
 #pragma mark recoverWithIcloud
 - (void)recoverWithICloud{
+#if DEBUG
+    return;
+#endif
+    
     NSString *recoverCode = [iCloudHandle getKeyValueICloudStoreWithKey:self.emailStr];
     if (recoverCode && recoverCode.length >0) {
         [SVProgressHUD showWithStatus:@"recover from icloud"];

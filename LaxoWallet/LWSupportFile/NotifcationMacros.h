@@ -76,6 +76,8 @@
 #define kWebScoket_paymail_add              @"kWebScoket_paymail_add"
 #define kWebScoket_paymail_toAddress        @"kWebScoket_paymail_toAddress"
 
+#define kWebScoket_Login_isPCOnline        @"kWebScoket_Login_isPCOnline"
+#define kWebScoket_Login_pcLogOut        @"kWebScoket_Login_pcLogOut"
 
 
 
@@ -100,7 +102,8 @@
 #define kAppTokenPrice_userdefault        @"kAppTokenPrice_userdefault"
 #define kAppCurrencyToUSD_userdefault        @"kAppCurrencyToUSD_userdefault"
 #define kAppCurrentCurrencyName_userdefault   @"kAppCurrentCurrencyName_userdefault"
-
+///通知数据
+#define kAppNotification_userdefault     @"kAppNotification_userdefault"
 
 
 #define kAppCurrentLanguage_userdefault   @"kAppCurrentLanguage_userdefault"

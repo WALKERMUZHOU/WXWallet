@@ -25,7 +25,7 @@
 #import <UserNotifications/UserNotifications.h>     // iOS10 通知头文件
 
 #import "LWCurrentExchangeTool.h"
-
+#import "LWNotificationTool.h"
 @interface AppDelegate ()<PKPushRegistryDelegate, GeTuiSdkDelegate, UNUserNotificationCenterDelegate>
 @property (strong, nonatomic) UIVisualEffectView *blurView;
 @end
@@ -110,7 +110,7 @@
  *
  */
 - (void)registerRemoteNotification {
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+    if (@available(iOS 10,*)) {
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         center.delegate = self;
         [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionCarPlay) completionHandler:^(BOOL granted, NSError *_Nullable error) {
@@ -121,15 +121,15 @@
         [[UIApplication sharedApplication] registerForRemoteNotifications];
         
         return;
-    }
-    
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
-        UIUserNotificationType types = (UIUserNotificationTypeAlert | UIUserNotificationTypeSound | UIUserNotificationTypeBadge);
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
-        
-        return;
+    }else{
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+            UIUserNotificationType types = (UIUserNotificationTypeAlert | UIUserNotificationTypeSound | UIUserNotificationTypeBadge);
+            UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+            [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+            [[UIApplication sharedApplication] registerForRemoteNotifications];
+            
+            return;
+        }
     }
 }
 
@@ -169,14 +169,14 @@
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
     
     // [ 测试代码 ] 日志打印APNs信息
-    NSLog(@"[ TestDemo ] [APNs] %@ \nTime:%@ \n%@",
+    NSLog(@"通知点击响应：[ TestDemo ] [APNs] %@ \nTime:%@ \n%@",
           NSStringFromSelector(_cmd),
           response.notification.date,
           response.notification.request.content.userInfo);
     
     // [ GTSDK ]：将收到的APNs信息传给个推统计
     [GeTuiSdk handleRemoteNotification:response.notification.request.content.userInfo];
-    
+    [LWNotificationTool manageNotifictionObject:response.notification.request.content.userInfo];
     completionHandler();
 }
 #endif
@@ -191,11 +191,15 @@
     
     // [ GTSDK ]：将收到的APNs信息传给个推统计
     [GeTuiSdk handleRemoteNotification:userInfo];
-
+    [LWNotificationTool manageNotifictionObject:userInfo];
+//    [EBForeNotification handleRemoteNotification:userInfo soundID:1312];
+//
+//    //指定声音文件弹窗
+//
+//    [EBForeNotification handleRemoteNotification:userInfo customSound:@"my_sound.wav"];
     // [ 参考代码，开发者注意根据实际需求自行修改 ] 根据APP需要自行修改参数值
     completionHandler(UIBackgroundFetchResultNewData);
 }
-
 
 //#pragma mark - VOIP 接入
 //
@@ -284,7 +288,6 @@
 
     NSLog(@"\n>>[GTSdk SetModeOff]:%@\n\n", isModeOff ? @"开启" : @"关闭");
 }
-
 
 #pragma mark - bugly
 - (void)registerBugly{

@@ -38,11 +38,13 @@
         self.bitCountLabel.font = kBoldFont(20);
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshPersonalWallet:) name:kWebScoket_personalWalletData object:nil];
+
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)createUI{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress object:nil];
     
     self.receiveBtn.layer.borderColor = lwColorGrayD8.CGColor;
     self.sendBtn.layer.borderColor = lwColorGrayD8.CGColor;
@@ -60,15 +62,9 @@
     }
     
     self.bitCountLabel.text = [LWNumberTool formatSSSFloat:self.contentModel.personalBitCount];
-//    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
-//        self.priceLabel.text = [NSString stringWithFormat:@"¥%.2f",self.contentModel.personalBitCurrency];
-//    }else{
-//        self.priceLabel.text = [NSString stringWithFormat:@"$%.2f",self.contentModel.personalBitCurrency];
-//    }
     self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:self.contentModel.personalBitCount];
-
-    
 }
+
 - (IBAction)editClick:(UIButton *)sender {
     LWPersonalWalletEditViewController *sendVC = [[LWPersonalWalletEditViewController alloc] init];
     sendVC.model = self.contentModel;
@@ -92,6 +88,8 @@
          }
      }
 }
+
+#pragma mark - get receive address
 - (void)qrClick{
     [self getQrCode];
     return;
@@ -102,7 +100,6 @@
 //        return;
     if (address && address.length >0) {
         [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
-
     }else{
         [self getQrCode];
     }
@@ -181,36 +178,6 @@
     [self.navigationController pushViewController:sendVC animated:YES];
 
 }
-
-//- (void)getCurrentData{
-//    [SVProgressHUD show];
-//    NSDictionary *multipyparams = @{@"wid":@(self.contentModel.walletId)};
-//    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMessageListInfo),WS_Home_MessageList,[multipyparams jsonStringEncoded]];
-//    [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
-//}
-//
-//- (void)manageMessageListData:(NSNotification *)notification{
-//    [SVProgressHUD dismiss];
-//    NSDictionary *requestInfo = notification.object;
-//    if ([[requestInfo objectForKey:@"success"]integerValue] == 1) {
-//        NSArray *dataArray = [[requestInfo objectForKey:@"data"] objectForKey:@"rows"];
-//        for (NSInteger i = 0; i<dataArray.count; i++) {
-//            LWMessageModel *model = [LWMessageModel modelWithDictionary:dataArray[i]];
-//            [self.listView.dataSource addObj:model];
-//        }
-//        [self.listView.tableView reloadData];
-//    }
-//}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];

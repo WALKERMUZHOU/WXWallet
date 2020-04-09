@@ -11,6 +11,7 @@
 		5E062EC9243DA409009B286E /* LWPCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E062EC7243DA409009B286E /* LWPCLoginViewController.xib */; };
 		5E062ECC243DA473009B286E /* LWPCLoginTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E062ECB243DA473009B286E /* LWPCLoginTipView.m */; };
 		5E062ECE243DA47F009B286E /* LWPCLoginTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E062ECD243DA47F009B286E /* LWPCLoginTipView.xib */; };
+		5E062F22243F0207009B286E /* LWNotificationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E062F21243F0207009B286E /* LWNotificationTool.m */; };
 		5E07FD112420B60600FA3E1F /* LWLoginStepSixView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD102420B60600FA3E1F /* LWLoginStepSixView.m */; };
 		5E07FD132420B61300FA3E1F /* LWLoginStepSixView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD122420B61300FA3E1F /* LWLoginStepSixView.xib */; };
 		5E07FD162420B87300FA3E1F /* LWLoginStepSevenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD152420B87300FA3E1F /* LWLoginStepSevenView.m */; };
@@ -406,6 +407,8 @@
 		5E062ECA243DA473009B286E /* LWPCLoginTipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPCLoginTipView.h; sourceTree = "<group>"; };
 		5E062ECB243DA473009B286E /* LWPCLoginTipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPCLoginTipView.m; sourceTree = "<group>"; };
 		5E062ECD243DA47F009B286E /* LWPCLoginTipView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWPCLoginTipView.xib; sourceTree = "<group>"; };
+		5E062F20243F0207009B286E /* LWNotificationTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWNotificationTool.h; sourceTree = "<group>"; };
+		5E062F21243F0207009B286E /* LWNotificationTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWNotificationTool.m; sourceTree = "<group>"; };
 		5E07FD0F2420B60600FA3E1F /* LWLoginStepSixView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepSixView.h; sourceTree = "<group>"; };
 		5E07FD102420B60600FA3E1F /* LWLoginStepSixView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepSixView.m; sourceTree = "<group>"; };
 		5E07FD122420B61300FA3E1F /* LWLoginStepSixView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepSixView.xib; sourceTree = "<group>"; };
@@ -2183,6 +2186,8 @@
 				5E7E09162428B5D100C75C0F /* LWEmailTool.m */,
 				5E7BACA4242B1E3800901EA5 /* LWWebSoketTool.h */,
 				5E7BACA5242B1E3800901EA5 /* LWWebSoketTool.m */,
+				5E062F20243F0207009B286E /* LWNotificationTool.h */,
+				5E062F21243F0207009B286E /* LWNotificationTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -3176,6 +3181,7 @@
 				5E3160EE24267974005CA564 /* LWMineCurrencyViewController.m in Sources */,
 				5E3160C724249194005CA564 /* LWScanTool.m in Sources */,
 				5E5F12FB23EDD97F002F0711 /* WMZPageLoopView.m in Sources */,
+				5E062F22243F0207009B286E /* LWNotificationTool.m in Sources */,
 				5EF5136223F1811B00F5B6C1 /* LBXAlertAction.m in Sources */,
 				5E7BACC2242CC48500901EA5 /* LWMultipyUserStatueViewController.m in Sources */,
 				5EF513DD23F550F200F5B6C1 /* CZRefreshFooter.m in Sources */,
@@ -3547,7 +3553,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LaxoWallet/LaxoWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 2.0.1;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3586,7 +3592,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LaxoWallet/LaxoWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 2.0.1;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

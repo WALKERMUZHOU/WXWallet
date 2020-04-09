@@ -41,36 +41,27 @@
     [self queryParties];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_multipyAddress_change object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addressUpdate:) name:kWebScoket_multipy_address_update object:nil];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(multipyWalletUpdate:) name:kWebScoket_multipyWalletData object:nil];
 
 }
 
 - (void)createUI{
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress object:nil];
-    
     self.receiveBtn.layer.borderColor = [UIColor hex:@"#D8D8D8"].CGColor;
     self.sendBtn.layer.borderColor = [UIColor hex:@"#D8D8D8"].CGColor;
     
-//    UIBarButtonItem *addBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_wallet_qrcode"] style:UIBarButtonItemStylePlain target:self action:@selector(qrClick)];
-////    self.navigationItem.leftBarButtonItem = addBarItem;
-//
-//    UIBarButtonItem *scanBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_scan_white"] style:UIBarButtonItemStylePlain target:self action:@selector(scanClick)];
-//    self.navigationItem.rightBarButtonItems = @[scanBarItem,addBarItem];
-    
     self.listView = [[LWMultipyWalletDetailListView alloc]initWithFrame:CGRectMake(0, 262, kScreenWidth, KScreenHeightBar - 262) style:UITableViewStyleGrouped];
-    self.listView.homeWallteModel = self.contentModel;
     self.listView.walletId = self.contentModel.walletId;
+     self.listView.homeWallteModel = self.contentModel;
     [self.view addSubview:self.listView];
     [self.listView getCurrentData];
 
-//    if (!self.contentModel.isMineCreateWallet) {
-//        self.editBtn.hidden = YES;
-////        [self.nameLabel removeConstraintWithView:self.editBtn attribute:NSLayoutAttributeRight];
-//        [self.editBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.width.height.equalTo(@0);
-//        }];
-//    }
-    
+    if(!isIphoneX){
+        self.bitCountLabel.font = kBoldFont(20);
+    }
+    [self refreshCurrentUI];
+}
+
+- (void)refreshCurrentUI{
     if (self.contentModel.name && self.contentModel.name.length>0) {
         self.nameLabel.text = self.contentModel.name;
     }else{
@@ -79,18 +70,6 @@
     
     self.bitCountLabel.text = [LWNumberTool formatSSSFloat:self.contentModel.personalBitCount];
     self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:self.contentModel.personalBitCount];
-    
-    
-//    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
-//        self.priceLabel.text = [NSString stringWithFormat:@"¥%.2f",self.contentModel.personalBitCurrency];
-//    }else{
-//        self.priceLabel.text = [NSString stringWithFormat:@"$%.2f",self.contentModel.personalBitCurrency];
-//    }
-    
-    if(!isIphoneX){
-        self.bitCountLabel.font = kBoldFont(20);
-    }
-    
 }
 
 - (IBAction)eyeClick:(UIButton *)sender {
@@ -119,7 +98,6 @@
 
 - (IBAction)receiveClick:(UIButton *)sender {
     [self getMulityQrCode];
-
 }
 
 - (IBAction)sendClick:(UIButton *)sender {
@@ -129,10 +107,27 @@
     [self.navigationController pushViewController:sendVC animated:YES];
 }
 
+#pragma mark - 多方钱包列表数据更新
+- (void)multipyWalletUpdate:(NSNotification *)notification{
+    NSDictionary *multipyDic = notification.object;
+    NSArray *dataArray = [multipyDic objectForKey:@"data"];
+    if (dataArray.count>0) {
+        for (NSInteger i = 0; i<dataArray.count; i++) {
+            LWHomeWalletModel *model = [LWHomeWalletModel modelWithDictionary:dataArray[i]];
+            if (self.contentModel && self.contentModel.walletId == model.walletId) {
+                self.contentModel = model;
+                [self refreshCurrentUI];
+                break;;
+            }
+        }
+    }
+}
+
+#pragma mark - get多方钱包地址通知
 - (void)getMulityQrCode{
     
     NSDictionary *deposit = self.contentModel.deposit;
-    NSString *address = [deposit objectForKey:@"address"];
+//    NSString *address = [deposit objectForKey:@"address"];
 //    if (address && address.length>0) {
 //        self.contentModel.address = address;
 //        [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
@@ -173,7 +168,6 @@
             }
         }
  
-        
         if (!address || address.length == 0) {
 
 
@@ -187,7 +181,7 @@
     }
 }
 
-
+#pragma mark - 地址更新
 - (void)addressUpdate:(NSNotification *)notification{
     NSArray *notiArray = notification.object;
     NSInteger walletId = [notiArray.firstObject integerValue];
@@ -202,7 +196,6 @@
 }
 
 #pragma mark - get changeAddress
-
 - (void)queryChangeAddress{
     LWHomeWalletModel *model = self.contentModel;
     NSDictionary *params = @{@"wid":@(model.walletId),@"type":@(2)};
@@ -226,17 +219,6 @@
         if (userArray.count >0) {
             return;
         }
-        
-//        NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
-//        NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;
-//
-//        [SVProgressHUD show];
-//        LWAddressTool *addressTool = [LWAddressTool shareInstance];
-//        [addressTool setWithrid:rid andPath:path];
-//        addressTool.addressBlock = ^(NSString * _Nonnull address) {
-//            [SVProgressHUD dismiss];
-//            self.contentModel.changeAddress = address;
-//        };
     }
 }
 

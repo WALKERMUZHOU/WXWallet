@@ -39,6 +39,7 @@ PODS:
   - DSCategories/UITextView (0.1.4)
   - DSCategories/UIView (0.1.4)
   - DSCategories/UIViewController (0.1.4)
+  - EBBannerView (1.1.2)
   - GHODictionary (1.1.0)
   - GTSDK (2.4.1.0-noidfa)
   - IQKeyboardManager (6.1.1)
@@ -75,6 +76,7 @@ DEPENDENCIES:
   - BFKit
   - Bugly
   - DSCategories (= 0.1.4)
+  - EBBannerView
   - GTSDK (= 2.4.1.0-noidfa)
   - IQKeyboardManager
   - LBXScan/LBXNative (~> 2.3)
@@ -96,6 +98,7 @@ SPEC REPOS:
     - AFNetworking
     - BFKit
     - Bugly
+    - EBBannerView
     - GHODictionary
     - GTSDK
     - IQKeyboardManager
@@ -118,6 +121,7 @@ SPEC CHECKSUMS:
   BFKit: 9a72dcd121a768ae603084f2eb0a191e4916499a
   Bugly: dbac48b55ad469a97cc4321045cd50df8f63d44f
   DSCategories: d418e9c817b6aa075cfac4aad54f3ab24bb5fb5e
+  EBBannerView: 268002f8d9d3e979cb8649cbfefd0da5ddef72b3
   GHODictionary: 225e042596a4b3d5b66b2b24250086b2f95514af
   GTSDK: 18cf9f98b9b6751db3356d3973f8bec612a45ff3
   IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
@@ -133,6 +137,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
 
-PODFILE CHECKSUM: c2490446e1d8e600b9240cb076038ae5034025f8
+PODFILE CHECKSUM: 55c55fd403f6943d39eb3fae6899421a93bb855b
 
 COCOAPODS: 1.8.4

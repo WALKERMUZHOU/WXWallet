@@ -60,8 +60,6 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
     WSRequestId_multipy_broadcast_address        = 10022,//多人钱包broadcast
     WSRequestId_multipy_pollBroadcast_address    = 10023,//多人钱包pollbroadcast
 
-    WSRequestId_scanLogin                        = 10024,//扫一扫登录
-
     WSRequestIdWallet_multipy_JoinWallet         = 10025,//加入钱包
     WSRequestIdWallet_multipy_sign               = 10026,//同意签名
     WSRequestIdWallet_multipy_rejectsign         = 10027,//拒绝签名
@@ -79,10 +77,14 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
 
     WSRequestIdWallet_multipy_checkPendingTransaction       = 10037,//checkPendingTransaction
 
+    WSRequestIdWallet_Login_isPCLogin      = 11000,//
+    WSRequestIdWallet_Login_pcLogOut       = 11001,//
+    WSRequestId_Login_scanLogin            = 11002,//扫一扫登录
+
     
 };
 
-#if 0
+#if 1
 static NSString * const kBaseAddress = @"https://api.laxo.io/api.json?";
 static NSString * const kWSAddress = @"wss://api.laxo.io/?";
 

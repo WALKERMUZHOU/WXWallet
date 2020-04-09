@@ -9,14 +9,16 @@
 #import "LWHomeViewController.h"
 #import "LWHomeListView.h"
 #import "LWHomeListHeadView.h"
+#import "LWPCLoginTipView.h"
+
 #import "LWAlertTool.h"
-
 #import "LWWebSoketTool.h"
-
+#import "LWNotificationTool.h"
 
 #import "LWPersonalCollectionViewController.h"
 #import "LWCreateMultipyWalletViewController.h"
 #import "LWCreatePersonalWalletViewController.h"
+#import "LWPCLoginViewController.h"
 
 #import "PublicKeyView.h"
 #import "PubkeyManager.h"
@@ -32,11 +34,14 @@
 #import "LWMultipySignTool.h"
 #import "iCloudHandle.h"
 
+#import "EBBannerView.h"
+
 @interface LWHomeViewController (){
     NSOperationQueue * queue;
     dispatch_semaphore_t signSemphore;
 
 }
+@property (nonatomic, strong) LWPCLoginTipView *pcLoginTipView;
 
 @property (nonatomic, strong) LWHomeListView *listView;
 @property (nonatomic, strong) LWHomeListHeadView *listHeadView;
@@ -49,6 +54,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appLogin) name:KUserAccountLogIn object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pcLoginSatue:) name:kWebScoket_Login_isPCOnline object:nil];
 
     [self createUI];
     [self getprikey];
@@ -71,6 +77,8 @@
         NSString *icloudRecoverStr = [LWPublicManager getRecoverQRCodeStr];
         [iCloudHandle setUpKeyValueICloudStoreWithKey:[[LWUserManager shareInstance] getUserModel].email value:icloudRecoverStr];
         _isfirstLaunch = YES;
+    }else{
+        [self getCurrentPCStatue];
     }
     
 
@@ -80,16 +88,32 @@
     self.view.backgroundColor = lwColorBackground;
     
     __weak typeof(self) weakself = self;
+    
     self.listHeadView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWHomeListHeadView class]) owner:nil options:nil].lastObject;
 //    self.listHeadView.frame = CGRectMake(0, 0, kScreenWidth, 196);
     [self.view addSubview:self.listHeadView];
     self.listHeadView.block = ^(NSInteger selectIndex) {
+        
+        [EBBannerView showWithContent:@"哈哈哈哈哈哈哈"];
+
+        
         [weakself.listView changeCurrentSelectData:selectIndex];
     };
     
     [self.listHeadView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self.view);
         make.height.equalTo(@196);
+    }];
+    
+    self.pcLoginTipView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWPCLoginTipView class]) owner:nil options:nil].lastObject;
+    [self.view addSubview:self.pcLoginTipView];
+    self.pcLoginTipView.block = ^{
+        [weakself jumpToPCLoginStatueVC];
+    };
+    [self.pcLoginTipView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.listHeadView.mas_bottom);
+        make.left.right.equalTo(self.view);
+        make.height.equalTo(@45);
     }];
     
     self.listView = [[LWHomeListView alloc] initWithFrame:CGRectMake(0, 196, kScreenWidth, kScreenHeight - kTabBarHeight - 196) style:UITableViewStyleGrouped];
@@ -136,9 +160,8 @@
             [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"Notice" msg:@"No camera permissions, whether to go to Settings" cancel:@"Cancel" setting:@"Setting" ];
         }
     }];
-    
-
 }
+
 - (void)jumpToScan{
     QQLBXScanViewController *vc = [QQLBXScanViewController new];
     vc.libraryType = SLT_ZXing;
@@ -149,6 +172,41 @@
     vc.scanresult = ^(LBXScanResult *result) {
         
     };
+}
+
+#pragma mark - pclogin
+- (void)jumpToPCLoginStatueVC{
+    LWPCLoginViewController *loginVC = [[LWPCLoginViewController alloc] init];
+    loginVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:loginVC animated:YES];
+}
+
+- (void)getCurrentPCStatue{
+    NSDictionary *params = @{@"device":@"pc"};
+    NSArray *requestPersonalWalletArray = @[@"req",
+                                            @(WSRequestIdWallet_Login_isPCLogin),
+                                            WS_Login_isDeviceOnLine,
+                                            [params jsonStringEncoded]];
+    NSData *data = [requestPersonalWalletArray mp_messagePack];
+    [[SocketRocketUtility instance] sendData:data];
+}
+
+- (void)pcLoginSatue:(NSNotification *)notification{
+    NSDictionary *notiDic = notification.object;
+    NSInteger statue = [notiDic ds_integerForKey:@"data"];
+    [self manageViewWithPCStatue:statue];
+}
+
+- (void)manageViewWithPCStatue:(NSInteger)statue{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.3 animations:^{
+            if (statue == 0) {
+                self.listView.frame = CGRectMake(0, 196, kScreenWidth, kScreenHeight - kTabBarHeight - 196);
+             }else{
+                 self.listView.frame = CGRectMake(0, 196 + 45, kScreenWidth, kScreenHeight - kTabBarHeight - 196 - 45);
+             }
+        }];
+    });
 }
 
 #pragma mark - startwebsocket
@@ -187,6 +245,9 @@
     NSLog(@"开启成功");
     [self requestPersonalWalletInfo];
     [self requestMulipyWalletInfo];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self getCurrentPCStatue];
+    });
 }
 
 - (void)requestPersonalWalletInfo{
@@ -277,8 +338,9 @@
         }else if ([firstObj isEqualToString:@"tx_sent"]){
             [self requestMulipyWalletInfo];
             [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_Multipy_refrshWalletDetail object:nil];
+        }else if ([firstObj isEqualToString:@"login"]){
+            [self manageViewWithPCStatue:1];
         }
-            
     }
 }
 
@@ -287,7 +349,6 @@
 }
 
 - (void)manageSignInfo:(NSArray *)signArray{
-    
     if (!queue) {
         queue = [[NSOperationQueue alloc] init];
         queue.maxConcurrentOperationCount = 1;
@@ -295,18 +356,16 @@
     }
     
     NSBlockOperation * operation = [NSBlockOperation blockOperationWithBlock:^{
-               dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                   LWMultipySignTool *signTool = [[LWMultipySignTool alloc] initWithInitInfo:signArray];
-                   signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
-                       dispatch_semaphore_signal(self->signSemphore);
-                   };
-                   dispatch_semaphore_wait(self->signSemphore, DISPATCH_TIME_FOREVER);
-               });
+       dispatch_async(dispatch_get_global_queue(0, 0), ^{
+           LWMultipySignTool *signTool = [[LWMultipySignTool alloc] initWithInitInfo:signArray];
+           signTool.signBlock = ^(NSDictionary * _Nonnull sign) {
+               dispatch_semaphore_signal(self->signSemphore);
+           };
+           dispatch_semaphore_wait(self->signSemphore, DISPATCH_TIME_FOREVER);
+       });
         
     }];
     [queue addOperation:operation];
-    
-
 }
 
 
@@ -411,11 +470,12 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_MultipyPollBroadcast_address object:responseArray[2]];
             }
                   break;
-        case WSRequestId_scanLogin:{
+        case WSRequestId_Login_scanLogin:{
 //                [SVProgressHUD dismiss];
-                [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_scanLogin object:responseArray[2]];
-            }
-                  break;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_scanLogin object:responseArray[2]];
+            [self manageViewWithPCStatue:1];
+        }
+            break;
         case WSRequestIdWallet_multipy_JoinWallet:{
             [SVProgressHUD dismiss];
             [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipy_JoinWallet object:responseArray[2]];
@@ -475,6 +535,15 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_paymail_toAddress object:responseArray[2]];
         }
             break;
+        case WSRequestIdWallet_Login_isPCLogin:{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_Login_isPCOnline object:responseArray[2]];
+        }
+            break;
+        case WSRequestIdWallet_Login_pcLogOut:{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_Login_pcLogOut object:responseArray[2]];
+            [self manageViewWithPCStatue:0];
+        }
+            break;
          default:{
              NSString *idString = [NSString stringWithFormat:@"%ld",(long)requestId];
              if (idString.length>5) {
@@ -519,6 +588,16 @@
     
     [self.listHeadView setMultipyWalletdata:personalData];
     [self.listView setMultipyWalletdata:personalData];
+    
+    NSDictionary *notidic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppNotification_userdefault];
+    if (notidic && notidic.allKeys.count >0) {
+        [LWNotificationTool manageNotifictionObject:notidic];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppNotification_userdefault];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        });
+   
+    }
 }
 
 - (void)manageTokenPrice:(NSDictionary *)tokenPrice{

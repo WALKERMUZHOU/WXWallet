@@ -28,9 +28,9 @@
 
 @end
 
+static NSInteger const minChangeAmount = 546;//最小找零546聪
 
 @implementation LWMultipyTransactionTool
-
 
 static LWMultipyTransactionTool *instance = nil;
 + (LWMultipyTransactionTool *)shareInstance{
@@ -95,7 +95,18 @@ static LWMultipyTransactionTool *instance = nil;
     self.isAllTransaction = NO;
     char *fee = get_transaction_fee(transId);
     NSString *fee_str = [LWAddressTool charToString:fee];
-    if (fee_str.integerValue < 0 || self.fee.integerValue + self.transAmount > self.model.canuseBitCountInterger) {
+    int feeInt = abs(fee_str.intValue);
+//    if(feeInt + minChangeAmount > self.model.canuseBitCountInterger){
+//        destroy_transaction(transId);
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [WMHUDUntil showMessageToWindow:@"Lack of balance"];
+//            if (self.block) {
+//                self.block(NO);
+//            }
+//        });
+//        return;
+//    }else
+        if (fee_str.integerValue < 0 || feeInt + self.transAmount > self.model.canuseBitCountInterger) {
         destroy_transaction(transId);
         self.isAllTransaction = YES;
         
@@ -167,6 +178,7 @@ static LWMultipyTransactionTool *instance = nil;
 //}
 
 - (NSArray *)manageChange:(CGFloat)transAmount{
+    transAmount = transAmount + minChangeAmount;
     //零钱排序
     NSArray *utxo = self.model.utxo;
     NSMutableArray *chageUtxoArray = [NSMutableArray array];
@@ -204,13 +216,13 @@ static LWMultipyTransactionTool *instance = nil;
     char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]));
     char *feeTemp = get_transaction_fee(transId);
     
-    if (changeAmount > self.transAmount + [LWAddressTool charToString:feeTemp].integerValue) {
-        destroy_transaction(transId);
-        return YES;
-    }else{
-        destroy_transaction(transId);
-        return NO;
-    }
+    if (changeAmount > self.transAmount + [LWAddressTool charToString:feeTemp].integerValue + minChangeAmount) {
+         destroy_transaction(transId);
+         return YES;
+     }else{
+         destroy_transaction(transId);
+         return NO;
+     }
 }
 
 

@@ -10,7 +10,7 @@
 #import "LWTansactionTool.h"
 #import "LWTransactionModel.h"
 NS_ASSUME_NONNULL_BEGIN
-typedef void(^MultipyTransactionBlock)(NSDictionary *transInfo);
+typedef void(^MultipyTransactionBlock)(id transInfo);
 
 @interface LWMultipyTransactionTool : NSObject
 

@@ -27,6 +27,7 @@
 @end
 
 @implementation LWTansactionTool
+static NSInteger const minChangeAmount = 546;//最小找零546聪
 
 static LWTansactionTool *instance = nil;
 + (LWTansactionTool *)shareInstance{
@@ -120,8 +121,8 @@ static LWTansactionTool *instance = nil;
     char *fee = get_transaction_fee(transId);
     self.fee = [LWAddressTool charToString:fee];
     self.isAllTransaction = NO;
-    
-    if (self.fee.integerValue + self.transAmount > self.model.canuseBitCountInterger) {
+    int feeInt = abs(self.fee.intValue);
+    if (self.fee.integerValue < 0 || feeInt + self.transAmount > self.model.canuseBitCountInterger) {
         destroy_transaction(transId);
         self.isAllTransaction = YES;
         
@@ -228,7 +229,8 @@ static LWTansactionTool *instance = nil;
 }
 
 
-- (NSArray *)manageChange:(CGFloat)transAmount{
+- (NSArray *)manageChange:(NSInteger)transAmount{
+    transAmount = transAmount + minChangeAmount;//
     //零钱排序
     NSArray *utxo = self.model.utxo;
     NSMutableArray *chageUtxoArray = [NSMutableArray array];
@@ -264,7 +266,7 @@ static LWTansactionTool *instance = nil;
     char *add_transaction_change_char = add_transaction_change(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]));
     char *feeTemp = get_transaction_fee(transId);
     
-    if (changeAmount > self.transAmount + [LWAddressTool charToString:feeTemp].integerValue) {
+    if (changeAmount > self.transAmount + [LWAddressTool charToString:feeTemp].integerValue + minChangeAmount) {
         destroy_transaction(transId);
         return YES;
     }else{

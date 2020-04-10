@@ -101,17 +101,19 @@
             [self.mutipyTrans startTransactionWithTranscationModek:transModel andTotalModel:model];
             self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",transModel.transAmount,[LWNumberTool formatSSSFloat: self.mutipyTrans.fee.integerValue/1e8]];
             self.transModel.fee = [LWNumberTool formatSSSFloat: self.mutipyTrans.fee.integerValue/1e8];
-            self.mutipyTrans.block = ^(NSDictionary * _Nonnull transInfo) {
-                if (weakself.block) {
-                    weakself.block(1);
-                }
+        self.mutipyTrans.block = ^(id  _Nonnull transInfo) {
+            if ([transInfo isKindOfClass:[NSDictionary class]]) {
+                if (weakself.block) weakself.block(1);
 
-                LWPersonalpaySuccessViewController *successVC = [[LWPersonalpaySuccessViewController alloc] init];
-                successVC.viewType = 1;
-                [successVC setSuccessWithTransactionModel:weakself.transModel];
-                [LogicHandle pushViewController:successVC];
-            };
-        }
+                 LWPersonalpaySuccessViewController *successVC = [[LWPersonalpaySuccessViewController alloc] init];
+                 successVC.viewType = 1;
+                 [successVC setSuccessWithTransactionModel:weakself.transModel];
+                 [LogicHandle pushViewController:successVC];
+            }else{
+                if (weakself.block) weakself.block(0);
+            }
+        };
+    }
 }
 
 

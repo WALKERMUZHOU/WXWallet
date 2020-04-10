@@ -118,8 +118,6 @@
         return;
     }
     
-    
-    
     NSInteger amountInteger = self.amountTF.text.floatValue * 1e8;
     
     if (self.amountType == 2) {
@@ -130,6 +128,12 @@
         [WMHUDUntil showMessageToWindow:@"amount need less than available"];
         return;
     }
+    
+    if (amountInteger <= 546) {
+        [WMHUDUntil showMessageToWindow:@"The amount to be sent must be greater than 546 satoshis"];
+        return;
+    }
+    
     [self queryChangeAddress];
 }
 

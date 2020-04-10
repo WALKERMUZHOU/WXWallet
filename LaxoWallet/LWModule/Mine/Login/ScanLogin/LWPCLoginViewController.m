@@ -42,6 +42,9 @@
         [self.navigationController popViewControllerAnimated:YES];
     });
 }
+- (IBAction)returnClick:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 /*
 #pragma mark - Navigation

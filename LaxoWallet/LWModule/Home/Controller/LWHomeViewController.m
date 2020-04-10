@@ -94,7 +94,7 @@
     [self.view addSubview:self.listHeadView];
     self.listHeadView.block = ^(NSInteger selectIndex) {
         
-        [EBBannerView showWithContent:@"哈哈哈哈哈哈哈"];
+//        [EBBannerView showWithContent:@"哈哈哈哈哈哈哈"];
 
         
         [weakself.listView changeCurrentSelectData:selectIndex];
@@ -340,6 +340,8 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_Multipy_refrshWalletDetail object:nil];
         }else if ([firstObj isEqualToString:@"login"]){
             [self manageViewWithPCStatue:1];
+        }else if ([firstObj isEqualToString:@"logout"]){
+            [self manageViewWithPCStatue:0];
         }
     }
 }

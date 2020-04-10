@@ -134,7 +134,7 @@
         return;
     }
     
-    CGFloat bitCount = 0;
+    NSInteger bitCount = 0;
     for (NSInteger i = 0; i<currentArray.count; i++) {
         LWHomeWalletModel *dataModel = [currentArray objectAtIndex:i];
         for (NSInteger j = 0; j<dataModel.utxo.count; j++) {

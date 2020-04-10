@@ -36,7 +36,7 @@
 - (void)setContentModel:(LWHomeWalletModel *)model{
     _model = model;
     NSString *address = model.address;
-    UIImage *qrImage = [LBXScanNative createQRWithString:address QRSize:CGSizeMake(400, 400)];
+    UIImage *qrImage = [LBXScanNative createInerIconImageQRWithString:address QRSize:CGSizeMake(400, 400)];
     [self.qrcodelImgView setImage:qrImage];
     
     if (model.name && model.name.length >0) {

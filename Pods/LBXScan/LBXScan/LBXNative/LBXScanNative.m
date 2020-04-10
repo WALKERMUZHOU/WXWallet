@@ -557,10 +557,44 @@
     CGImageRelease(cgImage);
     
     return codeImage;
-
-    
-    
 }
+
++ (UIImage *)createInerIconImageQRWithString:(NSString *)text QRSize:(CGSize)size{
+    // 1.实例化二维码滤镜
+    NSData *stringData = [text dataUsingEncoding: NSUTF8StringEncoding];
+    
+    //生成
+    CIFilter *qrFilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    [qrFilter setValue:stringData forKey:@"inputMessage"];
+    [qrFilter setValue:@"H" forKey:@"inputCorrectionLevel"];
+        // 5.生成二维码
+        CIImage *outputImage = [qrFilter outputImage];
+        
+        CGAffineTransform scale=CGAffineTransformMakeScale(10, 10);
+        outputImage=[outputImage imageByApplyingTransform:scale];
+        //6.在中心增加一张图片
+        UIImage *img=[UIImage imageWithCIImage:outputImage];
+        //7.1开启图形上下文
+        UIGraphicsBeginImageContext(size);
+         //7.2将二维码的图片画入
+        [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
+        //7.3在中心划入其他图片
+         UIImage *centerImg=[UIImage imageNamed:@"common_navilogo_bit"];
+        CGFloat centerW=80;
+        CGFloat centerH=80;
+        CGFloat centerX=(size.width-80)*0.5;
+        CGFloat centerY=(size.height -80)*0.5;
+        
+        [centerImg drawInRect:CGRectMake(centerX, centerY, centerW, centerH)];
+        //7.4获取绘制好的图片
+        UIImage *finalImg=UIGraphicsGetImageFromCurrentImageContext();
+        //7.5关闭图像上下文
+        UIGraphicsEndImageContext();
+        
+return finalImg;
+}
+
+
 //引用自:http://www.jianshu.com/p/e8f7a257b612
 + (UIImage*)createQRWithString:(NSString*)text QRSize:(CGSize)size QRColor:(UIColor*)qrColor bkColor:(UIColor*)bkColor
 {

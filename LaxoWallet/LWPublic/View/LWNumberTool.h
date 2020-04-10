@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LWNumberTool : NSObject
 
-+ (NSString *)formatSSSFloat:(float)f;
++ (NSString *)formatSSSFloat:(double)f;
 
 + (CGFloat)formatFloadString:(NSString *)fStr;
 

@@ -121,6 +121,7 @@
  */
 + (UIImage*)createQRWithString:(NSString*)text QRSize:(CGSize)size;
 
++ (UIImage*)createInerIconImageQRWithString:(NSString*)text QRSize:(CGSize)size;
 
 /**
  生成QR二维码

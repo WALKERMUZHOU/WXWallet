@@ -26,6 +26,8 @@
 @property (nonatomic, strong) LWPersoanDetailListView *listView;
 
 @property (nonatomic, assign) NSInteger addressflag;
+@property (nonatomic, assign) BOOL firstGetAddress;
+
 @end
 
 @implementation LWPersonalWalletDetailViewController
@@ -33,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createUI];
-    
+    [self firstGetAddress];
     if(!isIphoneX){
         self.bitCountLabel.font = kBoldFont(20);
     }
@@ -64,6 +66,31 @@
     self.bitCountLabel.text = [LWNumberTool formatSSSFloat:self.contentModel.personalBitCount];
     self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:self.contentModel.personalBitCount];
 }
+
+- (void)firstWalletGetReceiveAddress{
+    NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
+    NSString *key = [NSString stringWithFormat:@"isFirstWalletFirstOpen:%@",[[LWUserManager shareInstance]getUserModel].uid];
+    NSString *isFirstWalletFirstOpen = [userdefault objectForKey:key];
+    if (!isFirstWalletFirstOpen || isFirstWalletFirstOpen.length == 0) {
+        
+        NSString *personalStr = [[NSUserDefaults standardUserDefaults] objectForKey:kPersonalWallet_userdefault];
+
+        NSDictionary *personalDic = [NSJSONSerialization JSONObjectWithData:[personalStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+        NSArray *personalArray = [personalDic objectForKey:@"data"];
+        NSArray *personalDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:personalArray];
+        if (personalDataArray.count >0) {
+            LWHomeWalletModel *model = personalDataArray.firstObject;
+            if (model.walletId == self.contentModel.walletId) {
+                if (!self.contentModel.deposit) {
+                       self.firstGetAddress = YES;
+                       [self getQrCode];
+                       [userdefault setObject:key forKey:key];
+                   }
+            }
+        }
+    }
+}
+
 
 - (IBAction)editClick:(UIButton *)sender {
     LWPersonalWalletEditViewController *sendVC = [[LWPersonalWalletEditViewController alloc] init];
@@ -107,7 +134,9 @@
 
 #pragma mark - 个人钱包
 - (void)getQrCode{
-    [SVProgressHUD show];
+    if (!self.firstGetAddress) {
+        [SVProgressHUD show];
+    }
     LWHomeWalletModel *model = self.contentModel;
     NSDictionary *params = @{@"wid":@(model.walletId)};
     NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQuerySingleAddress),@"wallet.createSingleAddress",[params jsonStringEncoded]];
@@ -154,7 +183,10 @@
                                                     [params jsonStringEncoded]];
             NSData *data = [requestPersonalWalletArray mp_messagePack];
             [[SocketRocketUtility instance] sendData:data];
-            
+            if (self.firstGetAddress) {
+                self.firstGetAddress = NO;
+                return;
+            }
             [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
 
             [LWAddressTool  attempDealloc];

@@ -42,7 +42,7 @@
             
     
     self.timeLabel.text = [LWTimeTool EngLishMonthWithTimeStamp:messageModel.createtime abbreviations:YES EnglishShortNameForDate:NO];
-    self.amountLabel.text = [NSString stringWithFormat:@"-%@", [LWNumberTool formatSSSFloat:messageModel.value/1e8]];
+    self.amountLabel.text = [NSString stringWithFormat:@"-%@", [LWCurrencyTool getCurrentSymbolCurrencyAmountWithUSDAmount:messageModel.price.floatValue * messageModel.value/1e8]];
     
 //    LWutxoModel *model = messageModel.
     
@@ -52,7 +52,7 @@
   
     self.noteLabel.text = messageModel.note;
     self.txLinkLabel.text = [messageModel.txid stringByReplacingCharactersInRange:NSMakeRange(2, messageModel.txid.length - 6) withString:@"****"];
-    self.amountDetailLabel.text = [NSString stringWithFormat:@"- %@ BSV  |  -%@",[LWNumberTool formatSSSFloat:messageModel.value/1e8],[LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:messageModel.value/1e8]];
+    self.amountDetailLabel.text = [NSString stringWithFormat:@"- %@ BSV  |  -%@",[LWNumberTool formatSSSFloat:messageModel.value/1e8], [LWCurrencyTool getCurrentSymbolCurrencyAmountWithUSDAmount:messageModel.price.floatValue * messageModel.value/1e8]];
 }
 
 - (IBAction)closeClick:(UIButton *)sender {

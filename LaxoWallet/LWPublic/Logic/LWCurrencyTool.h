@@ -31,10 +31,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)getCurrentSymbolCurrencyWithBCurrency:(CGFloat)currency;
 
-
 ///根据当前法币数量 得到当前bitshul
 + (NSString *)getBitCountWithCurrency:(CGFloat)currency;
 
++ (NSString *)getCurrentCurrencyAmountWithUSDAmount:(CGFloat)usd;
++ (NSString *)getCurrentSymbolCurrencyAmountWithUSDAmount:(CGFloat)usd;
 
 @end
 

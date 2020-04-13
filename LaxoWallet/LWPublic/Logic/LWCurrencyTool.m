@@ -111,4 +111,27 @@
 + (NSString *)getBitCountWithCurrency:(CGFloat)currency{
     return [LWNumberTool formatSSSFloat:currency/[LWCurrencyTool getCurrentBitCurrency].floatValue];
 }
+
++ (NSString *)getCurrentCurrencyAmountWithUSDAmount:(CGFloat)usd{
+    NSDictionary *allCurrencyDic = [LWCurrencyTool getAllCurrency];
+    CGFloat currencyToUsd = [[allCurrencyDic objectForKey:[LWPublicManager getCurrentCurrencyEnglishCode] ] floatValue];
+    return  [LWNumberTool formatSSSFloat:usd/currencyToUsd];
+}
+
++ (NSString *)getCurrentSymbolCurrencyAmountWithUSDAmount:(CGFloat)usd{
+    NSString *currentCurrencyType = [LWCurrencyTool getCurrentCurrencyEnglishCode];
+    NSString *typeArrayPath = [[NSBundle mainBundle] pathForResource:@"currency" ofType:@"plist"];
+    NSArray *typeArray = [[NSArray array] initWithContentsOfFile:typeArrayPath];
+              
+    CGFloat currencyToUSD = [LWCurrencyTool getCurrentCurrencyAmountWithUSDAmount:usd].floatValue;
+    for (NSInteger i = 0; i<typeArray.count; i++) {
+       NSDictionary *currencyDic = [typeArray objectAtIndex:i];
+       NSString *currencyCode = [currencyDic objectForKey:@"currencyCode"];
+       if ([currencyCode isEqualToString:currentCurrencyType]) {
+           NSString *symbolStr = [currencyDic objectForKey:@"currencytSymbol"];
+           return [NSString stringWithFormat:@"%@%.2f %@",symbolStr,currencyToUSD,currentCurrencyType];
+       }
+    }
+    return [NSString stringWithFormat:@"%.2f%@",currencyToUSD,currentCurrencyType];
+}
 @end

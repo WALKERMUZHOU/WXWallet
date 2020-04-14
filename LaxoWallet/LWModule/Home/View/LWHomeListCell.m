@@ -18,6 +18,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *personalBitCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *joinButton;
 @property (weak, nonatomic) IBOutlet UIView *tipView;
+
+@property (weak, nonatomic) IBOutlet UIView *multipyTrustholdsView;
+@property (weak, nonatomic) IBOutlet UILabel *trustholdCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalCountLabel;
+
 @end
 
 @implementation LWHomeListCell
@@ -26,6 +31,7 @@
     _model = model;
     switch (model.type) {
         case 1:{
+            self.multipyTrustholdsView.hidden = YES;
             self.typeLabel.hidden = YES;
             self.nameLabel.hidden = YES;
             self.bitCountLabel.hidden = YES;
@@ -51,8 +57,14 @@
             self.personalNameLabel.hidden = NO;
 //            self.typeLabel.text = [NSString stringWithFormat:@"%@",(long)_model.threshold,(long)_model.share];
             self.personalNameLabel.text = _model.name;
-            self.personalBitCountLabel.text = [LWNumberTool formatSSSFloat:_model.personalBitCount];
-
+            self.personalBitCountLabel.text =  [LWNumberTool formatSSSFloat:_model.personalBitCount];
+            self.multipyTrustholdsView.hidden = NO;
+            
+            NSString *trustholdCount = [NSString stringWithFormat:@"%ld",(long)self.model.threshold];
+            self.trustholdCountLabel.attributedText =kAttributeText(trustholdCount, 10);
+            
+            NSString *shareCount = [NSString stringWithFormat:@"%ld",(long)self.model.share];
+            self.totalCountLabel.attributedText = kAttributeText(shareCount,10);
             if(_model.status == 0){//状态0-创建中，1-已创建，2-已删除
                 self.bitCountLabel.hidden = YES;
                 self.currentPriceLabel.hidden = YES;

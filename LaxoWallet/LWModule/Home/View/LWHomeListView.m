@@ -8,8 +8,6 @@
 
 #import "LWHomeListView.h"
 #import "LWHomeListCell.h"
-#import "LWHomeListHeaderView.h"
-
 #import "LWHomeListCoordinator.h"
 #import "LWHomeWalletModel.h"
 
@@ -31,7 +29,7 @@
 
 }
 @property (nonatomic, strong) LWHomeListCoordinator   *coordinator;
-@property (nonatomic, strong) LWHomeListHeaderView   *headerView;
+
 @property (nonatomic, strong) NSArray   *personalDataArray;
 @property (nonatomic, strong) NSArray   *multipyDataArray;
 
@@ -57,15 +55,8 @@
         self.coordinator = [[LWHomeListCoordinator alloc]init];
         self.coordinator.delegate = self;
         _isCanApplyBorrow = YES;
-        self.headerView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LWHomeListHeaderView class]) owner:nil options:nil].lastObject;
-        self.headerView.currentType = LWHomeListViewTypePersonalWallet;
-        __weak typeof(self) weakSelf = self;
-        self.headerView.headerBlock = ^(NSInteger selectIndex) {
-            [weakSelf changeCurrentSelectData:selectIndex];
-        };
-//        self.tableView.tableHeaderView = self.headerView;
         
-        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 60)];
+        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 88)];
         self.tableView.tableFooterView = bottomView;
         
         
@@ -204,7 +195,6 @@
     NSArray *dataArray = [personalDic objectForKey:@"data"];
     if (dataArray.count>0) {
         self.personalDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:dataArray];
-        [self.headerView setCurrentArray:self.personalDataArray];
         if (self.currentViewType == LWHomeListViewTypePersonalWallet) {
             [self.dataSource removeAllObjects];
             [self.dataSource addObjectsFromArray:self.personalDataArray];
@@ -218,7 +208,6 @@
     if (dataArray.count>0) {
         self.multipyDataArray = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:dataArray];
         if (self.currentViewType == LWHomeListViewTypeMultipyWallet) {
-            [self.headerView setCurrentArray:self.multipyDataArray];
             [self.dataSource removeAllObjects];
             [self.dataSource addObjectsFromArray:self.multipyDataArray];
             [self.tableView reloadData];
@@ -235,7 +224,6 @@
     }else{
         [self.dataSource addObjectsFromArray:self.multipyDataArray];
     }
-    [self.headerView setCurrentArray:self.dataSource];
     [self.tableView reloadData];
 }
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,36 +27,95 @@
                                     <constraint firstAttribute="width" constant="31" id="SC4-bT-tOP"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zab-cr-2p0">
-                                <rect key="frame" x="48" y="29" width="36" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zab-cr-2p0">
+                                <rect key="frame" x="48" y="29" width="34" height="17"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="14" name="Roboto-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BSV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYS-ph-Bbm">
-                                <rect key="frame" x="246" y="30.5" width="24" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdT-ag-kdh">
-                                <rect key="frame" x="208.5" y="29" width="35.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdT-ag-kdh">
+                                <rect key="frame" x="231" y="29" width="34" height="17"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="Roboto-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rL-yp-PwN">
-                                <rect key="frame" x="28" y="20" width="12" height="12"/>
+                                <rect key="frame" x="28" y="20" width="10" height="10"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="12" id="W9O-ri-SeQ"/>
-                                    <constraint firstAttribute="width" constant="12" id="WRX-4C-jez"/>
+                                    <constraint firstAttribute="height" constant="10" id="W9O-ri-SeQ"/>
+                                    <constraint firstAttribute="width" constant="10" id="WRX-4C-jez"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="6"/>
+                                        <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBound" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Es-Z5-Yey">
+                                <rect key="frame" x="189" y="27.5" width="33" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgF-pO-wYB">
+                                        <rect key="frame" x="6" y="4" width="6" height="12"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="2">
+                                                <attributes>
+                                                    <font key="NSFont" size="10" name="Roboto-Regular"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hb8-4g-5XA">
+                                        <rect key="frame" x="16" y="5" width="1" height="10"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="2IX-YN-ifm"/>
+                                            <constraint firstAttribute="height" constant="10" id="yiS-Ny-WNY"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIl-6T-1hP">
+                                        <rect key="frame" x="21" y="4" width="6" height="12"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="2">
+                                                <attributes>
+                                                    <font key="NSFont" size="10" name="Roboto-Regular"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hb8-4g-5XA" firstAttribute="centerY" secondItem="0Es-Z5-Yey" secondAttribute="centerY" id="0dC-Or-oQU"/>
+                                    <constraint firstAttribute="trailing" secondItem="BIl-6T-1hP" secondAttribute="trailing" constant="6" id="0gT-Kd-fRh"/>
+                                    <constraint firstItem="hb8-4g-5XA" firstAttribute="leading" secondItem="tgF-pO-wYB" secondAttribute="trailing" constant="4" id="FhT-UX-ALj"/>
+                                    <constraint firstItem="tgF-pO-wYB" firstAttribute="centerY" secondItem="0Es-Z5-Yey" secondAttribute="centerY" id="RuC-Ik-e0y"/>
+                                    <constraint firstItem="BIl-6T-1hP" firstAttribute="leading" secondItem="hb8-4g-5XA" secondAttribute="trailing" constant="4" id="WUm-Fn-fdk"/>
+                                    <constraint firstItem="tgF-pO-wYB" firstAttribute="leading" secondItem="0Es-Z5-Yey" secondAttribute="leading" constant="6" id="qWP-iV-d1r"/>
+                                    <constraint firstItem="BIl-6T-1hP" firstAttribute="centerY" secondItem="0Es-Z5-Yey" secondAttribute="centerY" id="sbg-7t-zQV"/>
+                                    <constraint firstAttribute="height" constant="20" id="uyp-kG-VZF"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -64,12 +124,12 @@
                             <constraint firstItem="zab-cr-2p0" firstAttribute="centerY" secondItem="aRq-Qa-ccl" secondAttribute="centerY" id="8Ia-EJ-lOV"/>
                             <constraint firstItem="nq5-9x-kEf" firstAttribute="leading" secondItem="aRq-Qa-ccl" secondAttribute="leading" constant="7" id="C4T-qV-Uep"/>
                             <constraint firstItem="8rL-yp-PwN" firstAttribute="leading" secondItem="nq5-9x-kEf" secondAttribute="trailing" constant="-10" id="FGE-9b-bDp"/>
-                            <constraint firstAttribute="trailing" secondItem="dYS-ph-Bbm" secondAttribute="trailing" constant="20" id="Glb-2h-Un0"/>
                             <constraint firstItem="BdT-ag-kdh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zab-cr-2p0" secondAttribute="trailing" constant="8" symbolic="YES" id="N8f-Rw-YOP"/>
-                            <constraint firstItem="dYS-ph-Bbm" firstAttribute="centerY" secondItem="aRq-Qa-ccl" secondAttribute="centerY" constant="0.5" id="PBm-mX-4RQ"/>
+                            <constraint firstItem="0Es-Z5-Yey" firstAttribute="centerY" secondItem="nq5-9x-kEf" secondAttribute="centerY" id="NZd-UF-Ztv"/>
                             <constraint firstItem="zab-cr-2p0" firstAttribute="leading" secondItem="nq5-9x-kEf" secondAttribute="trailing" constant="10" id="PkM-rD-EZM"/>
                             <constraint firstItem="8rL-yp-PwN" firstAttribute="top" secondItem="nq5-9x-kEf" secondAttribute="top" constant="-2" id="TXB-F7-2RA"/>
-                            <constraint firstItem="dYS-ph-Bbm" firstAttribute="leading" secondItem="BdT-ag-kdh" secondAttribute="trailing" constant="2" id="mCj-UR-Cb9"/>
+                            <constraint firstItem="BdT-ag-kdh" firstAttribute="leading" secondItem="0Es-Z5-Yey" secondAttribute="trailing" constant="9" id="VE6-Z2-pga"/>
+                            <constraint firstAttribute="trailing" secondItem="BdT-ag-kdh" secondAttribute="trailing" constant="25" id="WW6-4k-mbG"/>
                             <constraint firstItem="nq5-9x-kEf" firstAttribute="centerY" secondItem="aRq-Qa-ccl" secondAttribute="centerY" id="vXa-2Q-qOX"/>
                             <constraint firstItem="BdT-ag-kdh" firstAttribute="centerY" secondItem="aRq-Qa-ccl" secondAttribute="centerY" id="w5g-7P-VAn"/>
                         </constraints>
@@ -91,9 +151,12 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="multipyTrustholdsView" destination="0Es-Z5-Yey" id="Vem-rz-lWm"/>
                 <outlet property="personalBitCountLabel" destination="BdT-ag-kdh" id="RHd-qA-cRy"/>
                 <outlet property="personalNameLabel" destination="zab-cr-2p0" id="bVd-Ut-0Ej"/>
                 <outlet property="tipView" destination="8rL-yp-PwN" id="KGM-BH-uNZ"/>
+                <outlet property="totalCountLabel" destination="BIl-6T-1hP" id="hpa-yI-EG5"/>
+                <outlet property="trustholdCountLabel" destination="tgF-pO-wYB" id="cs2-k2-qOf"/>
             </connections>
             <point key="canvasLocation" x="111.59420289855073" y="99.776785714285708"/>
         </tableViewCell>

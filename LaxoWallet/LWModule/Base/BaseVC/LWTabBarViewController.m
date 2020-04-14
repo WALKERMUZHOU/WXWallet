@@ -12,6 +12,7 @@
 #import "LWHomeViewController.h"
 #import "LWMessageViewController.h"
 #import "LWMineViewController.h"
+
 @interface LWTabBarViewController ()<AxcAE_TabBarDelegate,UITabBarControllerDelegate>
 
 @end

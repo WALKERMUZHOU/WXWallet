@@ -36,6 +36,8 @@
 
 #import "EBBannerView.h"
 
+#import "LWSendViewController.h"
+
 @interface LWHomeViewController (){
     NSOperationQueue * queue;
     dispatch_semaphore_t signSemphore;
@@ -93,7 +95,10 @@
 //    self.listHeadView.frame = CGRectMake(0, 0, kScreenWidth, 196);
     [self.view addSubview:self.listHeadView];
     self.listHeadView.block = ^(NSInteger selectIndex) {
-        
+        LWSendViewController *sendVC = [[LWSendViewController alloc] init];
+        sendVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:sendVC animated:YES];
+        return;
 //        [EBBannerView showWithContent:@"哈哈哈哈哈哈哈"];
 
         

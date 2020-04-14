@@ -59,8 +59,6 @@
     }
 }
 
-
-
 - (IBAction)copyClick:(UIButton *)sender {
     
     UIPasteboard *paste = [UIPasteboard generalPasteboard];

@@ -6,20 +6,20 @@
 //  Copyright © 2020 LaxoWallet. All rights reserved.
 //
 
-#import "LWLaunchViewController.h"
+#import "LWStartViewController.h"
 #import "LWCommonBottomBtn.h"
 #import "TDTouchID.h"
 
-@interface LWLaunchViewController ()
+@interface LWStartViewController ()
 
 @end
 
-@implementation LWLaunchViewController
+@implementation LWStartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self createUI];
+  //  [self createUI];
     [self faceIDCheck];
 }
 
@@ -49,6 +49,9 @@
 //        make.height.equalTo(@(50));
 //        make.top.equalTo(bottomBtn.mas_bottom).offset(30);
 //    }];
+}
+- (IBAction)openClick:(UIButton *)sender {
+    [self faceIDCheck];
 }
 
 - (void)bottomClick:(UIButton *)sender{

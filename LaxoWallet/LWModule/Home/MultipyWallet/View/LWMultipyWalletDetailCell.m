@@ -85,7 +85,7 @@
        
                 }else if(ismineSigned==1){
                 
-                    self.typeLabel.text = @"SENT";
+                    self.typeLabel.text = @"Sent";
                     self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
                     self.statueBackView.backgroundColor = lwColorNormalDeep;
                     self.statueLabel.text = @"Signed";

@@ -94,7 +94,7 @@
     }
     
     if (self.emailArr.count != self.memberCountTF.text.integerValue-1) {
-        [WMHUDUntil showMessageToWindow:@"The number of mailboxes needs to be equal to the members count you filled in -1）"];
+        [WMHUDUntil showMessageToWindow:@"The number of mailboxes needs to be equal to the members count you filled in -1"];
         return;
     }
     [SVProgressHUD show];

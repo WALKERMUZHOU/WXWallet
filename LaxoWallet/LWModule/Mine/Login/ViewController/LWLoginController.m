@@ -322,7 +322,7 @@
          self.emailStr = email;
      } WithFailBlock:^(id  _Nonnull data) {
          [SVProgressHUD dismiss];
-         [WMHUDUntil showMessageToWindow:@"获取验证码失败"];
+         [WMHUDUntil showMessageToWindow:@"Failed To Obtain Verification Code"];
      }];
 }
 
@@ -518,7 +518,7 @@
         
     } WithFailBlock:^(id  _Nonnull data) {
         [SVProgressHUD dismiss];
-        [WMHUDUntil showMessageToWindow:@"fail"];
+        [WMHUDUntil showMessageToWindow:@"Registration Failed"];
     }];
 }
 
@@ -702,7 +702,7 @@
         }
         else if (!firstTime )
         {
-            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"没有相册权限，是否前往设置" cancel:@"取消" setting:@"设置"];
+            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"Remind" msg:@"No album permissions, whether to go to Settings" cancel:@"Cancel" setting:@"Setting"];
         }
     }];
 }
@@ -731,7 +731,7 @@
     [LBXZBarWrapper recognizeImage:image block:^(NSArray<LBXZbarResult *> *result) {
         if (result.count == 0 || !result) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [WMHUDUntil showMessageToWindow:@"image error"];
+                [WMHUDUntil showMessageToWindow:@"Image Error"];
             });
             return ;
         }
@@ -742,7 +742,7 @@
             [self recoverWithScanedStr:scanedStr];
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
-                [WMHUDUntil showMessageToWindow:@"image error"];
+                [WMHUDUntil showMessageToWindow:@"Image Error"];
             });
         }
     }];
@@ -774,7 +774,7 @@
     
     NSString *recoverCode = [iCloudHandle getKeyValueICloudStoreWithKey:self.emailStr];
     if (recoverCode && recoverCode.length >0) {
-        [SVProgressHUD showWithStatus:@"recover from icloud"];
+        [SVProgressHUD showWithStatus:@"Recovering From ICloud"];
         [self recoverWithScanedStr:recoverCode];
     }
 }
@@ -788,7 +788,7 @@
         }
         else if(!firstTime)
         {
-            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"Notice" msg:@"No camera permissions, whether to go to Settings" cancel:@"Cancel" setting:@"Setting" ];
+            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"Remind" msg:@"No camera permissions, whether to go to Settings" cancel:@"Cancel" setting:@"Setting" ];
         }
     }];
     

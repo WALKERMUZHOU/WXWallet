@@ -25,17 +25,17 @@ NS_ASSUME_NONNULL_BEGIN
 ///得到当前bit汇率 1bsv->170usd
 + (NSString *)getCurrentBitCurrency;
 ///根据当前bit数量 得到法币的值
-+ (NSString *)getCurrentCurrencyWithBitCount:(CGFloat)bitCount;
++ (NSString *)getCurrentCurrencyWithBitCount:(double)bitCount;
 ///根据当前bit数量 得到法币的值（带单位）
-+ (NSString *)getCurrentSymbolCurrencyWithBitCount:(CGFloat)bitCount;
++ (NSString *)getCurrentSymbolCurrencyWithBitCount:(double)bitCount;
 
-+ (NSString *)getCurrentSymbolCurrencyWithBCurrency:(CGFloat)currency;
++ (NSString *)getCurrentSymbolCurrencyWithBCurrency:(double)currency;
 
 ///根据当前法币数量 得到当前bitshul
-+ (NSString *)getBitCountWithCurrency:(CGFloat)currency;
++ (NSString *)getBitCountWithCurrency:(double)currency;
 
-+ (NSString *)getCurrentCurrencyAmountWithUSDAmount:(CGFloat)usd;
-+ (NSString *)getCurrentSymbolCurrencyAmountWithUSDAmount:(CGFloat)usd;
++ (NSString *)getCurrentCurrencyAmountWithUSDAmount:(double)usd;
++ (NSString *)getCurrentSymbolCurrencyAmountWithUSDAmount:(double)usd;
 
 @end
 

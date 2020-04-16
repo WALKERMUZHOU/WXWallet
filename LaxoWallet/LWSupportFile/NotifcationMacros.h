@@ -95,6 +95,9 @@
 #define kAppContactMobile           @"kAppcustomerContactMobile"
 #define kAppUnReadMessage           @"kAppUnReadMessage"
 
+#define kHistoryPaymail_userdefault      @"kHistoryPaymail_userdefault"
+
+
 #define kRevocerSuccessKey_userdefault    @"kAppRevocerSuccessKey_userdefault"
 #define kAppPubkeyManager_userdefault     @"NSUserDefaultPubkeyManagerssss"
 #define kAppTouchIdStart_userdefault      @"kAppTouchIdStart_userdefault"

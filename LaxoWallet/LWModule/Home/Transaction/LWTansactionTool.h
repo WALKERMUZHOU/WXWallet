@@ -23,6 +23,9 @@ typedef void(^TransactionFeeBlock)(NSString *fee);
 
 - (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model andChangeAddress:(NSString *)changeAddress;
 - (void)transStart;
+
+- (void)setNoteMessage:(NSString *)note;
+
 @property (nonatomic, copy) TransactionBlock transactionBlock;
 @property (nonatomic, copy) TransactionFeeBlock feeBlock;
 @property (nonatomic, strong) NSString *fee;

@@ -12,7 +12,7 @@
 #import "LWMultipyBeInvitedViewController.h"
 #import "LWBaseWebViewController.h"
 
-#import "LWLaunchViewController.h"
+#import "LWStartViewController.h"
 @implementation LWNotificationTool
 
 + (void)manageNotifictionObject:(NSDictionary *)userinfo{
@@ -20,7 +20,7 @@
     
     AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
     UIViewController *selectVC = appdelete.window.rootViewController;
-    if ([selectVC isKindOfClass:[LWLaunchViewController class]]) {
+    if ([selectVC isKindOfClass:[LWStartViewController class]]) {
         NSString *type = [userinfo objectForKey:@"type"];
         if (type && type.length >0) {
             [[NSUserDefaults standardUserDefaults] setObject:userinfo forKey:kAppNotification_userdefault];

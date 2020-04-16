@@ -814,6 +814,7 @@ static __strong NSData *CRLFCRLF;
     // Need to pingpong this off _callbackQueue first to make sure messages happen in order
     [self _performDelegateBlock:^{
         dispatch_async(_workQueue, ^{
+            NSLog(@"ping did");
             [self _sendFrameWithOpcode:SROpCodePong data:pingData];
         });
     }];

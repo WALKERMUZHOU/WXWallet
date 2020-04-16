@@ -7,10 +7,9 @@
 //
 
 #import "LogicHandle.h"
-#import "LWLoginViewController.h"
-#import "LWLaunchViewController.h"
+#import "LWStartViewController.h"
 #import "LWLoginController.h"
-
+#import "LWStartViewController.h"
 @implementation LogicHandle
 
 + (void)naviPresentViewcontroller:(UIViewController *)viewController{
@@ -119,7 +118,7 @@
 }
 
 + (void)showLaunchVC{
-    LWLaunchViewController *launchVC = [[LWLaunchViewController alloc] init];
+    LWStartViewController *launchVC = [[LWStartViewController alloc] init];
     AppDelegate *appdelete = (AppDelegate *)[UIApplication sharedApplication].delegate;
     appdelete.window.rootViewController = launchVC;
 }

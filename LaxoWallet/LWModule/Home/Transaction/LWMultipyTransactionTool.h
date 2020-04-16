@@ -23,6 +23,7 @@ typedef void(^MultipyTransactionBlock)(id transInfo);
 @property (nonatomic, copy) MultipyTransactionBlock block;
 @property (nonatomic, strong) NSString *fee;
 - (void)transStart;
+- (void)setNoteMessage:(NSString *)note;
 
 @end
 

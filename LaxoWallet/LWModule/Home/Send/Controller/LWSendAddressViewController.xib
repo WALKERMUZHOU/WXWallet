@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWSendAddressViewController">
             <connections>
                 <outlet property="addressTF" destination="gQ8-gf-4yg" id="lic-8r-e7L"/>
+                <outlet property="bottomView" destination="U2s-Bs-0GI" id="Rtq-Mx-MTF"/>
                 <outlet property="historyBackView" destination="9xC-8a-K5y" id="NtL-pz-vxf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -117,7 +118,7 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="nextClick:" destination="-1" eventType="touchUpInside" id="edy-Xm-nod"/>
+                                <action selector="nextClick:" destination="-1" eventType="touchUpInside" id="aqT-6m-IDG"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTx-Xo-1OG">

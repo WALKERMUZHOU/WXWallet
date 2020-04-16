@@ -95,10 +95,10 @@
 //    self.listHeadView.frame = CGRectMake(0, 0, kScreenWidth, 196);
     [self.view addSubview:self.listHeadView];
     self.listHeadView.block = ^(NSInteger selectIndex) {
-        LWSendViewController *sendVC = [[LWSendViewController alloc] init];
-        sendVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:sendVC animated:YES];
-        return;
+//        LWSendViewController *sendVC = [[LWSendViewController alloc] init];
+//        sendVC.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:sendVC animated:YES];
+//        return;
 //        [EBBannerView showWithContent:@"哈哈哈哈哈哈哈"];
 
         
@@ -162,7 +162,7 @@
         }
         else if(!firstTime)
         {
-            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"Notice" msg:@"No camera permissions, whether to go to Settings" cancel:@"Cancel" setting:@"Setting" ];
+            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"Remind" msg:@"No camera permissions, whether to go to Settings" cancel:@"Cancel" setting:@"Setting" ];
         }
     }];
 }
@@ -220,7 +220,9 @@
 }
 
 - (void)getprikey{
-    [SVProgressHUD show];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD show];
+    });
     NSString *prikey = [LWPublicManager getPKWithZhuJiCi];
     [self getSignWithPriKey:prikey];
 }
@@ -263,7 +265,7 @@
                                             [params jsonStringEncoded]];
     NSData *data = [requestPersonalWalletArray mp_messagePack];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[SocketRocketUtility instance] sendData:data];
     });
 }
@@ -271,7 +273,7 @@
 - (void)requestMulipyWalletInfo{
     NSDictionary *multipyparams = @{@"type":@2};
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMulpityWallet),@"wallet.query",[multipyparams jsonStringEncoded]];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
     });
 }

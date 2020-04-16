@@ -16,10 +16,6 @@
     dispatch_semaphore_t _broadcastSignal;
 
     dispatch_semaphore_t _getKeySignal;
-    dispatch_semaphore_t _sendp2pSignal;
-    dispatch_semaphore_t _broadcastWithValSignal;
-
-    dispatch_semaphore_t _mainThreadSignal;
     
     NSInteger _PARTIES_Sign;
     NSInteger _THRESHOLD_Sign;
@@ -73,8 +69,16 @@ static LWSignTool *instance = nil;
 }
 
 - (void)startGetSign{
-    
-    
+    if (self->_semaphoreSignal) {
+        dispatch_semaphore_signal(self->_semaphoreSignal);
+    }
+    if (self->_broadcastSignal) {
+            dispatch_semaphore_signal(self->_broadcastSignal);
+    }
+    if (self->_getKeySignal) {
+        dispatch_semaphore_signal(self->_getKeySignal);
+    }
+
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         char *secret_char = sha256([LWAddressTool stringToChar:self.pk]);
@@ -94,10 +98,12 @@ static LWSignTool *instance = nil;
         self->_broadcastSignal = dispatch_semaphore_create(0);
         [self broadCast:1 data:@"1"];
         dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
+        self->_broadcastSignal = nil;
         
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast_list_1 = [self poll_for_broadCast:1];;
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+        self->_getKeySignal = nil;
         
         NSMutableArray *signers_vec = [NSMutableArray array];
         NSInteger j = 0;
@@ -122,11 +128,13 @@ static LWSignTool *instance = nil;
         self->_broadcastSignal = dispatch_semaphore_create(0);
         [self broadCast:2 data:signer_data];
         dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
+        self->_broadcastSignal = nil;
 
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast_list_2 = [self poll_for_broadCast:2];;
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-        
+        self->_getKeySignal = nil;
+
         char *sign_handle_round_1 = sign_handle_round([LWAddressTool stringToChar:signer_id], 1, [LWAddressTool objectToChar:poll_for_broadCast_list_2]);
         NSArray *sign_handle_round_1_array = [LWAddressTool charToObject:sign_handle_round_1];
         
@@ -136,12 +144,14 @@ static LWSignTool *instance = nil;
             [self sendp2p:item0_array round:3 data:item[1]];
             NSLog(@"sendp2p:item0:%@ \n data:%@",item[0],item[1]);
             dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
+            self->_broadcastSignal = nil;
         }
                 
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_p2p_Array = [self poll_for_p2p:3];
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-        
+        self->_getKeySignal = nil;
+
         NSString *sign_handle_round_2_params = [NSString stringWithFormat:@"key:%@ \n round:2 \n data:%@",signer_id,poll_for_p2p_Array];
         NSLog(@"sign_handle_round_2:%@",sign_handle_round_2_params);
         
@@ -157,11 +167,13 @@ static LWSignTool *instance = nil;
         self->_broadcastSignal = dispatch_semaphore_create(0);
         [self broadCast:4 data:[LWAddressTool charToObject:sign_handle_round_2]];
         dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
-        
+        self->_broadcastSignal = nil;
+
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast_list_3 = [self poll_for_broadCast:4];;
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-        
+        self->_getKeySignal = nil;
+
         //返回值顺序修改@{s,r}
         char *sign_handle_round_3 = sign_handle_round([LWAddressTool stringToChar:signer_id], 3, [LWAddressTool objectToChar:poll_for_broadCast_list_3]);
         NSArray *sign_handle_round_3_array = [LWAddressTool charToObject:sign_handle_round_3];
@@ -169,7 +181,8 @@ static LWSignTool *instance = nil;
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast_list_5 = [self poll_for_broadCast:5];;
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-        
+        self->_getKeySignal = nil;
+
         NSMutableArray *signArray = [NSMutableArray array];
         [signArray addObj:sign_handle_round_3_array[0]];
         for (NSInteger i = 0; i<poll_for_broadCast_list_5.count; i++) {

@@ -46,7 +46,7 @@
         [[TDTouchID sharedInstance] td_showTouchIDWithDescribe:@"Verify existing fingerprints through the Home button" FaceIDDescribe:@"Verify with existing face ID" BlockState:^(TDTouchIDState state, NSError *error) {
             if (state == TDTouchIDStateNotSupport) {    //不支持TouchID/FaceID
                 UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Current device does not support biometric verification, please turn on biometrics" message:nil preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *alertAc = [UIAlertAction actionWithTitle:@"sure" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIAlertAction *alertAc = [UIAlertAction actionWithTitle:@"Sure" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     
 //                    #define iOS10 ([[UIDevice currentDevice].systemVersion doubleValue] >= 10.0)
 //                    if (iOS10) {

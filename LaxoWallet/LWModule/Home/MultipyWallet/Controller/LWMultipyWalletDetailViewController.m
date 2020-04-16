@@ -9,6 +9,7 @@
 #import "LWMultipyWalletDetailViewController.h"
 #import "LWPersonalSendViewController.h"
 #import "LWMultipyEditMemberViewController.h"
+#import "LWSendAddressViewController.h"
 
 #import "UIView+TYAutoLayout.h"
 
@@ -101,10 +102,14 @@
 }
 
 - (IBAction)sendClick:(UIButton *)sender {
-    LWPersonalSendViewController *sendVC = [[LWPersonalSendViewController alloc] init];
-    sendVC.model = self.contentModel;
-    sendVC.viewType = 1;
+    LWSendAddressViewController *sendVC = [[LWSendAddressViewController alloc] init];
+    sendVC.walletModel = self.contentModel;
     [self.navigationController pushViewController:sendVC animated:YES];
+    
+//    LWPersonalSendViewController *sendVC = [[LWPersonalSendViewController alloc] init];
+//    sendVC.model = self.contentModel;
+//    sendVC.viewType = 1;
+//    [self.navigationController pushViewController:sendVC animated:YES];
 }
 
 #pragma mark - 多方钱包列表数据更新

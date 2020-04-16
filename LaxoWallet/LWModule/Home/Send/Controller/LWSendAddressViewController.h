@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LWSendAddressViewController : LWBaseViewController
 
+@property (nonatomic, strong) LWHomeWalletModel *walletModel;
+
 @end
 
 NS_ASSUME_NONNULL_END

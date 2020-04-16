@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = Bugly;
+			productName = Bugly;
 		};
 		A0DC60C966312FA79A138A075D99BB51 /* GTSDK */ = {
 			isa = PBXAggregateTarget;
@@ -24,6 +25,7 @@
 			dependencies = (
 			);
 			name = GTSDK;
+			productName = GTSDK;
 		};
 /* End PBXAggregateTarget section */
 
@@ -302,7 +304,6 @@
 		3931648BD689932E6BD9E43062129AB8 /* NIPaths.h in Headers */ = {isa = PBXBuildFile; fileRef = A0EA3795E10D3E165AB736DEE47F7C7F /* NIPaths.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		395BEB69A660C10B925DED05378304C5 /* NSData+BFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 041337059D44F39E7CA98A9CE6B711FC /* NSData+BFKit.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		397F52C7545E7FCA033BCA5EE4BCDF77 /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = F992C2B7879499E2F98AF55872E4945B /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		39817B9782165EC6D3190E7C66C310D2 /* UIButton+DoubleClick.h in Headers */ = {isa = PBXBuildFile; fileRef = 35C07CCE34F9159DC1BE2B81B50ADF5A /* UIButton+DoubleClick.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		39979DC7C6731ACC7F8C80DE25845060 /* ZXAddressBookParsedResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EF87B974ED4DC0F50F3616C11D00BB2 /* ZXAddressBookParsedResult.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		39A30B7F1AE293E627D66E820EFFAD88 /* ZXModulusGF.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF2CA280B7D0551F8061A39E3B90EFD /* ZXModulusGF.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		39A3C6CB628F0F4E24A5E15D82941D3F /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A97884989D9CB24AC16966BB6FE247 /* UIScrollView+MJExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -430,7 +431,6 @@
 		4F5C5CCD8C6A382B77A2641DAF15AD75 /* ZXVINResultParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB42108774F7E5136B1F30A7ECA1623 /* ZXVINResultParser.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		4F7B51E2079DDF021A9F7AD920DDE2DA /* ZBarReaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DD1BFFFB160706E506CB4AAFDBA0EEF /* ZBarReaderView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4FAD0EC380989E79223E6574A24681A0 /* ZXAztecHighLevelEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E529046503905C61CD778FFCA64531 /* ZXAztecHighLevelEncoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		5015E9C52D0F3310AE8ABAD6F9880D15 /* UIButton+DoubleClick.m in Sources */ = {isa = PBXBuildFile; fileRef = C864525380AACFBD2E968D5C008528F2 /* UIButton+DoubleClick.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		50A3AD1B8DD3696CAE8DE1755F85F2D6 /* ZXRSSExpandedBlockParsedResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 78C935ABEDBD6F9095CF20864B76D3DB /* ZXRSSExpandedBlockParsedResult.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		51457B51885A167BD97FEB70D4AE99F1 /* POPAnimationTracer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DEF6E7BB0B270574BA43E2800DC3F7D /* POPAnimationTracer.mm */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		51836FC419231AF0F2D4D286F25C98B7 /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = CEC24A1043EB07BB9B2E3B6CA011854E /* NSData+ImageContentType.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -1410,12 +1410,12 @@
 		0757D275A2F4C01D6BF918ECBFD29FC0 /* ZXDataMatrixX12Encoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXDataMatrixX12Encoder.h; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/encoder/ZXDataMatrixX12Encoder.h; sourceTree = "<group>"; };
 		0766A868BCFF8F3A9A5C12E400662F94 /* YYTextAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextAttribute.m; path = YYKit/Text/String/YYTextAttribute.m; sourceTree = "<group>"; };
 		07FD74768383E97C74E9AC6761DEF82F /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
-		082BDFCC19DB2A5FB024DED7DE54F5EF /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = it.lproj; path = Source/Languages/it.lproj; sourceTree = "<group>"; };
+		082BDFCC19DB2A5FB024DED7DE54F5EF /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = it.lproj; path = Source/Languages/it.lproj; sourceTree = "<group>"; };
 		08CF5234E8073BB72FAD87BA33ACF76A /* ZXDataMatrixSymbolInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXDataMatrixSymbolInfo.h; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/encoder/ZXDataMatrixSymbolInfo.h; sourceTree = "<group>"; };
 		08D6C7F04FDD9F917C61E06307BCEBDD /* POPDecayAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPDecayAnimation.h; path = pop/POPDecayAnimation.h; sourceTree = "<group>"; };
 		09AF2ED3CCBE1ECD40062B8812899BF1 /* ZXSMSTOMMSTOResultParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXSMSTOMMSTOResultParser.h; path = LBXScan/LBXZXing/ZXingObjc/client/result/ZXSMSTOMMSTOResultParser.h; sourceTree = "<group>"; };
 		09B7BA332537652375A2557832DB2B99 /* ZXDefaultGridSampler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXDefaultGridSampler.m; path = LBXScan/LBXZXing/ZXingObjc/common/ZXDefaultGridSampler.m; sourceTree = "<group>"; };
-		09E16FD112B239EBF8FCD177A3A7BFAF /* util.c */ = {isa = PBXFileReference; includeInIndex = 1; name = util.c; path = zbar/qrcode/util.c; sourceTree = "<group>"; };
+		09E16FD112B239EBF8FCD177A3A7BFAF /* util.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = util.c; path = zbar/qrcode/util.c; sourceTree = "<group>"; };
 		09FBF3EFA42BAF64489514C8584891AA /* ZXAbstractRSSReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXAbstractRSSReader.h; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/ZXAbstractRSSReader.h; sourceTree = "<group>"; };
 		0A32B94B2B2AA12AC53DF22A76C89B6A /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		0A3DDFFBCE486EA26CA6EDB9AB9D4E32 /* ZXRSS14Reader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXRSS14Reader.m; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/ZXRSS14Reader.m; sourceTree = "<group>"; };
@@ -1427,8 +1427,8 @@
 		0BA5DA645A726047340AB1E2920C59F6 /* ZXOneDReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXOneDReader.h; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXOneDReader.h; sourceTree = "<group>"; };
 		0BB6631EB23F6347012C1D75DBE4671E /* UIBezierPath+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBezierPath+YYAdd.m"; path = "YYKit/Base/UIKit/UIBezierPath+YYAdd.m"; sourceTree = "<group>"; };
 		0BEBB435E6493FB2BA2945FD62EB71D2 /* NSArray+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+YYAdd.h"; path = "YYKit/Base/Foundation/NSArray+YYAdd.h"; sourceTree = "<group>"; };
-		0C27366BA1D6FDA9F327FE20B0E41929 /* qrdec.c */ = {isa = PBXFileReference; includeInIndex = 1; name = qrdec.c; path = zbar/qrcode/qrdec.c; sourceTree = "<group>"; };
-		0C5C1063D5278947C812AC54EAF316F7 /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hant.lproj"; path = "Source/Languages/zh-Hant.lproj"; sourceTree = "<group>"; };
+		0C27366BA1D6FDA9F327FE20B0E41929 /* qrdec.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = qrdec.c; path = zbar/qrcode/qrdec.c; sourceTree = "<group>"; };
+		0C5C1063D5278947C812AC54EAF316F7 /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hant.lproj"; path = "Source/Languages/zh-Hant.lproj"; sourceTree = "<group>"; };
 		0C6B356A7907AE2FD2FDD6614B8C3FCF /* POPBasicAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPBasicAnimationInternal.h; path = pop/POPBasicAnimationInternal.h; sourceTree = "<group>"; };
 		0CA98CABCC15319A6B2A30D42924F8B0 /* ZXQRCodeMaskUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXQRCodeMaskUtil.m; path = LBXScan/LBXZXing/ZXingObjc/qrcode/encoder/ZXQRCodeMaskUtil.m; sourceTree = "<group>"; };
 		0CCBD6B035993A865AD1EADBB003FAEB /* ZXPerspectiveTransform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXPerspectiveTransform.h; path = LBXScan/LBXZXing/ZXingObjc/common/ZXPerspectiveTransform.h; sourceTree = "<group>"; };
@@ -1463,7 +1463,7 @@
 		123E324E18D97886A534BB5B74C69536 /* ZXMaxiCodeDecodedBitStreamParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXMaxiCodeDecodedBitStreamParser.h; path = LBXScan/LBXZXing/ZXingObjc/maxicode/decoder/ZXMaxiCodeDecodedBitStreamParser.h; sourceTree = "<group>"; };
 		12724C537AB37459DF69E8A98DB564B4 /* ZXVINParsedResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXVINParsedResult.m; path = LBXScan/LBXZXing/ZXingObjc/client/result/ZXVINParsedResult.m; sourceTree = "<group>"; };
 		127D5CE41BE7FE3BF5A55CB107185CFB /* ZXUPCEANExtensionSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXUPCEANExtensionSupport.m; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXUPCEANExtensionSupport.m; sourceTree = "<group>"; };
-		127ED967C82F5115D1042E43F833839F /* decoder.c */ = {isa = PBXFileReference; includeInIndex = 1; name = decoder.c; path = zbar/decoder.c; sourceTree = "<group>"; };
+		127ED967C82F5115D1042E43F833839F /* decoder.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = decoder.c; path = zbar/decoder.c; sourceTree = "<group>"; };
 		13252E41B0B9BC2BB6B6D997FA0EFC60 /* MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefresh.h; path = MJRefresh/MJRefresh.h; sourceTree = "<group>"; };
 		13E3FAC6F1CD6B8546D4AC528E2D3202 /* ZXRSSExpandedDecodedChar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXRSSExpandedDecodedChar.h; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXRSSExpandedDecodedChar.h; sourceTree = "<group>"; };
 		142760352B266DF6CD58C22B53F45654 /* ZXWhiteRectangleDetector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXWhiteRectangleDetector.h; path = LBXScan/LBXZXing/ZXingObjc/common/detector/ZXWhiteRectangleDetector.h; sourceTree = "<group>"; };
@@ -1487,7 +1487,7 @@
 		18725C5E19CE616D66AFDA1103B43FFE /* IQUIViewController+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIViewController+Additions.m"; path = "IQKeyboardManager/Categories/IQUIViewController+Additions.m"; sourceTree = "<group>"; };
 		1881FDF9DE42204461EA4C6A7A1398D1 /* ZXModulusGF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXModulusGF.h; path = LBXScan/LBXZXing/ZXingObjc/pdf417/decoder/ec/ZXModulusGF.h; sourceTree = "<group>"; };
 		189E44CA802C2A2D3A43F1FEB13D9733 /* NSData+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+YYAdd.h"; path = "YYKit/Base/Foundation/NSData+YYAdd.h"; sourceTree = "<group>"; };
-		18B7C9D12E58CB202AC94E0B9BE296C8 /* symbol.c */ = {isa = PBXFileReference; includeInIndex = 1; name = symbol.c; path = zbar/symbol.c; sourceTree = "<group>"; };
+		18B7C9D12E58CB202AC94E0B9BE296C8 /* symbol.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = symbol.c; path = zbar/symbol.c; sourceTree = "<group>"; };
 		18FF76403D1EDD6AAF95583183EBE173 /* ZXRSSExpandedDecodedChar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXRSSExpandedDecodedChar.m; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXRSSExpandedDecodedChar.m; sourceTree = "<group>"; };
 		19599B49ABAE899316AF80ABFFADB057 /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
 		195CD561DDD8E047D1DBA9DEB547B81A /* ZXQRCodeDataBlock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXQRCodeDataBlock.h; path = LBXScan/LBXZXing/ZXingObjc/qrcode/decoder/ZXQRCodeDataBlock.h; sourceTree = "<group>"; };
@@ -1503,19 +1503,19 @@
 		1A62D1194D3BA1C0E295463190391673 /* code93.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = code93.h; path = zbar/decoder/code93.h; sourceTree = "<group>"; };
 		1A696B473BAAD6F5990B39DE4E82381E /* IQKeyboardManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IQKeyboardManager-dummy.m"; sourceTree = "<group>"; };
 		1A7D653D7C3BEB92DF7AD096C57BE772 /* NIFoundationMethods.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIFoundationMethods.m; path = src/core/src/NIFoundationMethods.m; sourceTree = "<group>"; };
-		1A9ED6BB01CEB2E555CDBE4532C16740 /* POPSpringAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPSpringAnimation.mm; path = pop/POPSpringAnimation.mm; sourceTree = "<group>"; };
+		1A9ED6BB01CEB2E555CDBE4532C16740 /* POPSpringAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPSpringAnimation.mm; path = pop/POPSpringAnimation.mm; sourceTree = "<group>"; };
 		1BC05C4A3F0C3DE036D3A57F70CCEDA2 /* DSCategories-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DSCategories-dummy.m"; sourceTree = "<group>"; };
 		1BD63CAC3BB45113005D264F2C464BA2 /* databar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = databar.h; path = zbar/decoder/databar.h; sourceTree = "<group>"; };
 		1C3A6380D13DCDFA0B538B95743814FE /* ZXCode39Reader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXCode39Reader.m; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXCode39Reader.m; sourceTree = "<group>"; };
 		1C6A4C32552A08A0D5CDAD8C484BA501 /* Nimbus-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimbus-prefix.pch"; sourceTree = "<group>"; };
 		1C89FBA9B5130614229B06AC99A42195 /* ZXAI01AndOtherAIs.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXAI01AndOtherAIs.h; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXAI01AndOtherAIs.h; sourceTree = "<group>"; };
 		1CD78B70F4F455E943E1D81760F8A23B /* NSNotificationCenter+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSNotificationCenter+YYAdd.m"; path = "YYKit/Base/Foundation/NSNotificationCenter+YYAdd.m"; sourceTree = "<group>"; };
-		1CEB84848A027DFFFF1CB95339BAE681 /* pt-Br.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "pt-Br.lproj"; path = "Source/Languages/pt-Br.lproj"; sourceTree = "<group>"; };
+		1CEB84848A027DFFFF1CB95339BAE681 /* pt-Br.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "pt-Br.lproj"; path = "Source/Languages/pt-Br.lproj"; sourceTree = "<group>"; };
 		1D9593B7A38A05FE434E2CE858E7244A /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJRefresh.h"; path = "MJRefresh/UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
 		1DA86A8AE3FFD890D7F2D321A0ACB801 /* ZXDetectorResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXDetectorResult.m; path = LBXScan/LBXZXing/ZXingObjc/common/ZXDetectorResult.m; sourceTree = "<group>"; };
 		1DB95CCFE8E176F83EA1F5CC20D58704 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		1DC24EC6C20FDC723B3C41C70B807E88 /* UITableView+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableView+YYAdd.h"; path = "YYKit/Base/UIKit/UITableView+YYAdd.h"; sourceTree = "<group>"; };
-		1DEF6E7BB0B270574BA43E2800DC3F7D /* POPAnimationTracer.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPAnimationTracer.mm; path = pop/POPAnimationTracer.mm; sourceTree = "<group>"; };
+		1DEF6E7BB0B270574BA43E2800DC3F7D /* POPAnimationTracer.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationTracer.mm; path = pop/POPAnimationTracer.mm; sourceTree = "<group>"; };
 		1E155DE5F2D309C4A26FCAA7B142F56C /* cmp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = cmp.h; path = MPMessagePack/cmp.h; sourceTree = "<group>"; };
 		1E66617AFB25561B986E9B36E644D8EE /* NIOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIOperations.h; path = src/core/src/NIOperations.h; sourceTree = "<group>"; };
 		1E9FF479113DAB569210973D40F39537 /* UIColor+BFKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+BFKit.h"; path = "Source/Additions/UIKit/UIColor+BFKit.h"; sourceTree = "<group>"; };
@@ -1523,13 +1523,13 @@
 		1F0E5F969C4DACE0DDED9A5CAA8E805F /* YYTextInput.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextInput.m; path = YYKit/Text/Component/YYTextInput.m; sourceTree = "<group>"; };
 		1F1ACA875C9623C543F40A9CE0001172 /* MPDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MPDefines.h; path = MPMessagePack/MPDefines.h; sourceTree = "<group>"; };
 		1F3E8125D4AEBA60D342A5DD86664DD4 /* LBXScanLineAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LBXScanLineAnimation.m; path = LBXScan/UI/LBXScanLineAnimation.m; sourceTree = "<group>"; };
-		1F4461D02E16A1D3FB06DDC7C3954254 /* ean.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ean.c; path = zbar/decoder/ean.c; sourceTree = "<group>"; };
+		1F4461D02E16A1D3FB06DDC7C3954254 /* ean.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ean.c; path = zbar/decoder/ean.c; sourceTree = "<group>"; };
 		1F787CDC63C0095D971344B4E0337AC7 /* ZXHybridBinarizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXHybridBinarizer.h; path = LBXScan/LBXZXing/ZXingObjc/common/ZXHybridBinarizer.h; sourceTree = "<group>"; };
 		1F8CBEFC46EECEE14938EC7AAC6594D8 /* NIOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIOperations.m; path = src/core/src/NIOperations.m; sourceTree = "<group>"; };
 		1FDBDADB34D0155B91D27AA6563C5DC8 /* Pods-LaxoWallet_ab-LaxoWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LaxoWallet_ab-LaxoWallet.release.xcconfig"; sourceTree = "<group>"; };
 		1FE1972F773CC54E9ACD699CBCE7FDFD /* ZXGenericMultipleBarcodeReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXGenericMultipleBarcodeReader.m; path = LBXScan/LBXZXing/ZXingObjc/multi/ZXGenericMultipleBarcodeReader.m; sourceTree = "<group>"; };
 		1FF2EAAAADFAC2206023AA8131395C53 /* YYGestureRecognizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYGestureRecognizer.h; path = YYKit/Utility/YYGestureRecognizer.h; sourceTree = "<group>"; };
-		1FFED36A657123030ABB700256D73F15 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FFED36A657123030ABB700256D73F15 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		20050E6B51F5587B9EAFCE24EC728EEC /* NSString+MD5.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5.h"; path = "Categories/Foundation/NSString/NSString+MD5.h"; sourceTree = "<group>"; };
 		2017D358ACF9D9ED0E1EE199AB448748 /* NIButtonUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIButtonUtilities.m; path = src/core/src/NIButtonUtilities.m; sourceTree = "<group>"; };
 		20404CC5AAF0AD40B3A60E76AEDE767E /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
@@ -1624,7 +1624,6 @@
 		3511D8483EB7CE6682851CE0C585962D /* ZXDefaultGridSampler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXDefaultGridSampler.h; path = LBXScan/LBXZXing/ZXingObjc/common/ZXDefaultGridSampler.h; sourceTree = "<group>"; };
 		3533089B3FB3493503C4B130D810FA6B /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoFooter.m; path = MJRefresh/Base/MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		356160756AC21CC087003BF1430D56DA /* UIView+Toast.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Categories/UIKits/UIView/UIView+Toast.m"; sourceTree = "<group>"; };
-		35C07CCE34F9159DC1BE2B81B50ADF5A /* UIButton+DoubleClick.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+DoubleClick.h"; path = "Categories/UIKits/UIButton/UIButton+DoubleClick.h"; sourceTree = "<group>"; };
 		36672214EA54999E70446238C65836B6 /* ZXReedSolomonEncoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXReedSolomonEncoder.m; path = LBXScan/LBXZXing/ZXingObjc/common/reedsolomon/ZXReedSolomonEncoder.m; sourceTree = "<group>"; };
 		36E081A7B6543DBD573C7F98134CEB11 /* POPAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimation.h; path = pop/POPAnimation.h; sourceTree = "<group>"; };
 		370D3C634542B40666CB04963A791C23 /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIView+IQKeyboardToolbar.h"; path = "IQKeyboardManager/IQToolbar/IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
@@ -1645,8 +1644,8 @@
 		3A76BEFF358096542D649C669D19A4B7 /* posix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = posix.h; path = zbar/processor/posix.h; sourceTree = "<group>"; };
 		3B0863088F94A93672AE2731BB556F31 /* i25.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = i25.h; path = zbar/decoder/i25.h; sourceTree = "<group>"; };
 		3B0AD79181F9FCCF278250A9A2216BA3 /* ZXITFReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXITFReader.h; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXITFReader.h; sourceTree = "<group>"; };
-		3B4B750E988FCB58283C3DA8FC665DB3 /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = tr.lproj; path = Source/Languages/tr.lproj; sourceTree = "<group>"; };
-		3BABED1C33D010F2C5A1584E5F98F2FF /* libDSCategories.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libDSCategories.a; path = libDSCategories.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4B750E988FCB58283C3DA8FC665DB3 /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = tr.lproj; path = Source/Languages/tr.lproj; sourceTree = "<group>"; };
+		3BABED1C33D010F2C5A1584E5F98F2FF /* libDSCategories.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDSCategories.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC0329E34A7FFDA766A4BEAE558F5E2 /* ZXUPCEANExtension2Support.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXUPCEANExtension2Support.m; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXUPCEANExtension2Support.m; sourceTree = "<group>"; };
 		3BE71C35F9EE0D1DC8CBBE889FF09189 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		3C5103586D6AB9FD8FDE460321B73EFA /* ZXPDF417BarcodeRow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXPDF417BarcodeRow.m; path = LBXScan/LBXZXing/ZXingObjc/pdf417/encoder/ZXPDF417BarcodeRow.m; sourceTree = "<group>"; };
@@ -1656,7 +1655,7 @@
 		3CCE90766AEEC07964140FE9F2DEA50B /* SocketRocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SocketRocket.h; path = SocketRocket/SocketRocket.h; sourceTree = "<group>"; };
 		3CD811DF9EBA6BD02C89F063D9F5D4CE /* IQTitleBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQTitleBarButtonItem.m; path = IQKeyboardManager/IQToolbar/IQTitleBarButtonItem.m; sourceTree = "<group>"; };
 		3D0A467977AA4116DD795378DFED2E7B /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
-		3D3CC9125DA8CDF5979DB58DE7631090 /* databar.c */ = {isa = PBXFileReference; includeInIndex = 1; name = databar.c; path = zbar/decoder/databar.c; sourceTree = "<group>"; };
+		3D3CC9125DA8CDF5979DB58DE7631090 /* databar.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = databar.c; path = zbar/decoder/databar.c; sourceTree = "<group>"; };
 		3D8B3678DD93B3FECE6AB3D0504D1203 /* ZXAztecSimpleToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXAztecSimpleToken.h; path = LBXScan/LBXZXing/ZXingObjc/aztec/encoder/ZXAztecSimpleToken.h; sourceTree = "<group>"; };
 		3D94174F004B80EE4A19C2B644F9409F /* UIView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MJExtension.h"; path = "MJRefresh/UIView+MJExtension.h"; sourceTree = "<group>"; };
 		3E0B22F0B6AB956D2AF662202E033C8E /* MPLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MPLog.h; path = MPMessagePack/MPLog.h; sourceTree = "<group>"; };
@@ -1664,7 +1663,7 @@
 		3F380D968B943A6118938541645D955E /* NSData+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+YYAdd.m"; path = "YYKit/Base/Foundation/NSData+YYAdd.m"; sourceTree = "<group>"; };
 		3F922FC6B076472A8FBC0A5F76BD36E0 /* UIView+BFKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+BFKit.m"; path = "Source/Additions/UIKit/UIView+BFKit.m"; sourceTree = "<group>"; };
 		3FAF57BF45E9C0FD29AA90226FDA2B3F /* ZXPDF417CodewordDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXPDF417CodewordDecoder.h; path = LBXScan/LBXZXing/ZXingObjc/pdf417/decoder/ZXPDF417CodewordDecoder.h; sourceTree = "<group>"; };
-		3FDC61E78D8DD7D5CBB9C06EAE017BDC /* libGHODictionary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libGHODictionary.a; path = libGHODictionary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FDC61E78D8DD7D5CBB9C06EAE017BDC /* libGHODictionary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGHODictionary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4002938711AB95506117FEEB36C5764E /* ZXQRCodeErrorCorrectionLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXQRCodeErrorCorrectionLevel.h; path = LBXScan/LBXZXing/ZXingObjc/qrcode/decoder/ZXQRCodeErrorCorrectionLevel.h; sourceTree = "<group>"; };
 		404759E1D8D50C5781C73FCBED02C4A9 /* YYDispatchQueuePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYDispatchQueuePool.h; path = YYKit/Utility/YYDispatchQueuePool.h; sourceTree = "<group>"; };
 		40480F6C72AE3C26603E4B55BBD2FC7C /* ZXAztecDetectorResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXAztecDetectorResult.h; path = LBXScan/LBXZXing/ZXingObjc/aztec/ZXAztecDetectorResult.h; sourceTree = "<group>"; };
@@ -1690,7 +1689,7 @@
 		448CA7ADCCE4E533EEF920E729C699B7 /* UIView+Toast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "Categories/UIKits/UIView/UIView+Toast.h"; sourceTree = "<group>"; };
 		449F19FB21E875703E98A9117DC78615 /* ZBarSymbol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZBarSymbol.h; path = iphone/include/ZBarSDK/ZBarSymbol.h; sourceTree = "<group>"; };
 		44C2153970C3A752E80BC126A30A31F1 /* DSCategories-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DSCategories-prefix.pch"; sourceTree = "<group>"; };
-		44C7814A23B4794CE5EB20B162D46D1E /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = vi.lproj; path = Source/Languages/vi.lproj; sourceTree = "<group>"; };
+		44C7814A23B4794CE5EB20B162D46D1E /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = vi.lproj; path = Source/Languages/vi.lproj; sourceTree = "<group>"; };
 		44DFB79EDA0F168A716EC9042CFE5230 /* YYReachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYReachability.h; path = YYKit/Utility/YYReachability.h; sourceTree = "<group>"; };
 		45433C277E09CF1867DBC7B6BCE38340 /* ZXAI01decoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXAI01decoder.m; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXAI01decoder.m; sourceTree = "<group>"; };
 		45B7E043817CF6D6CBFC2B42DEDBD76B /* ZXEANManufacturerOrgSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXEANManufacturerOrgSupport.m; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXEANManufacturerOrgSupport.m; sourceTree = "<group>"; };
@@ -1710,7 +1709,7 @@
 		47DCFC146EB30789C4E5DE96C8D25E06 /* YYImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYImage.m; path = YYKit/Image/YYImage.m; sourceTree = "<group>"; };
 		480DFC224B258CE837694FBFCA8577B7 /* ZXBitArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXBitArray.m; path = LBXScan/LBXZXing/ZXingObjc/common/ZXBitArray.m; sourceTree = "<group>"; };
 		482F2206C0A977498DF7F446FD11F161 /* NISnapshotRotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NISnapshotRotation.m; path = src/core/src/NISnapshotRotation.m; sourceTree = "<group>"; };
-		487134D08E85189AB77E12C485E832E2 /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ru.lproj; path = Source/Languages/ru.lproj; sourceTree = "<group>"; };
+		487134D08E85189AB77E12C485E832E2 /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ru.lproj; path = Source/Languages/ru.lproj; sourceTree = "<group>"; };
 		488070914F16B14E4B5720D66EEDCB46 /* ZXPDF417DetectionResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXPDF417DetectionResult.h; path = LBXScan/LBXZXing/ZXingObjc/pdf417/decoder/ZXPDF417DetectionResult.h; sourceTree = "<group>"; };
 		48A929848D210926E055D2C504F187B1 /* ZXAztecReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXAztecReader.h; path = LBXScan/LBXZXing/ZXingObjc/aztec/ZXAztecReader.h; sourceTree = "<group>"; };
 		4907DC60AAEB22D8BE43AC2F02E525F9 /* ZXVEventResultParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXVEventResultParser.m; path = LBXScan/LBXZXing/ZXingObjc/client/result/ZXVEventResultParser.m; sourceTree = "<group>"; };
@@ -1727,7 +1726,7 @@
 		4AD27E8B2F70C5479700A1A303D74B0D /* SocketRocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SocketRocket.xcconfig; sourceTree = "<group>"; };
 		4AFFC0126F7830477380FD57E7B7A441 /* NSThread+BFKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSThread+BFKit.h"; path = "Source/Additions/Foundation/NSThread+BFKit.h"; sourceTree = "<group>"; };
 		4B1E24606DC6A81EB0DF471458038A04 /* YYThreadSafeArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYThreadSafeArray.h; path = YYKit/Utility/YYThreadSafeArray.h; sourceTree = "<group>"; };
-		4B45D5AB261A07BD95ABB996E8426ADD /* binarize.c */ = {isa = PBXFileReference; includeInIndex = 1; name = binarize.c; path = zbar/qrcode/binarize.c; sourceTree = "<group>"; };
+		4B45D5AB261A07BD95ABB996E8426ADD /* binarize.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = binarize.c; path = zbar/qrcode/binarize.c; sourceTree = "<group>"; };
 		4B467DBA3206CBF8D9F25FC89BFFCBEC /* ZXPDF417Common.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXPDF417Common.h; path = LBXScan/LBXZXing/ZXingObjc/pdf417/ZXPDF417Common.h; sourceTree = "<group>"; };
 		4B4851FE65EED93F7AADF957C02AF932 /* MBProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-prefix.pch"; sourceTree = "<group>"; };
 		4B9E8FF23C2A6C9E16467AA6DA4CF58B /* ZXAI01decoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXAI01decoder.h; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXAI01decoder.h; sourceTree = "<group>"; };
@@ -1740,7 +1739,7 @@
 		4D2B2C0E8E68F80743EB24A222AA935D /* YYImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYImageCache.m; path = YYKit/Image/YYImageCache.m; sourceTree = "<group>"; };
 		4D2F8CB8F22CB32272ED0748AFF2BB90 /* NIDeviceOrientation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIDeviceOrientation.h; path = src/core/src/NIDeviceOrientation.h; sourceTree = "<group>"; };
 		4D3B546FE392D8156B876EB6A813411C /* POPAnimatablePropertyTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimatablePropertyTypes.h; path = pop/POPAnimatablePropertyTypes.h; sourceTree = "<group>"; };
-		4D4E976CF09DAC3426908093AA5E7BDD /* POPAnimator.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPAnimator.mm; path = pop/POPAnimator.mm; sourceTree = "<group>"; };
+		4D4E976CF09DAC3426908093AA5E7BDD /* POPAnimator.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimator.mm; path = pop/POPAnimator.mm; sourceTree = "<group>"; };
 		4D5F51F731EE51BCCFE8498DFA85C08D /* ZXQRCodeMatrixUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXQRCodeMatrixUtil.m; path = LBXScan/LBXZXing/ZXingObjc/qrcode/encoder/ZXQRCodeMatrixUtil.m; sourceTree = "<group>"; };
 		4D900A5F619E0A8E08D18E3DE6EA09FE /* ZXBinaryBitmap.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXBinaryBitmap.m; path = LBXScan/LBXZXing/ZXingObjc/core/ZXBinaryBitmap.m; sourceTree = "<group>"; };
 		4D95B24F21E6F1D80537010675E6A4B1 /* NSArray+SafeAccess.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+SafeAccess.m"; path = "Categories/Foundation/NSArray/NSArray+SafeAccess.m"; sourceTree = "<group>"; };
@@ -1762,15 +1761,15 @@
 		50BC35BCCBBC0239A2A2C8BF688D3D47 /* ZXPDF417ErrorCorrection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXPDF417ErrorCorrection.m; path = LBXScan/LBXZXing/ZXingObjc/pdf417/encoder/ZXPDF417ErrorCorrection.m; sourceTree = "<group>"; };
 		50BDEA82549B00B9630AA23029C13B7F /* NSParagraphStyle+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSParagraphStyle+YYText.h"; path = "YYKit/Text/String/NSParagraphStyle+YYText.h"; sourceTree = "<group>"; };
 		512F8F79381760DE90800592D4487251 /* YYKitMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYKitMacro.h; path = YYKit/Base/YYKitMacro.h; sourceTree = "<group>"; };
-		51305B2D9D8DA36D89CC277D729083D2 /* libpop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libpop.a; path = libpop.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		51305B2D9D8DA36D89CC277D729083D2 /* libpop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libpop.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		51F09E215F27760582AA9F387A45C7C2 /* MJRefreshBackFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackFooter.m; path = MJRefresh/Base/MJRefreshBackFooter.m; sourceTree = "<group>"; };
-		52645942182D7AB4B1247678A170975B /* image.c */ = {isa = PBXFileReference; includeInIndex = 1; name = image.c; path = zbar/image.c; sourceTree = "<group>"; };
+		52645942182D7AB4B1247678A170975B /* image.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = image.c; path = zbar/image.c; sourceTree = "<group>"; };
 		52751CD80E13DC6F082969C9A1F3FA56 /* ZBarReaderViewImpl_Capture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZBarReaderViewImpl_Capture.m; path = iphone/ZBarReaderViewImpl_Capture.m; sourceTree = "<group>"; };
 		52B8AFE96ED0C1D99624F0AD94570A92 /* YYTransaction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTransaction.h; path = YYKit/Utility/YYTransaction.h; sourceTree = "<group>"; };
 		52FD32DB5F4BCC75E358A901768A4654 /* YYTextRubyAnnotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextRubyAnnotation.m; path = YYKit/Text/String/YYTextRubyAnnotation.m; sourceTree = "<group>"; };
 		53412D61F160FFFBF929704426E44836 /* ZXEAN8Writer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXEAN8Writer.h; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXEAN8Writer.h; sourceTree = "<group>"; };
 		535868852BB83DADF95ED41C0ADB3927 /* ZXEncodeHints.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXEncodeHints.m; path = LBXScan/LBXZXing/ZXingObjc/core/ZXEncodeHints.m; sourceTree = "<group>"; };
-		53CBF129D5CB84C5F0741AD95883B0D5 /* scanner.c */ = {isa = PBXFileReference; includeInIndex = 1; name = scanner.c; path = zbar/scanner.c; sourceTree = "<group>"; };
+		53CBF129D5CB84C5F0741AD95883B0D5 /* scanner.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = scanner.c; path = zbar/scanner.c; sourceTree = "<group>"; };
 		53D821F606BB7B5C0D0E0A358F34E281 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
 		543FF8BE7189841C4907EEFA25A5EE8F /* ZXBoolArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXBoolArray.m; path = LBXScan/LBXZXing/ZXingObjc/common/ZXBoolArray.m; sourceTree = "<group>"; };
 		547604FA0EA952969F8E32CF66F917B8 /* ZXQRCodeDataMask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXQRCodeDataMask.h; path = LBXScan/LBXZXing/ZXingObjc/qrcode/decoder/ZXQRCodeDataMask.h; sourceTree = "<group>"; };
@@ -1795,7 +1794,7 @@
 		5854510490EACB79FBC0B7091B15952B /* MJRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-prefix.pch"; sourceTree = "<group>"; };
 		5870AE8B2B749E5166D185AA039B62A7 /* ZXBitSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXBitSource.m; path = LBXScan/LBXZXing/ZXingObjc/common/ZXBitSource.m; sourceTree = "<group>"; };
 		5914345186F19B409F057CBD5DF63CB6 /* ZXTelParsedResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXTelParsedResult.m; path = LBXScan/LBXZXing/ZXingObjc/client/result/ZXTelParsedResult.m; sourceTree = "<group>"; };
-		5944E4FBDF30DFD17BC1202307004EA7 /* i25.c */ = {isa = PBXFileReference; includeInIndex = 1; name = i25.c; path = zbar/decoder/i25.c; sourceTree = "<group>"; };
+		5944E4FBDF30DFD17BC1202307004EA7 /* i25.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = i25.c; path = zbar/decoder/i25.c; sourceTree = "<group>"; };
 		59512683B77D4C5676FFC2C51C5117E8 /* ZXAztecCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXAztecCode.h; path = LBXScan/LBXZXing/ZXingObjc/aztec/encoder/ZXAztecCode.h; sourceTree = "<group>"; };
 		59F3614B139A6C3AC0B39A02020CFF69 /* ZXDataMatrixDecodedBitStreamParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXDataMatrixDecodedBitStreamParser.m; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/decoder/ZXDataMatrixDecodedBitStreamParser.m; sourceTree = "<group>"; };
 		59F7779CE12D0B930ED121AD32602C85 /* UIImage+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+YYAdd.m"; path = "YYKit/Base/UIKit/UIImage+YYAdd.m"; sourceTree = "<group>"; };
@@ -1859,7 +1858,7 @@
 		68E77D6C6F3796F2F810BAE86E8303DD /* POPPropertyAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPPropertyAnimation.h; path = pop/POPPropertyAnimation.h; sourceTree = "<group>"; };
 		68E9A7D2EFE529A7287C66E8EA70C2CD /* Pods-LaxoWallet_ab-LaxoWallet-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LaxoWallet_ab-LaxoWallet-acknowledgements.plist"; sourceTree = "<group>"; };
 		68FAA239711D9CA6D88C8651069E867A /* UIScreen+BFKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScreen+BFKit.m"; path = "Source/Additions/UIKit/UIScreen+BFKit.m"; sourceTree = "<group>"; };
-		6912A67F72F0A472EF1637D6E2E226CB /* code39.c */ = {isa = PBXFileReference; includeInIndex = 1; name = code39.c; path = zbar/decoder/code39.c; sourceTree = "<group>"; };
+		6912A67F72F0A472EF1637D6E2E226CB /* code39.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = code39.c; path = zbar/decoder/code39.c; sourceTree = "<group>"; };
 		695FF8E74196C1BF84B86535949CCDD1 /* ZXReedSolomonDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXReedSolomonDecoder.h; path = LBXScan/LBXZXing/ZXingObjc/common/reedsolomon/ZXReedSolomonDecoder.h; sourceTree = "<group>"; };
 		696EC5F9CF2054D8BDB4E0054F89CD40 /* BFSystemSound.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFSystemSound.m; path = Source/BFKit/BFSystemSound.m; sourceTree = "<group>"; };
 		69B41C705FECC5E5BE45E83956DFAC31 /* YYWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYWebImageOperation.h; path = YYKit/Image/YYWebImageOperation.h; sourceTree = "<group>"; };
@@ -1877,7 +1876,7 @@
 		6CFB88D2E0531132ECEDE95529B7BE1A /* UIControl+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIControl+YYAdd.m"; path = "YYKit/Base/UIKit/UIControl+YYAdd.m"; sourceTree = "<group>"; };
 		6D023D0F469917ED8AC6C0C616A110E4 /* ZXQRCodeFormatInformation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXQRCodeFormatInformation.m; path = LBXScan/LBXZXing/ZXingObjc/qrcode/decoder/ZXQRCodeFormatInformation.m; sourceTree = "<group>"; };
 		6D17064ADA461990F728B2CED0FCCAFE /* ZXAztecBinaryShiftToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXAztecBinaryShiftToken.h; path = LBXScan/LBXZXing/ZXingObjc/aztec/encoder/ZXAztecBinaryShiftToken.h; sourceTree = "<group>"; };
-		6D3CFC5D682663422C858C8E06CABD7E /* POPAnimationExtras.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPAnimationExtras.mm; path = pop/POPAnimationExtras.mm; sourceTree = "<group>"; };
+		6D3CFC5D682663422C858C8E06CABD7E /* POPAnimationExtras.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationExtras.mm; path = pop/POPAnimationExtras.mm; sourceTree = "<group>"; };
 		6D676AF86972EE704FFD094A3E548135 /* ZXOneDReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXOneDReader.m; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXOneDReader.m; sourceTree = "<group>"; };
 		6D94381A7DD6BFEE42BC35B18D8C1A9C /* ZXDataMatrixSymbolInfo144.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXDataMatrixSymbolInfo144.h; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/encoder/ZXDataMatrixSymbolInfo144.h; sourceTree = "<group>"; };
 		6D95973E860092AA3C099B04ECDEC5F0 /* ZXISBNResultParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXISBNResultParser.h; path = LBXScan/LBXZXing/ZXingObjc/client/result/ZXISBNResultParser.h; sourceTree = "<group>"; };
@@ -1894,7 +1893,7 @@
 		6F6FDA11242788353A5BEE457004B543 /* ZXEAN13Reader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXEAN13Reader.m; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXEAN13Reader.m; sourceTree = "<group>"; };
 		6FA7FA4941E0657875650DC9C93EA07A /* ZXQRCodeDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXQRCodeDecoder.h; path = LBXScan/LBXZXing/ZXingObjc/qrcode/decoder/ZXQRCodeDecoder.h; sourceTree = "<group>"; };
 		6FB078175FA0A6CB7E5578147168A812 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		6FD19868BF62A89E4A24D55779EE67EE /* refcnt.c */ = {isa = PBXFileReference; includeInIndex = 1; name = refcnt.c; path = zbar/refcnt.c; sourceTree = "<group>"; };
+		6FD19868BF62A89E4A24D55779EE67EE /* refcnt.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = refcnt.c; path = zbar/refcnt.c; sourceTree = "<group>"; };
 		7018FC10003B0C6F8E0B225DC242B37F /* zbar-helpicons.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "zbar-helpicons.png"; path = "iphone/res/zbar-helpicons.png"; sourceTree = "<group>"; };
 		70270A99B699550312A3B15F577F7FFC /* ZXQRCodeMatrixUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXQRCodeMatrixUtil.h; path = LBXScan/LBXZXing/ZXingObjc/qrcode/encoder/ZXQRCodeMatrixUtil.h; sourceTree = "<group>"; };
 		705D4651E4F2D520C7C55F7684F7DFEA /* ZXMultiFinderPatternFinder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXMultiFinderPatternFinder.h; path = LBXScan/LBXZXing/ZXingObjc/qrcode/multi/detector/ZXMultiFinderPatternFinder.h; sourceTree = "<group>"; };
@@ -1927,7 +1926,7 @@
 		767A4D8D07A0909A60B719CA27882F3C /* ZXGenericGF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXGenericGF.h; path = LBXScan/LBXZXing/ZXingObjc/common/reedsolomon/ZXGenericGF.h; sourceTree = "<group>"; };
 		76B1892AC945DF11248B765554C7D14E /* code128.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = code128.h; path = zbar/decoder/code128.h; sourceTree = "<group>"; };
 		779750392FD3188D4CC8C2360BFE48CE /* ZXPDF417Reader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXPDF417Reader.h; path = LBXScan/LBXZXing/ZXingObjc/pdf417/ZXPDF417Reader.h; sourceTree = "<group>"; };
-		785A1E0D9CCE1C8A7BFB2F7DDD4B8D40 /* zbar-help.html */ = {isa = PBXFileReference; includeInIndex = 1; name = "zbar-help.html"; path = "iphone/res/zbar-help.html"; sourceTree = "<group>"; };
+		785A1E0D9CCE1C8A7BFB2F7DDD4B8D40 /* zbar-help.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "zbar-help.html"; path = "iphone/res/zbar-help.html"; sourceTree = "<group>"; };
 		786765C2BE6B14FBCE4DE6F25DB3F456 /* ZXQRCodeReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXQRCodeReader.h; path = LBXScan/LBXZXing/ZXingObjc/qrcode/ZXQRCodeReader.h; sourceTree = "<group>"; };
 		787F1555F935C26289A133F210137C63 /* NSButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSButton+WebCache.m"; path = "SDWebImage/NSButton+WebCache.m"; sourceTree = "<group>"; };
 		78869FA25E179ECDB67D6BF6B06A01C6 /* YYWeakProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYWeakProxy.h; path = YYKit/Utility/YYWeakProxy.h; sourceTree = "<group>"; };
@@ -1958,7 +1957,7 @@
 		7C81C2AB7F0A78E358FF64FC071228C0 /* YYKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YYKit-dummy.m"; sourceTree = "<group>"; };
 		7CD6B684998B42E2EDEBD16D0E31DCAF /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJRefresh.m"; path = "MJRefresh/UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		7D3483BFF575CA316BACF3CBABA5B6D2 /* Nimbus.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Nimbus.xcconfig; sourceTree = "<group>"; };
-		7D6F24A91A7B2293754525580BE4E191 /* sv.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = sv.lproj; path = Source/Languages/sv.lproj; sourceTree = "<group>"; };
+		7D6F24A91A7B2293754525580BE4E191 /* sv.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = sv.lproj; path = Source/Languages/sv.lproj; sourceTree = "<group>"; };
 		7D8878038EA03ADE3459F5A46E006D8F /* ZXRSSExpandedBlockParsedResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXRSSExpandedBlockParsedResult.m; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXRSSExpandedBlockParsedResult.m; sourceTree = "<group>"; };
 		7DB1CBB007DC7E93F527CE2FFDBEFE8F /* POPDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPDefines.h; path = pop/POPDefines.h; sourceTree = "<group>"; };
 		7E2A633C8A996818F083418D5EFE9C54 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -1990,7 +1989,7 @@
 		8387A44B7446610777356F05A8DBD5B1 /* NSDictionary+SafeAccess.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+SafeAccess.m"; path = "Categories/Foundation/NSDictionary/NSDictionary+SafeAccess.m"; sourceTree = "<group>"; };
 		8397129F49B873006A325C399D068DAE /* BFPassword.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFPassword.m; path = Source/BFKit/BFPassword.m; sourceTree = "<group>"; };
 		83E56D3416D30086230E110B73195471 /* ZXSMSMMSResultParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXSMSMMSResultParser.h; path = LBXScan/LBXZXing/ZXingObjc/client/result/ZXSMSMMSResultParser.h; sourceTree = "<group>"; };
-		83F003C47ED0C5C0AC57B00C49DB7FE5 /* rs.c */ = {isa = PBXFileReference; includeInIndex = 1; name = rs.c; path = zbar/qrcode/rs.c; sourceTree = "<group>"; };
+		83F003C47ED0C5C0AC57B00C49DB7FE5 /* rs.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = rs.c; path = zbar/qrcode/rs.c; sourceTree = "<group>"; };
 		844988227B9D372318403E05043B17D7 /* YYTextEffectWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextEffectWindow.m; path = YYKit/Text/Component/YYTextEffectWindow.m; sourceTree = "<group>"; };
 		845D3404BB553C37DBF1ACA791BE7F80 /* IQUIView+Hierarchy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIView+Hierarchy.h"; path = "IQKeyboardManager/Categories/IQUIView+Hierarchy.h"; sourceTree = "<group>"; };
 		84774A0745E879D6349BFE1EF4A747FB /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
@@ -2001,8 +2000,8 @@
 		84ADAE92A0F73A3903E5955F35DC3202 /* ZXEAN8Writer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXEAN8Writer.m; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXEAN8Writer.m; sourceTree = "<group>"; };
 		84E33DF506ED5FC7C58F29B8B7B5F73A /* YYWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYWebImageManager.h; path = YYKit/Image/YYWebImageManager.h; sourceTree = "<group>"; };
 		853775253E3D0F5812A7FFE8F9D337F9 /* NSThread+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSThread+YYAdd.h"; path = "YYKit/Base/Foundation/NSThread+YYAdd.h"; sourceTree = "<group>"; };
-		8575578A9B39FAE37F69A6CAC4C39A23 /* img_scanner.c */ = {isa = PBXFileReference; includeInIndex = 1; name = img_scanner.c; path = zbar/img_scanner.c; sourceTree = "<group>"; };
-		85A01882ED06DFEA2E0CE78BCDB204A7 /* libSocketRocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSocketRocket.a; path = libSocketRocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8575578A9B39FAE37F69A6CAC4C39A23 /* img_scanner.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = img_scanner.c; path = zbar/img_scanner.c; sourceTree = "<group>"; };
+		85A01882ED06DFEA2E0CE78BCDB204A7 /* libSocketRocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSocketRocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		85A5836033164B2A54C5206EC8F970E9 /* ZXCaptureDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXCaptureDelegate.h; path = LBXScan/LBXZXing/ZXingObjc/client/ZXCaptureDelegate.h; sourceTree = "<group>"; };
 		85D66B35082EC767133424E5174AD594 /* NIViewRecycler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIViewRecycler.h; path = src/core/src/NIViewRecycler.h; sourceTree = "<group>"; };
 		85E99209FBD5E24732565A19BE328D3B /* ZXQRCodeBitMatrixParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXQRCodeBitMatrixParser.h; path = LBXScan/LBXZXing/ZXingObjc/qrcode/decoder/ZXQRCodeBitMatrixParser.h; sourceTree = "<group>"; };
@@ -2011,8 +2010,8 @@
 		86306B18D4B1A751D5CACC17F47737F8 /* ZXQRCodeMaskUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXQRCodeMaskUtil.h; path = LBXScan/LBXZXing/ZXingObjc/qrcode/encoder/ZXQRCodeMaskUtil.h; sourceTree = "<group>"; };
 		8639E26AA292820B1A32AF94454F753E /* ZXEAN13Writer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXEAN13Writer.m; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXEAN13Writer.m; sourceTree = "<group>"; };
 		8696DBC8FBAB477356DA3E5D2015304B /* BFButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFButton.h; path = Source/BFKit/BFButton.h; sourceTree = "<group>"; };
-		86D7DF1CCBA31531E553E4E909E0D026 /* POPMath.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPMath.mm; path = pop/POPMath.mm; sourceTree = "<group>"; };
-		86D7E2C74F1F5E532620A768B880468B /* cmp.c */ = {isa = PBXFileReference; includeInIndex = 1; name = cmp.c; path = MPMessagePack/cmp.c; sourceTree = "<group>"; };
+		86D7DF1CCBA31531E553E4E909E0D026 /* POPMath.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPMath.mm; path = pop/POPMath.mm; sourceTree = "<group>"; };
+		86D7E2C74F1F5E532620A768B880468B /* cmp.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = cmp.c; path = MPMessagePack/cmp.c; sourceTree = "<group>"; };
 		8700B2213217C33D7AF1D6A458D9206E /* ZXDecoderResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXDecoderResult.h; path = LBXScan/LBXZXing/ZXingObjc/common/ZXDecoderResult.h; sourceTree = "<group>"; };
 		87145FD5E392769F3C5C75D4AC0ED1F9 /* IQToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQToolbar.h; path = IQKeyboardManager/IQToolbar/IQToolbar.h; sourceTree = "<group>"; };
 		871A88CC205B6997850D48BCCB6EF2F6 /* NSBundle+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+YYAdd.h"; path = "YYKit/Base/Foundation/NSBundle+YYAdd.h"; sourceTree = "<group>"; };
@@ -2021,11 +2020,11 @@
 		87EF2B545D14D0A33F44C3A27A64E92F /* ZXByteMatrix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXByteMatrix.h; path = LBXScan/LBXZXing/ZXingObjc/core/ZXByteMatrix.h; sourceTree = "<group>"; };
 		8884565E8AF82A6F8E052762760431A1 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImagePrefetcher.h; path = SDWebImage/SDWebImagePrefetcher.h; sourceTree = "<group>"; };
 		889DAC1973A17E1FA0FB6D0444840691 /* UIFont+BFKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIFont+BFKit.m"; path = "Source/Additions/UIKit/UIFont+BFKit.m"; sourceTree = "<group>"; };
-		88A8C627D4094C32AFD6251402BED62E /* POPAnimationEvent.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPAnimationEvent.mm; path = pop/POPAnimationEvent.mm; sourceTree = "<group>"; };
+		88A8C627D4094C32AFD6251402BED62E /* POPAnimationEvent.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationEvent.mm; path = pop/POPAnimationEvent.mm; sourceTree = "<group>"; };
 		88B275F810D125E700D703724E77018F /* ZXDataMatrixTextEncoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXDataMatrixTextEncoder.h; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/encoder/ZXDataMatrixTextEncoder.h; sourceTree = "<group>"; };
 		88BD3313E2BC6FD22EB051F1F2614ACA /* ZXCGImageLuminanceSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXCGImageLuminanceSource.m; path = LBXScan/LBXZXing/ZXingObjc/client/ZXCGImageLuminanceSource.m; sourceTree = "<group>"; };
-		88DD147B8BF9B184E837849B45A44FB7 /* code128.c */ = {isa = PBXFileReference; includeInIndex = 1; name = code128.c; path = zbar/decoder/code128.c; sourceTree = "<group>"; };
-		88E3835B8ECF00A05659A8FEF690837F /* POPGeometry.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPGeometry.mm; path = pop/POPGeometry.mm; sourceTree = "<group>"; };
+		88DD147B8BF9B184E837849B45A44FB7 /* code128.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = code128.c; path = zbar/decoder/code128.c; sourceTree = "<group>"; };
+		88E3835B8ECF00A05659A8FEF690837F /* POPGeometry.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPGeometry.mm; path = pop/POPGeometry.mm; sourceTree = "<group>"; };
 		88F484ED5BCEF4CD3EA5CF89F7032BF7 /* ZXAI01AndOtherAIs.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXAI01AndOtherAIs.m; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXAI01AndOtherAIs.m; sourceTree = "<group>"; };
 		899D73BD40883C75B5E62D804EA5CA91 /* NSArray+BFKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+BFKit.m"; path = "Source/Additions/Foundation/NSArray+BFKit.m"; sourceTree = "<group>"; };
 		8A351AC34FE55531F843342F3978602B /* LBXScanNetAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LBXScanNetAnimation.h; path = LBXScan/UI/LBXScanNetAnimation.h; sourceTree = "<group>"; };
@@ -2036,7 +2035,7 @@
 		8AE92B77F7A8B1B94A99E6FE306F1B8A /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		8B2142D2ACD3DEC63F412337246B0526 /* YYLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYLabel.h; path = YYKit/Text/YYLabel.h; sourceTree = "<group>"; };
 		8B6B1E8900257FD1FBF89B9175CAAEDE /* ZXDataMatrixDecodedBitStreamParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXDataMatrixDecodedBitStreamParser.h; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/decoder/ZXDataMatrixDecodedBitStreamParser.h; sourceTree = "<group>"; };
-		8B8FAB0D627B17EDE1366984278705D9 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMBProgressHUD.a; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8FAB0D627B17EDE1366984278705D9 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C40DC5FF3B39C241FE8949C3D6C0A77 /* ZXPDF417BarcodeMatrix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXPDF417BarcodeMatrix.h; path = LBXScan/LBXZXing/ZXingObjc/pdf417/encoder/ZXPDF417BarcodeMatrix.h; sourceTree = "<group>"; };
 		8CD66C9A35A5C0862BDC03D692456C8B /* UIScrollView+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+YYAdd.h"; path = "YYKit/Base/UIKit/UIScrollView+YYAdd.h"; sourceTree = "<group>"; };
 		8D0B95341231D8EACFF77387D63A9384 /* NSDictionary+SafeAccess.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+SafeAccess.h"; path = "Categories/Foundation/NSDictionary/NSDictionary+SafeAccess.h"; sourceTree = "<group>"; };
@@ -2063,7 +2062,7 @@
 		91D15B2EDFF4442DEA889088808ECB23 /* ZXDimension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXDimension.h; path = LBXScan/LBXZXing/ZXingObjc/core/ZXDimension.h; sourceTree = "<group>"; };
 		91EE3BF0C5582600EB5AEB5FC14EE7E3 /* NSString+MD5.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5.m"; path = "Categories/Foundation/NSString/NSString+MD5.m"; sourceTree = "<group>"; };
 		9215C683DB8B14CEB832B26ADE5F0E88 /* LBXScan-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LBXScan-dummy.m"; sourceTree = "<group>"; };
-		92822C249B527817F18C20ED9C8302B6 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "Source/Languages/zh-Hans.lproj"; sourceTree = "<group>"; };
+		92822C249B527817F18C20ED9C8302B6 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hans.lproj"; path = "Source/Languages/zh-Hans.lproj"; sourceTree = "<group>"; };
 		9294F3510C9A610A0CE603794DB8DE62 /* ZXUPCEANExtensionSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXUPCEANExtensionSupport.h; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXUPCEANExtensionSupport.h; sourceTree = "<group>"; };
 		92DABEECB6B02ABD0ECAE9CCBC5532D1 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
 		92E0F3D50C97E15A4B0E623D298069A8 /* ZXErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXErrors.h; path = LBXScan/LBXZXing/ZXingObjc/core/ZXErrors.h; sourceTree = "<group>"; };
@@ -2075,7 +2074,7 @@
 		943EC40D1F37A880482A0DA78115FB08 /* UIWindow+BFKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWindow+BFKit.h"; path = "Source/Additions/UIKit/UIWindow+BFKit.h"; sourceTree = "<group>"; };
 		94742ABFCD352C8612F094E18953FB1A /* NISDKAvailability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NISDKAvailability.h; path = src/core/src/NISDKAvailability.h; sourceTree = "<group>"; };
 		94817994399D8090F42115679C816ECA /* ZXAztecEncoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXAztecEncoder.m; path = LBXScan/LBXZXing/ZXingObjc/aztec/encoder/ZXAztecEncoder.m; sourceTree = "<group>"; };
-		9493AD9C945CD1EEDD48465592BAD0D6 /* libMPMessagePack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMPMessagePack.a; path = libMPMessagePack.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9493AD9C945CD1EEDD48465592BAD0D6 /* libMPMessagePack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMPMessagePack.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94AD5DDA0E117DF23641B6B666EDE803 /* ZXDecodeHints.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXDecodeHints.m; path = LBXScan/LBXZXing/ZXingObjc/core/ZXDecodeHints.m; sourceTree = "<group>"; };
 		94B0A32E432A101346E811D262243C75 /* ZXAztecEncoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXAztecEncoder.h; path = LBXScan/LBXZXing/ZXingObjc/aztec/encoder/ZXAztecEncoder.h; sourceTree = "<group>"; };
 		952E80855C51C96FDB6748F93DB34052 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIView+IQKeyboardToolbar.m"; path = "IQKeyboardManager/IQToolbar/IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
@@ -2103,7 +2102,7 @@
 		97E10C20D70C29E7AD7DF13A797BAD19 /* NSMutableArray+BFKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+BFKit.m"; path = "Source/Additions/Foundation/NSMutableArray+BFKit.m"; sourceTree = "<group>"; };
 		97E9A812226A585E354C24EE26B23B58 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
 		984992124E48B7F34C406DC4147853BF /* UIView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+MJExtension.m"; path = "MJRefresh/UIView+MJExtension.m"; sourceTree = "<group>"; };
-		98527D7196957AAB07B79E2E2AFDE23E /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libIQKeyboardManager.a; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		98527D7196957AAB07B79E2E2AFDE23E /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E8672A3620603BB77B7CFCB864196A /* Nimbus-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Nimbus-dummy.m"; sourceTree = "<group>"; };
 		991C241084C2AA9B611AE33AFA401CC6 /* NIPaths.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIPaths.m; path = src/core/src/NIPaths.m; sourceTree = "<group>"; };
 		993B4193AAFB9524A2FC3C9019E5B058 /* ZXDataMatrixSymbolInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXDataMatrixSymbolInfo.m; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/encoder/ZXDataMatrixSymbolInfo.m; sourceTree = "<group>"; };
@@ -2123,7 +2122,7 @@
 		9D18EF6E53AC5C2FA80F73C01B04AEAE /* EBBannerView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EBBannerView-dummy.m"; sourceTree = "<group>"; };
 		9D48F4723EBB7E6369C458C632FD1D34 /* YYLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYLabel.m; path = YYKit/Text/YYLabel.m; sourceTree = "<group>"; };
 		9D88825D93E36799C554CF419AC93829 /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DA92A43B87F7F6DAF2F5C73276607DF /* YYKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYKeychain.h; path = YYKit/Utility/YYKeychain.h; sourceTree = "<group>"; };
 		9DB05A8B2A156275745F79B9EB1B8233 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
 		9DE0ABCFF5037FC857D1C0E6BE3E3D45 /* win.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = win.h; path = zbar/window/win.h; sourceTree = "<group>"; };
@@ -2159,11 +2158,11 @@
 		A308531A839C3EC3010533EB20B3A50A /* ZBarReaderViewImpl_Simulator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZBarReaderViewImpl_Simulator.m; path = iphone/ZBarReaderViewImpl_Simulator.m; sourceTree = "<group>"; };
 		A44C289675BA945B077AA0B783CB2B1C /* UITableView+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableView+YYAdd.m"; path = "YYKit/Base/UIKit/UITableView+YYAdd.m"; sourceTree = "<group>"; };
 		A45FA0ED5BC85A776BBBE478BFAD6D91 /* ZXUPCEReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXUPCEReader.h; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXUPCEReader.h; sourceTree = "<group>"; };
-		A477B272676FCFBB087F56179E1E57F5 /* id.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = id.lproj; path = Source/Languages/id.lproj; sourceTree = "<group>"; };
+		A477B272676FCFBB087F56179E1E57F5 /* id.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = id.lproj; path = Source/Languages/id.lproj; sourceTree = "<group>"; };
 		A47F30AC0F883D35C8CF0E027481FE86 /* UIScreen+BFKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScreen+BFKit.h"; path = "Source/Additions/UIKit/UIScreen+BFKit.h"; sourceTree = "<group>"; };
 		A493C9B3433EC54577AF2E3D1326B0BF /* NSNumber+BFKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+BFKit.m"; path = "Source/Additions/Foundation/NSNumber+BFKit.m"; sourceTree = "<group>"; };
 		A4CB69D8C7CE0B2557CC3963130F560D /* MPMessagePackServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MPMessagePackServer.m; path = RPC/MPMessagePackServer.m; sourceTree = "<group>"; };
-		A4FA15D44DF6BAC7550EDEED10862AA3 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAFNetworking.a; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4FA15D44DF6BAC7550EDEED10862AA3 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5031B805C10910819462764DDF7B82A /* ZXCode128Writer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXCode128Writer.h; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXCode128Writer.h; sourceTree = "<group>"; };
 		A50D629D93BCD83568B06E8B99287BE3 /* ZXWifiResultParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXWifiResultParser.h; path = LBXScan/LBXZXing/ZXingObjc/client/result/ZXWifiResultParser.h; sourceTree = "<group>"; };
 		A55C715291859F1E5CA2BFF51ABDC905 /* ZXMultiFormatOneDReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXMultiFormatOneDReader.m; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXMultiFormatOneDReader.m; sourceTree = "<group>"; };
@@ -2176,9 +2175,9 @@
 		A63B103C18E5ED766B78C3C9274C9026 /* YYSentinel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYSentinel.h; path = YYKit/Utility/YYSentinel.h; sourceTree = "<group>"; };
 		A6431DCCAE28ACF9E1E40936562F88BA /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		A65432524F9FD443B90F00568F8D9804 /* BFCryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCryptor.h; path = Source/BFKit/BFCryptor.h; sourceTree = "<group>"; };
-		A6575FB9617731DF63437937259DF4FF /* bch15_5.c */ = {isa = PBXFileReference; includeInIndex = 1; name = bch15_5.c; path = zbar/qrcode/bch15_5.c; sourceTree = "<group>"; };
+		A6575FB9617731DF63437937259DF4FF /* bch15_5.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = bch15_5.c; path = zbar/qrcode/bch15_5.c; sourceTree = "<group>"; };
 		A736D6FCC378F326C66BDFAB5DA58C1B /* ZXingObjCQRCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXingObjCQRCode.h; path = LBXScan/LBXZXing/ZXingObjc/qrcode/ZXingObjCQRCode.h; sourceTree = "<group>"; };
-		A7B847C82F685EEA757B581D66AE2C45 /* qr_finder.c */ = {isa = PBXFileReference; includeInIndex = 1; name = qr_finder.c; path = zbar/decoder/qr_finder.c; sourceTree = "<group>"; };
+		A7B847C82F685EEA757B581D66AE2C45 /* qr_finder.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = qr_finder.c; path = zbar/decoder/qr_finder.c; sourceTree = "<group>"; };
 		A7E41D779654446ABD16351965F528FA /* zbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = zbar.h; path = include/zbar.h; sourceTree = "<group>"; };
 		A7F02FC794DFEE0CE82084FB2B198124 /* ZXDataMatrixX12Encoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXDataMatrixX12Encoder.m; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/encoder/ZXDataMatrixX12Encoder.m; sourceTree = "<group>"; };
 		A80598BFB6EAA7EDF252115D870EEE2F /* UIFont+BFKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIFont+BFKit.h"; path = "Source/Additions/UIKit/UIFont+BFKit.h"; sourceTree = "<group>"; };
@@ -2213,11 +2212,11 @@
 		ADC54F314C4E75B8720395D527BEE402 /* ZXUPCEReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXUPCEReader.m; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXUPCEReader.m; sourceTree = "<group>"; };
 		ADE0CB74DC546A5314AD2A2A4C570C96 /* YYTextMagnifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextMagnifier.h; path = YYKit/Text/Component/YYTextMagnifier.h; sourceTree = "<group>"; };
 		ADE70523327E9B3DFDEAC4613C1F78E6 /* LBXScanViewStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LBXScanViewStyle.m; path = LBXScan/UI/LBXScanViewStyle.m; sourceTree = "<group>"; };
-		ADEBDA32F07A150E878C0F9EC21A3524 /* libZBarSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libZBarSDK.a; path = libZBarSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADEBDA32F07A150E878C0F9EC21A3524 /* libZBarSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZBarSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE38039B0F72922B20089F85101FFBB5 /* ZXCharacterSetECI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXCharacterSetECI.m; path = LBXScan/LBXZXing/ZXingObjc/common/ZXCharacterSetECI.m; sourceTree = "<group>"; };
 		AE6140925CB9D00512328C68BE71E93B /* EBBannerViewMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EBBannerViewMaker.m; path = EBBannerView/Classes/EBBannerViewMaker.m; sourceTree = "<group>"; };
 		AF17F63B504EB64B461C0902FB2969B7 /* ZXQRCodeFormatInformation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXQRCodeFormatInformation.h; path = LBXScan/LBXZXing/ZXingObjc/qrcode/decoder/ZXQRCodeFormatInformation.h; sourceTree = "<group>"; };
-		AF1B2EDAD5F9574B51F4285E9ACFE253 /* libNimbus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libNimbus.a; path = libNimbus.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF1B2EDAD5F9574B51F4285E9ACFE253 /* libNimbus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNimbus.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFD8AFF49B3DED68577EEAD62E472F93 /* NIImageUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIImageUtilities.m; path = src/core/src/NIImageUtilities.m; sourceTree = "<group>"; };
 		AFE2E4ADCBF595BAAD7B66F6D1B2AC9C /* ZXImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXImage.h; path = LBXScan/LBXZXing/ZXingObjc/client/ZXImage.h; sourceTree = "<group>"; };
 		AFE3F271AB3E6984C7DB0FED96FA7AFD /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -2228,7 +2227,7 @@
 		B0A236F76B2F68F4D5B12FC8BB6F05EE /* EBBannerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EBBannerView.m; path = EBBannerView/Classes/EBBannerView.m; sourceTree = "<group>"; };
 		B0A9AE2EAF30B0E878F1D651031C3B6B /* NSArray+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+YYAdd.m"; path = "YYKit/Base/Foundation/NSArray+YYAdd.m"; sourceTree = "<group>"; };
 		B0AF9BA0EFFA7B23E5DDD089A1C7510D /* UITextView+PlaceHolder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+PlaceHolder.h"; path = "Categories/UIKits/UITextView/UITextView+PlaceHolder.h"; sourceTree = "<group>"; };
-		B0B214D775196BA7CA8E17E53048A493 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSDWebImage.a; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B214D775196BA7CA8E17E53048A493 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B72C470D6B34933D03E5C65C542DF0 /* IQPreviousNextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQPreviousNextView.h; path = IQKeyboardManager/IQToolbar/IQPreviousNextView.h; sourceTree = "<group>"; };
 		B0E508C814FC2A0069051AE4432E1995 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
 		B16264630AEB2C915E21E3DBF9299687 /* ZXRSSExpandedFieldParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXRSSExpandedFieldParser.m; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXRSSExpandedFieldParser.m; sourceTree = "<group>"; };
@@ -2244,7 +2243,7 @@
 		B2C581885AD21A0EEE8374C9769BA6C7 /* EBCustomBannerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EBCustomBannerView.h; path = EBBannerView/EBCustomBannerView.h; sourceTree = "<group>"; };
 		B2F8FBE4A557B343FDADE2E87DB82A8F /* ZXITFReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXITFReader.m; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXITFReader.m; sourceTree = "<group>"; };
 		B379BE32D8C144AB120B3269316B0C55 /* ZXTelResultParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXTelResultParser.m; path = LBXScan/LBXZXing/ZXingObjc/client/result/ZXTelResultParser.m; sourceTree = "<group>"; };
-		B3BD40E217A438B5774C55E81C6718B8 /* libBFKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libBFKit.a; path = libBFKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3BD40E217A438B5774C55E81C6718B8 /* libBFKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBFKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F26723C4A325CEAB2990E0319F329A /* ZXEncodeHints.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXEncodeHints.h; path = LBXScan/LBXZXing/ZXingObjc/core/ZXEncodeHints.h; sourceTree = "<group>"; };
 		B57E3098929677ECD06AC726CD5075DB /* UIBarButtonItem+BFKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+BFKit.h"; path = "Source/Additions/UIKit/UIBarButtonItem+BFKit.h"; sourceTree = "<group>"; };
 		B591947E6F4D4B11761DDDCB9C46CFE6 /* ZXByQuadrantReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXByQuadrantReader.h; path = LBXScan/LBXZXing/ZXingObjc/multi/ZXByQuadrantReader.h; sourceTree = "<group>"; };
@@ -2256,10 +2255,10 @@
 		B67C4F68E556CC7AD0A2E018EA196F76 /* zbar-samples.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "zbar-samples.png"; path = "iphone/res/zbar-samples.png"; sourceTree = "<group>"; };
 		B68B20EEC4B2E702124B7B4022983CBC /* NINonRetainingCollections.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NINonRetainingCollections.h; path = src/core/src/NINonRetainingCollections.h; sourceTree = "<group>"; };
 		B6A1C7C66F54B89F2316DB0ACC36D013 /* NIRuntimeClassModifications.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NIRuntimeClassModifications.m; path = src/core/src/NIRuntimeClassModifications.m; sourceTree = "<group>"; };
-		B6B3D9C666B597D47D0678FD672222CB /* POPBasicAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPBasicAnimation.mm; path = pop/POPBasicAnimation.mm; sourceTree = "<group>"; };
+		B6B3D9C666B597D47D0678FD672222CB /* POPBasicAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPBasicAnimation.mm; path = pop/POPBasicAnimation.mm; sourceTree = "<group>"; };
 		B7194775D8CCBC34C840C28694205754 /* UIBarButtonItem+BFKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+BFKit.m"; path = "Source/Additions/UIKit/UIBarButtonItem+BFKit.m"; sourceTree = "<group>"; };
 		B7450F5C803A8D05566F840C0E992DCA /* IQTitleBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQTitleBarButtonItem.h; path = IQKeyboardManager/IQToolbar/IQTitleBarButtonItem.h; sourceTree = "<group>"; };
-		B7488752D4779394AA0F9A098221948F /* POPAnimationRuntime.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPAnimationRuntime.mm; path = pop/POPAnimationRuntime.mm; sourceTree = "<group>"; };
+		B7488752D4779394AA0F9A098221948F /* POPAnimationRuntime.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationRuntime.mm; path = pop/POPAnimationRuntime.mm; sourceTree = "<group>"; };
 		B7F54FE03F7205A510DAFDAE37D6DB63 /* ZXGenericGFPoly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXGenericGFPoly.m; path = LBXScan/LBXZXing/ZXingObjc/common/reedsolomon/ZXGenericGFPoly.m; sourceTree = "<group>"; };
 		B81B138A8C4005842FD78A25AFA468CC /* ZXPDF417HighLevelEncoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXPDF417HighLevelEncoder.h; path = LBXScan/LBXZXing/ZXingObjc/pdf417/encoder/ZXPDF417HighLevelEncoder.h; sourceTree = "<group>"; };
 		B82DBADDB413B73D68629D552DBA4FEE /* SRWebSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRWebSocket.m; path = SocketRocket/SRWebSocket.m; sourceTree = "<group>"; };
@@ -2268,7 +2267,7 @@
 		B8E939A9EF8B81FEDB8A0F7EE1CB18A1 /* NIImageUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIImageUtilities.h; path = src/core/src/NIImageUtilities.h; sourceTree = "<group>"; };
 		B939E9145A4A499C4738EF65D24022E0 /* ZXPDF417DetectionResultRowIndicatorColumn.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXPDF417DetectionResultRowIndicatorColumn.m; path = LBXScan/LBXZXing/ZXingObjc/pdf417/decoder/ZXPDF417DetectionResultRowIndicatorColumn.m; sourceTree = "<group>"; };
 		B943C90A3A24C955EBD9795B33C84B07 /* BFTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTextField.m; path = Source/BFKit/BFTextField.m; sourceTree = "<group>"; };
-		B94FD1D0D69D780F170AAD7143D6A58E /* POPVector.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPVector.mm; path = pop/POPVector.mm; sourceTree = "<group>"; };
+		B94FD1D0D69D780F170AAD7143D6A58E /* POPVector.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPVector.mm; path = pop/POPVector.mm; sourceTree = "<group>"; };
 		B97BEF746019025D5C01BF48E3AB2B0B /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
 		B99C7750824B770C01AF50345796C2F6 /* ZXResultMetadataType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXResultMetadataType.h; path = LBXScan/LBXZXing/ZXingObjc/core/ZXResultMetadataType.h; sourceTree = "<group>"; };
 		B99EE73A57A3BD258A5E25C8EED4B8CC /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -2295,9 +2294,9 @@
 		BC86CEFB9B9A4AA1E5D06BC32B6DE37B /* ZXAztecDetector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXAztecDetector.m; path = LBXScan/LBXZXing/ZXingObjc/aztec/detector/ZXAztecDetector.m; sourceTree = "<group>"; };
 		BCF6D2150C58EC9970202A5119C85580 /* NSArray+BFKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+BFKit.h"; path = "Source/Additions/Foundation/NSArray+BFKit.h"; sourceTree = "<group>"; };
 		BD00C9CC4AB7018A7AD49AE869A687CD /* ZXEmailDoCoMoResultParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXEmailDoCoMoResultParser.m; path = LBXScan/LBXZXing/ZXingObjc/client/result/ZXEmailDoCoMoResultParser.m; sourceTree = "<group>"; };
-		BD185C7C0CFD2384ABA96CCDC6AC8268 /* uk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = uk.lproj; path = Source/Languages/uk.lproj; sourceTree = "<group>"; };
+		BD185C7C0CFD2384ABA96CCDC6AC8268 /* uk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = uk.lproj; path = Source/Languages/uk.lproj; sourceTree = "<group>"; };
 		BD48474ED51CC5BD6460C8256EA9DC89 /* ZXRSSExpandedDecodedNumeric.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXRSSExpandedDecodedNumeric.m; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXRSSExpandedDecodedNumeric.m; sourceTree = "<group>"; };
-		BD4FC4E469773B333DB4C7C9D7EA6AD2 /* TransformationMatrix.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = TransformationMatrix.cpp; path = pop/WebCore/TransformationMatrix.cpp; sourceTree = "<group>"; };
+		BD4FC4E469773B333DB4C7C9D7EA6AD2 /* TransformationMatrix.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = TransformationMatrix.cpp; path = pop/WebCore/TransformationMatrix.cpp; sourceTree = "<group>"; };
 		BDC316CFEA5DD8CE60537FA855AA800B /* SDWebImageCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCoder.h; path = SDWebImage/SDWebImageCoder.h; sourceTree = "<group>"; };
 		BE1A1B1E205E8CE9708B90A6DA8BDD58 /* SDWebImageTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageTransition.m; path = SDWebImage/SDWebImageTransition.m; sourceTree = "<group>"; };
 		BE5BB5ABE4312227C6FB715999745FD7 /* ZXPDF417.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXPDF417.m; path = LBXScan/LBXZXing/ZXingObjc/pdf417/encoder/ZXPDF417.m; sourceTree = "<group>"; };
@@ -2346,7 +2345,6 @@
 		C7106E213B03067C9E82D2852176C50F /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
 		C75623723145BF0CBA27C8C2D5926485 /* NIActions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NIActions.h; path = src/core/src/NIActions.h; sourceTree = "<group>"; };
 		C7DEA8030A435E738E03E840F9964811 /* ZXQRCodeFinderPattern.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXQRCodeFinderPattern.m; path = LBXScan/LBXZXing/ZXingObjc/qrcode/detector/ZXQRCodeFinderPattern.m; sourceTree = "<group>"; };
-		C864525380AACFBD2E968D5C008528F2 /* UIButton+DoubleClick.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+DoubleClick.m"; path = "Categories/UIKits/UIButton/UIButton+DoubleClick.m"; sourceTree = "<group>"; };
 		C866D1E40251C4DCC32A8AE3EEB72AE1 /* Pods-LaxoWallet_ab-LaxoWallet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LaxoWallet_ab-LaxoWallet-dummy.m"; sourceTree = "<group>"; };
 		C8AD39F3C7D4EF5BFF4FD48E36488DA3 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQNSArray+Sort.h"; path = "IQKeyboardManager/Categories/IQNSArray+Sort.h"; sourceTree = "<group>"; };
 		C8D754ACE565B74B7251811B471AD996 /* YYImageCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYImageCoder.m; path = YYKit/Image/YYImageCoder.m; sourceTree = "<group>"; };
@@ -2372,7 +2370,7 @@
 		CC2A3DCC208B3B1173A8D601F385B0EC /* BFKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFKit.h; path = Source/BFKit.h; sourceTree = "<group>"; };
 		CC565006666B56CAD1B1613B3914BE3D /* ZXVCardResultParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXVCardResultParser.m; path = LBXScan/LBXZXing/ZXingObjc/client/result/ZXVCardResultParser.m; sourceTree = "<group>"; };
 		CC67AB407E42391D4856FFE9395A7A75 /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoNormalFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
-		CD7585FB0B3929C8AAE0EB39F6565C09 /* qrdectxt.c */ = {isa = PBXFileReference; includeInIndex = 1; name = qrdectxt.c; path = zbar/qrcode/qrdectxt.c; sourceTree = "<group>"; };
+		CD7585FB0B3929C8AAE0EB39F6565C09 /* qrdectxt.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = qrdectxt.c; path = zbar/qrcode/qrdectxt.c; sourceTree = "<group>"; };
 		CDAB67A07CA850B5049EF912A36FDF3A /* IQUITextFieldView+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUITextFieldView+Additions.m"; path = "IQKeyboardManager/Categories/IQUITextFieldView+Additions.m"; sourceTree = "<group>"; };
 		CDE25AE7D7FD79EE3F75871D73ECA3A6 /* LBXScanNative.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LBXScanNative.m; path = LBXScan/LBXNative/LBXScanNative.m; sourceTree = "<group>"; };
 		CE03237CED580B86A8CF36B85BA8E889 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
@@ -2400,7 +2398,7 @@
 		D33663A43EFCD0452DA9E000BCA26233 /* ZXDataMatrixEncoderContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXDataMatrixEncoderContext.h; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/encoder/ZXDataMatrixEncoderContext.h; sourceTree = "<group>"; };
 		D37FEEA3C50082B73247723CEA0F3792 /* MPMessagePackReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MPMessagePackReader.m; path = MPMessagePack/MPMessagePackReader.m; sourceTree = "<group>"; };
 		D39279F67CF2DBB701B155F19499664B /* ZBarSymbol.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZBarSymbol.m; path = iphone/ZBarSymbol.m; sourceTree = "<group>"; };
-		D39D05A8D0A7BA7A27B166CC10CB982A /* config.c */ = {isa = PBXFileReference; includeInIndex = 1; name = config.c; path = zbar/config.c; sourceTree = "<group>"; };
+		D39D05A8D0A7BA7A27B166CC10CB982A /* config.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = config.c; path = zbar/config.c; sourceTree = "<group>"; };
 		D3AB2DB7B69222DC1C1D8F4EBE293F56 /* ZXTelResultParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXTelResultParser.h; path = LBXScan/LBXZXing/ZXingObjc/client/result/ZXTelResultParser.h; sourceTree = "<group>"; };
 		D3CC44F2B1B637B4A13949C01F95C413 /* ZXPerspectiveTransform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXPerspectiveTransform.m; path = LBXScan/LBXZXing/ZXingObjc/common/ZXPerspectiveTransform.m; sourceTree = "<group>"; };
 		D3D1E309D98B7906B04DE2E48F20713C /* GHODict.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GHODict.m; path = GHODictionary/GHODict.m; sourceTree = "<group>"; };
@@ -2409,7 +2407,7 @@
 		D41E00EAB73DAAF738203158710FABF5 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
 		D4A97884989D9CB24AC16966BB6FE247 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJExtension.m"; path = "MJRefresh/UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
 		D4AAE6BF6127406FDF3196252C423E73 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
-		D4E02B539A851DCC8FCFA1FCA664B4FB /* POPDecayAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPDecayAnimation.mm; path = pop/POPDecayAnimation.mm; sourceTree = "<group>"; };
+		D4E02B539A851DCC8FCFA1FCA664B4FB /* POPDecayAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPDecayAnimation.mm; path = pop/POPDecayAnimation.mm; sourceTree = "<group>"; };
 		D4EFFE764E60F4AFCEE72D4CE2AD0115 /* GHODictionary-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GHODictionary-prefix.pch"; sourceTree = "<group>"; };
 		D56244975A980B27FA17E4CA207BF4B8 /* ZXCode39Writer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXCode39Writer.h; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXCode39Writer.h; sourceTree = "<group>"; };
 		D5E6B409840F9889DC1A559A6452E949 /* YYTextKeyboardManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextKeyboardManager.m; path = YYKit/Text/Component/YYTextKeyboardManager.m; sourceTree = "<group>"; };
@@ -2440,9 +2438,9 @@
 		DC0D5265516C8B066DD69E3F41D60A88 /* ZXDataMatrixDataBlock.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXDataMatrixDataBlock.m; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/decoder/ZXDataMatrixDataBlock.m; sourceTree = "<group>"; };
 		DC7705652C6C4EAE8E9B4D1E7EDABDAD /* ZXDataMatrixReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXDataMatrixReader.h; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/ZXDataMatrixReader.h; sourceTree = "<group>"; };
 		DCCD227102021D50FF7AF93A8EFC2B44 /* ZXDataMatrixDetector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXDataMatrixDetector.h; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/detector/ZXDataMatrixDetector.h; sourceTree = "<group>"; };
-		DCCE1D29786AADF681B45E66155E3FBE /* libEBBannerView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libEBBannerView.a; path = libEBBannerView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCCE1D29786AADF681B45E66155E3FBE /* libEBBannerView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEBBannerView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEC78EBD6F5DAE01D0A179612783CAF /* ZXRSSExpandedDecodedInformation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXRSSExpandedDecodedInformation.h; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXRSSExpandedDecodedInformation.h; sourceTree = "<group>"; };
-		DCF26DA9E84B75EF341D89800DE01AE7 /* libPods-LaxoWallet_ab-LaxoWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-LaxoWallet_ab-LaxoWallet.a"; path = "libPods-LaxoWallet_ab-LaxoWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCF26DA9E84B75EF341D89800DE01AE7 /* libPods-LaxoWallet_ab-LaxoWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LaxoWallet_ab-LaxoWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0669C92E61D7F69CC9A0463C5EBF7C /* EBMuteDetector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EBMuteDetector.h; path = EBBannerView/Classes/EBMuteDetector.h; sourceTree = "<group>"; };
 		DD10A8D9290A908F9FCA0CAAFDCD6EB7 /* img_scanner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = img_scanner.h; path = zbar/img_scanner.h; sourceTree = "<group>"; };
 		DD3B61AF9891A7B5A340E2E33799267D /* SDWebImageCodersManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCodersManager.h; path = SDWebImage/SDWebImageCodersManager.h; sourceTree = "<group>"; };
@@ -2454,14 +2452,14 @@
 		DE5786C44123536423A5D57D05D33C8F /* BFTouchID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTouchID.h; path = Source/BFKit/BFTouchID.h; sourceTree = "<group>"; };
 		DE939CA797DAFC40E0CAAEC4D31302E4 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJExtension.h"; path = "MJRefresh/UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
 		DEB3AB6B4E9BE96AB1BD69E06C80103B /* ZXQRCodeDataMask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXQRCodeDataMask.m; path = LBXScan/LBXZXing/ZXingObjc/qrcode/decoder/ZXQRCodeDataMask.m; sourceTree = "<group>"; };
-		DEBA3C2358169759D70F94D8543718E1 /* POPCGUtils.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPCGUtils.mm; path = pop/POPCGUtils.mm; sourceTree = "<group>"; };
+		DEBA3C2358169759D70F94D8543718E1 /* POPCGUtils.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPCGUtils.mm; path = pop/POPCGUtils.mm; sourceTree = "<group>"; };
 		DEF16AC26232F29E105500D8C1F25456 /* MPMessagePackReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MPMessagePackReader.h; path = MPMessagePack/MPMessagePackReader.h; sourceTree = "<group>"; };
 		DF1B43A078106137AC11B15E4E9F4090 /* ZXRSSExpandedCurrentParsingState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXRSSExpandedCurrentParsingState.h; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXRSSExpandedCurrentParsingState.h; sourceTree = "<group>"; };
-		DF50837A0532D104A9650F81073CD4DC /* error.c */ = {isa = PBXFileReference; includeInIndex = 1; name = error.c; path = zbar/error.c; sourceTree = "<group>"; };
+		DF50837A0532D104A9650F81073CD4DC /* error.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = error.c; path = zbar/error.c; sourceTree = "<group>"; };
 		DF61C4ACE66739F6CD8F36CE8355CAD3 /* ZXSMSParsedResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXSMSParsedResult.m; path = LBXScan/LBXZXing/ZXingObjc/client/result/ZXSMSParsedResult.m; sourceTree = "<group>"; };
 		DFCFEDE091AEA88B17CB3109C097CA9E /* UIFont+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIFont+YYAdd.h"; path = "YYKit/Base/UIKit/UIFont+YYAdd.h"; sourceTree = "<group>"; };
 		DFD49D64B3BA8B3CCD01C3650488F060 /* ZXPDF417DetectionResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXPDF417DetectionResult.m; path = LBXScan/LBXZXing/ZXingObjc/pdf417/decoder/ZXPDF417DetectionResult.m; sourceTree = "<group>"; };
-		DFEE23C8C7D388187A06013EBCEEF732 /* libLBXScan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libLBXScan.a; path = libLBXScan.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFEE23C8C7D388187A06013EBCEEF732 /* libLBXScan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLBXScan.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E03E83E791219984AFF939FD256E6C8D /* ZXErrors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXErrors.m; path = LBXScan/LBXZXing/ZXingObjc/core/ZXErrors.m; sourceTree = "<group>"; };
 		E041494714CD42715A7287FBA04E53D2 /* SDWebImageImageIOCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageImageIOCoder.h; path = SDWebImage/SDWebImageImageIOCoder.h; sourceTree = "<group>"; };
 		E0A1A9CF75C3F50EB6B9BAC8954C6DAC /* ZXAztecCode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXAztecCode.m; path = LBXScan/LBXZXing/ZXingObjc/aztec/encoder/ZXAztecCode.m; sourceTree = "<group>"; };
@@ -2477,14 +2475,14 @@
 		E2FB4C4F67FE07C7DB6D108B8B53030C /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
 		E3036A0E7DEE0329E4BA659385613E94 /* ZXAI013x0xDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXAI013x0xDecoder.m; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXAI013x0xDecoder.m; sourceTree = "<group>"; };
 		E31B897892DE6ADDD34C100986F3B6CD /* ZXQRCodeDecodedBitStreamParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXQRCodeDecodedBitStreamParser.h; path = LBXScan/LBXZXing/ZXingObjc/qrcode/decoder/ZXQRCodeDecodedBitStreamParser.h; sourceTree = "<group>"; };
-		E325DCCD357AF9DF2F7C506424659D7E /* libYYKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYKit.a; path = libYYKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E325DCCD357AF9DF2F7C506424659D7E /* libYYKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYYKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E349DFDDE9E8D1CEE7142CC85B62DEB7 /* ZXUPCAWriter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXUPCAWriter.h; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXUPCAWriter.h; sourceTree = "<group>"; };
 		E35923969516B1016CB985284B7399DF /* ZXUPCAReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXUPCAReader.m; path = LBXScan/LBXZXing/ZXingObjc/oned/ZXUPCAReader.m; sourceTree = "<group>"; };
 		E392F80065211A125220A64171E3307B /* ZXQRCodeMultiReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXQRCodeMultiReader.h; path = LBXScan/LBXZXing/ZXingObjc/qrcode/multi/ZXQRCodeMultiReader.h; sourceTree = "<group>"; };
 		E44402A4565A70E579EED0C76824252A /* UIView+Frame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Frame.m"; path = "Categories/UIKits/UIView/UIView+Frame.m"; sourceTree = "<group>"; };
-		E44D463C2ADBC52BD9C5BB4755F8D216 /* POPAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPAnimation.mm; path = pop/POPAnimation.mm; sourceTree = "<group>"; };
+		E44D463C2ADBC52BD9C5BB4755F8D216 /* POPAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimation.mm; path = pop/POPAnimation.mm; sourceTree = "<group>"; };
 		E46E91A9CE220743E95A500ED042DCA6 /* ZXQRCodeMode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXQRCodeMode.m; path = LBXScan/LBXZXing/ZXingObjc/qrcode/decoder/ZXQRCodeMode.m; sourceTree = "<group>"; };
-		E49D6D248DD1CEE584E6776B9164A1B2 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMJRefresh.a; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E49D6D248DD1CEE584E6776B9164A1B2 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A326CB74857B589AFA10A35EF0C9F3 /* ZXPDF417ResultMetadata.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXPDF417ResultMetadata.h; path = LBXScan/LBXZXing/ZXingObjc/pdf417/ZXPDF417ResultMetadata.h; sourceTree = "<group>"; };
 		E4BE67DC96B264DBB0D171803F2EE423 /* Pods-LaxoWallet_ab-LaxoWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LaxoWallet_ab-LaxoWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		E4D674229E208C49012AC50DAF442145 /* ZXMathUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXMathUtils.m; path = LBXScan/LBXZXing/ZXingObjc/common/detector/ZXMathUtils.m; sourceTree = "<group>"; };
@@ -2534,8 +2532,8 @@
 		EED5463FF72E41BA634F6BF77FE600E5 /* GTSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTSDK.framework; sourceTree = "<group>"; };
 		EEF2020693C16DB1A5F4462F808EE312 /* UIResponder+NimbusCore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIResponder+NimbusCore.m"; path = "src/core/src/UIResponder+NimbusCore.m"; sourceTree = "<group>"; };
 		EF82A240E52467A393F5A7BF7E1C359B /* UIWindow+BFKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWindow+BFKit.m"; path = "Source/Additions/UIKit/UIWindow+BFKit.m"; sourceTree = "<group>"; };
-		EF90597689E0CFD768259E76229DD0B5 /* code93.c */ = {isa = PBXFileReference; includeInIndex = 1; name = code93.c; path = zbar/decoder/code93.c; sourceTree = "<group>"; };
-		EFA879F1A2B2D217BA9C8D7E643AAC3B /* isaac.c */ = {isa = PBXFileReference; includeInIndex = 1; name = isaac.c; path = zbar/qrcode/isaac.c; sourceTree = "<group>"; };
+		EF90597689E0CFD768259E76229DD0B5 /* code93.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = code93.c; path = zbar/decoder/code93.c; sourceTree = "<group>"; };
+		EFA879F1A2B2D217BA9C8D7E643AAC3B /* isaac.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = isaac.c; path = zbar/qrcode/isaac.c; sourceTree = "<group>"; };
 		EFB1A38D3D029A90A10570A287895558 /* ZXPDF417Writer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXPDF417Writer.h; path = LBXScan/LBXZXing/ZXingObjc/pdf417/ZXPDF417Writer.h; sourceTree = "<group>"; };
 		EFB402E622A31D0FD348DF9DDAF3A216 /* ZXPDF417.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXPDF417.h; path = LBXScan/LBXZXing/ZXingObjc/pdf417/encoder/ZXPDF417.h; sourceTree = "<group>"; };
 		EFCE0C86A7BA8BDA960C221AFB943468 /* ZXMonochromeRectangleDetector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXMonochromeRectangleDetector.h; path = LBXScan/LBXZXing/ZXingObjc/common/detector/ZXMonochromeRectangleDetector.h; sourceTree = "<group>"; };
@@ -2559,12 +2557,12 @@
 		F14B6E3C805986B011BE098C49FF7D77 /* ZXPDF417Reader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXPDF417Reader.m; path = LBXScan/LBXZXing/ZXingObjc/pdf417/ZXPDF417Reader.m; sourceTree = "<group>"; };
 		F192689BC3C93502903CBD0A86EF657A /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
 		F1C8FE4201069BA76C70FB5C5FE142E9 /* MJRefreshAutoNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoNormalFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.m; sourceTree = "<group>"; };
-		F21716E81FFA95278344629A70783E6B /* codabar.c */ = {isa = PBXFileReference; includeInIndex = 1; name = codabar.c; path = zbar/decoder/codabar.c; sourceTree = "<group>"; };
+		F21716E81FFA95278344629A70783E6B /* codabar.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = codabar.c; path = zbar/decoder/codabar.c; sourceTree = "<group>"; };
 		F22359FB703B86A1A4B58E06BF4FE25D /* ZXRSSExpandedDecodedNumeric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXRSSExpandedDecodedNumeric.h; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXRSSExpandedDecodedNumeric.h; sourceTree = "<group>"; };
 		F2300FB6EE7897FD81FA79C29F36BF10 /* timer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = timer.h; path = zbar/timer.h; sourceTree = "<group>"; };
 		F230280F88C1C69B9866B3A877E62611 /* NSDictionary+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+YYAdd.m"; path = "YYKit/Base/Foundation/NSDictionary+YYAdd.m"; sourceTree = "<group>"; };
 		F262D7F9CFEB05F3CAE267655A64A80A /* SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.xcconfig; sourceTree = "<group>"; };
-		F29F5539A391D300F5763DB2807B96AF /* POPLayerExtras.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPLayerExtras.mm; path = pop/POPLayerExtras.mm; sourceTree = "<group>"; };
+		F29F5539A391D300F5763DB2807B96AF /* POPLayerExtras.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPLayerExtras.mm; path = pop/POPLayerExtras.mm; sourceTree = "<group>"; };
 		F2D108FF6B8649C1D7437F615F00E042 /* ZXQRCodeDecodedBitStreamParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXQRCodeDecodedBitStreamParser.m; path = LBXScan/LBXZXing/ZXingObjc/qrcode/decoder/ZXQRCodeDecodedBitStreamParser.m; sourceTree = "<group>"; };
 		F2F9EB23FFAD56305F44521E285878CC /* ZXDataMatrixWriter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXDataMatrixWriter.m; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/ZXDataMatrixWriter.m; sourceTree = "<group>"; };
 		F3319547A7200F5842EEBAF9EA799AFE /* ZXQRCode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXQRCode.m; path = LBXScan/LBXZXing/ZXingObjc/qrcode/encoder/ZXQRCode.m; sourceTree = "<group>"; };
@@ -2589,7 +2587,7 @@
 		F6DDF3DA0886D8BFAB58D9E405C22D77 /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFCompatibilityMacros.h; path = AFNetworking/AFCompatibilityMacros.h; sourceTree = "<group>"; };
 		F7008A2B31AC59248CD346907A3FA4E8 /* ZXCapture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXCapture.m; path = LBXScan/LBXZXing/ZXingObjc/client/ZXCapture.m; sourceTree = "<group>"; };
 		F7322BF7AA77D1398134731FB6BA2E1D /* UIView+Operation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Operation.m"; path = "Categories/UIKits/UIView/UIView+Operation.m"; sourceTree = "<group>"; };
-		F73F4ECF8685CC21722C1D397D0DBAB4 /* POPPropertyAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPPropertyAnimation.mm; path = pop/POPPropertyAnimation.mm; sourceTree = "<group>"; };
+		F73F4ECF8685CC21722C1D397D0DBAB4 /* POPPropertyAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPPropertyAnimation.mm; path = pop/POPPropertyAnimation.mm; sourceTree = "<group>"; };
 		F7537B91C6A9AC3E6A60E0AD8F83EE3B /* NSTimer+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+YYAdd.m"; path = "YYKit/Base/Foundation/NSTimer+YYAdd.m"; sourceTree = "<group>"; };
 		F7680B90B3F4CD02B2BA5B229F0A22BD /* MJRefreshAutoGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoGifFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.h; sourceTree = "<group>"; };
 		F78779F2D6C0E2E1F38EDEB3D6DEFE0C /* ZXMultiFormatReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXMultiFormatReader.m; path = LBXScan/LBXZXing/ZXingObjc/ZXMultiFormatReader.m; sourceTree = "<group>"; };
@@ -2602,8 +2600,8 @@
 		F8575AF3677008C64C3360E8370D059B /* ZBarCaptureReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZBarCaptureReader.m; path = iphone/ZBarCaptureReader.m; sourceTree = "<group>"; };
 		F85CB9C168FD1995FECF8A23FFD8AF1E /* ZXAI01392xDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXAI01392xDecoder.h; path = LBXScan/LBXZXing/ZXingObjc/oned/rss/expanded/decoders/ZXAI01392xDecoder.h; sourceTree = "<group>"; };
 		F87ACF67965CEDE1351ADAEE6D9D387A /* ZBarImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZBarImage.m; path = iphone/ZBarImage.m; sourceTree = "<group>"; };
-		F88E771D9B6BB7E1D17B098DE7B58748 /* POPCustomAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPCustomAnimation.mm; path = pop/POPCustomAnimation.mm; sourceTree = "<group>"; };
-		F8B088F854CF4507D0C59ADCD3414175 /* POPAnimatableProperty.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = POPAnimatableProperty.mm; path = pop/POPAnimatableProperty.mm; sourceTree = "<group>"; };
+		F88E771D9B6BB7E1D17B098DE7B58748 /* POPCustomAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPCustomAnimation.mm; path = pop/POPCustomAnimation.mm; sourceTree = "<group>"; };
+		F8B088F854CF4507D0C59ADCD3414175 /* POPAnimatableProperty.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimatableProperty.mm; path = pop/POPAnimatableProperty.mm; sourceTree = "<group>"; };
 		F8B8DB5568BB7A5867410C2B1E217FD6 /* BFKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BFKit.xcconfig; sourceTree = "<group>"; };
 		F8E7A2D508C5533D9A5FC17EF0B1FEC2 /* ZXDataMatrixC40Encoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZXDataMatrixC40Encoder.h; path = LBXScan/LBXZXing/ZXingObjc/datamatrix/encoder/ZXDataMatrixC40Encoder.h; sourceTree = "<group>"; };
 		F905B46086AAAD6D3D58D2FDCD3E294D /* NSObject+YYAddForARC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYAddForARC.h"; path = "YYKit/Base/Foundation/NSObject+YYAddForARC.h"; sourceTree = "<group>"; };
@@ -2630,7 +2628,7 @@
 		FCD28BF287155C42D520816CCA392F6F /* NSUserDefaults+SafeAccess.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSUserDefaults+SafeAccess.m"; path = "Categories/Foundation/NSUserDefaults/NSUserDefaults+SafeAccess.m"; sourceTree = "<group>"; };
 		FD082473D44722F6643D9577F5E154E1 /* ZXGeoResultParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXGeoResultParser.m; path = LBXScan/LBXZXing/ZXingObjc/client/result/ZXGeoResultParser.m; sourceTree = "<group>"; };
 		FD5300CCC56C05813B09577B873272D2 /* ZXPDF417Detector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZXPDF417Detector.m; path = LBXScan/LBXZXing/ZXingObjc/pdf417/detector/ZXPDF417Detector.m; sourceTree = "<group>"; };
-		FD755062AF35A53C9B3E65E0C0B989D2 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = Source/Languages/en.lproj; sourceTree = "<group>"; };
+		FD755062AF35A53C9B3E65E0C0B989D2 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = Source/Languages/en.lproj; sourceTree = "<group>"; };
 		FD95384B913C06DE6653176C4E2E6394 /* YYTextUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextUtilities.h; path = YYKit/Text/String/YYTextUtilities.h; sourceTree = "<group>"; };
 		FD98592DBE15F5E5A1873540CA1A3159 /* NIOperations+Subclassing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NIOperations+Subclassing.h"; path = "src/core/src/NIOperations+Subclassing.h"; sourceTree = "<group>"; };
 		FDA017433483D5D5D0DD799CA5ABA7BA /* UIImageView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
@@ -2830,7 +2828,6 @@
 				82AF06D50CA470D05A310A4B9C1B6827 /* Frameworks */,
 				0A70140ABA3BFC6A4F610B520308D649 /* Support Files */,
 			);
-			name = Bugly;
 			path = Bugly;
 			sourceTree = "<group>";
 		};
@@ -2842,7 +2839,6 @@
 				A2282B15AF1E4AD3A28B882BCA5E3E5E /* GHODictionary.h */,
 				1C907D0B8E60168E636AED4CE7A6F201 /* Support Files */,
 			);
-			name = GHODictionary;
 			path = GHODictionary;
 			sourceTree = "<group>";
 		};
@@ -2960,7 +2956,6 @@
 				5DA2A71BAA65EE1E75941869DA4676E0 /* Types */,
 				6C993A036B1FED4705DC39B3BC1B154C /* UI */,
 			);
-			name = LBXScan;
 			path = LBXScan;
 			sourceTree = "<group>";
 		};
@@ -2985,7 +2980,6 @@
 				BCF5A6D2248AF64270F7D19B6A2D8FB8 /* Resources */,
 				8DC931C68E5949B326FC79C8376326C8 /* Support Files */,
 			);
-			name = EBBannerView;
 			path = EBBannerView;
 			sourceTree = "<group>";
 		};
@@ -3070,7 +3064,6 @@
 				DD45557ED9CB0202F5172B9BFD5367C9 /* ViewController+MASAdditions.m */,
 				5068DBFBCDD7609B0EE01C727BA84941 /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -3091,7 +3084,6 @@
 				B82DBADDB413B73D68629D552DBA4FEE /* SRWebSocket.m */,
 				C88A6ED910D272CEE49BFDE25F8D716E /* Support Files */,
 			);
-			name = SocketRocket;
 			path = SocketRocket;
 			sourceTree = "<group>";
 		};
@@ -3123,7 +3115,6 @@
 				52DE6720B5E4F64FFC9FCB8B8898DC01 /* UIView */,
 				EC8D003D7549DD2BBDB2FBE2F3D6835D /* UIViewController */,
 			);
-			name = DSCategories;
 			path = DSCategories;
 			sourceTree = "<group>";
 		};
@@ -3346,8 +3337,6 @@
 			children = (
 				F4C702F500857ADF19AFC5BD5B2EAB1B /* UIButton+BackgroundColor.h */,
 				2FDF2A5048FB7214A61AFD27EDDE172A /* UIButton+BackgroundColor.m */,
-				35C07CCE34F9159DC1BE2B81B50ADF5A /* UIButton+DoubleClick.h */,
-				C864525380AACFBD2E968D5C008528F2 /* UIButton+DoubleClick.m */,
 				2CE452EA88B93252182308CA49B9806D /* UIButton+frame.h */,
 				03185EE273DDEB3CBD13672CE0DEDCF9 /* UIButton+frame.m */,
 			);
@@ -3361,7 +3350,6 @@
 				87A91F9786E0E4ED6E6E2CFB6C95AEBD /* MBProgressHUD.m */,
 				736CE15EC09C4DCE40348EF663339E58 /* Support Files */,
 			);
-			name = MBProgressHUD;
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -3418,7 +3406,6 @@
 				D2BF072B8D3C941834EEE361111E557E /* Frameworks */,
 				AADA03989E9ED8520361AC44C7EE0754 /* Support Files */,
 			);
-			name = GTSDK;
 			path = GTSDK;
 			sourceTree = "<group>";
 		};
@@ -3481,7 +3468,6 @@
 				03901C4331AC4F743CF5ED0F39B9EE72 /* Resources */,
 				E1737A55C98795B9601338A526911DDF /* Support Files */,
 			);
-			name = IQKeyboardManager;
 			path = IQKeyboardManager;
 			sourceTree = "<group>";
 		};
@@ -3661,7 +3647,6 @@
 				DFB953A3C1F48F8FCCE808C91CEF8499 /* no-arc */,
 				811D5A5F05727B8F15CA29A536FF78BE /* Support Files */,
 			);
-			name = YYKit;
 			path = YYKit;
 			sourceTree = "<group>";
 		};
@@ -3818,7 +3803,6 @@
 				73764A54D7D3F0EFB241F7D40A872BCE /* Resources */,
 				97E9FABFA6BBCD1275CD1AFCEB5FDF92 /* Support Files */,
 			);
-			name = ZBarSDK;
 			path = ZBarSDK;
 			sourceTree = "<group>";
 		};
@@ -3919,7 +3903,6 @@
 				23638A9FE3324C06B3BF9510D788254D /* Resources */,
 				8B8B17A7512BDE7690424D4B9CE9BF09 /* Support Files */,
 			);
-			name = BFKit;
 			path = BFKit;
 			sourceTree = "<group>";
 		};
@@ -4001,7 +3984,6 @@
 				A1B86B1A3D55E88B7059BC77F3EBC6DF /* UnitBezier.h */,
 				6C2931093EC6C6E9F9C3ACF56BC2292D /* Support Files */,
 			);
-			name = pop;
 			path = pop;
 			sourceTree = "<group>";
 		};
@@ -4061,7 +4043,6 @@
 				AC25ABD8B214EA5725FA15C80E61D2B0 /* Resources */,
 				D1D3A9358EF7214C861AC59C46B7027D /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -4083,7 +4064,6 @@
 				7BE19888FE08D3696418FD8BD52F9F0C /* Core */,
 				BE91AB9C5C69F018595E653D1C1726A8 /* Support Files */,
 			);
-			name = Nimbus;
 			path = Nimbus;
 			sourceTree = "<group>";
 		};
@@ -4191,7 +4171,6 @@
 				7C71E3B321F84D94ED04FD9D8581C87B /* Core */,
 				E848CE10521BD4844DBC1C83AA809ABD /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -4206,7 +4185,6 @@
 				02462B0C8D1A088A74AD4D037194CD2D /* Support Files */,
 				4403373CBA9BE2EBA809A5902E8EFE41 /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -4240,7 +4218,6 @@
 				82CBE7A2149FC23C9136AFA586D5A488 /* NSDictionary+MPMessagePack.m */,
 				A107A5142C693D505279E8BE19807ECD /* Support Files */,
 			);
-			name = MPMessagePack;
 			path = MPMessagePack;
 			sourceTree = "<group>";
 		};
@@ -5180,7 +5157,6 @@
 				7282DAC4E2A3BFFC5C374D6D585C6735 /* NSString+Size.h in Headers */,
 				76910443AA3BC8CFB9637C7195A241FF /* NSUserDefaults+SafeAccess.h in Headers */,
 				3F229BBD034AF8555814830CF8660330 /* UIButton+BackgroundColor.h in Headers */,
-				39817B9782165EC6D3190E7C66C310D2 /* UIButton+DoubleClick.h in Headers */,
 				4E074B1869CDADB4B1D2E724F4B41631 /* UIButton+frame.h in Headers */,
 				05AA1D01EA0F9DB0C878C87AE00A6762 /* UIColor+RCColor.h in Headers */,
 				ED146C5D5EC82393115B07538FBEA73B /* UIImage+Compress.h in Headers */,
@@ -6226,7 +6202,6 @@
 				D86618591066F1D1C5759284326B9311 /* NSString+Size.m in Sources */,
 				635FAB857F85B6F4A9A2423E4926CFBD /* NSUserDefaults+SafeAccess.m in Sources */,
 				0CC8F1F1D9B94EADF373B2B90690C463 /* UIButton+BackgroundColor.m in Sources */,
-				5015E9C52D0F3310AE8ABAD6F9880D15 /* UIButton+DoubleClick.m in Sources */,
 				F930303B6556F8AEC0444F9394E3E5B9 /* UIButton+frame.m in Sources */,
 				098D8C34163684703CB7118984807773 /* UIColor+RCColor.m in Sources */,
 				2D9D128CF41EF3489B7EB389AC7C210C /* UIImage+Compress.m in Sources */,

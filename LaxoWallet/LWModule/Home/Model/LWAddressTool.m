@@ -23,10 +23,7 @@
     dispatch_semaphore_t _semaphoreSignal;
     id   getTheKeyData;
     dispatch_semaphore_t _getKeySignal;
-    dispatch_semaphore_t _sendp2pSignal;
-    dispatch_semaphore_t _broadcastWithValSignal;
 
-    dispatch_semaphore_t _mainThreadSignal;
     NSDictionary *params;
 
 }
@@ -108,15 +105,16 @@ static dispatch_once_t onceToken;
         
         [self initData];
 
-            char *key_generate_char = create_key([self.pk cStringUsingEncoding:NSASCIIStringEncoding], self.party_num_int, self.party_count, 1, [self.p cStringUsingEncoding:NSASCIIStringEncoding], [self.q cStringUsingEncoding:NSASCIIStringEncoding]);
-            NSArray *key_generate_array = [LWAddressTool charToObject:key_generate_char];
-        
-            NSArray *key_generate = key_generate_array;
-            NSLog(@"broadCast1:begin");
-             self->_semaphoreSignal = dispatch_semaphore_create(0);
-             [self broadCast:1 data:key_generate[1]];
-             dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
-             NSLog(@"broadCast1:end");
+        char *key_generate_char = create_key([self.pk cStringUsingEncoding:NSASCIIStringEncoding], self.party_num_int, self.party_count, 1, [self.p cStringUsingEncoding:NSASCIIStringEncoding], [self.q cStringUsingEncoding:NSASCIIStringEncoding]);
+        NSArray *key_generate_array = [LWAddressTool charToObject:key_generate_char];
+    
+        NSArray *key_generate = key_generate_array;
+        NSLog(@"broadCast1:begin");
+    
+         self->_semaphoreSignal = dispatch_semaphore_create(0);
+         [self broadCast:1 data:key_generate[1]];
+         dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+         NSLog(@"broadCast1:end");
         
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast_list_1 = [self poll_for_broadCast:1];;
@@ -207,9 +205,6 @@ static dispatch_once_t onceToken;
         shareRequest = shared_keys;
         vssRequest = vss_2;
         
-        
-        
-          
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast_array = [self poll_for_broadCast:4];
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
@@ -256,7 +251,6 @@ static dispatch_once_t onceToken;
     NSDictionary *multipyparams = @{@"id":self.rid,@"key":key,@"val":data};
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryBoardCast),@"message.set",[multipyparams jsonStringEncoded]];
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
-
 }
 
 - (NSArray *)poll_for_broadCast:(NSInteger)round{

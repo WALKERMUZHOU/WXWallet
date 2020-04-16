@@ -35,7 +35,7 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="oneClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="IPB-zH-21R"/>
+                                <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchDown" id="3fW-h0-n4j"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXn-Zs-q0Z">
@@ -59,7 +59,7 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="oneClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="OAC-uM-mJs"/>
+                                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchDown" id="RS7-Ok-8fG"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -90,7 +90,7 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="oneClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="EYI-D3-6Xn"/>
+                                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchDown" id="Cmc-Ev-BUK"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -137,7 +137,7 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="oneClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZrK-tk-TcV"/>
+                                <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchDown" id="d97-Us-t1x"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MON-db-cMG">
@@ -161,7 +161,7 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="oneClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ul9-7L-8hf"/>
+                                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchDown" id="8ia-a8-anf"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -192,7 +192,7 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="oneClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="cL8-x8-MD4"/>
+                                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchDown" id="rib-Ae-4k1"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -239,7 +239,7 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="oneClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="NRh-YT-tPC"/>
+                                <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchDown" id="Ohe-hg-BvG"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zfr-En-0v5">
@@ -263,7 +263,7 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="oneClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="oSy-j6-kt5"/>
+                                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchDown" id="nGO-wF-zO7"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -294,7 +294,7 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="oneClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="q4s-rV-bWu"/>
+                                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchDown" id="ndI-or-JTF"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -341,7 +341,7 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="zeroClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="5fP-wR-DKF"/>
+                                <action selector="zeroClick1:" destination="iN0-l3-epB" eventType="touchDown" id="JOI-Qb-4x2"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrL-gk-KxV">
@@ -378,14 +378,13 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e79-5w-YFU">
                             <rect key="frame" x="215" y="0.0" width="160" height="55"/>
                             <subviews>
-                                <button opaque="NO" tag="12011" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sd9-3A-8fG">
+                                <button opaque="NO" tag="12011" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sd9-3A-8fG">
                                     <rect key="frame" x="52.666666666666686" y="0.0" width="55" height="55"/>
                                     <color key="backgroundColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="55" id="bOD-cz-t9f"/>
                                         <constraint firstAttribute="height" constant="55" id="cky-4s-JLL"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                     <state key="normal" title="&lt;">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
@@ -396,7 +395,7 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="deleteClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="iIY-gE-yB7"/>
+                                        <action selector="deleteClick:" destination="iN0-l3-epB" eventType="touchDown" id="4in-NN-I98"/>
                                     </connections>
                                 </button>
                             </subviews>

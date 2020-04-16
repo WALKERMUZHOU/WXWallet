@@ -152,6 +152,11 @@ static LWTansactionTool *instance = nil;
     self.transModel.fee = self.fee;
 }
 
+- (void)setNoteMessage:(NSString *)note{
+    self.transModel.note = note;
+    self.note = note;
+}
+
 - (void)transStart{
     [SVProgressHUD show];
 

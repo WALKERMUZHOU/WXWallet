@@ -38,8 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat       personalBitUSDCurrency;//不带单位USD
 
 
-@property (nonatomic, assign) CGFloat       canuseBitCount;
-@property (nonatomic, assign) CGFloat       loackBitCount;
+@property (nonatomic, assign) double       canuseBitCount;
+@property (nonatomic, assign) double       loackBitCount;
 
 @property (nonatomic, assign) CGFloat       canuseBitCountInterger;
 @property (nonatomic, assign) CGFloat       loackBitCountInterger;

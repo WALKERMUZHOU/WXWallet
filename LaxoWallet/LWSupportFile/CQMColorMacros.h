@@ -67,10 +67,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define kColorLineButtonGray         0xdddddd//按钮灰色描边
 
 
-#define kFont(fontValue) [UIFont systemFontOfSize:fontValue]
-#define kBoldFont(fontValue)     [UIFont boldSystemFontOfSize:fontValue]
+#define kFont(fontValue)         [UIFont fontWithName:@"Roboto-Regular" size:fontValue]
+
+#define kBoldFont(fontValue)     [UIFont fontWithName:@"Roboto-Bold" size:fontValue]
 #define kSemBoldFont(fontValue) [UIFont systemFontOfSize:fontValue weight:UIFontWeightSemibold]
-#define kMediumFont(fontValue) [UIFont systemFontOfSize:fontValue weight:UIFontWeightMedium]
+#define kMediumFont(fontValue) [UIFont fontWithName:@"Roboto-Medium" size:fontValue]
 
 #define kAttributeText(string,fontValue) [[NSAttributedString alloc] initWithString:string attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Roboto-Regular" size:fontValue]}]
 #define kAttributeMediumText(string,fontValue) [[NSAttributedString alloc] initWithString:string attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Roboto-Medium" size:fontValue]}]

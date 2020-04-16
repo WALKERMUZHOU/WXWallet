@@ -7,13 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "LWLoginViewController.h"
+
 #import "LWLoginCoordinator.h"
 #import "LWHomeListCoordinator.h"
 
 #import "PublicKeyView.h"
-#import "LWRocoveryViewController.h"
-#import "LWFaceBindViewController.h"
+
 #import "LWPersonalWalletDetailViewController.h"
 
 #import "LWUserVefifyViewController.h"

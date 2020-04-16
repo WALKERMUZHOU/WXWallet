@@ -18,7 +18,7 @@
 - (IBAction)nextClick:(UIButton *)sender {
     
     if (self.codeTF.text.length == 0) {
-        [WMHUDUntil showMessageToWindow:@"请输入验证码"];
+        [WMHUDUntil showMessageToWindow:@"Please Input Verification Code"];
         return;
     }
     

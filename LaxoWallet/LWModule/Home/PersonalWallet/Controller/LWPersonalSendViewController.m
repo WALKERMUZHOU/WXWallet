@@ -138,7 +138,7 @@
 }
 
 - (void)queryChangeAddress{
-    
+    [SVProgressHUD show];
     if([LWEmailTool isEmail:self.addressTF.text] && !self.address){
         [self paymailToAddress];
         return;

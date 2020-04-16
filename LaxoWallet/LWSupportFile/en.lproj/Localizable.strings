@@ -1,12 +1,263 @@
-/* 
-  InfoPlist.strings
-  LaxoWallet
-
-  Created by walkermuzhou on 2020/3/9.
-  Copyright © 2020 LaxoWallet. All rights reserved.
-*/
-
-
-"login_login" = "login";
-
-"home_email_verify" = "VerifyEmail";
+///*
+//  InfoPlist.strings
+//  LaxoWallet
+//
+//  Created by walkermuzhou on 2020/3/9.
+//  Copyright © 2020 LaxoWallet. All rights reserved.
+//*/
+//
+////#common
+//"common_sure" = "Sure";
+//"common_cancel" = "Cancel";
+//"common_setting" = "Setting";
+//"common_remind" = "Remind";
+//"common_Account" = "Account";
+//"common_Discover" = "Discover";
+//"common_Me" = "Me";
+//
+////#login_xib
+///*
+//Welcome to Volt
+//Your simple, secure and mighty account
+//Sign up / Recover in 4 steps
+//Enter an email address
+//Verify your email address
+//Create facial recognition scan
+//Start
+//
+//Enter your email address
+//Next
+//Step 1 of 4
+//
+//Enter your verification code
+//Enter the code found in the email
+//
+//Email verification
+//Trusthold provide a safe and secure recovery process for account restoration. Learn more
+//
+//Create a facial recognition scan
+//To be the most secure wallet we link your assets and account to your 3D facial map data.
+//Volt will safeguard your data. Learn more
+//Tips for a good facial scan
+//Ensure your face is not covered
+//Ensure your glasses do not reflect
+//Start facial recognition scan
+//Verify your identity via a facial scan
+//Verify facial recognition scan
+//
+//Recovery by qr code
+//Recover by Thrustholds
+//
+//Trusthold verification
+//Enter a Trusthold verification code
+//Enter Trusthold code found in an email
+//Verify
+//
+//Upload Secret QR Code
+//Scan or upload your Secret QR Code
+//Scan
+//Upload file
+//Select Trustholds to verify you instead?
+//
+//Recovery complete!
+//Start using your Volt account
+//Success! Your account has been recovered
+//
+//We’re processing your data
+//Please wait while we confirm your 3D facial map data meets the requirements and is stored securely.
+//*/
+//
+////#login_flie
+//"login_PleaseInputEmail" = "Please Input Email";
+//"login_InvalidEmail" = "Invalid Email";
+//"login_PleaseInputVerificationCode" = "Please Input Verification Code";
+//"login_SelectRecoverProcess" = "Select Recover Process";
+//"login_PleaseInputTrustholdVerificationCode" = "Please Input Trusthold Verification Code";
+//"login_fail_msgCode" = "Failed To Obtain Verification Code";
+//"login_error_code" = "Error Code";
+//"login_fail_request" = "Request Fail";
+//"login_fail_register" = "Registration failed";
+//"login_permission_camera" = "Please get camera permission";
+//"login_permission_album" = "No album permissions, whether to go to Settings";
+//"login_TrustholdVerifyFail" = "Trusthold verify fail,please check your email code";
+//"login_error_image" = "Image Error";
+//"login_error_qrCode" = "QRCode Error";
+//"login_RecoveringFromICloud" = "Recovering From ICloud";
+//
+////#face_file
+//"face_title_TouchID" = "Verify existing fingerprints through the Home button";
+//"face_title_FaceID" = "Verify with existing face ID";
+//"face_no_biometric" = "Current device does not support biometric verification, please turn on biometrics";
+//
+////#wallet_create_xib
+///*
+//Create a new account
+//Create a personal account
+//Name of new persoanl account
+//Account Name
+//Create Persoanl Accoount
+//
+//Create a shared account
+//
+//Total members
+//Members to sign
+//Member Count
+//Sign Count
+//Enter other members’ email id
+//Create and invite members
+//*/
+//
+////#wallet_create_file
+//"wallet_create_PleaseInputAccountName" = "Please Input Account Name";
+//"wallet_create_PleaseInputSignCount" = "Please Input Sign Count";
+//
+//"wallet_create_PleaseInputTotalMembers" = "Please Input Total Members";
+//"wallet_create_SignCount" = "Please Input Sign Count";
+//"wallet_create_Greate1" = "total members count need greater than 1";
+//"wallet_create_lessThanMemberCount" = "sign count need less than members count";
+//"wallet_create_wrongEmailCount" = "The number of mailboxes needs to be equal to the members count you filled in -1";
+//"wallet_creare_AccountCreateSuccess" = "Account Create Success";
+//"wallet_create_inputRemind" = "please input all email IDs of other participants in order to successfully create a n/m shared account, new users have to register with same email to successfully join this account";
+//"wallet_create_PleaseInputKeyShare" = "Please Input Total Members Holding Key Shares"
+//"wallet_creare_Exceeding" = "Exceeding the maximum email quantity"
+//
+////#wallet_login_satue
+///*
+//Logged in to Volt for PC
+//Want to logout of PC?
+//Yes, logout of PC
+//No, keep PC signed in
+//*/
+//
+////#wallet_scan_login
+///*
+//Want to sign in to your Volt Safe on Windows/Mac?
+//Yes, sign in to desktop
+//No, cancel sign in
+//*/
+//
+////#wallet_detail_xib
+///*
+//Personal
+//Shared
+//Receive
+//Send
+//
+//Receive BSV
+//Send BSV
+//Payment sent
+//Authenticate with Face ID to unlock
+//Send 0.55 BSV
+//
+//Recipient
+//Time
+//Signees
+//Message
+//TX Link
+//Amount
+//
+//Close
+//Done
+//
+//Received
+//
+//Sent
+//Sent to be signed
+//You’ve signed. Awaiting others to sign (3 of 5)
+//Check Signee statuses
+//SIGNED
+//UNSIGNED
+//
+//Sign and request signing
+//
+//Transaction signed by you
+//You’re requesting members to sign for a successful transaction of 1.55 BSV to be sent to worldwide@education.com
+//Network fee 0.00001 BSV
+//
+//Signee statuses
+//Sent on Feb 29 2020 | Amount 0.06231131 BSV
+//5 signees assigned
+//
+//Pending sign request
+//Join and sign transaction
+//Awaiting you to sign
+//
+//You’ve been invited to join this account owned by longnamehere@gmail.com.
+//If you accept you’ll be a Key Share Member along with 5 others to assist in signing transactions
+//Join
+//Decline
+//
+//Outgoing
+//Outgoing transaction
+//You can still cancel before first sign
+//Until the first sign you can cancel this transaction
+//Recall and cancel transaction
+//RECALL TX?
+//
+//Owned by longnamehere@gmail.com
+//You’ve disjoined/declined as a Key Share Member.
+//This screen will disappear after 24 hours.
+//Rejoin as member
+//
+//Transaction cancelled
+//*/
+//
+////#wallet_info
+///*
+//Name of account
+//Key share members
+//Check statuses
+//Account owner
+//Account Paymails
+//Update or Add Paymail
+//Time created
+//Current balance
+//
+//Key share members
+//Created on Feb 03 2020 | Edit members
+//*/
+//
+////#me
+//
+////#paymail
+///*
+//Volt provides you with 1 free Paymail. You can buy additional Paymail handles and use them with your accounts
+//primary
+//Assign as primary
+//Owned
+//CreateNew
+//
+//Search for volt.id Paymail handles
+//Get Your First Paymail For Free
+//Cost %@BSV(≈$1 USD)
+//Available!
+//UnAvailable!
+//*/
+//
+////#Security
+///*
+//Security
+//Secure cloud backup
+//Synced seconds ago
+//
+//Email linked and verified
+//
+//Facial recognition scan
+//3D Facial map data securely linked to you
+//
+//FaceID or Touch ID enabled
+//Enable for confirmation before sending
+//*/
+//
+////#Preferences
+///*
+//Preferences
+//Currency
+//Language
+//
+//Backup Secret QR Code
+//Synced with iCloud
+//
+//Support
+//
+//*/

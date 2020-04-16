@@ -11,7 +11,9 @@
 #import "LWSendAmountViewController.h"
 #import "LWSendCheckViewController.h"
 #import "LWPageControl.h"
-@interface LWSendViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource>
+
+@interface LWSendViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource>{
+}
 
 @property (nonatomic, strong) UIPageViewController  *pageViewController;
 @property (nonatomic, strong) NSMutableArray  *dataSource;

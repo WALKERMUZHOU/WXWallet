@@ -20,25 +20,39 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.outputStr = @"0";
+    
+
+    
+}
+
+- (IBAction)buttonClick:(UIButton *)sender {
+        NSInteger senderCurrentIndex = sender.tag - 12000;
+    //    self.outputStr = [self.outputStr stringByAppendingString:[NSString stringWithFormat:@"%ld",senderCurrentIndex]];
+        self.outputStr =[NSString stringWithFormat:@"%ld",senderCurrentIndex];
+
+        if (self.block) {
+            self.block(self.outputStr);
+        }
 }
 
 
-- (IBAction)oneClick:(UIButton *)sender {
-    NSInteger senderCurrentIndex = sender.tag - 12000;
-    self.outputStr = [self.outputStr stringByAppendingString:[NSString stringWithFormat:@"%ld",senderCurrentIndex]];
+- (IBAction)zeroClick1:(UIButton *)sender {
     if (self.block) {
-        self.block(self.outputStr);
+        self.block(@"0");
     }
 }
 
-- (IBAction)zeroClick:(UIButton *)sender {
-    
-    
-    
-}
+
 - (IBAction)pointClick:(UIButton *)sender {
+    if (self.block) {
+         self.block(@".");
+     }
 }
+
 - (IBAction)deleteClick:(UIButton *)sender {
+    if (self.block) {
+          self.block(@"<");
+      }
 }
 /*
 // Only override drawRect: if you perform custom drawing.

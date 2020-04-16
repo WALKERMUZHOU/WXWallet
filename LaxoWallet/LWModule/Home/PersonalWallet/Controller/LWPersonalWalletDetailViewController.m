@@ -15,6 +15,8 @@
 #import "LWAddressTool.h"
 #import "LWAlertTool.h"
 
+#import "LWSendViewController.h"
+#import "LWSendAddressViewController.h"
 @interface LWPersonalWalletDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *receiveBtn;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -205,9 +207,13 @@
 }
 
 - (IBAction)sendClick:(UIButton *)sender {
-   LWPersonalSendViewController *sendVC = [[LWPersonalSendViewController alloc] init];
-    sendVC.model = self.contentModel;
-    [self.navigationController pushViewController:sendVC animated:YES];
+    LWSendAddressViewController *sendVC = [[LWSendAddressViewController alloc] init];
+     sendVC.walletModel = self.contentModel;
+     [self.navigationController pushViewController:sendVC animated:YES];
+    
+//   LWPersonalSendViewController *sendVC = [[LWPersonalSendViewController alloc] init];
+//    sendVC.model = self.contentModel;
+//    [self.navigationController pushViewController:sendVC animated:YES];
 
 }
 

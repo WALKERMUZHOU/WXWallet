@@ -164,6 +164,10 @@ static LWMultipyTransactionTool *instance = nil;
     [SVProgressHUD dismiss];
 }
 
+- (void)setNoteMessage:(NSString *)note{
+    self.transModel.note = note;
+    self.note = note;
+}
 
 //- (void)requestTransactionToServer:(NSDictionary *)transactionToJson{
 //

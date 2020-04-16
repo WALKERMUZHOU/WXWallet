@@ -69,17 +69,18 @@ static LWSignTool *instance = nil;
 }
 
 - (void)startGetSign{
-    if (self->_semaphoreSignal) {
+    if (self->_semaphoreSignal || self->_semaphoreSignal != 0) {
         dispatch_semaphore_signal(self->_semaphoreSignal);
     }
-    if (self->_broadcastSignal) {
+    if (self->_broadcastSignal  || self->_broadcastSignal != 0) {
             dispatch_semaphore_signal(self->_broadcastSignal);
     }
-    if (self->_getKeySignal) {
+    if (self->_getKeySignal  || self->_getKeySignal != 0) {
         dispatch_semaphore_signal(self->_getKeySignal);
     }
 
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    dispatch_queue_t queue = dispatch_queue_create("signQueue", 0);
+    dispatch_async(queue, ^{
         
         char *secret_char = sha256([LWAddressTool stringToChar:self.pk]);
         
@@ -271,8 +272,8 @@ static LWSignTool *instance = nil;
     NSInteger party_index = self.party_index;
 
     NSMutableArray *list = [NSMutableArray array];
-    
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    dispatch_queue_t queue = dispatch_queue_create("sign_poll_for_broadCast", 0);
+    dispatch_async(queue, ^{
         for (NSInteger i = 1; i< n+1; i++) {
             if (i != party_index) {
                 self->_semaphoreSignal = dispatch_semaphore_create(0);
@@ -300,7 +301,9 @@ static LWSignTool *instance = nil;
     NSInteger n = self.party_count;
     NSInteger party_index = self.party_index;
     NSMutableArray *list = [NSMutableArray array];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    dispatch_queue_t queue = dispatch_queue_create("sign_poll_for_p2p", 0);
+
+    dispatch_async(queue, ^{
         self->_semaphoreSignal = dispatch_semaphore_create(0);
         for (NSInteger i = 1; i< n+1; i++) {
             if (i != self.party_index) {

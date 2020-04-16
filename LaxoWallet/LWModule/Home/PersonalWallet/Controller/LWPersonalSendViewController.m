@@ -256,7 +256,8 @@
         [addressTool setWithrid:rid andPath:path];
         addressTool.addressBlock = ^(NSString * _Nonnull address) {
             [SVProgressHUD dismiss];
-        
+        [[LWAddressTool  shareInstance] attempDealloc];
+
             LWTransactionModel *model = [[LWTransactionModel alloc] init];
             model.address = self.address;
             model.transAmount = self.amountTF.text;
@@ -269,7 +270,6 @@
             [LWAlertTool alertPersonalWalletViewSend:self.model andTransactionModel:model andComplete:^{
                 
             }];
-            [LWAddressTool  attempDealloc];
 
 //            [LWAlertTool alertPersonalWalletViewSend:self.model andAdress:self.address andAmount:self.amountTF.text andNote:self.noteTF.text changeAddress:address andComplete:^(void) {
 //

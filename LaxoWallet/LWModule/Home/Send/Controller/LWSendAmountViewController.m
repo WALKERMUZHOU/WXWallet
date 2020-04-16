@@ -184,6 +184,8 @@
         LWAddressTool *addressTool = [LWAddressTool shareInstance];
         [addressTool setWithrid:rid andPath:path];
         addressTool.addressBlock = ^(NSString * _Nonnull address) {
+            [[LWAddressTool  shareInstance] attempDealloc];
+
             [SVProgressHUD dismiss];
         
             self.model.changeAddress = address;
@@ -191,13 +193,11 @@
             checkVC.model = self.model;
             checkVC.walletModel = self.walletModel;
             [LogicHandle pushViewController:checkVC animate:YES];
-            [LWAddressTool  attempDealloc];
 
             return;
             [LWAlertTool alertPersonalWalletViewSend:self.walletModel andTransactionModel:self.model andComplete:^{
                 
             }];
-            [LWAddressTool  attempDealloc];
         };
     }
 }

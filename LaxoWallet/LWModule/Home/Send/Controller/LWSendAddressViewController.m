@@ -111,7 +111,9 @@
 
 - (void)pushToNextVCWith:(LWTransactionModel *)model{
     
-    [self.historyView addpayMail:model.payMail];
+    if(model.payMail && model.payMail.length >0 && [LWEmailTool isEmail:model.payMail]){
+        [self.historyView addpayMail:model.payMail];
+    }
     
     LWSendAmountViewController *amountVC = [[LWSendAmountViewController alloc] init];
     amountVC.model = model;

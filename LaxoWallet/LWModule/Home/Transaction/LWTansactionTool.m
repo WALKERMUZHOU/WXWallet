@@ -169,7 +169,8 @@ static LWTansactionTool *instance = nil;
     NSArray *sighHashArray = [LWAddressTool charToObject:get_sighash];
 
     __block dispatch_semaphore_t semaphore;
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    dispatch_queue_t queue = dispatch_queue_create("transStartQueue", 0);
+    dispatch_async(queue, ^{
         
         for (NSInteger i = 0; i<sighHashArray.count; i++) {
             semaphore = dispatch_semaphore_create(0);

@@ -271,7 +271,7 @@
         [addressTool setWithrid:rid andPath:path];
         addressTool.addressBlock = ^(NSString * _Nonnull address) {
             [SVProgressHUD dismiss];
-            [LWAddressTool  attempDealloc];
+            [[LWAddressTool  shareInstance] attempDealloc];
 
             //刷新下首页个人钱包数据
             NSDictionary *params = @{@"type":@1};

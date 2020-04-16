@@ -584,6 +584,7 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:[personalData jsonStringEncoded] forKey:kPersonalWallet_userdefault];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_personalWalletData object:personalData];
     
     [self.listHeadView setPersonalWalletdData:personalData];
     [self.listView setPersonalWalletdData:personalData];

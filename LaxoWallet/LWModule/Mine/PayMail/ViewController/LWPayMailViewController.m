@@ -266,7 +266,7 @@
         LWAddressTool *addressTool = [LWAddressTool shareInstance];
         [addressTool setWithrid:rid andPath:path];
         addressTool.addressBlock = ^(NSString * _Nonnull address) {
-            [LWAddressTool  attempDealloc];
+            [[LWAddressTool  shareInstance] attempDealloc];
             [SVProgressHUD dismiss];
             [self registerPaymail:address];
         };

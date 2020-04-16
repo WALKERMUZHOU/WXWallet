@@ -118,6 +118,24 @@
      }
 }
 
+#pragma mark - refreshNaviData
+- (void)refreshPersonalWallet:(NSNotification *)notification{
+    NSDictionary *notiDic = notification.object;
+     NSArray *dataArray = [notiDic objectForKey:@"data"];
+    if (dataArray.count>0) {
+        NSArray *array = [NSArray modelArrayWithClass:[LWHomeWalletModel class] json:dataArray];
+        for (NSInteger i = 0; i<array.count; i++) {
+            LWHomeWalletModel *model = array[i];
+            if (model.walletId == self.contentModel.walletId) {
+                self.contentModel = model;
+                self.bitCountLabel.text = [LWNumberTool formatSSSFloat:self.contentModel.personalBitCount];
+                self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:self.contentModel.personalBitCount];
+                return;
+            }
+        }
+    }
+}
+
 #pragma mark - get receive address
 - (void)qrClick{
     [self getQrCode];
@@ -174,9 +192,17 @@
         LWAddressTool *addressTool = [LWAddressTool shareInstance];
         [addressTool setWithrid:rid andPath:path];
         addressTool.addressBlock = ^(NSString * _Nonnull address) {
+            [[LWAddressTool  shareInstance] attempDealloc];
             [SVProgressHUD dismiss];
             self.contentModel.address = address;
+            if (self.firstGetAddress) {
+                self.firstGetAddress = NO;
+                return;
+            }
+            [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
 
+//            LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
+//            [LogicHandle presentViewController:personVC animate:YES];
             //刷新下首页个人钱包数据
             NSDictionary *params = @{@"type":@1};
             NSArray *requestPersonalWalletArray = @[@"req",
@@ -185,15 +211,6 @@
                                                     [params jsonStringEncoded]];
             NSData *data = [requestPersonalWalletArray mp_messagePack];
             [[SocketRocketUtility instance] sendData:data];
-            if (self.firstGetAddress) {
-                self.firstGetAddress = NO;
-                return;
-            }
-            [LWAlertTool alertPersonalWalletViewReceive:self.contentModel ansComplete:nil];
-
-            [LWAddressTool  attempDealloc];
-//            LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
-//            [LogicHandle presentViewController:personVC animate:YES];
         };
     }
 }

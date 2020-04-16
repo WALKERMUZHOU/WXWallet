@@ -101,8 +101,27 @@ static dispatch_once_t onceToken;
     self.rid = rid;
     self.path = path;
 
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
+    dispatch_queue_t queue = dispatch_queue_create("addressQueue", 0);
+    
+//    dispatch_async(queue, ^{
+//        if (self->_semaphoreSignal || self->_semaphoreSignal != 0) {
+//              dispatch_semaphore_signal(self->_semaphoreSignal);
+//          }
+//          self->_semaphoreSignal = dispatch_semaphore_create(0);
+//
+//
+//        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+//
+//    });
+    
+    
+    dispatch_async(queue, ^{
+        if (self->_semaphoreSignal || self->_semaphoreSignal != 0) {
+              dispatch_semaphore_signal(self->_semaphoreSignal);
+          }
+        if (self->_getKeySignal || self->_getKeySignal != 0) {
+              dispatch_semaphore_signal(self->_getKeySignal);
+          }
         [self initData];
 
         char *key_generate_char = create_key([self.pk cStringUsingEncoding:NSASCIIStringEncoding], self.party_num_int, self.party_count, 1, [self.p cStringUsingEncoding:NSASCIIStringEncoding], [self.q cStringUsingEncoding:NSASCIIStringEncoding]);
@@ -258,17 +277,30 @@ static dispatch_once_t onceToken;
     NSInteger party_index = self.party_index;
 
     NSMutableArray *list = [NSMutableArray array];
-    
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    dispatch_queue_t queue = dispatch_queue_create("poll_for_broadCast_Queue", 0);
+
+    dispatch_async(queue, ^{
         self->_semaphoreSignal = dispatch_semaphore_create(0);
         for (NSInteger i = 1; i< n+1; i++) {
             if (i != party_index) {
                 NSString *key = [@[@(i),@(round)] componentsJoinedByString:@"_"];
                 NSLog(@"getkeystart");
+//                __block NSInteger flag = 0;
                 dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
                 dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
                 dispatch_source_set_event_handler(timer, ^{
+//                    flag ++;
                     [self getKey:key];
+//                    if (flag == 30) {
+//                        dispatch_cancel(timer);
+//
+////                        dispatch_semaphore_signal(self->_semaphoreSignal);
+////                        dispatch_semaphore_signal(self->_getKeySignal);
+//                        [self attempDealloc];
+//                        NSLog(@"error");
+//                        return;
+//
+//                    }
                 });
                 dispatch_resume(timer);
                 
@@ -289,17 +321,30 @@ static dispatch_once_t onceToken;
     NSInteger n = self.party_count;
     NSInteger party_index = self.party_index;
     NSMutableArray *list = [NSMutableArray array];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    dispatch_queue_t queue = dispatch_queue_create("poll_for_p2p_Queue", 0);
+
+    dispatch_async(queue, ^{
         self->_semaphoreSignal = dispatch_semaphore_create(0);
         for (NSInteger i = 1; i< n+1; i++) {
             if (i != self.party_index) {
                 NSString *key = [@[@(i),@(round),@(party_index)] componentsJoinedByString:@"_"];
-                
+//                __block NSInteger flag = 0;
                 dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
                 dispatch_source_set_event_handler(timer, ^{
                     NSLog(@"poll_for_p2p");
+//                    flag ++;
                     [self getKey:key];
+//                    if (flag == 2) {
+//                        dispatch_cancel(timer);
+//
+////                        dispatch_semaphore_signal(self->_semaphoreSignal);
+////                        dispatch_semaphore_signal(self->_getKeySignal);
+//                        [self attempDealloc];
+//                        NSLog(@"error");
+//                        return;
+//
+//                    }
                 });
                 dispatch_resume(timer);
                 
@@ -361,7 +406,7 @@ static dispatch_once_t onceToken;
     }
 }
 
-+ (void)attempDealloc{
+- (void)attempDealloc{
    onceToken = 0; // 只有置成0,GCD才会认为它从未执行过.它默认为0.这样才能保证下次再次调用shareInstance的时候,再次创建对象.
    instance = nil;
 }

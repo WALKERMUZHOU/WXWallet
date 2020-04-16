@@ -10,9 +10,7 @@
 #import "LWHomeWalletModel.h"
 #import "LWNumberTool.h"
 
-@interface LWHomeListHeadView (){
-    dispatch_semaphore_t _semaphoreSignal;
-}
+@interface LWHomeListHeadView ()
 
 @property (weak, nonatomic) IBOutlet UIButton *personalBtn;
 @property (weak, nonatomic) IBOutlet UIButton *multipyBtn;
@@ -48,29 +46,7 @@
     
 }
 
-- (void)ash{
-    dispatch_queue_t queue = dispatch_queue_create("queue", 0);
-    
-    dispatch_async(queue, ^{
-        if (self->_semaphoreSignal || self->_semaphoreSignal != 0) {
-              dispatch_semaphore_signal(self->_semaphoreSignal);
-          }
-          self->_semaphoreSignal = dispatch_semaphore_create(0);
-        [self ash];
-
-        
-        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
-
-    });
-    
-  
-//    self->_semaphoreSignal = dispatch_semaphore_create(0);
-    
-
-}
-
 - (IBAction)personBtnClick:(UIButton *)sender {
-    [self ash];
     if (sender.isSelected) {
         return;
     }

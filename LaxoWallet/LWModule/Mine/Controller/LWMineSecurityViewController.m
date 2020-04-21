@@ -11,6 +11,8 @@
 #import "LWMineSettingView.h"
 #import "LWMineSettingLanguageView.h"
 #import "iCloudHandle.h"
+#import "LBXScanNative.h"
+
 @interface LWMineSecurityViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UIButton *icloudSyncBtn;
@@ -65,6 +67,32 @@
         self.icloudSyncBtn.hidden = YES;
         [WMHUDUntil showMessageToWindow:@"Sync Success"];
     });
+    
+}
+- (IBAction)qucodeBackup:(UIButton *)sender {
+    [self downLoadClick];
+}
+
+- (void)downLoadClick{
+    [SVProgressHUD show];
+    
+    NSString *ecryptResult = [LWPublicManager getRecoverQRCodeStr];
+    [iCloudHandle setUpKeyValueICloudStoreWithKey:[[LWUserManager shareInstance] getUserModel].email value:ecryptResult];
+               
+    UIImage *qrImage = [LBXScanNative createQRWithString:ecryptResult QRSize:CGSizeMake(400, 400)];
+    UIImageWriteToSavedPhotosAlbum(qrImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+    return;
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    [SVProgressHUD dismiss];
+        NSString *msg = nil ;
+        if(error){
+            msg = kLocalizable(@"me_qrcode_backupfail") ;
+        }else{
+            msg = kLocalizable(@"me_qrcode_backupSuccess") ;
+        }
+    [WMHUDUntil showMessageToWindow:msg];
     
 }
 

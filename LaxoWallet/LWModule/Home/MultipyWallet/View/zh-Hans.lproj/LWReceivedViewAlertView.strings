@@ -1,0 +1,48 @@
+
+/* Class = "UILabel"; text = "Mar 01 2020"; ObjectID = "1eH-Ra-ZjE"; */
+"1eH-Ra-ZjE.text" = "Mar 01 2020";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "2Tr-Gn-oo5"; */
+"2Tr-Gn-oo5.normalTitle" = "关闭";
+
+/* Class = "UILabel"; text = "Recipient"; ObjectID = "2xR-Yu-1IQ"; */
+"2xR-Yu-1IQ.text" = "收款方";
+
+/* Class = "UILabel"; text = "a4****9bdfee4"; ObjectID = "6da-BL-tru"; */
+"6da-BL-tru.text" = "a4****9bdfee4";
+
+/* Class = "UILabel"; text = "Message"; ObjectID = "GfY-To-VFK"; */
+"GfY-To-VFK.text" = "备注";
+
+/* Class = "UILabel"; text = "My account One"; ObjectID = "Qbl-Lv-wix"; */
+"Qbl-Lv-wix.text" = "My account One";
+
+/* Class = "UILabel"; text = "+ 0.08839685"; ObjectID = "U4I-KE-2DF"; */
+"U4I-KE-2DF.text" = "+ 0.08839685";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "XO2-ku-gGa"; */
+"XO2-ku-gGa.text" = "时间";
+
+/* Class = "UILabel"; text = "BSV"; ObjectID = "dSS-QS-7sv"; */
+"dSS-QS-7sv.text" = "BSV";
+
+/* Class = "UILabel"; text = "- 0.06231131 BSV | -$15.22 USD"; ObjectID = "efb-Fc-Lmh"; */
+"efb-Fc-Lmh.text" = "- 0.06231131 BSV | -$15.22 USD";
+
+/* Class = "UILabel"; text = "username@bitmesh.com"; ObjectID = "hZa-dN-cT3"; */
+"hZa-dN-cT3.text" = "username@bitmesh.com";
+
+/* Class = "UILabel"; text = "Received"; ObjectID = "jDp-2s-7tX"; */
+"jDp-2s-7tX.text" = "收到";
+
+/* Class = "UILabel"; text = "TX Link"; ObjectID = "ovR-ZA-cFn"; */
+"ovR-ZA-cFn.text" = "交易链接";
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "u0V-eM-VDs"; */
+"u0V-eM-VDs.text" = "金额";
+
+/* Class = "UILabel"; text = "This is a message txt string"; ObjectID = "xEI-aU-sCv"; */
+"xEI-aU-sCv.text" = "This is a message txt string";
+
+/* Class = "UILabel"; text = "02.29.2020 @ 08:18am"; ObjectID = "yDQ-nb-Do9"; */
+"yDQ-nb-Do9.text" = "02.29.2020 @ 08:18am";

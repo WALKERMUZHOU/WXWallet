@@ -147,24 +147,6 @@
     UIImage *qrImage = [LBXScanNative createQRWithString:ecryptResult QRSize:CGSizeMake(400, 400)];
     UIImageWriteToSavedPhotosAlbum(qrImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
     return;
-//
-//    UIImage *qrImage = [LBXScanNative createQRWithString:ecrypt QRSize:CGSizeMake(400, 400)];
-//      UIImageWriteToSavedPhotosAlbum(qrImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
-//
-//    return;
-//    NSString *jsStr = [NSString stringWithFormat:@"encryptWithKey('%@','%@',0)",[secret md5String],seed];
-//    PublicKeyView *pbView = [PublicKeyView shareInstance];
-//    [pbView getOtherData:jsStr andBlock:^(id  _Nonnull dicData) {
-//        if (dicData) {
-//
-//            [iCloudHandle setUpKeyValueICloudStoreWithKey:[[LWUserManager shareInstance] getUserModel].email value:dicData];
-//
-//            UIImage *qrImage = [LBXScanNative createQRWithString:dicData QRSize:CGSizeMake(400, 400)];
-//            UIImageWriteToSavedPhotosAlbum(qrImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
-//        }else{
-//
-//        }
-//    }];
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{

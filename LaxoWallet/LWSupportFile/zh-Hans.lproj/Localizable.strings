@@ -15,6 +15,7 @@
 "common_Discover" = "发现";
 "common_Me" = "我";
 "common_success" = "成功";
+"common_fail" = "失败";
 
 "common_Personal" = "个人";
 "common_Shared" = "共同管理";
@@ -28,6 +29,7 @@
 "common_Cancel" = "取消";
 
 "common_CopySuccess" = "复制成功";
+"common_signSuccess" = "签名成功";
 
 
 //#login_xib
@@ -146,6 +148,18 @@ Trusthold 验证
 "wallet_creare_Exceeding" = "输入过多邮箱";
 
 //#wallet_login_satue
+"wallet_login_statue" = "Volt在PC端已经登录";
+
+"wallet_login_want" = "退出在PC端的登录?";
+"wallet_login_yes" = "是的，退出在桌面电脑的登录";
+"wallet_login_no" = "不退出";
+
+"wallet_scan_login_want" = "确认在Windows/Mac电脑登入Volt账户?";
+"wallet_scan_login_yes" = "同意桌面端登录";
+"wallet_scan_login_no" = "取消";
+
+
+
 /*
 Volt在PC端已经登录
 推出在PC端的登录?
@@ -262,6 +276,9 @@ longnamehere@gmail.com邀请你加入一个共同管理资金账户.
 */
 
 //#wallet_info
+"wallet_edit_AccountNameEditSuccess" = "账户名称修改成功";
+
+
 /*
 账户名称
 管理员
@@ -279,6 +296,17 @@ longnamehere@gmail.com邀请你加入一个共同管理资金账户.
 //#me
 
 //#paymail
+"paymail_primary" = "默认主地址";
+"paymail_assignPrimary" = "设为默认";
+"paymail_avaible" = "可用!";
+"paymail_unavaible" = "不可用!";
+"paymail_getyourfirst" = "免费获取第一个简化地址";
+"paymail_cost" = "费用";
+"paymail_content_1" = "可以免费注册一个简化地址.";
+"paymail_content_2" = "你可以为同一账户购买更多的paymail";
+"paymail_pleaseinputpaymail" = "请输入简化地址";
+"paymail_buysuccess" = "简化地址购买成功";
+
 /*
 可以免费注册一个简化地址. 你可以为同一账户购买更多的paymail
 默认主地址
@@ -292,6 +320,9 @@ longnamehere@gmail.com邀请你加入一个共同管理资金账户.
 可用!
 不可用!
 */
+
+"me_qrcode_backupSuccess" = "二维码备份成功";
+"me_qrcode_backupfail" = "二维码备份失败";
 
 //#Security
 /*

@@ -28,11 +28,11 @@
     if (model.index == 0) {
         self.indexLabel.text = @"Primary Paymail handle";
         self.primaryBtn.hidden = NO;
-        [self.primaryBtn setTitle:@"Primary" forState:UIControlStateNormal];;
+        [self.primaryBtn setTitle:kLocalizable(@"paymail_primary") forState:UIControlStateNormal];;
     }else{
         self.indexLabel.text = [NSString stringWithFormat:@"NO.%ld Paymail handle",self.model.index+1];
         self.primaryBtn.hidden = NO;
-        [self.primaryBtn setTitle:@"Assign as primary" forState:UIControlStateNormal];;
+        [self.primaryBtn setTitle:kLocalizable(@"paymail_assignPrimary") forState:UIControlStateNormal];;
 
     }
     self.userNameLabel.text = _model.name;

@@ -44,7 +44,7 @@
     NSDictionary *userStatues = messageModel.user_status;
     NSArray *approve = [userStatues objectForKey:@"approve"];
             
-    self.satuedescribeLabel.text = [NSString stringWithFormat:@"You’ve signed. Awaiting others to sign (%ld of %ld)",(long)(walletModel.threshold - approve.count),(long)walletModel.threshold];
+    self.satuedescribeLabel.text = [NSString stringWithFormat:@"%@ (%ld / %ld)",kLocalizable(@"wallet_detail_Awaitingothers"),(long)(walletModel.threshold - approve.count),(long)walletModel.threshold];
     
     self.timeLabel.text = [LWTimeTool EngLishMonthWithTimeStamp:messageModel.createtime abbreviations:YES EnglishShortNameForDate:NO];
     self.amountLabel.text = [NSString stringWithFormat:@"-%@", [LWNumberTool formatSSSFloat:self.messagemodel.value/1e8]];
@@ -54,7 +54,7 @@
     self.addressLabel.text = messageModel.biz_data;
     self.createTimeLabel.text = [LWTimeTool dataFormateMMDDYYHHSS:messageModel.createtime];
     
-    self.signCountLabel.text =  [NSString stringWithFormat:@"%ld/%ld Signed",(long)approve.count,(long)walletModel.threshold];
+    self.signCountLabel.text =  [NSString stringWithFormat:@"%ld/%ld %@",(long)approve.count,(long)walletModel.threshold,kLocalizable(@"wallet_detail_signed")];
     self.noteLabel.text = messageModel.note;
     self.txLinkLabel.text = [messageModel.txid stringByReplacingCharactersInRange:NSMakeRange(2, messageModel.txid.length - 6) withString:@"****"];
     self.amountDetailLabel.text = [NSString stringWithFormat:@"- %@ BSV  |  -%@",[LWNumberTool formatSSSFloat:messageModel.value/1e8], [LWCurrencyTool getCurrentSymbolCurrencyAmountWithUSDAmount:messageModel.price.floatValue * messageModel.value/1e8]];
@@ -82,7 +82,7 @@
     
     UIPasteboard *paste = [UIPasteboard generalPasteboard];
     [paste setString:self.messagemodel.txid];
-    [WMHUDUntil showMessageToWindow:@"Copy Success"];
+    [WMHUDUntil showMessageToWindow:kLocalizable(@"common_CopySuccess")];
     
 }
 

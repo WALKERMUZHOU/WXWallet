@@ -28,9 +28,9 @@
     self.delegate = self;
     // 创建选项卡的数据 想怎么写看自己，这块我就写笨点了
     NSArray <NSDictionary *>*VCArray =
-    @[@{@"vc":[LWHomeViewController new],@"normalImg":@"tab_home",@"selectImg":@"tab_home_sel",@"itemTitle":@"Wallets"},
+    @[@{@"vc":[LWHomeViewController new],@"normalImg":@"tab_home",@"selectImg":@"tab_home_sel",@"itemTitle":kLocalizable(@"common_Account")},
      // @{@"vc":[LWMessageViewController new],@"normalImg":@"tab_message",@"selectImg":@"tab_message_sel",@"itemTitle":@"Message"},
-      @{@"vc":[LWMineViewController new],@"normalImg":@"tab_mine",@"selectImg":@"tab_mine_sel",@"itemTitle":@"Me"}];
+      @{@"vc":[LWMineViewController new],@"normalImg":@"tab_mine",@"selectImg":@"tab_mine_sel",@"itemTitle":kLocalizable(@"common_Me")}];
     // 1.遍历这个集合
     // 1.1 设置一个保存构造器的数组
     NSMutableArray *tabBarConfs = @[].mutableCopy;

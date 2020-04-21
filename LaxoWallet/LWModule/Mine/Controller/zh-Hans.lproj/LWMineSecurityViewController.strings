@@ -1,0 +1,33 @@
+
+/* Class = "UIButton"; normalTitle = "Sync"; ObjectID = "22t-bi-5vG"; */
+"22t-bi-5vG.normalTitle" = "Sync";
+
+/* Class = "UILabel"; text = "username@gmail.com"; ObjectID = "Col-d3-4nJ"; */
+"Col-d3-4nJ.text" = "username@gmail.com";
+
+/* Class = "UILabel"; text = "Enable for confirmation before sending"; ObjectID = "H4c-1I-f1A"; */
+"H4c-1I-f1A.text" = "开启资金发送授权";
+
+/* Class = "UILabel"; text = "3D Facial map data securely linked to you"; ObjectID = "HHf-AZ-dBX"; */
+"HHf-AZ-dBX.text" = "你的3D人脸数据已经绑定";
+
+/* Class = "UILabel"; text = "Synced seconds ago"; ObjectID = "Vwd-TL-Zzg"; */
+"Vwd-TL-Zzg.text" = "数秒前已备份";
+
+/* Class = "UILabel"; text = "Facial recognition scan"; ObjectID = "gDQ-Kf-OWu"; */
+"gDQ-Kf-OWu.text" = "人脸扫描";
+
+/* Class = "UILabel"; text = "Email linked and verified"; ObjectID = "iwm-hm-iee"; */
+"iwm-hm-iee.text" = "邮箱已验证";
+
+/* Class = "UILabel"; text = "Security"; ObjectID = "jc2-bI-h77"; */
+"jc2-bI-h77.text" = "安全";
+
+/* Class = "UILabel"; text = "FaceID or Touch ID enabled"; ObjectID = "obB-KP-GNI"; */
+"obB-KP-GNI.text" = "人脸/指纹锁已开启";
+
+/* Class = "UILabel"; text = "Secure cloud backup"; ObjectID = "tjX-XG-RPf"; */
+"tjX-XG-RPf.text" = "云端备份";
+
+/* Class = "UILabel"; text = "Backup Secret QR Code"; ObjectID = "gHt-Vl-Zr2"; */
+"gHt-Vl-Zr2.text" = "二维码备份";

@@ -10,6 +10,9 @@
 #import "libthresholdsig.h"
 
 @interface LWScanLoginViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *wantLabel;
+@property (weak, nonatomic) IBOutlet UIButton *yesBtn;
+@property (weak, nonatomic) IBOutlet UILabel *noLabel;
 
 @end
 
@@ -18,6 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.wantLabel.text = kLocalizable(@"wallet_scan_login_want");
+    [self.yesBtn setTitle:kLocalizable(@"wallet_scan_login_yes") forState:UIControlStateNormal];
+    self.noLabel.text = kLocalizable(@"wallet_scan_login_no");
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginRes:) name:kWebScoket_scanLogin object:nil];
 }

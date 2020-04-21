@@ -33,6 +33,7 @@
 @property (nonatomic, assign) BOOL isFirstPayMail;
 
 @property (nonatomic, assign) BOOL goToRegistepayMail;
+@property (weak, nonatomic) IBOutlet UILabel *paymailDescrieLabel;
 
 @end
 
@@ -42,6 +43,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSString *payDesStr = [NSString stringWithFormat:@"%@%@",kLocalizable(@"paymail_content_1"),kLocalizable(@"paymail_content_2")];
+    NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc] initWithString:payDesStr attributes:@{NSFontAttributeName:kFont(12)}];
+    [attribute addAttributes:@{NSFontAttributeName:kMediumFont(12)} range:[payDesStr rangeOfString:kLocalizable(@"paymail_content_1")]];
+    self.paymailDescrieLabel.attributedText = attribute;
+    
+    
+    self.ownedBtn.selected = YES;
     __weak typeof(self) weakself = self;
     self.view.backgroundColor = [UIColor whiteColor];
     self.statueLabel.hidden = YES;
@@ -107,10 +116,10 @@
 
 - (void)refreshBuyButton{
     if (_isFirstPayMail) {
-        [self.bottomBtn setTitle:@"Get Your First Paymail For Free" forState:UIControlStateNormal];
+        [self.bottomBtn setTitle:kLocalizable(@"paymail_getyourfirst") forState:UIControlStateNormal];
     }else{
         CGFloat amount = 1/[LWPublicManager getCurrentUSDPrice].floatValue;
-        NSString *payBSV = [NSString stringWithFormat:@"Cost %@BSV(≈$1 USD)",[LWNumberTool formatSSSFloat:amount]];
+        NSString *payBSV = [NSString stringWithFormat:@"%@ %@BSV(≈$1 USD)",kLocalizable(@"paymail_cost"),[LWNumberTool formatSSSFloat:amount]];
         [self.bottomBtn setTitle:payBSV forState:UIControlStateNormal];
 
 //        [self.bottomBtn setTitle:@"Buy for $1 USD" forState:UIControlStateNormal];
@@ -163,12 +172,12 @@
 
 - (void)buyLogic{
     if (!self.payMailTF.text || self.payMailTF.text.length == 0) {
-        [WMHUDUntil showMessageToWindow:@"please input paymail"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"paymail_pleaseinputpaymail")];
         return;
     }
     
-    if ([self.statueLabel.text isEqualToString:@"UnAvailable!"] || self.statueLabel.hidden) {
-        [WMHUDUntil showMessageToWindow:@"UnAvailable paymail"];
+    if ([self.statueLabel.text isEqualToString:kLocalizable(@"paymail_unavaible")] || self.statueLabel.hidden) {
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"paymail_unavaible")];
         return;
     }
     
@@ -176,7 +185,7 @@
         [self addpayMail];
     }else{
         if (!self.currencySufficient) {
-            [WMHUDUntil showMessageToWindow:@"not sufficient funds"];
+            [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_send_amountLessThanAvailabel")];
             return;
         }
         [self queryChangeAddress];
@@ -187,7 +196,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     if (self.goToRegistepayMail) {
         if (!self.payMailTF.text || self.payMailTF.text.length == 0) {
-            [WMHUDUntil showMessageToWindow:@"please input paymail"];
+            [WMHUDUntil showMessageToWindow:kLocalizable(@"paymail_pleaseinputpaymail")];
             self.goToRegistepayMail = NO;
             return;
         }
@@ -216,14 +225,14 @@
     if ([[notiDic objectForKey:@"success"] integerValue] == 1 ) {
         NSInteger dataInterger = [notiDic ds_integerForKey:@"data"];
         if (dataInterger > 0) {
-            self.statueLabel.text = @"UnAvailable!";
+            self.statueLabel.text = kLocalizable(@"paymail_unavaible");
             self.statueLabel.textColor = lwColorRedLight;
             if (self.goToRegistepayMail) {
                 self.goToRegistepayMail = NO;
                 [WMHUDUntil showMessageToWindow:@"UnAvailable Paymail"];
             }
         }else{
-            self.statueLabel.text = @"Available!";
+            self.statueLabel.text = kLocalizable(@"paymail_avaible");
             self.statueLabel.textColor = lwColorNormal;
 
             if (self.goToRegistepayMail) {
@@ -233,7 +242,7 @@
         }
     }else{
         self.goToRegistepayMail = NO;
-        self.statueLabel.text = @"UnAvailable!";
+        self.statueLabel.text = kLocalizable(@"paymail_unavaible");
         self.statueLabel.textColor = lwColorRedLight;
     }
 }
@@ -307,14 +316,14 @@
     NSDictionary *notiDic = notification.object;
 
     if ([[notiDic objectForKey:@"success"] integerValue] == 1 ) {
-        [WMHUDUntil showMessageToWindow:@"pay mail buy success"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"paymail_buysuccess")];
         [self.listView getCurrentPaymailSatue];
         self.payMailTF.text = @"";
         self.isFirstPayMail = NO;
         [self personBtnClick:self.ownedBtn];
         [self refreshBuyButton];
     }else{
-        [WMHUDUntil showMessageToWindow:@"pay mail add fail"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"common_fail")];
     }
 }
 

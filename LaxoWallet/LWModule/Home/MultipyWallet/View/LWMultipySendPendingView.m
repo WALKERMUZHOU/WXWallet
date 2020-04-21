@@ -78,7 +78,7 @@
     
     UIPasteboard *paste = [UIPasteboard generalPasteboard];
     [paste setString:self.messagemodel.txid];
-    [WMHUDUntil showMessageToWindow:@"Copy Success"];
+    [WMHUDUntil showMessageToWindow:kLocalizable(@"common_CopySuccess")];
 
 }
 
@@ -93,7 +93,7 @@
 - (void)rejectSign:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
-        [WMHUDUntil showMessageToWindow:@"Sign Success"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"common_signSuccess")];
         [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_Multipy_refrshWalletDetail object:nil];
         if (self.block) {
             self.block(1);

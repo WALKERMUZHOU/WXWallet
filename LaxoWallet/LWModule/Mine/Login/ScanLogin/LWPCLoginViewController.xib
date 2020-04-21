@@ -10,7 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWPCLoginViewController">
             <connections>
+                <outlet property="noBtn" destination="3F7-xr-uH8" id="8u7-0O-G54"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wantLabel" destination="V1n-OJ-kqU" id="MJU-yl-9Xa"/>
+                <outlet property="yesBtn" destination="0Tt-2v-hF9" id="LOv-H2-zGj"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "Backup Secret QR Code"; ObjectID = "3D2-wN-ntt"; */
+"3D2-wN-ntt.text" = "备份二维码";
+
+/* Class = "UILabel"; text = "+usernamehandle"; ObjectID = "FDr-V2-taC"; */
+"FDr-V2-taC.text" = "+usernamehandle";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "GU7-59-Ifn"; */
+"GU7-59-Ifn.text" = "0.00";
+
+/* Class = "UILabel"; text = "Support"; ObjectID = "MBe-TH-fos"; */
+"MBe-TH-fos.text" = "客服";
+
+/* Class = "UILabel"; text = "Security"; ObjectID = "NxV-Ub-SSZ"; */
+"NxV-Ub-SSZ.text" = "安全";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "Wyu-c7-28v"; */
+"Wyu-c7-28v.text" = "0.00";
+
+/* Class = "UILabel"; text = "Preferences"; ObjectID = "gQG-EL-mlt"; */
+"gQG-EL-mlt.text" = "偏好设置";
+
+/* Class = "UILabel"; text = "BSV"; ObjectID = "oRb-8V-7vq"; */
+"oRb-8V-7vq.text" = "BSV";
+
+/* Class = "UIButton"; normalTitle = "LoginOut"; ObjectID = "s21-KL-lNK"; */
+"s21-KL-lNK.normalTitle" = "LoginOut";
+
+/* Class = "UILabel"; text = "Learn more about this new way to protect your assets"; ObjectID = "wqf-07-RI2"; */
+"wqf-07-RI2.text" = "Learn more about this new way to protect your assets";

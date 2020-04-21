@@ -8,7 +8,18 @@
 
 #import "LWPCLoginTipView.h"
 
+@interface LWPCLoginTipView()
+@property (weak, nonatomic) IBOutlet UILabel *loggedLabel;
+
+@end
+
 @implementation LWPCLoginTipView
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.loggedLabel.text = kLocalizable(@"wallet_login_statue");
+}
+
 - (IBAction)buttinClick:(UIButton *)sender {
     if (self.block) {
         self.block();

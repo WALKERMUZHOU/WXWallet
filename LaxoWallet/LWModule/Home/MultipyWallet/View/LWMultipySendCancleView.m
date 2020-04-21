@@ -20,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *noteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *txLinkLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountDetailLabel;
-@property (weak, nonatomic) IBOutlet UIView *closeBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *closeBtn;
+
 
 @property (nonatomic, strong) LWMessageModel *messagemodel;
 
@@ -70,7 +72,7 @@
     
     UIPasteboard *paste = [UIPasteboard generalPasteboard];
     [paste setString:self.messagemodel.txid];
-    [WMHUDUntil showMessageToWindow:@"Copy Success"];
+    [WMHUDUntil showMessageToWindow:kLocalizable(@"common_CopySuccess")];
 
 }
 

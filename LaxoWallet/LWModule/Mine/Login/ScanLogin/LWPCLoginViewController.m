@@ -9,6 +9,9 @@
 #import "LWPCLoginViewController.h"
 
 @interface LWPCLoginViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *wantLabel;
+@property (weak, nonatomic) IBOutlet UIButton *yesBtn;
+@property (weak, nonatomic) IBOutlet UIButton *noBtn;
 
 @end
 
@@ -16,6 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.wantLabel.text = kLocalizable(@"wallet_login_want");
+    [self.yesBtn setTitle:kLocalizable(@"wallet_login_yes") forState:UIControlStateNormal];
+    [self.noBtn setTitle:kLocalizable(@"wallet_login_no") forState:UIControlStateNormal];
+
+    
     // Do any additional setup after loading the view from its nib.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pcLogoutSatue:) name:kWebScoket_Login_pcLogOut object:nil];
 }

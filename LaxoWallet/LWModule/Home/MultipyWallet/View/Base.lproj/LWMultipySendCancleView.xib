@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -262,6 +262,7 @@
                 <outlet property="addressLabel" destination="wbO-C8-FpW" id="sl1-3U-c0Y"/>
                 <outlet property="amountDetailLabel" destination="78P-fL-GFT" id="8Jv-lR-mud"/>
                 <outlet property="amountLabel" destination="LQC-f9-3m8" id="f2P-ql-k12"/>
+                <outlet property="closeBtn" destination="1RP-g9-YJa" id="w9p-s1-mUc"/>
                 <outlet property="createTimeLabel" destination="FRs-x1-jvA" id="Ebs-Dy-8UI"/>
                 <outlet property="noteLabel" destination="yfI-f9-BqZ" id="wfV-m5-x3O"/>
                 <outlet property="timeLabel" destination="3fG-Nm-ehx" id="eh6-aB-giG"/>

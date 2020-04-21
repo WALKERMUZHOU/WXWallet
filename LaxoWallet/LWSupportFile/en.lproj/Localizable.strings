@@ -10,6 +10,7 @@
 "common_sure" = "Sure";
 "common_cancel" = "Cancel";
 "common_success" = "Success";
+"common_fail" = "Fail";
 
 "common_setting" = "Setting";
 "common_remind" = "Remind";
@@ -27,6 +28,7 @@
 "common_to" = "to";
 
 "common_CopySuccess" = "Copy Success";
+"common_signSuccess" = "Sign Success";
 
 
 //#login_xib
@@ -144,6 +146,17 @@ Create and invite members
 "wallet_creare_Exceeding" = "Exceeding the maximum email quantity";
 
 //#wallet_login_satue
+
+"wallet_login_statue" = "Logged in to Volt for PC";
+"wallet_login_want" = "Want to logout of PC?";
+"wallet_login_yes" = "Yes, logout of PC";
+"wallet_login_no" = "No, keep PC signed in";
+
+"wallet_scan_login_want" = "Want to sign in to your Volt Safe on Windows/Mac?";
+"wallet_scan_login_yes" = "Yes, sign in to desktop";
+"wallet_scan_login_no" = "No, cancel sign in";
+
+
 /*
 Logged in to Volt for PC
 Want to logout of PC?
@@ -258,6 +271,8 @@ Rejoin as member
 
 Transaction cancelled
 */
+"wallet_edit_AccountNameEditSuccess" = "Account Name Edit Success";
+
 
 //#wallet_info
 /*
@@ -278,6 +293,20 @@ Created on Feb 03 2020 | Edit members
 //#me
 
 //#paymail
+"paymail_primary" = "Primary";
+"paymail_assignPrimary" = "Assign as primary";
+"paymail_avaible" = "Available!";
+"paymail_unavaible" = "UnAvailable!";
+"paymail_getyourfirst" = "Get Your First Paymail For Free";
+"paymail_cost" = "Cost";
+"paymail_content_1" = "Volt provides you with 1 free Paymail. ";
+"paymail_content_2" = "You can buy additional Paymail handles and use them with your accounts";
+
+"paymail_pleaseinputpaymail" = "Please input paymail";
+"paymail_buysuccess" = "Paymail buy suceess";
+
+
+
 /*
 Volt provides you with 1 free Paymail. You can buy additional Paymail handles and use them with your accounts
 primary
@@ -291,6 +320,9 @@ Cost %@BSV(≈$1 USD)
 Available!
 UnAvailable!
 */
+
+"me_qrcode_backupSuccess" = "Backup QR Code Success";
+"me_qrcode_backupfail" = "Backup QR Code Fail";
 
 //#Security
 /*

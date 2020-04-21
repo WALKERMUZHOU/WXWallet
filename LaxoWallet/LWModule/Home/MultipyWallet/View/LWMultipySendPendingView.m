@@ -47,8 +47,8 @@
     self.satuedescribeLabel.text = [NSString stringWithFormat:@"You’ve signed. Awaiting others to sign (%ld of %ld)",(long)approve.count,(long)walletModel.threshold];
     
     self.timeLabel.text = [LWTimeTool EngLishMonthWithTimeStamp:messageModel.createtime abbreviations:YES EnglishShortNameForDate:NO];
-    self.amountLabel.text = [NSString stringWithFormat:@"-%@", [LWCurrencyTool getCurrentSymbolCurrencyAmountWithUSDAmount:messageModel.price.floatValue * messageModel.value/1e8]];
-    
+    self.amountLabel.text = [NSString stringWithFormat:@"-%@", [LWNumberTool formatSSSFloat:self.messagemodel.value/1e8]];
+
 //    LWutxoModel *model = messageModel.
     
     self.addressLabel.text = @"";

@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Receive BSV"; ObjectID = "3ib-hq-fND"; */
+"3ib-hq-fND.text" = "收取 BSV";
+
+/* Class = "UILabel"; text = "Receive BSV"; ObjectID = "5ds-XX-GwY"; */
+"5ds-XX-GwY.text" = "收取 BSV";
+
+/* Class = "UILabel"; text = "Receive BSV"; ObjectID = "LhY-As-rSn"; */
+"LhY-As-rSn.text" = "收取 BSV";
+
+/* Class = "UILabel"; text = "Paymail address"; ObjectID = "fxa-5d-BtF"; */
+"fxa-5d-BtF.text" = "简化地址";
+
+/* Class = "UILabel"; text = "My account One"; ObjectID = "nTH-PV-Dwx"; */
+"nTH-PV-Dwx.text" = "My account One";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "yAv-wv-uNy"; */
+"yAv-wv-uNy.normalTitle" = "完成";

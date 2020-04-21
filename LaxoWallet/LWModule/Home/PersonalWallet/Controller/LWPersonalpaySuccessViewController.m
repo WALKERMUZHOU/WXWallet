@@ -33,8 +33,8 @@
 
     
     
-    NSString *addressStr = [NSString stringWithFormat:@"Sent %@BSV to %@",self.amount,self.address];
-    self.feeLabel.text = [NSString stringWithFormat:@"Network fee %@ BSV",self.fee];
+    NSString *addressStr = [NSString stringWithFormat:@"%@ %@BSV %@ %@",kLocalizable(@"common_sent"),self.amount,kLocalizable(@"common_to"),self.address];
+    self.feeLabel.text = [NSString stringWithFormat:@"%@ %@ BSV",kLocalizable(@"wallet_send_networkfee"),self.fee];
     self.noteLabel.text = self.note;
     NSString *amountStr = [NSString stringWithFormat:@"%@BSV",self.amount];
     NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc] initWithString:addressStr attributes:@{NSFontAttributeName:kFont(12),NSForegroundColorAttributeName:[UIColor colorWithColor:[UIColor blackColor] alpha:0.5]}];
@@ -44,8 +44,8 @@
     if (self.viewType == 1) {
         self.iconImageView.image
         = [UIImage imageNamed:@"home_wallet_success_m"];
-        self.successDescribeLabe.text = @"Transaction signed by you";
-        addressStr = [NSString stringWithFormat:@"You’re requesting members to sign for a successful transaction of %@BSV to be sent to %@",self.amount,self.address];
+        self.successDescribeLabe.text = kLocalizable(@"wallet_send_mul_transsign");
+        addressStr = [NSString stringWithFormat:@"%@ %@BSV %@ %@",kLocalizable(@"wallet_send_mul_des"),self.amount,kLocalizable(@"wallet_send_mul_to"),self.address];
         amountStr = [NSString stringWithFormat:@"%@BSV",self.amount];
         attribute = [[NSMutableAttributedString alloc] initWithString:addressStr attributes:@{NSFontAttributeName:kFont(12),NSForegroundColorAttributeName:[UIColor colorWithColor:[UIColor blackColor] alpha:0.5]}];
         [attribute addAttributes:@{NSFontAttributeName:kBoldFont(12),NSForegroundColorAttributeName:[UIColor blackColor]} range:[amountStr rangeOfString:self.address]];
@@ -57,13 +57,13 @@
 
     self.amount = amount;
     self.address = address;
-    self.note = [NSString stringWithFormat:@"note: %@",note];
+    self.note = [NSString stringWithFormat:@"%@ %@",kLocalizable(@"wallet_send_Note"),note];
     self.fee = fee;
 }
 
 - (void)setSuccessWithTransactionModel:(LWTransactionModel *)transModel{
     self.amount = transModel.transAmount;
-    self.note = [NSString stringWithFormat:@"note: %@",transModel.note];
+    self.note = [NSString stringWithFormat:@"%@ %@",kLocalizable(@"wallet_send_Note"),transModel.note];
     self.fee = transModel.fee;
     if (transModel.payMail && transModel.payMail.length >0) {
         self.address = transModel.payMail;

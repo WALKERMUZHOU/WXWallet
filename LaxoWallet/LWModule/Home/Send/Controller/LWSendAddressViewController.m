@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *addressTF;
 @property (weak, nonatomic) IBOutlet UIView *historyBackView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UILabel *sendLabel;
 
 @property (nonatomic, strong) LWSendHistoryPaymailView *historyView;
 
@@ -26,6 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.sendLabel.text = kLocalizable(@"common_Send");
     
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view from its nib.
@@ -51,7 +54,8 @@
 
 - (IBAction)nextClick:(UIButton *)sender {
     if (!self.addressTF.text || self.addressTF.text.length == 0) {
-        [WMHUDUntil showMessageToWindow:@"please input adress"];
+
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_send_pleaseInputEmail")];
         return;
     }
     
@@ -64,7 +68,7 @@
     char *address_char = address_to_script([LWAddressTool stringToChar:self.addressTF.text]);
     NSString *address_str = [LWAddressTool charToString:address_char];
     if (!address_str || address_str.length == 0) {
-        [WMHUDUntil showMessageToWindow:@"Wrong Address"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_send_EorrorAddress")];
         return;
     }
     
@@ -104,7 +108,7 @@
             model.address = dataAddress;
             [self pushToNextVCWith:model];
         }else{
-            [WMHUDUntil showMessageToWindow:@"Wrong paymail"];
+            [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_send_EorrorAddress")];
         }
     }
 }

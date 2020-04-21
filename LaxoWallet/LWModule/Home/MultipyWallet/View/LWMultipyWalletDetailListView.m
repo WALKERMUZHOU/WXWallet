@@ -121,7 +121,7 @@
          return 50.f;
 
            }else{
-               return 90.f;
+               return 70.f;
            }
     }
 }

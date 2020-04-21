@@ -322,7 +322,7 @@
          self.emailStr = email;
      } WithFailBlock:^(id  _Nonnull data) {
          [SVProgressHUD dismiss];
-         [WMHUDUntil showMessageToWindow:@"Failed To Obtain Verification Code"];
+         [WMHUDUntil showMessageToWindow:kLocalizable(@"login_fail_msgCode")];
      }];
 }
 
@@ -333,7 +333,7 @@
            if (![dataID isKindOfClass:[NSDictionary class]]) {
                if (dataID == NO || [dataID integerValue] == 0) {
                     [SVProgressHUD dismiss];
-                    [WMHUDUntil showMessageToWindow:@"Error Code"];
+                   [WMHUDUntil showMessageToWindow:kLocalizable(@"login_error_code")];
                     return ;
                 }
            }
@@ -355,7 +355,7 @@
 //                   [self.scrollView setContentOffset:CGPointMake(kScreenWidth *3, 0) animated:YES];
                }
            }else{
-               [WMHUDUntil showMessageToWindow:@"Error Code"];
+               [WMHUDUntil showMessageToWindow:kLocalizable(@"login_error_code")];
            }
        } WithFailBlock:^(id  _Nonnull data) {
            [SVProgressHUD dismiss];
@@ -382,7 +382,8 @@
                    }
                   dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
               } WithFailBlock:^(id  _Nonnull data) {
-                  [WMHUDUntil showMessageToWindow:@"Request Fail"];
+                  
+                  [WMHUDUntil showMessageToWindow:kLocalizable(@"login_fail_request")];
                   dispatch_semaphore_signal(signal);// 发送信号 下面的代码一定要写在赋值完成的下面
                   return ;
               }];
@@ -411,7 +412,7 @@
         if (![dataID isKindOfClass:[NSDictionary class]]) {
             if (dataID == NO || [dataID integerValue] == 0) {
                  [SVProgressHUD dismiss];
-                 [WMHUDUntil showMessageToWindow:@"Error Code"];
+                [WMHUDUntil showMessageToWindow:kLocalizable(@"login_error_code")];
                  return ;
              }
         }
@@ -427,7 +428,7 @@
                 [self registerMethod];
             }
         }else{
-            [WMHUDUntil showMessageToWindow:@"Error Code"];
+            [WMHUDUntil showMessageToWindow:kLocalizable(@"login_error_code")];
         }
     } WithFailBlock:^(id  _Nonnull data) {
         [SVProgressHUD dismiss];
@@ -518,7 +519,7 @@
         
     } WithFailBlock:^(id  _Nonnull data) {
         [SVProgressHUD dismiss];
-        [WMHUDUntil showMessageToWindow:@"Registration Failed"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"login_fail_register")];
     }];
 }
 
@@ -528,7 +529,7 @@
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (authStatus == AVAuthorizationStatusRestricted|| authStatus == AVAuthorizationStatusDenied) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [WMHUDUntil showMessageToWindow:@"Please get camera permission"];
+            [WMHUDUntil showMessageToWindow:kLocalizable(@"login_permission_camera")];
         });
         // 获取摄像头失败
     }else if(authStatus == AVAuthorizationStatusNotDetermined || authStatus == AVAuthorizationStatusAuthorized){
@@ -540,7 +541,7 @@
                 });
             }else {// 获取摄像头失败
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [WMHUDUntil showMessageToWindow:@"Please get camera permission"];
+                    [WMHUDUntil showMessageToWindow:kLocalizable(@"login_permission_camera")];
                 });
             }
         }];
@@ -633,7 +634,7 @@
 
                
             } WithFailBlock:^(id  _Nonnull data) {
-                [WMHUDUntil showMessageToWindow:@"Trusthold verify fail,please check your email code"];
+                [WMHUDUntil showMessageToWindow:kLocalizable(@"login_TrustholdVerifyFail")];
         }];
 
         } WithFailBlock:^(id  _Nonnull data) {
@@ -702,7 +703,9 @@
         }
         else if (!firstTime )
         {
-            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"Remind" msg:@"No album permissions, whether to go to Settings" cancel:@"Cancel" setting:@"Setting"];
+            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:kLocalizable(@"common_remind") msg:kLocalizable(@"login_permission_album") cancel:kLocalizable(@"common_cancel") setting:kLocalizable(@"common_setting")];
+
+        //    [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"Remind" msg:@"No album permissions, whether to go to Settings" cancel:@"Cancel" setting:@"Setting"];
         }
     }];
 }
@@ -731,7 +734,7 @@
     [LBXZBarWrapper recognizeImage:image block:^(NSArray<LBXZbarResult *> *result) {
         if (result.count == 0 || !result) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [WMHUDUntil showMessageToWindow:@"Image Error"];
+                [WMHUDUntil showMessageToWindow:kLocalizable(@"login_error_image")];
             });
             return ;
         }
@@ -742,7 +745,7 @@
             [self recoverWithScanedStr:scanedStr];
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
-                [WMHUDUntil showMessageToWindow:@"Image Error"];
+                [WMHUDUntil showMessageToWindow:kLocalizable(@"login_error_image")];
             });
         }
     }];
@@ -758,7 +761,8 @@
 
     NSString *jizhuci = [LWEncryptTool decryptwithTheKey:[[[LWUserManager shareInstance] getUserModel].secret md5String]  message:scanStr andHex:0];
     if (!jizhuci || jizhuci == nil || jizhuci.length == 0) {
-        [WMHUDUntil showMessageToWindow:@"QRCode Error"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"login_error_qrCode")];
+
     }else{
         [[LWUserManager shareInstance] setJiZhuCi:jizhuci];
         [self scrollWithIndex:9];
@@ -774,7 +778,9 @@
     
     NSString *recoverCode = [iCloudHandle getKeyValueICloudStoreWithKey:self.emailStr];
     if (recoverCode && recoverCode.length >0) {
-        [SVProgressHUD showWithStatus:@"Recovering From ICloud"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"login_RecoveringFromICloud")];
+
+//        [SVProgressHUD showWithStatus:@"Recovering From ICloud"];
         [self recoverWithScanedStr:recoverCode];
     }
 }
@@ -788,7 +794,7 @@
         }
         else if(!firstTime)
         {
-            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"Remind" msg:@"No camera permissions, whether to go to Settings" cancel:@"Cancel" setting:@"Setting" ];
+            [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:kLocalizable(@"common_remind") msg:kLocalizable(@"login_permission_album") cancel:kLocalizable(@"common_cancel") setting:kLocalizable(@"common_setting")];
         }
     }];
     

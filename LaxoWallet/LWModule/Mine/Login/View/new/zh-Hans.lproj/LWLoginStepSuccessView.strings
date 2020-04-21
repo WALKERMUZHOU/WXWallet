@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Success! Your account has been recovered"; ObjectID = "Glc-T2-TPj"; */
+"Glc-T2-TPj.text" = "你的账户已经完成恢复！";
+
+/* Class = "UILabel"; text = "Recovery complete!"; ObjectID = "MXT-7H-c5n"; */
+"MXT-7H-c5n.text" = "恢复完成!";
+
+/* Class = "UIButton"; normalTitle = "Start using your Volt account"; ObjectID = "RYb-vz-WMU"; */
+"RYb-vz-WMU.normalTitle" = "开始使用";

@@ -50,7 +50,7 @@
     self.placeHolderView.textAlignment = NSTextAlignmentLeft;
     self.placeHolderView.numberOfLines = 0;
     self.placeHolderView.textColor = lwColorPlacerHolder;
-    self.placeHolderView.text = @"please input all email IDs of other participants in order to successfully create a n/m shared account, new users have to register with same email to successfully join this account";
+    self.placeHolderView.text = kLocalizable(@"wallet_create_inputRemind");
     [self addSubview:self.placeHolderView];
     [self.placeHolderView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.textView);
@@ -71,7 +71,7 @@
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
     if (self.maxEmailCount == 0) {
-        [WMHUDUntil showMessageToWindow:@"Please Input Total Members Holding Key Shares"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_create_PleaseInputKeyShare")];
         return NO;
     }
 //    self.placeHolderView.hidden = YES;
@@ -118,7 +118,7 @@
 - (void)manageCurrentTextView:(UITextView *)textView{
     if (self.emailArray.count  >= self.maxEmailCount - 1) {
         self.textView.text = @"";
-        [WMHUDUntil showMessageToWindow:@"Exceeding the maximum email quantity"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_creare_Exceeding")];
         return;
     }
     

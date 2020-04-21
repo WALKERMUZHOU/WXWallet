@@ -35,12 +35,12 @@
     if (_model.status == 2){//完成
         if (_model.type == 2) {//转出
             self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",biCountStr];
-            self.typeLabel.text = @"Sent";
+            self.typeLabel.text = kLocalizable(@"common_Sent");
             self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
 
         }else{
             self.bitCountLabel.text = [NSString stringWithFormat:@"+%@",biCountStr];
-            self.typeLabel.text = @"Received";
+            self.typeLabel.text = kLocalizable(@"common_Received");
             self.iconImageView.image = [UIImage imageNamed:@"home_wallet_receive"];
         }
     }
@@ -48,7 +48,7 @@
     if(_model.status == 3){
         self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",biCountStr];
         self.iconImageView.image = [UIImage imageNamed:@"home_wallet_cancel_red"];
-        self.typeLabel.text = @"Cancel";
+        self.typeLabel.text = kLocalizable(@"common_Cancel");
         if (_model.type == 2) {//转出
              self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",biCountStr];
          }else{

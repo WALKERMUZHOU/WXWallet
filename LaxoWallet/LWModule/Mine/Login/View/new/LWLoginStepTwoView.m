@@ -22,12 +22,12 @@
 - (IBAction)nextClick:(UIButton *)sender {
     
     if (self.emailTF.text.length == 0) {
-        [WMHUDUntil showMessageToWindow:@"Please Input Email"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"login_PleaseInputEmail")];
         return;
     }
     
     if (![LWEmailTool isEmail:self.emailTF.text]) {
-        [WMHUDUntil showMessageToWindow:@"Invalid Email"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"login_InvalidEmail")];
         return;
     }
     

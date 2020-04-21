@@ -22,12 +22,25 @@
 @property (weak, nonatomic) IBOutlet UIView *totalBackView;
 @property (weak, nonatomic) IBOutlet UIView *membersBackView;
 
+@property (weak, nonatomic) IBOutlet UILabel *createSharedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *accountNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalMemberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *otheremailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *signMeberLabel;
+
 @end
 
 @implementation LWCreateMultipyWalletViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.createSharedLabel.text = kLocalizable(@"wallet_create_createAccount");
+    self.accountNameLabel.text = kLocalizable(@"wallet_create_accountName");
+    self.totalMemberLabel.text = kLocalizable(@"wallet_create_totalMem");
+    self.otheremailLabel.text = kLocalizable(@"wallet_create_otherMem");
+    self.signMeberLabel.text = kLocalizable(@"wallet_create_signMem");
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(multipyWalletCreate:) name:kWebScoket_createMultiPartyWallet object:nil];
 
@@ -54,7 +67,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     NSInteger maxmembers = textField.text.integerValue;
     if (maxmembers < 2) {
-        [WMHUDUntil showMessageToWindow:@"total members count need greater than 1"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_create_Greate1")];
         return;
     }
     self.emailTV.maxEmailCount = maxmembers;
@@ -64,37 +77,41 @@
 
 - (IBAction)completeClick:(UIButton *)sender {
     if (self.walletNameTF.text.length == 0) {
-        [WMHUDUntil showMessageToWindow:@"please input account name"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_create_PleaseInputAccountName")];
+
         return;
     }
     if(self.signCountTF.text.length == 0){
-        [WMHUDUntil showMessageToWindow:@"please input sign count"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_create_PleaseInputSignCount")];
+
         return;
     }
     if (self.memberCountTF.text.length == 0) {
-        [WMHUDUntil showMessageToWindow:@"please input total members"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_create_PleaseInputTotalMembers")];
+
         return;
     }
 
     if (self.emailArr.count == 0) {
-        [WMHUDUntil showMessageToWindow:@"please input email"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_create_inputRemind")];
         return;
     }
     
     for (NSInteger i = 0; i < self.emailArr.count; i++) {
         if (![LWEmailTool isEmail:self.emailArr[i]]) {
-            [WMHUDUntil showMessageToWindow:[NSString stringWithFormat:@"invalid email:%@",self.emailArr[i]]];
+            [WMHUDUntil showMessageToWindow:[NSString stringWithFormat:@"%@:%@",kLocalizable(@"login_InvalidEmail"),self.emailArr[i]]];
             return;
         }
     }
     
     if (self.signCountTF.text.integerValue > self.memberCountTF.text.integerValue) {
-        [WMHUDUntil showMessageToWindow:@"sign count need less than members count"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_create_lessThanMemberCount")];
         return;
     }
     
     if (self.emailArr.count != self.memberCountTF.text.integerValue-1) {
-        [WMHUDUntil showMessageToWindow:@"The number of mailboxes needs to be equal to the members count you filled in -1"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_create_lessThanMemberCount")];
+
         return;
     }
     [SVProgressHUD show];
@@ -132,8 +149,8 @@
     [SVProgressHUD dismiss];
     NSDictionary *resInfo = notification.object;
     if ([[resInfo objectForKey:@"success"] integerValue] == 1) {
-        [WMHUDUntil showMessageToWindow:@"account create success"];
-        
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_creare_AccountCreateSuccess")];
+
         NSDictionary *multipyparams = @{@"type":@2};
          NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMulpityWallet),@"wallet.query",[multipyparams jsonStringEncoded]];
          [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];

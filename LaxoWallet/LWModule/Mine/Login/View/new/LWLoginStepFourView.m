@@ -11,10 +11,17 @@
 @interface LWLoginStepFourView ()
 @property (weak, nonatomic) IBOutlet UIButton *maxthonBtn;
 @property (weak, nonatomic) IBOutlet UIButton *csgBtn;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
 @end
 
 @implementation LWLoginStepFourView
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.contentLabel.text = NSLocalizedString(@"login_Trusthold_describe", nil);
+}
+
 - (IBAction)learnMoreClick:(UIButton *)sender {
     [LWAlertTool alertloginLaeanMore];
     

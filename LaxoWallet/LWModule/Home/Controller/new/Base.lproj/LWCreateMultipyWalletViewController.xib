@@ -9,12 +9,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWCreateMultipyWalletViewController">
             <connections>
+                <outlet property="accountNameLabel" destination="k4b-SO-tX1" id="Hmq-YY-k3z"/>
+                <outlet property="createSharedLabel" destination="tNH-PI-PAz" id="NK5-VL-sLL"/>
                 <outlet property="inputEmailView" destination="2Le-Xd-zbt" id="EGU-th-lfL"/>
                 <outlet property="memberCountTF" destination="kci-6d-dur" id="7fU-Tb-fNM"/>
                 <outlet property="membersBackView" destination="EMo-m5-fkC" id="0gr-4c-Ynf"/>
                 <outlet property="nameBackView" destination="AGm-Lz-SjZ" id="c7g-OU-LuH"/>
+                <outlet property="otheremailLabel" destination="rbS-bk-CTy" id="1Go-t8-Obx"/>
                 <outlet property="signCountTF" destination="jNG-bw-y8K" id="dYG-iB-DXc"/>
+                <outlet property="signMeberLabel" destination="4GN-0t-tvM" id="oXj-m0-RtP"/>
                 <outlet property="totalBackView" destination="pPr-Zy-Zrx" id="Jy4-nk-58F"/>
+                <outlet property="totalMemberLabel" destination="lv9-06-eIA" id="Fks-jJ-mzL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="walletNameTF" destination="9iX-OT-bFg" id="zMY-be-AAa"/>
             </connections>

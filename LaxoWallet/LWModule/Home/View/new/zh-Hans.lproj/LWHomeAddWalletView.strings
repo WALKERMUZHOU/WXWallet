@@ -1,0 +1,14 @@
+
+/* Class = "UILabel"; text = "Create a new account"; ObjectID = "Y2B-TU-ZY2"; */
+"Y2B-TU-ZY2.text" = "创建新账户";
+
+/* Class = "UIButton"; normalTitle = " Shared"; ObjectID = "aGW-nh-PKV"; */
+"aGW-nh-PKV.normalTitle" = " 共同管理";
+
+/* Class = "UIButton"; normalTitle = " Personal"; ObjectID = "cRF-gq-XLy"; */
+"cRF-gq-XLy.normalTitle" = " 个人";
+
+/*
+ 个人
+ 共同管理
+ */

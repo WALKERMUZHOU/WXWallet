@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Step 1 of 4"; ObjectID = "26X-qm-GF6"; */
+"26X-qm-GF6.text" = " ";
+
+/* Class = "UITextField"; placeholder = "username@gmail.com"; ObjectID = "77K-q6-6eZ"; */
+"77K-q6-6eZ.placeholder" = "username@gmail.com";
+
+/* Class = "UILabel"; text = "Welcome to Volt"; ObjectID = "D1T-1v-t7C"; */
+"D1T-1v-t7C.text" = "欢迎使用Volt钱包";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "EQf-4G-2DT"; */
+"EQf-4G-2DT.normalTitle" = "下一步";
+
+/* Class = "UILabel"; text = "Enter your email address"; ObjectID = "bRe-QR-k9c"; */
+"bRe-QR-k9c.text" = "输入邮箱地址";

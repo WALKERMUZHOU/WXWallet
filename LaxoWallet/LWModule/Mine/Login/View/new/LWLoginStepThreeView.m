@@ -18,7 +18,7 @@
 - (IBAction)nextClick:(UIButton *)sender {
     
     if (self.codeTF.text.length == 0) {
-        [WMHUDUntil showMessageToWindow:@"Please Input Verification Code"];
+        [WMHUDUntil showMessageToWindow:NSLocalizedString(@"login_PleaseInputVerificationCode", nil)];
         return;
     }
     

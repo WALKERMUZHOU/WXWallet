@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; normalTitle = "Start facial recognition scan"; ObjectID = "0hZ-Hr-sCJ"; */
+"0hZ-Hr-sCJ.normalTitle" = "开始扫描人脸";
+
+/* Class = "UILabel"; text = "Ensure your glasses do not reflect "; ObjectID = "CMG-Aw-CEu"; */
+"CMG-Aw-CEu.text" = "确保眼镜没有\n反光";
+
+/* Class = "UILabel"; text = "Create a facial recognition scan"; ObjectID = "cDs-fz-Pju"; */
+"cDs-fz-Pju.text" = "创建人脸识别数据";
+
+/* Class = "UILabel"; text = "Tips for a good facial scan"; ObjectID = "egp-aG-QMM"; */
+"egp-aG-QMM.text" = "扫描人脸技巧";
+
+/* Class = "UILabel"; text = "Ensure your face is \nnot covered "; ObjectID = "eqB-nO-kCv"; */
+"eqB-nO-kCv.text" = "确保面部没有\n遮挡";
+
+/* Class = "UILabel"; text = "Step 4 of 4"; ObjectID = "uqI-hk-UgX"; */
+"uqI-hk-UgX.text" = " ";

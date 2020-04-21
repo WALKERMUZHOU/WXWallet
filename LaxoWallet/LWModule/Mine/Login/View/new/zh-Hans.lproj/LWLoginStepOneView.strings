@@ -1,0 +1,36 @@
+
+/* Class = "UILabel"; text = "Enter an email address"; ObjectID = "9Fh-mc-MvB"; */
+"9Fh-mc-MvB.text" = "输入邮箱地址";
+
+/* Class = "UILabel"; text = "Select Trustholds"; ObjectID = "E3u-xB-pRu"; */
+"E3u-xB-pRu.text" = "选择托管方";
+
+/* Class = "UILabel"; text = "Create facial recognition scan"; ObjectID = "H5p-Cg-dnh"; */
+"H5p-Cg-dnh.text" = "创建人脸扫描数据";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "Jgy-ZD-7XH"; */
+"Jgy-ZD-7XH.text" = "1";
+
+/* Class = "UILabel"; text = "Your simple, secure and mighty account"; ObjectID = "JsE-UC-gxl"; */
+"JsE-UC-gxl.text" = "你的简单、安全、强大的钱包";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "SJa-dr-qI5"; */
+"SJa-dr-qI5.normalTitle" = "开始";
+
+/* Class = "UILabel"; text = "4"; ObjectID = "UJ1-5W-1dh"; */
+"UJ1-5W-1dh.text" = "4";
+
+/* Class = "UILabel"; text = "2"; ObjectID = "b9x-ty-p5r"; */
+"b9x-ty-p5r.text" = "2";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "dnc-TH-YJ7"; */
+"dnc-TH-YJ7.text" = "3";
+
+/* Class = "UILabel"; text = "欢迎使用Volt钱包"; ObjectID = "j3g-BO-TFi"; */
+"j3g-BO-TFi.text" = "欢迎使用Volt钱包";
+
+/* Class = "UILabel"; text = "Verify your email address"; ObjectID = "j7F-HO-XvR"; */
+"j7F-HO-XvR.text" = "输入邮箱验证码验证邮箱";
+
+/* Class = "UILabel"; text = "Sign up / Recover in 4 steps"; ObjectID = "npW-ZN-FVn"; */
+"npW-ZN-FVn.text" = "4步完成设置，开始使用";

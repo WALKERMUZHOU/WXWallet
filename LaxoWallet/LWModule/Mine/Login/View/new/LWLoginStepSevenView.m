@@ -20,7 +20,7 @@
 
 - (IBAction)verifyClick:(UIButton *)sender {
     if (self.codeTF.text.length == 0) {
-        [WMHUDUntil showMessageToWindow:@"Please Input Trusthold Verification Code"];
+        [WMHUDUntil showMessageToWindow:NSLocalizedString(@"login_PleaseInputTrustholdVerificationCode", nil)];
         return;
     }
     if (self.sevenBlock) {

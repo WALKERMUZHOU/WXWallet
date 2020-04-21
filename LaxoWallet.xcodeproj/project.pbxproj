@@ -15,36 +15,25 @@
 		5E062F3324443C7E009B286E /* LWSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E062F3124443C7E009B286E /* LWSendViewController.m */; };
 		5E062F3424443C7E009B286E /* LWSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E062F3224443C7E009B286E /* LWSendViewController.xib */; };
 		5E062F3D24443DA9009B286E /* LWSendAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E062F3B24443DA9009B286E /* LWSendAddressViewController.m */; };
-		5E062F3E24443DAA009B286E /* LWSendAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E062F3C24443DA9009B286E /* LWSendAddressViewController.xib */; };
 		5E062F4224443DBF009B286E /* LWSendAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E062F4024443DBF009B286E /* LWSendAmountViewController.m */; };
-		5E062F4324443DBF009B286E /* LWSendAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E062F4124443DBF009B286E /* LWSendAmountViewController.xib */; };
 		5E062F4724443DF2009B286E /* LWSendCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E062F4524443DF2009B286E /* LWSendCheckViewController.m */; };
-		5E062F4824443DF2009B286E /* LWSendCheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E062F4624443DF2009B286E /* LWSendCheckViewController.xib */; };
 		5E07FD112420B60600FA3E1F /* LWLoginStepSixView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD102420B60600FA3E1F /* LWLoginStepSixView.m */; };
-		5E07FD132420B61300FA3E1F /* LWLoginStepSixView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD122420B61300FA3E1F /* LWLoginStepSixView.xib */; };
 		5E07FD162420B87300FA3E1F /* LWLoginStepSevenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD152420B87300FA3E1F /* LWLoginStepSevenView.m */; };
-		5E07FD182420B88A00FA3E1F /* LWLoginStepSevenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD172420B88A00FA3E1F /* LWLoginStepSevenView.xib */; };
 		5E07FD1B2420BA4000FA3E1F /* LWLoginStepEightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD1A2420BA4000FA3E1F /* LWLoginStepEightView.m */; };
-		5E07FD1D2420BA4800FA3E1F /* LWLoginStepEightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD1C2420BA4800FA3E1F /* LWLoginStepEightView.xib */; };
 		5E07FD202420BBD100FA3E1F /* LWLoginStepSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD1F2420BBD100FA3E1F /* LWLoginStepSuccessView.m */; };
-		5E07FD222420BC0D00FA3E1F /* LWLoginStepSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD212420BC0D00FA3E1F /* LWLoginStepSuccessView.xib */; };
 		5E07FD292420E55E00FA3E1F /* LWHomeListHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD282420E55E00FA3E1F /* LWHomeListHeadView.m */; };
 		5E07FD2E2421F4BD00FA3E1F /* LWHomeAddWalletView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD2D2421F4BD00FA3E1F /* LWHomeAddWalletView.m */; };
-		5E07FD302421F4CC00FA3E1F /* LWHomeAddWalletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD2F2421F4CC00FA3E1F /* LWHomeAddWalletView.xib */; };
 		5E07FD332421F9D900FA3E1F /* LWAlertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD322421F9D900FA3E1F /* LWAlertTool.m */; };
 		5E07FD38242204DD00FA3E1F /* LWCreateMultipyWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD36242204DD00FA3E1F /* LWCreateMultipyWalletViewController.m */; };
-		5E07FD39242204DD00FA3E1F /* LWCreateMultipyWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E07FD37242204DD00FA3E1F /* LWCreateMultipyWalletViewController.xib */; };
 		5E0FE6962408E72D00733B05 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE6952408E72D00733B05 /* index.js */; };
 		5E23584823FBE09D00A7D774 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584423FBE09C00A7D774 /* index.html */; };
 		5E23584E23FD0D0600A7D774 /* LWutxoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E23584D23FD0D0600A7D774 /* LWutxoModel.m */; };
 		5E23585A2403CBAE00A7D774 /* LWPersonalCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2358582403CBAE00A7D774 /* LWPersonalCollectionViewController.m */; };
-		5E23585B2403CBAF00A7D774 /* LWPersonalCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E2358592403CBAE00A7D774 /* LWPersonalCollectionViewController.xib */; };
 		5E23585E2403F3C700A7D774 /* LWMineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E23585D2403F3C700A7D774 /* LWMineView.m */; };
 		5E2358622403F3E400A7D774 /* LWMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2358602403F3E400A7D774 /* LWMineTableViewCell.m */; };
 		5E2358632403F3E400A7D774 /* LWMineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E2358612403F3E400A7D774 /* LWMineTableViewCell.xib */; };
 		5E2358662403F3FE00A7D774 /* LWMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2358652403F3FE00A7D774 /* LWMineHeaderView.m */; };
 		5E3160A82423BEA3005CA564 /* LWMultipyWalletDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160A62423BEA3005CA564 /* LWMultipyWalletDetailViewController.m */; };
-		5E3160A92423BEA3005CA564 /* LWMultipyWalletDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160A72423BEA3005CA564 /* LWMultipyWalletDetailViewController.xib */; };
 		5E3160AC2423BF26005CA564 /* LWMultipyWalletDetailListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160AB2423BF26005CA564 /* LWMultipyWalletDetailListView.m */; };
 		5E3160B524243709005CA564 /* LWMultipyWalletDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160B324243709005CA564 /* LWMultipyWalletDetailCell.m */; };
 		5E3160B624243709005CA564 /* LWMultipyWalletDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160B424243709005CA564 /* LWMultipyWalletDetailCell.xib */; };
@@ -52,15 +41,12 @@
 		5E3160BB24243A6C005CA564 /* LWMultipySendToBeSignedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160BA24243A6C005CA564 /* LWMultipySendToBeSignedView.xib */; };
 		5E3160BF24244155005CA564 /* LWMultipyBeInvitedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160BD24244155005CA564 /* LWMultipyBeInvitedViewController.m */; };
 		5E3160C024244155005CA564 /* LWMultipyBeInvitedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160BE24244155005CA564 /* LWMultipyBeInvitedViewController.xib */; };
-		5E3160C424246885005CA564 /* LWHomeListHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160C324246885005CA564 /* LWHomeListHeadView.xib */; };
 		5E3160C724249194005CA564 /* LWScanTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160C624249194005CA564 /* LWScanTool.m */; };
 		5E3160CA24249C8B005CA564 /* LWScanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160C924249C8B005CA564 /* LWScanModel.m */; };
 		5E3160CE2424A00A005CA564 /* LWScanResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160CC2424A00A005CA564 /* LWScanResultViewController.m */; };
 		5E3160CF2424A00A005CA564 /* LWScanResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160CD2424A00A005CA564 /* LWScanResultViewController.xib */; };
 		5E3160D42424A81E005CA564 /* LWScanLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160D22424A81E005CA564 /* LWScanLoginViewController.m */; };
 		5E3160D52424A81E005CA564 /* LWScanLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160D32424A81E005CA564 /* LWScanLoginViewController.xib */; };
-		5E3160D92424E06F005CA564 /* LWMultipypaySuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160D72424E06F005CA564 /* LWMultipypaySuccessViewController.m */; };
-		5E3160DA2424E06F005CA564 /* LWMultipypaySuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160D82424E06F005CA564 /* LWMultipypaySuccessViewController.xib */; };
 		5E3160E224265EFB005CA564 /* LWMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160E024265EFB005CA564 /* LWMineViewController.m */; };
 		5E3160E324265EFB005CA564 /* LWMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160E124265EFB005CA564 /* LWMineViewController.xib */; };
 		5E3160E52426716E005CA564 /* LWMineSecurityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160E42426716E005CA564 /* LWMineSecurityViewController.xib */; };
@@ -92,7 +78,6 @@
 		5E317A7D241E55F700C951B2 /* LWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E317A7B241E55F700C951B2 /* LWLoginController.m */; };
 		5E317A7E241E55F700C951B2 /* LWLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E317A7C241E55F700C951B2 /* LWLoginController.xib */; };
 		5E317A81241E5B5E00C951B2 /* LWLoginStepOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E317A80241E5B5E00C951B2 /* LWLoginStepOneView.m */; };
-		5E317A84241E5B8100C951B2 /* LWLoginStepOneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E317A83241E5B8100C951B2 /* LWLoginStepOneView.xib */; };
 		5E5F123623EC06F1002F0711 /* LogicHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F123523EC06F1002F0711 /* LogicHandle.m */; };
 		5E5F128B23EC0E12002F0711 /* WMZDialog+Write.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F123A23EC0E12002F0711 /* WMZDialog+Write.m */; };
 		5E5F128C23EC0E12002F0711 /* WMZDialog+NaviMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F123D23EC0E12002F0711 /* WMZDialog+NaviMenu.m */; };
@@ -194,9 +179,7 @@
 		5E66A3D423EBFAA2004097CB /* TYBaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66A3C623EBFAA2004097CB /* TYBaseAnimation.m */; };
 		5E66A3D523EBFAA2004097CB /* TYAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66A3C823EBFAA2004097CB /* TYAlertController.m */; };
 		5E755A2924221E7700398413 /* LWEmailBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A2824221E7700398413 /* LWEmailBtnView.m */; };
-		5E755A8D24230D6F00398413 /* LWPersonalpaySuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A7524230D6F00398413 /* LWPersonalpaySuccessViewController.xib */; };
 		5E755A8E24230D6F00398413 /* LWPersonalWalletEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A7624230D6F00398413 /* LWPersonalWalletEditViewController.m */; };
-		5E755A8F24230D6F00398413 /* LWPersonalWalletDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A7724230D6F00398413 /* LWPersonalWalletDetailViewController.xib */; };
 		5E755A9024230D6F00398413 /* LWPersonalWalletDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A7824230D6F00398413 /* LWPersonalWalletDetailViewController.m */; };
 		5E755A9124230D6F00398413 /* LWPersonalSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A7924230D6F00398413 /* LWPersonalSendViewController.m */; };
 		5E755A9224230D6F00398413 /* LWPersonalSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A7A24230D6F00398413 /* LWPersonalSendViewController.xib */; };
@@ -204,8 +187,6 @@
 		5E755A9424230D6F00398413 /* LWPersonalWalletEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A7D24230D6F00398413 /* LWPersonalWalletEditViewController.xib */; };
 		5E755A9524230D6F00398413 /* LWPersonalListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A8224230D6F00398413 /* LWPersonalListTableViewCell.m */; };
 		5E755A9624230D6F00398413 /* LWPersoanDetailListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A8324230D6F00398413 /* LWPersoanDetailListView.m */; };
-		5E755A9724230D6F00398413 /* LWPersoanlReceiveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A8524230D6F00398413 /* LWPersoanlReceiveView.xib */; };
-		5E755A9824230D6F00398413 /* LWPersonalSendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A8724230D6F00398413 /* LWPersonalSendView.xib */; };
 		5E755A9924230D6F00398413 /* LWPersonalListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E755A8924230D6F00398413 /* LWPersonalListTableViewCell.xib */; };
 		5E755A9A24230D6F00398413 /* LWPersoanlReceiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A8A24230D6F00398413 /* LWPersoanlReceiveView.m */; };
 		5E755A9B24230D6F00398413 /* LWPersonalSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E755A8B24230D6F00398413 /* LWPersonalSendView.m */; };
@@ -224,7 +205,6 @@
 		5E7BACCD242D0E5E00901EA5 /* ZZRDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACC7242D0E5E00901EA5 /* ZZRDocument.m */; };
 		5E7BACD0242DA5D900901EA5 /* LWCurrentExchangeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACCF242DA5D900901EA5 /* LWCurrentExchangeTool.m */; };
 		5E7BACD3242DE39700901EA5 /* LWLoginLearnMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACD2242DE39700901EA5 /* LWLoginLearnMoreView.m */; };
-		5E7BACD5242DE3A500901EA5 /* LWLoginLearnMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7BACD4242DE3A500901EA5 /* LWLoginLearnMoreView.xib */; };
 		5E7BACD8242DE74E00901EA5 /* LWLoginFaceLearnMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BACD7242DE74E00901EA5 /* LWLoginFaceLearnMoreView.m */; };
 		5E7BACDA242DE76500901EA5 /* LWLoginFaceLearnMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7BACD9242DE76500901EA5 /* LWLoginFaceLearnMoreView.xib */; };
 		5E7C3BD02432E8C70086D1EB /* currency.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E7C3BCF2432E8C60086D1EB /* currency.plist */; };
@@ -233,7 +213,6 @@
 		5E7C3BDE2435C70D0086D1EB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E7C3BDB2435C70C0086D1EB /* Roboto-Regular.ttf */; };
 		5E7C3BDF2435C70D0086D1EB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E7C3BDC2435C70C0086D1EB /* Roboto-Bold.ttf */; };
 		5E7E09132428ABE700C75C0F /* LWCreatePersonalWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09112428ABE700C75C0F /* LWCreatePersonalWalletViewController.m */; };
-		5E7E09142428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E09122428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib */; };
 		5E7E09172428B5D100C75C0F /* LWEmailTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09162428B5D100C75C0F /* LWEmailTool.m */; };
 		5E7E091A2428C52D00C75C0F /* LWPaymialListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09192428C52D00C75C0F /* LWPaymialListTableView.m */; };
 		5E7E091E2428C77B00C75C0F /* LWPaymailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E091C2428C77B00C75C0F /* LWPaymailTableViewCell.m */; };
@@ -246,7 +225,6 @@
 		5E7E09332428DA5200C75C0F /* LWAssetInheritanceSuccessorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09312428DA5200C75C0F /* LWAssetInheritanceSuccessorViewController.m */; };
 		5E7E09342428DA5200C75C0F /* LWAssetInheritanceSuccessorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E09322428DA5200C75C0F /* LWAssetInheritanceSuccessorViewController.xib */; };
 		5E7E09372429F66800C75C0F /* LWSendViewAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E09362429F66800C75C0F /* LWSendViewAlertView.m */; };
-		5E7E09392429F67800C75C0F /* LWSendViewAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E09382429F67800C75C0F /* LWSendViewAlertView.xib */; };
 		5E7E093C2429F69C00C75C0F /* LWReceivedViewAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E093B2429F69C00C75C0F /* LWReceivedViewAlertView.m */; };
 		5E7E093E2429F6A700C75C0F /* LWReceivedViewAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E093D2429F6A700C75C0F /* LWReceivedViewAlertView.xib */; };
 		5E84097E2431F10200CBE2FE /* LWMineLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E84097C2431F10200CBE2FE /* LWMineLanguageViewController.m */; };
@@ -279,16 +257,11 @@
 		5E917379241B1F1300D47A9F /* LWMultipyTransactionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E917378241B1F1200D47A9F /* LWMultipyTransactionTool.m */; };
 		5E91737C241B208800D47A9F /* LWMultipySignTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E91737B241B208800D47A9F /* LWMultipySignTool.m */; };
 		5E9918A5241E6065005D6A38 /* LWLoginStepTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9918A4241E6065005D6A38 /* LWLoginStepTwoView.m */; };
-		5E9918A7241E6074005D6A38 /* LWLoginStepTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9918A6241E6074005D6A38 /* LWLoginStepTwoView.xib */; };
 		5E9918AA241E63F3005D6A38 /* LWLoginStepThreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9918A9241E63F3005D6A38 /* LWLoginStepThreeView.m */; };
-		5E9918AC241E6402005D6A38 /* LWLoginStepThreeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9918AB241E6402005D6A38 /* LWLoginStepThreeView.xib */; };
 		5E9918AF241E6899005D6A38 /* LWLoginStepFourView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9918AE241E6899005D6A38 /* LWLoginStepFourView.m */; };
-		5E9918B1241E68A9005D6A38 /* LWLoginStepFourView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9918B0241E68A9005D6A38 /* LWLoginStepFourView.xib */; };
 		5E9918B4241E70C6005D6A38 /* LWLoginStepFiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9918B3241E70C6005D6A38 /* LWLoginStepFiveView.m */; };
-		5E9918B6241E70D3005D6A38 /* LWLoginStepFiveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9918B5241E70D3005D6A38 /* LWLoginStepFiveView.xib */; };
 		5E9918B9241E9E61005D6A38 /* FCAnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9918B8241E9E61005D6A38 /* FCAnimateView.m */; };
 		5E9A52FF243D638E00182E1B /* LWLoginStepFiveViewOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A52FE243D638E00182E1B /* LWLoginStepFiveViewOne.m */; };
-		5E9A5301243D639D00182E1B /* LWLoginStepFiveViewOne.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A5300243D639D00182E1B /* LWLoginStepFiveViewOne.xib */; };
 		5EA1D49223FA527E00A0A747 /* SocketRocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */; };
 		5EA8079A23E94E2100012837 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079923E94E2100012837 /* AppDelegate.m */; };
 		5EA8079D23E94E2100012837 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA8079C23E94E2100012837 /* SceneDelegate.m */; };
@@ -326,6 +299,32 @@
 		5EB5FB202444591500B9B4DF /* LWNumberInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB5FB1F2444591500B9B4DF /* LWNumberInputView.xib */; };
 		5EC1A933240CECF00086ED19 /* LWAddressTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1A932240CECF00086ED19 /* LWAddressTool.m */; };
 		5EC1A991240F52F70086ED19 /* libthresholdsig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC1A98F240F52F60086ED19 /* libthresholdsig.a */; };
+		5EE68FDD244D453200D7243A /* LWLoginStepOneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE68FDF244D453200D7243A /* LWLoginStepOneView.xib */; };
+		5EE68FEC244D4EE500D7243A /* LWLoginStepTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE68FEE244D4EE500D7243A /* LWLoginStepTwoView.xib */; };
+		5EE68FF3244D4FF200D7243A /* LWLoginStepThreeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE68FF5244D4FF200D7243A /* LWLoginStepThreeView.xib */; };
+		5EE68FFA244D509800D7243A /* LWLoginStepFourView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE68FFC244D509800D7243A /* LWLoginStepFourView.xib */; };
+		5EE69001244D52C700D7243A /* LWLoginStepFiveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69003244D52C700D7243A /* LWLoginStepFiveView.xib */; };
+		5EE69008244D53E100D7243A /* LWLoginStepFiveViewOne.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE6900A244D53E100D7243A /* LWLoginStepFiveViewOne.xib */; };
+		5EE6900F244D551E00D7243A /* LWLoginStepSixView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69011244D551E00D7243A /* LWLoginStepSixView.xib */; };
+		5EE69016244D554A00D7243A /* LWLoginStepSevenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69018244D554A00D7243A /* LWLoginStepSevenView.xib */; };
+		5EE6901D244D55B700D7243A /* LWLoginStepEightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE6901F244D55B700D7243A /* LWLoginStepEightView.xib */; };
+		5EE69024244D560500D7243A /* LWLoginStepSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69026244D560500D7243A /* LWLoginStepSuccessView.xib */; };
+		5EE6902B244D6EE900D7243A /* LWLoginLearnMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE6902D244D6EE900D7243A /* LWLoginLearnMoreView.xib */; };
+		5EE69038244D828900D7243A /* LWStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE6903A244D828900D7243A /* LWStartViewController.xib */; };
+		5EE6903F244D833400D7243A /* LWHomeAddWalletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69041244D833400D7243A /* LWHomeAddWalletView.xib */; };
+		5EE69046244D841600D7243A /* LWPersonalCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69048244D841600D7243A /* LWPersonalCollectionViewController.xib */; };
+		5EE69049244D843E00D7243A /* LWCreatePersonalWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE6904B244D843E00D7243A /* LWCreatePersonalWalletViewController.xib */; };
+		5EE69050244D84A800D7243A /* LWCreateMultipyWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69052244D84A800D7243A /* LWCreateMultipyWalletViewController.xib */; };
+		5EE6905F244D8D1200D7243A /* LWHomeListHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE6905E244D8D1100D7243A /* LWHomeListHeadView.xib */; };
+		5EE69060244D983300D7243A /* LWPersonalWalletDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69062244D983300D7243A /* LWPersonalWalletDetailViewController.xib */; };
+		5EE69067244D9BD400D7243A /* LWPersoanlReceiveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69069244D9BD400D7243A /* LWPersoanlReceiveView.xib */; };
+		5EE6906E244D9CF500D7243A /* LWSendAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69070244D9CF500D7243A /* LWSendAddressViewController.xib */; };
+		5EE69075244D9FB900D7243A /* LWSendAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69077244D9FB900D7243A /* LWSendAmountViewController.xib */; };
+		5EE6907C244DA11400D7243A /* LWSendCheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE6907E244DA11400D7243A /* LWSendCheckViewController.xib */; };
+		5EE69083244DAA4000D7243A /* LWPersonalpaySuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69085244DAA4000D7243A /* LWPersonalpaySuccessViewController.xib */; };
+		5EE6908A244DB1C100D7243A /* LWPersonalSendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE6908C244DB1C100D7243A /* LWPersonalSendView.xib */; };
+		5EE69091244E91C100D7243A /* LWMultipyWalletDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69093244E91C100D7243A /* LWMultipyWalletDetailViewController.xib */; };
+		5EE69098244E92F600D7243A /* LWSendViewAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE6909A244E92F600D7243A /* LWSendViewAlertView.xib */; };
 		5EE8FB7124066B7C00AEE861 /* LWPartiesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7024066B7C00AEE861 /* LWPartiesModel.m */; };
 		5EE8FB7424076B9300AEE861 /* LWMessageDetailListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7324076B9300AEE861 /* LWMessageDetailListView.m */; };
 		5EE8FB7824076C0800AEE861 /* LWMessageDetailListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7624076C0800AEE861 /* LWMessageDetailListCell.m */; };
@@ -357,7 +356,6 @@
 		5EF513E223F550F200F5B6C1 /* LWSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF513D323F550F100F5B6C1 /* LWSelectButton.m */; };
 		5EFC51C82411E19200BE9DDB /* LWSignTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC51C72411E19200BE9DDB /* LWSignTool.m */; };
 		5EFF7A222445580F00B58B40 /* LWStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF7A202445580F00B58B40 /* LWStartViewController.m */; };
-		5EFF7A232445580F00B58B40 /* LWStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF7A212445580F00B58B40 /* LWStartViewController.xib */; };
 		5EFF7A2C2445B04100B58B40 /* LWNumberOutputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF7A292445B03F00B58B40 /* LWNumberOutputView.m */; };
 		5EFF7A2D2445B04100B58B40 /* LWNumberOutputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF7A2A2445B03F00B58B40 /* LWNumberOutputView.xib */; };
 		5EFF7A302446ACB400B58B40 /* LWSendHistoryPaymailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF7A2F2446ACB400B58B40 /* LWSendHistoryPaymailView.m */; };
@@ -407,42 +405,32 @@
 		5E062F3224443C7E009B286E /* LWSendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWSendViewController.xib; sourceTree = "<group>"; };
 		5E062F3A24443DA9009B286E /* LWSendAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWSendAddressViewController.h; sourceTree = "<group>"; };
 		5E062F3B24443DA9009B286E /* LWSendAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWSendAddressViewController.m; sourceTree = "<group>"; };
-		5E062F3C24443DA9009B286E /* LWSendAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWSendAddressViewController.xib; sourceTree = "<group>"; };
 		5E062F3F24443DBF009B286E /* LWSendAmountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWSendAmountViewController.h; sourceTree = "<group>"; };
 		5E062F4024443DBF009B286E /* LWSendAmountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWSendAmountViewController.m; sourceTree = "<group>"; };
-		5E062F4124443DBF009B286E /* LWSendAmountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWSendAmountViewController.xib; sourceTree = "<group>"; };
 		5E062F4424443DF2009B286E /* LWSendCheckViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWSendCheckViewController.h; sourceTree = "<group>"; };
 		5E062F4524443DF2009B286E /* LWSendCheckViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWSendCheckViewController.m; sourceTree = "<group>"; };
-		5E062F4624443DF2009B286E /* LWSendCheckViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWSendCheckViewController.xib; sourceTree = "<group>"; };
 		5E07FD0F2420B60600FA3E1F /* LWLoginStepSixView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepSixView.h; sourceTree = "<group>"; };
 		5E07FD102420B60600FA3E1F /* LWLoginStepSixView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepSixView.m; sourceTree = "<group>"; };
-		5E07FD122420B61300FA3E1F /* LWLoginStepSixView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepSixView.xib; sourceTree = "<group>"; };
 		5E07FD142420B87300FA3E1F /* LWLoginStepSevenView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepSevenView.h; sourceTree = "<group>"; };
 		5E07FD152420B87300FA3E1F /* LWLoginStepSevenView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepSevenView.m; sourceTree = "<group>"; };
-		5E07FD172420B88A00FA3E1F /* LWLoginStepSevenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepSevenView.xib; sourceTree = "<group>"; };
 		5E07FD192420BA4000FA3E1F /* LWLoginStepEightView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepEightView.h; sourceTree = "<group>"; };
 		5E07FD1A2420BA4000FA3E1F /* LWLoginStepEightView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepEightView.m; sourceTree = "<group>"; };
-		5E07FD1C2420BA4800FA3E1F /* LWLoginStepEightView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepEightView.xib; sourceTree = "<group>"; };
 		5E07FD1E2420BBD100FA3E1F /* LWLoginStepSuccessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepSuccessView.h; sourceTree = "<group>"; };
 		5E07FD1F2420BBD100FA3E1F /* LWLoginStepSuccessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepSuccessView.m; sourceTree = "<group>"; };
-		5E07FD212420BC0D00FA3E1F /* LWLoginStepSuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepSuccessView.xib; sourceTree = "<group>"; };
 		5E07FD272420E55E00FA3E1F /* LWHomeListHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWHomeListHeadView.h; sourceTree = "<group>"; };
 		5E07FD282420E55E00FA3E1F /* LWHomeListHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWHomeListHeadView.m; sourceTree = "<group>"; };
 		5E07FD2C2421F4BD00FA3E1F /* LWHomeAddWalletView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWHomeAddWalletView.h; sourceTree = "<group>"; };
 		5E07FD2D2421F4BD00FA3E1F /* LWHomeAddWalletView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWHomeAddWalletView.m; sourceTree = "<group>"; };
-		5E07FD2F2421F4CC00FA3E1F /* LWHomeAddWalletView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWHomeAddWalletView.xib; sourceTree = "<group>"; };
 		5E07FD312421F9D900FA3E1F /* LWAlertTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWAlertTool.h; sourceTree = "<group>"; };
 		5E07FD322421F9D900FA3E1F /* LWAlertTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWAlertTool.m; sourceTree = "<group>"; };
 		5E07FD35242204DD00FA3E1F /* LWCreateMultipyWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWCreateMultipyWalletViewController.h; sourceTree = "<group>"; };
 		5E07FD36242204DD00FA3E1F /* LWCreateMultipyWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCreateMultipyWalletViewController.m; sourceTree = "<group>"; };
-		5E07FD37242204DD00FA3E1F /* LWCreateMultipyWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWCreateMultipyWalletViewController.xib; sourceTree = "<group>"; };
 		5E0FE6952408E72D00733B05 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		5E23584423FBE09C00A7D774 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		5E23584C23FD0D0600A7D774 /* LWutxoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWutxoModel.h; sourceTree = "<group>"; };
 		5E23584D23FD0D0600A7D774 /* LWutxoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWutxoModel.m; sourceTree = "<group>"; };
 		5E2358572403CBAE00A7D774 /* LWPersonalCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPersonalCollectionViewController.h; sourceTree = "<group>"; };
 		5E2358582403CBAE00A7D774 /* LWPersonalCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPersonalCollectionViewController.m; sourceTree = "<group>"; };
-		5E2358592403CBAE00A7D774 /* LWPersonalCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWPersonalCollectionViewController.xib; sourceTree = "<group>"; };
 		5E23585C2403F3C700A7D774 /* LWMineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMineView.h; sourceTree = "<group>"; };
 		5E23585D2403F3C700A7D774 /* LWMineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMineView.m; sourceTree = "<group>"; };
 		5E23585F2403F3E400A7D774 /* LWMineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMineTableViewCell.h; sourceTree = "<group>"; };
@@ -452,7 +440,6 @@
 		5E2358652403F3FE00A7D774 /* LWMineHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMineHeaderView.m; sourceTree = "<group>"; };
 		5E3160A52423BEA3005CA564 /* LWMultipyWalletDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMultipyWalletDetailViewController.h; sourceTree = "<group>"; };
 		5E3160A62423BEA3005CA564 /* LWMultipyWalletDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipyWalletDetailViewController.m; sourceTree = "<group>"; };
-		5E3160A72423BEA3005CA564 /* LWMultipyWalletDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWMultipyWalletDetailViewController.xib; sourceTree = "<group>"; };
 		5E3160AA2423BF26005CA564 /* LWMultipyWalletDetailListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMultipyWalletDetailListView.h; sourceTree = "<group>"; };
 		5E3160AB2423BF26005CA564 /* LWMultipyWalletDetailListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipyWalletDetailListView.m; sourceTree = "<group>"; };
 		5E3160B224243709005CA564 /* LWMultipyWalletDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMultipyWalletDetailCell.h; sourceTree = "<group>"; };
@@ -464,7 +451,6 @@
 		5E3160BC24244155005CA564 /* LWMultipyBeInvitedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMultipyBeInvitedViewController.h; sourceTree = "<group>"; };
 		5E3160BD24244155005CA564 /* LWMultipyBeInvitedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipyBeInvitedViewController.m; sourceTree = "<group>"; };
 		5E3160BE24244155005CA564 /* LWMultipyBeInvitedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWMultipyBeInvitedViewController.xib; sourceTree = "<group>"; };
-		5E3160C324246885005CA564 /* LWHomeListHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWHomeListHeadView.xib; sourceTree = "<group>"; };
 		5E3160C524249194005CA564 /* LWScanTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWScanTool.h; sourceTree = "<group>"; };
 		5E3160C624249194005CA564 /* LWScanTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWScanTool.m; sourceTree = "<group>"; };
 		5E3160C824249C8B005CA564 /* LWScanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWScanModel.h; sourceTree = "<group>"; };
@@ -475,9 +461,6 @@
 		5E3160D12424A81E005CA564 /* LWScanLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWScanLoginViewController.h; sourceTree = "<group>"; };
 		5E3160D22424A81E005CA564 /* LWScanLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWScanLoginViewController.m; sourceTree = "<group>"; };
 		5E3160D32424A81E005CA564 /* LWScanLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWScanLoginViewController.xib; sourceTree = "<group>"; };
-		5E3160D62424E06F005CA564 /* LWMultipypaySuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMultipypaySuccessViewController.h; sourceTree = "<group>"; };
-		5E3160D72424E06F005CA564 /* LWMultipypaySuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipypaySuccessViewController.m; sourceTree = "<group>"; };
-		5E3160D82424E06F005CA564 /* LWMultipypaySuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWMultipypaySuccessViewController.xib; sourceTree = "<group>"; };
 		5E3160DF24265EFB005CA564 /* LWMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMineViewController.h; sourceTree = "<group>"; };
 		5E3160E024265EFB005CA564 /* LWMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMineViewController.m; sourceTree = "<group>"; };
 		5E3160E124265EFB005CA564 /* LWMineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWMineViewController.xib; sourceTree = "<group>"; };
@@ -526,7 +509,6 @@
 		5E317A7C241E55F700C951B2 /* LWLoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginController.xib; sourceTree = "<group>"; };
 		5E317A7F241E5B5E00C951B2 /* LWLoginStepOneView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepOneView.h; sourceTree = "<group>"; };
 		5E317A80241E5B5E00C951B2 /* LWLoginStepOneView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepOneView.m; sourceTree = "<group>"; };
-		5E317A83241E5B8100C951B2 /* LWLoginStepOneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepOneView.xib; sourceTree = "<group>"; };
 		5E5F123423EC06F1002F0711 /* LogicHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogicHandle.h; sourceTree = "<group>"; };
 		5E5F123523EC06F1002F0711 /* LogicHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogicHandle.m; sourceTree = "<group>"; };
 		5E5F123923EC0E12002F0711 /* WMZDialog+Write.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WMZDialog+Write.h"; sourceTree = "<group>"; };
@@ -734,9 +716,7 @@
 		5E66A3C923EBFAA2004097CB /* TYAlertFadeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAlertFadeAnimation.h; sourceTree = "<group>"; };
 		5E755A2724221E7700398413 /* LWEmailBtnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWEmailBtnView.h; sourceTree = "<group>"; };
 		5E755A2824221E7700398413 /* LWEmailBtnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWEmailBtnView.m; sourceTree = "<group>"; };
-		5E755A7524230D6F00398413 /* LWPersonalpaySuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersonalpaySuccessViewController.xib; sourceTree = "<group>"; };
 		5E755A7624230D6F00398413 /* LWPersonalWalletEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonalWalletEditViewController.m; sourceTree = "<group>"; };
-		5E755A7724230D6F00398413 /* LWPersonalWalletDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersonalWalletDetailViewController.xib; sourceTree = "<group>"; };
 		5E755A7824230D6F00398413 /* LWPersonalWalletDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonalWalletDetailViewController.m; sourceTree = "<group>"; };
 		5E755A7924230D6F00398413 /* LWPersonalSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonalSendViewController.m; sourceTree = "<group>"; };
 		5E755A7A24230D6F00398413 /* LWPersonalSendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersonalSendViewController.xib; sourceTree = "<group>"; };
@@ -749,9 +729,7 @@
 		5E755A8224230D6F00398413 /* LWPersonalListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonalListTableViewCell.m; sourceTree = "<group>"; };
 		5E755A8324230D6F00398413 /* LWPersoanDetailListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersoanDetailListView.m; sourceTree = "<group>"; };
 		5E755A8424230D6F00398413 /* LWPersonalSendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonalSendView.h; sourceTree = "<group>"; };
-		5E755A8524230D6F00398413 /* LWPersoanlReceiveView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersoanlReceiveView.xib; sourceTree = "<group>"; };
 		5E755A8624230D6F00398413 /* LWPersoanlReceiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersoanlReceiveView.h; sourceTree = "<group>"; };
-		5E755A8724230D6F00398413 /* LWPersonalSendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersonalSendView.xib; sourceTree = "<group>"; };
 		5E755A8824230D6F00398413 /* LWPersonalListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonalListTableViewCell.h; sourceTree = "<group>"; };
 		5E755A8924230D6F00398413 /* LWPersonalListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersonalListTableViewCell.xib; sourceTree = "<group>"; };
 		5E755A8A24230D6F00398413 /* LWPersoanlReceiveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersoanlReceiveView.m; sourceTree = "<group>"; };
@@ -786,7 +764,6 @@
 		5E7BACCF242DA5D900901EA5 /* LWCurrentExchangeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCurrentExchangeTool.m; sourceTree = "<group>"; };
 		5E7BACD1242DE39700901EA5 /* LWLoginLearnMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginLearnMoreView.h; sourceTree = "<group>"; };
 		5E7BACD2242DE39700901EA5 /* LWLoginLearnMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginLearnMoreView.m; sourceTree = "<group>"; };
-		5E7BACD4242DE3A500901EA5 /* LWLoginLearnMoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginLearnMoreView.xib; sourceTree = "<group>"; };
 		5E7BACD6242DE74E00901EA5 /* LWLoginFaceLearnMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginFaceLearnMoreView.h; sourceTree = "<group>"; };
 		5E7BACD7242DE74E00901EA5 /* LWLoginFaceLearnMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginFaceLearnMoreView.m; sourceTree = "<group>"; };
 		5E7BACD9242DE76500901EA5 /* LWLoginFaceLearnMoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginFaceLearnMoreView.xib; sourceTree = "<group>"; };
@@ -798,7 +775,6 @@
 		5E7C3BDC2435C70C0086D1EB /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		5E7E09102428ABE700C75C0F /* LWCreatePersonalWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWCreatePersonalWalletViewController.h; sourceTree = "<group>"; };
 		5E7E09112428ABE700C75C0F /* LWCreatePersonalWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCreatePersonalWalletViewController.m; sourceTree = "<group>"; };
-		5E7E09122428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWCreatePersonalWalletViewController.xib; sourceTree = "<group>"; };
 		5E7E09152428B5D100C75C0F /* LWEmailTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWEmailTool.h; sourceTree = "<group>"; };
 		5E7E09162428B5D100C75C0F /* LWEmailTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWEmailTool.m; sourceTree = "<group>"; };
 		5E7E09182428C52D00C75C0F /* LWPaymialListTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPaymialListTableView.h; sourceTree = "<group>"; };
@@ -819,7 +795,6 @@
 		5E7E09322428DA5200C75C0F /* LWAssetInheritanceSuccessorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWAssetInheritanceSuccessorViewController.xib; sourceTree = "<group>"; };
 		5E7E09352429F66800C75C0F /* LWSendViewAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWSendViewAlertView.h; sourceTree = "<group>"; };
 		5E7E09362429F66800C75C0F /* LWSendViewAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWSendViewAlertView.m; sourceTree = "<group>"; };
-		5E7E09382429F67800C75C0F /* LWSendViewAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWSendViewAlertView.xib; sourceTree = "<group>"; };
 		5E7E093A2429F69C00C75C0F /* LWReceivedViewAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWReceivedViewAlertView.h; sourceTree = "<group>"; };
 		5E7E093B2429F69C00C75C0F /* LWReceivedViewAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWReceivedViewAlertView.m; sourceTree = "<group>"; };
 		5E7E093D2429F6A700C75C0F /* LWReceivedViewAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWReceivedViewAlertView.xib; sourceTree = "<group>"; };
@@ -838,7 +813,7 @@
 		5E9172C0241621E700D47A9F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5E9172C1241621E700D47A9F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5E9172C72416227D00D47A9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5E9172C92416228F00D47A9F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5E9172C92416228F00D47A9F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; wrapsLines = 0; };
 		5E9172D424162A7300D47A9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWHomeListCell.xib; sourceTree = "<group>"; };
 		5E9172D724162A7B00D47A9F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWHomeListCell.strings"; sourceTree = "<group>"; };
 		5E9172D92416376100D47A9F /* IDLFaceSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IDLFaceSDK.framework; sourceTree = "<group>"; };
@@ -879,21 +854,16 @@
 		5E91737B241B208800D47A9F /* LWMultipySignTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipySignTool.m; sourceTree = "<group>"; };
 		5E9918A3241E6065005D6A38 /* LWLoginStepTwoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepTwoView.h; sourceTree = "<group>"; };
 		5E9918A4241E6065005D6A38 /* LWLoginStepTwoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepTwoView.m; sourceTree = "<group>"; };
-		5E9918A6241E6074005D6A38 /* LWLoginStepTwoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepTwoView.xib; sourceTree = "<group>"; };
 		5E9918A8241E63F3005D6A38 /* LWLoginStepThreeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepThreeView.h; sourceTree = "<group>"; };
 		5E9918A9241E63F3005D6A38 /* LWLoginStepThreeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepThreeView.m; sourceTree = "<group>"; };
-		5E9918AB241E6402005D6A38 /* LWLoginStepThreeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepThreeView.xib; sourceTree = "<group>"; };
 		5E9918AD241E6899005D6A38 /* LWLoginStepFourView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepFourView.h; sourceTree = "<group>"; };
 		5E9918AE241E6899005D6A38 /* LWLoginStepFourView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepFourView.m; sourceTree = "<group>"; };
-		5E9918B0241E68A9005D6A38 /* LWLoginStepFourView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepFourView.xib; sourceTree = "<group>"; };
 		5E9918B2241E70C6005D6A38 /* LWLoginStepFiveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepFiveView.h; sourceTree = "<group>"; };
 		5E9918B3241E70C6005D6A38 /* LWLoginStepFiveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepFiveView.m; sourceTree = "<group>"; };
-		5E9918B5241E70D3005D6A38 /* LWLoginStepFiveView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepFiveView.xib; sourceTree = "<group>"; };
 		5E9918B7241E9E61005D6A38 /* FCAnimateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCAnimateView.h; sourceTree = "<group>"; };
 		5E9918B8241E9E61005D6A38 /* FCAnimateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCAnimateView.m; sourceTree = "<group>"; };
 		5E9A52FD243D638E00182E1B /* LWLoginStepFiveViewOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWLoginStepFiveViewOne.h; sourceTree = "<group>"; };
 		5E9A52FE243D638E00182E1B /* LWLoginStepFiveViewOne.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWLoginStepFiveViewOne.m; sourceTree = "<group>"; };
-		5E9A5300243D639D00182E1B /* LWLoginStepFiveViewOne.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWLoginStepFiveViewOne.xib; sourceTree = "<group>"; };
 		5EA1D48F23FA527E00A0A747 /* SocketRocketUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketUtility.m; sourceTree = "<group>"; };
 		5EA1D49023FA527E00A0A747 /* SocketRocketUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketUtility.h; sourceTree = "<group>"; };
 		5EA8079523E94E2100012837 /* Volt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -963,6 +933,80 @@
 		5EC1A932240CECF00086ED19 /* LWAddressTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWAddressTool.m; sourceTree = "<group>"; };
 		5EC1A98F240F52F60086ED19 /* libthresholdsig.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libthresholdsig.a; sourceTree = "<group>"; };
 		5EC1A990240F52F60086ED19 /* libthresholdsig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libthresholdsig.h; sourceTree = "<group>"; };
+		5EE68FE7244D4CD200D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWLoginStepOneView.xib; sourceTree = "<group>"; };
+		5EE68FE9244D4D2000D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWLoginStepOneView.strings; sourceTree = "<group>"; };
+		5EE68FEB244D4D2D00D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginStepOneView.strings"; sourceTree = "<group>"; };
+		5EE68FED244D4EE500D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWLoginStepTwoView.xib; sourceTree = "<group>"; };
+		5EE68FF0244D4EF300D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWLoginStepTwoView.strings; sourceTree = "<group>"; };
+		5EE68FF2244D4EF800D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginStepTwoView.strings"; sourceTree = "<group>"; };
+		5EE68FF4244D4FF200D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWLoginStepThreeView.xib; sourceTree = "<group>"; };
+		5EE68FF7244D4FFF00D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWLoginStepThreeView.strings; sourceTree = "<group>"; };
+		5EE68FF9244D500400D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginStepThreeView.strings"; sourceTree = "<group>"; };
+		5EE68FFB244D509800D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWLoginStepFourView.xib; sourceTree = "<group>"; };
+		5EE68FFE244D50A200D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWLoginStepFourView.strings; sourceTree = "<group>"; };
+		5EE69000244D50A900D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginStepFourView.strings"; sourceTree = "<group>"; };
+		5EE69002244D52C700D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWLoginStepFiveView.xib; sourceTree = "<group>"; };
+		5EE69005244D52D700D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWLoginStepFiveView.strings; sourceTree = "<group>"; };
+		5EE69007244D52DA00D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginStepFiveView.strings"; sourceTree = "<group>"; };
+		5EE69010244D551E00D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWLoginStepSixView.xib; sourceTree = "<group>"; };
+		5EE69013244D552600D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWLoginStepSixView.strings; sourceTree = "<group>"; };
+		5EE69015244D552A00D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginStepSixView.strings"; sourceTree = "<group>"; };
+		5EE69017244D554A00D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWLoginStepSevenView.xib; sourceTree = "<group>"; };
+		5EE6901A244D555100D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWLoginStepSevenView.strings; sourceTree = "<group>"; };
+		5EE6901C244D555600D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginStepSevenView.strings"; sourceTree = "<group>"; };
+		5EE6901E244D55B700D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWLoginStepEightView.xib; sourceTree = "<group>"; };
+		5EE69021244D55C100D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWLoginStepEightView.strings; sourceTree = "<group>"; };
+		5EE69023244D55C300D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginStepEightView.strings"; sourceTree = "<group>"; };
+		5EE69025244D560500D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWLoginStepSuccessView.xib; sourceTree = "<group>"; };
+		5EE69028244D560C00D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWLoginStepSuccessView.strings; sourceTree = "<group>"; };
+		5EE6902A244D560F00D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginStepSuccessView.strings"; sourceTree = "<group>"; };
+		5EE6902C244D6EE900D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWLoginLearnMoreView.xib; sourceTree = "<group>"; };
+		5EE6902F244D6EED00D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWLoginLearnMoreView.strings; sourceTree = "<group>"; };
+		5EE69031244D6EF100D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginLearnMoreView.strings"; sourceTree = "<group>"; };
+		5EE69034244D7D6E00D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWLoginStepFiveViewOne.xib; sourceTree = "<group>"; };
+		5EE69036244D7D7D00D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWLoginStepFiveViewOne.strings; sourceTree = "<group>"; };
+		5EE69037244D7D7F00D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginStepFiveViewOne.strings"; sourceTree = "<group>"; };
+		5EE69039244D828900D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWStartViewController.xib; sourceTree = "<group>"; };
+		5EE6903C244D828D00D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWStartViewController.strings; sourceTree = "<group>"; };
+		5EE6903E244D829100D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWStartViewController.strings"; sourceTree = "<group>"; };
+		5EE69040244D833400D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWHomeAddWalletView.xib; sourceTree = "<group>"; };
+		5EE69043244D833D00D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWHomeAddWalletView.strings; sourceTree = "<group>"; };
+		5EE69045244D834100D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWHomeAddWalletView.strings"; sourceTree = "<group>"; };
+		5EE69047244D841600D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWPersonalCollectionViewController.xib; sourceTree = "<group>"; };
+		5EE6904A244D843E00D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWCreatePersonalWalletViewController.xib; sourceTree = "<group>"; };
+		5EE6904D244D844900D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWCreatePersonalWalletViewController.strings; sourceTree = "<group>"; };
+		5EE6904F244D844D00D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWCreatePersonalWalletViewController.strings"; sourceTree = "<group>"; };
+		5EE69051244D84A800D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWCreateMultipyWalletViewController.xib; sourceTree = "<group>"; };
+		5EE69054244D84B400D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWCreateMultipyWalletViewController.strings; sourceTree = "<group>"; };
+		5EE69056244D84B800D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWCreateMultipyWalletViewController.strings"; sourceTree = "<group>"; };
+		5EE6905E244D8D1100D7243A /* LWHomeListHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWHomeListHeadView.xib; sourceTree = "<group>"; };
+		5EE69061244D983300D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWPersonalWalletDetailViewController.xib; sourceTree = "<group>"; };
+		5EE69064244D983800D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWPersonalWalletDetailViewController.strings; sourceTree = "<group>"; };
+		5EE69066244D983B00D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWPersonalWalletDetailViewController.strings"; sourceTree = "<group>"; };
+		5EE69068244D9BD400D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWPersoanlReceiveView.xib; sourceTree = "<group>"; };
+		5EE6906B244D9BDE00D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWPersoanlReceiveView.strings; sourceTree = "<group>"; };
+		5EE6906D244D9BE700D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWPersoanlReceiveView.strings"; sourceTree = "<group>"; };
+		5EE6906F244D9CF500D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWSendAddressViewController.xib; sourceTree = "<group>"; };
+		5EE69072244D9CFF00D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWSendAddressViewController.strings; sourceTree = "<group>"; };
+		5EE69074244D9D0300D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWSendAddressViewController.strings"; sourceTree = "<group>"; };
+		5EE69076244D9FB900D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWSendAmountViewController.xib; sourceTree = "<group>"; };
+		5EE69079244D9FC500D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWSendAmountViewController.strings; sourceTree = "<group>"; };
+		5EE6907B244D9FCA00D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWSendAmountViewController.strings"; sourceTree = "<group>"; };
+		5EE6907D244DA11400D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWSendCheckViewController.xib; sourceTree = "<group>"; };
+		5EE69080244DA11800D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWSendCheckViewController.strings; sourceTree = "<group>"; };
+		5EE69082244DA11E00D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWSendCheckViewController.strings"; sourceTree = "<group>"; };
+		5EE69084244DAA4000D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWPersonalpaySuccessViewController.xib; sourceTree = "<group>"; };
+		5EE69087244DAA5500D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWPersonalpaySuccessViewController.strings; sourceTree = "<group>"; };
+		5EE69089244DAA5900D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWPersonalpaySuccessViewController.strings"; sourceTree = "<group>"; };
+		5EE6908B244DB1C100D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWPersonalSendView.xib; sourceTree = "<group>"; };
+		5EE6908E244DB1C700D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWPersonalSendView.strings; sourceTree = "<group>"; };
+		5EE69090244DB1CA00D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWPersonalSendView.strings"; sourceTree = "<group>"; };
+		5EE69092244E91C100D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWMultipyWalletDetailViewController.xib; sourceTree = "<group>"; };
+		5EE69095244E91CF00D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWMultipyWalletDetailViewController.strings; sourceTree = "<group>"; };
+		5EE69097244E91D300D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWMultipyWalletDetailViewController.strings"; sourceTree = "<group>"; };
+		5EE69099244E92F600D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWSendViewAlertView.xib; sourceTree = "<group>"; };
+		5EE6909C244E930300D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWSendViewAlertView.strings; sourceTree = "<group>"; };
+		5EE6909E244E930500D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWSendViewAlertView.strings"; sourceTree = "<group>"; };
 		5EE8FB6F24066B7C00AEE861 /* LWPartiesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPartiesModel.h; sourceTree = "<group>"; };
 		5EE8FB7024066B7C00AEE861 /* LWPartiesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPartiesModel.m; sourceTree = "<group>"; };
 		5EE8FB7224076B9300AEE861 /* LWMessageDetailListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMessageDetailListView.h; sourceTree = "<group>"; };
@@ -1044,7 +1088,6 @@
 		5EFC51C72411E19200BE9DDB /* LWSignTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWSignTool.m; sourceTree = "<group>"; };
 		5EFF7A1F2445580F00B58B40 /* LWStartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWStartViewController.h; sourceTree = "<group>"; };
 		5EFF7A202445580F00B58B40 /* LWStartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWStartViewController.m; sourceTree = "<group>"; };
-		5EFF7A212445580F00B58B40 /* LWStartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWStartViewController.xib; sourceTree = "<group>"; };
 		5EFF7A292445B03F00B58B40 /* LWNumberOutputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWNumberOutputView.m; sourceTree = "<group>"; };
 		5EFF7A2A2445B03F00B58B40 /* LWNumberOutputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWNumberOutputView.xib; sourceTree = "<group>"; };
 		5EFF7A2B2445B04000B58B40 /* LWNumberOutputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWNumberOutputView.h; sourceTree = "<group>"; };
@@ -1125,13 +1168,13 @@
 				5E062F3224443C7E009B286E /* LWSendViewController.xib */,
 				5E062F3A24443DA9009B286E /* LWSendAddressViewController.h */,
 				5E062F3B24443DA9009B286E /* LWSendAddressViewController.m */,
-				5E062F3C24443DA9009B286E /* LWSendAddressViewController.xib */,
+				5EE69070244D9CF500D7243A /* LWSendAddressViewController.xib */,
 				5E062F3F24443DBF009B286E /* LWSendAmountViewController.h */,
 				5E062F4024443DBF009B286E /* LWSendAmountViewController.m */,
-				5E062F4124443DBF009B286E /* LWSendAmountViewController.xib */,
+				5EE69077244D9FB900D7243A /* LWSendAmountViewController.xib */,
 				5E062F4424443DF2009B286E /* LWSendCheckViewController.h */,
 				5E062F4524443DF2009B286E /* LWSendCheckViewController.m */,
-				5E062F4624443DF2009B286E /* LWSendCheckViewController.xib */,
+				5EE6907E244DA11400D7243A /* LWSendCheckViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1159,10 +1202,10 @@
 				5E755A4F24230A4000398413 /* personal */,
 				5E07FD272420E55E00FA3E1F /* LWHomeListHeadView.h */,
 				5E07FD282420E55E00FA3E1F /* LWHomeListHeadView.m */,
-				5E3160C324246885005CA564 /* LWHomeListHeadView.xib */,
+				5EE6905E244D8D1100D7243A /* LWHomeListHeadView.xib */,
 				5E07FD2C2421F4BD00FA3E1F /* LWHomeAddWalletView.h */,
 				5E07FD2D2421F4BD00FA3E1F /* LWHomeAddWalletView.m */,
-				5E07FD2F2421F4CC00FA3E1F /* LWHomeAddWalletView.xib */,
+				5EE69041244D833400D7243A /* LWHomeAddWalletView.xib */,
 			);
 			path = new;
 			sourceTree = "<group>";
@@ -1172,7 +1215,7 @@
 			children = (
 				5E07FD35242204DD00FA3E1F /* LWCreateMultipyWalletViewController.h */,
 				5E07FD36242204DD00FA3E1F /* LWCreateMultipyWalletViewController.m */,
-				5E07FD37242204DD00FA3E1F /* LWCreateMultipyWalletViewController.xib */,
+				5EE69052244D84A800D7243A /* LWCreateMultipyWalletViewController.xib */,
 			);
 			path = new;
 			sourceTree = "<group>";
@@ -1209,16 +1252,13 @@
 			children = (
 				5E3160A52423BEA3005CA564 /* LWMultipyWalletDetailViewController.h */,
 				5E3160A62423BEA3005CA564 /* LWMultipyWalletDetailViewController.m */,
-				5E3160A72423BEA3005CA564 /* LWMultipyWalletDetailViewController.xib */,
+				5EE69093244E91C100D7243A /* LWMultipyWalletDetailViewController.xib */,
 				5E3160BC24244155005CA564 /* LWMultipyBeInvitedViewController.h */,
 				5E3160BD24244155005CA564 /* LWMultipyBeInvitedViewController.m */,
 				5E3160BE24244155005CA564 /* LWMultipyBeInvitedViewController.xib */,
 				5E31612724285567005CA564 /* LWMultipyOtherNotJoinViewController.h */,
 				5E31612824285567005CA564 /* LWMultipyOtherNotJoinViewController.m */,
 				5E31612924285567005CA564 /* LWMultipyOtherNotJoinViewController.xib */,
-				5E3160D62424E06F005CA564 /* LWMultipypaySuccessViewController.h */,
-				5E3160D72424E06F005CA564 /* LWMultipypaySuccessViewController.m */,
-				5E3160D82424E06F005CA564 /* LWMultipypaySuccessViewController.xib */,
 				5E31611C2427A1CF005CA564 /* LWMultipyEditViewController.h */,
 				5E31611D2427A1CF005CA564 /* LWMultipyEditViewController.m */,
 				5E31611E2427A1CF005CA564 /* LWMultipyEditViewController.xib */,
@@ -1255,7 +1295,7 @@
 				5E31610524273B2D005CA564 /* LWMultipySendCancleView.xib */,
 				5E7E09352429F66800C75C0F /* LWSendViewAlertView.h */,
 				5E7E09362429F66800C75C0F /* LWSendViewAlertView.m */,
-				5E7E09382429F67800C75C0F /* LWSendViewAlertView.xib */,
+				5EE6909A244E92F600D7243A /* LWSendViewAlertView.xib */,
 				5E7E093A2429F69C00C75C0F /* LWReceivedViewAlertView.h */,
 				5E7E093B2429F69C00C75C0F /* LWReceivedViewAlertView.m */,
 				5E7E093D2429F6A700C75C0F /* LWReceivedViewAlertView.xib */,
@@ -1337,34 +1377,34 @@
 			children = (
 				5E317A7F241E5B5E00C951B2 /* LWLoginStepOneView.h */,
 				5E317A80241E5B5E00C951B2 /* LWLoginStepOneView.m */,
-				5E317A83241E5B8100C951B2 /* LWLoginStepOneView.xib */,
+				5EE68FDF244D453200D7243A /* LWLoginStepOneView.xib */,
 				5E9918A3241E6065005D6A38 /* LWLoginStepTwoView.h */,
 				5E9918A4241E6065005D6A38 /* LWLoginStepTwoView.m */,
-				5E9918A6241E6074005D6A38 /* LWLoginStepTwoView.xib */,
+				5EE68FEE244D4EE500D7243A /* LWLoginStepTwoView.xib */,
 				5E9918A8241E63F3005D6A38 /* LWLoginStepThreeView.h */,
 				5E9918A9241E63F3005D6A38 /* LWLoginStepThreeView.m */,
-				5E9918AB241E6402005D6A38 /* LWLoginStepThreeView.xib */,
+				5EE68FF5244D4FF200D7243A /* LWLoginStepThreeView.xib */,
 				5E9918AD241E6899005D6A38 /* LWLoginStepFourView.h */,
 				5E9918AE241E6899005D6A38 /* LWLoginStepFourView.m */,
-				5E9918B0241E68A9005D6A38 /* LWLoginStepFourView.xib */,
+				5EE68FFC244D509800D7243A /* LWLoginStepFourView.xib */,
 				5E9918B2241E70C6005D6A38 /* LWLoginStepFiveView.h */,
 				5E9918B3241E70C6005D6A38 /* LWLoginStepFiveView.m */,
-				5E9918B5241E70D3005D6A38 /* LWLoginStepFiveView.xib */,
+				5EE69003244D52C700D7243A /* LWLoginStepFiveView.xib */,
 				5E9A52FD243D638E00182E1B /* LWLoginStepFiveViewOne.h */,
 				5E9A52FE243D638E00182E1B /* LWLoginStepFiveViewOne.m */,
-				5E9A5300243D639D00182E1B /* LWLoginStepFiveViewOne.xib */,
+				5EE6900A244D53E100D7243A /* LWLoginStepFiveViewOne.xib */,
 				5E07FD0F2420B60600FA3E1F /* LWLoginStepSixView.h */,
 				5E07FD102420B60600FA3E1F /* LWLoginStepSixView.m */,
-				5E07FD122420B61300FA3E1F /* LWLoginStepSixView.xib */,
+				5EE69011244D551E00D7243A /* LWLoginStepSixView.xib */,
 				5E07FD142420B87300FA3E1F /* LWLoginStepSevenView.h */,
 				5E07FD152420B87300FA3E1F /* LWLoginStepSevenView.m */,
-				5E07FD172420B88A00FA3E1F /* LWLoginStepSevenView.xib */,
+				5EE69018244D554A00D7243A /* LWLoginStepSevenView.xib */,
 				5E07FD192420BA4000FA3E1F /* LWLoginStepEightView.h */,
 				5E07FD1A2420BA4000FA3E1F /* LWLoginStepEightView.m */,
-				5E07FD1C2420BA4800FA3E1F /* LWLoginStepEightView.xib */,
+				5EE6901F244D55B700D7243A /* LWLoginStepEightView.xib */,
 				5E07FD1E2420BBD100FA3E1F /* LWLoginStepSuccessView.h */,
 				5E07FD1F2420BBD100FA3E1F /* LWLoginStepSuccessView.m */,
-				5E07FD212420BC0D00FA3E1F /* LWLoginStepSuccessView.xib */,
+				5EE69026244D560500D7243A /* LWLoginStepSuccessView.xib */,
 			);
 			path = new;
 			sourceTree = "<group>";
@@ -1658,7 +1698,7 @@
 				5E317A82241E5B6500C951B2 /* new */,
 				5E7BACD1242DE39700901EA5 /* LWLoginLearnMoreView.h */,
 				5E7BACD2242DE39700901EA5 /* LWLoginLearnMoreView.m */,
-				5E7BACD4242DE3A500901EA5 /* LWLoginLearnMoreView.xib */,
+				5EE6902D244D6EE900D7243A /* LWLoginLearnMoreView.xib */,
 				5E7BACD6242DE74E00901EA5 /* LWLoginFaceLearnMoreView.h */,
 				5E7BACD7242DE74E00901EA5 /* LWLoginFaceLearnMoreView.m */,
 				5E7BACD9242DE76500901EA5 /* LWLoginFaceLearnMoreView.xib */,
@@ -1941,7 +1981,7 @@
 				5EF5137423F273DB00F5B6C1 /* LWTestWebView.m */,
 				5E2358572403CBAE00A7D774 /* LWPersonalCollectionViewController.h */,
 				5E2358582403CBAE00A7D774 /* LWPersonalCollectionViewController.m */,
-				5E2358592403CBAE00A7D774 /* LWPersonalCollectionViewController.xib */,
+				5EE69048244D841600D7243A /* LWPersonalCollectionViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2160,16 +2200,16 @@
 				5E755A7D24230D6F00398413 /* LWPersonalWalletEditViewController.xib */,
 				5E755A7E24230D6F00398413 /* LWPersonalWalletDetailViewController.h */,
 				5E755A7824230D6F00398413 /* LWPersonalWalletDetailViewController.m */,
-				5E755A7724230D6F00398413 /* LWPersonalWalletDetailViewController.xib */,
+				5EE69062244D983300D7243A /* LWPersonalWalletDetailViewController.xib */,
 				5E755A8024230D6F00398413 /* LWPersonalSendViewController.h */,
 				5E755A7924230D6F00398413 /* LWPersonalSendViewController.m */,
 				5E755A7A24230D6F00398413 /* LWPersonalSendViewController.xib */,
 				5E755A7F24230D6F00398413 /* LWPersonalpaySuccessViewController.h */,
 				5E755A7B24230D6F00398413 /* LWPersonalpaySuccessViewController.m */,
-				5E755A7524230D6F00398413 /* LWPersonalpaySuccessViewController.xib */,
+				5EE69085244DAA4000D7243A /* LWPersonalpaySuccessViewController.xib */,
 				5E7E09102428ABE700C75C0F /* LWCreatePersonalWalletViewController.h */,
 				5E7E09112428ABE700C75C0F /* LWCreatePersonalWalletViewController.m */,
-				5E7E09122428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib */,
+				5EE6904B244D843E00D7243A /* LWCreatePersonalWalletViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2181,10 +2221,10 @@
 				5E755A8324230D6F00398413 /* LWPersoanDetailListView.m */,
 				5E755A8424230D6F00398413 /* LWPersonalSendView.h */,
 				5E755A8B24230D6F00398413 /* LWPersonalSendView.m */,
-				5E755A8724230D6F00398413 /* LWPersonalSendView.xib */,
+				5EE6908C244DB1C100D7243A /* LWPersonalSendView.xib */,
 				5E755A8624230D6F00398413 /* LWPersoanlReceiveView.h */,
 				5E755A8A24230D6F00398413 /* LWPersoanlReceiveView.m */,
-				5E755A8524230D6F00398413 /* LWPersoanlReceiveView.xib */,
+				5EE69069244D9BD400D7243A /* LWPersoanlReceiveView.xib */,
 				5E755A8824230D6F00398413 /* LWPersonalListTableViewCell.h */,
 				5E755A8224230D6F00398413 /* LWPersonalListTableViewCell.m */,
 				5E755A8924230D6F00398413 /* LWPersonalListTableViewCell.xib */,
@@ -2714,7 +2754,7 @@
 			children = (
 				5EFF7A1F2445580F00B58B40 /* LWStartViewController.h */,
 				5EFF7A202445580F00B58B40 /* LWStartViewController.m */,
-				5EFF7A212445580F00B58B40 /* LWStartViewController.xib */,
+				5EE6903A244D828900D7243A /* LWStartViewController.xib */,
 				5E317A7A241E55F700C951B2 /* LWLoginController.h */,
 				5E317A7B241E55F700C951B2 /* LWLoginController.m */,
 				5E317A7C241E55F700C951B2 /* LWLoginController.xib */,
@@ -2950,30 +2990,30 @@
 			files = (
 				5E66A34323EAB58C004097CB /* README.md in Resources */,
 				5E9172C62416227D00D47A9F /* Localizable.strings in Resources */,
-				5E755A8D24230D6F00398413 /* LWPersonalpaySuccessViewController.xib in Resources */,
+				5EE69083244DAA4000D7243A /* LWPersonalpaySuccessViewController.xib in Resources */,
 				5E3160B624243709005CA564 /* LWMultipyWalletDetailCell.xib in Resources */,
 				5E66A35F23EAC378004097CB /* backImage@2x.png in Resources */,
-				5E7BACD5242DE3A500901EA5 /* LWLoginLearnMoreView.xib in Resources */,
-				5E317A84241E5B8100C951B2 /* LWLoginStepOneView.xib in Resources */,
+				5EE6902B244D6EE900D7243A /* LWLoginLearnMoreView.xib in Resources */,
+				5EE68FDD244D453200D7243A /* LWLoginStepOneView.xib in Resources */,
 				5E9172E02416376200D47A9F /* com.baidu.idl.face.faceSDK.bundle in Resources */,
 				5E755A9924230D6F00398413 /* LWPersonalListTableViewCell.xib in Resources */,
 				5E66A34223EAB58C004097CB /* SVProgressHUD.bundle in Resources */,
 				5E317A7E241E55F700C951B2 /* LWLoginController.xib in Resources */,
-				5E062F4824443DF2009B286E /* LWSendCheckViewController.xib in Resources */,
-				5E3160A92423BEA3005CA564 /* LWMultipyWalletDetailViewController.xib in Resources */,
-				5E7E09142428ABE700C75C0F /* LWCreatePersonalWalletViewController.xib in Resources */,
+				5EE6907C244DA11400D7243A /* LWSendCheckViewController.xib in Resources */,
+				5EE69091244E91C100D7243A /* LWMultipyWalletDetailViewController.xib in Resources */,
+				5EE69049244D843E00D7243A /* LWCreatePersonalWalletViewController.xib in Resources */,
 				5E7C3BDF2435C70D0086D1EB /* Roboto-Bold.ttf in Resources */,
 				5E3161202427A1CF005CA564 /* LWMultipyEditViewController.xib in Resources */,
 				5E23584823FBE09D00A7D774 /* index.html in Resources */,
 				5EFF7A382446B1AC00B58B40 /* LWHistoryPaymailCell.xib in Resources */,
-				5E07FD132420B61300FA3E1F /* LWLoginStepSixView.xib in Resources */,
-				5E7E09392429F67800C75C0F /* LWSendViewAlertView.xib in Resources */,
-				5E07FD182420B88A00FA3E1F /* LWLoginStepSevenView.xib in Resources */,
+				5EE6900F244D551E00D7243A /* LWLoginStepSixView.xib in Resources */,
+				5EE69098244E92F600D7243A /* LWSendViewAlertView.xib in Resources */,
+				5EE69016244D554A00D7243A /* LWLoginStepSevenView.xib in Resources */,
 				5EB31EA72405182800974FD4 /* LWMessageTableViewCell.xib in Resources */,
 				5E7C3BD02432E8C70086D1EB /* currency.plist in Resources */,
 				5E66A34623EAB58C004097CB /* WMHUDUntil.bundle in Resources */,
 				5EFF7A2D2445B04100B58B40 /* LWNumberOutputView.xib in Resources */,
-				5E9918A7241E6074005D6A38 /* LWLoginStepTwoView.xib in Resources */,
+				5EE68FEC244D4EE500D7243A /* LWLoginStepTwoView.xib in Resources */,
 				5EB31EC1240648AD00974FD4 /* LWMessageDeleteTableViewCell.xib in Resources */,
 				5E062EC9243DA409009B286E /* LWPCLoginViewController.xib in Resources */,
 				5E755A9224230D6F00398413 /* LWPersonalSendViewController.xib in Resources */,
@@ -2983,58 +3023,57 @@
 				5E3160FC24273A70005CA564 /* LWMultipySendOutgoingView.xib in Resources */,
 				5E31610124273AAB005CA564 /* LWMultipySendPendingView.xib in Resources */,
 				5E3161252427B84A005CA564 /* LWMultipyEditMemberViewController.xib in Resources */,
-				5E07FD302421F4CC00FA3E1F /* LWHomeAddWalletView.xib in Resources */,
+				5EE6903F244D833400D7243A /* LWHomeAddWalletView.xib in Resources */,
 				5EB31E92240428CD00974FD4 /* LWMineSettingLanguageCell.xib in Resources */,
 				5E9172DE2416376200D47A9F /* idl-license.face-ios in Resources */,
 				5EA807A823E94E2400012837 /* LaunchScreen.storyboard in Resources */,
 				5E31610624273B2D005CA564 /* LWMultipySendCancleView.xib in Resources */,
 				5E9172DF2416376200D47A9F /* com.baidu.idl.face.model.bundle in Resources */,
 				5E3160C024244155005CA564 /* LWMultipyBeInvitedViewController.xib in Resources */,
-				5E755A9724230D6F00398413 /* LWPersoanlReceiveView.xib in Resources */,
-				5E9918B6241E70D3005D6A38 /* LWLoginStepFiveView.xib in Resources */,
-				5E07FD39242204DD00FA3E1F /* LWCreateMultipyWalletViewController.xib in Resources */,
-				5E9A5301243D639D00182E1B /* LWLoginStepFiveViewOne.xib in Resources */,
-				5E9918B1241E68A9005D6A38 /* LWLoginStepFourView.xib in Resources */,
+				5EE69067244D9BD400D7243A /* LWPersoanlReceiveView.xib in Resources */,
+				5EE6905F244D8D1200D7243A /* LWHomeListHeadView.xib in Resources */,
+				5EE69001244D52C700D7243A /* LWLoginStepFiveView.xib in Resources */,
+				5EE69050244D84A800D7243A /* LWCreateMultipyWalletViewController.xib in Resources */,
+				5EE69008244D53E100D7243A /* LWLoginStepFiveViewOne.xib in Resources */,
+				5EE68FFA244D509800D7243A /* LWLoginStepFourView.xib in Resources */,
 				5E7E093E2429F6A700C75C0F /* LWReceivedViewAlertView.xib in Resources */,
 				5EB31E8724041CAF00974FD4 /* LWMineSecurityTableViewCell.xib in Resources */,
-				5EFF7A232445580F00B58B40 /* LWStartViewController.xib in Resources */,
+				5EE69038244D828900D7243A /* LWStartViewController.xib in Resources */,
 				5EFF7A3D2446F53800B58B40 /* LWHistoryAmountView.xib in Resources */,
 				5E0FE6962408E72D00733B05 /* index.js in Resources */,
-				5E07FD222420BC0D00FA3E1F /* LWLoginStepSuccessView.xib in Resources */,
+				5EE69024244D560500D7243A /* LWLoginStepSuccessView.xib in Resources */,
 				5E062ECE243DA47F009B286E /* LWPCLoginTipView.xib in Resources */,
 				5E31611B24279CA3005CA564 /* LWSignStauteBottomView.xib in Resources */,
-				5E3160DA2424E06F005CA564 /* LWMultipypaySuccessViewController.xib in Resources */,
 				5EB5FB202444591500B9B4DF /* LWNumberInputView.xib in Resources */,
 				5E31610B24278485005CA564 /* LWSignessSatuteView.xib in Resources */,
 				5E84097F2431F10200CBE2FE /* LWMineLanguageViewController.xib in Resources */,
 				5E062F3424443C7E009B286E /* LWSendViewController.xib in Resources */,
-				5E3160C424246885005CA564 /* LWHomeListHeadView.xib in Resources */,
 				5E2358632403F3E400A7D774 /* LWMineTableViewCell.xib in Resources */,
 				5E3160E52426716E005CA564 /* LWMineSecurityViewController.xib in Resources */,
-				5E062F4324443DBF009B286E /* LWSendAmountViewController.xib in Resources */,
+				5EE69075244D9FB900D7243A /* LWSendAmountViewController.xib in Resources */,
 				5E7BACDA242DE76500901EA5 /* LWLoginFaceLearnMoreView.xib in Resources */,
 				5E5F130223EDD97F002F0711 /* PageController.bundle in Resources */,
-				5E07FD1D2420BA4800FA3E1F /* LWLoginStepEightView.xib in Resources */,
+				5EE6901D244D55B700D7243A /* LWLoginStepEightView.xib in Resources */,
 				5E3160F724271586005CA564 /* LWPayMailViewController.xib in Resources */,
 				5E7E092F2428D83D00C75C0F /* LWAssetInheritanceModifyViewController.xib in Resources */,
 				5E3160E324265EFB005CA564 /* LWMineViewController.xib in Resources */,
 				5E5F129A23EC0E12002F0711 /* WMZDialog.bundle in Resources */,
-				5E9918AC241E6402005D6A38 /* LWLoginStepThreeView.xib in Resources */,
-				5E23585B2403CBAF00A7D774 /* LWPersonalCollectionViewController.xib in Resources */,
+				5EE68FF3244D4FF200D7243A /* LWLoginStepThreeView.xib in Resources */,
+				5EE69046244D841600D7243A /* LWPersonalCollectionViewController.xib in Resources */,
 				5E7E092A2428D03500C75C0F /* LWAssetInheritanceViewController.xib in Resources */,
 				5E3160EA24267632005CA564 /* LWMinePreferencesViewController.xib in Resources */,
 				5E9172D324162A7300D47A9F /* LWHomeListCell.xib in Resources */,
 				5E3160D52424A81E005CA564 /* LWScanLoginViewController.xib in Resources */,
 				5E66A36023EAC379004097CB /* backImage@3x.png in Resources */,
 				5E3160BB24243A6C005CA564 /* LWMultipySendToBeSignedView.xib in Resources */,
-				5E755A9824230D6F00398413 /* LWPersonalSendView.xib in Resources */,
+				5EE6908A244DB1C100D7243A /* LWPersonalSendView.xib in Resources */,
 				5E7BACC3242CC48500901EA5 /* LWMultipyUserStatueViewController.xib in Resources */,
 				5E31612B24285567005CA564 /* LWMultipyOtherNotJoinViewController.xib in Resources */,
-				5E755A8F24230D6F00398413 /* LWPersonalWalletDetailViewController.xib in Resources */,
+				5EE69060244D983300D7243A /* LWPersonalWalletDetailViewController.xib in Resources */,
 				5EA807A523E94E2400012837 /* Assets.xcassets in Resources */,
 				5E755A9424230D6F00398413 /* LWPersonalWalletEditViewController.xib in Resources */,
 				5E7C3BDD2435C70D0086D1EB /* Roboto-Medium.ttf in Resources */,
-				5E062F3E24443DAA009B286E /* LWSendAddressViewController.xib in Resources */,
+				5EE6906E244D9CF500D7243A /* LWSendAddressViewController.xib in Resources */,
 				5E7E091F2428C77B00C75C0F /* LWPaymailTableViewCell.xib in Resources */,
 				5EA807A323E94E2100012837 /* Main.storyboard in Resources */,
 				5E7E09342428DA5200C75C0F /* LWAssetInheritanceSuccessorViewController.xib in Resources */,
@@ -3285,7 +3324,6 @@
 				5E66A3CD23EBFAA2004097CB /* TYAlertController+BlurEffects.m in Sources */,
 				5EA8079A23E94E2100012837 /* AppDelegate.m in Sources */,
 				5EB31EC0240648AD00974FD4 /* LWMessageDeleteTableViewCell.m in Sources */,
-				5E3160D92424E06F005CA564 /* LWMultipypaySuccessViewController.m in Sources */,
 				5E3160F624271586005CA564 /* LWPayMailViewController.m in Sources */,
 				5E317A7D241E55F700C951B2 /* LWLoginController.m in Sources */,
 				5E062EC8243DA409009B286E /* LWPCLoginViewController.m in Sources */,
@@ -3437,6 +3475,254 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		5EE68FDF244D453200D7243A /* LWLoginStepOneView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE68FE7244D4CD200D7243A /* Base */,
+				5EE68FE9244D4D2000D7243A /* en */,
+				5EE68FEB244D4D2D00D7243A /* zh-Hans */,
+			);
+			name = LWLoginStepOneView.xib;
+			sourceTree = "<group>";
+		};
+		5EE68FEE244D4EE500D7243A /* LWLoginStepTwoView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE68FED244D4EE500D7243A /* Base */,
+				5EE68FF0244D4EF300D7243A /* en */,
+				5EE68FF2244D4EF800D7243A /* zh-Hans */,
+			);
+			name = LWLoginStepTwoView.xib;
+			sourceTree = "<group>";
+		};
+		5EE68FF5244D4FF200D7243A /* LWLoginStepThreeView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE68FF4244D4FF200D7243A /* Base */,
+				5EE68FF7244D4FFF00D7243A /* en */,
+				5EE68FF9244D500400D7243A /* zh-Hans */,
+			);
+			name = LWLoginStepThreeView.xib;
+			sourceTree = "<group>";
+		};
+		5EE68FFC244D509800D7243A /* LWLoginStepFourView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE68FFB244D509800D7243A /* Base */,
+				5EE68FFE244D50A200D7243A /* en */,
+				5EE69000244D50A900D7243A /* zh-Hans */,
+			);
+			name = LWLoginStepFourView.xib;
+			sourceTree = "<group>";
+		};
+		5EE69003244D52C700D7243A /* LWLoginStepFiveView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69002244D52C700D7243A /* Base */,
+				5EE69005244D52D700D7243A /* en */,
+				5EE69007244D52DA00D7243A /* zh-Hans */,
+			);
+			name = LWLoginStepFiveView.xib;
+			sourceTree = "<group>";
+		};
+		5EE6900A244D53E100D7243A /* LWLoginStepFiveViewOne.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69034244D7D6E00D7243A /* Base */,
+				5EE69036244D7D7D00D7243A /* en */,
+				5EE69037244D7D7F00D7243A /* zh-Hans */,
+			);
+			name = LWLoginStepFiveViewOne.xib;
+			sourceTree = "<group>";
+		};
+		5EE69011244D551E00D7243A /* LWLoginStepSixView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69010244D551E00D7243A /* Base */,
+				5EE69013244D552600D7243A /* en */,
+				5EE69015244D552A00D7243A /* zh-Hans */,
+			);
+			name = LWLoginStepSixView.xib;
+			sourceTree = "<group>";
+		};
+		5EE69018244D554A00D7243A /* LWLoginStepSevenView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69017244D554A00D7243A /* Base */,
+				5EE6901A244D555100D7243A /* en */,
+				5EE6901C244D555600D7243A /* zh-Hans */,
+			);
+			name = LWLoginStepSevenView.xib;
+			sourceTree = "<group>";
+		};
+		5EE6901F244D55B700D7243A /* LWLoginStepEightView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE6901E244D55B700D7243A /* Base */,
+				5EE69021244D55C100D7243A /* en */,
+				5EE69023244D55C300D7243A /* zh-Hans */,
+			);
+			name = LWLoginStepEightView.xib;
+			sourceTree = "<group>";
+		};
+		5EE69026244D560500D7243A /* LWLoginStepSuccessView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69025244D560500D7243A /* Base */,
+				5EE69028244D560C00D7243A /* en */,
+				5EE6902A244D560F00D7243A /* zh-Hans */,
+			);
+			name = LWLoginStepSuccessView.xib;
+			sourceTree = "<group>";
+		};
+		5EE6902D244D6EE900D7243A /* LWLoginLearnMoreView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE6902C244D6EE900D7243A /* Base */,
+				5EE6902F244D6EED00D7243A /* en */,
+				5EE69031244D6EF100D7243A /* zh-Hans */,
+			);
+			name = LWLoginLearnMoreView.xib;
+			sourceTree = "<group>";
+		};
+		5EE6903A244D828900D7243A /* LWStartViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69039244D828900D7243A /* Base */,
+				5EE6903C244D828D00D7243A /* en */,
+				5EE6903E244D829100D7243A /* zh-Hans */,
+			);
+			name = LWStartViewController.xib;
+			sourceTree = "<group>";
+		};
+		5EE69041244D833400D7243A /* LWHomeAddWalletView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69040244D833400D7243A /* Base */,
+				5EE69043244D833D00D7243A /* en */,
+				5EE69045244D834100D7243A /* zh-Hans */,
+			);
+			name = LWHomeAddWalletView.xib;
+			sourceTree = "<group>";
+		};
+		5EE69048244D841600D7243A /* LWPersonalCollectionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69047244D841600D7243A /* Base */,
+			);
+			name = LWPersonalCollectionViewController.xib;
+			sourceTree = "<group>";
+		};
+		5EE6904B244D843E00D7243A /* LWCreatePersonalWalletViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE6904A244D843E00D7243A /* Base */,
+				5EE6904D244D844900D7243A /* en */,
+				5EE6904F244D844D00D7243A /* zh-Hans */,
+			);
+			name = LWCreatePersonalWalletViewController.xib;
+			sourceTree = "<group>";
+		};
+		5EE69052244D84A800D7243A /* LWCreateMultipyWalletViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69051244D84A800D7243A /* Base */,
+				5EE69054244D84B400D7243A /* en */,
+				5EE69056244D84B800D7243A /* zh-Hans */,
+			);
+			name = LWCreateMultipyWalletViewController.xib;
+			sourceTree = "<group>";
+		};
+		5EE69062244D983300D7243A /* LWPersonalWalletDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69061244D983300D7243A /* Base */,
+				5EE69064244D983800D7243A /* en */,
+				5EE69066244D983B00D7243A /* zh-Hans */,
+			);
+			name = LWPersonalWalletDetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		5EE69069244D9BD400D7243A /* LWPersoanlReceiveView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69068244D9BD400D7243A /* Base */,
+				5EE6906B244D9BDE00D7243A /* en */,
+				5EE6906D244D9BE700D7243A /* zh-Hans */,
+			);
+			name = LWPersoanlReceiveView.xib;
+			sourceTree = "<group>";
+		};
+		5EE69070244D9CF500D7243A /* LWSendAddressViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE6906F244D9CF500D7243A /* Base */,
+				5EE69072244D9CFF00D7243A /* en */,
+				5EE69074244D9D0300D7243A /* zh-Hans */,
+			);
+			name = LWSendAddressViewController.xib;
+			sourceTree = "<group>";
+		};
+		5EE69077244D9FB900D7243A /* LWSendAmountViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69076244D9FB900D7243A /* Base */,
+				5EE69079244D9FC500D7243A /* en */,
+				5EE6907B244D9FCA00D7243A /* zh-Hans */,
+			);
+			name = LWSendAmountViewController.xib;
+			sourceTree = "<group>";
+		};
+		5EE6907E244DA11400D7243A /* LWSendCheckViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE6907D244DA11400D7243A /* Base */,
+				5EE69080244DA11800D7243A /* en */,
+				5EE69082244DA11E00D7243A /* zh-Hans */,
+			);
+			name = LWSendCheckViewController.xib;
+			sourceTree = "<group>";
+		};
+		5EE69085244DAA4000D7243A /* LWPersonalpaySuccessViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69084244DAA4000D7243A /* Base */,
+				5EE69087244DAA5500D7243A /* en */,
+				5EE69089244DAA5900D7243A /* zh-Hans */,
+			);
+			name = LWPersonalpaySuccessViewController.xib;
+			sourceTree = "<group>";
+		};
+		5EE6908C244DB1C100D7243A /* LWPersonalSendView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE6908B244DB1C100D7243A /* Base */,
+				5EE6908E244DB1C700D7243A /* en */,
+				5EE69090244DB1CA00D7243A /* zh-Hans */,
+			);
+			name = LWPersonalSendView.xib;
+			sourceTree = "<group>";
+		};
+		5EE69093244E91C100D7243A /* LWMultipyWalletDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69092244E91C100D7243A /* Base */,
+				5EE69095244E91CF00D7243A /* en */,
+				5EE69097244E91D300D7243A /* zh-Hans */,
+			);
+			name = LWMultipyWalletDetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		5EE6909A244E92F600D7243A /* LWSendViewAlertView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EE69099244E92F600D7243A /* Base */,
+				5EE6909C244E930300D7243A /* en */,
+				5EE6909E244E930500D7243A /* zh-Hans */,
+			);
+			name = LWSendViewAlertView.xib;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -3559,7 +3845,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LaxoWallet/LaxoWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0.1;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3583,7 +3869,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laxoWallet;
 				PRODUCT_NAME = Volt;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3598,7 +3884,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LaxoWallet/LaxoWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0.1;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3622,7 +3908,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laxoWallet;
 				PRODUCT_NAME = Volt;
 				TARGETED_DEVICE_FAMILY = 1;

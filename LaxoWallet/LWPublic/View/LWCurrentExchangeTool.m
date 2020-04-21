@@ -43,9 +43,10 @@ static LWCurrentExchangeTool *instance = nil;
 }
 
 - (void)startRecycleRequestCurrency{
-    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
+    dispatch_queue_t queue = dispatch_queue_create("startRecycleRequestCurrency", 0);
+    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
                 
-    dispatch_source_set_timer(_timer, 30 * NSEC_PER_SEC, 30 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+    dispatch_source_set_timer(_timer, 31 * NSEC_PER_SEC, 31 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
     dispatch_source_set_event_handler(_timer, ^{
         [LWHomeListCoordinator getTokenPriceWithSuccessBlock:^(id  _Nonnull data) {
             [[NSNotificationCenter defaultCenter] postNotificationName:kCuurentCurrencyChange_nsnotification object:nil];

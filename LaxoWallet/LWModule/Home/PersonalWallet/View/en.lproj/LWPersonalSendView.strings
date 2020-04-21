@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "Send to"; ObjectID = "Doe-BZ-qmS"; */
+"Doe-BZ-qmS.text" = "Send to";
+
+/* Class = "UILabel"; text = "username@bitmesh.com"; ObjectID = "LV0-XR-riO"; */
+"LV0-XR-riO.text" = "username@bitmesh.com";
+
+/* Class = "UILabel"; text = "Sending 0.55 BSV / Network fee of 0.00001 BSV"; ObjectID = "QA9-pa-bdL"; */
+"QA9-pa-bdL.text" = "Sending 0.55 BSV / Network fee of 0.00001 BSV";
+
+/* Class = "UILabel"; text = "Send BSV"; ObjectID = "R1u-CL-CB5"; */
+"R1u-CL-CB5.text" = "Send BSV";
+
+/* Class = "UILabel"; text = "My account One"; ObjectID = "RYL-3b-XKD"; */
+"RYL-3b-XKD.text" = "My account One";
+
+/* Class = "UILabel"; text = "135.94 USD"; ObjectID = "UwK-L5-wik"; */
+"UwK-L5-wik.text" = "135.94 USD";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "VBi-BM-7G9"; */
+"VBi-BM-7G9.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "Authenticate with Face ID to unlock"; ObjectID = "VLU-AD-Wgr"; */
+"VLU-AD-Wgr.text" = "Authenticate with Face ID to unlock";
+
+/* Class = "UILabel"; text = "0.55BSV"; ObjectID = "eqU-0J-39Y"; */
+"eqU-0J-39Y.text" = "0.55BSV";
+
+/* Class = "UIButton"; normalTitle = "Send 0.55 BSV"; ObjectID = "gdF-jD-Ik8"; */
+"gdF-jD-Ik8.normalTitle" = "Send 0.55 BSV";
+
+/* Class = "UILabel"; text = "This is a message txt string can wrap"; ObjectID = "mGB-3V-pkx"; */
+"mGB-3V-pkx.text" = "This is a message txt string can wrap";
+
+/* Class = "UILabel"; text = "="; ObjectID = "tGd-vh-o4U"; */
+"tGd-vh-o4U.text" = "=";
+
+/* Class = "UILabel"; text = "Message"; ObjectID = "x4n-qi-Leu"; */
+"x4n-qi-Leu.text" = "Message";

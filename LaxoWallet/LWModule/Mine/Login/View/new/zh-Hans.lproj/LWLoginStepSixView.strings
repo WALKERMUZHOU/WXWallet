@@ -1,0 +1,6 @@
+
+/* Class = "UIButton"; normalTitle = "Recovery by qr code"; ObjectID = "lEc-hk-B2w"; */
+"lEc-hk-B2w.normalTitle" = "通过二维码恢复";
+
+/* Class = "UIButton"; normalTitle = "Recover by Thrustholds"; ObjectID = "nUN-Ge-4oI"; */
+"nUN-Ge-4oI.normalTitle" = "通过trusthold恢复";

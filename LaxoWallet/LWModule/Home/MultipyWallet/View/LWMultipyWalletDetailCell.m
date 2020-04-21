@@ -44,11 +44,11 @@
             NSArray *reject = [userStatues objectForKey:@"reject"];
             
             self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",biCountStr];
-            self.typeLabel.text = @"Sent";
+            self.typeLabel.text = kLocalizable(@"common_Sent");
             self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
-            self.statueLabel.text = @"Success";
+            self.statueLabel.text = kLocalizable(@"common_success");
             self.statueBackView.backgroundColor = lwColorNormal;
-            self.statueDescribeLabel.text = [NSString stringWithFormat:@"Transaction success.\n%ld of %ld members signed",(long)( approve.count),(long)(_cotentmodel.share)];
+            self.statueDescribeLabel.text = [NSString stringWithFormat:@"%@. %ld/%ld %@",kLocalizable(@"wallet_detail_transSuccess"),(long)( approve.count),(long)(_cotentmodel.share),kLocalizable(@"wallet_detail_signed")];
         }
     }else if(_model.status == 1){//未完成
         
@@ -58,12 +58,12 @@
         
         if (_model.isMineCreateTrans) {
             if (approve.count == 0) {//outgoing
-                self.typeLabel.text = @"OUTGOING";
+                self.typeLabel.text = kLocalizable(@"wallet_detail_OUTGOING");
                 self.iconImageView.image = [UIImage imageNamed:@"home_wallet_waiting"];
 
                 self.statueBackView.backgroundColor = lwColorRedLight;
-                self.statueLabel.text = @"RECALL TX?";
-                self.statueDescribeLabel.text = @"Until the first sign you can cancel this transaction";
+                self.statueLabel.text = kLocalizable(@"wallet_detail_RECALL");
+                self.statueDescribeLabel.text = kLocalizable(@"wallet_detail_untilyousigned");
             }else{// you unSigned / you signed
 
                 NSInteger ismineSigned = 0;
@@ -76,28 +76,28 @@
                 }
                 
                 if (ismineSigned == 1 && approve.count == 1) {
-                    self.typeLabel.text = @"OUTGOING";
+                    self.typeLabel.text = kLocalizable(@"wallet_detail_OUTGOING");
                     self.iconImageView.image = [UIImage imageNamed:@"home_wallet_waiting"];
 
                     self.statueBackView.backgroundColor = lwColorRedLight;
-                    self.statueLabel.text = @"RECALL TX?";
-                    self.statueDescribeLabel.text = @"Until the first sign you can cancel this transaction";
+                    self.statueLabel.text = kLocalizable(@"wallet_detail_RECALL");
+                    self.statueDescribeLabel.text = kLocalizable(@"wallet_detail_untilyousigned");
        
                 }else if(ismineSigned==1){
                 
-                    self.typeLabel.text = @"Sent";
+                    self.typeLabel.text = kLocalizable(@"common_Sent");
                     self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
                     self.statueBackView.backgroundColor = lwColorNormalDeep;
-                    self.statueLabel.text = @"Signed";
-                    self.statueDescribeLabel.text = [NSString stringWithFormat:@"You’ve signed.\nAwaiting others to sign (%ld of %ld)",(long)(_cotentmodel.threshold - approve.count),(long)(_cotentmodel.threshold)];
+                    self.statueLabel.text = kLocalizable(@"wallet_detail_signed_uppercase");
+                    self.statueDescribeLabel.text = [NSString stringWithFormat:@"%@ (%ld / %ld)",kLocalizable(@"wallet_detail_Awaitingothers"),(long)(_cotentmodel.threshold - approve.count),(long)(_cotentmodel.threshold)];
                     
                 }else{//
                     self.iconImageView.image = [UIImage imageNamed:@"home_wallet_pending"];
-                    self.typeLabel.text = @"PENDING";
+                    self.typeLabel.text = kLocalizable(@"wallet_detail_PENDING");
 
                     self.statueBackView.backgroundColor = lwColorOrange;
-                     self.statueLabel.text = @"UNSIGNED";
-                     self.statueDescribeLabel.text = [NSString stringWithFormat:@"Awaiting you to sign"];
+                     self.statueLabel.text = kLocalizable(@"wallet_detail_unsigned_uppercase");
+                     self.statueDescribeLabel.text = kLocalizable(@"wallet_detail_Awaitingyoutosign");
                 }
                 
             }
@@ -105,10 +105,10 @@
             if (approve.count == 0) {//outgoing
                 self.iconImageView.image = [UIImage imageNamed:@"home_wallet_pending"];
 
-                 self.typeLabel.text = @"PENDING";
+                 self.typeLabel.text = kLocalizable(@"wallet_detail_PENDING");
                  self.statueBackView.backgroundColor = lwColorOrange;
-                 self.statueLabel.text = @"UNSIGNED";
-                 self.statueDescribeLabel.text = @"Awaiting you to sign";
+                 self.statueLabel.text = kLocalizable(@"wallet_detail_unsigned_uppercase");
+                 self.statueDescribeLabel.text = kLocalizable(@"wallet_detail_Awaitingyoutosign");
              }else{// you unSigned / you signed
                  
                  NSInteger ismineSigned = 0;
@@ -123,21 +123,21 @@
                  if (ismineSigned == 1) {
                      self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
                      self.statueBackView.backgroundColor = lwColorNormalDeep;
-                     self.statueLabel.text = @"Signed";
-                     self.statueDescribeLabel.text = [NSString stringWithFormat:@"You’ve signed.\n Awaiting others to sign (%ld of %ld)",(long)(_cotentmodel.threshold - approve.count),(long)(_cotentmodel.threshold)];
+                     self.statueLabel.text = kLocalizable(@"wallet_detail_signed_uppercase");
+                     self.statueDescribeLabel.text = [NSString stringWithFormat:@"%@ (%ld / %ld)",kLocalizable(@"wallet_detail_Awaitingothers"),(long)(_cotentmodel.threshold - approve.count),(long)(_cotentmodel.threshold)];
                  }else{//
                      self.iconImageView.image = [UIImage imageNamed:@"home_wallet_pending"];
 
                      self.statueBackView.backgroundColor = lwColorOrange;
-                      self.statueLabel.text = @"UnSigned";
-                      self.statueDescribeLabel.text = [NSString stringWithFormat:@"Awaiting you to sign"];
+                      self.statueLabel.text = kLocalizable(@"wallet_detail_unsigned_uppercase");
+                      self.statueDescribeLabel.text = kLocalizable(@"wallet_detail_Awaitingyoutosign");
                  }
                  
              }
         }
 
     }else{
-        self.typeLabel.text = @"Cancel";
+        self.typeLabel.text = kLocalizable(@"common_cancel");
         self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
     }
     self.bitCountLabel.text = [NSString stringWithFormat:@"-%@",biCountStr];

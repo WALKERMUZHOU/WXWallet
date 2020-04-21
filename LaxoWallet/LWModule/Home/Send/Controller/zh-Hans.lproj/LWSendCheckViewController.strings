@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Authenticate with Face ID to unlock"; ObjectID = "1Mk-2C-9ud"; */
+"1Mk-2C-9ud.text" = "通过人脸识别授权发送资金";
+
+/* Class = "UITextView"; text = "Note:"; ObjectID = "I9g-iL-n0Y"; */
+"I9g-iL-n0Y.text" = "备注:";
+
+/* Class = "UILabel"; text = "My account One"; ObjectID = "ZgS-BT-3eF"; */
+"ZgS-BT-3eF.text" = "My account One";
+
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "baJ-jy-IZP"; */
+"baJ-jy-IZP.normalTitle" = "转账";
+
+/* Class = "UILabel"; text = "Send"; ObjectID = "gkB-ei-WEn"; */
+"gkB-ei-WEn.text" = "转账";

@@ -64,12 +64,11 @@
 }
 - (IBAction)addressCopy:(UIButton *)sender {
     [[UIPasteboard generalPasteboard] setString:_model.address];
-    [WMHUDUntil showMessageToWindow:@"Copy Success"];
-
+    [WMHUDUntil showMessageToWindow:kLocalizable(@"common_CopySuccess")];
 }
 - (IBAction)paymailCopy:(UIButton *)sender {
     [[UIPasteboard generalPasteboard] setString:self.paymailLabel.text];
-    [WMHUDUntil showMessageToWindow:@"Copy Success"];
+    [WMHUDUntil showMessageToWindow:kLocalizable(@"common_CopySuccess")];
 }
 
 #pragma mark paymail

@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; normalTitle = " Send"; ObjectID = "2WH-7U-GJh"; */
+"2WH-7U-GJh.normalTitle" = " 转账";
+
+/* Class = "UIButton"; normalTitle = " Receive"; ObjectID = "Bif-AH-O9u"; */
+"Bif-AH-O9u.normalTitle" = " 收款";
+
+/* Class = "UILabel"; text = "BSV"; ObjectID = "K0s-Es-ro0"; */
+"K0s-Es-ro0.text" = "BSV";
+
+/* Class = "UILabel"; text = "BSV"; ObjectID = "jW5-qy-hRT"; */
+"jW5-qy-hRT.text" = "BSV";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "pSz-gN-ZVs"; */
+"pSz-gN-ZVs.text" = "0.00";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "pV6-dg-Hl3"; */
+"pV6-dg-Hl3.text" = "0.00";

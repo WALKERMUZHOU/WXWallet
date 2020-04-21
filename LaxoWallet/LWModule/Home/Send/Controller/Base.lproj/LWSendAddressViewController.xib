@@ -13,6 +13,7 @@
                 <outlet property="addressTF" destination="gQ8-gf-4yg" id="lic-8r-e7L"/>
                 <outlet property="bottomView" destination="U2s-Bs-0GI" id="Rtq-Mx-MTF"/>
                 <outlet property="historyBackView" destination="9xC-8a-K5y" id="NtL-pz-vxf"/>
+                <outlet property="sendLabel" destination="1eg-wm-cdl" id="ouN-mB-bhl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -66,8 +66,8 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
         [self registerBugly];
-        [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
-        [self registerRemoteNotification];
+//        [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
+//        [self registerRemoteNotification];
     });
     
     [self.window makeKeyAndVisible];

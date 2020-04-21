@@ -219,7 +219,7 @@
         </view>
     </objects>
     <resources>
-        <image name="home_eye" width="21.333333969116211" height="16"/>
+        <image name="home_eye" width="26" height="20"/>
         <image name="home_eye_close" width="21.333333969116211" height="12.333333015441895"/>
     </resources>
 </document>

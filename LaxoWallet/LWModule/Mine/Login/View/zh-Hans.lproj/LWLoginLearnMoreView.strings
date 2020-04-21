@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "About Trustholds"; ObjectID = "jg4-Bb-8LX"; */
+"jg4-Bb-8LX.text" = "About Trustholds";
+
+/* Class = "UILabel"; text = "Trusthold is a service that provides key slice storage, transaction signing and account recovery service."; ObjectID = "kJD-9Q-ndc"; */
+"kJD-9Q-ndc.text" = "Trusthold is a service that provides key slice storage, transaction signing and account recovery service.";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "rbt-aU-0v4"; */
+"rbt-aU-0v4.normalTitle" = "Close";
+
+/* Class = "UILabel"; text = "hy we need Trusthold: With threshold signatures, we get rid of a single point failure risk by making signature signing possible without a full private key.\n\n In order to do so, the key is split into several parts upon account creation and stored with different trusthold parties and the user device. \n\nIn such way, there’s no single point of failure and even if a user lost their device or backup, their asset can still be recovered through trusthold computation. \n\nOnly the real user can initiate a transaction or recover their account with the help of Volt ID. "; ObjectID = "ydd-hA-SGc"; */
+"ydd-hA-SGc.text" = "hy we need Trusthold: With threshold signatures, we get rid of a single point failure risk by making signature signing possible without a full private key.\n\n In order to do so, the key is split into several parts upon account creation and stored with different trusthold parties and the user device. \n\nIn such way, there’s no single point of failure and even if a user lost their device or backup, their asset can still be recovered through trusthold computation. \n\nOnly the real user can initiate a transaction or recover their account with the help of Volt ID. ";

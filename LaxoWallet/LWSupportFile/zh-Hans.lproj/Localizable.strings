@@ -6,7 +6,317 @@
   Copyright © 2020 LaxoWallet. All rights reserved.
 */
 
-"login_login" = "登录";
+//#common
+"common_sure" = "确认";
+"common_cancel" = "取消";
+"common_setting" = "设置";
+"common_remind" = "提示";
+"common_Account" = "账户";
+"common_Discover" = "发现";
+"common_Me" = "我";
+"common_success" = "成功";
 
-"home_email_verify" = "验证邮箱";
+"common_Personal" = "个人";
+"common_Shared" = "共同管理";
+"common_Receive" = "收款";
+"common_Send" = "转账";
 
+"common_Received" = "收到";
+"common_Sent" = "发送";
+"common_to" = "到";
+
+"common_Cancel" = "取消";
+
+"common_CopySuccess" = "复制成功";
+
+
+//#login_xib
+
+"login_Trusthold_describe" = "Trusthold 提供安全的计算签名服务和账户恢复服务. 详情";
+
+/*
+欢迎使用Volt钱包
+
+3步完成设置，开始使用
+输入邮箱地址
+输入邮箱验证码验证邮箱
+创建人脸扫描数据
+开始使用
+
+输入邮箱地址
+下一步
+
+
+输入邮箱验证码
+ 
+邮箱验证
+Trusthold 提供安全的计算签名服务和账户恢复服务. 详情
+
+创建人脸识别数据
+Volt存储您的人脸识别数据是为了确保后续只有您本人才能发起钱包恢复服务. 详情
+扫描人脸技巧：
+确保面部无遮挡
+眼镜没有反光
+开始扫描人脸
+扫描人脸验证您的身份
+
+
+通过二维码恢复
+通过trusthold恢复
+
+Trusthold 验证
+输入来自trusthold的验证码
+输入来自 maxthon/csg的验证码
+验证
+
+上传二维码
+上传或扫描二维码
+扫描
+上传文件
+通过trusthold恢复?
+
+恢复完成!
+开始使用
+你的账户已经完成恢复
+
+正在处理
+请等待.
+*/
+
+//#login_flie
+"login_PleaseInputEmail" = "输入邮箱";
+"login_InvalidEmail" = "邮箱不正确";
+"login_PleaseInputVerificationCode" = "请输入验证码";
+"login_SelectRecoverProcess" = "选择恢复方式";
+"login_PleaseInputTrustholdVerificationCode" = "请输入trusthold验证码";
+"login_fail_msgCode" = "无法获取验证码";
+"login_error_code" = "验证码错误";
+"login_fail_request" = "请求失败";
+"login_fail_register" = "注册失败";
+"login_permission_camera" = "请允许Volt使用手机相机";
+"login_permission_album" = "无法获取相册, 请在设置里允许Volt获取相册";
+"login_TrustholdVerifyFail" = "Trusthold验证失败,请检查邮箱验证码";
+"login_error_image" = "图片错误";
+"login_error_qrCode" = "二维码错误";
+"login_RecoveringFromICloud" = "通过icloud恢复";
+
+//#face_file
+"face_title_TouchID" = "按压Home键通过指纹识别恢复";
+"face_title_FaceID" = "通过人脸ID恢复";
+"face_no_biometric" = "此设备不支持生物识别验证, 请先激活生物识别验证";
+
+//#wallet_create_xib
+/*
+创建新账户
+创建个人账户
+新个人账户名称
+账户名称
+创建个人账户
+
+创建多人管理账户
+
+总人数
+签名人数
+总人数
+签名阈值
+输入其他成员的邮箱
+邀请完成创建
+*/
+
+//#wallet_create_file
+
+"wallet_create_accountName" = "账户名称";
+"wallet_create_createAccount" = "创建多人管理账户";
+"wallet_create_totalMem" = "总人数";
+"wallet_create_signMem" = "签名人数";
+"wallet_create_otherMem" = "输入其他成员的邮箱";
+
+
+"wallet_create_PleaseInputAccountName" = "输入账户名称";
+"wallet_create_PleaseInputSignCount" = "输入签名阈值（人数）";
+
+"wallet_create_PleaseInputTotalMembers" = "输入总人数";
+"wallet_create_SignCount" = "请输入签名人数";
+"wallet_create_Greate1" = "总人数必须大于1";
+"wallet_create_lessThanMemberCount" = "签名人数最好小于总人数";
+"wallet_create_wrongEmailCount" = "只需输入m-1个邮箱，不包括你自己的邮箱";
+"wallet_creare_AccountCreateSuccess" = "账户创建成功";
+"wallet_create_inputRemind" = "请输入所有其他成员的邮箱";
+"wallet_create_PleaseInputKeyShare" = "输入钱包管理总人数";
+"wallet_creare_Exceeding" = "输入过多邮箱";
+
+//#wallet_login_satue
+/*
+Volt在PC端已经登录
+推出在PC端的登录?
+是的，推出在桌面电脑的登录
+不退出
+*/
+
+//#wallet_scan_login
+/*
+确认在Windows/Mac电脑登入Volt账户?
+同意桌面端登录
+取消
+*/
+
+//#wallet_send
+"wallet_send_pleaseInputEmail" = "请输入地址";
+"wallet_send_EorrorAddress" = "错误的地址";
+"wallet_send_pleaseinputAmount" = "请输入金额";
+"wallet_send_amountLessThanAvailabel" = "大于可用金额";
+"wallet_send_amountGreater546" = "转账金额必须大于546聪";
+
+"wallet_send_auth_touchid" = "通过指纹识别授权发送资金";
+"wallet_send_auth_faceid" = "通过人脸识别授权发送资金";
+"wallet_send_networkfee" = "矿工费用：";
+"wallet_send_TransactionFail" = "交易失败";
+"wallet_send_Note" = "备注:";
+
+"wallet_send_mul_transsign" = "你已完成交易签名";
+"wallet_send_mul_des" = "你在发起一笔需要其他成员签名的交易,发送";
+"wallet_send_mul_to" = "给";
+
+
+
+//#wallet_detail_xib
+"wallet_detail_transSuccess" = "转账成功";
+"wallet_detail_signed" = "已签名";
+
+
+"wallet_detail_OUTGOING" = "转出";
+"wallet_detail_OUTGOING_transacation" = "转出交易";
+
+"wallet_detail_RECALL" = "取消交易?";
+"wallet_detail_untilyousigned" = "其他人签名之前你可以取消";
+"wallet_detail_signed_uppercase" = "已签名";
+"wallet_detail_Awaitingothers" = "你已签名.等待其他方签名";
+"wallet_detail_PENDING" = "等待";
+"wallet_detail_unsigned_uppercase" = "未签名";
+
+"wallet_detail_Awaitingyoutosign" = "等待你签名";
+
+/*
+个人
+共同管理
+收款
+转账
+
+收取 BSV
+发送 BSV
+已发送
+通过人脸识别授权发送资金
+发送 0.55 BSV
+
+收款方
+时间
+签名人
+备注消息
+交易链接
+金额
+
+关闭
+完成
+
+收到了
+
+已发送
+等你签名的转账
+你已签名. 等待其他方签名 (3 of 5)
+查看签名状态
+已签名
+未签名
+
+签名并请求其他方签名
+
+你已完成交易签名
+等待其他方参与签名：发送1.55 BSV到worldwide@education.com
+矿工费用 0.00001 BSV
+
+签名完成度
+时间：Feb 29 2020 | 数量 0.06231131 BSV
+需要5人种的3人参与签名
+
+等待签名的交易
+加入并签署交易
+等待你签名
+
+longnamehere@gmail.com邀请你加入一个共同管理资金账户.
+加入之后，需要和其他5人共同管理账户
+加入
+拒绝
+
+转出
+转出交易
+在其他人签署之前你可以取消
+其他人签名之前你可以取消
+取消交易
+取消交易?
+
+创建人：longnamehere@gmail.com
+你推出了共同管理账户.
+这个页面在24小时之后小时.
+重新加入
+
+交易已取消
+*/
+
+//#wallet_info
+/*
+账户名称
+管理员
+检查状态
+创建人
+账户简化地址
+管理简化地址
+创建时间
+当前余额
+
+管理员
+创建时间 Feb 03 2020 | 管理员变动
+*/
+
+//#me
+
+//#paymail
+/*
+可以免费注册一个简化地址. 你可以为同一账户购买更多的paymail
+默认主地址
+设为默认
+列表
+创建新的
+
+搜索简化地址
+免费获取第一个简化地址
+费用 %@BSV(≈$1 USD)
+可用!
+不可用!
+*/
+
+//#Security
+/*
+安全
+云端备份
+数秒前已备份
+
+邮箱已验证
+
+人脸扫描
+你的3D人脸数据已经绑定
+
+人脸/指纹锁已开启
+开启资金发送授权
+*/
+
+//#Preferences
+/*
+偏好设置
+货币单位
+语言
+
+备份二维码
+已同步到iCloud
+
+客服
+
+*/

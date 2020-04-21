@@ -1,0 +1,12 @@
+
+/* Class = "UITextField"; placeholder = "Account Name"; ObjectID = "9iX-OT-bFg"; */
+"9iX-OT-bFg.placeholder" = "账户名称";
+
+/* Class = "UIButton"; normalTitle = "Create and invite members"; ObjectID = "f0p-Av-fhS"; */
+"f0p-Av-fhS.normalTitle" = "邀请完成创建";
+
+/* Class = "UITextField"; placeholder = "Sign Count"; ObjectID = "jNG-bw-y8K"; */
+"jNG-bw-y8K.placeholder" = "签名人数";
+
+/* Class = "UITextField"; placeholder = "Member Count"; ObjectID = "kci-6d-dur"; */
+"kci-6d-dur.placeholder" = "总人数";

@@ -10,7 +10,7 @@
 #import "LWTansactionTool.h"
 #import "LWPersonalpaySuccessViewController.h"
 #import "LWMultipyTransactionTool.h"
-#import "LWMultipypaySuccessViewController.h"
+
 
 #import "LivenessViewController.h"
 #import "DetectionViewController.h"
@@ -46,9 +46,10 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.cancelBtn.layer.borderColor = lwColorGrayD8.CGColor;
+    self.faceDescribeLabel.text = kLocalizable(@"wallet_send_auth_faceid");
     if([[TDTouchID sharedInstance] td_canSupperBiometrics] == TDTouchIDSupperTypeTouchID){
         self.faceImageView.image = [UIImage imageNamed:@"home_touchId"];
-        self.faceDescribeLabel.text = @"Authenticate with Touch ID to unlock";
+        self.faceDescribeLabel.text = kLocalizable(@"wallet_send_auth_touchid");
     }
 }
 
@@ -62,7 +63,7 @@
     }
     self.bitCountLabel.text = [NSString stringWithFormat:@"%@ BSV",transModel.transAmount];
     self.noteLabel.text = transModel.note;
-    [self.completeBtn setTitle:[NSString stringWithFormat:@"Send %@ BSV",transModel.transAmount] forState:UIControlStateNormal];
+    [self.completeBtn setTitle:[NSString stringWithFormat:@"%@ %@ BSV",kLocalizable(@"common_Send"),transModel.transAmount] forState:UIControlStateNormal];
     self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:transModel.transAmount.floatValue];
 
     __weak typeof(self) weakself = self;
@@ -73,7 +74,7 @@
             transModel.changeAddress = model.address;
         }
         [self.trans startTransactionWithTransactionModel:self.transModel andTotalModel:self.homeWalletModel];
-        self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",transModel.transAmount,[LWNumberTool formatSSSFloat: self.trans.fee.integerValue/1e8]];
+        self.feeLabel.text = [NSString stringWithFormat:@"%@ %@ BSV",kLocalizable(@"wallet_send_networkfee"),[LWNumberTool formatSSSFloat: self.trans.fee.integerValue/1e8]];
         self.transModel.fee = [NSString stringWithFormat:@"%@",[LWNumberTool formatSSSFloat:self.trans.fee.integerValue/1e8]];
         
         self.trans.transactionBlock = ^(id success) {
@@ -99,7 +100,7 @@
     }else{
             self.mutipyTrans = [[LWMultipyTransactionTool alloc] init];
             [self.mutipyTrans startTransactionWithTranscationModek:transModel andTotalModel:model];
-            self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",transModel.transAmount,[LWNumberTool formatSSSFloat: self.mutipyTrans.fee.integerValue/1e8]];
+            self.feeLabel.text = [NSString stringWithFormat:@"%@ %@ BSV",kLocalizable(@"wallet_send_networkfee"),[LWNumberTool formatSSSFloat: self.mutipyTrans.fee.integerValue/1e8]];
             self.transModel.fee = [LWNumberTool formatSSSFloat: self.mutipyTrans.fee.integerValue/1e8];
         self.mutipyTrans.block = ^(id  _Nonnull transInfo) {
             if ([transInfo isKindOfClass:[NSDictionary class]]) {
@@ -123,7 +124,7 @@
     self.addressLabel.text = address;
     self.bitCountLabel.text = [NSString stringWithFormat:@"%@ BSV",amount];
     self.noteLabel.text = note;
-    [self.completeBtn setTitle:[NSString stringWithFormat:@"Send %@ BSV",amount] forState:UIControlStateNormal];
+    [self.completeBtn setTitle:[NSString stringWithFormat:@"%@ %@ BSV",kLocalizable(@"commond_send"),amount] forState:UIControlStateNormal];
 //    if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
 //        self.priceLabel.text = [NSString stringWithFormat:@"%.2f CNY",amount.floatValue*[[LWPublicManager getCurrentCurrencyPrice] floatValue]];
 //    }else{
@@ -140,7 +141,7 @@
             changeAddress = model.address;
         }
         [self.trans startTransactionWithAmount:amount.floatValue address:address note:note andTotalModel:model andChangeAddress:changeAddress];
-        self.feeLabel.text = [NSString stringWithFormat:@"Sending %@ BSV / Network fee of %@ BSV",amount,[LWNumberTool formatSSSFloat: self.trans.fee.integerValue/1e8]];
+        self.feeLabel.text = [NSString stringWithFormat:@"%@ %@ BSV",kLocalizable(@"common_send"),[LWNumberTool formatSSSFloat: self.trans.fee.integerValue/1e8]];
 
         self.trans.transactionBlock = ^(id success) {
             if (success) {
@@ -208,11 +209,11 @@
 }
 
 - (IBAction)completeClick:(UIButton *)sender {
-   
-    [[TDTouchID sharedInstance] td_showTouchIDWithDescribe:@"Verify existing fingerprints through the Home button" FaceIDDescribe:@"Verify with existing face ID" BlockState:^(TDTouchIDState state, NSError *error) {
+
+    [[TDTouchID sharedInstance] td_showTouchIDWithDescribe:kLocalizable(@"face_title_TouchID") FaceIDDescribe:kLocalizable(@"face_title_FaceID") BlockState:^(TDTouchIDState state, NSError *error) {
         if (state == TDTouchIDStateNotSupport) {    //不支持TouchID/FaceID
-            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Current device does not support biometric verification, please turn on biometrics" message:nil preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *alertAc = [UIAlertAction actionWithTitle:@"Sure" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:kLocalizable(@"face_no_biometric") message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *alertAc = [UIAlertAction actionWithTitle:kLocalizable(@"common_sure") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
                 if (@available(iOS 10.0, *)){
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];

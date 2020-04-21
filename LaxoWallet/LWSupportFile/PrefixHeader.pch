@@ -30,6 +30,9 @@
 #define kIphone6Width 375.0
 #define kFit(x) (kScreenWidth*((x)/kIphone6Width))
 
+/*----------------------多语言-----------------------*/
+#define kLocalizable(x) NSLocalizedStringFromTable(x, @"Localizable", nil)
+
 /*----------------------控件高-----------------------*/
 #define kTabBarHeight (isIphoneX ? 83.f : 49.f)
 

@@ -110,11 +110,12 @@
          self.priceLabel.text = @"***";
      }else{
          self.bitCountLabel.text = [NSString stringWithFormat:@"%@",@(self.contentModel.personalBitCount)];
-         if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
-             self.priceLabel.text = [NSString stringWithFormat:@"¥%.2f",self.contentModel.personalBitCurrency];
-         }else{
-             self.priceLabel.text = [NSString stringWithFormat:@"$%.2f",self.contentModel.personalBitCurrency];
-         }
+         self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:self.contentModel.personalBitCount];
+//         if ([LWPublicManager getCurrentCurrency] == LWCurrentCurrencyCNY) {
+//             self.priceLabel.text = [NSString stringWithFormat:@"¥%.2f",self.contentModel.personalBitCurrency];
+//         }else{
+//             self.priceLabel.text = [NSString stringWithFormat:@"$%.2f",self.contentModel.personalBitCurrency];
+//         }
      }
 }
 

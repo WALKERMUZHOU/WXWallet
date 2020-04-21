@@ -82,8 +82,6 @@
     }else{
         [self getCurrentPCStatue];
     }
-    
-
 }
 
 - (void)createUI{
@@ -252,7 +250,7 @@
     NSLog(@"开启成功");
     [self requestPersonalWalletInfo];
     [self requestMulipyWalletInfo];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self getCurrentPCStatue];
     });
 }
@@ -264,16 +262,16 @@
                                             @"wallet.query",
                                             [params jsonStringEncoded]];
     NSData *data = [requestPersonalWalletArray mp_messagePack];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[SocketRocketUtility instance] sendData:data];
     });
+    NSLog(@"requestPersonalWalletInfo");
 }
 
 - (void)requestMulipyWalletInfo{
     NSDictionary *multipyparams = @{@"type":@2};
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMulpityWallet),@"wallet.query",[multipyparams jsonStringEncoded]];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
     });
 }
@@ -285,7 +283,7 @@
     if ([responseData isKindOfClass:[NSArray class]]) {
         NSArray *responseArray = (NSArray *)responseData;
         NSString *firstObj = [responseData objectAtIndex:0];
-        NSLog(@"ws_recieve_data:%@",note.object);
+//        NSLog(@"ws_recieve_data:%@",note.object);
         if ([firstObj isEqualToString:@"res"]) {
             [self manageData:responseArray];
         }else if ([firstObj isEqualToString:@"update"]){

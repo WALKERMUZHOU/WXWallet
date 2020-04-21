@@ -61,7 +61,7 @@
     self.scrollview.canCancelContentTouches = NO;
     
     UILabel *sendLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, kScreenWidth, 30)];
-    sendLabel.attributedText = kAttributeBoldText(@"Send", 22);
+    sendLabel.attributedText = kAttributeBoldText(kLocalizable(@"common_Send"), 22);
     sendLabel.textAlignment = NSTextAlignmentCenter;
     [self.scrollview addSubview:sendLabel];
     
@@ -114,19 +114,19 @@
 - (IBAction)nextClick:(UIButton *)sender {
     
     if (self.bitCount.floatValue == 0) {
-        [WMHUDUntil showMessageToWindow:@"Please input bit"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_send_pleaseinputAmount")];
         return;
     }
 
     NSInteger amountInteger = self.bitCount.floatValue * 1e8;
     
     if (amountInteger > self.walletModel.canuseBitCountInterger) {
-        [WMHUDUntil showMessageToWindow:@"amount need less than available"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_send_amountLessThanAvailabel")];
         return;
     }
     
     if (amountInteger <= 546) {
-        [WMHUDUntil showMessageToWindow:@"The amount to be sent must be greater than 546 satoshis"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_send_amountGreater546")];
         return;
     }
     

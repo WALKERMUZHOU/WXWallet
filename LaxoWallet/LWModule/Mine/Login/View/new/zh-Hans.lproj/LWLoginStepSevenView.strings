@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "Verify"; ObjectID = "GzL-pf-b5t"; */
+"GzL-pf-b5t.normalTitle" = "验证";
+
+/* Class = "UILabel"; text = "Step 4 of 4"; ObjectID = "Vwb-Js-eQZ"; */
+"Vwb-Js-eQZ.text" = " ";
+
+/* Class = "UILabel"; text = "Trusthold verification"; ObjectID = "l20-Qz-5qy"; */
+"l20-Qz-5qy.text" = "Trusthold 验证";
+
+/* Class = "UITextField"; placeholder = "Enter Trusthold code found in an email"; ObjectID = "n2e-4S-nHN"; */
+"n2e-4S-nHN.placeholder" = "输入来自 maxthon的验证码";
+
+/* Class = "UILabel"; text = "Enter a Trusthold verification code"; ObjectID = "vad-vW-yrG"; */
+"vad-vW-yrG.text" = "输入来自trusthold的验证码";

@@ -8,7 +8,24 @@
 
 #import "LWLoginStepFiveView.h"
 
+@interface LWLoginStepFiveView ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *describeLabel;
+
+@end
+
 @implementation LWLoginStepFiveView
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.titleLabel.text = kLocalizable(@"login_face_create");
+    NSString *allstring = [kLocalizable(@"login_face_tobe") stringByAppendingString:kLocalizable(@"login_face_learnMore")];
+
+    NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc] initWithString:allstring attributes:@{NSFontAttributeName:kFont(16)}];
+    [attribute addAttributes:@{NSFontAttributeName:kMediumFont(16),NSForegroundColorAttributeName:lwColorNormal} range:[allstring rangeOfString:kLocalizable(@"login_face_learnMore")]];
+    self.describeLabel.attributedText = attribute;
+}
+
 - (IBAction)nextClick:(UIButton *)sender {
     if (self.block) {
         self.block();

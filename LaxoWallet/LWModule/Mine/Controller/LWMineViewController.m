@@ -13,6 +13,9 @@
 #import "PublicKeyView.h"
 #import "LWBaseWebViewController.h"
 #import "iCloudHandle.h"
+
+#import "NSBundle+AppLanguageSwitch.h"
+
 @interface LWMineViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
@@ -38,7 +41,8 @@
     if(!isIphoneX){
         self.bitCountLabel.font = kBoldFont(20);
     }
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageChange:) name:ZZAppLanguageDidChangeNotification object:nil];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -103,6 +107,10 @@
 //         self.priceLabel.text = [NSString stringWithFormat:@"%@%.2f",priceTypeStr,personalBitCount];
          self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:bitCount/1e8];
 
+     }else{
+                  self.bitCountLabel.text = [LWNumberTool formatSSSFloat:0];
+         //         self.priceLabel.text = [NSString stringWithFormat:@"%@%.2f",priceTypeStr,personalBitCount];
+                  self.priceLabel.text = [LWCurrencyTool getCurrentSymbolCurrencyWithBitCount:0];
      }
 }
 
@@ -174,6 +182,15 @@
     [[SocketRocketUtility instance] SRWebSocketClose];
     [[LWUserManager shareInstance] clearUser];
     [LogicHandle showLoginVC];
+    
+}
+
+- (void)languageChange:(id)sender {
+
+    if (self.isViewLoaded && !self.view.window) {
+        //这里置为nil，当视图再次显示的时候会重新走viewDidLoad方法
+        self.view = nil;
+    }
     
 }
 

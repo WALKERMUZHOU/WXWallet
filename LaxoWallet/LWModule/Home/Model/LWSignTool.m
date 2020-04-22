@@ -99,12 +99,16 @@ static LWSignTool *instance = nil;
         self->_broadcastSignal = dispatch_semaphore_create(0);
         [self broadCast:1 data:@"1"];
         dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
-        self->_broadcastSignal = nil;
+        if (self->_broadcastSignal  || self->_broadcastSignal != 0) {
+            dispatch_semaphore_signal(self->_broadcastSignal);
+        }
         
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast_list_1 = [self poll_for_broadCast:1];;
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-        self->_getKeySignal = nil;
+        if (self->_getKeySignal  || self->_getKeySignal != 0) {
+            dispatch_semaphore_signal(self->_getKeySignal);
+        }
         
         NSMutableArray *signers_vec = [NSMutableArray array];
         NSInteger j = 0;
@@ -143,7 +147,7 @@ static LWSignTool *instance = nil;
             self->_broadcastSignal = dispatch_semaphore_create(0);
             NSInteger item0_array = [item[0] integerValue];
             [self sendp2p:item0_array round:3 data:item[1]];
-            NSLog(@"sendp2p:item0:%@ \n data:%@",item[0],item[1]);
+        //    NSLog(@"sendp2p:item0:%@ \n data:%@",item[0],item[1]);
             dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
             self->_broadcastSignal = nil;
         }
@@ -154,7 +158,7 @@ static LWSignTool *instance = nil;
         self->_getKeySignal = nil;
 
         NSString *sign_handle_round_2_params = [NSString stringWithFormat:@"key:%@ \n round:2 \n data:%@",signer_id,poll_for_p2p_Array];
-        NSLog(@"sign_handle_round_2:%@",sign_handle_round_2_params);
+   //     NSLog(@"sign_handle_round_2:%@",sign_handle_round_2_params);
         
         char *sign_handle_round_2 = sign_handle_round([LWAddressTool stringToChar:signer_id], 2, [LWAddressTool objectToChar:poll_for_p2p_Array]);
         
@@ -335,7 +339,7 @@ static LWSignTool *instance = nil;
 - (void)getKey:(NSString *)key{
     NSDictionary *multipyparams = @{@"id":self.rid,@"key":key};
     NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryGetTheKey),@"message.get",[multipyparams jsonStringEncoded]];
-    NSLog(@"requestmultipyWalletArray:%@",requestmultipyWalletArray);
+    NSLog(@"sig:requestmultipyWalletArray:%@",requestmultipyWalletArray);
     [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
 }
 
@@ -385,18 +389,18 @@ static LWSignTool *instance = nil;
 
 - (void)boardCast:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;
-    NSLog(@"broadcastNotificationSuccess");
+    NSLog(@"sig:broadcastNotificationSuccess");
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        if (self->_broadcastSignal && self->_broadcastSignal != 0) {
             dispatch_semaphore_signal(self->_broadcastSignal);
-        });
+        }
         NSLog(@"signal");
     }
 }
 
 - (void)getTheKey:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;
-    NSLog(@"getTheKeySuccess");
+    NSLog(@"sig:getTheKeySuccess");
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
         id getTheKeyDataID = [notiDic objectForKey:@"data"];
         if ([getTheKeyData isEqual:getTheKeyDataID]) {
@@ -404,7 +408,9 @@ static LWSignTool *instance = nil;
         }
         getTheKeyData = [notiDic objectForKey:@"data"];
         
-        dispatch_semaphore_signal(self->_semaphoreSignal);
+        if (self->_semaphoreSignal && self->_semaphoreSignal != 0) {
+            dispatch_semaphore_signal(self->_semaphoreSignal);
+        }
         NSLog(@"signal");
     }
 }

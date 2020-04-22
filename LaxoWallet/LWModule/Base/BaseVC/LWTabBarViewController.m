@@ -12,6 +12,7 @@
 #import "LWHomeViewController.h"
 #import "LWMessageViewController.h"
 #import "LWMineViewController.h"
+#import "NSBundle+AppLanguageSwitch.h"
 
 @interface LWTabBarViewController ()<AxcAE_TabBarDelegate,UITabBarControllerDelegate>
 
@@ -23,7 +24,9 @@
     [super viewDidLoad];
     // 添加子VC
     [self addChildViewControllers];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageChange:) name:ZZAppLanguageDidChangeNotification object:nil];
 }
+
 - (void)addChildViewControllers{
     self.delegate = self;
     // 创建选项卡的数据 想怎么写看自己，这块我就写笨点了
@@ -119,6 +122,47 @@
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     NSLog(@"tabbar didselect %lu",(unsigned long)self.selectedIndex);
 
+}
+
+- (void)languageChange:(id)sender {
+        NSArray <NSDictionary *>*VCArray =
+        @[@{@"vc":[LWHomeViewController new],@"normalImg":@"tab_home",@"selectImg":@"tab_home_sel",@"itemTitle":kLocalizable(@"common_Account")},
+         // @{@"vc":[LWMessageViewController new],@"normalImg":@"tab_message",@"selectImg":@"tab_message_sel",@"itemTitle":@"Message"},
+          @{@"vc":[LWMineViewController new],@"normalImg":@"tab_mine",@"selectImg":@"tab_mine_sel",@"itemTitle":kLocalizable(@"common_Me")}];
+        // 1.遍历这个集合
+        // 1.1 设置一个保存构造器的数组
+        NSMutableArray *tabBarConfs = @[].mutableCopy;
+
+        [VCArray enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+             // 2.根据集合来创建TabBar构造器
+            AxcAE_TabBarConfigModel *model = [AxcAE_TabBarConfigModel new];
+            // 3.item基础数据三连
+            model.itemTitle = [obj objectForKey:@"itemTitle"];
+            model.selectImageName = [obj objectForKey:@"selectImg"];
+            model.normalImageName = [obj objectForKey:@"normalImg"];
+            model.icomImgViewSize = CGSizeMake(25, 25);
+            // 4.设置单个选中item标题状态下的颜色
+            model.selectColor = lwColorNormal;
+            model.titleLabel.font = kMediumFont(12);
+            // 备注 如果一步设置的VC的背景颜色，VC就会提前绘制驻留，优化这方面的话最好不要这么写
+            // 示例中为了方便就在这写了
+            UIViewController *vc = [obj objectForKey:@"vc"];
+            vc.view.backgroundColor = [UIColor whiteColor];
+    //        vc.title = model.itemTitle;
+            // 5.将VC添加到系统控制组
+            // 5.1添加构造Model到集合
+            [tabBarConfs addObject:model];
+        }];
+
+    
+    NSArray *titlearray = @[kLocalizable(@"common_Account"),kLocalizable(@"common_Me")];
+    
+    NSArray *itemArray = self.axcTabBar.tabBarItems;
+    for (NSInteger i = 0;i<itemArray.count; i++) {
+        AxcAE_TabBarItem *item = self.axcTabBar.tabBarItems[i];
+        [item resetTitle:titlearray[i]];
+    }
+    self.axcTabBar.selectIndex = 1;
 
 }
 

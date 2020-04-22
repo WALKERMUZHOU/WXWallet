@@ -193,6 +193,13 @@
 }
 
 #pragma mark - SET/GET
+- (void)resetTitle:(NSString *)title{
+    _itemModel.itemTitle = title;
+    self.title = title;
+    self.titleLabel = _itemModel.titleLabel;
+
+}
+
 - (void)setItemModel:(AxcAE_TabBarConfigModel *)itemModel{
     _itemModel = itemModel;
     self.backgroundImageView = itemModel.backgroundImageView; // 先添加背景

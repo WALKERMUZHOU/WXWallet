@@ -9,81 +9,130 @@
 //#common
 "common_sure" = "确认";
 "common_cancel" = "取消";
+"common_success" = "成功";
+"common_fail" = "失败";
+
 "common_setting" = "设置";
 "common_remind" = "提示";
 "common_Account" = "账户";
 "common_Discover" = "发现";
 "common_Me" = "我";
-"common_success" = "成功";
-"common_fail" = "失败";
-
-"common_Personal" = "个人";
-"common_Shared" = "共同管理";
-"common_Receive" = "收款";
-"common_Send" = "转账";
-
-"common_Received" = "收到";
-"common_Sent" = "发送";
-"common_to" = "到";
 
 "common_Cancel" = "取消";
+"common_to" = "到";
 
 "common_CopySuccess" = "复制成功";
 "common_signSuccess" = "签名成功";
 
-
 //#login_xib
+//欢迎使用Volt钱包
+"login_Welcome" = "欢迎使用Volt钱包";
+//Your simple, secure and mighty account
+"login_Yoursimple" = "你的简单，安全强大的账户";
+//3步完成设置，开始使用
+"login_Signup/Recover" = "4步完成设置，开始使用";
+//输入邮箱地址
+"login_Enteranemailaddress" = "输入邮箱地址";
+//输入邮箱验证码验证邮箱
+"login_Verifyemailaddress" = "输入邮箱验证码验证邮箱";
 
+//创建人脸扫描数据
+"login_Createfacialrecognitionscan" = "Create facial recognition scan";
+
+//开始使用
+"login_Start" = "开始使用";
+
+//输入邮箱地址
+"login_Enteryouremailaddress" = "输入邮箱地址";
+
+//下一步
+"login_Next" = "下一步";
+
+//Step 1 of 4
+"login_Step1/4" = " ";
+
+//Enter your verification code
+"login_Enteryourverificationcode" = "输入邮箱验证码";
+
+//输入邮箱验证码
+"login_Enterthecodefoundintheemail" = "输入邮箱验证码";
+//邮箱验证
+"login_Emailverification" = "邮箱验证";
+//Trusthold 提供安全的计算签名服务和账户恢复服务. 详情
 "login_Trusthold_describe" = "Trusthold 提供安全的计算签名服务和账户恢复服务. 详情";
 
-/*
-欢迎使用Volt钱包
+//创建人脸识别数据
+"login_face_create" = "创建人脸识别数据";
+//Volt存储您的人脸识别数据是为了确保后续只有您本人才能发起钱包恢复服务. 详情
+"login_face_tobe" = "Volt存储您的人脸识别数据是为了确保后续只有您本人才能发起钱包恢复服务.";
+"login_face_learnMore" = "详情";
+//扫描人脸技巧：
+"login_face_Tips" = "扫描人脸技巧：";
+//确保面部无遮挡
+"login_face_nocover" = "确保面部无遮挡";
+//确保眼镜没有反光
+"login_face_glasses" = "确保眼镜没有反光";
+//开始扫描人脸
+"login_face_satrtfacial" = "开始扫描人脸";
+//扫描人脸验证您的身份
+"login_face_Verifyidentityvia" = "扫描人脸验证您的身份";
 
-3步完成设置，开始使用
-输入邮箱地址
-输入邮箱验证码验证邮箱
-创建人脸扫描数据
-开始使用
+//通过二维码恢复
+"login_Recoverybyqrcode" = "通过二维码恢复";
+//通过trusthold恢复
+"login_RecoverybyThrustholds" = "通过trusthold恢复";
 
-输入邮箱地址
-下一步
+//
+//Trusthold 验证
+"login_Trustholdverification" = "Trusthold 验证";
+
+//输入来自trusthold的验证码
+"login_EnteraTrustholdverificationcode" = "输入来自trusthold的验证码";
+
+//输入来自 maxthon/csg的验证码
+"login_EnterTrustholdcodefoundinanemail" = "Enter Trusthold code found in an email";
+
+"login_Verify" = "Enter Trusthold code found in an email";
+
+//验证
+"login_Verify" = "验证";
+
+//
+//上传二维码
+"login_UploadSecretQRCode" = "上传二维码";
+
+//上传或扫描二维码
+"login_ScanoruploadyourSecretQRCode" = "上传或扫描二维码";
+
+//扫描
+"login_Scan" = "/扫描";
+
+//上传文件
+"login_Uploadfile" = "上传文件";
+
+//通过trusthold恢复?
+"login_SelectTrustholdstoverify" = "通过trusthold恢复?";
+
+//
+//恢复完成!
+"login_Recoverycomplete" = "恢复完成!";
+
+//开始使用
+"login_StartusingyourVoltaccount" = "开始使用";
+
+//你的账户已经完成恢复
+"login_SuccessYouraccount" = "你的账户已经完成恢复";
+
+//
+//正在处理
+"login_processingyourdata" = "正在处理";
+
+//请等待.
+"login_Pleasewaitwhile" = "请等待.";
 
 
-输入邮箱验证码
- 
-邮箱验证
-Trusthold 提供安全的计算签名服务和账户恢复服务. 详情
-
-创建人脸识别数据
-Volt存储您的人脸识别数据是为了确保后续只有您本人才能发起钱包恢复服务. 详情
-扫描人脸技巧：
-确保面部无遮挡
-眼镜没有反光
-开始扫描人脸
-扫描人脸验证您的身份
 
 
-通过二维码恢复
-通过trusthold恢复
-
-Trusthold 验证
-输入来自trusthold的验证码
-输入来自 maxthon/csg的验证码
-验证
-
-上传二维码
-上传或扫描二维码
-扫描
-上传文件
-通过trusthold恢复?
-
-恢复完成!
-开始使用
-你的账户已经完成恢复
-
-正在处理
-请等待.
-*/
 
 //#login_flie
 "login_PleaseInputEmail" = "输入邮箱";
@@ -108,37 +157,37 @@ Trusthold 验证
 "face_no_biometric" = "此设备不支持生物识别验证, 请先激活生物识别验证";
 
 //#wallet_create_xib
-/*
-创建新账户
-创建个人账户
-新个人账户名称
-账户名称
-创建个人账户
+//创建新账户
+"wallet_create_accountName" = "创建新账户";
+//创建个人账户
+"wallet_create_accountName" = "创建个人账户";
+//新个人账户名称
+"wallet_create_createAccount" = "新个人账户名称";
+//账户名称
+"wallet_create_AccountName" = "账户名称";
+//创建多人管理账户
+"wallet_create_sharedaccount" = "创建多人管理账户";
 
-创建多人管理账户
 
-总人数
-签名人数
-总人数
-签名阈值
-输入其他成员的邮箱
-邀请完成创建
-*/
+//
+//总人数
+"wallet_create_totalMem" = "总人数";
+//签名人数
+"wallet_create_signMem" = "签名人数";
+//总人数
+"wallet_create_MemberCount" = "总人数";
+//签名阈值
+"wallet_create_SignCount" = "请输入签名人数";
+//输入其他成员的邮箱
+"wallet_create_otherMem" = "输入其他成员的邮箱";
+//邀请完成创建
+"wallet_create_andInvite" = "邀请完成创建";
 
 //#wallet_create_file
-
-"wallet_create_accountName" = "账户名称";
-"wallet_create_createAccount" = "创建多人管理账户";
-"wallet_create_totalMem" = "总人数";
-"wallet_create_signMem" = "签名人数";
-"wallet_create_otherMem" = "输入其他成员的邮箱";
-
-
 "wallet_create_PleaseInputAccountName" = "输入账户名称";
 "wallet_create_PleaseInputSignCount" = "输入签名阈值（人数）";
 
 "wallet_create_PleaseInputTotalMembers" = "输入总人数";
-"wallet_create_SignCount" = "请输入签名人数";
 "wallet_create_Greate1" = "总人数必须大于1";
 "wallet_create_lessThanMemberCount" = "签名人数最好小于总人数";
 "wallet_create_wrongEmailCount" = "只需输入m-1个邮箱，不包括你自己的邮箱";
@@ -148,31 +197,22 @@ Trusthold 验证
 "wallet_creare_Exceeding" = "输入过多邮箱";
 
 //#wallet_login_satue
+//Volt在PC端已经登录
 "wallet_login_statue" = "Volt在PC端已经登录";
-
+//推出在PC端的登录?
 "wallet_login_want" = "退出在PC端的登录?";
+//是的，推出在桌面电脑的登录
 "wallet_login_yes" = "是的，退出在桌面电脑的登录";
+//不退出
 "wallet_login_no" = "不退出";
 
-"wallet_scan_login_want" = "确认在Windows/Mac电脑登入Volt账户?";
-"wallet_scan_login_yes" = "同意桌面端登录";
-"wallet_scan_login_no" = "取消";
-
-
-
-/*
-Volt在PC端已经登录
-推出在PC端的登录?
-是的，推出在桌面电脑的登录
-不退出
-*/
-
 //#wallet_scan_login
-/*
-确认在Windows/Mac电脑登入Volt账户?
-同意桌面端登录
-取消
-*/
+//确认在Windows/Mac电脑登入Volt账户?
+"wallet_scan_login_want" = "确认在Windows/Mac电脑登入Volt账户?";
+//同意桌面端登录
+"wallet_scan_login_yes" = "同意桌面端登录";
+//取消
+"wallet_scan_login_no" = "取消";
 
 //#wallet_send
 "wallet_send_pleaseInputEmail" = "请输入地址";
@@ -181,173 +221,258 @@ Volt在PC端已经登录
 "wallet_send_amountLessThanAvailabel" = "大于可用金额";
 "wallet_send_amountGreater546" = "转账金额必须大于546聪";
 
-"wallet_send_auth_touchid" = "通过指纹识别授权发送资金";
-"wallet_send_auth_faceid" = "通过人脸识别授权发送资金";
-"wallet_send_networkfee" = "矿工费用：";
-"wallet_send_TransactionFail" = "交易失败";
-"wallet_send_Note" = "备注:";
-
-"wallet_send_mul_transsign" = "你已完成交易签名";
-"wallet_send_mul_des" = "你在发起一笔需要其他成员签名的交易,发送";
-"wallet_send_mul_to" = "给";
-
-
-
 //#wallet_detail_xib
 "wallet_detail_transSuccess" = "转账成功";
 "wallet_detail_signed" = "已签名";
 
-
-"wallet_detail_OUTGOING" = "转出";
-"wallet_detail_OUTGOING_transacation" = "转出交易";
-
-"wallet_detail_RECALL" = "取消交易?";
-"wallet_detail_untilyousigned" = "其他人签名之前你可以取消";
-"wallet_detail_signed_uppercase" = "已签名";
-"wallet_detail_Awaitingothers" = "你已签名.等待其他方签名";
 "wallet_detail_PENDING" = "等待";
+
+//个人
+"common_Personal" = "个人";
+//共同管理
+"common_Shared" = "共同管理";
+//收款
+"common_Receive" = "收款";
+//转账
+"common_Send" = "转账";
+
+//
+//收取 BSV
+"wallet_detail_ReceiveBSV" = "Receive BSV";
+
+//发送 BSV
+"wallet_detail_SendBSV" = "Send BSV";
+
+//已发送
+"wallet_detail_Paymentsent" = "Payment sent";
+
+//通过人脸识别授权发送资金
+"wallet_send_auth_touchid" = "通过指纹识别授权发送资金";
+"wallet_send_auth_faceid" = "通过人脸识别授权发送资金";
+
+//发送 0.55 BSV
+//
+//收款方
+"wallet_detail_Recipient" = "收款方";
+//时间
+"wallet_detail_Time" = "时间";
+//签名人
+"wallet_detail_Signees" = "签名人";
+//备注消息
+"wallet_detail_Message" = "备注消息";
+//交易链接
+"wallet_detail_TXLink" = "交易链接";
+//金额
+"wallet_detail_Amount" = "金额";
+
+//
+//关闭
+"common_close" = "关闭";
+//完成
+"common_Done" = "完成";
+
+//收到了
+"common_Received" = "收到";
+//已发送
+"common_Sent" = "发送";
+
+//等你签名的转账
+"wallet_detail_Senttobesigned" = "等你签名的转账";
+
+//你已签名. 等待其他方签名 (3 of 5)
+"wallet_detail_Awaitingothers" = "你已签名.等待其他方签名";
+//查看签名状态
+"wallet_detail_CheckSigneestatuses" = "查看签名状态";
+
+//已签名
+"wallet_detail_signed_uppercase" = "已签名";
+//未签名
 "wallet_detail_unsigned_uppercase" = "未签名";
 
+//
+//签名并请求其他方签名
+"wallet_detail_Signandrequestsigning" = "签名并请求其他方签名";
+
+//
+//你已完成交易签名
+"wallet_send_mul_transsign" = "你已完成交易签名";
+//等待其他方参与签名：发送1.55 BSV到worldwide@education.com
+"wallet_send_mul_des" = "你在发起一笔需要其他成员签名的交易,发送";
+"wallet_send_mul_to" = "给";
+
+//矿工费用 0.00001 BSV
+"wallet_send_networkfee" = "矿工费用：";
+
+"wallet_send_TransactionFail" = "交易失败";
+"wallet_send_Note" = "备注:";
+//
+//签名完成度
+"wallet_detail_Signeestatuses" = "签名完成度";
+
+//时间：Feb 29 2020 | 数量 0.06231131 BSV
+//需要5人种的3人参与签名
+//
+//等待签名的交易
+"wallet_detail_Pendingsignrequest" = "等待签名的交易";
+
+//加入并签署交易
+"wallet_detail_Joinandsigntransaction" = "加入并签署交易";
+
+//等待你签名
 "wallet_detail_Awaitingyoutosign" = "等待你签名";
 
-/*
-个人
-共同管理
-收款
-转账
+//
+//longnamehere@gmail.com邀请你加入一个共同管理资金账户.
+//加入之后，需要和其他5人共同管理账户
 
-收取 BSV
-发送 BSV
-已发送
-通过人脸识别授权发送资金
-发送 0.55 BSV
+//加入
+"wallet_detail_join" = "加入";
+//拒绝
+"wallet_detail_decline" = "拒绝";
 
-收款方
-时间
-签名人
-备注消息
-交易链接
-金额
+"wallet_detail_joinSuccess" = "加入成功";
 
-关闭
-完成
+//转出
+"wallet_detail_OUTGOING" = "转出";
+//转出交易
+"wallet_detail_OUTGOING_transacation" = "转出交易";
 
-收到了
+//在其他人签署之前你可以取消
+"wallet_detail_Youcancancel" = "在其他人签署之前你可以取消";
+//其他人签名之前你可以取消
+"wallet_detail_untilyousigned" = "其他人签名之前你可以取消";
 
-已发送
-等你签名的转账
-你已签名. 等待其他方签名 (3 of 5)
-查看签名状态
-已签名
-未签名
+//取消交易
+"wallet_detail_Recallandcanceltransaction" = "取消交易";
 
-签名并请求其他方签名
+//取消交易?
+"wallet_detail_RECALL" = "取消交易?";
 
-你已完成交易签名
-等待其他方参与签名：发送1.55 BSV到worldwide@education.com
-矿工费用 0.00001 BSV
+//创建人：longnamehere@gmail.com
+"wallet_detail_ownedBy" = "创建人：";
+//你推出了共同管理账户.
+//这个页面在24小时之后小时.
+//重新加入
+//
+//交易已取消
 
-签名完成度
-时间：Feb 29 2020 | 数量 0.06231131 BSV
-需要5人种的3人参与签名
-
-等待签名的交易
-加入并签署交易
-等待你签名
-
-longnamehere@gmail.com邀请你加入一个共同管理资金账户.
-加入之后，需要和其他5人共同管理账户
-加入
-拒绝
-
-转出
-转出交易
-在其他人签署之前你可以取消
-其他人签名之前你可以取消
-取消交易
-取消交易?
-
-创建人：longnamehere@gmail.com
-你推出了共同管理账户.
-这个页面在24小时之后小时.
-重新加入
-
-交易已取消
-*/
 
 //#wallet_info
 "wallet_edit_AccountNameEditSuccess" = "账户名称修改成功";
 
+//账户名称
+"wallet_info_Nameofaccount" = "账户名称";
 
-/*
-账户名称
-管理员
-检查状态
-创建人
-账户简化地址
-管理简化地址
-创建时间
-当前余额
+//管理员
+"wallet_info_Keysharemembers" = "管理员";
 
-管理员
-创建时间 Feb 03 2020 | 管理员变动
-*/
+//检查状态
+"wallet_info_Checkstatuses" = "检查状态";
+
+//创建人
+"wallet_info_Accountowner" = "创建人";
+
+//账户简化地址
+"wallet_info_ccountPaymails" = "账户简化地址";
+
+//管理简化地址
+"wallet_info_UpdateorAddPaymail" = "管理简化地址";
+
+//创建时间
+"wallet_info_createTime" = "创建时间";
+
+//当前余额
+"wallet_info_Currentbalance" = "当前余额";
+
+//
+//管理员
+//创建时间 Feb 03 2020 | 管理员变动
+"wallet_info_createOn" = "创建于";
+
 
 //#me
 
 //#paymail
-"paymail_primary" = "默认主地址";
-"paymail_assignPrimary" = "设为默认";
-"paymail_avaible" = "可用!";
-"paymail_unavaible" = "不可用!";
-"paymail_getyourfirst" = "免费获取第一个简化地址";
-"paymail_cost" = "费用";
+//可以免费注册一个简化地址. 你可以为同一账户购买更多的paymail
 "paymail_content_1" = "可以免费注册一个简化地址.";
 "paymail_content_2" = "你可以为同一账户购买更多的paymail";
+// 默认主地址
+"paymail_primary" = "默认主地址";
+
+//设为默认
+"paymail_assignPrimary" = "设为默认";
+
+//列表
+"paymail_Owned" = "列表";
+
+//创建新的
+"paymail_CreateNew" = "创建新的";
+
+//
+//搜索简化地址
+"paymail_SearchPaymail" = "搜索简化地址";
+
+//免费获取第一个简化地址
+"paymail_getyourfirst" = "免费获取第一个简化地址";
+
+//费用 %@BSV(≈$1 USD)
+"paymail_cost" = "费用";
+
+//可用!
+"paymail_avaible" = "可用!";
+//不可用!
+"paymail_unavaible" = "不可用!";
+
 "paymail_pleaseinputpaymail" = "请输入简化地址";
 "paymail_buysuccess" = "简化地址购买成功";
 
-/*
-可以免费注册一个简化地址. 你可以为同一账户购买更多的paymail
-默认主地址
-设为默认
-列表
-创建新的
-
-搜索简化地址
-免费获取第一个简化地址
-费用 %@BSV(≈$1 USD)
-可用!
-不可用!
-*/
-
+//#qrcode
 "me_qrcode_backupSuccess" = "二维码备份成功";
 "me_qrcode_backupfail" = "二维码备份失败";
 
 //#Security
-/*
-安全
-云端备份
-数秒前已备份
+//安全
+"me_Security" = "安全";
 
-邮箱已验证
+//云端备份
+"me_Security_cloud" = "云端备份";
 
-人脸扫描
-你的3D人脸数据已经绑定
+//数秒前已备份
+"me_Security_sync" = "数秒前已备份";
 
-人脸/指纹锁已开启
-开启资金发送授权
-*/
+//邮箱已验证
+"me_Security_email" = "邮箱已验证";
+
+//人脸扫描
+"me_Security_Facial" = "人脸扫描";
+
+//你的3D人脸数据已经绑定
+"me_Security_3D Facial" = "你的3D人脸数据已经绑定";
+
+//人脸/指纹锁已开启
+"me_Security_FaceID" = "人脸/指纹锁已开启";
+
+//开启资金发送授权
+"me_Security_Enableforconfirmation" = "开启资金发送授权";
 
 //#Preferences
-/*
-偏好设置
-货币单位
-语言
+//偏好设置
+ "me_Preferences" = "偏好设置";
 
-备份二维码
-已同步到iCloud
+//货币单位
+"me_Currency" = "货币单位";
 
-客服
+//语言
+"me_Language" = "语言";
 
-*/
+//
+//备份二维码
+"me_BackupSecretQRCode" = "备份二维码";
+
+//已同步到iCloud
+"me_SyncedwithiCloud" = "已同步到iCloud";
+
+//
+//客服
+"me_Support" = "客服";
+

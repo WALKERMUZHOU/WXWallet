@@ -22,6 +22,8 @@ typedef void(^ListHeadBlock)(NSInteger selectIndex);
 
 - (void)refreshCurrentCurrency;
 
+- (void)refreshWithLanguage;
+
 @end
 
 NS_ASSUME_NONNULL_END

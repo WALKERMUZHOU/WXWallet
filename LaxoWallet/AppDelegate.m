@@ -59,8 +59,8 @@
     [[LWCurrentExchangeTool shareInstance] getCurrentExchange];
     [self registerBDFace];
     
-    [LogicHandle showTabbarVC];
-//    [LogicHandle chooseStartVC];
+//    [LogicHandle showTabbarVC];
+    [LogicHandle chooseStartVC];
 //    [LogicHandle showLoginVC];
 
     dispatch_async(dispatch_get_main_queue(), ^{

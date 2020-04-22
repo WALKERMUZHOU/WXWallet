@@ -12,7 +12,7 @@
 
 + (void)getTokenPriceWithSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
     [[LWNetWorkSessionManager shareInstance] getPath:Url_Home_tokenPrice parameters:@{} withBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-        [SVProgressHUD dismiss];
+//        [SVProgressHUD dismiss];
         if ([[result objectForKey:@"success"] integerValue] == 1) {//success
             NSArray *dataArray = [result objectForKey:@"data"];
             
@@ -31,7 +31,7 @@
 
 + (void)getCurrentCurrencyWithUSDWithSuccessBlock:(void (^)(id _Nonnull))successBlock WithFailBlock:(void (^)(id _Nonnull))FailBlock{
     [[LWNetWorkSessionManager shareInstance] getPath:Url_Home_tokenPrice_new parameters:@{} withBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-        [SVProgressHUD dismiss];
+//        [SVProgressHUD dismiss];
         if ([[result objectForKey:@"success"] integerValue] == 1) {//success
             NSDictionary *dataDic = [result objectForKey:@"data"];
             
@@ -55,7 +55,7 @@
     NSString *jsonStr = [paramers jsonStringEncoded];
     
     [[LWNetWorkSessionManager shareInstance] postPath:Url_Home_SingleAddress parameters:@{@"params":jsonStr} withBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-        [SVProgressHUD dismiss];
+//        [SVProgressHUD dismiss];
         if ([[result objectForKey:@"success"] integerValue] == 1) {//success
             NSArray *dataArray = [result objectForKey:@"data"];
             [[NSUserDefaults standardUserDefaults] setObject:dataArray forKey:kAppTokenPrice_userdefault];

@@ -37,6 +37,7 @@
 #import "EBBannerView.h"
 
 #import "LWSendViewController.h"
+#import "NSBundle+AppLanguageSwitch.h"
 
 @interface LWHomeViewController (){
     NSOperationQueue * queue;
@@ -57,10 +58,19 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appLogin) name:KUserAccountLogIn object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pcLoginSatue:) name:kWebScoket_Login_isPCOnline object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageChange:) name:ZZAppLanguageDidChangeNotification object:nil];
 
     [self createUI];
     [self getprikey];
     NSLog(@"uid:%@",kGTSequenceUid);
+    
+    NSInteger amountinteger = 25*1e8;
+    long long amountlong = 29*1e8;
+    NSDictionary *multipyparams = @{@"value":@(amountinteger),@"valueStr":[NSString stringWithFormat:@"%lld",(long long)amountinteger],@"amountlong":@(amountlong)};
+    NSData *data = [multipyparams mp_messagePack];
+    
+    NSDictionary *dicss = [data mp_dict:nil];
+    
 //    NSDictionary *params = @{@"type":@1};
 //    NSArray *requestPersonalWalletArray = @[@"req",
 //                                            @(WSRequestIdWalletQueryPersonalWallet),
@@ -175,6 +185,14 @@
     vc.scanresult = ^(LBXScanResult *result) {
         
     };
+}
+
+#pragma mark - languagechange
+- (void)languageChange:(id)sender {
+
+    [self.listHeadView refreshWithLanguage];
+    [self.pcLoginTipView refreshWithLanguageChange];
+    
 }
 
 #pragma mark - pclogin

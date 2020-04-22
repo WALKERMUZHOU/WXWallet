@@ -147,6 +147,9 @@ typedef void(^CustomInteractionEffectBlock) (AxcAE_TabBarItem *item);
 
 // 标题
 @property (nonatomic, copy) NSString *title;
+
+- (void)resetTitle:(NSString *)title;
+
 // 默认标题颜色
 @property (nonatomic, strong) UIColor *normalColor;
 // 选中标题颜色

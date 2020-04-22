@@ -26,7 +26,7 @@
         LWPartiesModel *model = self.contentModel.parties[i];
         
         if ([model.uid isEqualToString:self.contentModel.uid]) {
-            self.ownLabel.text =  [NSString stringWithFormat:@"Owned by %@",model.user];
+            self.ownLabel.text =  [NSString stringWithFormat:@"%@%@",kLocalizable(@"wallet_detail_ownedBy"),model.user];
             break;
         }
     }

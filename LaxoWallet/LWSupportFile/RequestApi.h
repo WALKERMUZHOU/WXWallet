@@ -88,7 +88,6 @@ typedef NS_OPTIONS(NSInteger, WSRequestId) {
 static NSString * const kBaseAddress = @"https://api.laxo.io/api.json?";
 static NSString * const kWSAddress = @"wss://api.laxo.io/?";
 
-
 #define kGTSequenceUid [[LWUserManager shareInstance] getUserModel].uid
 
 #else

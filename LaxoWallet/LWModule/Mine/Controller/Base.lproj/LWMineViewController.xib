@@ -96,6 +96,7 @@
                                                 <constraint firstAttribute="width" constant="24" id="3S1-m4-K3g"/>
                                             </constraints>
                                             <state key="normal" image="home_eye"/>
+                                            <state key="selected" image="home_eye_close"/>
                                             <connections>
                                                 <action selector="eyeClick:" destination="-1" eventType="touchUpInside" id="Hro-70-BXy"/>
                                             </connections>
@@ -331,5 +332,6 @@
     <resources>
         <image name="common_rightArrow" width="12" height="20"/>
         <image name="home_eye" width="26" height="20"/>
+        <image name="home_eye_close" width="21.333333969116211" height="12.333333015441895"/>
     </resources>
 </document>

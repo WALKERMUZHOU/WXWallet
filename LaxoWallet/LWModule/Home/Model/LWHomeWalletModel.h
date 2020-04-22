@@ -41,8 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) double       canuseBitCount;
 @property (nonatomic, assign) double       loackBitCount;
 
-@property (nonatomic, assign) CGFloat       canuseBitCountInterger;
-@property (nonatomic, assign) CGFloat       loackBitCountInterger;
+@property (nonatomic, assign) long long       canuseBitCountInterger;
+@property (nonatomic, assign) long long       loackBitCountInterger;
 
 
 @property (nonatomic, strong) UIColor       *iconColor;

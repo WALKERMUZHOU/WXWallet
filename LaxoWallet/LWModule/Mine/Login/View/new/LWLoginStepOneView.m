@@ -14,7 +14,6 @@
     if (self.block) {
         self.block();
     }
-    
 }
 
 /*

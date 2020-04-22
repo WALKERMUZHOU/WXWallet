@@ -38,7 +38,6 @@
 		5E3160B624243709005CA564 /* LWMultipyWalletDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160B424243709005CA564 /* LWMultipyWalletDetailCell.xib */; };
 		5E3160B924243A5F005CA564 /* LWMultipySendToBeSignedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160B824243A5F005CA564 /* LWMultipySendToBeSignedView.m */; };
 		5E3160BF24244155005CA564 /* LWMultipyBeInvitedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160BD24244155005CA564 /* LWMultipyBeInvitedViewController.m */; };
-		5E3160C024244155005CA564 /* LWMultipyBeInvitedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E3160BE24244155005CA564 /* LWMultipyBeInvitedViewController.xib */; };
 		5E3160C724249194005CA564 /* LWScanTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160C624249194005CA564 /* LWScanTool.m */; };
 		5E3160CA24249C8B005CA564 /* LWScanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160C924249C8B005CA564 /* LWScanModel.m */; };
 		5E3160CE2424A00A005CA564 /* LWScanResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3160CC2424A00A005CA564 /* LWScanResultViewController.m */; };
@@ -219,6 +218,7 @@
 		5E84097F2431F10200CBE2FE /* LWMineLanguageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E84097D2431F10200CBE2FE /* LWMineLanguageViewController.xib */; };
 		5E8409852431F88F00CBE2FE /* LWCurrencyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8409842431F88F00CBE2FE /* LWCurrencyModel.m */; };
 		5E8409882432D64D00CBE2FE /* LWCurrencyListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8409872432D64D00CBE2FE /* LWCurrencyListView.m */; };
+		5E8BDB8C244FD83800BDDAAA /* LWMultipyBeInvitedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E8BDB8E244FD83800BDDAAA /* LWMultipyBeInvitedViewController.xib */; };
 		5E9172BD241528B700D47A9F /* CBSecp256k1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9172B8241528B700D47A9F /* CBSecp256k1.m */; };
 		5E9172BE241528B700D47A9F /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9172B9241528B700D47A9F /* NSData+HexString.m */; };
 		5E9172BF241528B700D47A9F /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9172BA241528B700D47A9F /* secp256k1.framework */; };
@@ -325,6 +325,7 @@
 		5EE690DE244EC55A00D7243A /* LWMineSecurityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE690E0244EC55A00D7243A /* LWMineSecurityViewController.xib */; };
 		5EE690E5244EC5DB00D7243A /* LWMinePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE690E7244EC5DB00D7243A /* LWMinePreferencesViewController.xib */; };
 		5EE690F1244ECAF900D7243A /* LWPCLoginTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE690F3244ECAF900D7243A /* LWPCLoginTipView.xib */; };
+		5EE690FB244ED5E900D7243A /* NSBundle+AppLanguageSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE690FA244ED5E800D7243A /* NSBundle+AppLanguageSwitch.m */; };
 		5EE8FB7124066B7C00AEE861 /* LWPartiesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7024066B7C00AEE861 /* LWPartiesModel.m */; };
 		5EE8FB7424076B9300AEE861 /* LWMessageDetailListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7324076B9300AEE861 /* LWMessageDetailListView.m */; };
 		5EE8FB7824076C0800AEE861 /* LWMessageDetailListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8FB7624076C0800AEE861 /* LWMessageDetailListCell.m */; };
@@ -447,7 +448,6 @@
 		5E3160B824243A5F005CA564 /* LWMultipySendToBeSignedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipySendToBeSignedView.m; sourceTree = "<group>"; };
 		5E3160BC24244155005CA564 /* LWMultipyBeInvitedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMultipyBeInvitedViewController.h; sourceTree = "<group>"; };
 		5E3160BD24244155005CA564 /* LWMultipyBeInvitedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMultipyBeInvitedViewController.m; sourceTree = "<group>"; };
-		5E3160BE24244155005CA564 /* LWMultipyBeInvitedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LWMultipyBeInvitedViewController.xib; sourceTree = "<group>"; };
 		5E3160C524249194005CA564 /* LWScanTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWScanTool.h; sourceTree = "<group>"; };
 		5E3160C624249194005CA564 /* LWScanTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWScanTool.m; sourceTree = "<group>"; };
 		5E3160C824249C8B005CA564 /* LWScanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWScanModel.h; sourceTree = "<group>"; };
@@ -792,6 +792,9 @@
 		5E8409842431F88F00CBE2FE /* LWCurrencyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCurrencyModel.m; sourceTree = "<group>"; };
 		5E8409862432D64D00CBE2FE /* LWCurrencyListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWCurrencyListView.h; sourceTree = "<group>"; };
 		5E8409872432D64D00CBE2FE /* LWCurrencyListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCurrencyListView.m; sourceTree = "<group>"; };
+		5E8BDB8D244FD83800BDDAAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWMultipyBeInvitedViewController.xib; sourceTree = "<group>"; };
+		5E8BDB90244FD84000BDDAAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWMultipyBeInvitedViewController.strings; sourceTree = "<group>"; };
+		5E8BDB92244FD84400BDDAAA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWMultipyBeInvitedViewController.strings"; sourceTree = "<group>"; };
 		5E9172B8241528B700D47A9F /* CBSecp256k1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSecp256k1.m; sourceTree = "<group>"; };
 		5E9172B9241528B700D47A9F /* NSData+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+HexString.m"; sourceTree = "<group>"; };
 		5E9172BA241528B700D47A9F /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = secp256k1.framework; sourceTree = "<group>"; };
@@ -952,7 +955,6 @@
 		5EE69031244D6EF100D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginLearnMoreView.strings"; sourceTree = "<group>"; };
 		5EE69034244D7D6E00D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWLoginStepFiveViewOne.xib; sourceTree = "<group>"; };
 		5EE69036244D7D7D00D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWLoginStepFiveViewOne.strings; sourceTree = "<group>"; };
-		5EE69037244D7D7F00D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginStepFiveViewOne.strings"; sourceTree = "<group>"; };
 		5EE69039244D828900D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWStartViewController.xib; sourceTree = "<group>"; };
 		5EE6903C244D828D00D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWStartViewController.strings; sourceTree = "<group>"; };
 		5EE6903E244D829100D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWStartViewController.strings"; sourceTree = "<group>"; };
@@ -1030,6 +1032,9 @@
 		5EE690F2244ECAF900D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWPCLoginTipView.xib; sourceTree = "<group>"; };
 		5EE690F5244ECB0100D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWPCLoginTipView.strings; sourceTree = "<group>"; };
 		5EE690F7244ECB0500D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWPCLoginTipView.strings"; sourceTree = "<group>"; };
+		5EE690F9244ED5E800D7243A /* NSBundle+AppLanguageSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+AppLanguageSwitch.h"; sourceTree = "<group>"; };
+		5EE690FA244ED5E800D7243A /* NSBundle+AppLanguageSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+AppLanguageSwitch.m"; sourceTree = "<group>"; };
+		5EE690FD244EE75D00D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWLoginStepFiveViewOne.strings"; sourceTree = "<group>"; };
 		5EE8FB6F24066B7C00AEE861 /* LWPartiesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPartiesModel.h; sourceTree = "<group>"; };
 		5EE8FB7024066B7C00AEE861 /* LWPartiesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPartiesModel.m; sourceTree = "<group>"; };
 		5EE8FB7224076B9300AEE861 /* LWMessageDetailListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMessageDetailListView.h; sourceTree = "<group>"; };
@@ -1276,7 +1281,7 @@
 				5EE69093244E91C100D7243A /* LWMultipyWalletDetailViewController.xib */,
 				5E3160BC24244155005CA564 /* LWMultipyBeInvitedViewController.h */,
 				5E3160BD24244155005CA564 /* LWMultipyBeInvitedViewController.m */,
-				5E3160BE24244155005CA564 /* LWMultipyBeInvitedViewController.xib */,
+				5E8BDB8E244FD83800BDDAAA /* LWMultipyBeInvitedViewController.xib */,
 				5E31612724285567005CA564 /* LWMultipyOtherNotJoinViewController.h */,
 				5E31612824285567005CA564 /* LWMultipyOtherNotJoinViewController.m */,
 				5E31612924285567005CA564 /* LWMultipyOtherNotJoinViewController.xib */,
@@ -2520,6 +2525,7 @@
 		5EA807CD23E94ED500012837 /* LWAdapt */ = {
 			isa = PBXGroup;
 			children = (
+				5EE690F8244ED5E800D7243A /* AppLanguageSwitch */,
 				5E7BACC4242D0E5E00901EA5 /* CloudHandle */,
 				5E7BACA7242B4E3C00901EA5 /* WebView */,
 				5E9172D82416376100D47A9F /* FaceSDK */,
@@ -2648,6 +2654,15 @@
 				5EB31E9B2404BD1900974FD4 /* LWTextFieldAlertView.m */,
 			);
 			path = AlertView;
+			sourceTree = "<group>";
+		};
+		5EE690F8244ED5E800D7243A /* AppLanguageSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				5EE690F9244ED5E800D7243A /* NSBundle+AppLanguageSwitch.h */,
+				5EE690FA244ED5E800D7243A /* NSBundle+AppLanguageSwitch.m */,
+			);
+			path = AppLanguageSwitch;
 			sourceTree = "<group>";
 		};
 		5EF5132323EFE41E00F5B6C1 /* SocketManager */ = {
@@ -3048,7 +3063,7 @@
 				5EA807A823E94E2400012837 /* LaunchScreen.storyboard in Resources */,
 				5EE690A6244E963200D7243A /* LWMultipySendCancleView.xib in Resources */,
 				5E9172DF2416376200D47A9F /* com.baidu.idl.face.model.bundle in Resources */,
-				5E3160C024244155005CA564 /* LWMultipyBeInvitedViewController.xib in Resources */,
+				5E8BDB8C244FD83800BDDAAA /* LWMultipyBeInvitedViewController.xib in Resources */,
 				5EE69067244D9BD400D7243A /* LWPersoanlReceiveView.xib in Resources */,
 				5EE6905F244D8D1200D7243A /* LWHomeListHeadView.xib in Resources */,
 				5EE69001244D52C700D7243A /* LWLoginStepFiveView.xib in Resources */,
@@ -3399,6 +3414,7 @@
 				5E31610F2427893A005CA564 /* LWSignSatueTableViewCell.m in Sources */,
 				5E5F129223EC0E12002F0711 /* WMZDialog+DatePicker.m in Sources */,
 				5E66A37D23EAEBD9004097CB /* LWHomeViewController.m in Sources */,
+				5EE690FB244ED5E900D7243A /* NSBundle+AppLanguageSwitch.m in Sources */,
 				5E9918B4241E70C6005D6A38 /* LWLoginStepFiveView.m in Sources */,
 				5E5F129423EC0E12002F0711 /* WMZDialog+Pay.m in Sources */,
 				5E5F129923EC0E12002F0711 /* WMZDialog+CardPresent.m in Sources */,
@@ -3457,6 +3473,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5E8BDB8E244FD83800BDDAAA /* LWMultipyBeInvitedViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E8BDB8D244FD83800BDDAAA /* Base */,
+				5E8BDB90244FD84000BDDAAA /* en */,
+				5E8BDB92244FD84400BDDAAA /* zh-Hans */,
+			);
+			name = LWMultipyBeInvitedViewController.xib;
+			sourceTree = "<group>";
+		};
 		5E9172C82416227D00D47A9F /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -3548,7 +3574,7 @@
 			children = (
 				5EE69034244D7D6E00D7243A /* Base */,
 				5EE69036244D7D7D00D7243A /* en */,
-				5EE69037244D7D7F00D7243A /* zh-Hans */,
+				5EE690FD244EE75D00D7243A /* zh-Hans */,
 			);
 			name = LWLoginStepFiveViewOne.xib;
 			sourceTree = "<group>";
@@ -4007,7 +4033,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laxoWallet;
 				PRODUCT_NAME = Volt;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -4046,7 +4072,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laxoWallet;
 				PRODUCT_NAME = Volt;
 				TARGETED_DEVICE_FAMILY = 1;

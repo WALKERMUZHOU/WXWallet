@@ -71,12 +71,12 @@ static LWTansactionTool *instance = nil;
     self.note = transModel.note;
     self.transAddress = transModel.address;
     
-    [self startTransactionWithAmount:transModel.transAmount.floatValue address:transModel.address note:transModel.note andTotalModel:homeModel andChangeAddress:transModel.changeAddress];
+    [self startTransactionWithAmount:transModel.transAmount.doubleValue address:transModel.address note:transModel.note andTotalModel:homeModel andChangeAddress:transModel.changeAddress];
     
 }
 
 
-- (void)startTransactionWithAmount:(CGFloat)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model andChangeAddress:(nonnull NSString *)changeAddress{
+- (void)startTransactionWithAmount:(double)amount address:(NSString *)address note:(NSString *)note andTotalModel:(LWHomeWalletModel *)model andChangeAddress:(nonnull NSString *)changeAddress{
     
 //    self.transAmount = amount;
 //    self.transAddress = address;

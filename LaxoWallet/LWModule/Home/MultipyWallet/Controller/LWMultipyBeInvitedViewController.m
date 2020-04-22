@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *label1;
 @property (weak, nonatomic) IBOutlet UILabel *labelTwo;
 @property (weak, nonatomic) IBOutlet UILabel *walletNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *joinBtn;
 
 @end
 
@@ -21,15 +22,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.walletNameLabel.text = self.contentModel.name;
+    NSString *laguage = [NSBundle getCusLanguage];
+
+    [self.joinBtn setTitle:kLocalizable(@"wallet_detail_join") forState:UIControlStateNormal];
+    
     for (NSInteger i = 0; i<self.contentModel.parties.count; i++) {
         LWPartiesModel *model = self.contentModel.parties[i];
         if ([model.uid isEqualToString:self.contentModel.uid]) {
-            self.label1.text =[NSString stringWithFormat:@"You’ve been invited to join this account owned by %@. ",model.user];
+            if ([laguage isEqualToString:@"zh-Hans"]) {
+                self.label1.text =[NSString stringWithFormat:@" %@ 邀请你加入一个共同管理资金账户. ",model.user];
+            }else{
+                self.label1.text =[NSString stringWithFormat:@"You’ve been invited to join this account owned by %@. ",model.user];
+            }
             break;
         }
     }
     
-    self.labelTwo.text =[NSString stringWithFormat:@"If you accept you’ll be a Key Share Member along with %ld others to assist in signing transactions.",(long)self.contentModel.parties.count];;
+    if ([laguage isEqualToString:@"zh-Hans"]) {
+         //
+         self.labelTwo.text =[NSString stringWithFormat:@"加入之后，需要和其他%ld人共同管理账户.",(long)self.contentModel.parties.count];;
+     }else{
+         self.labelTwo.text =[NSString stringWithFormat:@"If you accept you’ll be a Key Share Member along with %ld others to assist in signing transactions.",(long)self.contentModel.parties.count];;
+     }
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(joinNotification:) name:kWebScoket_multipy_JoinWallet object:nil];
 }
 
@@ -45,7 +61,7 @@
 - (void)joinNotification:(NSNotification *)notification{
      NSDictionary *notiDic = notification.object;
       if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
-          [WMHUDUntil showMessageToWindow:@"Join Success"];
+          [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_detail_joinSuccess")];
           [self requestMulipyWalletInfo];
           dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
               [self.navigationController popViewControllerAnimated:YES];

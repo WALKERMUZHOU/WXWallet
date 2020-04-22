@@ -33,10 +33,7 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     
-    [self.personalBtn setAttributedTitle:[[NSAttributedString alloc] initWithString:kLocalizable(@"common_Personal") attributes:@{NSFontAttributeName:kBoldFont(16),NSForegroundColorAttributeName:[UIColor blackColor]}] forState:UIControlStateNormal];
-    [self.multipyBtn setAttributedTitle:[[NSAttributedString alloc] initWithString:kLocalizable(@"common_Shared") attributes:@{NSFontAttributeName:kBoldFont(16),NSForegroundColorAttributeName:[UIColor blackColor]}] forState:UIControlStateNormal];
-    [self.personalBtn setAttributedTitle:[[NSAttributedString alloc] initWithString:kLocalizable(@"common_Personal") attributes:@{NSFontAttributeName:kBoldFont(16),NSForegroundColorAttributeName:[UIColor whiteColor]}] forState:UIControlStateSelected];
-    [self.multipyBtn setAttributedTitle:[[NSAttributedString alloc] initWithString:kLocalizable(@"common_Shared") attributes:@{NSFontAttributeName:kBoldFont(16),NSForegroundColorAttributeName:[UIColor whiteColor]}] forState:UIControlStateSelected];
+    [self refreshWithLanguage];
     
     self.currentViewType = LWHomeListViewTypePersonalWallet;
     self.personalBtn.selected = YES;
@@ -49,6 +46,13 @@
     if(!isIphoneX){
         self.bitCountLabel.font = kBoldFont(20);
     }
+}
+
+- (void)refreshWithLanguage{
+    [self.personalBtn setAttributedTitle:[[NSAttributedString alloc] initWithString:kLocalizable(@"common_Personal") attributes:@{NSFontAttributeName:kBoldFont(16),NSForegroundColorAttributeName:[UIColor blackColor]}] forState:UIControlStateNormal];
+    [self.multipyBtn setAttributedTitle:[[NSAttributedString alloc] initWithString:kLocalizable(@"common_Shared") attributes:@{NSFontAttributeName:kBoldFont(16),NSForegroundColorAttributeName:[UIColor blackColor]}] forState:UIControlStateNormal];
+    [self.personalBtn setAttributedTitle:[[NSAttributedString alloc] initWithString:kLocalizable(@"common_Personal") attributes:@{NSFontAttributeName:kBoldFont(16),NSForegroundColorAttributeName:[UIColor whiteColor]}] forState:UIControlStateSelected];
+    [self.multipyBtn setAttributedTitle:[[NSAttributedString alloc] initWithString:kLocalizable(@"common_Shared") attributes:@{NSFontAttributeName:kBoldFont(16),NSForegroundColorAttributeName:[UIColor whiteColor]}] forState:UIControlStateSelected];
 }
 
 - (IBAction)personBtnClick:(UIButton *)sender {

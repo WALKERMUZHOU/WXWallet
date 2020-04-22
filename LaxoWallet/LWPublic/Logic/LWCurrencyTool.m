@@ -7,6 +7,7 @@
 //
 
 #import "LWCurrencyTool.h"
+#import "NSBundle+AppLanguageSwitch.h"
 
 @implementation LWCurrencyTool
 
@@ -39,6 +40,13 @@
     if (currency && currency.length>0) {
         return currency;
     }
+    
+    NSString *language = [NSBundle getCusLanguage];
+    if ([language isEqualToString:@"zh-Hans"]) {
+        [LWCurrencyTool setCurrentCurrencyEnglishCode:@"CNY"];
+        return @"CNY";
+    }
+    [LWCurrencyTool setCurrentCurrencyEnglishCode:@"USD"];
     return @"USD";
 }
 

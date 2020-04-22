@@ -1,9 +1,9 @@
 
 /* Class = "UIButton"; normalTitle = "Verify facial recognition scan"; ObjectID = "7PQ-BF-HHP"; */
-"7PQ-BF-HHP.normalTitle" = "验证人脸识别";
+"7PQ-BF-HHP.normalTitle" = "验证面部识别扫描";
 
 /* Class = "UILabel"; text = "Ensure your glasses do not reflect "; ObjectID = "BVq-sm-LnY"; */
-"BVq-sm-LnY.text" = "确保眼镜没有反光 ";
+"BVq-sm-LnY.text" = "眼镜没有反光 ";
 
 /* Class = "UILabel"; text = "Step 3 of 4"; ObjectID = "JDh-oe-0Pv"; */
 "JDh-oe-0Pv.text" = " ";
@@ -12,7 +12,7 @@
 "JM6-49-YGs.text" = "通过面部扫描来确认你的身份";
 
 /* Class = "UILabel"; text = "Ensure your face is \nnot covered "; ObjectID = "dMc-5K-tw9"; */
-"dMc-5K-tw9.text" = "确保面部无遮挡";
+"dMc-5K-tw9.text" = "确保面部无遮挡 ";
 
 /* Class = "UILabel"; text = "Tips for a good facial scan"; ObjectID = "xrE-cK-m2N"; */
-"xrE-cK-m2N.text" = "扫描人脸技巧“;
+"xrE-cK-m2N.text" = "面部扫描技巧";

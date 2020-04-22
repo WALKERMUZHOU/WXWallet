@@ -25,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.nameLabel.text = [NSString stringWithFormat:@"%@\nKey share members",self.walletModel.name];
+    self.nameLabel.text = [NSString stringWithFormat:@"%@\n %@",self.walletModel.name,kLocalizable(@"wallet_info_Keysharemembers")];
     
     self.view.backgroundColor = [UIColor whiteColor];
     

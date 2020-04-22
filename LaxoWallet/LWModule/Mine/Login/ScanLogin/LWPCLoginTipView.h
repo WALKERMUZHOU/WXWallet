@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^PCLoginViewBlock)(void);
 @interface LWPCLoginTipView : UIView
 @property (nonatomic, copy) PCLoginViewBlock block;
+
+- (void)refreshWithLanguageChange;
+
 @end
 
 NS_ASSUME_NONNULL_END

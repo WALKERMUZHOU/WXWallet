@@ -85,6 +85,8 @@
 #import "UIImage+ImageEffects.h"
 #import "WMZDialog.h"
 
+#import "NSBundle+AppLanguageSwitch.h"
+
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 

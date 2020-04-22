@@ -8,6 +8,8 @@
 
 #import "LWMinePreferencesViewController.h"
 #import "LWMineCurrencyViewController.h"
+#import "LWMineLanguageViewController.h"
+#import "NSBundle+AppLanguageSwitch.h"
 
 @interface LWMinePreferencesViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *currencyLabel;
@@ -33,12 +35,15 @@
 //    }else{
 //        self.currencyLabel.text = @"USD";
 //    }
-    if( [LWPublicManager getCurrentLanguage] == LWCurrentLanguageChinese){
+    
+    NSString *curLanguage = [NSBundle getCusLanguage];
+
+  
+    if ([curLanguage isEqualToString:@"zh-Hans"]){
         self.languageLabel.text = @"简体中文";
     }else{
         self.languageLabel.text = @"English";
     }
-        
 }
 
 - (IBAction)currencyClick:(UIButton *)sender {
@@ -49,10 +54,8 @@
     
 }
 - (IBAction)languageClick:(UIButton *)sender {
-    [WMHUDUntil showMessageToWindow:@"More language is developing"];
-    return;
-    LWMineCurrencyViewController *minevc = [[LWMineCurrencyViewController alloc] init];
-    minevc.MineVCType = 4;
+
+    LWMineLanguageViewController *minevc = [[LWMineLanguageViewController alloc] init];
     [self.navigationController pushViewController:minevc animated:YES];
     
 }

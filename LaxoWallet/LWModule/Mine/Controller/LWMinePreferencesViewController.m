@@ -41,6 +41,8 @@
   
     if ([curLanguage isEqualToString:@"zh-Hans"]){
         self.languageLabel.text = @"简体中文";
+    }else if ([curLanguage isEqualToString:@"ja"]){
+        self.languageLabel.text = @"日本語";
     }else{
         self.languageLabel.text = @"English";
     }

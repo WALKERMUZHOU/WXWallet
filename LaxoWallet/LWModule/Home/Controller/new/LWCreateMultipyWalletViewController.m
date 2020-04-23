@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.createSharedLabel.text = kLocalizable(@"wallet_create_createAccount");
+    self.createSharedLabel.text = kLocalizable(@"wallet_create_sharedaccount");
     self.accountNameLabel.text = kLocalizable(@"wallet_create_accountName");
     self.totalMemberLabel.text = kLocalizable(@"wallet_create_totalMem");
     self.otheremailLabel.text = kLocalizable(@"wallet_create_otherMem");

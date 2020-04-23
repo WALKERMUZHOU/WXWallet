@@ -176,7 +176,7 @@
 //Member Count
 "wallet_create_MemberCount" = "Member Count";
 //Sign Count
-"wallet_create_SignCount" = "Please Input Sign Count";
+"wallet_create_SignCount" = "Sign Count";
 //Enter other members’ email id
 "wallet_create_otherMem" = "Enter other members' email id";
 //Create and invite members
@@ -220,7 +220,7 @@
 "wallet_send_pleaseInputEmail" = "Please Input Address";
 "wallet_send_EorrorAddress" = "Wrong Address";
 "wallet_send_pleaseinputAmount" = "Please input amount";
-"wallet_send_amountLessThanAvailabel" = "Amount need less than available";
+"wallet_send_amountLessThanAvailabel" = "Insufficient Balance";
 "wallet_send_amountGreater546" = "The amount to be sent must be greater than 546 satoshis";
 
 
@@ -364,10 +364,16 @@
 "wallet_detail_ownedBy" = "Owned by ";
 
 //You’ve disjoined/declined as a Key Share Member.
+"wallet_detail_Youvedisjoineddeclined" = "You’ve disjoined/declined as a Key Share Member ";
+
 //This screen will disappear after 24 hours.
+"wallet_detail_Thisscreenwilldisappear" = "This screen will disappear after 24 hours.";
+
 //Rejoin as member
-//
+"wallet_detail_Rejoinasmember" = "Rejoin as member";
+
 //Transaction cancelled
+"wallet_detail_Transactioncancelled" = "Transaction cancelled";
 
 
 

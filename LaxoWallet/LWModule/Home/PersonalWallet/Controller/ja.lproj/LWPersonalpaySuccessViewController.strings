@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Payment sent"; ObjectID = "9Xw-9s-cHk"; */
+"9Xw-9s-cHk.text" = "支払完了";
+
+/* Class = "UILabel"; text = "Sent 0.55 BSV to username@bitmesh.com"; ObjectID = "BFB-qL-vAY"; */
+"BFB-qL-vAY.text" = "Sent 0.55 BSV to username@bitmesh.com";
+
+/* Class = "UITextField"; text = "Testing out adding a message to a tx"; ObjectID = "EgS-sZ-ugj"; */
+"EgS-sZ-ugj.text" = "Testing out adding a message to a tx";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "KcQ-ip-bro"; */
+"KcQ-ip-bro.normalTitle" = "閉じる";
+
+/* Class = "UILabel"; text = "Network fee 0.00001 BSV"; ObjectID = "z9L-RY-eJZ"; */
+"z9L-RY-eJZ.text" = "Network fee 0.00001 BSV";

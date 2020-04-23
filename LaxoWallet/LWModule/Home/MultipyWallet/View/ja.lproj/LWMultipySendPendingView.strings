@@ -1,0 +1,54 @@
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "0Uy-FX-0RF"; */
+"0Uy-FX-0RF.text" = "数量";
+
+/* Class = "UILabel"; text = "02.29.2020 @ 08:18am"; ObjectID = "0Zo-0q-nsG"; */
+"0Zo-0q-nsG.text" = "02.29.2020 @ 08:18am";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "8vY-Dk-Fhh"; */
+"8vY-Dk-Fhh.text" = "時間";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "EBe-Xs-CHj"; */
+"EBe-Xs-CHj.normalTitle" = "閉じる";
+
+/* Class = "UILabel"; text = "Pending sign request"; ObjectID = "G28-dv-xYH"; */
+"G28-dv-xYH.text" = "署名依頼中";
+
+/* Class = "UILabel"; text = "username@bitmesh.com"; ObjectID = "GbA-2a-4Ax"; */
+"GbA-2a-4Ax.text" = "username@bitmesh.com";
+
+/* Class = "UILabel"; text = "UNSIGNED"; ObjectID = "MTU-5w-gKn"; */
+"MTU-5w-gKn.text" = "未署名";
+
+/* Class = "UIButton"; normalTitle = " Sign transaction"; ObjectID = "Nck-Xr-88h"; */
+"Nck-Xr-88h.normalTitle" = " Sign transaction";
+
+/* Class = "UILabel"; text = "a4****9bdfee4"; ObjectID = "SGu-tt-CpM"; */
+"SGu-tt-CpM.text" = "a4****9bdfee4";
+
+/* Class = "UILabel"; text = "This is a message txt string"; ObjectID = "Z1v-TZ-wOh"; */
+"Z1v-TZ-wOh.text" = "This is a message txt string";
+
+/* Class = "UILabel"; text = "Message"; ObjectID = "fnz-vZ-wrd"; */
+"fnz-vZ-wrd.text" = "メッセージ";
+
+/* Class = "UILabel"; text = "Awaiting you to sign"; ObjectID = "g3T-zq-I2D"; */
+"g3T-zq-I2D.text" = "本人の署名待ち";
+
+/* Class = "UILabel"; text = "- 0.08839685"; ObjectID = "gHr-Ww-qz9"; */
+"gHr-Ww-qz9.text" = "- 0.08839685";
+
+/* Class = "UILabel"; text = "- 0.06231131 BSV | -$15.22 USD"; ObjectID = "gkE-Y5-qjG"; */
+"gkE-Y5-qjG.text" = "- 0.06231131 BSV | -$15.22 USD";
+
+/* Class = "UILabel"; text = "Mar 01 2020"; ObjectID = "ifd-03-8jB"; */
+"ifd-03-8jB.text" = "Mar 01 2020";
+
+/* Class = "UILabel"; text = "BSV"; ObjectID = "lHt-Sh-XNS"; */
+"lHt-Sh-XNS.text" = "BSV";
+
+/* Class = "UILabel"; text = "Recipient"; ObjectID = "mHQ-I1-qsF"; */
+"mHQ-I1-qsF.text" = "受取人";
+
+/* Class = "UILabel"; text = "TX Link"; ObjectID = "zx3-Rv-Wq7"; */
+"zx3-Rv-Wq7.text" = "TXリンク";

@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; normalTitle = "Verify facial recognition scan"; ObjectID = "7PQ-BF-HHP"; */
+"7PQ-BF-HHP.normalTitle" = "Verify facial recognition scan";
+
+/* Class = "UILabel"; text = "Ensure your glasses do not reflect "; ObjectID = "BVq-sm-LnY"; */
+"BVq-sm-LnY.text" = "Ensure your glasses do not reflect ";
+
+/* Class = "UILabel"; text = "Step 3 of 4"; ObjectID = "JDh-oe-0Pv"; */
+"JDh-oe-0Pv.text" = "Step 3 of 4";
+
+/* Class = "UILabel"; text = "Verify your identity via a facial scan"; ObjectID = "JM6-49-YGs"; */
+"JM6-49-YGs.text" = "Verify your identity via a facial scan";
+
+/* Class = "UILabel"; text = "Ensure your face is \nnot covered "; ObjectID = "dMc-5K-tw9"; */
+"dMc-5K-tw9.text" = "Ensure your face is \nnot covered ";
+
+/* Class = "UILabel"; text = "Tips for a good facial scan"; ObjectID = "xrE-cK-m2N"; */
+"xrE-cK-m2N.text" = "Tips for a good facial scan";

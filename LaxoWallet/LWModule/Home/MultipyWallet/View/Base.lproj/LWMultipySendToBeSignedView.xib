@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
                     <rect key="frame" x="0.0" y="20" width="414" height="548"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My account One" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmO-ny-160">
-                            <rect key="frame" x="123" y="30" width="168" height="30"/>
+                            <rect key="frame" x="10" y="30" width="394" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="9TE-SY-pe5"/>
                             </constraints>
@@ -256,6 +256,8 @@
                         <constraint firstItem="tAW-LK-lOY" firstAttribute="centerY" secondItem="bLO-yw-sn3" secondAttribute="centerY" id="9bj-KE-uXF"/>
                         <constraint firstItem="Q6z-cO-kBc" firstAttribute="leading" secondItem="Dta-r2-cKf" secondAttribute="trailing" constant="2" id="AGK-JA-EVC"/>
                         <constraint firstItem="e8w-C2-zpb" firstAttribute="trailing" secondItem="VfB-Ci-u9Y" secondAttribute="trailing" id="Eex-Ba-9eY"/>
+                        <constraint firstItem="hmO-ny-160" firstAttribute="leading" secondItem="1wZ-t2-VhT" secondAttribute="leading" constant="10" id="Enu-yo-uo6"/>
+                        <constraint firstAttribute="trailing" secondItem="hmO-ny-160" secondAttribute="trailing" constant="10" id="Evc-Sr-hPC"/>
                         <constraint firstItem="Oy1-Rh-UoH" firstAttribute="centerX" secondItem="1wZ-t2-VhT" secondAttribute="centerX" id="G3z-88-bRR"/>
                         <constraint firstItem="FOI-tR-122" firstAttribute="leading" secondItem="bLO-yw-sn3" secondAttribute="trailing" constant="15" id="Gms-Ef-cgT"/>
                         <constraint firstItem="tAW-LK-lOY" firstAttribute="leading" secondItem="CXK-cw-61X" secondAttribute="trailing" constant="2" id="Go5-Q5-8u8"/>

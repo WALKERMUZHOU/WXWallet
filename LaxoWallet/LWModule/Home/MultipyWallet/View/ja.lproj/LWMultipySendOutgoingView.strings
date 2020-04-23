@@ -1,0 +1,54 @@
+
+/* Class = "UILabel"; text = "Recipient"; ObjectID = "2zN-xR-d1h"; */
+"2zN-xR-d1h.text" = "受取人";
+
+/* Class = "UILabel"; text = "username@bitmesh.com"; ObjectID = "AeJ-9Y-L9u"; */
+"AeJ-9Y-L9u.text" = "username@bitmesh.com";
+
+/* Class = "UILabel"; text = "- 0.06231131 BSV | -$15.22 USD"; ObjectID = "Afn-yS-x6V"; */
+"Afn-yS-x6V.text" = "- 0.06231131 BSV | -$15.22 USD";
+
+/* Class = "UILabel"; text = "- 0.08839685"; ObjectID = "IHe-5w-dbZ"; */
+"IHe-5w-dbZ.text" = "- 0.08839685";
+
+/* Class = "UILabel"; text = "RECALL TX?"; ObjectID = "MCu-J4-eL3"; */
+"MCu-J4-eL3.text" = "RECALL TX?";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "SC8-US-UmL"; */
+"SC8-US-UmL.text" = "時間";
+
+/* Class = "UILabel"; text = "This is a message txt string"; ObjectID = "Tz7-j6-YhR"; */
+"Tz7-j6-YhR.text" = "This is a message txt string";
+
+/* Class = "UILabel"; text = "TX Link"; ObjectID = "bNZ-i6-1dT"; */
+"bNZ-i6-1dT.text" = "TXリンク";
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "cEv-Y4-V5W"; */
+"cEv-Y4-V5W.text" = "数量";
+
+/* Class = "UILabel"; text = "Outgoing transaction"; ObjectID = "dIX-fg-3SH"; */
+"dIX-fg-3SH.text" = "送信中のトランザクション";
+
+/* Class = "UILabel"; text = "BSV"; ObjectID = "oa7-SA-3hs"; */
+"oa7-SA-3hs.text" = "BSV";
+
+/* Class = "UIButton"; normalTitle = " Recall and cancel transaction"; ObjectID = "pKO-hz-61p"; */
+"pKO-hz-61p.normalTitle" = " トランザクションのリコールとキャンセル";
+
+/* Class = "UILabel"; text = "Message"; ObjectID = "pWT-tq-xvH"; */
+"pWT-tq-xvH.text" = "メッセージ";
+
+/* Class = "UILabel"; text = "a4****9bdfee4"; ObjectID = "sI5-st-h3f"; */
+"sI5-st-h3f.text" = "a4****9bdfee4";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "t14-Kg-COj"; */
+"t14-Kg-COj.normalTitle" = "閉じる";
+
+/* Class = "UILabel"; text = "02.29.2020 @ 08:18am"; ObjectID = "tTX-7z-H2C"; */
+"tTX-7z-H2C.text" = "02.29.2020 @ 08:18am";
+
+/* Class = "UILabel"; text = "Until the first sign you can cancel this transaction"; ObjectID = "vu2-y9-H01"; */
+"vu2-y9-H01.text" = "一回目の署名までこのトランザクションはキャンセル可能です";
+
+/* Class = "UILabel"; text = "Mar 01 2020"; ObjectID = "zJ7-SR-Zv0"; */
+"zJ7-SR-Zv0.text" = "Mar 01 2020";

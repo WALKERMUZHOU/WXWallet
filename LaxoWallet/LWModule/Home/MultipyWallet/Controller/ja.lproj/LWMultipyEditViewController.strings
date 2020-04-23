@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "Account owner"; ObjectID = "0Bw-LW-IeR"; */
+"0Bw-LW-IeR.text" = "アカウント名義";
+
+/* Class = "UILabel"; text = "Key share members"; ObjectID = "Eui-Ry-VAI"; */
+"Eui-Ry-VAI.text" = "キー共有メンバー";
+
+/* Class = "UIButton"; normalTitle = " SAVE "; ObjectID = "FzI-Xe-6oK"; */
+"FzI-Xe-6oK.normalTitle" = " SAVE ";
+
+/* Class = "UIButton"; normalTitle = "Update or Add Paymail"; ObjectID = "S5N-Zl-W7r"; */
+"S5N-Zl-W7r.normalTitle" = "ペイメールの追加またはアップデート";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "TjC-B9-qDE"; */
+"TjC-B9-qDE.normalTitle" = "閉じる";
+
+/* Class = "UITextField"; text = "Bitcoin SV - BSV"; ObjectID = "YXk-uD-NRZ"; */
+"YXk-uD-NRZ.text" = "Bitcoin SV - BSV";
+
+/* Class = "UITextField"; text = "Check statuses"; ObjectID = "aVk-fY-afU"; */
+"aVk-fY-afU.text" = "設定確認";
+
+/* Class = "UITextField"; text = "username33@moneybutton.com"; ObjectID = "efb-do-uD9"; */
+"efb-do-uD9.text" = "username33@moneybutton.com";
+
+/* Class = "UILabel"; text = "2020.03.11 8:26:15am"; ObjectID = "l0e-5z-GWB"; */
+"l0e-5z-GWB.text" = "2020.03.11 8:26:15am";
+
+/* Class = "UILabel"; text = "Current balance"; ObjectID = "u4h-4Y-rwT"; */
+"u4h-4Y-rwT.text" = "現在残高";
+
+/* Class = "UILabel"; text = "5.85866299 BSV | $1382.41 USD"; ObjectID = "umw-Vv-tN9"; */
+"umw-Vv-tN9.text" = "5.85866299 BSV | $1382.41 USD";
+
+/* Class = "UILabel"; text = "Time created"; ObjectID = "wly-VC-xpF"; */
+"wly-VC-xpF.text" = "作成時刻";
+
+/* Class = "UILabel"; text = "Name of account"; ObjectID = "yzc-FF-jSS"; */
+"yzc-FF-jSS.text" = "アカウント名";

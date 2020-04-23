@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "Asb-U6-5id"; */
+"Asb-U6-5id.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "Enter your verification code"; ObjectID = "WI2-mq-Cje"; */
+"WI2-mq-Cje.text" = "Enter your verification code";
+
+/* Class = "UITextField"; placeholder = "Enter the code found in the email"; ObjectID = "jWk-8R-CfK"; */
+"jWk-8R-CfK.placeholder" = "Enter the code found in the email";
+
+/* Class = "UILabel"; text = "Step 2 of 4"; ObjectID = "qgv-PN-OSg"; */
+"qgv-PN-OSg.text" = "Step 2 of 4";
+
+/* Class = "UILabel"; text = "Email verification"; ObjectID = "xh7-yd-cN3"; */
+"xh7-yd-cN3.text" = "Email verification";

@@ -190,7 +190,7 @@
                         [self singleActionSuccess:false];
                         break;
                     case LivenessRemindCodeOcclusionRightContour:
-                        [self warningStatus:occlusionStatus warning:@"Her right cheek is shaded" conditionMeet:false];
+                        [self warningStatus:occlusionStatus warning:@"The right cheek is shaded" conditionMeet:false];
                         [self singleActionSuccess:false];
                         break;
                     case LivenessRemindCodeOcclusionChinCoutour:

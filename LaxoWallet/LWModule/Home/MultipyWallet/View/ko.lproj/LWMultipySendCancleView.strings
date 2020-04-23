@@ -1,0 +1,45 @@
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "1RP-g9-YJa"; */
+"1RP-g9-YJa.normalTitle" = "Close";
+
+/* Class = "UILabel"; text = "Mar 01 2020"; ObjectID = "3fG-Nm-ehx"; */
+"3fG-Nm-ehx.text" = "Mar 01 2020";
+
+/* Class = "UILabel"; text = "TX Link"; ObjectID = "6U9-sY-oVh"; */
+"6U9-sY-oVh.text" = "TX Link";
+
+/* Class = "UILabel"; text = "- 0.06231131 BSV | -$15.22 USD"; ObjectID = "78P-fL-GFT"; */
+"78P-fL-GFT.text" = "- 0.06231131 BSV | -$15.22 USD";
+
+/* Class = "UILabel"; text = "02.29.2020 @ 08:18am"; ObjectID = "FRs-x1-jvA"; */
+"FRs-x1-jvA.text" = "02.29.2020 @ 08:18am";
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "GgO-AW-kPC"; */
+"GgO-AW-kPC.text" = "Amount";
+
+/* Class = "UILabel"; text = "Recipient"; ObjectID = "Hf3-mN-rTb"; */
+"Hf3-mN-rTb.text" = "Recipient";
+
+/* Class = "UILabel"; text = "- 0.08839685"; ObjectID = "LQC-f9-3m8"; */
+"LQC-f9-3m8.text" = "- 0.08839685";
+
+/* Class = "UILabel"; text = "BSV"; ObjectID = "MCy-UU-652"; */
+"MCy-UU-652.text" = "BSV";
+
+/* Class = "UILabel"; text = "Transaction cancelled"; ObjectID = "MK5-Uv-ZYG"; */
+"MK5-Uv-ZYG.text" = "Transaction cancelled";
+
+/* Class = "UILabel"; text = "Message"; ObjectID = "dHY-gO-ZKf"; */
+"dHY-gO-ZKf.text" = "Message";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "kdU-qf-W1l"; */
+"kdU-qf-W1l.text" = "Time";
+
+/* Class = "UILabel"; text = "a4****9bdfee4"; ObjectID = "llb-Ly-LPN"; */
+"llb-Ly-LPN.text" = "a4****9bdfee4";
+
+/* Class = "UILabel"; text = "username@bitmesh.com"; ObjectID = "wbO-C8-FpW"; */
+"wbO-C8-FpW.text" = "username@bitmesh.com";
+
+/* Class = "UILabel"; text = "This is a message txt string"; ObjectID = "yfI-f9-BqZ"; */
+"yfI-f9-BqZ.text" = "This is a message txt string";

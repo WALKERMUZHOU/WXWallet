@@ -38,6 +38,7 @@
             flag ++;
         }
     }
+    
     self.unJoinLabel.text = [NSString stringWithFormat:@"You’re a Key Share Member along with %ld others to assist in signing transactions.",(long)flag];
     
     

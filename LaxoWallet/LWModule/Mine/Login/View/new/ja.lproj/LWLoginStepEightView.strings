@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; normalTitle = "Upload file"; ObjectID = "09v-5K-Kb5"; */
+"09v-5K-Kb5.normalTitle" = "ファイルをアップロード";
+
+/* Class = "UIButton"; normalTitle = "Scan"; ObjectID = "4Oe-If-CPu"; */
+"4Oe-If-CPu.normalTitle" = "スキャン";
+
+/* Class = "UILabel"; text = "Upload Secret QR Code"; ObjectID = "AaC-5B-fRL"; */
+"AaC-5B-fRL.text" = "暗証QRコードアップロード";
+
+/* Class = "UILabel"; text = "Scan or upload your Secret QR Code"; ObjectID = "RBK-F9-Usl"; */
+"RBK-F9-Usl.text" = "スキャンまたは暗証QRコード入力";
+
+/* Class = "UIButton"; normalTitle = "Select Trustholds to verify you instead?"; ObjectID = "XoP-PO-ObY"; */
+"XoP-PO-ObY.normalTitle" = "またはトラストホールドによる認証をしますか。";
+
+/* Class = "UILabel"; text = "Step 4 of 4"; ObjectID = "sAP-NS-vw8"; */
+"sAP-NS-vw8.text" = " ";

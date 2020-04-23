@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "Create Personal Account"; ObjectID = "6oO-xS-dfb"; */
+"6oO-xS-dfb.normalTitle" = "Create Personal Account";
+
+/* Class = "UITextField"; placeholder = "Account Name"; ObjectID = "B6z-oQ-xus"; */
+"B6z-oQ-xus.placeholder" = "Account Name";
+
+/* Class = "UILabel"; text = "Name of new personal account"; ObjectID = "GMO-Fp-taD"; */
+"GMO-Fp-taD.text" = "Name of new personal account";
+
+/* Class = "UILabel"; text = "Create a personal account"; ObjectID = "OXF-HC-gWu"; */
+"OXF-HC-gWu.text" = "Create a personal account";

@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "+usernamehandle"; ObjectID = "FDr-V2-taC"; */
+"FDr-V2-taC.text" = "+usernamehandle";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "GU7-59-Ifn"; */
+"GU7-59-Ifn.text" = "0.00";
+
+/* Class = "UILabel"; text = "Support"; ObjectID = "MBe-TH-fos"; */
+"MBe-TH-fos.text" = "Support";
+
+/* Class = "UILabel"; text = "Security"; ObjectID = "NxV-Ub-SSZ"; */
+"NxV-Ub-SSZ.text" = "Security";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "Wyu-c7-28v"; */
+"Wyu-c7-28v.text" = "0.00";
+
+/* Class = "UILabel"; text = "Preferences"; ObjectID = "gQG-EL-mlt"; */
+"gQG-EL-mlt.text" = "Preferences";
+
+/* Class = "UILabel"; text = "BSV"; ObjectID = "oRb-8V-7vq"; */
+"oRb-8V-7vq.text" = "BSV";
+
+/* Class = "UIButton"; normalTitle = "LoginOut"; ObjectID = "s21-KL-lNK"; */
+"s21-KL-lNK.normalTitle" = "LoginOut";

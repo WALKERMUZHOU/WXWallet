@@ -25,9 +25,9 @@
 		5E07FD332421F9D900FA3E1F /* LWAlertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD322421F9D900FA3E1F /* LWAlertTool.m */; };
 		5E07FD38242204DD00FA3E1F /* LWCreateMultipyWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E07FD36242204DD00FA3E1F /* LWCreateMultipyWalletViewController.m */; };
 		5E0FE6962408E72D00733B05 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE6952408E72D00733B05 /* index.js */; };
+		5E13A7352451829500B9C2B1 /* LWPersonalCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E13A7342451829500B9C2B1 /* LWPersonalCollectionViewController.m */; };
 		5E23584823FBE09D00A7D774 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5E23584423FBE09C00A7D774 /* index.html */; };
 		5E23584E23FD0D0600A7D774 /* LWutxoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E23584D23FD0D0600A7D774 /* LWutxoModel.m */; };
-		5E23585A2403CBAE00A7D774 /* LWPersonalCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2358582403CBAE00A7D774 /* LWPersonalCollectionViewController.m */; };
 		5E23585E2403F3C700A7D774 /* LWMineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E23585D2403F3C700A7D774 /* LWMineView.m */; };
 		5E2358622403F3E400A7D774 /* LWMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2358602403F3E400A7D774 /* LWMineTableViewCell.m */; };
 		5E2358632403F3E400A7D774 /* LWMineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E2358612403F3E400A7D774 /* LWMineTableViewCell.xib */; };
@@ -300,7 +300,6 @@
 		5EE6902B244D6EE900D7243A /* LWLoginLearnMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE6902D244D6EE900D7243A /* LWLoginLearnMoreView.xib */; };
 		5EE69038244D828900D7243A /* LWStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE6903A244D828900D7243A /* LWStartViewController.xib */; };
 		5EE6903F244D833400D7243A /* LWHomeAddWalletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69041244D833400D7243A /* LWHomeAddWalletView.xib */; };
-		5EE69046244D841600D7243A /* LWPersonalCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69048244D841600D7243A /* LWPersonalCollectionViewController.xib */; };
 		5EE69049244D843E00D7243A /* LWCreatePersonalWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE6904B244D843E00D7243A /* LWCreatePersonalWalletViewController.xib */; };
 		5EE69050244D84A800D7243A /* LWCreateMultipyWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE69052244D84A800D7243A /* LWCreateMultipyWalletViewController.xib */; };
 		5EE6905F244D8D1200D7243A /* LWHomeListHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE6905E244D8D1100D7243A /* LWHomeListHeadView.xib */; };
@@ -425,11 +424,11 @@
 		5E07FD35242204DD00FA3E1F /* LWCreateMultipyWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWCreateMultipyWalletViewController.h; sourceTree = "<group>"; };
 		5E07FD36242204DD00FA3E1F /* LWCreateMultipyWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWCreateMultipyWalletViewController.m; sourceTree = "<group>"; };
 		5E0FE6952408E72D00733B05 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		5E13A7332451829500B9C2B1 /* LWPersonalCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonalCollectionViewController.h; sourceTree = "<group>"; };
+		5E13A7342451829500B9C2B1 /* LWPersonalCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonalCollectionViewController.m; sourceTree = "<group>"; };
 		5E23584423FBE09C00A7D774 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		5E23584C23FD0D0600A7D774 /* LWutxoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWutxoModel.h; sourceTree = "<group>"; };
 		5E23584D23FD0D0600A7D774 /* LWutxoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWutxoModel.m; sourceTree = "<group>"; };
-		5E2358572403CBAE00A7D774 /* LWPersonalCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWPersonalCollectionViewController.h; sourceTree = "<group>"; };
-		5E2358582403CBAE00A7D774 /* LWPersonalCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWPersonalCollectionViewController.m; sourceTree = "<group>"; };
 		5E23585C2403F3C700A7D774 /* LWMineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMineView.h; sourceTree = "<group>"; };
 		5E23585D2403F3C700A7D774 /* LWMineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWMineView.m; sourceTree = "<group>"; };
 		5E23585F2403F3E400A7D774 /* LWMineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWMineTableViewCell.h; sourceTree = "<group>"; };
@@ -795,6 +794,88 @@
 		5E8BDB8D244FD83800BDDAAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWMultipyBeInvitedViewController.xib; sourceTree = "<group>"; };
 		5E8BDB90244FD84000BDDAAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWMultipyBeInvitedViewController.strings; sourceTree = "<group>"; };
 		5E8BDB92244FD84400BDDAAA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWMultipyBeInvitedViewController.strings"; sourceTree = "<group>"; };
+		5E8BDB932450397E00BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWSendAddressViewController.strings; sourceTree = "<group>"; };
+		5E8BDB942450397F00BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWSendAmountViewController.strings; sourceTree = "<group>"; };
+		5E8BDB952450397F00BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWSendCheckViewController.strings; sourceTree = "<group>"; };
+		5E8BDB962450398000BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWMultipyWalletDetailViewController.strings; sourceTree = "<group>"; };
+		5E8BDB972450398000BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWMultipyBeInvitedViewController.strings; sourceTree = "<group>"; };
+		5E8BDB982450398100BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWMultipyEditViewController.strings; sourceTree = "<group>"; };
+		5E8BDB992450398100BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWMultipySendToBeSignedView.strings; sourceTree = "<group>"; };
+		5E8BDB9A2450398200BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWMultipySendOutgoingView.strings; sourceTree = "<group>"; };
+		5E8BDB9B2450398200BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWMultipySendPendingView.strings; sourceTree = "<group>"; };
+		5E8BDB9C2450398300BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWMultipySendCancleView.strings; sourceTree = "<group>"; };
+		5E8BDB9D2450398300BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWSendViewAlertView.strings; sourceTree = "<group>"; };
+		5E8BDB9E2450398400BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWReceivedViewAlertView.strings; sourceTree = "<group>"; };
+		5E8BDB9F2450398400BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWPersonalWalletEditViewController.strings; sourceTree = "<group>"; };
+		5E8BDBA02450398400BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWPersonalWalletDetailViewController.strings; sourceTree = "<group>"; };
+		5E8BDBA12450398500BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWPersonalpaySuccessViewController.strings; sourceTree = "<group>"; };
+		5E8BDBA22450398500BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWCreatePersonalWalletViewController.strings; sourceTree = "<group>"; };
+		5E8BDBA32450398500BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWPersonalSendView.strings; sourceTree = "<group>"; };
+		5E8BDBA42450398500BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWPersoanlReceiveView.strings; sourceTree = "<group>"; };
+		5E8BDBA52450398600BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWCreateMultipyWalletViewController.strings; sourceTree = "<group>"; };
+		5E8BDBA72450398600BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWHomeAddWalletView.strings; sourceTree = "<group>"; };
+		5E8BDBA82450398700BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWHomeListCell.strings; sourceTree = "<group>"; };
+		5E8BDBA92450398700BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWPayMailViewController.strings; sourceTree = "<group>"; };
+		5E8BDBAA2450398700BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWPCLoginTipView.strings; sourceTree = "<group>"; };
+		5E8BDBAB2450398700BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWStartViewController.strings; sourceTree = "<group>"; };
+		5E8BDBAC2450398700BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWLoginStepOneView.strings; sourceTree = "<group>"; };
+		5E8BDBAD2450398800BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWLoginStepTwoView.strings; sourceTree = "<group>"; };
+		5E8BDBAE2450398800BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWLoginStepThreeView.strings; sourceTree = "<group>"; };
+		5E8BDBAF2450398800BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWLoginStepFourView.strings; sourceTree = "<group>"; };
+		5E8BDBB02450398800BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWLoginStepFiveView.strings; sourceTree = "<group>"; };
+		5E8BDBB12450398900BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWLoginStepFiveViewOne.strings; sourceTree = "<group>"; };
+		5E8BDBB22450398900BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWLoginStepSixView.strings; sourceTree = "<group>"; };
+		5E8BDBB32450398900BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWLoginStepSevenView.strings; sourceTree = "<group>"; };
+		5E8BDBB42450398900BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWLoginStepEightView.strings; sourceTree = "<group>"; };
+		5E8BDBB52450398A00BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWLoginStepSuccessView.strings; sourceTree = "<group>"; };
+		5E8BDBB62450398A00BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWLoginLearnMoreView.strings; sourceTree = "<group>"; };
+		5E8BDBB72450398A00BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWMineViewController.strings; sourceTree = "<group>"; };
+		5E8BDBB82450398B00BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWMineSecurityViewController.strings; sourceTree = "<group>"; };
+		5E8BDBB92450398B00BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LWMinePreferencesViewController.strings; sourceTree = "<group>"; };
+		5E8BDBBA2450398B00BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		5E8BDBBB2450398C00BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5E8BDBBC2450398C00BDDAAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5E8BDBBD245054AC00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWSendAddressViewController.strings; sourceTree = "<group>"; };
+		5E8BDBBE245054AC00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWSendAmountViewController.strings; sourceTree = "<group>"; };
+		5E8BDBBF245054AD00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWSendCheckViewController.strings; sourceTree = "<group>"; };
+		5E8BDBC0245054AD00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWMultipyWalletDetailViewController.strings; sourceTree = "<group>"; };
+		5E8BDBC1245054AD00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWMultipyBeInvitedViewController.strings; sourceTree = "<group>"; };
+		5E8BDBC2245054AE00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWMultipyEditViewController.strings; sourceTree = "<group>"; };
+		5E8BDBC3245054AE00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWMultipySendToBeSignedView.strings; sourceTree = "<group>"; };
+		5E8BDBC4245054AF00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWMultipySendOutgoingView.strings; sourceTree = "<group>"; };
+		5E8BDBC5245054B000BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWMultipySendPendingView.strings; sourceTree = "<group>"; };
+		5E8BDBC6245054B100BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWMultipySendCancleView.strings; sourceTree = "<group>"; };
+		5E8BDBC7245054B100BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWSendViewAlertView.strings; sourceTree = "<group>"; };
+		5E8BDBC8245054B300BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWReceivedViewAlertView.strings; sourceTree = "<group>"; };
+		5E8BDBC9245054B300BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWPersonalWalletEditViewController.strings; sourceTree = "<group>"; };
+		5E8BDBCA245054B400BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWPersonalWalletDetailViewController.strings; sourceTree = "<group>"; };
+		5E8BDBCB245054B500BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWPersonalpaySuccessViewController.strings; sourceTree = "<group>"; };
+		5E8BDBCC245054B500BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWCreatePersonalWalletViewController.strings; sourceTree = "<group>"; };
+		5E8BDBCD245054B500BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWPersonalSendView.strings; sourceTree = "<group>"; };
+		5E8BDBCE245054B600BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWPersoanlReceiveView.strings; sourceTree = "<group>"; };
+		5E8BDBCF245054B600BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWCreateMultipyWalletViewController.strings; sourceTree = "<group>"; };
+		5E8BDBD1245054B700BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWHomeAddWalletView.strings; sourceTree = "<group>"; };
+		5E8BDBD2245054B700BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWHomeListCell.strings; sourceTree = "<group>"; };
+		5E8BDBD3245054B800BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWPayMailViewController.strings; sourceTree = "<group>"; };
+		5E8BDBD4245054B800BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWPCLoginTipView.strings; sourceTree = "<group>"; };
+		5E8BDBD5245054B800BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWStartViewController.strings; sourceTree = "<group>"; };
+		5E8BDBD6245054B900BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWLoginStepOneView.strings; sourceTree = "<group>"; };
+		5E8BDBD7245054B900BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWLoginStepTwoView.strings; sourceTree = "<group>"; };
+		5E8BDBD8245054B900BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWLoginStepThreeView.strings; sourceTree = "<group>"; };
+		5E8BDBD9245054B900BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWLoginStepFourView.strings; sourceTree = "<group>"; };
+		5E8BDBDA245054BA00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWLoginStepFiveView.strings; sourceTree = "<group>"; };
+		5E8BDBDB245054BA00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWLoginStepFiveViewOne.strings; sourceTree = "<group>"; };
+		5E8BDBDC245054BA00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWLoginStepSixView.strings; sourceTree = "<group>"; };
+		5E8BDBDD245054BB00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWLoginStepSevenView.strings; sourceTree = "<group>"; };
+		5E8BDBDE245054BB00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWLoginStepEightView.strings; sourceTree = "<group>"; };
+		5E8BDBDF245054BB00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWLoginStepSuccessView.strings; sourceTree = "<group>"; };
+		5E8BDBE0245054BC00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWLoginLearnMoreView.strings; sourceTree = "<group>"; };
+		5E8BDBE1245054BC00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWMineViewController.strings; sourceTree = "<group>"; };
+		5E8BDBE2245054BC00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWMineSecurityViewController.strings; sourceTree = "<group>"; };
+		5E8BDBE3245054BD00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LWMinePreferencesViewController.strings; sourceTree = "<group>"; };
+		5E8BDBE4245054BD00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		5E8BDBE5245054BD00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5E8BDBE6245054BD00BDDAAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5E9172B8241528B700D47A9F /* CBSecp256k1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSecp256k1.m; sourceTree = "<group>"; };
 		5E9172B9241528B700D47A9F /* NSData+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+HexString.m"; sourceTree = "<group>"; };
 		5E9172BA241528B700D47A9F /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = secp256k1.framework; sourceTree = "<group>"; };
@@ -961,7 +1042,6 @@
 		5EE69040244D833400D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWHomeAddWalletView.xib; sourceTree = "<group>"; };
 		5EE69043244D833D00D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWHomeAddWalletView.strings; sourceTree = "<group>"; };
 		5EE69045244D834100D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWHomeAddWalletView.strings"; sourceTree = "<group>"; };
-		5EE69047244D841600D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWPersonalCollectionViewController.xib; sourceTree = "<group>"; };
 		5EE6904A244D843E00D7243A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LWCreatePersonalWalletViewController.xib; sourceTree = "<group>"; };
 		5EE6904D244D844900D7243A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LWCreatePersonalWalletViewController.strings; sourceTree = "<group>"; };
 		5EE6904F244D844D00D7243A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LWCreatePersonalWalletViewController.strings"; sourceTree = "<group>"; };
@@ -1998,14 +2078,13 @@
 		5E66A37923EAEBD8004097CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5E13A7332451829500B9C2B1 /* LWPersonalCollectionViewController.h */,
+				5E13A7342451829500B9C2B1 /* LWPersonalCollectionViewController.m */,
 				5E07FD342422049A00FA3E1F /* new */,
 				5E66A37B23EAEBD8004097CB /* LWHomeViewController.h */,
 				5E66A37A23EAEBD8004097CB /* LWHomeViewController.m */,
 				5EF5137323F273DB00F5B6C1 /* LWTestWebView.h */,
 				5EF5137423F273DB00F5B6C1 /* LWTestWebView.m */,
-				5E2358572403CBAE00A7D774 /* LWPersonalCollectionViewController.h */,
-				5E2358582403CBAE00A7D774 /* LWPersonalCollectionViewController.m */,
-				5EE69048244D841600D7243A /* LWPersonalCollectionViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3004,6 +3083,8 @@
 				en,
 				Base,
 				"zh-Hans",
+				ja,
+				ko,
 			);
 			mainGroup = 5EA8078C23E94E2100012837;
 			productRefGroup = 5EA8079623E94E2100012837 /* Products */;
@@ -3093,7 +3174,6 @@
 				5EE690D7244EC44B00D7243A /* LWMineViewController.xib in Resources */,
 				5E5F129A23EC0E12002F0711 /* WMZDialog.bundle in Resources */,
 				5EE68FF3244D4FF200D7243A /* LWLoginStepThreeView.xib in Resources */,
-				5EE69046244D841600D7243A /* LWPersonalCollectionViewController.xib in Resources */,
 				5E7E092A2428D03500C75C0F /* LWAssetInheritanceViewController.xib in Resources */,
 				5EE690E5244EC5DB00D7243A /* LWMinePreferencesViewController.xib in Resources */,
 				5E9172D324162A7300D47A9F /* LWHomeListCell.xib in Resources */,
@@ -3301,7 +3381,6 @@
 				5E7E09292428D03500C75C0F /* LWAssetInheritanceViewController.m in Sources */,
 				5E7BACCB242D0E5E00901EA5 /* ZZRModel.m in Sources */,
 				5EB31EA62405182800974FD4 /* LWMessageTableViewCell.m in Sources */,
-				5E23585A2403CBAE00A7D774 /* LWPersonalCollectionViewController.m in Sources */,
 				5E062F4724443DF2009B286E /* LWSendCheckViewController.m in Sources */,
 				5EF5132623EFE41E00F5B6C1 /* FLSocketManager.m in Sources */,
 				5E5F129B23EC0E12002F0711 /* WMZDialog+PickView.m in Sources */,
@@ -3360,6 +3439,7 @@
 				5EB31EC0240648AD00974FD4 /* LWMessageDeleteTableViewCell.m in Sources */,
 				5E3160F624271586005CA564 /* LWPayMailViewController.m in Sources */,
 				5E317A7D241E55F700C951B2 /* LWLoginController.m in Sources */,
+				5E13A7352451829500B9C2B1 /* LWPersonalCollectionViewController.m in Sources */,
 				5E062EC8243DA409009B286E /* LWPCLoginViewController.m in Sources */,
 				5E5F129623EC0E12002F0711 /* CalanderModel.m in Sources */,
 				5E91736024163DEB00D47A9F /* CircleView.m in Sources */,
@@ -3479,6 +3559,8 @@
 				5E8BDB8D244FD83800BDDAAA /* Base */,
 				5E8BDB90244FD84000BDDAAA /* en */,
 				5E8BDB92244FD84400BDDAAA /* zh-Hans */,
+				5E8BDB972450398000BDDAAA /* ja */,
+				5E8BDBC1245054AD00BDDAAA /* ko */,
 			);
 			name = LWMultipyBeInvitedViewController.xib;
 			sourceTree = "<group>";
@@ -3488,6 +3570,8 @@
 			children = (
 				5E9172C72416227D00D47A9F /* en */,
 				5E9172C92416228F00D47A9F /* zh-Hans */,
+				5E8BDBBC2450398C00BDDAAA /* ja */,
+				5E8BDBE6245054BD00BDDAAA /* ko */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -3497,6 +3581,8 @@
 			children = (
 				5E9172D424162A7300D47A9F /* Base */,
 				5E9172D724162A7B00D47A9F /* zh-Hans */,
+				5E8BDBA82450398700BDDAAA /* ja */,
+				5E8BDBD2245054B700BDDAAA /* ko */,
 			);
 			name = LWHomeListCell.xib;
 			sourceTree = "<group>";
@@ -3506,6 +3592,8 @@
 			children = (
 				5EA807A223E94E2100012837 /* Base */,
 				5E9172C0241621E700D47A9F /* zh-Hans */,
+				5E8BDBBA2450398B00BDDAAA /* ja */,
+				5E8BDBE4245054BD00BDDAAA /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -3515,6 +3603,8 @@
 			children = (
 				5EA807A723E94E2400012837 /* Base */,
 				5E9172C1241621E700D47A9F /* zh-Hans */,
+				5E8BDBBB2450398C00BDDAAA /* ja */,
+				5E8BDBE5245054BD00BDDAAA /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -3525,6 +3615,8 @@
 				5EE68FE7244D4CD200D7243A /* Base */,
 				5EE68FE9244D4D2000D7243A /* en */,
 				5EE68FEB244D4D2D00D7243A /* zh-Hans */,
+				5E8BDBAC2450398700BDDAAA /* ja */,
+				5E8BDBD6245054B900BDDAAA /* ko */,
 			);
 			name = LWLoginStepOneView.xib;
 			sourceTree = "<group>";
@@ -3535,6 +3627,8 @@
 				5EE68FED244D4EE500D7243A /* Base */,
 				5EE68FF0244D4EF300D7243A /* en */,
 				5EE68FF2244D4EF800D7243A /* zh-Hans */,
+				5E8BDBAD2450398800BDDAAA /* ja */,
+				5E8BDBD7245054B900BDDAAA /* ko */,
 			);
 			name = LWLoginStepTwoView.xib;
 			sourceTree = "<group>";
@@ -3545,6 +3639,8 @@
 				5EE68FF4244D4FF200D7243A /* Base */,
 				5EE68FF7244D4FFF00D7243A /* en */,
 				5EE68FF9244D500400D7243A /* zh-Hans */,
+				5E8BDBAE2450398800BDDAAA /* ja */,
+				5E8BDBD8245054B900BDDAAA /* ko */,
 			);
 			name = LWLoginStepThreeView.xib;
 			sourceTree = "<group>";
@@ -3555,6 +3651,8 @@
 				5EE68FFB244D509800D7243A /* Base */,
 				5EE68FFE244D50A200D7243A /* en */,
 				5EE69000244D50A900D7243A /* zh-Hans */,
+				5E8BDBAF2450398800BDDAAA /* ja */,
+				5E8BDBD9245054B900BDDAAA /* ko */,
 			);
 			name = LWLoginStepFourView.xib;
 			sourceTree = "<group>";
@@ -3565,6 +3663,8 @@
 				5EE69002244D52C700D7243A /* Base */,
 				5EE69005244D52D700D7243A /* en */,
 				5EE69007244D52DA00D7243A /* zh-Hans */,
+				5E8BDBB02450398800BDDAAA /* ja */,
+				5E8BDBDA245054BA00BDDAAA /* ko */,
 			);
 			name = LWLoginStepFiveView.xib;
 			sourceTree = "<group>";
@@ -3575,6 +3675,8 @@
 				5EE69034244D7D6E00D7243A /* Base */,
 				5EE69036244D7D7D00D7243A /* en */,
 				5EE690FD244EE75D00D7243A /* zh-Hans */,
+				5E8BDBB12450398900BDDAAA /* ja */,
+				5E8BDBDB245054BA00BDDAAA /* ko */,
 			);
 			name = LWLoginStepFiveViewOne.xib;
 			sourceTree = "<group>";
@@ -3585,6 +3687,8 @@
 				5EE69010244D551E00D7243A /* Base */,
 				5EE69013244D552600D7243A /* en */,
 				5EE69015244D552A00D7243A /* zh-Hans */,
+				5E8BDBB22450398900BDDAAA /* ja */,
+				5E8BDBDC245054BA00BDDAAA /* ko */,
 			);
 			name = LWLoginStepSixView.xib;
 			sourceTree = "<group>";
@@ -3595,6 +3699,8 @@
 				5EE69017244D554A00D7243A /* Base */,
 				5EE6901A244D555100D7243A /* en */,
 				5EE6901C244D555600D7243A /* zh-Hans */,
+				5E8BDBB32450398900BDDAAA /* ja */,
+				5E8BDBDD245054BB00BDDAAA /* ko */,
 			);
 			name = LWLoginStepSevenView.xib;
 			sourceTree = "<group>";
@@ -3605,6 +3711,8 @@
 				5EE6901E244D55B700D7243A /* Base */,
 				5EE69021244D55C100D7243A /* en */,
 				5EE69023244D55C300D7243A /* zh-Hans */,
+				5E8BDBB42450398900BDDAAA /* ja */,
+				5E8BDBDE245054BB00BDDAAA /* ko */,
 			);
 			name = LWLoginStepEightView.xib;
 			sourceTree = "<group>";
@@ -3615,6 +3723,8 @@
 				5EE69025244D560500D7243A /* Base */,
 				5EE69028244D560C00D7243A /* en */,
 				5EE6902A244D560F00D7243A /* zh-Hans */,
+				5E8BDBB52450398A00BDDAAA /* ja */,
+				5E8BDBDF245054BB00BDDAAA /* ko */,
 			);
 			name = LWLoginStepSuccessView.xib;
 			sourceTree = "<group>";
@@ -3625,6 +3735,8 @@
 				5EE6902C244D6EE900D7243A /* Base */,
 				5EE6902F244D6EED00D7243A /* en */,
 				5EE69031244D6EF100D7243A /* zh-Hans */,
+				5E8BDBB62450398A00BDDAAA /* ja */,
+				5E8BDBE0245054BC00BDDAAA /* ko */,
 			);
 			name = LWLoginLearnMoreView.xib;
 			sourceTree = "<group>";
@@ -3635,6 +3747,8 @@
 				5EE69039244D828900D7243A /* Base */,
 				5EE6903C244D828D00D7243A /* en */,
 				5EE6903E244D829100D7243A /* zh-Hans */,
+				5E8BDBAB2450398700BDDAAA /* ja */,
+				5E8BDBD5245054B800BDDAAA /* ko */,
 			);
 			name = LWStartViewController.xib;
 			sourceTree = "<group>";
@@ -3645,16 +3759,10 @@
 				5EE69040244D833400D7243A /* Base */,
 				5EE69043244D833D00D7243A /* en */,
 				5EE69045244D834100D7243A /* zh-Hans */,
+				5E8BDBA72450398600BDDAAA /* ja */,
+				5E8BDBD1245054B700BDDAAA /* ko */,
 			);
 			name = LWHomeAddWalletView.xib;
-			sourceTree = "<group>";
-		};
-		5EE69048244D841600D7243A /* LWPersonalCollectionViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5EE69047244D841600D7243A /* Base */,
-			);
-			name = LWPersonalCollectionViewController.xib;
 			sourceTree = "<group>";
 		};
 		5EE6904B244D843E00D7243A /* LWCreatePersonalWalletViewController.xib */ = {
@@ -3663,6 +3771,8 @@
 				5EE6904A244D843E00D7243A /* Base */,
 				5EE6904D244D844900D7243A /* en */,
 				5EE6904F244D844D00D7243A /* zh-Hans */,
+				5E8BDBA22450398500BDDAAA /* ja */,
+				5E8BDBCC245054B500BDDAAA /* ko */,
 			);
 			name = LWCreatePersonalWalletViewController.xib;
 			sourceTree = "<group>";
@@ -3673,6 +3783,8 @@
 				5EE69051244D84A800D7243A /* Base */,
 				5EE69054244D84B400D7243A /* en */,
 				5EE69056244D84B800D7243A /* zh-Hans */,
+				5E8BDBA52450398600BDDAAA /* ja */,
+				5E8BDBCF245054B600BDDAAA /* ko */,
 			);
 			name = LWCreateMultipyWalletViewController.xib;
 			sourceTree = "<group>";
@@ -3683,6 +3795,8 @@
 				5EE69061244D983300D7243A /* Base */,
 				5EE69064244D983800D7243A /* en */,
 				5EE69066244D983B00D7243A /* zh-Hans */,
+				5E8BDBA02450398400BDDAAA /* ja */,
+				5E8BDBCA245054B400BDDAAA /* ko */,
 			);
 			name = LWPersonalWalletDetailViewController.xib;
 			sourceTree = "<group>";
@@ -3693,6 +3807,8 @@
 				5EE69068244D9BD400D7243A /* Base */,
 				5EE6906B244D9BDE00D7243A /* en */,
 				5EE6906D244D9BE700D7243A /* zh-Hans */,
+				5E8BDBA42450398500BDDAAA /* ja */,
+				5E8BDBCE245054B600BDDAAA /* ko */,
 			);
 			name = LWPersoanlReceiveView.xib;
 			sourceTree = "<group>";
@@ -3703,6 +3819,8 @@
 				5EE6906F244D9CF500D7243A /* Base */,
 				5EE69072244D9CFF00D7243A /* en */,
 				5EE69074244D9D0300D7243A /* zh-Hans */,
+				5E8BDB932450397E00BDDAAA /* ja */,
+				5E8BDBBD245054AC00BDDAAA /* ko */,
 			);
 			name = LWSendAddressViewController.xib;
 			sourceTree = "<group>";
@@ -3713,6 +3831,8 @@
 				5EE69076244D9FB900D7243A /* Base */,
 				5EE69079244D9FC500D7243A /* en */,
 				5EE6907B244D9FCA00D7243A /* zh-Hans */,
+				5E8BDB942450397F00BDDAAA /* ja */,
+				5E8BDBBE245054AC00BDDAAA /* ko */,
 			);
 			name = LWSendAmountViewController.xib;
 			sourceTree = "<group>";
@@ -3723,6 +3843,8 @@
 				5EE6907D244DA11400D7243A /* Base */,
 				5EE69080244DA11800D7243A /* en */,
 				5EE69082244DA11E00D7243A /* zh-Hans */,
+				5E8BDB952450397F00BDDAAA /* ja */,
+				5E8BDBBF245054AD00BDDAAA /* ko */,
 			);
 			name = LWSendCheckViewController.xib;
 			sourceTree = "<group>";
@@ -3733,6 +3855,8 @@
 				5EE69084244DAA4000D7243A /* Base */,
 				5EE69087244DAA5500D7243A /* en */,
 				5EE69089244DAA5900D7243A /* zh-Hans */,
+				5E8BDBA12450398500BDDAAA /* ja */,
+				5E8BDBCB245054B500BDDAAA /* ko */,
 			);
 			name = LWPersonalpaySuccessViewController.xib;
 			sourceTree = "<group>";
@@ -3743,6 +3867,8 @@
 				5EE6908B244DB1C100D7243A /* Base */,
 				5EE6908E244DB1C700D7243A /* en */,
 				5EE69090244DB1CA00D7243A /* zh-Hans */,
+				5E8BDBA32450398500BDDAAA /* ja */,
+				5E8BDBCD245054B500BDDAAA /* ko */,
 			);
 			name = LWPersonalSendView.xib;
 			sourceTree = "<group>";
@@ -3753,6 +3879,8 @@
 				5EE69092244E91C100D7243A /* Base */,
 				5EE69095244E91CF00D7243A /* en */,
 				5EE69097244E91D300D7243A /* zh-Hans */,
+				5E8BDB962450398000BDDAAA /* ja */,
+				5E8BDBC0245054AD00BDDAAA /* ko */,
 			);
 			name = LWMultipyWalletDetailViewController.xib;
 			sourceTree = "<group>";
@@ -3763,6 +3891,8 @@
 				5EE69099244E92F600D7243A /* Base */,
 				5EE6909C244E930300D7243A /* en */,
 				5EE6909E244E930500D7243A /* zh-Hans */,
+				5E8BDB9D2450398300BDDAAA /* ja */,
+				5E8BDBC7245054B100BDDAAA /* ko */,
 			);
 			name = LWSendViewAlertView.xib;
 			sourceTree = "<group>";
@@ -3773,6 +3903,8 @@
 				5EE690A0244E95CB00D7243A /* Base */,
 				5EE690A3244E95D400D7243A /* en */,
 				5EE690A5244E95D700D7243A /* zh-Hans */,
+				5E8BDB9E2450398400BDDAAA /* ja */,
+				5E8BDBC8245054B300BDDAAA /* ko */,
 			);
 			name = LWReceivedViewAlertView.xib;
 			sourceTree = "<group>";
@@ -3783,6 +3915,8 @@
 				5EE690A7244E963200D7243A /* Base */,
 				5EE690AA244E964300D7243A /* en */,
 				5EE690AC244E964600D7243A /* zh-Hans */,
+				5E8BDB9C2450398300BDDAAA /* ja */,
+				5E8BDBC6245054B100BDDAAA /* ko */,
 			);
 			name = LWMultipySendCancleView.xib;
 			sourceTree = "<group>";
@@ -3793,6 +3927,8 @@
 				5EE690AE244E967400D7243A /* Base */,
 				5EE690B1244E967C00D7243A /* en */,
 				5EE690B3244E968000D7243A /* zh-Hans */,
+				5E8BDB9B2450398200BDDAAA /* ja */,
+				5E8BDBC5245054B000BDDAAA /* ko */,
 			);
 			name = LWMultipySendPendingView.xib;
 			sourceTree = "<group>";
@@ -3803,6 +3939,8 @@
 				5EE690B5244E973300D7243A /* Base */,
 				5EE690B8244E973D00D7243A /* en */,
 				5EE690BD244E974800D7243A /* zh-Hans */,
+				5E8BDB9A2450398200BDDAAA /* ja */,
+				5E8BDBC4245054AF00BDDAAA /* ko */,
 			);
 			name = LWMultipySendOutgoingView.xib;
 			sourceTree = "<group>";
@@ -3813,6 +3951,8 @@
 				5EE690BA244E973F00D7243A /* Base */,
 				5EE690BF244E974E00D7243A /* en */,
 				5EE690C1244E97F100D7243A /* zh-Hans */,
+				5E8BDB992450398100BDDAAA /* ja */,
+				5E8BDBC3245054AE00BDDAAA /* ko */,
 			);
 			name = LWMultipySendToBeSignedView.xib;
 			sourceTree = "<group>";
@@ -3823,6 +3963,8 @@
 				5EE690C3244E9AFA00D7243A /* Base */,
 				5EE690C6244E9B0600D7243A /* en */,
 				5EE690C8244E9B0900D7243A /* zh-Hans */,
+				5E8BDB9F2450398400BDDAAA /* ja */,
+				5E8BDBC9245054B300BDDAAA /* ko */,
 			);
 			name = LWPersonalWalletEditViewController.xib;
 			sourceTree = "<group>";
@@ -3833,6 +3975,8 @@
 				5EE690CA244E9C9000D7243A /* Base */,
 				5EE690CD244E9C9700D7243A /* en */,
 				5EE690CF244E9C9900D7243A /* zh-Hans */,
+				5E8BDB982450398100BDDAAA /* ja */,
+				5E8BDBC2245054AE00BDDAAA /* ko */,
 			);
 			name = LWMultipyEditViewController.xib;
 			sourceTree = "<group>";
@@ -3843,6 +3987,8 @@
 				5EE690D1244E9E3C00D7243A /* Base */,
 				5EE690D4244E9E4600D7243A /* en */,
 				5EE690D6244E9E4A00D7243A /* zh-Hans */,
+				5E8BDBA92450398700BDDAAA /* ja */,
+				5E8BDBD3245054B800BDDAAA /* ko */,
 			);
 			name = LWPayMailViewController.xib;
 			sourceTree = "<group>";
@@ -3853,6 +3999,8 @@
 				5EE690D8244EC44B00D7243A /* Base */,
 				5EE690DB244EC45500D7243A /* en */,
 				5EE690DD244EC45900D7243A /* zh-Hans */,
+				5E8BDBB72450398A00BDDAAA /* ja */,
+				5E8BDBE1245054BC00BDDAAA /* ko */,
 			);
 			name = LWMineViewController.xib;
 			sourceTree = "<group>";
@@ -3863,6 +4011,8 @@
 				5EE690DF244EC55A00D7243A /* Base */,
 				5EE690EF244EC8F000D7243A /* en */,
 				5EE690F0244EC8F400D7243A /* zh-Hans */,
+				5E8BDBB82450398B00BDDAAA /* ja */,
+				5E8BDBE2245054BC00BDDAAA /* ko */,
 			);
 			name = LWMineSecurityViewController.xib;
 			sourceTree = "<group>";
@@ -3873,6 +4023,8 @@
 				5EE690E6244EC5DB00D7243A /* Base */,
 				5EE690E9244EC5E600D7243A /* en */,
 				5EE690EB244EC5EF00D7243A /* zh-Hans */,
+				5E8BDBB92450398B00BDDAAA /* ja */,
+				5E8BDBE3245054BD00BDDAAA /* ko */,
 			);
 			name = LWMinePreferencesViewController.xib;
 			sourceTree = "<group>";
@@ -3883,6 +4035,8 @@
 				5EE690F2244ECAF900D7243A /* Base */,
 				5EE690F5244ECB0100D7243A /* en */,
 				5EE690F7244ECB0500D7243A /* zh-Hans */,
+				5E8BDBAA2450398700BDDAAA /* ja */,
+				5E8BDBD4245054B800BDDAAA /* ko */,
 			);
 			name = LWPCLoginTipView.xib;
 			sourceTree = "<group>";
@@ -4009,7 +4163,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LaxoWallet/LaxoWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4033,7 +4187,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laxoWallet;
 				PRODUCT_NAME = Volt;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -4048,7 +4202,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LaxoWallet/LaxoWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = AUCKBFC93H;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4072,7 +4226,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laxoWallet;
 				PRODUCT_NAME = Volt;
 				TARGETED_DEVICE_FAMILY = 1;

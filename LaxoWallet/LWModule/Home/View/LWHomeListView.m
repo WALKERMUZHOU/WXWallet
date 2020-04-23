@@ -11,7 +11,7 @@
 #import "LWHomeListCoordinator.h"
 #import "LWHomeWalletModel.h"
 
-#import "LWPersonalCollectionViewController.h"
+//#import "LWPersonalCollectionViewController.h"
 #import "LWMessageDetailViewController.h"
 #import "LWMultipyOtherNotJoinViewController.h"
 
@@ -229,64 +229,64 @@
 
 - (void)collection:(NSInteger)index{
 
-    if(self.currentViewType == LWHomeListViewTypePersonalWallet){
-        
-        LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
-        NSString *address = [model.deposit objectForKey:@"address"];
-#warning sign-code
-//        LWSignTool *signtool = [LWSignTool shareInstance];
-//        [signtool setWithAddress:address];
-//        return;
-        if (address && address.length >0) {
-            LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
-            [LogicHandle presentViewController:personVC animate:YES];
-        }else{
-            [self getQrCodeWithIndex:index];
-        }
-    }else{
-        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self getMulityQrCodeWithIndex:index];
-        });
-
-    }
+//    if(self.currentViewType == LWHomeListViewTypePersonalWallet){
+//
+//        LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
+//        NSString *address = [model.deposit objectForKey:@"address"];
+//#warning sign-code
+////        LWSignTool *signtool = [LWSignTool shareInstance];
+////        [signtool setWithAddress:address];
+////        return;
+//        if (address && address.length >0) {
+//            LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
+//            [LogicHandle presentViewController:personVC animate:YES];
+//        }else{
+//            [self getQrCodeWithIndex:index];
+//        }
+//    }else{
+//        dispatch_async(dispatch_get_main_queue(), ^{
+////            [self getMulityQrCodeWithIndex:index];
+//        });
+//
+//    }
 }
 
 #pragma mark - 个人钱包
-- (void)getQrCodeWithIndex:(NSInteger)index{
-    LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
-    NSDictionary *params = @{@"wid":@(model.walletId)};
-    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQuerySingleAddress),@"wallet.createSingleAddress",[params jsonStringEncoded]];
-    NSData *data = [requestPersonalWalletArray mp_messagePack];
-    [[SocketRocketUtility instance] sendData:data];
-}
-
-- (void)createSingleAddress:(NSNotification *)notification{
-    NSDictionary *notiDic = notification.object;
-    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
-        NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
-        NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;
-
-        [SVProgressHUD show];
-        LWAddressTool *addressTool = [LWAddressTool shareInstance];
-        [addressTool setWithrid:rid andPath:path];
-        addressTool.addressBlock = ^(NSString * _Nonnull address) {
-            [SVProgressHUD dismiss];
-            [[LWAddressTool  shareInstance] attempDealloc];
-
-            //刷新下首页个人钱包数据
-            NSDictionary *params = @{@"type":@1};
-            NSArray *requestPersonalWalletArray = @[@"req",
-                                                    @(WSRequestIdWalletQueryPersonalWallet),
-                                                    @"wallet.query",
-                                                    [params jsonStringEncoded]];
-            NSData *data = [requestPersonalWalletArray mp_messagePack];
-            [[SocketRocketUtility instance] sendData:data];
-
-            LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
-            [LogicHandle presentViewController:personVC animate:YES];
-        };
-    }
-}
+//- (void)getQrCodeWithIndex:(NSInteger)index{
+//    LWHomeWalletModel *model = [self.dataSource objectAtIndex:index];
+//    NSDictionary *params = @{@"wid":@(model.walletId)};
+//    NSArray *requestPersonalWalletArray = @[@"req",@(WSRequestIdWalletQuerySingleAddress),@"wallet.createSingleAddress",[params jsonStringEncoded]];
+//    NSData *data = [requestPersonalWalletArray mp_messagePack];
+//    [[SocketRocketUtility instance] sendData:data];
+//}
+//
+//- (void)createSingleAddress:(NSNotification *)notification{
+//    NSDictionary *notiDic = notification.object;
+//    if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
+//        NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
+//        NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;
+//
+//        [SVProgressHUD show];
+//        LWAddressTool *addressTool = [LWAddressTool shareInstance];
+//        [addressTool setWithrid:rid andPath:path];
+//        addressTool.addressBlock = ^(NSString * _Nonnull address) {
+//            [SVProgressHUD dismiss];
+//            [[LWAddressTool  shareInstance] attempDealloc];
+//
+//            //刷新下首页个人钱包数据
+//            NSDictionary *params = @{@"type":@1};
+//            NSArray *requestPersonalWalletArray = @[@"req",
+//                                                    @(WSRequestIdWalletQueryPersonalWallet),
+//                                                    @"wallet.query",
+//                                                    [params jsonStringEncoded]];
+//            NSData *data = [requestPersonalWalletArray mp_messagePack];
+//            [[SocketRocketUtility instance] sendData:data];
+//
+//            LWPersonalCollectionViewController *personVC = [LWPersonalCollectionViewController shareInstanceWithCodeStr:address];
+//            [LogicHandle presentViewController:personVC animate:YES];
+//        };
+//    }
+//}
 
 
 #pragma mark - 多人钱包

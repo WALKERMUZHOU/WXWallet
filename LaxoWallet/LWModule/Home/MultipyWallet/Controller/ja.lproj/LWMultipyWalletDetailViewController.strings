@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "BSV"; ObjectID = "3mv-9a-wWA"; */
+"3mv-9a-wWA.text" = "BSV";
+
+/* Class = "UIButton"; normalTitle = " Send"; ObjectID = "9ef-n8-UF5"; */
+"9ef-n8-UF5.normalTitle" = " 送る";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "hKb-sd-1qd"; */
+"hKb-sd-1qd.text" = "0.00";
+
+/* Class = "UIButton"; normalTitle = " Receive"; ObjectID = "jcJ-WN-NkK"; */
+"jcJ-WN-NkK.normalTitle" = " 受け取る";
+
+/* Class = "UILabel"; text = "BSV"; ObjectID = "kBI-oK-O0r"; */
+"kBI-oK-O0r.text" = "BSV";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "sNB-6b-HkP"; */
+"sNB-6b-HkP.text" = "0.00";

@@ -1,0 +1,60 @@
+
+/* Class = "UILabel"; text = "You’ve signed. Awaiting others to sign (3 of 5) "; ObjectID = "AEV-u4-Rqj"; */
+"AEV-u4-Rqj.text" = "You’ve signed. Awaiting others to sign (3 of 5) ";
+
+/* Class = "UILabel"; text = "+ 0.08839685"; ObjectID = "CXK-cw-61X"; */
+"CXK-cw-61X.text" = "+ 0.08839685";
+
+/* Class = "UILabel"; text = "02.29.2020 @ 08:18am"; ObjectID = "DAW-hM-in6"; */
+"DAW-hM-in6.text" = "02.29.2020 @ 08:18am";
+
+/* Class = "UILabel"; text = "3/5 signed. "; ObjectID = "Dta-r2-cKf"; */
+"Dta-r2-cKf.text" = "3/5 signed. ";
+
+/* Class = "UILabel"; text = "username@bitmesh.com"; ObjectID = "IWR-Eh-HWs"; */
+"IWR-Eh-HWs.text" = "username@bitmesh.com";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "Oy1-Rh-UoH"; */
+"Oy1-Rh-UoH.normalTitle" = "閉じる";
+
+/* Class = "UIButton"; normalTitle = "Check Signee statuses"; ObjectID = "Q6z-cO-kBc"; */
+"Q6z-cO-kBc.normalTitle" = "署名状況";
+
+/* Class = "UILabel"; text = "- 0.06231131 BSV | -$15.22 USD"; ObjectID = "RWy-cJ-iVg"; */
+"RWy-cJ-iVg.text" = "- 0.06231131 BSV | -$15.22 USD";
+
+/* Class = "UILabel"; text = "Recipient"; ObjectID = "VfB-Ci-u9Y"; */
+"VfB-Ci-u9Y.text" = "受取人";
+
+/* Class = "UILabel"; text = "a4****9bdfee4"; ObjectID = "Vg9-vl-mFq"; */
+"Vg9-vl-mFq.text" = "a4****9bdfee4";
+
+/* Class = "UILabel"; text = "Mar 01 2020"; ObjectID = "bLO-yw-sn3"; */
+"bLO-yw-sn3.text" = "Mar 01 2020";
+
+/* Class = "UILabel"; text = "Message"; ObjectID = "e8w-C2-zpb"; */
+"e8w-C2-zpb.text" = "メッセージ";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "efn-6b-wzY"; */
+"efn-6b-wzY.text" = "時間";
+
+/* Class = "UILabel"; text = "TX Link"; ObjectID = "fFt-DI-XH3"; */
+"fFt-DI-XH3.text" = "TXリンク";
+
+/* Class = "UILabel"; text = "Signees"; ObjectID = "gYs-JJ-7uh"; */
+"gYs-JJ-7uh.text" = "署名人";
+
+/* Class = "UILabel"; text = "My account One"; ObjectID = "hmO-ny-160"; */
+"hmO-ny-160.text" = "My account One";
+
+/* Class = "UILabel"; text = "SIGNED"; ObjectID = "ml8-8G-rTa"; */
+"ml8-8G-rTa.text" = "署名済";
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "niw-x9-dqf"; */
+"niw-x9-dqf.text" = "数量";
+
+/* Class = "UILabel"; text = "BSV"; ObjectID = "tAW-LK-lOY"; */
+"tAW-LK-lOY.text" = "BSV";
+
+/* Class = "UILabel"; text = "This is a message txt string"; ObjectID = "vDu-JU-KQx"; */
+"vDu-JU-KQx.text" = "This is a message txt string";

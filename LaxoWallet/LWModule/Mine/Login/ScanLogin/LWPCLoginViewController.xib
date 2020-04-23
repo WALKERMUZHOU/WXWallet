@@ -7,6 +7,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWPCLoginViewController">
             <connections>
@@ -51,22 +59,16 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Tt-2v-hF9">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Tt-2v-hF9">
                     <rect key="frame" x="47.5" y="355" width="225" height="50"/>
                     <color key="backgroundColor" red="0.1236214414" green="0.51611816880000005" blue="0.42251092200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="225" id="2Md-J1-C8Q"/>
                         <constraint firstAttribute="height" constant="50" id="l7g-jE-ExJ"/>
                     </constraints>
-                    <state key="normal">
-                        <attributedString key="attributedTitle">
-                            <fragment content="Yes, logout of PC">
-                                <attributes>
-                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <font key="NSFont" size="16" name="Roboto-Regular"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                    <state key="normal" title="Yes, logout of PC">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -78,19 +80,12 @@
                         <action selector="logoutClick:" destination="-1" eventType="touchUpInside" id="XEW-eW-0y4"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3F7-xr-uH8">
-                    <rect key="frame" x="66.5" y="460" width="187" height="31"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3F7-xr-uH8">
+                    <rect key="frame" x="20" y="460" width="280" height="31"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                     <color key="tintColor" red="0.092719472940000006" green="0.52012562750000002" blue="0.42244061830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal">
-                        <attributedString key="attributedTitle">
-                            <fragment content="No, keep macOS signed in">
-                                <attributes>
-                                    <font key="NSFont" size="16" name="Roboto-Medium"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                    </state>
+                    <state key="normal" title="No, keep macOS signed in"/>
                     <connections>
                         <action selector="returnClick:" destination="-1" eventType="touchUpInside" id="0vS-ax-gy2"/>
                     </connections>
@@ -98,12 +93,14 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="3F7-xr-uH8" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="7Sr-jB-6MJ"/>
                 <constraint firstItem="tVV-Fr-RWf" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="100" id="Lrp-R0-ShI"/>
                 <constraint firstItem="3F7-xr-uH8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="P35-wQ-nsU"/>
                 <constraint firstItem="3F7-xr-uH8" firstAttribute="top" secondItem="0Tt-2v-hF9" secondAttribute="bottom" constant="55" id="Tct-hI-oA2"/>
                 <constraint firstItem="0Tt-2v-hF9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VWY-vt-z6E"/>
                 <constraint firstItem="V1n-OJ-kqU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Xtc-i7-ljd"/>
                 <constraint firstItem="0Tt-2v-hF9" firstAttribute="top" secondItem="V1n-OJ-kqU" secondAttribute="bottom" constant="35" id="k1k-X9-hqA"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="3F7-xr-uH8" secondAttribute="trailing" constant="20" id="ktU-hs-AZi"/>
                 <constraint firstItem="tVV-Fr-RWf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pn7-mI-vIl"/>
                 <constraint firstItem="V1n-OJ-kqU" firstAttribute="top" secondItem="tVV-Fr-RWf" secondAttribute="bottom" constant="50" id="vRG-ZN-BW7"/>
             </constraints>

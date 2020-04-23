@@ -1,0 +1,48 @@
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "3VM-Pz-Ao5"; */
+"3VM-Pz-Ao5.text" = "数量";
+
+/* Class = "UILabel"; text = "Sent"; ObjectID = "4Te-1L-RPs"; */
+"4Te-1L-RPs.text" = "送りました";
+
+/* Class = "UILabel"; text = "TX Link"; ObjectID = "4tb-0V-V6r"; */
+"4tb-0V-V6r.text" = "TXリンク";
+
+/* Class = "UILabel"; text = "Recipient"; ObjectID = "5Ah-LD-s9U"; */
+"5Ah-LD-s9U.text" = "受取人";
+
+/* Class = "UILabel"; text = "Message"; ObjectID = "5gI-ZT-rOL"; */
+"5gI-ZT-rOL.text" = "メッセージ";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "6x2-bL-tAm"; */
+"6x2-bL-tAm.normalTitle" = "閉じる";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "ApZ-iR-V3P"; */
+"ApZ-iR-V3P.text" = "時間";
+
+/* Class = "UILabel"; text = "02.29.2020 @ 08:18am"; ObjectID = "BBv-Ct-R9Q"; */
+"BBv-Ct-R9Q.text" = "02.29.2020 @ 08:18am";
+
+/* Class = "UILabel"; text = "Mar 01 2020"; ObjectID = "DMY-eB-WSz"; */
+"DMY-eB-WSz.text" = "Mar 01 2020";
+
+/* Class = "UILabel"; text = "+ 0.08839685"; ObjectID = "IbZ-fZ-egG"; */
+"IbZ-fZ-egG.text" = "+ 0.08839685";
+
+/* Class = "UILabel"; text = "BSV"; ObjectID = "KW0-Zj-1vL"; */
+"KW0-Zj-1vL.text" = "BSV";
+
+/* Class = "UILabel"; text = "This is a message txt string"; ObjectID = "e0D-sY-TvM"; */
+"e0D-sY-TvM.text" = "This is a message txt string";
+
+/* Class = "UILabel"; text = "username@bitmesh.com"; ObjectID = "l0i-zw-BcY"; */
+"l0i-zw-BcY.text" = "username@bitmesh.com";
+
+/* Class = "UILabel"; text = "a4****9bdfee4"; ObjectID = "nc6-gm-br1"; */
+"nc6-gm-br1.text" = "a4****9bdfee4";
+
+/* Class = "UILabel"; text = "- 0.06231131 BSV | -$15.22 USD"; ObjectID = "peH-Zd-B3q"; */
+"peH-Zd-B3q.text" = "- 0.06231131 BSV | -$15.22 USD";
+
+/* Class = "UILabel"; text = "My account One"; ObjectID = "u4l-U3-ohm"; */
+"u4l-U3-ohm.text" = "My account One";

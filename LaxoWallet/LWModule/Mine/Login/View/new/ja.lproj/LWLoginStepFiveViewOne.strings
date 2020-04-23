@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; normalTitle = "Verify facial recognition scan"; ObjectID = "7PQ-BF-HHP"; */
+"7PQ-BF-HHP.normalTitle" = "顔認証スキャンを認証";
+
+/* Class = "UILabel"; text = "Ensure your glasses do not reflect "; ObjectID = "BVq-sm-LnY"; */
+"BVq-sm-LnY.text" = "メガネの反射注意";
+
+/* Class = "UILabel"; text = "Step 3 of 4"; ObjectID = "JDh-oe-0Pv"; */
+"JDh-oe-0Pv.text" = " ";
+
+/* Class = "UILabel"; text = "Verify your identity via a facial scan"; ObjectID = "JM6-49-YGs"; */
+"JM6-49-YGs.text" = "顔認証スキャンによる認証";
+
+/* Class = "UILabel"; text = "Ensure your face is \nnot covered "; ObjectID = "dMc-5K-tw9"; */
+"dMc-5K-tw9.text" = "顔全体を写す";
+
+/* Class = "UILabel"; text = "Tips for a good facial scan"; ObjectID = "xrE-cK-m2N"; */
+"xrE-cK-m2N.text" = "顔認証スキャンを正しく行うために";

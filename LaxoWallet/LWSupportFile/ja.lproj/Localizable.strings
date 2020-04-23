@@ -1,0 +1,538 @@
+/*
+  InfoPlist.strings
+  LaxoWallet
+
+  Created by walkermuzhou on 2020/3/9.
+  Copyright © 2020 LaxoWallet. All rights reserved.
+*/
+
+//#common
+"common_sure" = "はい";
+
+"common_cancel" = "キャンセル";
+"common_success" = "成功";
+"common_fail" = "失敗";
+
+"common_setting" = "設定";
+"common_remind" = "確認";
+"common_Account" = "アカウント";
+"common_Discover" = "ディスカバー";
+"common_Me" = "自分";
+
+"common_Cancel" = "キャンセル";
+"common_to" = "to";
+
+"common_CopySuccess" = "コピー成功";
+"common_signSuccess" = "署名成功";
+
+//#login_xib
+//Welcome to Volt
+"login_Welcome" = "ヴォルトへようこそ";
+//Your simple, secure and mighty account
+"login_Yoursimple" = "デジタル・アセット・セーフ";
+//Sign up / Recover in 4 steps
+"login_Signup/Recover" = "サインアップへ4つのステップ";
+//Enter an email address
+"login_Enteranemailaddress" = "メールアドレス入力";
+//Verify your email address
+"login_Verifyemailaddress" = "メール認証";
+
+//Create facial recognition scan
+"login_Createfacialrecognitionscan" = "顔認証スキャン";
+
+//Start
+"login_Start" = "スタート";
+
+//Enter your email address
+"login_Enteryouremailaddress" = "メールアドレス入力";
+
+//Next
+"login_Next" = "次へ";
+
+//Step 1 of 4
+"login_Step1/4" = " ";
+
+//Enter your verification code
+"login_Enteryourverificationcode" = "認証コード入力";
+
+//Enter the code found in the email
+"login_Enterthecodefoundintheemail" = "メールで受信済みのコードを入力";
+
+//Email verification
+"login_Emailverification" = "メール認証";
+
+//Trusthold provide a safe and secure recovery process for account restoration. Learn more
+"login_Trusthold_describe" = "トラストホールドが安全確実なアカウントリカバリを提供します。詳細";
+
+//Create a facial recognition scan
+"login_face_create" = "顔認証スキャン作成";
+//To be the most secure wallet we link your assets and account to your 3D facial map data.
+//Volt will safeguard your data. Learn more
+"login_face_tobe" = "最も安全なウォレットであるために、ヴォルトは3D顔認証マップデータを使用し、ユーザーの資産とアカウントを守ります。";
+"login_face_learnMore" = "詳細";
+//Tips for a good facial scan
+"login_face_Tips" = "顔認証スキャンを正しく行うために";
+//Ensure your face is not covered
+"login_face_nocover" = "顔全体を写す";
+//Ensure your glasses do not reflect
+"login_face_glasses" = "メガネの反射注意";
+//Start facial recognition scan
+"login_face_satrtfacial" = "顔認証スキャン開始";
+//Verify your identity via a facial scan
+"login_face_Verifyidentityvia" = "顔認証スキャンによる認証";
+//Verify facial recognition scan
+"login_face_Verifyfacialrecognition" = "顔認証スキャンを認証";
+
+//Recovery by qr code
+"login_Recoverybyqrcode" = "QRコードによるリカバリ";
+//Recover by Thrustholds
+"login_RecoverybyThrustholds" = "トラストホールドによるリカバリ";
+
+//Trusthold verification
+"login_Trustholdverification" = "トラストホールド認証";
+
+//Enter a Trusthold verification code
+"login_EnteraTrustholdverificationcode" = "トラストホールド認証コード入力";
+
+//Enter Trusthold code found in an email
+"login_EnterTrustholdcodefoundinanemail" = "メールで受信済みのコードを入力";
+
+
+//Verify
+"login_Verify" = "認証";
+
+//
+//Upload Secret QR Code
+"login_UploadSecretQRCode" = "暗証QRコードアップロード";
+
+//Scan or upload your Secret QR Code
+"login_ScanoruploadyourSecretQRCode" = "スキャンまたは暗証QRコード入力";
+
+//Scan
+"login_Scan" = "スキャン";
+
+//Upload file
+"login_Uploadfile" = "ファイルをアップロード";
+
+//Select Trustholds to verify you instead?
+"login_SelectTrustholdstoverify" = "またはトラストホールドによる認証をしますか。";
+
+//
+//Recovery complete!
+"login_Recoverycomplete" = "リカバリ完了";
+
+//Start using your Volt account
+"login_StartusingyourVoltaccount" = "ヴォルトセーフ使用開始";
+
+//Success! Your account has been recovered
+"login_SuccessYouraccount" = "リカバリ完了";
+
+//
+//We’re processing your data
+"login_processingyourdata" = "処理中...";
+
+//Please wait while we confirm your 3D facial map data meets the requirements and is stored securely.
+"login_Pleasewaitwhile" = "3D顔認証データを確認中...";
+
+//#login_flie
+"login_PleaseInputEmail" = "メールアドレス入力";
+"login_InvalidEmail" = "未認証メールアドレス";
+"login_PleaseInputVerificationCode" = "認証コードを入力してください";
+"login_SelectRecoverProcess" = "リカバリ方法を選択してください";
+"login_PleaseInputTrustholdVerificationCode" = "トラストホールド認証コードを入力してください";
+"login_fail_msgCode" = "認証コードを取得できませんでした";
+"login_error_code" = "エラーコード";
+"login_fail_request" = "ログインできませんでした";
+"login_fail_register" = "登録できませんでした";
+"login_permission_camera" = "カメラを有効にしてください";
+"login_permission_album" = "アルバムへのアクセス許可がありません";
+"login_TrustholdVerifyFail" = "トラストホールド認証ができませんでした。メール内のコードを確認してください。";
+"login_error_image" = "画像エラー";
+"login_error_qrCode" = "QRコードエラー";
+"login_RecoveringFromICloud" = "iCloudからリカバリ中...";
+
+////#face_file
+"face_title_TouchID" = "既存の指紋認証をホームボタンから行う";
+"face_title_FaceID" = "既存のフェイスIDによる認証";
+"face_no_biometric" = "ディバイスの生体認証機能を有効にしてください。";
+
+//#wallet_create_xib
+
+//Create a new account
+"wallet_create_accountName" = "新アカウント作成";
+//Create a personal account
+"wallet_create_accountName" = "パーソナルアカウント作成";
+//Name of new persoanl account
+"wallet_create_createpersoanlAccount" = "新アカウント名";
+//Account Name
+"wallet_create_AccountName" = "アカウント名";
+//Create a shared account
+"wallet_create_sharedaccount" = "共有アカウント作成";
+
+//
+//Total members
+"wallet_create_totalMem" = "全メンバー";
+//Members to sign
+"wallet_create_signMem" = "メンバーによる署名";
+//Member Count
+"wallet_create_MemberCount" = "メンバー数";
+//Sign Count
+"wallet_create_SignCount" = "署名数";
+//Enter other members’ email id
+"wallet_create_otherMem" = "他メンバーのメールIDを入力";
+//Create and invite members
+"wallet_create_andInvite" = "メンバーの追加と招待";
+
+
+//#wallet_create_file
+"wallet_create_PleaseInputAccountName" = "アカウント名を入力してください";
+"wallet_create_PleaseInputSignCount" = "署名数を入力してください";
+
+"wallet_create_PleaseInputTotalMembers" = "全メンバー数を入力してください";
+"wallet_create_Greate1" = "最小メンバー数は1名";
+"wallet_create_lessThanMemberCount" = "署名数は総メンバー数より小さな値";
+"wallet_create_wrongEmailCount" = "メール箱数はメンバー数マイナス１の値";
+"wallet_creare_AccountCreateSuccess" = "アカウント作成完了";
+"wallet_create_inputRemind" = "n/m 共有アカウントの作成には全メンバーのメール ID が必要です。新メンバーの追加は同じメールIDで登録してください。";
+"wallet_create_PleaseInputKeyShare" = "共有キーを所有する全てのメンバーを入力してください";
+"wallet_creare_Exceeding" = "登録可能なメール数の上限を超えています";
+
+//#wallet_login_satue
+//Logged in to Volt for PC
+"wallet_login_statue" = "ヴォルトPC版にログイン済";
+//Want to logout of PC?
+"wallet_login_want" = "ヴォルトPC版からログアウトしますか";
+//Yes, logout of PC
+"wallet_login_yes" = "はい、ヴォルトPC版からログアウトします";
+//No, keep PC signed in
+"wallet_login_no" = "いいえ、ヴォルトPC版からログアウトしません";
+
+//#wallet_scan_login
+//Want to sign in to your Volt Safe on Windows/Mac?
+"wallet_scan_login_want" = "ヴォルトセーフ・ウィンドウズ版/マック版にサインインしますか";
+//Yes, sign in to desktop
+"wallet_scan_login_yes" = "はい、デスクトップ版にサインインします";
+//No, cancel sign in
+"wallet_scan_login_no" = "いいえ、サインインを中止します";
+
+
+
+//#wallet_send
+//Please Input Address
+"wallet_send_pleaseInputEmail" = "Please Input Address";
+//Wrong Address
+"wallet_send_EorrorAddress" = "Wrong Address";
+//Please input amount
+"wallet_send_pleaseinputAmount" = "Please input amount";
+//Amount need less than available
+"wallet_send_amountLessThanAvailabel" = "Amount need less than available";
+//The amount to be sent must be greater than 546 satoshis
+"wallet_send_amountGreater546" = "The amount to be sent must be greater than 546 satoshis";
+
+//#wallet_detail_xib
+//Transaction success
+"wallet_detail_transSuccess" = "Transaction success";
+"wallet_detail_signed" = "署名済";
+"wallet_detail_PENDING" = "PENDING";
+
+//Personal
+"common_Personal" = "パーソナル";
+//Shared
+"common_Shared" = "共有";
+//Receive
+"common_Receive" = "受け取る";
+//Send
+"common_Send" = "送る";
+
+//
+//Receive BSV
+"wallet_detail_ReceiveBSV" = "BSVを受け取る";
+
+//Send BSV
+"wallet_detail_SendBSV" = "BSVを送る";
+
+//Payment sent
+"wallet_detail_Paymentsent" = "支払完了";
+
+//Authenticate with Face ID to unlock
+"wallet_send_auth_touchid" = "Authenticate with Touch ID to unlock";
+"wallet_send_auth_faceid" = "フェイスIDによるロック解除";
+
+//Send 0.55 BSV
+//0.55　BSVを送る
+
+//Recipient
+"wallet_detail_Recipient" = "受取人";
+//Time
+"wallet_detail_Time" = "時間";
+//Signees
+"wallet_detail_Signees" = "署名人";
+//Message
+"wallet_detail_Message" = "メッセージ";
+//TX Link
+"wallet_detail_TXLink" = "TXリンク";
+//Amount
+"wallet_detail_Amount" = "数量";
+
+//
+//Close
+"common_close" = "閉じる";
+//Done
+"common_Done" = "終了";
+
+//
+//Received
+"common_Received" = "受け取りました";
+
+//
+//Sent
+"common_Sent" = "送りました";
+
+//Sent to be signed
+"wallet_detail_Senttobesigned" = "署名依頼済";
+
+//You’ve signed. Awaiting others to sign (3 of 5)
+"wallet_detail_Awaitingothers" = "署名完了。\n他メンバーによる署名待ち";
+
+//Check Signee statuses
+"wallet_detail_CheckSigneestatuses" = "署名状況";
+
+//SIGNED
+"wallet_detail_signed_uppercase" = "署名済";
+//UNSIGNED
+"wallet_detail_unsigned_uppercase" = "未署名";
+
+//
+//Sign and request signing
+"wallet_detail_Signandrequestsigning" = "署名と署名依頼";
+
+
+//
+//Transaction signed by you
+"wallet_send_mul_transsign" = "本人署名済トランザクション";
+
+//You’re requesting members to sign for a successful transaction of 1.55 BSV to be sent to worldwide@education.com
+"wallet_send_mul_des" = "You’re requesting members to sign for a successful transaction of";
+"wallet_send_mul_to" = "to be sent to";
+"wallet_send_mul_des_ja" = "worldwide@education.com　へ　1.55 BSV　を送るため、メンバーへ署名を依頼中";
+
+//Network fee 0.00001 BSV
+"wallet_send_networkfee" = "手数料";
+
+"wallet_send_TransactionFail" = "Transaction Fail";
+"wallet_send_Note" = "Note:";
+//
+//Signee statuses
+"wallet_detail_Signeestatuses" = "署名履歴";
+
+//Sent on Feb 29 2020 | Amount 0.06231131 BSV
+//2020年2月29日　送信（Or 送金）｜数量　0.06231131 BSV
+//5 signees assigned
+//署名者数　5名
+
+//Pending sign request
+"wallet_detail_Pendingsignrequest" = "署名依頼中";
+
+//Join and sign transaction
+"wallet_detail_Joinandsigntransaction" = "トランザクションの署名に参加";
+
+//Awaiting you to sign
+"wallet_detail_Awaitingyoutosign" = "本人の署名待ち";
+
+//
+//You’ve been invited to join this account owned by longnamehere@gmail.com.
+"wallet_detai_youhavebeeninvtedtojoin" = "longnamehere@gmail.com　のオーナーより、同アカウントへの参加リクエストが届いています。";
+
+//If you accept you’ll be a Key Share Member along with 5 others to assist in signing transactions
+"wallet_detai_Ifyouacceptyou’ll" = "参加を承認しますと「キー共有メンバー」として他5名のメンバーとともにトランザクションを行います。";
+
+//You’re a Key Share Member along with %ld others to assist in signing transactions.
+
+//Join
+"wallet_detail_join" = "加入する";
+
+//Decline
+"wallet_detail_decline" = "不参加";
+"wallet_detail_joinSuccess" = "Join Success";
+
+//Outgoing
+"wallet_detail_OUTGOING" = "送信中";
+//Outgoing transaction
+"wallet_detail_OUTGOING_transacation" = "送信中のトランザクション";
+
+//You can still cancel before first sign
+"wallet_detail_Youcancancel" = "一回目の署名前はキャンセル可";
+//Until the first sign you can cancel this transaction
+"wallet_detail_untilyousigned" = "一回目の署名までこのトランザクションはキャンセル可能です";
+
+//Recall and cancel transaction
+"wallet_detail_Recallandcanceltransaction" = "トランザクションのリコールとキャンセル";
+
+//RECALL TX? //it means cancel transaction
+"wallet_detail_RECALL" = "RECALL TX?";
+
+//Owned by longnamehere@gmail.com
+"wallet_detail_ownedBy" = "所有者 ";
+
+//You’ve disjoined/declined as a Key Share Member.
+"wallet_detail_Youvedisjoineddeclined" = "キー共有メンバーを辞退／キー共有メンバーを否承認";
+
+//This screen will disappear after 24 hours.
+"wallet_detail_Thisscreenwilldisappear" = "この画面は24時間後に消去されます。";
+
+//Rejoin as member
+"wallet_detail_Rejoinasmember" = "メンバーとして再参加";
+
+//Transaction cancelled
+"wallet_detail_Transactioncancelled" = "トランザクションを取り消しました";
+
+//#wallet_info
+//Account Name Edit Success
+"wallet_edit_AccountNameEditSuccess" = "Account Name Edit Success";
+
+//Name of account
+"wallet_infp_Nameofaccount" = "アカウント名";
+//Key share members
+"wallet_info_Keysharemembers" = "キー共有メンバー";
+
+//Check statuses
+"wallet_info_Checkstatuses" = "設定確認";
+
+//Account owner
+"wallet_info_Accountowner" = "アカウント名義";
+
+//Account Paymails
+"wallet_info_ccountPaymails" = "アカウントペイメール";
+
+//Update or Add Paymail
+"wallet_info_UpdateorAddPaymail" = "ペイメールの追加またはアップデート";
+
+//Time created
+"wallet_info_createTime" = "作成時刻";
+
+//Current balance
+"wallet_info_Currentbalance" = "現在残高";
+
+//
+//Key share members
+//Created on Feb 03 2020 | Edit members
+"wallet_info_createOn" = "作成";
+
+
+//#me
+
+//#paymail
+
+//Volt provides you with 1 free Paymail. You can buy additional Paymail handles and use them with your accounts
+"paymail_content_1" = "アカウント毎に1ペイメールまで無料。 ";
+"paymail_content_2" = "2つ目以降は追加購入可能です。";
+//primary
+"paymail_primary" = "メイン";
+//
+//Assign as primary
+"paymail_assignPrimary" = "メインペイメールとして使う";
+
+//Owned
+"paymail_Owned" = "所有";
+
+//CreateNew
+"paymail_CreateNew" = "新規作成";
+
+//
+//Search for volt.id Paymail handles
+"paymail_SearchPaymail" = "ヴォルトIDを検索　ペイメールハンドル";
+
+//Get Your First Paymail For Free
+"paymail_getyourfirst" = "1つ目のペイメールは無料です";
+
+//Cost %@BSV(≈$1 USD)
+"paymail_cost" = "価格";
+
+//Available! (//it means can use)
+"paymail_avaible" = "Available!";
+
+//UnAvailable! (//it means can not use)
+"paymail_unavaible" = "UnAvailable!";
+
+//Please input paymail
+"paymail_pleaseinputpaymail" = "Please input paymail";
+//Paymail buy suceess
+"paymail_buysuccess" = "Paymail buy suceess";
+
+//#qrcode
+//Backup QR Code Success
+"me_qrcode_backupSuccess" = "Backup QR Code Success";
+//Backup QR Code Fail
+"me_qrcode_backupfail" = "Backup QR Code Fail";
+
+//#Security
+//Security
+"me_Security" = "セキュリティ";
+//Secure cloud backup
+"me_Security_cloud" = "クラウドバックアップ";
+//Synced seconds ago
+"me_Security_sync" = "数秒前に同期済";
+
+//Email linked and verified
+"me_Security_email" = "メールアドレスがリンク、認証されました";
+
+//Facial recognition scan
+"me_Security_Facial" = "顔認証スキャン";
+
+//3D Facial map data securely linked to you
+"me_Security_3D Facial" = "3D顔認証データをリンクしました";
+
+//FaceID or Touch ID enabled
+"me_Security_FaceID" = "フェイスIDまたはタッチIDの有効化しました";
+
+//Enable for confirmation before sending
+"me_Security_Enableforconfirmation" = "送信（Or送金）時に使用する";
+
+//#Preferences
+//Preferences
+"me_Preferences" = "環境設定";
+
+//Currency
+"me_Currency" = "通貨";
+
+//Language
+"me_Language" = "言語";
+
+//Backup Secret QR Code
+"me_BackupSecretQRCode" = "暗証QRコードをバックアップ";
+
+//Synced with iCloud
+"me_SyncedwithiCloud" = "iCloudと同期済";
+
+//Support
+"me_Support" = "サポート";
+
+//#face liveness
+/*
+Good
+shake your head
+lower your head slowly
+rise your head slowly
+Turn your head slowly to the left
+Turn your head slowly to the right
+Open mouth
+Blink eyes
+Move the face into the frame
+Hold your phone closer
+Keep your phone away
+The chin is shaded
+The right cheek is shaded
+The left cheek is shaded
+Mouth covered
+Nose covered
+The right eye is shaded
+The left eye is shaded
+Please keep still
+Move the face into the frame
+The light is too dim
+Suggest turning your head slightly to the left
+Turn your head slightly to the right
+Suggest bending slightly
+Suggested slightly higher
+face verify fail,please try again
+ */

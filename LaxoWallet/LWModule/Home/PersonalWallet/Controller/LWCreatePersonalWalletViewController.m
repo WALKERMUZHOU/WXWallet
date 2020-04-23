@@ -26,7 +26,7 @@
 
 - (IBAction)completeClick:(UIButton *)sender {
     if (self.walletNameTF.text.length == 0) {
-        [WMHUDUntil showMessageToWindow:@"please input account name"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_create_PleaseInputAccountName")];
         return;
     }
 
@@ -48,7 +48,7 @@
     [SVProgressHUD dismiss];
     NSDictionary *resInfo = notification.object;
     if ([[resInfo objectForKey:@"success"] integerValue] == 1) {
-        [WMHUDUntil showMessageToWindow:@"account create success"];
+        [WMHUDUntil showMessageToWindow:kLocalizable(@"wallet_creare_AccountCreateSuccess")];
         
         [LWPublicManager getPersonalWalletData];
         

@@ -129,6 +129,10 @@
 }
 
 - (IBAction)nextClick:(UIButton *)sender {
+    sender.userInteractionEnabled = NO;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        sender.userInteractionEnabled = YES;
+    });
     
     NSString *noteStr = self.textView.text;
     if ([noteStr hasPrefix:kLocalizable(@"wallet_send_Note")]) {
@@ -138,6 +142,8 @@
 
     if(self.walletModel.type == 1){
         [self.trans setNoteMessage:noteStr];
+    }else{
+        [self.mutipyTrans setNoteMessage:noteStr];
     }
     
      [[TDTouchID sharedInstance] td_showTouchIDWithDescribe:kLocalizable(@"face_title_TouchID") FaceIDDescribe:kLocalizable(@"face_title_FaceID") BlockState:^(TDTouchIDState state, NSError *error) {

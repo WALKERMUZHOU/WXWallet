@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "Verify"; ObjectID = "GzL-pf-b5t"; */
+"GzL-pf-b5t.normalTitle" = "Verify";
+
+/* Class = "UILabel"; text = "Step 4 of 4"; ObjectID = "Vwb-Js-eQZ"; */
+"Vwb-Js-eQZ.text" = "Step 4 of 4";
+
+/* Class = "UILabel"; text = "Trusthold verification"; ObjectID = "l20-Qz-5qy"; */
+"l20-Qz-5qy.text" = "Trusthold verification";
+
+/* Class = "UITextField"; placeholder = "Enter Trusthold code found in an email"; ObjectID = "n2e-4S-nHN"; */
+"n2e-4S-nHN.placeholder" = "Enter Trusthold code found in an email";
+
+/* Class = "UILabel"; text = "Enter a Trusthold verification code"; ObjectID = "vad-vW-yrG"; */
+"vad-vW-yrG.text" = "Enter a Trusthold verification code";

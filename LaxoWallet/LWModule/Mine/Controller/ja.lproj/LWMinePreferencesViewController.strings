@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Currency"; ObjectID = "Mhm-f1-hpe"; */
+"Mhm-f1-hpe.text" = "Currency";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "NeW-MG-gAt"; */
+"NeW-MG-gAt.text" = "English";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "e1o-vY-NYE"; */
+"e1o-vY-NYE.text" = "Language";
+
+/* Class = "UILabel"; text = "USD"; ObjectID = "heD-7E-YYN"; */
+"heD-7E-YYN.text" = "USD";
+
+/* Class = "UILabel"; text = "Preferences"; ObjectID = "xVc-gW-Xni"; */
+"xVc-gW-Xni.text" = "Preferences";

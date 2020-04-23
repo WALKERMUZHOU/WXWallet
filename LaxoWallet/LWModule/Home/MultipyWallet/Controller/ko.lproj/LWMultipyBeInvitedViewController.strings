@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "You’ve been invited to join this account owned by longnamehere@gmail.com. "; ObjectID = "0S6-15-iy4"; */
+"0S6-15-iy4.text" = "You’ve been invited to join this account owned by longnamehere@gmail.com. ";
+
+/* Class = "UILabel"; text = "If you accept you’ll be a Key Share Member along with 5 others to assist in signing transactions."; ObjectID = "5Wc-Km-cw0"; */
+"5Wc-Km-cw0.text" = "If you accept you’ll be a Key Share Member along with 5 others to assist in signing transactions.";
+
+/* Class = "UIButton"; normalTitle = "Join"; ObjectID = "GdU-sV-CCs"; */
+"GdU-sV-CCs.normalTitle" = "Join";
+
+/* Class = "UILabel"; text = "Progress Fund"; ObjectID = "VKm-x8-NH8"; */
+"VKm-x8-NH8.text" = "Progress Fund";

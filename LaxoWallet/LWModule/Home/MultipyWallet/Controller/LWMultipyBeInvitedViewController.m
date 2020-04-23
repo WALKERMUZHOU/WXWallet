@@ -31,7 +31,10 @@
         if ([model.uid isEqualToString:self.contentModel.uid]) {
             if ([laguage isEqualToString:@"zh-Hans"]) {
                 self.label1.text =[NSString stringWithFormat:@" %@ 邀请你加入一个共同管理资金账户. ",model.user];
-            }else{
+            }else if ([laguage isEqualToString:@"ja"]){
+                self.label1.text =[NSString stringWithFormat:@"%@ のオーナーより、同アカウントへの参加リクエストが届いています。 ",model.user];
+
+            } else{
                 self.label1.text =[NSString stringWithFormat:@"You’ve been invited to join this account owned by %@. ",model.user];
             }
             break;
@@ -41,7 +44,10 @@
     if ([laguage isEqualToString:@"zh-Hans"]) {
          //
          self.labelTwo.text =[NSString stringWithFormat:@"加入之后，需要和其他%ld人共同管理账户.",(long)self.contentModel.parties.count];;
-     }else{
+    }else if ([laguage isEqualToString:@"ja"]){
+        self.labelTwo.text =[NSString stringWithFormat:@"参加を承認しますと「キー共有メンバー」として他%ld名のメンバーとともにトランザクションを行います。",(long)self.contentModel.parties.count];;
+
+    }else{
          self.labelTwo.text =[NSString stringWithFormat:@"If you accept you’ll be a Key Share Member along with %ld others to assist in signing transactions.",(long)self.contentModel.parties.count];;
      }
     

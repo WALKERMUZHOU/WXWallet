@@ -177,7 +177,7 @@
 //总人数
 "wallet_create_MemberCount" = "总人数";
 //签名阈值
-"wallet_create_SignCount" = "请输入签名人数";
+"wallet_create_SignCount" = "签名人数";
 //输入其他成员的邮箱
 "wallet_create_otherMem" = "输入其他成员的邮箱";
 //邀请完成创建
@@ -215,10 +215,10 @@
 "wallet_scan_login_no" = "取消";
 
 //#wallet_send
-"wallet_send_pleaseInputEmail" = "请输入地址";
+"wallet_send_pleaseInputEmail" = "请输入简化地址或者地址";
 "wallet_send_EorrorAddress" = "错误的地址";
 "wallet_send_pleaseinputAmount" = "请输入金额";
-"wallet_send_amountLessThanAvailabel" = "大于可用金额";
+"wallet_send_amountLessThanAvailabel" = "余额不足";
 "wallet_send_amountGreater546" = "转账金额必须大于546聪";
 
 //#wallet_detail_xib

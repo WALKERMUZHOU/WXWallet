@@ -1,0 +1,33 @@
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "IXx-8F-ejI"; */
+"IXx-8F-ejI.normalTitle" = "終了";
+
+/* Class = "UITextField"; text = "Bitcoin SV - BSV"; ObjectID = "RCI-nh-jjF"; */
+"RCI-nh-jjF.text" = "Bitcoin SV - BSV";
+
+/* Class = "UILabel"; text = "Time created"; ObjectID = "TjT-zp-TE5"; */
+"TjT-zp-TE5.text" = "作成時刻";
+
+/* Class = "UILabel"; text = "Account Paymails"; ObjectID = "Yun-h4-D4r"; */
+"Yun-h4-D4r.text" = "アカウントペイメール";
+
+/* Class = "UILabel"; text = "2.12423452 BSV | $474.74 USD"; ObjectID = "ZI0-0b-35Z"; */
+"ZI0-0b-35Z.text" = "2.12423452 BSV | $474.74 USD";
+
+/* Class = "UILabel"; text = "Current balance"; ObjectID = "ZV9-rA-xKF"; */
+"ZV9-rA-xKF.text" = "現在残高";
+
+/* Class = "UILabel"; text = "2020.02.08 9:46:15pm"; ObjectID = "aFt-lo-6vX"; */
+"aFt-lo-6vX.text" = "2020.02.08 9:46:15pm";
+
+/* Class = "UIButton"; normalTitle = "Update or Add Paymail"; ObjectID = "eax-8p-e2X"; */
+"eax-8p-e2X.normalTitle" = "ペイメールの追加またはアップデート";
+
+/* Class = "UITextField"; text = "BSV"; ObjectID = "lSP-HP-fGW"; */
+"lSP-HP-fGW.text" = "BSV";
+
+/* Class = "UIButton"; normalTitle = " SAVE "; ObjectID = "n9f-lj-ovN"; */
+"n9f-lj-ovN.normalTitle" = " SAVE ";
+
+/* Class = "UILabel"; text = "Name of account"; ObjectID = "taX-47-FbX"; */
+"taX-47-FbX.text" = "アカウント名";

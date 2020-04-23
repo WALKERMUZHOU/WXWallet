@@ -22,6 +22,8 @@
     NSInteger tag = 0;
     if ([curLanguage isEqualToString:@"zh-Hans"] ) {
         tag = 13001;
+    }else  if ([curLanguage isEqualToString:@"ja"] ) {
+           tag = 13002;
     }else{
         tag = 13000;
     }
@@ -77,7 +79,25 @@
             [alertVC addAction:action];
             [self presentViewController:alertVC animated:YES completion:nil];
         }
+            break;
+            
+        case 14002:{
+            if ([curLanguage isEqualToString:@"ja"]) return;
+
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"言語を日本語に変える" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
+                [SVProgressHUD show];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [NSBundle setCusLanguage:@"ja"];
+                    [SVProgressHUD dismiss];
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                });
+                
+            }];
+            [alertVC addAction:action];
+            [self presentViewController:alertVC animated:YES completion:nil];
+        }
             break;
         default:
             break;

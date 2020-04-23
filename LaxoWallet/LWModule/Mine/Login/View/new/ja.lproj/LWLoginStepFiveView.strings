@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; normalTitle = "Start facial recognition scan"; ObjectID = "0hZ-Hr-sCJ"; */
+"0hZ-Hr-sCJ.normalTitle" = "顔認証スキャン開始";
+
+/* Class = "UILabel"; text = "Ensure your glasses do not reflect "; ObjectID = "CMG-Aw-CEu"; */
+"CMG-Aw-CEu.text" = "メガネの反射注意 ";
+
+/* Class = "UILabel"; text = "Create a facial recognition scan"; ObjectID = "cDs-fz-Pju"; */
+"cDs-fz-Pju.text" = "顔認証スキャン作成";
+
+/* Class = "UILabel"; text = "Tips for a good facial scan"; ObjectID = "egp-aG-QMM"; */
+"egp-aG-QMM.text" = "顔認証スキャンを正しく行うために";
+
+/* Class = "UILabel"; text = "Ensure your face is \nnot covered "; ObjectID = "eqB-nO-kCv"; */
+"eqB-nO-kCv.text" = "顔全体を写す ";
+
+/* Class = "UILabel"; text = "Step 4 of 4"; ObjectID = "uqI-hk-UgX"; */
+"uqI-hk-UgX.text" = " ";

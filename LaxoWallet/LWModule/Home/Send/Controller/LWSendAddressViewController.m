@@ -32,9 +32,9 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view from its nib.
-    if (kScreenWidth == 320 || (kScreenWidth == 375 && kScreenWidth == 667)) {
+    if (kScreenWidth == 320 || (kScreenWidth == 375 && kScreenHeight == 667)) {
         [self.bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@131);
+            make.height.equalTo(@131);
         }];
     }
     

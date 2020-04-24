@@ -33,7 +33,7 @@
 
     
     
-    NSString *addressStr = [NSString stringWithFormat:@"%@ %@BSV %@ %@",kLocalizable(@"common_sent"),self.amount,kLocalizable(@"common_to"),self.address];
+    NSString *addressStr = [NSString stringWithFormat:@"%@ %@BSV %@ %@",kLocalizable(@"common_Sent"),self.amount,kLocalizable(@"common_to"),self.address];
     self.feeLabel.text = [NSString stringWithFormat:@"%@ %@ BSV",kLocalizable(@"wallet_send_networkfee"),self.fee];
     self.noteLabel.text = self.note;
     NSString *amountStr = [NSString stringWithFormat:@"%@BSV",self.amount];

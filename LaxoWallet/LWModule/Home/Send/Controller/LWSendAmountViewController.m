@@ -41,13 +41,13 @@
 - (void)createUI{
     if (kScreenWidth == 320) {
         [self.bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@131);
+            make.height.equalTo(@131);
         }];
         self.scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, KScreenHeightBar - 131)];
         self.scrollview.contentSize = CGSizeMake(kScreenWidth, 470);
-    }else if (kScreenWidth == 375 && kScreenWidth == 667){
+    }else if (kScreenWidth == 375 && kScreenHeight == 667){
         [self.bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@131);
+            make.height.equalTo(@131);
         }];
         self.scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, KScreenHeightBar - 131)];
         self.scrollview.contentSize = CGSizeMake(kScreenWidth, KScreenHeightBar - 131);

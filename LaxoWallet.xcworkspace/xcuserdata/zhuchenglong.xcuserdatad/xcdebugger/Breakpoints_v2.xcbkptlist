@@ -354,32 +354,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "185817D8-33F9-4E0F-BF71-8CA05B1FA2E9"
+            uuid = "4BD61B90-01A4-485B-8494-BE38813D87CC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LaxoWallet/LWModule/Home/Transaction/LWTansactionTool.m"
+            filePath = "LaxoWallet/LWModule/Home/Model/LWMultipyAdressTool.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "-transStart"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "-broadCast:data:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5314E0CE-C28A-48DF-9C4B-9FE7359FE303"
+            uuid = "3699FD93-8965-4265-B250-B5C71BF6272C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LaxoWallet/LWModule/Home/Transaction/LWTansactionTool.m"
+            filePath = "LaxoWallet/LWModule/Home/Model/LWMultipyAdressTool.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "-transStart"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "-poll_for_broadCast:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "69365A8D-6891-4197-AA53-66D9B12D8C3A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LaxoWallet/LWModule/Home/Model/LWAddressTool.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "402"
+            endingLineNumber = "402"
+            landmarkName = "-poll_for_p2p:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "41536F58-7841-456E-B15A-AA4244D5E254"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LaxoWallet/LWModule/Home/Model/LWAddressTool.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
+            landmarkName = "-poll_for_broadCast:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

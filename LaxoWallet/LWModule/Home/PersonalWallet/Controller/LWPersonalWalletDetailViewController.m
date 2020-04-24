@@ -190,7 +190,7 @@
         
         NSString *rid = [[notiDic objectForKey:@"data"] objectForKey:@"rid"];
         NSString *path = [[notiDic objectForKey:@"data"] objectForKey:@"path"] ;
-        LWAddressTool *addressTool = [LWAddressTool shareInstance];
+        LWAddressTool *addressTool = [[LWAddressTool alloc] init];
         [addressTool setWithrid:rid andPath:path];
         addressTool.addressBlock = ^(NSString * _Nonnull address) {
             [[LWAddressTool  shareInstance] attempDealloc];

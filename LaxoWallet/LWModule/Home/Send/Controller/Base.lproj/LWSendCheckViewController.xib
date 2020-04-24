@@ -18,6 +18,7 @@
                 <outlet property="feeLabel" destination="Yg9-XK-AS9" id="BLT-u2-QTm"/>
                 <outlet property="nextBtn" destination="baJ-jy-IZP" id="TBG-4S-Vff"/>
                 <outlet property="scrollView" destination="4Kb-3k-jG3" id="meg-cN-xUx"/>
+                <outlet property="sendLabel" destination="gkB-ei-WEn" id="6WN-Wz-P5Z"/>
                 <outlet property="textView" destination="I9g-iL-n0Y" id="fCI-Lz-Df6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="walletNameLabe" destination="ZgS-BT-3eF" id="gIE-L7-wOW"/>

@@ -16,6 +16,8 @@
     dispatch_semaphore_t _broadcastSignal;
 
     dispatch_semaphore_t _getKeySignal;
+    dispatch_semaphore_t _pollRequestSignal;
+
     
     NSInteger _PARTIES_Sign;
     NSInteger _THRESHOLD_Sign;
@@ -38,6 +40,9 @@
 
 @property (nonatomic, assign) NSInteger share_count;
 @property (nonatomic, assign) NSInteger threshold;
+
+@property (nonatomic, assign) BOOL isreconnect;
+
 
 @end
 
@@ -73,7 +78,7 @@ static LWSignTool *instance = nil;
         dispatch_semaphore_signal(self->_semaphoreSignal);
     }
     if (self->_broadcastSignal  || self->_broadcastSignal != 0) {
-            dispatch_semaphore_signal(self->_broadcastSignal);
+        dispatch_semaphore_signal(self->_broadcastSignal);
     }
     if (self->_getKeySignal  || self->_getKeySignal != 0) {
         dispatch_semaphore_signal(self->_getKeySignal);
@@ -99,15 +104,17 @@ static LWSignTool *instance = nil;
         self->_broadcastSignal = dispatch_semaphore_create(0);
         [self broadCast:1 data:@"1"];
         dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
-        if (self->_broadcastSignal  || self->_broadcastSignal != 0) {
-            dispatch_semaphore_signal(self->_broadcastSignal);
+        self->_broadcastSignal = nil;
+        if (self.isreconnect) {
+            return;
         }
         
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast_list_1 = [self poll_for_broadCast:1];;
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-        if (self->_getKeySignal  || self->_getKeySignal != 0) {
-            dispatch_semaphore_signal(self->_getKeySignal);
+        self->_getKeySignal = nil;
+        if (self.isreconnect) {
+            return;
         }
         
         NSMutableArray *signers_vec = [NSMutableArray array];
@@ -134,12 +141,18 @@ static LWSignTool *instance = nil;
         [self broadCast:2 data:signer_data];
         dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
         self->_broadcastSignal = nil;
-
+        if (self.isreconnect) {
+            return;
+        }
+        
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast_list_2 = [self poll_for_broadCast:2];;
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
         self->_getKeySignal = nil;
-
+        if (self.isreconnect) {
+            return;
+        }
+        
         char *sign_handle_round_1 = sign_handle_round([LWAddressTool stringToChar:signer_id], 1, [LWAddressTool objectToChar:poll_for_broadCast_list_2]);
         NSArray *sign_handle_round_1_array = [LWAddressTool charToObject:sign_handle_round_1];
         
@@ -150,13 +163,19 @@ static LWSignTool *instance = nil;
         //    NSLog(@"sendp2p:item0:%@ \n data:%@",item[0],item[1]);
             dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
             self->_broadcastSignal = nil;
+            if (self.isreconnect) {
+                return;
+            }
         }
                 
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_p2p_Array = [self poll_for_p2p:3];
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
         self->_getKeySignal = nil;
-
+        if (self.isreconnect) {
+            return;
+        }
+        
         NSString *sign_handle_round_2_params = [NSString stringWithFormat:@"key:%@ \n round:2 \n data:%@",signer_id,poll_for_p2p_Array];
    //     NSLog(@"sign_handle_round_2:%@",sign_handle_round_2_params);
         
@@ -173,12 +192,18 @@ static LWSignTool *instance = nil;
         [self broadCast:4 data:[LWAddressTool charToObject:sign_handle_round_2]];
         dispatch_semaphore_wait(self->_broadcastSignal, DISPATCH_TIME_FOREVER);
         self->_broadcastSignal = nil;
-
+        if (self.isreconnect) {
+            return;
+        }
+        
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast_list_3 = [self poll_for_broadCast:4];;
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
         self->_getKeySignal = nil;
-
+        if (self.isreconnect) {
+            return;
+        }
+        
         //返回值顺序修改@{s,r}
         char *sign_handle_round_3 = sign_handle_round([LWAddressTool stringToChar:signer_id], 3, [LWAddressTool objectToChar:poll_for_broadCast_list_3]);
         NSArray *sign_handle_round_3_array = [LWAddressTool charToObject:sign_handle_round_3];
@@ -187,7 +212,10 @@ static LWSignTool *instance = nil;
         NSArray *poll_for_broadCast_list_5 = [self poll_for_broadCast:5];;
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
         self->_getKeySignal = nil;
-
+        if (self.isreconnect) {
+            return;
+        }
+        
         NSMutableArray *signArray = [NSMutableArray array];
         [signArray addObj:sign_handle_round_3_array[0]];
         for (NSInteger i = 0; i<poll_for_broadCast_list_5.count; i++) {
@@ -207,8 +235,6 @@ static LWSignTool *instance = nil;
         }
         char *sum_point_char = get_group_pubkey([LWAddressTool objectToChar:sum_point_array]);
 
-        
-        
         if (self.signBlock) {
             self.signBlock(@{@"r":sign_handle_round_3_array[1],@"sign":[LWAddressTool charToString:sign],@"pubkey":[LWAddressTool charToString:sum_point_char]});
         }
@@ -228,11 +254,36 @@ static LWSignTool *instance = nil;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boardCast:) name:kWebScoket_boardcast object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getTheKey:) name:kWebScoket_getTheKey object:nil];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidOpen:) name:kWebSocketDidOpenNote object:nil];
+    
     self.party_num_int = 1;
     self.share_count = _PARTIES_Sign;
     self.threshold = 1;
     self.party_count = 2;
     self.party_index = 1;
+}
+
+
+- (void)SRWebSocketDidOpen:(NSNotification *)notification{
+    self.isreconnect = YES;
+  
+    if (self->_semaphoreSignal || self->_semaphoreSignal != 0) {
+         dispatch_semaphore_signal(self->_semaphoreSignal);
+    }
+  
+    if (self->_getKeySignal || self->_getKeySignal != 0) {
+         dispatch_semaphore_signal(self->_getKeySignal);
+    }
+    
+    if (self->_broadcastSignal || self->_broadcastSignal) {
+        dispatch_semaphore_signal(self->_broadcastSignal);
+    }
+    
+    if (self->_pollRequestSignal || self->_pollRequestSignal) {
+        dispatch_semaphore_signal(self->_pollRequestSignal);
+    }
+
+    
 }
 
 - (void)requestSignInfo{//wallet.requestPartySign
@@ -280,7 +331,7 @@ static LWSignTool *instance = nil;
     dispatch_async(queue, ^{
         for (NSInteger i = 1; i< n+1; i++) {
             if (i != party_index) {
-                self->_semaphoreSignal = dispatch_semaphore_create(0);
+                self->_pollRequestSignal = dispatch_semaphore_create(0);
                 NSString *key = [@[@(i),@(round)] componentsJoinedByString:@"_"];
 
                 dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
@@ -290,10 +341,21 @@ static LWSignTool *instance = nil;
                 });
                 dispatch_resume(timer);
                 
-                dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+                dispatch_semaphore_wait(self->_pollRequestSignal, DISPATCH_TIME_FOREVER);
+                
+                if (self.isreconnect) {
+                    self->_pollRequestSignal = nil;
+                    return;
+                }
+                
                 [list addObj:self->getTheKeyData];
                 dispatch_cancel(timer);
             }
+        }
+        
+        self->_pollRequestSignal = nil;
+        if (self.isreconnect) {
+            return;
         }
         dispatch_semaphore_signal(self->_getKeySignal);
     });
@@ -308,7 +370,7 @@ static LWSignTool *instance = nil;
     dispatch_queue_t queue = dispatch_queue_create("sign_poll_for_p2p", 0);
 
     dispatch_async(queue, ^{
-        self->_semaphoreSignal = dispatch_semaphore_create(0);
+        self->_pollRequestSignal = dispatch_semaphore_create(0);
         for (NSInteger i = 1; i< n+1; i++) {
             if (i != self.party_index) {
                 NSString *key = [@[@(i),@(round),@(party_index)] componentsJoinedByString:@"_"];
@@ -321,14 +383,24 @@ static LWSignTool *instance = nil;
                 });
                 dispatch_resume(timer);
                 
-                dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+                dispatch_semaphore_wait(self->_pollRequestSignal, DISPATCH_TIME_FOREVER);
+                dispatch_cancel(timer);
+                
+                if (self.isreconnect) {
+                     self->_pollRequestSignal = nil;
+                     return;
+                 }
+                
                 NSLog(@"wait");
                 [list addObj:self->getTheKeyData];
-                dispatch_cancel(timer);
             }
         }
-        dispatch_semaphore_signal(self->_getKeySignal);
         NSLog(@"signal");
+        self->_pollRequestSignal = nil;
+        if (self.isreconnect) {
+            return;
+        }
+        dispatch_semaphore_signal(self->_getKeySignal);
 
     });
 
@@ -408,8 +480,8 @@ static LWSignTool *instance = nil;
         }
         getTheKeyData = [notiDic objectForKey:@"data"];
         
-        if (self->_semaphoreSignal && self->_semaphoreSignal != 0) {
-            dispatch_semaphore_signal(self->_semaphoreSignal);
+        if (self->_pollRequestSignal && self->_pollRequestSignal != 0) {
+            dispatch_semaphore_signal(self->_pollRequestSignal);
         }
         NSLog(@"signal");
     }

@@ -23,6 +23,9 @@
     dispatch_semaphore_t _semaphoreSignal;
     id   getTheKeyData;
     dispatch_semaphore_t _getKeySignal;
+    dispatch_semaphore_t _pollRequestSignal;
+
+    dispatch_semaphore_t _getAddressRequest;
 
     NSDictionary *params;
 
@@ -52,6 +55,9 @@
 @property (nonatomic, strong) NSDictionary *decom;
 @property (nonatomic, strong) NSDictionary *y;
 
+@property (nonatomic, strong) NSMutableArray *requestArray;
+@property (nonatomic, assign) BOOL isreconnect;
+
 @end
 NSInteger PARTIES = 3;
 
@@ -72,6 +78,9 @@ static dispatch_once_t onceToken;
     self.party_count = 3;
     self.party_index = 1;
     self.party_num_int = 1;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidReceiveMsg:) name:kWebSocketdidReceiveMessageNote object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SRWebSocketDidOpen:) name:kWebSocketDidOpenNote object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boardCast:) name:kWebScoket_boardcast object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getTheKey:) name:kWebScoket_getTheKey object:nil];
@@ -95,6 +104,29 @@ static dispatch_once_t onceToken;
     self.q = [pqArray lastObject];
     self.share_count = PARTIES;
         
+    self.requestArray = [NSMutableArray array];
+}
+
+- (void)SRWebSocketDidReceiveMsg:(NSNotification *)notification{
+    
+}
+
+- (void)SRWebSocketDidOpen:(NSNotification *)notification{
+    self.isreconnect = YES;
+  
+    if (self->_semaphoreSignal || self->_semaphoreSignal != 0) {
+         dispatch_semaphore_signal(self->_semaphoreSignal);
+    }
+  
+    if (self->_getKeySignal || self->_getKeySignal != 0) {
+         dispatch_semaphore_signal(self->_getKeySignal);
+    
+    }
+    
+    if (self->_pollRequestSignal || self->_pollRequestSignal) {
+        dispatch_semaphore_signal(self->_pollRequestSignal);
+    }
+    
 }
 
 - (void)setWithrid:(NSString *)rid andPath:(nonnull NSString *)path{
@@ -102,25 +134,12 @@ static dispatch_once_t onceToken;
     self.path = path;
 
     dispatch_queue_t queue = dispatch_queue_create("addressQueue", 0);
-    
-//    dispatch_async(queue, ^{
-//        if (self->_semaphoreSignal || self->_semaphoreSignal != 0) {
-//              dispatch_semaphore_signal(self->_semaphoreSignal);
-//          }
-//          self->_semaphoreSignal = dispatch_semaphore_create(0);
-//
-//
-//        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
-//
-//    });
-    
-    
     dispatch_async(queue, ^{
         if (self->_semaphoreSignal || self->_semaphoreSignal != 0) {
-              dispatch_semaphore_signal(self->_semaphoreSignal);
+            dispatch_semaphore_signal(self->_semaphoreSignal);
           }
         if (self->_getKeySignal || self->_getKeySignal != 0) {
-              dispatch_semaphore_signal(self->_getKeySignal);
+            dispatch_semaphore_signal(self->_getKeySignal);
           }
         [self initData];
 
@@ -130,15 +149,23 @@ static dispatch_once_t onceToken;
         NSArray *key_generate = key_generate_array;
         NSLog(@"broadCast1:begin");
     
-         self->_semaphoreSignal = dispatch_semaphore_create(0);
-         [self broadCast:1 data:key_generate[1]];
-         dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
-         NSLog(@"broadCast1:end");
+        self->_semaphoreSignal = dispatch_semaphore_create(0);
+        [self broadCast:1 data:key_generate[1]];
+        dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+        self->_semaphoreSignal = nil;
+        NSLog(@"broadCast1:end");
+        if (self.isreconnect) {
+            return;
+        }
         
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast_list_1 = [self poll_for_broadCast:1];;
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-              
+        self->_getKeySignal = nil;
+        if (self.isreconnect) {
+            return;
+        }
+        
         char *key_handle_round1_char = key_handle_round1([LWAddressTool stringToChar:key_generate[0]], [LWAddressTool objectToChar:poll_for_broadCast_list_1]);
         NSArray *key_handle_round1_array = [LWAddressTool charToObject:key_handle_round1_char];
         NSArray *share_list = key_handle_round1_array.firstObject;
@@ -162,20 +189,26 @@ static dispatch_once_t onceToken;
         }
               
         //对let item of share_list
+        self->_semaphoreSignal = dispatch_semaphore_create(0);
         for (NSInteger k = 0; k<share_list.count; k++) {
             NSArray *item = share_list[k];
             NSString *keytemp = [LWEncryptTool encrywithKey_tss:secrets[k] message:item[1]];
-
-            self->_semaphoreSignal = dispatch_semaphore_create(0);
             [self sendp2p:[item[0] integerValue] round:2 data:keytemp];
             NSLog(@"sendp2p:item0:%@ \n key:%@",item[0],keytemp);
             dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
         }
-
+        self->_semaphoreSignal = nil;
+        if (self.isreconnect) {
+            return;
+        }
+        
         self->_semaphoreSignal = dispatch_semaphore_create(0);
         [self broadCast:3 data:vss];
         dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
-
+        self->_semaphoreSignal = nil;
+        if (self.isreconnect) {
+            return;
+        }
         
         NSString *shareRequest;
         NSArray *vssRequest;
@@ -183,7 +216,11 @@ static dispatch_once_t onceToken;
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_p2p_Array = [self poll_for_p2p:2];
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
-                    
+        self->_getKeySignal = nil;
+        if (self.isreconnect) {
+            return;
+        }
+        
         NSMutableArray *poll_for_p2p_Array_decrypt = [NSMutableArray array];
         
         //decrypt poll_for_p2p 返回的值
@@ -196,6 +233,10 @@ static dispatch_once_t onceToken;
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast3_array = [self poll_for_broadCast:3];
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+        self->_getKeySignal = nil;
+        if (self.isreconnect) {
+            return;
+        }
         
         NSString *key0 = key_generate_array[0];
         NSString *poll_for_p2p_Array_decrypt_Json = [poll_for_p2p_Array_decrypt jsonStringEncoded];
@@ -218,6 +259,10 @@ static dispatch_once_t onceToken;
         self->_semaphoreSignal = dispatch_semaphore_create(0);
         [self broadCast:4 data:dlog_proof];
         dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+        self->_semaphoreSignal = nil;
+        if (self.isreconnect) {
+            return;
+        }
         
         NSLog(@"shared_keys:%@",shared_keys);
         NSLog(@"vss:%@",vss_2);
@@ -227,11 +272,21 @@ static dispatch_once_t onceToken;
         self->_getKeySignal = dispatch_semaphore_create(0);
         NSArray *poll_for_broadCast_array = [self poll_for_broadCast:4];
         dispatch_semaphore_wait(self->_getKeySignal, DISPATCH_TIME_FOREVER);
+        self->_getKeySignal = nil;
+        if (self.isreconnect) {
+            return;
+        }
         
         char *ret = key_handle_round3([LWAddressTool stringToChar:key_generate_array[0]], [LWAddressTool objectToChar:poll_for_broadCast_array]);
         NSLog(@"ret:%s",ret);//返回ture成功 其他fail
         if ([[LWAddressTool charToString:ret] isEqualToString:@"true"]) {
+            self->_getAddressRequest = dispatch_semaphore_create(0);
             [self requestAddress:shareRequest andvss:vssRequest];
+            dispatch_semaphore_wait(self->_getAddressRequest, DISPATCH_TIME_FOREVER);
+            self->_getAddressRequest = nil;
+            if (self.isreconnect) {
+                return;
+            }
         }
         
         char *destroy_key_char =  destroy_key([LWAddressTool stringToChar:key_generate_array[0]]);
@@ -280,37 +335,44 @@ static dispatch_once_t onceToken;
     dispatch_queue_t queue = dispatch_queue_create("poll_for_broadCast_Queue", 0);
 
     dispatch_async(queue, ^{
-        self->_semaphoreSignal = dispatch_semaphore_create(0);
+        self->_pollRequestSignal = dispatch_semaphore_create(0);
         for (NSInteger i = 1; i< n+1; i++) {
             if (i != party_index) {
+
                 NSString *key = [@[@(i),@(round)] componentsJoinedByString:@"_"];
                 NSLog(@"getkeystart");
-//                __block NSInteger flag = 0;
+                __block NSInteger flag = 0;
                 dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
                 dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
                 dispatch_source_set_event_handler(timer, ^{
-//                    flag ++;
+                    flag ++;
                     [self getKey:key];
-//                    if (flag == 30) {
-//                        dispatch_cancel(timer);
-//
-////                        dispatch_semaphore_signal(self->_semaphoreSignal);
-////                        dispatch_semaphore_signal(self->_getKeySignal);
-//                        [self attempDealloc];
-//                        NSLog(@"error");
-//                        return;
-//
-//                    }
+                    if (flag == 2) {
+                        dispatch_cancel(timer);
+                        self.isreconnect = YES;
+                        if (self->_pollRequestSignal || self->_pollRequestSignal != 0) {
+                                 dispatch_semaphore_signal(self->_pollRequestSignal);
+                        }                    }
                 });
                 dispatch_resume(timer);
+                dispatch_semaphore_wait(self->_pollRequestSignal, DISPATCH_TIME_FOREVER);
+                dispatch_cancel(timer);
+
+                if (self.isreconnect) {
+                    self->_pollRequestSignal = nil;
+                    return;
+                }
                 
-                dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
                 NSLog(@"getkeyend");
                 [list addObj:self->getTheKeyData];
-                dispatch_cancel(timer);
             }
         }
         NSLog(@"listEnd0");
+
+        self->_pollRequestSignal = nil;
+        if (self.isreconnect) {
+            return;
+        }
         dispatch_semaphore_signal(self->_getKeySignal);
     });
     
@@ -324,35 +386,43 @@ static dispatch_once_t onceToken;
     dispatch_queue_t queue = dispatch_queue_create("poll_for_p2p_Queue", 0);
 
     dispatch_async(queue, ^{
-        self->_semaphoreSignal = dispatch_semaphore_create(0);
+        self->_pollRequestSignal = dispatch_semaphore_create(0);
         for (NSInteger i = 1; i< n+1; i++) {
             if (i != self.party_index) {
                 NSString *key = [@[@(i),@(round),@(party_index)] componentsJoinedByString:@"_"];
-//                __block NSInteger flag = 0;
+                __block NSInteger flag = 0;
                 dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
                 dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
                 dispatch_source_set_event_handler(timer, ^{
                     NSLog(@"poll_for_p2p");
-//                    flag ++;
+                    flag ++;
                     [self getKey:key];
-//                    if (flag == 2) {
-//                        dispatch_cancel(timer);
-//
-////                        dispatch_semaphore_signal(self->_semaphoreSignal);
-////                        dispatch_semaphore_signal(self->_getKeySignal);
-//                        [self attempDealloc];
-//                        NSLog(@"error");
-//                        return;
-//
-//                    }
+                    if (flag == 2) {
+                        dispatch_cancel(timer);
+                        self.isreconnect = YES;
+                        if (self->_pollRequestSignal || self->_pollRequestSignal != 0) {
+                            dispatch_semaphore_signal(self->_pollRequestSignal);
+                        }
+                        NSLog(@"time out");
+                    }
                 });
                 dispatch_resume(timer);
                 
-                dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
-                [list addObj:self->getTheKeyData];
+                dispatch_semaphore_wait(self->_pollRequestSignal, DISPATCH_TIME_FOREVER);
                 dispatch_cancel(timer);
+
+                if (self.isreconnect) {
+                    self->_pollRequestSignal = nil;
+                    return;
+                }
+                [list addObj:self->getTheKeyData];
             }
         }
+        self->_pollRequestSignal = nil;
+        if (self.isreconnect) {
+            return;
+        }
+        
         dispatch_semaphore_signal(self->_getKeySignal);
     });
 
@@ -371,7 +441,9 @@ static dispatch_once_t onceToken;
     NSLog(@"broadcast:%@",notiDic);
     NSLog(@"broadcastNotificationSuccess");
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
-        dispatch_semaphore_signal(_semaphoreSignal);
+        if (self->_semaphoreSignal || self->_semaphoreSignal != 0) {
+            dispatch_semaphore_signal(self->_semaphoreSignal);
+        }
     }
 }
 
@@ -384,13 +456,16 @@ static dispatch_once_t onceToken;
             return;
         }
         getTheKeyData = [notiDic objectForKey:@"data"];
-        dispatch_semaphore_signal(_semaphoreSignal);
+        if (self->_pollRequestSignal || self->_pollRequestSignal != 0) {
+            dispatch_semaphore_signal(self->_pollRequestSignal);
+        }
     }
 }
 
 - (void)confirmAddress:(NSNotification *)notification{
     NSDictionary *notiDic = notification.object;
     NSLog(@"confirmAddress");
+    dispatch_semaphore_signal(self->_getAddressRequest);
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
         if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
             NSString *address = [notiDic objectForKey:@"data"];

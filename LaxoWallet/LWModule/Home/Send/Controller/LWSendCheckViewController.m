@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *faceDescribeLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *currencyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sendLabel;
 
 @property (nonatomic, strong) LWTansactionTool *trans;
 @property (nonatomic, strong) LWMultipyTransactionTool *mutipyTrans;
@@ -40,16 +41,17 @@
 
 - (void)createUI{
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.sendLabel.text = kLocalizable(@"common_Send");
+
     if (kScreenWidth == 320) {
         [self.bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@131);
+            make.height.equalTo(@131);
         }];
 
         self.scrollView.contentSize = CGSizeMake(kScreenWidth, 500);
-    }else if (kScreenWidth == 375 && kScreenWidth == 667){
+    }else if (kScreenWidth == 375 && kScreenHeight == 667){
         [self.bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@131);
+            make.height.equalTo(@131);
         }];
 
         self.scrollView.contentSize = CGSizeMake(kScreenWidth, KScreenHeightBar - 131);
@@ -58,8 +60,9 @@
         self.scrollView.contentSize = CGSizeMake(kScreenWidth, KScreenHeightBar - 171);
     }
 
+    self.walletNameLabe.text = self.walletModel.name;
+    
     self.faceDescribeLabel.text = kLocalizable(@"wallet_send_auth_faceid");
-
     
     if([[TDTouchID sharedInstance] td_canSupperBiometrics] == TDTouchIDSupperTypeTouchID){
         self.faceImageView.image = [UIImage imageNamed:@"home_touchId"];

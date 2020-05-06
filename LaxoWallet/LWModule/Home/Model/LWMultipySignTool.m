@@ -414,7 +414,7 @@
         NSDictionary *notiDic = notiArray[2];
         NSLog(@"submitSigId:%@,%@",notiArray[1],@(self.submitSigId));
         
-        NSLog(@"submitSigSuccess");
+        NSLog(@"submitSigSuccess: %@",notiArray);
         if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
             if (self.signBlock) {
                 self.signBlock([notiDic objectForKey:@"data"]);

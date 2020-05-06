@@ -111,12 +111,30 @@
     for (NSInteger i = 0; i < self.dataSource.count; i++) {
         LWCurrencyModel *model = [self.dataSource objectAtIndex:i];
         if (i == indexPath.row) {
-            model.statue = 2;
-            [LWPublicManager setCurrentCurrencyEnglishCode:model.title];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:kCuurentCurrencyChange_nsnotification object:nil];
-            });
             
+            NSString *string = [NSString stringWithFormat:@"Change Currency to : %@",model.title];
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:string message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Sure" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                [SVProgressHUD show];
+                model.statue = 2;
+                [LWPublicManager setCurrentCurrencyEnglishCode:model.title];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kCuurentCurrencyChange_nsnotification object:nil];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [LogicHandle popToRootViewController];
+                    });
+                });
+                
+            }];
+            [alertVC addAction:action];
+            UIAlertAction *actionCan = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                  
+              }];
+            [alertVC addAction:actionCan];
+
+            [LogicHandle presentViewController:alertVC animate:YES];
         }else {
             model.statue = 1;
         }

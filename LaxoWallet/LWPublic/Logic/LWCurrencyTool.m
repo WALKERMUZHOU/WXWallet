@@ -124,7 +124,7 @@
 + (NSString *)getCurrentCurrencyAmountWithUSDAmount:(double)usd{
     NSDictionary *allCurrencyDic = [LWCurrencyTool getAllCurrency];
     double currencyToUsd = [[allCurrencyDic objectForKey:[LWPublicManager getCurrentCurrencyEnglishCode] ] doubleValue];
-    return  [LWNumberTool formatSSSFloat:usd/currencyToUsd];
+    return  [LWNumberTool formatSSSFloat:usd * currencyToUsd];
 }
 
 + (NSString *)getCurrentSymbolCurrencyAmountWithUSDAmount:(double)usd{

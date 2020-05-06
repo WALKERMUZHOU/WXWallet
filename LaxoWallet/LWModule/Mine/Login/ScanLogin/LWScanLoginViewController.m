@@ -39,7 +39,13 @@
                                             WS_Login_ScanLogin,
                                             [params jsonStringEncoded]];
     NSData *data = [requestPersonalWalletArray mp_messagePack];
-    [[SocketRocketUtility instance] sendData:data];
+    
+    if ([[SocketRocketUtility instance] socketReadyState] == SR_OPEN) {
+        [[SocketRocketUtility instance] sendData:data];
+        [SVProgressHUD show];
+    }else{
+        [WMHUDUntil showMessageToWindow:@"Network connecting..."];
+    }
     
 }
 - (void)requestPersonalWalletInfo{
@@ -60,7 +66,7 @@
 }
 
 - (void)loginRes:(NSNotification *)notification{
-
+    [SVProgressHUD dismiss];
     NSDictionary *notiDic = notification.object;
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
         NSLog(@"login_success");

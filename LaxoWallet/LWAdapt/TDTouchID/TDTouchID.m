@@ -24,16 +24,32 @@
     TDTouchIDSupperType supperType = [self td_canSupperBiometrics];
     
     NSString *descStr;
-    if (supperType == TDTouchIDSupperTypeTouchID && desc.length == 0) {
-        descStr = @"通过Home键验证已有指纹";
+    if(supperType == TDTouchIDSupperTypeTouchID){
+        if (!desc || desc.length == 0) {
+            descStr = @"通过Home键验证已有指纹";
+        }else{
+            descStr = desc;
+        }
     }else{
-        descStr = desc;
+        if (!faceDesc || faceDesc.length == 0) {
+            descStr = @"通过已有面容ID验证";
+        }else{
+            descStr = faceDesc;
+        }
     }
-    if (supperType == TDTouchIDSupperTypeFaceID && faceDesc.length == 0) {
-        descStr = @"通过已有面容ID验证";
-    }else{
-        descStr = faceDesc;
-    }
+    
+    
+    
+//    if (supperType == TDTouchIDSupperTypeTouchID && desc.length == 0) {
+//        descStr = @"通过Home键验证已有指纹";
+//    }else{
+//        descStr = desc;
+//    }
+//    if (supperType == TDTouchIDSupperTypeFaceID && faceDesc.length == 0) {
+//        descStr = @"通过已有面容ID验证";
+//    }else{
+//        descStr = faceDesc;
+//    }
     
     if (NSFoundationVersionNumber < NSFoundationVersionNumber_iOS_8_0) {
         

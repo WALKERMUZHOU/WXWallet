@@ -120,7 +120,6 @@ static dispatch_once_t onceToken;
   
     if (self->_getKeySignal || self->_getKeySignal != 0) {
          dispatch_semaphore_signal(self->_getKeySignal);
-    
     }
     
     if (self->_pollRequestSignal || self->_pollRequestSignal) {
@@ -154,6 +153,7 @@ static dispatch_once_t onceToken;
         dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
         self->_semaphoreSignal = nil;
         NSLog(@"broadCast1:end");
+        
         if (self.isreconnect) {
             return;
         }
@@ -347,9 +347,10 @@ static dispatch_once_t onceToken;
                 dispatch_source_set_event_handler(timer, ^{
                     flag ++;
                     [self getKey:key];
-                    if (flag == 2) {
+                    if (flag == 20) {
                         dispatch_cancel(timer);
                         self.isreconnect = YES;
+                        [SVProgressHUD dismiss];
                         if (self->_pollRequestSignal || self->_pollRequestSignal != 0) {
                                  dispatch_semaphore_signal(self->_pollRequestSignal);
                         }                    }
@@ -397,9 +398,10 @@ static dispatch_once_t onceToken;
                     NSLog(@"poll_for_p2p");
                     flag ++;
                     [self getKey:key];
-                    if (flag == 2) {
+                    if (flag == 20) {
                         dispatch_cancel(timer);
                         self.isreconnect = YES;
+                        [SVProgressHUD dismiss];
                         if (self->_pollRequestSignal || self->_pollRequestSignal != 0) {
                             dispatch_semaphore_signal(self->_pollRequestSignal);
                         }

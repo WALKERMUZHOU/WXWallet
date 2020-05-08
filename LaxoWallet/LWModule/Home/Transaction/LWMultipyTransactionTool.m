@@ -77,12 +77,12 @@ static LWMultipyTransactionTool *instance = nil;
         return;
     }
     
-    char *add_change = add_transaction_change(transId,address_to_script([LWAddressTool stringToChar:changeAddress]));
-    NSLog(@"add_transaction_change(%s , %s)",transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
-    
     char *add_output = add_transaction_output(transId, address_to_script([LWAddressTool stringToChar:self.transAddress]), self.transAmount);
     NSLog(@"add_transaction_output(%s , %s , %ld )",transId,address_to_script([LWAddressTool stringToChar:self.transAddress]),(long)self.transAmount);
 
+    char *add_change = add_transaction_change(transId,address_to_script([LWAddressTool stringToChar:changeAddress]));
+    NSLog(@"add_transaction_change(%s , %s)",transId,address_to_script([LWAddressTool stringToChar:[self.model.deposit objectForKey:@"address"]]));
+    
     if (![[LWAddressTool charToString:add_output] isEqualToString:@"true"]) {
         [WMHUDUntil showMessageToWindow:@"transaction fail"];
         return;

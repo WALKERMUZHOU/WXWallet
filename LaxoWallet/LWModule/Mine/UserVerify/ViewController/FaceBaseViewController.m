@@ -188,7 +188,7 @@
     self.processingStatueLabel.font = kBoldFont(22);
     self.processingStatueLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.processingStatueLabel];
-    self.processingStatueLabel.text = @"We’re processing your data";
+    self.processingStatueLabel.text = kLocalizable(@"login_processingyourdata");
     self.processingStatueLabel.hidden = YES;
     
     self.processingContentLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, ScreenHeight/2+105, ScreenWidth - 40, 30)];
@@ -197,7 +197,7 @@
      self.processingContentLabel.font = kFont(16);
      self.processingContentLabel.textAlignment = NSTextAlignmentCenter;
      [self.view addSubview:self.processingContentLabel];
-     self.processingContentLabel.text = @"Please wait while we confirm your 3D facial map data meets the requirements and is stored securely.";
+         self.processingContentLabel.text = kLocalizable(@"login_Pleasewaitwhile");
     [self.processingContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(20);
         make.right.equalTo(self.view.mas_right).offset(-20);

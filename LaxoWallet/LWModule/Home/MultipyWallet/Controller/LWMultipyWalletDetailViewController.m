@@ -43,7 +43,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_multipyAddress_change object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addressUpdate:) name:kWebScoket_multipy_address_update object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(multipyWalletUpdate:) name:kWebScoket_multipyWalletData object:nil];
-
 }
 
 - (void)createUI{

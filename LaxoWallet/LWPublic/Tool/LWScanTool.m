@@ -14,6 +14,7 @@
 #import "LWScanResultViewController.h"
 #import "LWScanLoginViewController.h"
 #import "LWPersonalSendViewController.h"
+#import "LWSendAddressViewController.h"
 
 typedef void(^LWScanResultBlock)(LWScanModel *model);
 
@@ -150,8 +151,8 @@ typedef void(^LWScanResultBlock)(LWScanModel *model);
         [LogicHandle presentViewController:[[LWNavigationViewController alloc] initWithRootViewController:loginVC] animate:NO];
     }else if(model.scanType == 1){
         
-        LWPersonalSendViewController *sendVC = [[LWPersonalSendViewController alloc]init];
-        sendVC.model = [LWPublicManager getPersonalFirstWallet];
+        LWSendAddressViewController *sendVC = [[LWSendAddressViewController alloc]init];
+        sendVC.walletModel = [LWPublicManager getPersonalFirstWallet];
         sendVC.sendAddress = model.scanResult;
         sendVC.hidesBottomBarWhenPushed = YES;
         [LogicHandle pushViewController:sendVC animate:NO];

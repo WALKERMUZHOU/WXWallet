@@ -152,8 +152,8 @@
 "login_RecoveringFromICloud" = "通过icloud恢复";
 
 //#face_file
-"face_title_TouchID" = "按压Home键通过指纹识别恢复";
-"face_title_FaceID" = "通过人脸ID恢复";
+"face_title_TouchID" = "按压Home键通过指纹识别认证";
+"face_title_FaceID" = "通过人脸ID认证";
 "face_no_biometric" = "此设备不支持生物识别验证, 请先激活生物识别验证";
 
 //#wallet_create_xib
@@ -476,3 +476,31 @@
 //客服
 "me_Support" = "客服";
 
+//#face liveness
+
+"face_Good" = "很好";
+"face_shake your head" = "摇摇头";
+"face_lower your head slowly" = "摇摇头";
+"face_rise your head slowly" = "缓慢抬头";
+"face_Turn your head slowly to the left" = "向左转头";
+"face_Turn your head slowly to the right" = "向右转头";
+"face_Open mouth" = "张张嘴";
+"face_Blink eyes" = "眨眨眼";
+"face_Move the face into the frame" = "把脸移入框内";
+"face_Hold your phone closer" = "手机拿近一点";
+"face_Keep your phone away" = "手机拿远一点";
+"face_The chin is shaded" = "下颚有遮挡";
+"face_The right cheek is shaded" = "右脸颊有遮挡";
+"face_The left cheek is shaded" = "左脸颊有遮挡";
+"face_Mouth covered" = "嘴巴有遮挡";
+"face_Nose covered" = "鼻子有遮挡";
+"face_The right eye is shaded" = "右眼有遮挡";
+"face_The left eye is shaded" = "左眼有遮挡";
+"face_Please keep still" = "请保持不动";
+"face_Move the face into the frame" = "把脸移入框内";
+"face_The light is too dim" = "光线再亮些";
+"face_Suggest turning your head slightly to the left" = "建议略微向左转头";
+"face_Turn your head slightly to the right" = "建议略微向右转头";
+"face_Suggest bending slightly" = "建议略微低头";
+"face_Suggested slightly higher" = "建议略微抬头";
+"face_face verify fail,please try again" = "人脸识别失败,请再试一次";

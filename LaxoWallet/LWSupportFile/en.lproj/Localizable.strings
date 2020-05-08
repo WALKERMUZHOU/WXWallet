@@ -493,4 +493,31 @@
 //Support
 "me_Support" = "Support";
 
+//#face liveness
+"face_Good" = "Good";
+"face_shake your head" = "shake your head";
+"face_lower your head slowly" = "lower your head slowly";
+"face_rise your head slowly" = "rise your head slowly";
+"face_Turn your head slowly to the left" = "Turn your head slowly to the left";
+"face_Turn your head slowly to the right" = "Turn your head slowly to the right";
+"face_Open mouth" = "Open mouth";
+"face_Blink eyes" = "Blink eyes";
+"face_Move the face into the frame" = "Move the face into the frame";
+"face_Hold your phone closer" = "Hold your phone closer";
+"face_Keep your phone away" = "Keep your phone away";
+"face_The chin is shaded" = "The chin is shaded";
+"face_The right cheek is shaded" = "The right cheek is shaded";
+"face_The left cheek is shaded" = "The left cheek is shaded";
+"face_Mouth covered" = "Mouth covered";
+"face_Nose covered" = "Nose covered";
+"face_The right eye is shaded" = "The right eye is shaded";
+"face_The left eye is shaded" = "The left eye is shaded";
+"face_Please keep still" = "Please keep still";
+"face_Move the face into the frame" = "Move the face into the frame";
+"face_The light is too dim" = "The light is too dim";
+"face_Suggest turning your head slightly to the left" = "Suggest turning your head slightly to the left";
+"face_Turn your head slightly to the right" = "Turn your head slightly to the right";
+"face_Suggest bending slightly" = "Suggest bending slightly";
+"face_Suggested slightly higher" = "Suggested slightly higher";
+"face_face verify fail,please try again" = "face verify fail,please try again";
 

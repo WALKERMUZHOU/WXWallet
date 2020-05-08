@@ -351,7 +351,12 @@
                }else{//新用户
                    //选择thrustholds
                    self.isRegister = YES;
-                   [self scrollWithIndex:4];
+                   NSArray *array = @[@(1),@(2)];
+                   LWUserModel *user = [[LWUserManager shareInstance] getUserModel];
+                   user.trusthold = array;
+                   [[LWUserManager shareInstance] setUser:user];
+                   [self registerMethod];
+//                   [self scrollWithIndex:4];
 //                   [self.scrollView setContentOffset:CGPointMake(kScreenWidth *3, 0) animated:YES];
                }
            }else{
@@ -601,10 +606,18 @@
 
 //                [self.scrollView setContentOffset:CGPointMake(kScreenWidth *8, 0) animated:NO];
             }else{
-                [self scrollWithIndex:6];
 //                [self.scrollView setContentOffset:CGPointMake(kScreenWidth *5, 0) animated:NO];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self recoverWithICloud];
+                    [SVProgressHUD show];
+                    [self recoverWithICloud:^(BOOL isIcloudRecover) {
+                        if (isIcloudRecover) {
+                            [SVProgressHUD dismiss];
+                            [self scrollWithIndex:9];
+                        }else{
+                            [self getRecoverEmailCodeClick:[[LWUserManager shareInstance]getUserModel].email ];
+                            [self scrollWithIndex:6];
+                        }
+                    }];
                 });
             }
         }else{
@@ -771,8 +784,9 @@
 }
 
 #pragma mark recoverWithIcloud
-- (void)recoverWithICloud{
+- (void)recoverWithICloud:(void(^)(BOOL isIcloudRecover))successBlock{
 #if DEBUG
+    successBlock(NO);
     return;
 #endif
     
@@ -781,8 +795,27 @@
         [WMHUDUntil showMessageToWindow:kLocalizable(@"login_RecoveringFromICloud")];
 
 //        [SVProgressHUD showWithStatus:@"Recovering From ICloud"];
-        [self recoverWithScanedStr:recoverCode];
+        
+         NSString *jizhuci = [LWEncryptTool decryptwithTheKey:[[[LWUserManager shareInstance] getUserModel].secret md5String]  message:recoverCode andHex:0];
+         if (!jizhuci || jizhuci == nil || jizhuci.length == 0) {
+             [WMHUDUntil showMessageToWindow:kLocalizable(@"login_error_qrCode")];
+             successBlock(NO);
+
+         }else{
+             [[LWUserManager shareInstance] setJiZhuCi:jizhuci];
+             successBlock(YES);
+//             [self scrollWithIndex:9];
+     //        [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 8, 0) animated:NO];
+         }
+        
+//        [self recoverWithScanedStr:recoverCode];
+    }else{
+        successBlock(NO);
     }
+    
+    
+    
+    
 }
 
 #pragma mark qrscan

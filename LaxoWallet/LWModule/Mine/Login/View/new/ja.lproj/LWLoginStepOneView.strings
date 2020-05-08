@@ -3,7 +3,7 @@
 "9Fh-mc-MvB.text" = "メールアドレス入力";
 
 /* Class = "UILabel"; text = "Select Trustholds"; ObjectID = "E3u-xB-pRu"; */
-"E3u-xB-pRu.text" = "Select Trustholds";
+"E3u-xB-pRu.text" = "トラストホールドを選択";
 
 /* Class = "UILabel"; text = "Create facial recognition scan"; ObjectID = "H5p-Cg-dnh"; */
 "H5p-Cg-dnh.text" = "顔認証スキャン作成";

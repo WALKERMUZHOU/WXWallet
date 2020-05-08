@@ -1,9 +1,9 @@
 
 /* Class = "UIButton"; normalTitle = "Owned"; ObjectID = "90y-8a-C6A"; */
-"90y-8a-C6A.normalTitle" = "Owned";
+"90y-8a-C6A.normalTitle" = "所有";
 
 /* Class = "UILabel"; text = "Search for volt.id Paymail handles"; ObjectID = "KD0-SJ-KR4"; */
-"KD0-SJ-KR4.text" = "Search for volt.id Paymail handles";
+"KD0-SJ-KR4.text" = "ペイメールを検索";
 
 /* Class = "UILabel"; text = "Available!"; ObjectID = "YHc-aA-1Bb"; */
 "YHc-aA-1Bb.text" = "Available!";
@@ -12,16 +12,16 @@
 "aJr-7E-I3g.text" = "@volt.id";
 
 /* Class = "UIButton"; normalTitle = "CreateNew"; ObjectID = "bns-Xu-3kG"; */
-"bns-Xu-3kG.normalTitle" = "CreateNew";
+"bns-Xu-3kG.normalTitle" = "新しく作る";
 
 /* Class = "UITextField"; placeholder = "Account Name"; ObjectID = "crO-PG-DoQ"; */
-"crO-PG-DoQ.placeholder" = "Account Name";
+"crO-PG-DoQ.placeholder" = "有料メール名";
 
 /* Class = "UIButton"; normalTitle = "Buy for $1 USD"; ObjectID = "lTP-iW-Rg8"; */
 "lTP-iW-Rg8.normalTitle" = "Buy for $1 USD";
 
 /* Class = "UILabel"; text = "Paymails"; ObjectID = "pmx-0O-gcN"; */
-"pmx-0O-gcN.text" = "Paymails";
+"pmx-0O-gcN.text" = "ペイメール";
 
 /* Class = "UILabel"; text = "Available funds $864.71 from My account One"; ObjectID = "zqo-VL-KIL"; */
 "zqo-VL-KIL.text" = "Available funds $864.71 from My account One";

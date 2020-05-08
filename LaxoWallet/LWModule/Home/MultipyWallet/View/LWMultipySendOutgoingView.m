@@ -87,11 +87,21 @@
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
         [WMHUDUntil showMessageToWindow:@"Transaction cancel"];
         [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_Multipy_refrshWalletDetail object:nil];
+        [self requestMulipyWalletInfo];
         if (self.block) {
             self.block(1);
         }
     }
 }
+
+- (void)requestMulipyWalletInfo{
+    NSDictionary *multipyparams = @{@"type":@2};
+    NSArray *requestmultipyWalletArray = @[@"req",@(WSRequestIdWalletQueryMulpityWallet),@"wallet.query",[multipyparams jsonStringEncoded]];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[SocketRocketUtility instance] sendData:[requestmultipyWalletArray mp_messagePack]];
+    });
+}
+
 
 - (IBAction)copyClick:(UIButton *)sender {
     

@@ -57,6 +57,13 @@
                 });
             }];
             [alertVC addAction:action];
+            
+            UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                          
+                          
+                      }];
+            [alertVC addAction:action1];
+            
             [self presentViewController:alertVC animated:YES completion:nil];
 
         }
@@ -77,6 +84,12 @@
                 
             }];
             [alertVC addAction:action];
+            UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                       
+                       
+            }];
+            [alertVC addAction:action1];
+
             [self presentViewController:alertVC animated:YES completion:nil];
         }
             break;
@@ -96,6 +109,13 @@
                 
             }];
             [alertVC addAction:action];
+            
+            UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"キャンセル" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                       
+                       
+                   }];
+            [alertVC addAction:action1];
+            
             [self presentViewController:alertVC animated:YES completion:nil];
         }
             break;

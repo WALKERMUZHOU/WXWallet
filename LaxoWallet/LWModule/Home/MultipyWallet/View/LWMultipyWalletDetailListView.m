@@ -14,7 +14,9 @@
 #import "LWMultipyWalletDetailCell.h"
 #import "LWAlertTool.h"
 
-@implementation LWMultipyWalletDetailListView
+@implementation LWMultipyWalletDetailListView{
+    dispatch_source_t _timer;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     self = [super initWithFrame:frame style:style];
@@ -59,15 +61,28 @@
         [self.tableView reloadData];
     }
     
+    NSInteger flag = 1;
     for (NSInteger i = 0; i<self.dataSource.count; i++) {
         LWMessageModel *messageModel = [self.dataSource objectAtIndex:i];
         if (messageModel.status == 1) {
             NSArray *approveArray = [messageModel.user_status objectForKey:@"approve"];
             if (approveArray && approveArray.count == self.homeWallteModel.threshold) {
-                [self broadCastNeedSign];
+                if(_timer) return;
+                _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+                dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+                dispatch_source_set_event_handler(_timer, ^{
+                    [self broadCastNeedSign];
+                });
+                dispatch_resume(_timer);
+                flag = 0;
                 return;
             }
         }
+    }
+    
+    if(_timer){
+        dispatch_cancel(_timer);
+        _timer = nil;
     }
     
 }

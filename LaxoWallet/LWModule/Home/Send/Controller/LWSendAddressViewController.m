@@ -47,6 +47,10 @@
         self.addressTF.text = selectPaymail;
     };
     
+    if (self.sendAddress && self.sendAddress.length>0) {
+        self.addressTF.text = self.sendAddress;
+    }
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getpaymailToAddress:) name:kWebScoket_paymail_toAddress object:nil];
 
     

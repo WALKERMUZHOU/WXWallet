@@ -70,10 +70,10 @@
         return;
     }
     
-    [[TDTouchID sharedInstance] td_showTouchIDWithDescribe:@"Verify existing fingerprints through the Home button" FaceIDDescribe:@"Verify with existing face ID" BlockState:^(TDTouchIDState state, NSError *error) {
+    [[TDTouchID sharedInstance] td_showTouchIDWithDescribe:kLocalizable(@"face_title_TouchID") FaceIDDescribe:kLocalizable(@"face_title_FaceID") BlockState:^(TDTouchIDState state, NSError *error) {
         if (state == TDTouchIDStateNotSupport) {    //不支持TouchID/FaceID
-            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Current device does not support biometric verification, please turn on biometrics" message:nil preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *alertAc = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:kLocalizable(@"face_no_biometric") message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *alertAc = [UIAlertAction actionWithTitle:kLocalizable(@"common_sure") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
                 if (@available(iOS 10.0, *)){
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];

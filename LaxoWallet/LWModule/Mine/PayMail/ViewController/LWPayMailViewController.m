@@ -87,7 +87,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payMailEditResult:) name:kWebScoket_paymail_query object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addMailResult:) name:kWebScoket_paymail_add object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress_change object:nil];
 
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center  addObserver:self selector:@selector(keyboardDidShow)  name:UIKeyboardDidShowNotification  object:nil];
@@ -99,6 +98,16 @@
 //    [self.view addSubview:buttonRight];
 //    [buttonRight addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kWebScoket_createSingleAddress_change object: nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createSingleAddress:) name:kWebScoket_createSingleAddress_change object:nil];
 }
 
 - (void)keyboardDidShow{
@@ -325,6 +334,10 @@
     }else{
         [WMHUDUntil showMessageToWindow:kLocalizable(@"common_fail")];
     }
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*

@@ -44,7 +44,7 @@
     NSDictionary *userStatues = messageModel.user_status;
     NSArray *approve = [userStatues objectForKey:@"approve"];
             
-    self.satuedescribeLabel.text = [NSString stringWithFormat:@"You’ve signed. Awaiting others to sign (%ld of %ld)",(long)approve.count,(long)walletModel.threshold];
+//    self.satuedescribeLabel.text = [NSString stringWithFormat:@"You’ve signed. Awaiting others to sign (%ld of %ld)",(long)approve.count,(long)walletModel.threshold];
     
     self.timeLabel.text = [LWTimeTool EngLishMonthWithTimeStamp:messageModel.createtime abbreviations:YES EnglishShortNameForDate:NO];
     self.amountLabel.text = [NSString stringWithFormat:@"-%@", [LWNumberTool formatSSSFloat:self.messagemodel.value/1e8]];

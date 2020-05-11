@@ -89,7 +89,7 @@
                     self.iconImageView.image = [UIImage imageNamed:@"home_wallet_send"];
                     self.statueBackView.backgroundColor = lwColorNormalDeep;
                     self.statueLabel.text = kLocalizable(@"wallet_detail_signed_uppercase");
-                    self.statueDescribeLabel.text = [NSString stringWithFormat:@"%@ (%ld / %ld)",kLocalizable(@"wallet_detail_Awaitingothers"),(long)(_cotentmodel.threshold - approve.count),(long)(_cotentmodel.threshold)];
+                    self.statueDescribeLabel.text = [NSString stringWithFormat:@"%@",kLocalizable(@"wallet_detail_Awaitingothers")];
                     
                 }else{//
                     self.iconImageView.image = [UIImage imageNamed:@"home_wallet_pending"];

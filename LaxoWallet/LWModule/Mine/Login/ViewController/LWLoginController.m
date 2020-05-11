@@ -380,7 +380,9 @@
             LWTrusteeModel *model = [array objectAtIndex:i];
             [LWLoginCoordinator getRecoverySMSCodeWithModel:model SuccessBlock:^(id  _Nonnull data) {
                 if (i == array.count - 1) {
-                    [self scrollWithIndex:7];
+                    if ([[data objectForKey:@"success"]integerValue] == 1) {
+                        [self scrollWithIndex:7];
+                    }
 
 //                       [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 6, 0)];
 //                       [WMHUDUntil showMessageToWindow:@"验证码发送成功"];

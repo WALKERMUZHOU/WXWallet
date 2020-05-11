@@ -68,7 +68,7 @@ typedef void(^LWScanResultBlock)(LWScanModel *model);
 
 - (void)jumpToScan{
     QQLBXScanViewController *vc = [QQLBXScanViewController new];
-    vc.libraryType = SLT_ZXing;
+    vc.libraryType = SLT_Native;
     vc.style = [QQLBXScanViewController qqStyle];
     //镜头拉远拉近功能
     vc.isVideoZoom = YES;

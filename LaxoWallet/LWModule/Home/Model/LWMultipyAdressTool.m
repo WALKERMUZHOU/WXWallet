@@ -31,6 +31,7 @@
 
 @property (nonatomic, strong) NSString *rid;
 @property (nonatomic, strong) NSArray *vss;
+@property (nonatomic, assign) BOOL isovertime;
 
 @end
 
@@ -224,17 +225,33 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         for (NSInteger i = 1; i< n+1; i++) {
             if (i != party_index) {
+                
+                
+                __block NSInteger flag = 0;
+                
                 self->_semaphoreSignal = dispatch_semaphore_create(0);
                 NSString *key = [@[@(i),@(round)] componentsJoinedByString:@"_"];
 
                 dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+                dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
                 dispatch_source_set_event_handler(timer, ^{
+                    flag ++;
+                   if (flag >20) {
+                       self.isovertime = YES;
+                       dispatch_semaphore_signal(self -> _semaphoreSignal);
+                       return;
+                    }
                     [self getKey:key];
                 });
                 dispatch_resume(timer);
 
+   
                 dispatch_semaphore_wait(self->_semaphoreSignal, DISPATCH_TIME_FOREVER);
+                if (self.isovertime) {
+                    self.isovertime = NO;
+                    [SVProgressHUD dismiss];
+                    return;
+                }
                 [list addObj:self->getTheKeyData];
                 dispatch_cancel(timer);
             }
@@ -332,7 +349,9 @@
     NSLog(@"broadcastNotificationSuccess");
     if ([[notiDic objectForKey:@"success"] integerValue] == 1) {
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            dispatch_semaphore_signal(self->_broadcastSignal);
+            if(self->_broadcastSignal && self->_broadcastSignal != 0){
+                dispatch_semaphore_signal(self->_broadcastSignal);
+            }
         });
         NSLog(@"signal");
     }
@@ -347,7 +366,9 @@
             return;
         }
         getTheKeyData = [notiDic objectForKey:@"data"];
-        dispatch_semaphore_signal(self->_semaphoreSignal);
+        if(self->_semaphoreSignal && self->_semaphoreSignal != 0){
+            dispatch_semaphore_signal(self->_semaphoreSignal);
+        }
         NSLog(@"signal");
     }
 }

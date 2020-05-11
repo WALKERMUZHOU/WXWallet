@@ -29,6 +29,8 @@
 	<string>When it comes to real person verification, we need camera permissions</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>We need the permission of face id to ensure that you are using the app</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location information to modify the language when the app is launched for the first time</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>We need to save the qr code picture into the album，Is it allowed to save pictures to your album</string>
 	<key>NSPhotoLibraryUsageDescription</key>

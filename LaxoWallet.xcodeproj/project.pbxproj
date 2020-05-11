@@ -4188,7 +4188,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laxoWallet;
 				PRODUCT_NAME = Volt;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4229,7 +4229,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LaxoWallet/LWAdapt/rust",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laxoWallet;
 				PRODUCT_NAME = Volt;
 				PROVISIONING_PROFILE_SPECIFIER = "";

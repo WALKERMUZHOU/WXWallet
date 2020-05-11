@@ -288,7 +288,7 @@
 "wallet_detail_Senttobesigned" = "Sent to be signed";
 
 //You’ve signed. Awaiting others to sign (3 of 5)
-"wallet_detail_Awaitingothers" = "You’ve signed.\nAwaiting others to sign";
+"wallet_detail_Awaitingothers" = "You’ve signed.Awaiting others to sign";
 
 //Check Signee statuses
 "wallet_detail_CheckSigneestatuses" = "Check Signee statuses";

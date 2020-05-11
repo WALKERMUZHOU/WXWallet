@@ -615,10 +615,11 @@
     [self.listHeadView setMultipyWalletdata:personalData];
     [self.listView setMultipyWalletdata:personalData];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipyWalletData object:nil];
+
     NSDictionary *notidic = [[NSUserDefaults standardUserDefaults] objectForKey:kAppNotification_userdefault];
     if (notidic && notidic.allKeys.count >0) {
         [LWNotificationTool manageNotifictionObject:notidic];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kWebScoket_multipyWalletData object:nil];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAppNotification_userdefault];
             [[NSUserDefaults standardUserDefaults] synchronize];

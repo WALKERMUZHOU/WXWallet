@@ -129,6 +129,7 @@
 
 #pragma mark - get多方钱包地址通知
 - (void)getMulityQrCode{
+    [SVProgressHUD show];
     
     NSDictionary *deposit = self.contentModel.deposit;
 //    NSString *address = [deposit objectForKey:@"address"];
@@ -158,17 +159,8 @@
             NSArray *userArray = [dataDic ds_arrayForKey:@"users"];
             NSInteger onlineUsercount = 0;
             if (userArray && userArray.count>0) {
-                for (NSInteger i = 0 ; i<userArray.count ;i++) {
-                    NSInteger isonline = [[userArray[i] objectForKey:@"online"] integerValue];
-                    if (isonline == 1) {
-                        onlineUsercount ++;
-                    }
-                }
-                
-                if (onlineUsercount < self.contentModel.threshold) {
-                    [WMHUDUntil showMessageToWindow:@"please check other user online"];
-                    return;
-                }
+                [WMHUDUntil showMessageToWindow:@"please check other user online"];
+                return;
             }
         }
  
@@ -221,6 +213,8 @@
         
         NSArray *userArray = [notiDicData ds_arrayForKey:@"users"];
         if (userArray.count >0) {
+            [SVProgressHUD dismiss];
+            [WMHUDUntil showMessageToWindow:@"Please check everyone is online"];
             return;
         }
     }
